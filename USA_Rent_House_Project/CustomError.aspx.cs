@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace USA_Rent_House_Project
 {
-    public partial class About : System.Web.UI.Page
+    public partial class CustomError : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //throw new Exception("elmah test");
+
         }
     }
 }
