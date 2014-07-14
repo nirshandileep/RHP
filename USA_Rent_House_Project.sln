@@ -3,6 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USA_Rent_House_Project", "USA_Rent_House_Project\USA_Rent_House_Project.csproj", "{ECDA5AA5-2249-4B71-803D-91E2E00A4002}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Common", "RHP.Common\RHP.Common.csproj", "{E798F0A9-479C-49E1-B4BB-3B5FB047C415}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.SessionManager", "RHP.SessionManager\RHP.SessionManager.csproj", "{92A5E511-C5D8-4585-B696-081328FB8B79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Utility", "RHP.Utility\RHP.Utility.csproj", "{60191F0E-B553-43B4-A78C-5D0753BC9FFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +19,18 @@ Global
 		{ECDA5AA5-2249-4B71-803D-91E2E00A4002}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECDA5AA5-2249-4B71-803D-91E2E00A4002}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECDA5AA5-2249-4B71-803D-91E2E00A4002}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E798F0A9-479C-49E1-B4BB-3B5FB047C415}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E798F0A9-479C-49E1-B4BB-3B5FB047C415}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E798F0A9-479C-49E1-B4BB-3B5FB047C415}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E798F0A9-479C-49E1-B4BB-3B5FB047C415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92A5E511-C5D8-4585-B696-081328FB8B79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92A5E511-C5D8-4585-B696-081328FB8B79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92A5E511-C5D8-4585-B696-081328FB8B79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92A5E511-C5D8-4585-B696-081328FB8B79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60191F0E-B553-43B4-A78C-5D0753BC9FFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60191F0E-B553-43B4-A78C-5D0753BC9FFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60191F0E-B553-43B4-A78C-5D0753BC9FFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60191F0E-B553-43B4-A78C-5D0753BC9FFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
