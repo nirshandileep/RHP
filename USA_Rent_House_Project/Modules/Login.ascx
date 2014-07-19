@@ -46,6 +46,8 @@
         </LayoutTemplate>
     </asp:Login>
     <br />
+     <asp:HyperLink ID="Requestpassword" runat="server" NavigateUrl="">Request new password</asp:HyperLink>
+    <br />
      <asp:HyperLink ID="CreateStudentProfile" runat="server" NavigateUrl="~/Student/Student_Profile_Add.aspx">Create student Profile</asp:HyperLink> |  <asp:HyperLink ID="CreateHouseProfile" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Create House Owener Profile</asp:HyperLink>
 
 </div>
