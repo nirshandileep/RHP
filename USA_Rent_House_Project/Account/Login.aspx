@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Masrer_Pages/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Log In" Language="C#" MasterPageFile="~/Master_Pages/Site.master" AutoEventWireup="true"
     CodeBehind="Login.aspx.cs" Inherits="USA_Rent_House_Project.Account.Login" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
@@ -9,7 +9,7 @@
     </h2>
     <p>
         Please enter your username and password.
-        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false" NavigateUrl="~/Account/Register">Register</asp:HyperLink> if you don't have an account.
+        <asp:HyperLink ID="RegisterHyperLink" runat="server" EnableViewState="false" NavigateUrl="~/Account/Register.aspx">Register</asp:HyperLink> if you don't have an account.
     </p>
     <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false">
         <LayoutTemplate>

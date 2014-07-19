@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project {
+namespace USA_Rent_House_Project.Student {
     
     
-    public partial class _Default {
+    public partial class Student_Profile_Add {
         
         /// <summary>
-        /// HomeID control.
+        /// Student_Profile_info_AddID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Modules.Home HomeID;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_info_Add Student_Profile_info_AddID;
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Masrer_Pages/Site.master" AutoEventWireup="true"
+﻿<%@ Page Title="Register" Language="C#" MasterPageFile="~/Master_Pages/Site.master" AutoEventWireup="true"
     CodeBehind="Register.aspx.cs" Inherits="USA_Rent_House_Project.Account.Register" %>
 
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">

@@ -10,15 +10,15 @@
 namespace USA_Rent_House_Project {
     
     
-    public partial class _Default {
+    public partial class Login {
         
         /// <summary>
-        /// HomeID control.
+        /// LoginID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Modules.Home HomeID;
+        protected global::USA_Rent_House_Project.Modules.Login LoginID;
     }
 }
