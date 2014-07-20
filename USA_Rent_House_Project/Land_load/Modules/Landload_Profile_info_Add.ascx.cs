@@ -31,6 +31,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     {
                         objMembershipUser = true;
 
+                        Roles.AddUserToRole(strUserName, "landload"); 
                         break;
                     }
                 case (MembershipCreateStatus.DuplicateProviderUserKey):

@@ -30,7 +30,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 case (MembershipCreateStatus.Success):
                     {
                         objMembershipUser = true;
-
+                        Roles.AddUserToRole(strUserName, "student"); 
                         break;
                     }
                 case (MembershipCreateStatus.DuplicateProviderUserKey):

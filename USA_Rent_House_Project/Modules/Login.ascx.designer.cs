@@ -13,13 +13,22 @@ namespace USA_Rent_House_Project.Modules {
     public partial class Login {
         
         /// <summary>
-        /// imgLogo control.
+        /// CreateStudentProfileID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLogo;
+        protected global::System.Web.UI.WebControls.HyperLink CreateStudentProfileID;
+        
+        /// <summary>
+        /// CreateHouseProfileID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink CreateHouseProfileID;
         
         /// <summary>
         /// FacebookLogin control.
@@ -38,6 +47,15 @@ namespace USA_Rent_House_Project.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Login LoginUser;
+        
+        /// <summary>
+        /// LoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LoginButton;
         
         /// <summary>
         /// Requestpassword control.

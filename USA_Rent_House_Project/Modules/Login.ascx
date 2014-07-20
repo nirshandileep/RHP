@@ -6,7 +6,7 @@
 <div class="logintext">
 <p>I'm a student, <br /> looking for a house</p>
 <div class="signupfloatright">
-<asp:HyperLink ID="CreateStudentProfile" CssClass="signupbutton" runat="server" NavigateUrl="~/Student/Student_Profile_Add.aspx">Sign Up</asp:HyperLink>
+<asp:HyperLink ID="CreateStudentProfileID" CssClass="signupbutton" runat="server" NavigateUrl="~/Student/Student_Profile_Add.aspx">Sign Up</asp:HyperLink>
 </div>
 <div class="clear"></div>
 </div>
@@ -14,7 +14,7 @@
 
 <p>I'm a house owner, <br /> need to rent my house</p>
 <div class="signupfloatright">
-    <asp:HyperLink ID="CreateHouseProfile" CssClass="signupbutton" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Sign Up</asp:HyperLink>
+    <asp:HyperLink ID="CreateHouseProfileID" CssClass="signupbutton" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Sign Up</asp:HyperLink>
     </div>
     <div class="clear"></div>
     </div>
