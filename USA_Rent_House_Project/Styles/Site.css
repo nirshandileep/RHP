@@ -3,12 +3,12 @@
 
 body   
 {
-    background: #b6b7bc;
+    background: #eaedf1;
     font-size: .80em;
     font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
-    color: #696969;
+    color: #3e3e3e;
 }
 
 a:link, a:visited
@@ -190,51 +190,63 @@ div.menu ul li a:active
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
 
-fieldset
+
+#formwrapper
 {
-    margin: 1em 0px;
-    padding: 1em;
-    border: 1px solid #ccc;
+    padding:10px;
+    background-color:#f1f1f1;
+    border:solid 1px #cecece;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+    
 }
 
-fieldset p 
+#forminner
 {
-    margin: 2px 12px 10px 10px;
+    padding:10px;
+    background-color:#ffffff;
+    border:solid 1px #cecece;
+    -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
 }
 
-fieldset.login label, fieldset.register label, fieldset.changePassword label
+#forminner label
 {
-    display: block;
+    display:block;
 }
 
-fieldset label.inline 
+
+input, input[type="text"]
 {
-    display: inline;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   padding:10px; 
+   border:solid 1px #cecece;
+   
 }
 
-legend 
+input.actionbutton
 {
-    font-size: 1.1em;
-    font-weight: 600;
-    padding: 2px 4px 8px 4px;
+     display:inline-block;
+    background-color:#0e72b8;
+    color:#ffffff;
+    padding:15px 30px;
+    font-size:1.2em;
+    text-decoration:none;   
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor:pointer;
 }
 
-input.textEntry 
+input.actionbutton:hover
 {
-    width: 320px;
-    border: 1px solid #ccc;
+    background-color:#083e64;
 }
 
-input.passwordEntry 
-{
-    width: 320px;
-    border: 1px solid #ccc;
-}
-
-div.accountInfo
-{
-    width: 42%;
-}
 
 /* MISC  
 ----------------------------------------------------------*/
@@ -290,5 +302,210 @@ div.accountInfo
 .submitButton
 {
     text-align: right;
-    padding-right: 10px;
 }
+
+/* ------------------------------- Main Master ---------------------------- */
+
+
+#topheader
+{
+ 
+    background-color:#fff;
+    padding:15px 0 0 0;
+}
+
+#topheaderinner
+{
+    width: 1000px; 
+    margin:0 auto;
+}
+
+#wrapper
+{
+   width: 1000px;  
+    margin:0 auto;
+}
+
+#footer
+{
+    height:50px;    
+}
+
+#two-col-1
+{
+    width:48%;
+    margin-right:2%;
+    float:left;
+}
+
+#two-col-2
+{
+    width:45%;
+    float:right;
+}
+
+#three-col-1
+{
+    width:30%;
+    float:left;
+}
+
+#three-col-2
+{
+    width:70%;
+    float:right;
+}
+
+.clear
+{
+    clear:both;
+}
+
+@media screen and (max-width: 1000px) {
+
+
+#topheaderinner
+{
+    width: 95%; 
+    margin:0 auto;
+}
+
+#wrapper
+{
+   width: 95%;  
+    margin:0 auto;
+}
+
+#two-col-1
+{
+    width:40%;
+    margin-right:2%;
+    float:left;
+}
+
+#two-col-2
+{
+    width:40%;
+    float:right;
+}
+
+
+#footer
+{
+    height:50px;    
+}
+}
+
+@media screen and (min-width: 600px) and (max-width: 999px) 
+{
+    body {
+    background: #FF0;
+  }
+  
+#two-col-1,#two-col-2
+{
+    float:none;
+    width:95%;
+    margin:0;
+}
+    
+}
+
+@media screen and (min-width: 559px) and (max-width:320px) {
+  
+  #two-col-1,#two-col-2
+{
+    float:none;
+    width:95%;
+    margin:0;
+}
+    
+  
+  #imgLogo
+  {
+      width:85%;
+  }
+}
+
+/* -------------------- Home Page content ---------------------------------------- */
+
+
+
+#div_Home
+{
+    margin:50px 0;
+}
+
+div.buttons
+{
+    text-align:center;   
+   
+}
+
+a.homelargebuttons 
+{
+    display:inline-block;
+    background-color:#0e72b8;
+    color:#ffffff;
+    padding:15px;
+    font-size:1.9em;
+    margin:10px 0;
+    text-decoration:none;
+    width:270px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+   
+}
+
+a.homelargebuttons:hover
+{
+    background-color:#083e64;
+}
+
+
+/* ---------------------------- Login Page Content ----------------------- */
+
+
+.logintext
+{
+    margin-left:10%;
+}
+
+
+
+.logintext p
+{
+    color:#0e72b8;
+    font-size:1.5em;
+    width:60%;
+    float:left;
+}
+
+div.signupfloatright
+{
+    float:left;
+    width:40%; 
+    margin-top:3%;  
+}
+
+a.signupbutton 
+{
+    display:inline-block;
+    background-color:#ee7f13;
+    color:#ffffff;
+    padding:15px 30px;
+    font-size:1.2em;
+    margin:10px 0;
+    text-decoration:none; 
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+   
+}
+
+a.signupbutton:hover
+{
+    background-color:#ffad5d;
+}
+
