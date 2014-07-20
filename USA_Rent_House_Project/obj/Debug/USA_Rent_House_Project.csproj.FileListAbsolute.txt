@@ -1,0 +1,5 @@
+C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\USA_Rent_House_Project\bin\USA_Rent_House_Project.dll
+C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\USA_Rent_House_Project\bin\USA_Rent_House_Project.pdb
+C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\USA_Rent_House_Project\obj\Debug\USA_Rent_House_Project.csprojResolveAssemblyReference.cache
+C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\USA_Rent_House_Project\obj\Debug\USA_Rent_House_Project.dll
+C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\USA_Rent_House_Project\obj\Debug\USA_Rent_House_Project.pdb
