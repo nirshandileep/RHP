@@ -19,39 +19,91 @@ namespace USA_Rent_House_Project.Modules
 
         }
 
-
-
-        protected void LoginUser_Authenticate(object sender, AuthenticateEventArgs e)
-        {
-            // (Himj=LbD+M9P^
-        }
-
         private void login()
         {
-
             if (authenticateUser())
             {
-
                 try
                 {
-
                     FormsAuthentication.RedirectFromLoginPage(strUsername, false);
-
+                    Response.Redirect(managerole());
                 }
 
                 catch (Exception ex)
                 {
-
-
+                    FormsAuthentication.SignOut();
                 }
-
             }
             else
             {
-
+                FormsAuthentication.SignOut();
             }
         }
 
+        protected string managerole()
+        {
+            string URL = "";
+            string[] userroles = Roles.GetRolesForUser(strUsername);
+         
+            string role = userroles[0].ToString();
+
+            if (role.ToString() == "Admin")
+            {
+                URL = "~/";
+            }
+            else if (role.ToString() == "LandLoad")
+            {
+                URL = "~/Land_load/Land_load_Profile.aspx";
+            }
+            else if (role.ToString() == "Student")
+            {
+                URL = "~/Student/Student_Profile.aspx";
+            }
+            else if (role.ToString() == "SystemAdmin")
+            {
+                URL = "~/";
+            }
+            else
+            {
+                URL = "~/";
+            }
+
+
+            //foreach (var role in userroles)
+            //{
+
+            //    if (role.ToString() == "Admin")
+            //    {
+            //           URL = "~/";
+            //        break;
+            //    }
+            //    else if (role.ToString() == "LandLoad")
+            //    {
+            //          URL = "~/Land_load/Land_load_Profile.aspx";
+            //          break;
+            //    }
+
+            //    else if (role.ToString() == "Student")
+            //    {
+            //        URL = "~/Student/Student_Profile.aspx"; 
+            //        break;
+            //    }
+            //    else if (role.ToString() == "SystemAdmin")
+            //    {
+            //           URL = "~/";
+            //        break;
+            //    }
+            //    else
+            //    {
+            //            URL = "~/";
+            //        break;
+            //    }
+            //}
+
+            return URL;
+                  
+        }
+       
         protected bool authenticateUser()
         {
             string success = "";

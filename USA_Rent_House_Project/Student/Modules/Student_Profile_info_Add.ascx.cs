@@ -95,7 +95,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         string strKey = mUser.ProviderUserKey.ToString();
 
-                        string url = "/Student/Student-Profile.aspx";
+                        string url = "/Student/Student_Profile.aspx";
                         string script = "window.onload = function(){ alert('";
                         script += "Successfully created";
                         script += "');";

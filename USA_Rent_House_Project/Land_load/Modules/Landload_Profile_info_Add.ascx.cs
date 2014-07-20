@@ -97,7 +97,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         string strKey = mUser.ProviderUserKey.ToString();
 
-                        string url = "/Land_load/Land_Load_House_info_Add.aspx";
+                        string url = "/Land_load/Land_load_Profile.aspx";
                         string script = "window.onload = function(){ alert('";
                         script += "Successfully created";
                         script += "');";

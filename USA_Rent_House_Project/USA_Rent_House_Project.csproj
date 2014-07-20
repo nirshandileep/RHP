@@ -72,6 +72,7 @@
     <Content Include="CustomError.aspx" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
+    <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
@@ -84,6 +85,7 @@
     <Content Include="Request_New_Password.aspx" />
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
+    <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -165,6 +167,13 @@
     </Compile>
     <Compile Include="Land_load\Land_Load_House_info_Add.aspx.designer.cs">
       <DependentUpon>Land_Load_House_info_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile.aspx.cs">
+      <DependentUpon>Land_load_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile.aspx.designer.cs">
+      <DependentUpon>Land_load_Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Land_load_Profile_Add.aspx.cs">
       <DependentUpon>Land_load_Profile_Add.aspx</DependentUpon>
@@ -285,6 +294,13 @@
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Add.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile.aspx.cs">
+      <DependentUpon>Student_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile.aspx.designer.cs">
+      <DependentUpon>Student_Profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Profile_Add.aspx.cs">
       <DependentUpon>Student_Profile_Add.aspx</DependentUpon>
