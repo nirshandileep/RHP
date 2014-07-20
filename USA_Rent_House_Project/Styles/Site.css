@@ -335,12 +335,14 @@ input.actionbutton:hover
 {
     width:48%;
     margin-right:2%;
+    margin-left:2%;
     float:left;
 }
 
 #two-col-2
 {
     width:45%;
+    margin-right:2%;
     float:right;
 }
 
@@ -379,7 +381,7 @@ input.actionbutton:hover
 #two-col-1
 {
     width:40%;
-    margin-right:2%;
+    
     float:left;
 }
 
@@ -405,19 +407,19 @@ input.actionbutton:hover
 #two-col-1,#two-col-2
 {
     float:none;
-    width:95%;
-    margin:0;
+    width:100%;
+    
 }
     
 }
 
-@media screen and (min-width: 559px) and (max-width:320px) {
+@media screen (max-width: 600px)  and  (min-width:420px) {
   
   #two-col-1,#two-col-2
 {
     float:none;
     width:95%;
-    margin:0;
+    
 }
     
   
@@ -509,3 +511,21 @@ a.signupbutton:hover
     background-color:#ffad5d;
 }
 
+.loginlabel
+{
+    color:#0e72b8;
+    font-size:1.3em;
+    display:block;
+}
+
+.logintextboxes
+{
+    width:90% !important;
+    padding:3%  !important;
+}
+
+.loginfieldcontainer
+{
+    margin:15px 0;
+   
+}
