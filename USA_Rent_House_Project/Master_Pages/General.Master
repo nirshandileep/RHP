@@ -4,11 +4,19 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>Home</title>
+    <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    
     </asp:ContentPlaceHolder>
 </head>
 <body>
+<div id="topheader">
+<div id="topheaderinner">
+<asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/House_Logo.jpg"/>
+</div>
+</div>
+<div id="wrapper">
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
@@ -16,5 +24,7 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    </div>
+    <div id="footer">ss</div>
 </body>
 </html>
