@@ -49,15 +49,6 @@ namespace USA_Rent_House_Project.Modules {
         protected global::System.Web.UI.WebControls.Login LoginUser;
         
         /// <summary>
-        /// LoginButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
-        
-        /// <summary>
         /// Requestpassword control.
         /// </summary>
         /// <remarks>
@@ -67,21 +58,30 @@ namespace USA_Rent_House_Project.Modules {
         protected global::System.Web.UI.WebControls.HyperLink Requestpassword;
         
         /// <summary>
-        /// CreateStudentProfile control.
+        /// RecoverPassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CreateStudentProfile;
+        protected global::System.Web.UI.WebControls.HyperLink RecoverPassword;
         
         /// <summary>
-        /// CreateHouseProfile control.
+        /// ChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CreateHouseProfile;
+        protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
+        
+        /// <summary>
+        /// LoginButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LoginButton;
     }
 }

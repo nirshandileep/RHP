@@ -80,7 +80,7 @@
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
-                <asp:Label ID="CityLabel" runat="server" AssociatedControlID="City" CssClass="form_label">Suburb:</asp:Label>
+                <asp:Label ID="CityLabel" runat="server" AssociatedControlID="City" CssClass="form_label">City:</asp:Label>
                 <asp:TextBox ID="City" runat="server" CssClass="textEntry textbox_w2"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="CityRequiredField" runat="server" ControlToValidate="City"
                     CssClass="failureNotification" ErrorMessage="City is required." ToolTip="City is required."

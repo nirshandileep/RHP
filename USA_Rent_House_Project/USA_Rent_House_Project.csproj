@@ -68,6 +68,7 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
+    <Content Include="Change_Password.aspx" />
     <Content Include="CustomError.aspx" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
@@ -75,8 +76,13 @@
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
     <Content Include="Login.aspx" />
+    <Content Include="Modules\Change_Password.ascx" />
     <Content Include="Modules\Home.ascx" />
     <Content Include="Modules\Login.ascx" />
+    <Content Include="Modules\Request_Password.ascx" />
+    <Content Include="Modules\Secret_Question.ascx" />
+    <Content Include="Request_New_Password.aspx" />
+    <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Styles\Site.css" />
@@ -128,6 +134,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Password.aspx.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Password.aspx.designer.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomError.aspx.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
@@ -209,6 +222,13 @@
     <Compile Include="Master_Pages\Student.Master.designer.cs">
       <DependentUpon>Student.Master</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Change_Password.ascx.cs">
+      <DependentUpon>Change_Password.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Change_Password.ascx.designer.cs">
+      <DependentUpon>Change_Password.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Home.ascx.cs">
       <DependentUpon>Home.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +243,20 @@
     <Compile Include="Modules\Login.ascx.designer.cs">
       <DependentUpon>Login.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Request_Password.ascx.cs">
+      <DependentUpon>Request_Password.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Request_Password.ascx.designer.cs">
+      <DependentUpon>Request_Password.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Secret_Question.ascx.cs">
+      <DependentUpon>Secret_Question.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Secret_Question.ascx.designer.cs">
+      <DependentUpon>Secret_Question.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Master_Pages\Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -230,6 +264,20 @@
     </Compile>
     <Compile Include="Master_Pages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Request_New_Password.aspx.cs">
+      <DependentUpon>Request_New_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Request_New_Password.aspx.designer.cs">
+      <DependentUpon>Request_New_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Secret_Question.aspx.cs">
+      <DependentUpon>Secret_Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Secret_Question.aspx.designer.cs">
+      <DependentUpon>Secret_Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Add.ascx.cs">
       <DependentUpon>Student_Profile_info_Add.ascx</DependentUpon>

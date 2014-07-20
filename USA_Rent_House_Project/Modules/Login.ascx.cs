@@ -13,6 +13,7 @@ namespace USA_Rent_House_Project.Modules
         private static string strAccountLocked = null;
         private string strAuthUserID;
         private string strUsername, strPassword;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,10 +23,7 @@ namespace USA_Rent_House_Project.Modules
 
         protected void LoginUser_Authenticate(object sender, AuthenticateEventArgs e)
         {
-            strUsername = LoginUser.UserName;
-
-            strPassword = LoginUser.Password;
-            login();
+            // (Himj=LbD+M9P^
         }
 
         private void login()
@@ -37,7 +35,7 @@ namespace USA_Rent_House_Project.Modules
                 try
                 {
 
-
+                    FormsAuthentication.RedirectFromLoginPage(strUsername, false);
 
                 }
 
@@ -94,6 +92,14 @@ namespace USA_Rent_House_Project.Modules
 
             }
             return boolAuthenticated;
+        }
+
+        protected void LoginButton_Click(object sender, EventArgs e)
+        {
+            strUsername = LoginUser.UserName;
+
+            strPassword = LoginUser.Password;
+            login();
         }
 
         
