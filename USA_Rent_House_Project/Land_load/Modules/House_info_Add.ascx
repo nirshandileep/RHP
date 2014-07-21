@@ -6,8 +6,8 @@
     </h2>
     <asp:ValidationSummary ID="PropertyValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="PropertyValidationGroup" />
-    <div class="accountInfo">
-        <fieldset class="form_layer">
+      <div id="formwrapper">
+            <div id="forminner">
             <p>
                 <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Rental Address:</asp:Label>
                 <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -195,12 +195,14 @@
  <asp:ListItem> fire place</asp:ListItem>
  <asp:ListItem> table chairs</asp:ListItem>
             </asp:CheckBoxList>
-        </fieldset>
-         <p class="submitButton">
+        
+        
+        </div>
+    </div>
+     <p class="submitButton">
             <asp:Button ID="CreatePropertyButton" runat="server" 
-                CssClass="create_Property_button" CommandName="MoveNext"
+                CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Property" ValidationGroup="PropertyValidationGroup" 
                  onclick="CreatePropertyButton_Click"  />
         </p>
-    </div>
 </div>

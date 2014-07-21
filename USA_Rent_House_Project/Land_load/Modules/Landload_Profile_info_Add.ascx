@@ -6,8 +6,8 @@
     </h2>
     <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="RegisterLand_lordValidationGroup" />
-    <div class="accountInfo">
-        <fieldset class="form_layer">
+      <div id="formwrapper">
+            <div id="forminner">
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"
                     CssClass="form_label">Name:</asp:Label>
@@ -177,10 +177,10 @@
                     ToolTip="Answer is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
                
             </p>
-        </fieldset>
+      </div>
         <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" 
-                CssClass="create_Landlord_button" CommandName="MoveNext"
+                CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Landlord" ValidationGroup="RegisterLand_lordValidationGroup" 
                 onclick="CreateUserButton_Click"  />
         </p>
