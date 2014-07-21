@@ -193,7 +193,7 @@ div.menu ul li a:active
 
 #formwrapper
 {
-    padding:10px;
+    padding:20px;
     background-color:#f1f1f1;
     border:solid 1px #cecece;
     -webkit-border-radius: 5px;
@@ -204,12 +204,13 @@ div.menu ul li a:active
 
 #forminner
 {
-    padding:10px;
+   
     background-color:#ffffff;
     border:solid 1px #cecece;
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
+   padding:20px;
 }
 
 #forminner label
@@ -356,6 +357,22 @@ input.actionbutton:hover
 {
     width:70%;
     float:right;
+}
+
+
+.leftfloat
+{
+    float:left;
+}
+
+.rightfloat
+{
+    float:right;
+}
+
+.centerfloat
+{
+    text-align:center;
 }
 
 .clear
@@ -522,10 +539,36 @@ a.signupbutton:hover
 {
     width:90% !important;
     padding:3%  !important;
+    margin:5px 0;
 }
 
 .loginfieldcontainer
 {
     margin:15px 0;
    
+}
+
+a.loginlinks
+{
+    background-color: #0e72b8;
+    color: #fff;
+    display: inline-block;
+    margin: 3px;
+    padding: 7px;
+    text-decoration: none;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    margin-top:10px;
+    font-size:0.9em;
+}
+
+a.loginlinks:hover
+{
+    background-color:#083e64;
+}
+
+.formlinkswidthleft
+{
+    width:70%;
 }
