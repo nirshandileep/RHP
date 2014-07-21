@@ -1,11 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Change_Password.ascx.cs" Inherits="USA_Rent_House_Project.Modules.Change_Password" %>
 
-
-  <div id="formwrapper">
-            <div id="forminner">
-    <h2 class="form_heading">
+ <h2 class="form_heading">
         Change Password
     </h2>
+  <div id="formwrapper">
+   <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="ChangeUserPasswordValidationGroup"/>
+            <div id="forminner">
+   
         <p class="intro_text"> Use the form below to change your password. <br />
 
         New passwords are required to be a minimum of <%= Membership.MinRequiredPasswordLength %> characters in length.
@@ -18,8 +20,7 @@
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
-            <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
-                 ValidationGroup="ChangeUserPasswordValidationGroup"/>
+           
            
                 
                      
