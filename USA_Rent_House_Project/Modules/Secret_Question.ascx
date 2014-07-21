@@ -1,9 +1,11 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Secret_Question.ascx.cs"
     Inherits="USA_Rent_House_Project.Modules.Secret_Question" %>
-<div class="form_layer">
+
     <h2 class="form_heading">
         Request New Password Using Secret Question and Answer
     </h2>
+      <div id="formwrapper">
+            <div id="forminner">
     <span class="failureNotification">
         <asp:Label ID="Msg" runat="server" ForeColor="maroon" />
     </span>
@@ -11,9 +13,7 @@
         ValidationGroup="RequestPasswordValidationGroup" />
         <asp:ValidationSummary ID="ValidationSummarySummaryAnswer" runat="server" CssClass="failureNotification"
         ValidationGroup="RequestPasswordValidationAnswerGroup" />
-    <div class="form_layer2">
-        <br />
-        <div class="form_layer2">
+   
         Enter username to get Secret Question
             <p>
                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName"
@@ -55,9 +55,9 @@
                         ValidationGroup="RequestPasswordValidationAnswerGroup">*</asp:RequiredFieldValidator>
 
                </p>
-            <div class="align_right">
-                <asp:Button ID="ResetPasswordButton" CssClass="reset_pw_button" OnClick="ResetPassword_OnClick" Text="Enter" runat="server" ValidationGroup="RequestPasswordValidationAnswerGroup" Enabled="false" />
-            </div>
+            
         </div>
+        <p class="submitButton">
+                <asp:Button ID="ResetPasswordButton" CssClass="actionbutton" OnClick="ResetPassword_OnClick" Text="Enter" runat="server" ValidationGroup="RequestPasswordValidationAnswerGroup" Enabled="false" />
+            </p>
     </div>
-</div>

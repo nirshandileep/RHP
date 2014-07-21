@@ -1,7 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Change_Password.ascx.cs" Inherits="USA_Rent_House_Project.Modules.Change_Password" %>
 
 
-<div class="form_layer">
+  <div id="formwrapper">
+            <div id="forminner">
     <h2 class="form_heading">
         Change Password
     </h2>
@@ -19,8 +20,8 @@
             </span>
             <asp:ValidationSummary ID="ChangeUserPasswordValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ChangeUserPasswordValidationGroup"/>
-            <div class="accountInfo">
-                <fieldset class="form_layer2">  
+           
+                
                      
                     <p>
                         <asp:Label ID="CurrentPasswordLabel" runat="server" AssociatedControlID="CurrentPassword" CssClass="bold1">Current Password:</asp:Label>
@@ -58,14 +59,14 @@
                              CssClass="failureNotification" Display="Dynamic" ErrorMessage="The Confirm New Password must match the New Password entry."
                              ValidationGroup="ChangeUserPasswordValidationGroup">*</asp:CompareValidator>
                     </p>
-                </fieldset>
-                <p class="submitButton">
-
-                    <asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" CssClass="change_pw_button" Text="Change Password" 
-                         ValidationGroup="ChangeUserPasswordValidationGroup"/>
-                </p>
-            </div>
+              
         </ChangePasswordTemplate>
     </asp:ChangePassword>
  
+ </div>
+ <p class="submitButton">
+
+                    <asp:Button ID="ChangePasswordPushButton" runat="server" CommandName="ChangePassword" CssClass="actionbutton" Text="Change Password" 
+                         ValidationGroup="ChangeUserPasswordValidationGroup"/>
+                </p>
  </div>

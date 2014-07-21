@@ -43,15 +43,15 @@
                         <div class="accountInfo">
                             <div class="login_main">
                                 <div class="login_left">
-                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="login_label">Login ID:</asp:Label>
-                                    <asp:TextBox ID="UserName" runat="server" CssClass="login_textEntry"></asp:TextBox>
+                                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="loginlabel">Login ID:</asp:Label>
+                                    <asp:TextBox ID="UserName" runat="server" CssClass="logintextboxes"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
                                         CssClass="failureNotification" ErrorMessage="Email is required." ToolTip="Email is required."
                                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
                                 </div>
                                 <div class="login_right">
-                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="login_label">Password:</asp:Label>
-                                    <asp:TextBox ID="Password" runat="server" CssClass="login_textEntry" TextMode="Password"></asp:TextBox>
+                                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="loginlabel">Password:</asp:Label>
+                                    <asp:TextBox ID="Password" runat="server" CssClass="logintextboxes" TextMode="Password"></asp:TextBox>
                                     <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
                                         CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required."
                                         ValidationGroup="LoginUserValidationGroup">*</asp:RequiredFieldValidator>
@@ -62,14 +62,22 @@
                         </div>
                     </LayoutTemplate>
                 </asp:Login>
-            </div>
-            <asp:HyperLink ID="Requestpassword" runat="server" NavigateUrl="~/Request_New_Password.aspx">Request a new password</asp:HyperLink> <br />
-            <asp:HyperLink ID="RecoverPassword" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>  <br />
-            <asp:HyperLink ID="ChangePassword" runat="server" NavigateUrl="~/Change_Password.aspx">Change password</asp:HyperLink>
+            </div>        
+               
+            
             <p class="submitButton">
-                <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" CssClass="actionbutton"
+                <asp:Button ID="LoginButton" runat="server" Width="100%" CommandName="Login" Text="Log In" CssClass="actionbutton"
                     ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
             </p>
+            
+            <div class="clear"></div>
+
+            <div class="centerfloat">
+            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>  
+           
+            <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Change_Password.aspx">Change password</asp:HyperLink>
+            <asp:HyperLink ID="Requestpassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Request_New_Password.aspx">Request a new password</asp:HyperLink> 
+            </div>
         </div>
     </div>
     <div class="clear">

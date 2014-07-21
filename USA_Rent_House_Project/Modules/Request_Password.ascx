@@ -2,10 +2,12 @@
 
 
 
-  <div class="form_layer">
+  
         <h2 class="form_heading">
             Request New Password
         </h2>
+          <div id="formwrapper">
+            <div id="forminner">
 
             <span class="failureNotification">
                 <asp:Label ID="LabelError" runat="server" ForeColor="Red" Text=""></asp:Label>
@@ -13,7 +15,7 @@
 
                 <asp:ValidationSummary ID="RequestPasswordValidationSummary" runat="server" CssClass="failureNotification"
                     ValidationGroup="RequestPasswordValidationGroup" />
-                <div class="form_layer2">
+                
                     <p class="intro_text">
                         Please Enter Your Account Details
                     </p>
@@ -46,12 +48,12 @@
                       
                     </p>
                 </div>
-                <div class="align_right">
-                    <asp:Button ID="SubmitButton" runat="server" CommandName="Submit" CssClass="reset_pw_button"
+               <p class="submitButton">
+                    <asp:Button ID="SubmitButton" runat="server" CommandName="Submit" CssClass="actionbutton"
                         Text="Request New Password" ValidationGroup="RequestPasswordValidationGroup"
                         OnClick="SubmitButton_Click" />
-                </div>
+              </p>
                  
   
-    </div><br />
+    </div>
     
