@@ -4,10 +4,11 @@
     <h2 class="form_heading">
        Student Profile info
     </h2>
-    <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
+    
+  <div id="formwrapper">
+  <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="RegisterStudentValidationGroup" />
-    <div class="accountInfo">
-        <fieldset class="form_layer">
+            <div id="forminner">
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"
                     CssClass="form_label">Name:</asp:Label>
@@ -222,12 +223,13 @@
                     ToolTip="Answer is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
                
             </p>
-        </fieldset>
-        <p class="submitButton">
+      
+        
+    </div>
+    <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" 
-                CssClass="create_Landload_button" CommandName="MoveNext"
+                CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Land load" ValidationGroup="RegisterStudentValidationGroup" 
                 onclick="CreateUserButton_Click"  />
         </p>
-    </div>
 </div>
