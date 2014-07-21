@@ -229,6 +229,16 @@ input, input[type="text"]
    
 }
 
+.form_heading
+{
+    color: #0e72b8;
+    font-size: 1.7em;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: right
+}
+
+
 input.actionbutton
 {
      display:inline-block;
