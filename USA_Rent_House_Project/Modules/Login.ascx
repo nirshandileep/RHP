@@ -31,6 +31,8 @@
             Login to your Account
         </h2>
         <div id="formwrapper">
+        <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification"
+                            ValidationGroup="LoginUserValidationGroup" />
             <div id="forminner">
                 <asp:Login ID="LoginUser" runat="server" EnableViewState="false" RenderOuterTable="false"
                     DestinationPageUrl="~/Account/Login.aspx">
@@ -38,8 +40,7 @@
                         <span class="failureNotification">
                             <asp:Literal ID="FailureText" runat="server"></asp:Literal>
                         </span>
-                        <asp:ValidationSummary ID="LoginUserValidationSummary" runat="server" CssClass="failureNotification"
-                            ValidationGroup="LoginUserValidationGroup" />
+                        
                         <div class="accountInfo">
                             <div class="login_main">
                                 <div class="login_left">
