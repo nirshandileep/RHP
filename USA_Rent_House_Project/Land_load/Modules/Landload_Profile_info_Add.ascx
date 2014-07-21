@@ -4,9 +4,10 @@
     <h2 class="form_heading">
     Land Load Profile info
     </h2>
-    <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
-        ValidationGroup="RegisterLand_lordValidationGroup" />
+    
       <div id="formwrapper">
+      <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
+        ValidationGroup="RegisterLand_lordValidationGroup" />
             <div id="forminner">
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"
