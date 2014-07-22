@@ -1,4 +1,0 @@
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.SessionManager\bin\Debug\RHP.SessionManager.dll
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.SessionManager\bin\Debug\RHP.SessionManager.pdb
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.SessionManager\obj\Debug\RHP.SessionManager.dll
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.SessionManager\obj\Debug\RHP.SessionManager.pdb

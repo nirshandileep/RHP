@@ -40,6 +40,15 @@ namespace USA_Rent_House_Project.Modules {
         protected global::System.Web.UI.WebControls.HyperLink FacebookLogin;
         
         /// <summary>
+        /// LoginUserValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary LoginUserValidationSummary;
+        
+        /// <summary>
         /// LoginUser control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,13 @@ namespace USA_Rent_House_Project.Modules {
         protected global::System.Web.UI.WebControls.Login LoginUser;
         
         /// <summary>
-        /// Requestpassword control.
+        /// LoginButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink Requestpassword;
+        protected global::System.Web.UI.WebControls.Button LoginButton;
         
         /// <summary>
         /// RecoverPassword control.
@@ -76,12 +85,12 @@ namespace USA_Rent_House_Project.Modules {
         protected global::System.Web.UI.WebControls.HyperLink ChangePassword;
         
         /// <summary>
-        /// LoginButton control.
+        /// Requestpassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button LoginButton;
+        protected global::System.Web.UI.WebControls.HyperLink Requestpassword;
     }
 }

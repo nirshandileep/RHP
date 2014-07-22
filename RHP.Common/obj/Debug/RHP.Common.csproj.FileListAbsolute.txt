@@ -1,4 +1,0 @@
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.Common\bin\Debug\RHP.Common.dll
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.Common\bin\Debug\RHP.Common.pdb
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.Common\obj\Debug\RHP.Common.dll
-C:\vpsprojects\Myprojects\LandLoadProject\SourceCode\github data\SourceTree\RHP.Common\obj\Debug\RHP.Common.pdb

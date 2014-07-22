@@ -26,7 +26,7 @@
         </div>
     </div>
     <div id="two-col-2">
-        <asp:HyperLink ID="FacebookLogin" runat="server" NavigateUrl="www.facebook.com">Login Using Facebook</asp:HyperLink>
+        <asp:HyperLink ID="FacebookLogin" runat="server" NavigateUrl="~/Facebook-Login.aspx">Login Using Facebook</asp:HyperLink>
         <h2 class="form_heading">
             Login to your Account
         </h2>
