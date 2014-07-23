@@ -434,6 +434,10 @@
       <Project>{20620D31-4E4F-414B-8905-DEAAE11B01FA}</Project>
       <Name>RHP.Facebook</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.UserManagement\RHP.UserManagement.csproj">
+      <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
+      <Name>RHP.UserManagement</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
