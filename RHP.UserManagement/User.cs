@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+
+using System.Data;
 using System.Web.Security;
 
 namespace RHP.UserManagement
@@ -78,6 +80,7 @@ namespace RHP.UserManagement
         public void LogOut()
         {
             FormsAuthentication.SignOut();
+            HttpContext.Current.Response.Redirect("~/Default.aspx");
         }
 
         public void RedirectUserFromLogin(bool isUseDefault = true)
@@ -104,7 +107,7 @@ namespace RHP.UserManagement
 
             if (role.ToString() == "Admin")
             {
-                URL = "~/";
+                URL = "~/Administrator/Default.aspx";
             }
             else if (role.ToString() == "LandLoad")
             {
@@ -125,6 +128,15 @@ namespace RHP.UserManagement
 
             return URL;
 
+        }
+
+        public MembershipUserCollection UsersList()
+        {
+           
+            MembershipUserCollection UserCollection = null;
+            UserCollection = Membership.GetAllUsers();
+            //Roles.GetUsersInRole();
+            return UserCollection;
         }
 
     }

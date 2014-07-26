@@ -1,46 +1,39 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_info_Add.ascx.cs" Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_info_Add" %>
-
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_info_Add.ascx.cs"
+    Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_info_Add" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-       Student Profile info
+        Student Profile info
     </h2>
-    
-  <div id="formwrapper">
-  <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
-        ValidationGroup="RegisterStudentValidationGroup" />
-            <div id="forminner">
+    <div id="formwrapper">
+        <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
+            ValidationGroup="RegisterStudentValidationGroup" />
+        <div id="forminner">
             <p>
-                <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"
-                    CssClass="form_label">Name:</asp:Label>
+                <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name" CssClass="form_label">Name:</asp:Label>
                 <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="NameRequired" runat="server" ControlToValidate="Name"
-                    CssClass="failureNotification" ErrorMessage="Name is required."
-                    ToolTip="Name is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
+                    CssClass="failureNotification" ErrorMessage="Name is required." ToolTip="Name is required."
+                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-
-             <p>
+            <p>
                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="form_label">UserName :</asp:Label>
                 <asp:TextBox ID="UserName" runat="server" CssClass="textEntry textbox_w2" MaxLength="20"></asp:TextBox>
-              
                 <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
                     CssClass="failureNotification" ErrorMessage="UserName is required." ToolTip="UserName is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
                 <asp:RegularExpressionValidator ID="RegExp1" runat="server" CssClass="failureNotification"
                     ErrorMessage="UserName only allowed (a - z  A - Z 0-9 - /). " ToolTip="UserName only allowed (a - z  A - Z 0-9 - /). "
-                    ControlToValidate="UserName" ValidationGroup="RegisterStudentValidationGroup" ValidationExpression="^[a-zA-Z0-9/-]+$">*</asp:RegularExpressionValidator>
-               
+                    ControlToValidate="UserName" ValidationGroup="RegisterStudentValidationGroup"
+                    ValidationExpression="^[a-zA-Z0-9/-]+$">*</asp:RegularExpressionValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" CssClass="failureNotification"
                     ControlToValidate="UserName" ErrorMessage="UserName must be between 4 - 20 characters."
                     ToolTip="UserName must be between 4 - 20 characters." ValidationExpression=".{4}.*"
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RegularExpressionValidator>
-               <br />
+                <br />
                 <span class="form_comments">Your UserName is the unique name you use to login and cannot
                     be changed. This should not be the same as your email. The length must be between
                     4 and 20 characters.</span>
             </p>
-
             <p>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -160,76 +153,59 @@
                     ValidationGroup="RegisterStudentValidationGroup" ValidationExpression="^0[0-9]{9}$|^0[0-9]{1}[ ][0-9]{8}$|^0[1-9]{1}[ ][0-9]{4}[ ][0-9]{4}$">*
                 </asp:RegularExpressionValidator>
             </p>
-             <p>
+            <p>
                 <asp:Label ID="LabelDriversLicense" runat="server" AssociatedControlID="DriversLicense"
                     CssClass="form_label">Drivers License:</asp:Label>
                 <asp:TextBox ID="DriversLicense" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="DriversLicenseRequiredFieldValidator" runat="server" ControlToValidate="DriversLicense"
-                    CssClass="failureNotification" ErrorMessage="Drivers License is required."
+                <asp:RequiredFieldValidator ID="DriversLicenseRequiredFieldValidator" runat="server"
+                    ControlToValidate="DriversLicense" CssClass="failureNotification" ErrorMessage="Drivers License is required."
                     ToolTip="Drivers License is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
-            </p>
-             <p>
-                <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName"
-                    CssClass="form_label">School Name:</asp:Label>
-                <asp:TextBox ID="SchoolName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="SchoolNameRequiredFieldValidator" runat="server" ControlToValidate="SchoolName"
-                    CssClass="failureNotification" ErrorMessage="SchoolName is required."
-                    ToolTip="SchoolName is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
             </p>
             <p>
-                <asp:Label ID="LabelSchoolID" runat="server" AssociatedControlID="SchoolID"
-                    CssClass="form_label">School ID:</asp:Label>
+                <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">School Name:</asp:Label>
+                <asp:TextBox ID="SchoolName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="SchoolNameRequiredFieldValidator" runat="server"
+                    ControlToValidate="SchoolName" CssClass="failureNotification" ErrorMessage="SchoolName is required."
+                    ToolTip="SchoolName is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+            <p>
+                <asp:Label ID="LabelSchoolID" runat="server" AssociatedControlID="SchoolID" CssClass="form_label">School ID:</asp:Label>
                 <asp:TextBox ID="SchoolID" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="SchoolIDRequiredFieldValidator" runat="server" ControlToValidate="SchoolID"
-                    CssClass="failureNotification" ErrorMessage="School ID is required."
-                    ToolTip="SchoolName is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
+                    CssClass="failureNotification" ErrorMessage="School ID is required." ToolTip="SchoolName is required."
+                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-
-             <p>
-                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear"
-                    CssClass="form_label">Year:</asp:Label>
-                 <asp:DropDownList ID="DRPYear" runat="server">
-                 <asp:ListItem>2001</asp:ListItem>
-                 </asp:DropDownList>
-               
-            </p>
- <p>
-                <asp:Label ID="LabelStatus" runat="server" AssociatedControlID="Status"
-                    CssClass="form_label">Status:</asp:Label>
-                 <asp:DropDownList ID="Status" runat="server">
-                 <asp:ListItem>Junior</asp:ListItem>
-                 </asp:DropDownList>
-               
-            </p>
-            to validate landlord when connecting us : 
             <p>
-                <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question"
-                    CssClass="form_label">Secret Question:</asp:Label>
+                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year:</asp:Label>
+                <asp:DropDownList ID="DRPYear" runat="server">
+                    <asp:ListItem>2001</asp:ListItem>
+                </asp:DropDownList>
+            </p>
+            <p>
+                <asp:Label ID="LabelStatus" runat="server" AssociatedControlID="Status" CssClass="form_label">Status:</asp:Label>
+                <asp:DropDownList ID="Status" runat="server">
+                    <asp:ListItem>Junior</asp:ListItem>
+                </asp:DropDownList>
+            </p>
+            to validate landlord when connecting us :
+            <p>
+                <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question" CssClass="form_label">Secret Question:</asp:Label>
                 <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="QuestionRequiredFieldValidator" runat="server" ControlToValidate="Question"
-                    CssClass="failureNotification" ErrorMessage="Secret Question is required."
-                    ToolTip="secret Question is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
+                    CssClass="failureNotification" ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
+                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
-                <asp:Label ID="LabelAnswer" runat="server" AssociatedControlID="Answer"
-                    CssClass="form_label">Answer:</asp:Label>
+                <asp:Label ID="LabelAnswer" runat="server" AssociatedControlID="Answer" CssClass="form_label">Answer:</asp:Label>
                 <asp:TextBox ID="Answer" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AnswerRequiredFieldValidator" runat="server" ControlToValidate="Answer"
-                    CssClass="failureNotification" ErrorMessage="Answer is required."
-                    ToolTip="Answer is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-               
+                    CssClass="failureNotification" ErrorMessage="Answer is required." ToolTip="Answer is required."
+                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-      
-        
-    </div>
-    <p class="submitButton">
-            <asp:Button ID="CreateUserButton" runat="server" 
-                CssClass="actionbutton" CommandName="MoveNext"
-                Text="Create Land load" ValidationGroup="RegisterStudentValidationGroup" 
-                onclick="CreateUserButton_Click"  />
+        </div>
+        <p class="submitButton">
+            <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+                Text="Create Land load" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
         </p>
+    </div>
 </div>

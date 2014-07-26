@@ -11,6 +11,18 @@
 <body>
     <form id="form1" runat="server">
     <div>
+    <asp:Menu ID="MenuAdmin" runat="server" Orientation="Horizontal">
+        <Items>
+            <asp:MenuItem NavigateUrl="~/Administrator/Landload.aspx" Text="Landload" ToolTip="Landload">
+            </asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Administrator/Student.aspx" Text="Student" ToolTip="Student">
+            </asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Administrator/Property.aspx" Text="Property" ToolTip="Property">
+            </asp:MenuItem>
+            <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature.aspx" Text="Property Feature"
+                ToolTip="Property Feature"></asp:MenuItem>
+        </Items>
+    </asp:Menu>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         
         </asp:ContentPlaceHolder>
