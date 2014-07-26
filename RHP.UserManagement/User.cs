@@ -135,7 +135,7 @@ namespace RHP.UserManagement
            
             MembershipUserCollection UserCollection = null;
             UserCollection = Membership.GetAllUsers();
-            //Roles.GetUsersInRole();
+            //Roles.GetUsersInRole("admin");
             return UserCollection;
         }
 

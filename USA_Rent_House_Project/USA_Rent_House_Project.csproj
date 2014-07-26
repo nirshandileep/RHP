@@ -569,7 +569,6 @@
     <Folder Include="Images\.svn\tmp\prop-base\" />
     <Folder Include="Images\.svn\tmp\props\" />
     <Folder Include="Images\.svn\tmp\text-base\" />
-    <Folder Include="Masrer_Pages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
