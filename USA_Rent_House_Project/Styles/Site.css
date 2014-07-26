@@ -222,13 +222,13 @@ div.menu ul li a:active
     width: 30%;
 }
 
-#forminner input
+#forminner input, #forminner select
 {
     width:30%;
     
 }
 
-input, input[type="text"]
+input, input[type="text"], select
 {
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
@@ -471,7 +471,7 @@ input.actionbutton:hover
     font-size:1.3em;
 }   
     
-#forminner input
+#forminner input, #forminner select
 {
     
        width:100%;
