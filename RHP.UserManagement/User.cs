@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-
 using System.Data;
 using System.Web.Security;
+using RHP.Common;
 
 namespace RHP.UserManagement
 {
-    public class User
+    public class User : Base
     {
         public string UserId { get; set; }
         public string UserName { get; set; }

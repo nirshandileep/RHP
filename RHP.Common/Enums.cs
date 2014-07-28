@@ -7,5 +7,10 @@ namespace RHP.Common
 {
     public class Enums
     {
+        public enum SystemConfig
+        {
+            FacebookAppID = 1,
+            FacebookAppSecret = 2,
+        }
     }
 }

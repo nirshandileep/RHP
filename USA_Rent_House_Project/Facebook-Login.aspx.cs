@@ -11,13 +11,13 @@ namespace USA_Rent_House_Project
 {
     public partial class Facebook_Login : System.Web.UI.Page
     {
-        private static string facebookAppID = "1442754675988252";
-        private static string facebookAppSecret = "f7c55471278a90514530f0e4806976ec";
+        //private static string facebookAppID = "1442754675988252";
+        //private static string facebookAppSecret = "f7c55471278a90514530f0e4806976ec";
 
         private static readonly FBClient facebookClient = new FBClient
         {
-            ClientIdentifier = facebookAppID,
-            ClientCredentialApplicator = ClientCredentialApplicator.PostParameter(facebookAppSecret),
+            //ClientIdentifier = facebookAppID,
+            //ClientCredentialApplicator = ClientCredentialApplicator.PostParameter(facebookAppSecret),
         };
 
 

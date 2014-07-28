@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 using RHP.UserManagement;
+using RHP.Common;
 
 namespace USA_Rent_House_Project.Modules
 {

@@ -140,6 +140,16 @@
     <None Include="app.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RHP.Common\RHP.Common.csproj">
+      <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
+      <Name>RHP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.Utility\RHP.Utility.csproj">
+      <Project>{60191F0E-B553-43B4-A78C-5D0753BC9FFC}</Project>
+      <Name>RHP.Utility</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">

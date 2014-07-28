@@ -5,11 +5,16 @@ using System.Text;
 using DotNetOpenAuth.OAuth2;
 using System.IO;
 using System.Net;
+using RHP.Utility;
+using RHP.Common;
 
 namespace RHP.Facebook
 {
     public class FBClient : WebServerClient 
     {
+        private string facebookAppID = SystemConfig.GetValue(Enums.SystemConfig.FacebookAppID); //"1442754675988252";
+        private static string facebookAppSecret = SystemConfig.GetValue(Enums.SystemConfig.FacebookAppID); //"f7c55471278a90514530f0e4806976ec";
+
         private static readonly AuthorizationServerDescription FacebookDescription = new AuthorizationServerDescription
         {
             TokenEndpoint = new Uri("https://graph.facebook.com/oauth/access_token"),
@@ -20,7 +25,8 @@ namespace RHP.Facebook
         public FBClient()
             : base(FacebookDescription)
         {
-
+            ClientIdentifier = facebookAppID;
+            ClientCredentialApplicator = ClientCredentialApplicator.PostParameter(facebookAppSecret);
         }
 
         public IOAuth2Graph GetGraph(IAuthorizationState authState, string[] fields = null)
