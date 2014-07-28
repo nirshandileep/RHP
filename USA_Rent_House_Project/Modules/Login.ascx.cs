@@ -30,7 +30,7 @@ namespace USA_Rent_House_Project.Modules
             {
                 try
                 {
-                    user.RedirectUserFromLogin();
+                    user.RedirectUserFromLogin(false);
                 }
                 catch (Exception ex)
                 {

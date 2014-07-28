@@ -91,7 +91,7 @@ namespace RHP.UserManagement
             }
             else
             {
-                HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole());
+                HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(),false);
             }
         }
 
