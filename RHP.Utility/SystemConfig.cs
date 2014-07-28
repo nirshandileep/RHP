@@ -15,7 +15,7 @@ namespace RHP.Utility
         public static string GetValue(Enums.SystemConfig config)
         {
             SystemConfig entity = Generic.GetByFieldValue<SystemConfig>("Key", config.ToString());
-            return entity == null ? string.Empty : entity.Key;
+            return entity == null ? string.Empty : entity.Value;
         }
     }
 }
