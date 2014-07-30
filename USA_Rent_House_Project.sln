@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Facebook", "RHP.Faceboo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.UserManagement", "RHP.UserManagement\RHP.UserManagement.csproj", "{4A39103F-E511-48E6-A105-EED0F20F7804}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.StudentManagement", "RHP.StudentManagement\RHP.StudentManagement.csproj", "{089DBEBC-F335-4308-851D-8BD9EB063346}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.LandlordManagement", "RHP.LandlordManagement\RHP.LandlordManagement.csproj", "{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +47,14 @@ Global
 		{4A39103F-E511-48E6-A105-EED0F20F7804}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A39103F-E511-48E6-A105-EED0F20F7804}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A39103F-E511-48E6-A105-EED0F20F7804}.Release|Any CPU.Build.0 = Release|Any CPU
+		{089DBEBC-F335-4308-851D-8BD9EB063346}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{089DBEBC-F335-4308-851D-8BD9EB063346}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{089DBEBC-F335-4308-851D-8BD9EB063346}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{089DBEBC-F335-4308-851D-8BD9EB063346}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

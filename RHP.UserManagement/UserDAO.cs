@@ -11,9 +11,8 @@ namespace RHP.UserManagement
 {
     public class UserDAO
     {
-        public bool Insert(User users)
+        public bool Insert(User users, Database db, DbTransaction transaction)
         {
-            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_UserInsert");
 
             db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
@@ -36,7 +35,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
-            db.ExecuteNonQuery(command);
+            db.ExecuteNonQuery(command, transaction);
 
             users.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "CreatedDate").ToString());
             users.UpdatedDate = users.CreatedDate;
@@ -44,9 +43,8 @@ namespace RHP.UserManagement
             return true;
         }
 
-        public bool Update(User users)
+        public bool Update(User users, Database db, DbTransaction transaction)
         {
-            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_UserUpdate");
 
             db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
@@ -70,27 +68,44 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
-            db.ExecuteNonQuery(command);
+            db.ExecuteNonQuery(command, transaction);
 
             users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
 
             return true;
         }
 
-        public bool Delete(User user)
+        public bool Delete(User user, Database db, DbTransaction transaction)
         {
-            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_UserDelete");
-
 
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, user.UpdatedBy);
             db.AddInParameter(command, "UserId", DbType.Guid, user.UserId);
 
-            db.ExecuteNonQuery(command);
+            db.ExecuteNonQuery(command, transaction);
 
             user.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
 
             return true;
+        }
+
+        /// <summary>
+        /// Checks if user record with UserId exist in User table of the database.
+        /// </summary>
+        /// <param name="user"></param>
+        /// <returns></returns>
+        public bool IsUserExist(User user)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_User_IsUserExist");
+
+            db.AddInParameter(command, "UserId", DbType.Guid, user.UserId);
+            db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
     }
 }

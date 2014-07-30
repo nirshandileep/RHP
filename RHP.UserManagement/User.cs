@@ -6,6 +6,8 @@ using System.Web;
 using System.Data;
 using System.Web.Security;
 using RHP.Common;
+using System.Data.Common;
+using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace RHP.UserManagement
 {
@@ -18,7 +20,6 @@ namespace RHP.UserManagement
         public string Email { get; set; }
         public string Password { get; set; }
         public string AccountLocked { get; set; }
-
         public bool IsFBUser { get; set; }
         public string FBAccessToken { get; set; }
         public string FBUrl { get; set; }
@@ -50,7 +51,6 @@ namespace RHP.UserManagement
                 return rolesList;
             }
         }
-             
 
         public bool AuthenticateUser()
         {
@@ -77,15 +77,7 @@ namespace RHP.UserManagement
                         AccountLocked = "Account Locked Out. Max Password Attempts Reached. Please Contact Admin";
 
                 }
-                /*
-
-                bool pass = Membership.EnablePasswordRetrieval;
-                bool xx = Membership.EnablePasswordReset;
-                string xxx = Membership.GetUser(strUsername).GetPassword();
-                */
             }
-
-
             catch (Exception ex)
             {
 
@@ -93,10 +85,13 @@ namespace RHP.UserManagement
             return boolAuthenticated;
         }
 
+        /// <summary>
+        /// Logout user from the system
+        /// </summary>
         public void LogOut()
         {
             FormsAuthentication.SignOut();
-            HttpContext.Current.Response.Redirect("~/Default.aspx");
+            HttpContext.Current.Response.Redirect("~/Default.aspx", false);
         }
 
         public void RedirectUserFromLogin(bool isUseDefault = true)
@@ -111,6 +106,10 @@ namespace RHP.UserManagement
             }
         }
 
+        /// <summary>
+        /// Where to redirect after login depending on the user role
+        /// </summary>
+        /// <returns></returns>
         public string RedirectToHomePageByRole()
         {
             string URL = "";
@@ -146,14 +145,72 @@ namespace RHP.UserManagement
 
         }
 
-        public MembershipUserCollection UsersList()
+        /// <summary>
+        /// Delete user from the database.
+        /// This only marks the user as IsDeleted
+        /// </summary>
+        /// <returns></returns>
+        public bool Delete()
         {
-           
-            MembershipUserCollection UserCollection = null;
-            UserCollection = Membership.GetAllUsers();
-            //Roles.GetUsersInRole("admin");
-            return UserCollection;
+            bool result = false;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbConnection connection = db.CreateConnection();
+            connection.Open();
+            DbTransaction transaction = connection.BeginTransaction();
+
+            try
+            {
+                result = (new UserDAO().Delete(this, db, transaction) && Membership.DeleteUser(this.UserName, false));
+
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                result = false;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
         }
 
+        public bool Save()
+        {
+            bool result = false;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbConnection connection = db.CreateConnection();
+            connection.Open();
+            DbTransaction transaction = connection.BeginTransaction();
+
+            try
+            {
+                UserDAO userDao = new UserDAO();
+                if (userDao.IsUserExist(this))
+                {
+                    result = (new UserDAO()).Update(this, db, transaction);
+                }
+                else
+                {
+                    result = userDao.Insert(this, db, transaction);
+                }
+
+                transaction.Commit();
+            }
+            catch (System.Exception ex)
+            {
+                transaction.Rollback();
+                result = false;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+        }
     }
 }

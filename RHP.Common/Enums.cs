@@ -12,5 +12,13 @@ namespace RHP.Common
             FacebookAppID = 1,
             FacebookAppSecret = 2,
         }
+
+        public enum UserRoles
+        {
+            Admin,
+            Landlord,
+            Student,
+            SystemAdmin
+        }
     }
 }
