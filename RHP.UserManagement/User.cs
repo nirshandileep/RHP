@@ -11,12 +11,30 @@ namespace RHP.UserManagement
 {
     public class User : Base
     {
-        public string UserId { get; set; }
+
+        //These properties are required to create the user in ASP Membership tables
+        public Guid UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string AccountLocked { get; set; }
+
+        public bool IsFBUser { get; set; }
         public string FBAccessToken { get; set; }
+        public string FBUrl { get; set; }
+        public string FBProfilePictureURL { get; set; }
+        public string Name { get; set; }
+        public string StreetAddress { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public string Zip { get; set; }
+        public DateTime DateOfBirth { get; set; }
+        public string BestContactNumber { get; set; }
+        public string DriversLicenseNumber { get; set; }
+        public string Status { get; set; }
+        public string PersonalEmail { get; set; }
+        public string IsDeleted { get; set; }
+        public decimal RatingValue { get; set; }
 
         private List<string> rolesList;
         public List<string> RolesList 
@@ -53,10 +71,8 @@ namespace RHP.UserManagement
 
                     MembershipUser newUser;
                     newUser = Membership.GetUser(UserName);
-
-                    UserId = newUser.ProviderUserKey.ToString();
-
-
+                    UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                    
                     if (newUser.IsLockedOut)
                         AccountLocked = "Account Locked Out. Max Password Attempts Reached. Please Contact Admin";
 

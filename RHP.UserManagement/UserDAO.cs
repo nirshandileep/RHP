@@ -1,0 +1,96 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data.Common;
+using System.Data;
+using RHP.Common;
+
+namespace RHP.UserManagement
+{
+    public class UserDAO
+    {
+        public bool Insert(User users)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserInsert");
+
+            db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
+            db.AddInParameter(command, "IsFBUser", DbType.Boolean, users.IsFBUser);
+            db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
+            db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
+            db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
+            db.AddInParameter(command, "Name", DbType.String, users.Name);
+            db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
+            db.AddInParameter(command, "City", DbType.String, users.City);
+            db.AddInParameter(command, "State", DbType.String, users.State);
+            db.AddInParameter(command, "Zip", DbType.String, users.Zip);
+            db.AddInParameter(command, "DateOfBirth", DbType.Date, users.DateOfBirth);
+            db.AddInParameter(command, "BestContactNumber", DbType.String, users.BestContactNumber);
+            db.AddInParameter(command, "DriversLicenseNumber", DbType.String, users.DriversLicenseNumber);
+            
+            db.AddInParameter(command, "Status", DbType.String, users.Status);//To be changed
+            db.AddInParameter(command, "PersonalEmail", DbType.String, users.PersonalEmail);
+            db.AddInParameter(command, "CreatedBy", DbType.Guid, users.CreatedBy);
+            db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
+            db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
+
+            db.ExecuteNonQuery(command);
+
+            users.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "CreatedDate").ToString());
+            users.UpdatedDate = users.CreatedDate;
+
+            return true;
+        }
+
+        public bool Update(User users)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserUpdate");
+
+            db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
+            db.AddInParameter(command, "IsFBUser", DbType.Boolean, users.IsFBUser);
+            db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
+            db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
+            db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
+            db.AddInParameter(command, "Name", DbType.String, users.Name);
+            db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
+            db.AddInParameter(command, "City", DbType.String, users.City);
+            db.AddInParameter(command, "State", DbType.String, users.State);
+            db.AddInParameter(command, "Zip", DbType.String, users.Zip);
+            db.AddInParameter(command, "DateOfBirth", DbType.Date, users.DateOfBirth);
+            db.AddInParameter(command, "BestContactNumber", DbType.String, users.BestContactNumber);
+            db.AddInParameter(command, "DriversLicenseNumber", DbType.String, users.DriversLicenseNumber);
+
+            db.AddInParameter(command, "Status", DbType.String, users.Status);//To be changed
+            db.AddInParameter(command, "PersonalEmail", DbType.String, users.PersonalEmail);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, users.UpdatedBy);
+            db.AddInParameter(command, "LastUpdatedDate", DbType.DateTime, users.UpdatedDate);
+            db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
+            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
+
+            db.ExecuteNonQuery(command);
+
+            users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
+
+            return true;
+        }
+
+        public bool Delete(User user)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserDelete");
+
+
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, user.UpdatedBy);
+            db.AddInParameter(command, "UserId", DbType.Guid, user.UserId);
+
+            db.ExecuteNonQuery(command);
+
+            user.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
+
+            return true;
+        }
+    }
+}

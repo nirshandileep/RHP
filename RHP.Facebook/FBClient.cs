@@ -13,7 +13,7 @@ namespace RHP.Facebook
     public class FBClient : WebServerClient 
     {
         private string facebookAppID = SystemConfig.GetValue(Enums.SystemConfig.FacebookAppID); //"1442754675988252";
-        private static string facebookAppSecret = SystemConfig.GetValue(Enums.SystemConfig.FacebookAppID); //"f7c55471278a90514530f0e4806976ec";
+        private static string facebookAppSecret = SystemConfig.GetValue(Enums.SystemConfig.FacebookAppSecret); //"f7c55471278a90514530f0e4806976ec";
 
         private static readonly AuthorizationServerDescription FacebookDescription = new AuthorizationServerDescription
         {
