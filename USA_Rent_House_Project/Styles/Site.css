@@ -534,14 +534,36 @@ div.buttons
    
 }
 
+.homeheading
+{
+    color: #0e72b8;
+    font-size: 2.2em;
+    font-variant: normal;
+    text-align: center;
+}
+
+.homeheadingsub
+{
+    
+    color: #0e72b8;
+    font-size: 1.5em;
+    font-style: italic;
+    margin-bottom: 15px;
+    text-align: center;
+    text-transform: lowercase;
+    
+}
+
 a.homelargebuttons 
 {
-    display:inline-block;
+    display:inline;
+    float:left;
+    margin:10px 0  15px 30px;
     background-color:#0e72b8;
     color:#ffffff;
     padding:15px;
     font-size:1.9em;
-    margin:10px 0;
+   
     text-decoration:none;
     width:270px;
     -webkit-border-radius: 5px;
