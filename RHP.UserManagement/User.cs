@@ -34,7 +34,6 @@ namespace RHP.UserManagement
         public string DriversLicenseNumber { get; set; }
         public string Status { get; set; }
         public string PersonalEmail { get; set; }
-        public string IsDeleted { get; set; }
         public decimal RatingValue { get; set; }
 
         private List<string> rolesList;
