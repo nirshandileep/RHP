@@ -205,7 +205,7 @@
         </div>
         <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                Text="Create Land load" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
+                Text="Create Student" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
         </p>
     </div>
 </div>
