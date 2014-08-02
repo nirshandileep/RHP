@@ -29,8 +29,8 @@ a:active
 
 p
 {
-    margin-bottom: 10px;
-    line-height: 1.6em;
+    margin-bottom: 0px;
+  
 }
 
 
@@ -193,7 +193,7 @@ div.menu ul li a:active
 
 #formwrapper
 {
-    padding:20px;
+    
    
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
@@ -205,11 +205,11 @@ div.menu ul li a:active
 {
    
     background-color:#ffffff;
-    border:solid 1px #cecece;
+   
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
-   padding:20px;
+  
 }
 
 #forminner label
@@ -218,7 +218,7 @@ div.menu ul li a:active
     display: inline-block;
     margin: 1%;
     padding: 1%;
-    width: 23%;
+    width: 19%;
 }
 
 #forminner input, #forminner select
