@@ -1,31 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Login.ascx.cs" Inherits="USA_Rent_House_Project.Modules.Login" %>
 <div id="div_Home">
-    <div id="two-col-1">
-        <div class="logintext">
-            <p>
-                I'm a student,
-                <br />
-                looking for a house</p>
-            <div class="signupfloatright">
-                <asp:HyperLink ID="CreateStudentProfileID" CssClass="signupbutton" runat="server"
-                    NavigateUrl="~/Student/Student_Profile_Add.aspx">Sign Up</asp:HyperLink>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-        <div class="logintext">
-            <p>
-                I'm a house owner,
-                <br />
-                need to rent my house</p>
-            <div class="signupfloatright">
-                <asp:HyperLink ID="CreateHouseProfileID" CssClass="signupbutton" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Sign Up</asp:HyperLink>
-            </div>
-            <div class="clear">
-            </div>
-        </div>
-    </div>
-    <div id="two-col-2">
+   
+    <div class="center-col">
         <asp:HyperLink ID="FacebookLogin" CssClass="facebookloginclass" runat="server" NavigateUrl="~/Facebook-Login.aspx">Login Using Facebook</asp:HyperLink>
         <h2 class="form_heading">
             Login to your Account
@@ -64,20 +40,19 @@
                     </LayoutTemplate>
                 </asp:Login>
             </div>        
-               
-            
-            <p class="submitButton">
-                <asp:Button ID="LoginButton" runat="server" Width="100%" CommandName="Login" Text="Log In" CssClass="actionbutton"
+<br />
+                <asp:Button ID="LoginButton" runat="server" Width="95%" CommandName="Login" Text="Log In" CssClass="actionbutton"
                     ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
-            </p>
+   
             
             <div class="clear"></div>
 
             <div class="centerfloat">
-            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>  
+            <p class="submitbutton">
+            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Sign up</asp:HyperLink>  
            
-            <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Change_Password.aspx">Change password</asp:HyperLink>
-            <asp:HyperLink ID="Requestpassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Request_New_Password.aspx">Request a new password</asp:HyperLink> 
+            <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>
+          </p>
             </div>
         </div>
     </div>
