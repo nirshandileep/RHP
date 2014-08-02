@@ -49,7 +49,7 @@
 
             <div class="centerfloat">
             <p class="submitbutton">
-            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Sign up</asp:HyperLink>  
+            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Create new profile</asp:HyperLink>  
            
             <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>
           </p>
