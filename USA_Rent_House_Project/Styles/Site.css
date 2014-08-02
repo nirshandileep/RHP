@@ -218,7 +218,7 @@ div.menu ul li a:active
     display: inline-block;
     margin: 1%;
     padding: 1%;
-    width: 19%;
+    width: 21%;
 }
 
 #forminner input, #forminner select
@@ -243,7 +243,7 @@ input, input[type="text"], select
     font-size: 1.7em;
     font-weight: bold;
     margin: 10px 0;
-    text-align: right
+    text-align: left;
 }
 
 .form_comments
@@ -363,6 +363,12 @@ input.actionbutton:hover
     margin-right:2%;
     margin-left:2%;
     float:left;
+}
+
+.center-col
+{
+    width:340px;
+    margin:0 auto;
 }
 
 #two-col-2
@@ -623,7 +629,7 @@ a.signupbutton:hover
 
 #div_home .logintextboxes
 {
-    width:97%;
+    width:95%;
     padding:3% ;
     margin:5px 0;
 }
