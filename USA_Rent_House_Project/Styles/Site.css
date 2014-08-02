@@ -3,7 +3,7 @@
 
 body   
 {
-    background: #eaedf1;
+    background: #FFF;
     font-size: .80em;
     font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
@@ -194,8 +194,7 @@ div.menu ul li a:active
 #formwrapper
 {
     padding:20px;
-    background-color:#f1f1f1;
-    border:solid 1px #cecece;
+   
     -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
@@ -219,7 +218,7 @@ div.menu ul li a:active
     display: inline-block;
     margin: 1%;
     padding: 1%;
-    width: 30%;
+    width: 23%;
 }
 
 #forminner input, #forminner select
@@ -233,7 +232,7 @@ input, input[type="text"], select
    -webkit-border-radius: 5px;
    -moz-border-radius: 5px;
    border-radius: 5px;
-   padding:10px; 
+   padding:10px 8px; 
    border:solid 1px #cecece;
    
 }
@@ -260,7 +259,7 @@ input.actionbutton
      display:inline-block;
     background-color:#0e72b8;
     color:#ffffff;
-    padding:15px 30px;
+    padding:10px 30px;
     font-size:1.2em;
     text-decoration:none;   
     -webkit-border-radius: 5px;
@@ -599,7 +598,7 @@ a.signupbutton
     display:inline-block;
     background-color:#ee7f13;
     color:#ffffff;
-    padding:15px 25px;
+    padding:10px 25px;
     font-size:1.2em;
     margin:10px 0;
     text-decoration:none; 
