@@ -35,6 +35,7 @@ namespace RHP.UserManagement
         public string Status { get; set; }
         public string PersonalEmail { get; set; }
         public decimal RatingValue { get; set; }
+        public string FBid { get; set; }
 
         private List<string> rolesList;
         public List<string> RolesList 
@@ -210,6 +211,12 @@ namespace RHP.UserManagement
                 connection.Close();
             }
             return result;
+        }
+
+        public bool IsExistingFbUser(string fbid)
+        {
+            return true;
+            //Todo: write the rest
         }
     }
 }
