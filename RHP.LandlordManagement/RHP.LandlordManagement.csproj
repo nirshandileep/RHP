@@ -53,6 +53,10 @@
       <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
       <Name>RHP.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.UserManagement\RHP.UserManagement.csproj">
+      <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
+      <Name>RHP.UserManagement</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -7,6 +7,7 @@ namespace RHP.Common
 {
     public class Base
     {
+        public bool IsDeleted { get; set; }
         public Guid CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
         public Guid UpdatedBy { get; set; }
