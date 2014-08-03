@@ -130,7 +130,11 @@ namespace RHP.Utility
 
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
-                AssignDataReaderToEntity(dataReader, returnEntity);
+                while (dataReader.Read())
+                {
+                    T entity = new T();
+                    AssignDataReaderToEntity(dataReader, returnEntity);
+                }
             }
 
             return returnEntity;
