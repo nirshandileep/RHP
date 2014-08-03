@@ -118,19 +118,47 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     bool boolMembershipUserCreated = false;
 
-                    string pwd = "";
-
                     if (Utility.GetQueryStringValueByKey(Request, "type") == "s")
                     {
-                        pwd = user.Password;
+                        //user.Password;  FB password
+                        //user.UserName  FB username
+                        user.Name = Name.Text.Trim();
+                        user.Email = Email.Text.Trim();
+                        user.StreetAddress = Address.Text.Trim();
+                        user.City = City.Text.Trim();
+                        user.State = Drpstate.SelectedItem.Value.ToString();
+                        user.Zip = Zip.Text.Trim();
+                        user.BestContactNumber = Mobile.Text.Trim();
+                        user.Gender = DrpGender.SelectedItem.Value.ToString();
+                        user.Question = Question.Text.Trim();
+                        user.Answer = Answer.Text.Trim();
+                        user.Status = "Active";
+                        //to be added to school table
+                        // user.SchoolName.Text.Trim();
+                        // SchoolID.Text.Trim();
+                        // DRPYear.SelectedItem.Value.ToString();
+
                     }
                     else
                     {
-                        pwd = Password.Text.Trim();
+                        user.Password = Password.Text.Trim();
+                        user.Name = Name.Text.Trim();
+                        user.UserName = UserName.Text.Trim();
+                        user.Email = Email.Text.Trim();
+                        user.StreetAddress = Address.Text.Trim();
+                        user.City = City.Text.Trim();
+                        user.State = Drpstate.SelectedItem.Value.ToString();
+                        user.Zip = Zip.Text.Trim();
+                        user.BestContactNumber = Mobile.Text.Trim();
+                        user.Gender = DrpGender.SelectedItem.Value.ToString();
+                        user.Question = Question.Text.Trim();
+                        user.Answer = Answer.Text.Trim();
+                        user.Status = "Active";
                     }
 
 
-                    objCreateMembershipUser = AddMembershipUser(UserName.Text.Trim(), pwd, Email.Text.Trim(), Question.Text.Trim(), Answer.Text.Trim(), true);
+
+                    objCreateMembershipUser = AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true);
 
                     bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
@@ -139,6 +167,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         MembershipUser mUser;
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         string strKey = mUser.ProviderUserKey.ToString();
+
+                        user.Save();
 
                         string url = "/Land_load/Land_load_Profile.aspx";
                         string script = "window.onload = function(){ alert('";
