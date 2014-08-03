@@ -107,5 +107,35 @@ namespace RHP.UserManagement
 
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
+
+        
+        public bool IsFBUserExist(string FbId)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_User_IsFBUserExist");
+
+            db.AddInParameter(command, "FbId", DbType.Guid, FbId);
+            db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
+        }
+
+
+        public string GetUsernameByFBId(string FbId)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("[usp_UserSelectUsernameByFbId]");
+
+            db.AddInParameter(command, "FbId", DbType.Guid, FbId);
+            db.AddOutParameter(command, "Username", DbType.String, 1);
+
+            db.ExecuteNonQuery(command);
+
+            return Convert.ToString(db.GetParameterValue(command, "Username").ToString());
+        }
     }
 }

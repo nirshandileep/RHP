@@ -216,14 +216,12 @@ namespace RHP.UserManagement
 
         public bool IsExistingFbUser(string fbid)
         {
-            return true;
-            //Todo: write the rest
+            return new UserDAO().IsFBUserExist(fbid);
         }
 
-        public string getFBUsername(string fbid)
+        public string GetFBUsernameByFBId(string fbid)
         {
-            return "";
-            //Todo: write the rest
+            return new UserDAO().GetUsernameByFBId(fbid);
         }
 
     }

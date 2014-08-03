@@ -96,7 +96,7 @@ namespace USA_Rent_House_Project
                         // get user from fbid (username)
                         // stringpassword = membership
 
-                        user.UserName = user.getFBUsername(user.FBid);
+                        user.UserName = user.GetFBUsernameByFBId(user.FBid);
 
                         if (user.AuthenticateUser())
                         {
