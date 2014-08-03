@@ -44,7 +44,7 @@
                     ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="RegisterStudentValidationGroup"
                     ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
             </p>
-            <p>
+            <p id="setpwd" runat="server">
                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
                 <asp:TextBox ID="Password" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
@@ -54,7 +54,7 @@
                     ControlToValidate="Password" ErrorMessage="Password minimum length is 6" ValidationExpression=".{6}.*"
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RegularExpressionValidator>
             </p>
-            <p>
+            <p id="confirmpwd" runat="server">
                 <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword"
                     CssClass="form_label">Retype Password:</asp:Label>
                 <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="textEntry textbox_w1"

@@ -5,16 +5,39 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using RHP.UserManagement;
+using RHP.Utility;
 
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class Landload_Profile_info_Add : System.Web.UI.UserControl
     {
+        User user = new User();
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                string v = Utility.GetQueryStringValueByKey(Request, "type");
+                if (v == "s")
+                {
+                    loadFBData();
+                }
 
+            }
         }
+
+        public void loadFBData()
+        {
+            Name.Text = user.Name;
+            Email.Text = user.Email;
+            setpwd.Visible = false;
+            confirmpwd.Visible = false;
+            // Gender
+        }
+
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon)
         {
 
@@ -87,7 +110,19 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     bool boolMembershipUserCreated = false;
 
-                    objCreateMembershipUser = AddMembershipUser(UserName.Text.Trim(), Password.Text.Trim(), Email.Text.Trim(), Question.Text.Trim(), Answer.Text.Trim(), true);
+                    string pwd = "";
+
+                    if (Utility.GetQueryStringValueByKey(Request, "type") == "s")
+                    {
+                        pwd = user.Password;
+                    }
+                    else
+                    {
+                        pwd = Password.Text.Trim();
+                    }
+
+
+                    objCreateMembershipUser = AddMembershipUser(UserName.Text.Trim(), pwd, Email.Text.Trim(), Question.Text.Trim(), Answer.Text.Trim(), true);
 
                     bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 

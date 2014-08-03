@@ -36,6 +36,7 @@ namespace RHP.UserManagement
         public string PersonalEmail { get; set; }
         public decimal RatingValue { get; set; }
         public string FBid { get; set; }
+        public string Gender { get; set; }
 
         private List<string> rolesList;
         public List<string> RolesList 
@@ -218,5 +219,12 @@ namespace RHP.UserManagement
             return true;
             //Todo: write the rest
         }
+
+        public string getFBUsername(string fbid)
+        {
+            return "";
+            //Todo: write the rest
+        }
+
     }
 }

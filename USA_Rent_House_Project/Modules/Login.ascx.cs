@@ -17,7 +17,26 @@ namespace USA_Rent_House_Project.Modules
         
         protected void Page_Load(object sender, EventArgs e)
         {
+         //   CreateProfile
+            if (!IsPostBack)
+            {
+                string tupe = Request.QueryString["type"].ToString();
 
+                if (tupe == "s")
+                {
+                    CreateProfile.Visible = true;
+                    FacebookLogin.Visible = true;
+                    FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=s";
+                    CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx?type=s";
+                }
+                else if (tupe == "l")
+                {
+                    CreateProfile.Visible = true;
+                    FacebookLogin.Visible = true;
+                    FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
+                    CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx?type=l";
+                }
+            }
         }
 
         private void login()

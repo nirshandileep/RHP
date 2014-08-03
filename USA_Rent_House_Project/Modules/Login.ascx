@@ -2,7 +2,7 @@
 <div id="div_Home">
    
     <div class="center-col">
-        <asp:HyperLink ID="FacebookLogin" CssClass="facebookloginclass" runat="server" NavigateUrl="~/Facebook-Login.aspx">Login Using Facebook</asp:HyperLink>
+        <asp:HyperLink ID="FacebookLogin" CssClass="facebookloginclass" Visible="false" runat="server">Login Using Facebook</asp:HyperLink>
         <h2 class="form_heading">
             Login to your Account
         </h2>
@@ -49,7 +49,7 @@
 
             <div class="centerfloat">
             <p class="submitbutton">
-            <asp:HyperLink ID="RecoverPassword" CssClass="loginlinks" runat="server" NavigateUrl="~/Land_load/Land_load_Profile_Add.aspx">Create new profile</asp:HyperLink>  
+            <asp:HyperLink ID="CreateProfile" Visible="false" CssClass="loginlinks" runat="server" >Create new profile</asp:HyperLink>  
            
             <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>
           </p>
