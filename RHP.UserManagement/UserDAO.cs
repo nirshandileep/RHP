@@ -115,7 +115,7 @@ namespace RHP.UserManagement
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_User_IsFBUserExist");
 
-            db.AddInParameter(command, "FbId", DbType.Guid, FbId);
+            db.AddInParameter(command, "FbId", DbType.String, FbId);
             db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
 
             db.ExecuteNonQuery(command);
@@ -130,7 +130,7 @@ namespace RHP.UserManagement
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("[usp_UserSelectUsernameByFbId]");
 
-            db.AddInParameter(command, "FbId", DbType.Guid, FbId);
+            db.AddInParameter(command, "FbId", DbType.String, FbId);
             db.AddOutParameter(command, "Username", DbType.String, 1);
 
             db.ExecuteNonQuery(command);

@@ -85,10 +85,11 @@ namespace USA_Rent_House_Project
                     user.Gender = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Gender)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Gender);
                     user.IsFBUser = true;
                     user.Password = user.FBid;
+                    user.UserName = user.FBid;
 
-                    try
-                    { user.DateOfBirth = Convert.ToDateTime(HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT)); }
-                    catch(Exception ex) {}
+                    //try
+                    //{ user.DateOfBirth = Convert.ToDateTime(HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT)); }
+                    //catch(Exception ex) {}
 
                     if (user.IsExistingFbUser(user.FBid))
                     {
@@ -117,7 +118,7 @@ namespace USA_Rent_House_Project
                     }
                     else
                     {
-                        Response.Redirect(ReturnURL);
+                        Response.Redirect(ReturnURL,false);
                     }
                    
                 }

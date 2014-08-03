@@ -38,6 +38,9 @@ namespace RHP.UserManagement
         public string FBid { get; set; }
         public string Gender { get; set; }
 
+        public string Question { get; set; }
+        public string Answer { get; set; }
+
         private List<string> rolesList;
         public List<string> RolesList 
         {

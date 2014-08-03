@@ -33,9 +33,17 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             Name.Text = user.Name;
             Email.Text = user.Email;
+            setUserName.Visible = false;
             setpwd.Visible = false;
             confirmpwd.Visible = false;
-            // Gender
+
+            for (int i = 0; i < DrpGender.Items.Count; i++)
+            {
+                if (DrpGender.Items[i].Value == user.Gender)
+                {
+                    DrpGender.Items[0].Selected = true;
+                }
+            }
         }
 
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon)

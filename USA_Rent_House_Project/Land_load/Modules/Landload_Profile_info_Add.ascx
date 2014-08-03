@@ -9,6 +9,14 @@
       <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="RegisterLand_lordValidationGroup" />
             <div id="forminner">
+           
+           <p>
+                <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
+                <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
+                    <asp:ListItem Value="male">Male</asp:ListItem>
+                    <asp:ListItem Value="female">Female</asp:ListItem>
+                </asp:DropDownList>
+            </p>
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"
                     CssClass="form_label">Name:</asp:Label>
@@ -19,7 +27,7 @@
                
             </p>
 
-             <p>
+             <p id="setUserName" runat="server">
                 <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="form_label">UserName :</asp:Label>
                 <asp:TextBox ID="UserName" runat="server" CssClass="textEntry textbox_w2" MaxLength="20"></asp:TextBox>
                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
