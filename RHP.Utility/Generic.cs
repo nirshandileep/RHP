@@ -132,7 +132,7 @@ namespace RHP.Utility
             {
                 while (dataReader.Read())
                 {
-                    T entity = new T();
+                    returnEntity = new T();
                     AssignDataReaderToEntity(dataReader, returnEntity);
                 }
             }
