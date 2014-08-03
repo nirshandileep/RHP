@@ -14,15 +14,12 @@ namespace RHP.Utility
         public static string GetQueryStringValueByKey(HttpRequest request, string name)
         {
             string returnValue = "";
-
-            foreach (Dictionary<string, string> item in request.QueryString)
+            NameValueCollection items = request.QueryString;
+            if (items[name] != null)
             {
-                if (item.ContainsKey(name))
-                {
-                    returnValue = item[name];
-                    break;
-                }
+                returnValue = items[name];
             }
+            
             return returnValue;
         }
     }
