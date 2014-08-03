@@ -7,36 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Student {
+namespace USA_Rent_House_Project.Student.Modules {
     
     
-    public partial class Student_Profile {
+    public partial class Student_Profile_Comments {
         
         /// <summary>
-        /// Student_Profile_HeaderID control.
+        /// StudentComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentComments;
         
         /// <summary>
-        /// Student_Profile_DataID control.
+        /// StudentCommentsData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Data Student_Profile_DataID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentCommentsData;
         
         /// <summary>
-        /// Student_Profile_CommentsID control.
+        /// DataListStudentComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Comments Student_Profile_CommentsID;
+        protected global::System.Web.UI.WebControls.DataList DataListStudentComments;
     }
 }

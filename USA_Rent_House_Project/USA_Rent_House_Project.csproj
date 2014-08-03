@@ -196,9 +196,17 @@
     <Content Include="Modules\Secret_Question.ascx" />
     <Content Include="Request_New_Password.aspx" />
     <Content Include="Secret_Question.aspx" />
+    <Content Include="Student\Modules\Student_Profile_Comments.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Data.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Header.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
+    <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
+    <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
+    <Content Include="Student\Modules\Student_Public_Profile_Data.ascx" />
+    <Content Include="Student\Modules\Student_Public_Profile_Header.ascx" />
     <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
+    <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -542,12 +550,61 @@
     <Compile Include="Secret_Question.aspx.designer.cs">
       <DependentUpon>Secret_Question.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Comments.ascx.cs">
+      <DependentUpon>Student_Profile_Comments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Comments.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Comments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Data.ascx.cs">
+      <DependentUpon>Student_Profile_Data.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Data.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Data.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Header.ascx.cs">
+      <DependentUpon>Student_Profile_Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Header.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Header.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Add.ascx.cs">
       <DependentUpon>Student_Profile_info_Add.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Add.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.cs">
+      <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.designer.cs">
+      <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Banner.ascx.cs">
+      <DependentUpon>Student_Public_Profile_Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Banner.ascx.designer.cs">
+      <DependentUpon>Student_Public_Profile_Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Data.ascx.cs">
+      <DependentUpon>Student_Public_Profile_Data.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Data.ascx.designer.cs">
+      <DependentUpon>Student_Public_Profile_Data.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Header.ascx.cs">
+      <DependentUpon>Student_Public_Profile_Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Public_Profile_Header.ascx.designer.cs">
+      <DependentUpon>Student_Public_Profile_Header.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Profile.aspx.cs">
       <DependentUpon>Student_Profile.aspx</DependentUpon>
@@ -562,6 +619,13 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Add.aspx.designer.cs">
       <DependentUpon>Student_Profile_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Public_Profile.aspx.cs">
+      <DependentUpon>Student_Public_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Public_Profile.aspx.designer.cs">
+      <DependentUpon>Student_Public_Profile.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

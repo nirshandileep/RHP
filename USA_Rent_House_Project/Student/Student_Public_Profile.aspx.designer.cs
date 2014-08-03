@@ -10,25 +10,34 @@
 namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Student_Profile {
+    public partial class Student_Public_Profile {
         
         /// <summary>
-        /// Student_Profile_HeaderID control.
+        /// Student_Public_Profile_HeaderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Header Student_Public_Profile_HeaderID;
         
         /// <summary>
-        /// Student_Profile_DataID control.
+        /// Student_Public_Profile_BannerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Data Student_Profile_DataID;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Banner Student_Public_Profile_BannerID;
+        
+        /// <summary>
+        /// Student_Public_Profile_DataID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Data Student_Public_Profile_DataID;
         
         /// <summary>
         /// Student_Profile_CommentsID control.
