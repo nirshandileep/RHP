@@ -14,6 +14,8 @@ namespace RHP.StudentManagement
         public Guid StudentId { get; set; }
         public School School { get; set; }
         public User StudentUser { get; set; }
+        public string LandloadName { get; set; }
+        public string LandloadPlace { get; set; }
 
         public bool Save()
         {
@@ -27,7 +29,7 @@ namespace RHP.StudentManagement
             try
             {
                 StudentDAO studentDAO = new StudentDAO();
-                if (studentDAO.IsUserExist(this))
+                if (studentDAO.IsStudentExist(this))
                 {
                     result = studentDAO.Update(this, db, transaction);
                 }

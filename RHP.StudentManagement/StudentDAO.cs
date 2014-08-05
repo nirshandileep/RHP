@@ -19,6 +19,9 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
+            db.AddInParameter(command, "Year", DbType.String, student.School.Year);
+            db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -39,6 +42,9 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
+            db.AddInParameter(command, "Year", DbType.Int16, student.School.Year);
+            db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
             db.AddInParameter(command, "UpdatedDate", DbType.DateTime, student.UpdatedDate);
 
@@ -69,7 +75,7 @@ namespace RHP.StudentManagement
         /// <param name="user"></param>
         /// <returns></returns>
 
-        public bool IsUserExist(Student student)
+        public bool IsStudentExist(Student student)
         {
 
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
