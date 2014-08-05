@@ -20,9 +20,6 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, student.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, student.UpdatedDate);
             
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
@@ -42,16 +39,14 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
-            db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, student.CreatedDate);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
             db.AddInParameter(command, "UpdatedDate", DbType.DateTime, student.UpdatedDate);
 
-            db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
+            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
 
-            student.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "CreatedDate").ToString());
+            student.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
             student.UpdatedDate = student.CreatedDate;
 
             return true;
