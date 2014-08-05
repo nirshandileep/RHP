@@ -128,7 +128,7 @@ namespace RHP.UserManagement
         {
 
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand command = db.GetStoredProcCommand("[usp_UserSelectUsernameByFbId]");
+            DbCommand command = db.GetStoredProcCommand("usp_UserSelectUsernameByFbId");
 
             db.AddInParameter(command, "FbId", DbType.String, FbId);
             db.AddOutParameter(command, "Username", DbType.String, 1);
@@ -136,6 +136,15 @@ namespace RHP.UserManagement
             db.ExecuteNonQuery(command);
 
             return Convert.ToString(db.GetParameterValue(command, "Username").ToString());
+        }
+
+
+        public DataSet SelectAll()
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserSelectAll");
+            return db.ExecuteDataSet(command);
         }
     }
 }

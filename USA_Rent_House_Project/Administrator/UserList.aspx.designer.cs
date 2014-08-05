@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Administrator.Modules {
+namespace USA_Rent_House_Project.Administrator {
     
     
     public partial class UserList {
         
         /// <summary>
-        /// gvUsers control.
+        /// ucUserList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvUsers;
+        protected global::USA_Rent_House_Project.Administrator.Modules.UserList ucUserList;
     }
 }

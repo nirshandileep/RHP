@@ -183,6 +183,7 @@
     <Content Include="Administrator\Property_View.aspx" />
     <Content Include="Administrator\Student.aspx" />
     <Content Include="Administrator\Student_View.aspx" />
+    <Content Include="Administrator\UserList.aspx" />
     <Content Include="Change_Password.aspx" />
     <Content Include="CustomError.aspx" />
     <Content Include="Facebook-Login.aspx" />
@@ -395,6 +396,13 @@
     </Compile>
     <Compile Include="Administrator\Student_View.aspx.designer.cs">
       <DependentUpon>Student_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Change_Password.aspx.cs">
       <DependentUpon>Change_Password.aspx</DependentUpon>
