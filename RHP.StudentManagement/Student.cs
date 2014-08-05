@@ -9,11 +9,11 @@ using System.Data.Common;
 
 namespace RHP.StudentManagement
 {
-    class Student : User
+    public class Student : Base
     {
         public Guid StudentId { get; set; }
-        public Guid StudentUserId { get; set; }
-        public Guid SchoolId { get; set; }
+        public School School { get; set; }
+        public User StudentUser { get; set; }
 
         public bool Save()
         {
@@ -29,7 +29,7 @@ namespace RHP.StudentManagement
                 StudentDAO studentDAO = new StudentDAO();
                 if (studentDAO.IsUserExist(this))
                 {
-                    result = (new UserDAO()).Update(this, db, transaction);
+                    result = studentDAO.Update(this, db, transaction);
                 }
                 else
                 {
@@ -68,7 +68,7 @@ namespace RHP.StudentManagement
             try
             {
                 result = (new StudentDAO().Delete(this, db, transaction));
-
+                transaction.Commit();
             }
             catch (Exception ex)
             {

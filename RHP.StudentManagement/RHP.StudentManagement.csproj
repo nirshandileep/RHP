@@ -54,6 +54,7 @@
     <Compile Include="Student.cs" />
     <Compile Include="StudentDAO.cs" />
     <Compile Include="StudentManager.cs" />
+    <Compile Include="StudentSearch.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RHP.Common\RHP.Common.csproj">

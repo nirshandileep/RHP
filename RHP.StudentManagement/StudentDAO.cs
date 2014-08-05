@@ -16,8 +16,8 @@ namespace RHP.StudentManagement
             DbCommand command = db.GetStoredProcCommand("usp_StudentInsert");
 
             db.AddInParameter(command, "StudentId", DbType.Guid, student.StudentId);
-            db.AddInParameter(command, "UserId", DbType.Guid, student.UserId);
-            db.AddInParameter(command, "SchoolId", DbType.Guid, student.SchoolId);
+            db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
+            db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             db.AddInParameter(command, "CreatedDate", DbType.DateTime, student.CreatedDate);
@@ -39,8 +39,8 @@ namespace RHP.StudentManagement
             DbCommand command = db.GetStoredProcCommand("usp_StudentUpdate");
 
             db.AddInParameter(command, "StudentId", DbType.Guid, student.StudentId);
-            db.AddInParameter(command, "UserId", DbType.Guid, student.UserId);
-            db.AddInParameter(command, "SchoolId", DbType.Guid, student.SchoolId);
+            db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
+            db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             db.AddInParameter(command, "CreatedDate", DbType.DateTime, student.CreatedDate);
@@ -88,5 +88,17 @@ namespace RHP.StudentManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
+
+        public static DataSet Search(StudentSearch searchStudent)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_Student_Search");
+
+            db.AddInParameter(command, "StudentId", DbType.Guid, searchStudent.StudentId);
+            db.AddInParameter(command, "SchoolId", DbType.Guid, searchStudent.SchoolId);
+
+            return db.ExecuteDataSet(command);
+
+        }
     }
 }
