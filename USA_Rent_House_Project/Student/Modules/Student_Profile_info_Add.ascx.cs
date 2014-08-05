@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using RHP.UserManagement;
 using RHP.Utility;
+using RHP.StudentManagement;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -14,6 +15,7 @@ namespace USA_Rent_House_Project.Student.Modules
     {
         User user = new User();
 
+        RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -119,6 +121,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     {
                         //user.Password;  FB password
                         //user.UserName  FB username
+                        
                         user.Name = Name.Text.Trim();
                         user.Email = Email.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
@@ -130,12 +133,18 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
                         user.Question = Question.Text.Trim();
                         user.Answer = Answer.Text.Trim();
-                        user.Status = "Active";
-                        //to be added to school table
-                       // user.SchoolName.Text.Trim();
-                       // SchoolID.Text.Trim();
-                       // DRPYear.SelectedItem.Value.ToString();
+                        user.Status = Status.SelectedItem.Value.ToString();
 
+                        //to be added to school table
+
+                        student.StudentUser.UserId = user.UserId;
+                        student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
+                        student.School.Name =DrpSchoolName.SelectedItem.Text.ToString();
+                        student.School.Year = DRPYear.SelectedItem.Value.ToString();
+                        student.IsDeleted = false;
+                        student.LandloadName = LandLoadName.Text.Trim();
+                        student.LandloadPlace = LandLoadPlace.Text.Trim();
+                        student.CreatedBy = user.UserId;
                     }
                     else
                     {
@@ -152,7 +161,16 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
                         user.Question = Question.Text.Trim();
                         user.Answer = Answer.Text.Trim();
-                        user.Status = "Active";
+                        user.Status = Status.SelectedItem.Value.ToString();
+
+                        student.StudentUser.UserId = user.UserId;
+                        student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
+                        student.School.Name = DrpSchoolName.SelectedItem.Text.ToString();
+                        student.School.Year = DRPYear.SelectedItem.Value.ToString();
+                        student.IsDeleted = false;
+                        student.LandloadName = LandLoadName.Text.Trim();
+                        student.LandloadPlace = LandLoadPlace.Text.Trim();
+                        student.CreatedBy = user.UserId;
                     }
 
 
@@ -164,19 +182,21 @@ namespace USA_Rent_House_Project.Student.Modules
                     {
                         MembershipUser mUser;
                         mUser = Membership.GetUser(UserName.Text.Trim());
-                        string strKey = mUser.ProviderUserKey.ToString();
-                        
-                        user.Save();
+                        user.UserId = new Guid(mUser.ProviderUserKey.ToString());
 
-                        string url = "/Student/Student_Profile.aspx";
-                        string script = "window.onload = function(){ alert('";
-                        script += "Successfully created";
-                        script += "');";
-                        script += "window.location = '";
-                        script += url;
-                        script += "'; }";
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                        if (user.Save())
+                        {
+                            student.Save();
 
+                            string url = "/Student/Student_Profile.aspx";
+                            string script = "window.onload = function(){ alert('";
+                            script += "Successfully created";
+                            script += "');";
+                            script += "window.location = '";
+                            script += url;
+                            script += "'; }";
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                        }
 
                     }
                     else

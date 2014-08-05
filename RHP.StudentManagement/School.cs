@@ -18,5 +18,6 @@ namespace RHP.StudentManagement
         public string Email { get; set; }
         public string Location { get; set; }
         public string WebsiteURL { get; set; }
+        public string Year { get; set; }
     }
 }
