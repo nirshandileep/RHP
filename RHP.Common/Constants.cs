@@ -20,5 +20,11 @@ namespace RHP.Common
         public static readonly string SP_HOUSESELECT = "usp_HouseSelect";
 
         #endregion
+
+        #region Sessions
+
+        public static readonly string SESSION_SCHOOL_LIST = "SESSION_SCHOOL_LIST";
+
+        #endregion
     }
 }

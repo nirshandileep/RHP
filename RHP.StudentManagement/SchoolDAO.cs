@@ -108,6 +108,12 @@ namespace RHP.StudentManagement
             return true;
         }
 
+        public bool Delete(School school)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            return this.Delete(school, db, null);
+        }
+
         public bool Delete(School school, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_SchoolIdDelete");

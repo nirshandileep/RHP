@@ -174,6 +174,7 @@
     <Content Include="Administrator\Modules\PropertyFeatureList.ascx" />
     <Content Include="Administrator\Modules\PropertyList.ascx" />
     <Content Include="Administrator\Modules\PropertyView.ascx" />
+    <Content Include="Administrator\Modules\SchoolList.ascx" />
     <Content Include="Administrator\Modules\StudentList.ascx" />
     <Content Include="Administrator\Modules\StudentView.ascx" />
     <Content Include="Administrator\Modules\UserList.ascx" />
@@ -181,6 +182,7 @@
     <Content Include="Administrator\Property.aspx" />
     <Content Include="Administrator\Property_Feature.aspx" />
     <Content Include="Administrator\Property_View.aspx" />
+    <Content Include="Administrator\School_List.aspx" />
     <Content Include="Administrator\Student.aspx" />
     <Content Include="Administrator\Student_View.aspx" />
     <Content Include="Administrator\UserList.aspx" />
@@ -334,6 +336,13 @@
     <Compile Include="Administrator\Modules\PropertyView.ascx.designer.cs">
       <DependentUpon>PropertyView.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\Modules\SchoolList.ascx.cs">
+      <DependentUpon>SchoolList.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\Modules\SchoolList.ascx.designer.cs">
+      <DependentUpon>SchoolList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Administrator\Modules\StudentList.ascx.cs">
       <DependentUpon>StudentList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -382,6 +391,13 @@
     </Compile>
     <Compile Include="Administrator\Property_View.aspx.designer.cs">
       <DependentUpon>Property_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\School_List.aspx.cs">
+      <DependentUpon>School_List.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\School_List.aspx.designer.cs">
+      <DependentUpon>School_List.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>
@@ -669,6 +685,14 @@
     <ProjectReference Include="..\RHP.Facebook\RHP.Facebook.csproj">
       <Project>{20620D31-4E4F-414B-8905-DEAAE11B01FA}</Project>
       <Name>RHP.Facebook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.LandlordManagement\RHP.LandlordManagement.csproj">
+      <Project>{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}</Project>
+      <Name>RHP.LandlordManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.SessionManager\RHP.SessionManager.csproj">
+      <Project>{92A5E511-C5D8-4585-B696-081328FB8B79}</Project>
+      <Name>RHP.SessionManager</Name>
     </ProjectReference>
     <ProjectReference Include="..\RHP.StudentManagement\RHP.StudentManagement.csproj">
       <Project>{089DBEBC-F335-4308-851D-8BD9EB063346}</Project>
