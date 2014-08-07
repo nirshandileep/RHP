@@ -7,14 +7,14 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using RHP.UserManagement;
 using RHP.Utility;
-
+using RHP.LandlordManagement;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class Landload_Profile_info_Add : System.Web.UI.UserControl
     {
         User user = new User();
-
+        Landlord landload = new Landlord();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -122,41 +122,24 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     {
                         //user.Password;  FB password
                         //user.UserName  FB username
-                        user.Name = Name.Text.Trim();
-                        user.Email = Email.Text.Trim();
-                        user.StreetAddress = Address.Text.Trim();
-                        user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
-                        user.Zip = Zip.Text.Trim();
-                        user.BestContactNumber = Mobile.Text.Trim();
-                        user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.Question = Question.Text.Trim();
-                        user.Answer = Answer.Text.Trim();
-                        user.Status = "Active";
-                        //to be added to school table
-                        // user.SchoolName.Text.Trim();
-                        // SchoolID.Text.Trim();
-                        // DRPYear.SelectedItem.Value.ToString();
 
                     }
                     else
                     {
                         user.Password = Password.Text.Trim();
                         user.Name = Name.Text.Trim();
-                        user.UserName = UserName.Text.Trim();
-                        user.Email = Email.Text.Trim();
-                        user.StreetAddress = Address.Text.Trim();
-                        user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
-                        user.Zip = Zip.Text.Trim();
-                        user.BestContactNumber = Mobile.Text.Trim();
-                        user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.Question = Question.Text.Trim();
-                        user.Answer = Answer.Text.Trim();
-                        user.Status = "Active";
                     }
 
-
+                    user.Email = Email.Text.Trim();
+                    user.StreetAddress = Address.Text.Trim();
+                    user.City = City.Text.Trim();
+                    user.State = Drpstate.SelectedItem.Value.ToString();
+                    user.Zip = Zip.Text.Trim();
+                    user.BestContactNumber = Mobile.Text.Trim();
+                    user.Gender = DrpGender.SelectedItem.Value.ToString();
+                    user.Question = Question.Text.Trim();
+                    user.Answer = Answer.Text.Trim();
+                    user.Status = "Active";
 
                     objCreateMembershipUser = AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true);
 
@@ -168,7 +151,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         string strKey = mUser.ProviderUserKey.ToString();
 
-                        user.Save();
+                        if (user.Save())
+                        {
+                            landload.Save();
+
+                            // success
+                        }
 
                         string url = "/Land_load/Land_load_Profile.aspx";
                         string script = "window.onload = function(){ alert('";

@@ -122,57 +122,35 @@ namespace USA_Rent_House_Project.Student.Modules
                         //user.Password;  FB password
                         //user.UserName  FB username
                         
-                        user.Name = Name.Text.Trim();
-                        user.Email = Email.Text.Trim();
-                        user.StreetAddress = Address.Text.Trim();
-                        user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
-                        user.Zip = Zip.Text.Trim();
-                        user.BestContactNumber = Mobile.Text.Trim();
-                        user.DriversLicenseNumber = DriversLicense.Text.Trim();
-                        user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.Question = Question.Text.Trim();
-                        user.Answer = Answer.Text.Trim();
-                        user.Status = Status.SelectedItem.Value.ToString();
-
-                        //to be added to school table
-
-                        student.StudentUser.UserId = user.UserId;
-                        student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
-                        student.School.Name =DrpSchoolName.SelectedItem.Text.ToString();
-                        student.School.Year = DRPYear.SelectedItem.Value.ToString();
-                        student.IsDeleted = false;
-                        student.LandloadName = LandLoadName.Text.Trim();
-                        student.LandloadPlace = LandLoadPlace.Text.Trim();
-                        student.CreatedBy = user.UserId;
                     }
                     else
                     {
                         user.Password = Password.Text.Trim();
                         user.Name = Name.Text.Trim();
-                        user.UserName = UserName.Text.Trim();
-                        user.Email = Email.Text.Trim();
-                        user.StreetAddress = Address.Text.Trim();
-                        user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
-                        user.Zip = Zip.Text.Trim();
-                        user.BestContactNumber = Mobile.Text.Trim();
-                        user.DriversLicenseNumber = DriversLicense.Text.Trim();
-                        user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.Question = Question.Text.Trim();
-                        user.Answer = Answer.Text.Trim();
-                        user.Status = Status.SelectedItem.Value.ToString();
-
-                        student.StudentUser.UserId = user.UserId;
-                        student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
-                        student.School.Name = DrpSchoolName.SelectedItem.Text.ToString();
-                        student.School.Year = DRPYear.SelectedItem.Value.ToString();
-                        student.IsDeleted = false;
-                        student.LandloadName = LandLoadName.Text.Trim();
-                        student.LandloadPlace = LandLoadPlace.Text.Trim();
-                        student.CreatedBy = user.UserId;
                     }
 
+                    user.Email = Email.Text.Trim();
+                    user.StreetAddress = Address.Text.Trim();
+                    user.City = City.Text.Trim();
+                    user.State = Drpstate.SelectedItem.Value.ToString();
+                    user.Zip = Zip.Text.Trim();
+                    user.BestContactNumber = Mobile.Text.Trim();
+                    user.DriversLicenseNumber = DriversLicense.Text.Trim();
+                    user.Gender = DrpGender.SelectedItem.Value.ToString();
+                    user.Question = Question.Text.Trim();
+                    user.Answer = Answer.Text.Trim();
+                    user.Status = Status.SelectedItem.Value.ToString();
+
+                    //to be added to school table
+
+                    student.StudentUser.UserId = user.UserId;
+                    student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
+                    student.School.Name = DrpSchoolName.SelectedItem.Text.ToString();
+                    student.School.Year = DRPYear.SelectedItem.Value.ToString();
+                    student.IsDeleted = false;
+                    student.LandloadName = LandLoadName.Text.Trim();
+                    student.LandloadPlace = LandLoadPlace.Text.Trim();
+                    student.CreatedBy = user.UserId;
 
                     objCreateMembershipUser = AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true);
 
@@ -188,14 +166,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         {
                             student.Save();
 
-                            string url = "/Student/Student_Profile.aspx";
-                            string script = "window.onload = function(){ alert('";
-                            script += "Successfully created";
-                            script += "');";
-                            script += "window.location = '";
-                            script += url;
-                            script += "'; }";
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
+                           // success
                         }
 
                     }
