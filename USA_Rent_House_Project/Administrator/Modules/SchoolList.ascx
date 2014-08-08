@@ -6,7 +6,7 @@
     oncommandbuttoninitialize="gvSchoolList_CommandButtonInitialize" 
     onrowdeleting="gvSchoolList_RowDeleting" 
     onrowinserting="gvSchoolList_RowInserting" 
-    onrowupdating="gvSchoolList_RowUpdating">
+    onrowupdating="gvSchoolList_RowUpdating" KeyFieldName="SchoolId">
     <Columns>
         <dx:GridViewCommandColumn Caption="Actions" FixedStyle="Left" VisibleIndex="0" 
             Width="120px">
