@@ -13,6 +13,6 @@
         <asp:Image ID="imgLandloadProfileImage" runat="server" />
     </div>
      <div id="StudentRating" runat="server">
-        My Ratings ******
+        my ratings ******
     </div>
 </div>

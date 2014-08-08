@@ -195,6 +195,8 @@
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
+    <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
+    <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Change_Password.ascx" />
     <Content Include="Modules\Home.ascx" />
@@ -485,6 +487,20 @@
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_info_Add.ascx.designer.cs">
       <DependentUpon>Landload_Profile_info_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx.cs">
+      <DependentUpon>Landload_Public_Profile_Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx.designer.cs">
+      <DependentUpon>Landload_Public_Profile_Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Data.ascx.cs">
+      <DependentUpon>Landload_Public_Profile_Data.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Data.ascx.designer.cs">
+      <DependentUpon>Landload_Public_Profile_Data.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
