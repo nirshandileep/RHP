@@ -11,6 +11,13 @@ namespace RHP.StudentManagement
 {
     public class StudentDAO
     {
+        public DataSet SelectAllDataset()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_StudentSelectAll");
+            return db.ExecuteDataSet(command);
+        }
+
         public bool Insert(Student student, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_StudentInsert");

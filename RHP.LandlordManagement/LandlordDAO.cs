@@ -11,6 +11,13 @@ namespace RHP.LandlordManagement
 {
     public class LandlordDAO
     {
+        public DataSet SelectAllDataset()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_LandlordSelectAll");
+            return db.ExecuteDataSet(command);
+        }
+
         public bool Insert(Landlord landlord, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_LandlordInsert");

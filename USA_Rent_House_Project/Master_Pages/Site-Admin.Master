@@ -4,7 +4,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title> Rent a property Adminnistrator</title>
+    <title> Rent a property Administrator</title>
      <link href="~/Styles/Admin_Style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
@@ -38,6 +38,8 @@
                         <asp:MenuItem NavigateUrl="~/Administrator/Landload.aspx" Text="Landload" ToolTip="Landload">
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Administrator/Student.aspx" Text="Student" ToolTip="Student">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Administrator/School_List.aspx" Text="School" ToolTip="School">
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Administrator/Property.aspx" Text="Property" ToolTip="Property">
                         </asp:MenuItem>

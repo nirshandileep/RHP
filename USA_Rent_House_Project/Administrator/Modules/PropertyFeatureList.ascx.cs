@@ -14,18 +14,33 @@ namespace USA_Rent_House_Project.Administrator.Modules
 {
     public partial class PropertyFeatureList : System.Web.UI.UserControl
     {
-        DataSet dsFeatures = new DataSet();
+
+        private DataSet dsFeatures
+        {
+            get
+            {
+                DataSet ds;
+                ds = SessionManager.GetSession<DataSet>(Constants.SESSION_FEATURE_LIST);
+
+                if (ds == null)
+                {
+                    ds = new PropertyOptionDAO().SelectAllDataset();
+                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["LandlordId"] };
+                    Session[Constants.SESSION_FEATURE_LIST] = ds;
+                }
+
+                return ds;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session[Constants.SESSION_FEATURE_LIST] = dsFeatures;
             LoadGrid();
         }
 
         private void LoadGrid()
         {
-            dsFeatures = SessionManager.GetSession<DataSet>(Constants.SESSION_FEATURE_LIST);
             gvFeatureList.SettingsText.ConfirmDelete = Messages.Delete_Confirm;
-            dsFeatures.Tables[0].PrimaryKey = new DataColumn[] { dsFeatures.Tables[0].Columns["OptionId"] };
             gvFeatureList.DataSource = dsFeatures.Tables[0];
             gvFeatureList.DataBind();
         }
