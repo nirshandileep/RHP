@@ -28,6 +28,9 @@ namespace RHP.Common
 
         public static readonly string SESSION_SCHOOL_LIST = "SESSION_SCHOOL_LIST";
         public static readonly string SESSION_LOGGED_USER = "SESSION_LOGGED_USER";
+        public static readonly string SESSION_FEATURE_LIST = "SESSION_FEATURE_LIST";
+        public static readonly string SESSION_FEATURE_ITEMS_LIST = "SESSION_FEATURE_ITEMS_LIST";
+
 
         #endregion
 

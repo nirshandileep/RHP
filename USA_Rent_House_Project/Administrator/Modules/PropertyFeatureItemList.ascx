@@ -1,17 +1,25 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PropertyFeatureList.ascx.cs" Inherits="USA_Rent_House_Project.Administrator.Modules.PropertyFeatureList" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="PropertyFeatureItemList.ascx.cs" Inherits="USA_Rent_House_Project.Administrator.Modules.PropertyFeatureItemList" %>
 
 
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 
-<dx:ASPxGridView ID="gvFeatureList" runat="server" AutoGenerateColumns="False" 
-    oncommandbuttoninitialize="gvFeatureList_CommandButtonInitialize" 
-    onrowdeleting="gvFeatureList_RowDeleting" 
-    onrowinserting="gvFeatureList_RowInserting" 
-    onrowupdating="gvFeatureList_RowUpdating" KeyFieldName="SchoolId">
+<dx:ASPxGridView ID="gvFeatureItemList" runat="server" AutoGenerateColumns="False" 
+    oncommandbuttoninitialize="gvFeatureItemList_CommandButtonInitialize" 
+    onrowdeleting="gvFeatureItemList_RowDeleting" 
+    onrowinserting="gvFeatureItemList_RowInserting" 
+    onrowupdating="gvFeatureItemList_RowUpdating" KeyFieldName="SchoolId">
     <Columns>
 
-<%--    [OptionId], [Name], [Description], [OptionCategoryId], [ParentOptionId], [IsDeleted], [IsMultiSelect] --%>
+<%--    [OptionItemId]
+      ,[Name]
+      ,[Description]
+      ,[IsDeleted]
+      ,[OptionId]
+      ,[CreatedBy]
+      ,[CreatedDate]
+      ,[UpdatedBy]
+      ,[UpdatedDate] --%>
 
         <dx:GridViewCommandColumn Caption="Actions" FixedStyle="Left" VisibleIndex="0" 
             Width="120px">
@@ -42,13 +50,13 @@
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3">
+        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="3">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="ParentOptionId" VisibleIndex="4">
+        <dx:GridViewDataTextColumn FieldName="OptionId" VisibleIndex="4">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="5">
+        <dx:GridViewDataTextColumn FieldName="CreatedBy" VisibleIndex="5">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsMultiSelect" VisibleIndex="6">
+        <dx:GridViewDataTextColumn FieldName="CreatedDate" VisibleIndex="6">
         </dx:GridViewDataTextColumn>
       
     </Columns>

@@ -10,15 +10,15 @@
 namespace USA_Rent_House_Project.Administrator.Modules {
     
     
-    public partial class PropertyFeatureList {
+    public partial class PropertyFeatureItemList {
         
         /// <summary>
-        /// gvFeatureList control.
+        /// gvFeatureItemList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvFeatureList;
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvFeatureItemList;
     }
 }

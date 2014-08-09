@@ -22,13 +22,13 @@ namespace USA_Rent_House_Project.Masrer_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// form1 control.
+        /// Form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
         
         /// <summary>
         /// HeadLoginView control.
@@ -40,13 +40,13 @@ namespace USA_Rent_House_Project.Masrer_Pages {
         protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
         
         /// <summary>
-        /// MenuAdmin control.
+        /// NavigationMenu control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Menu MenuAdmin;
+        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
         /// MainContent control.
