@@ -23,6 +23,17 @@ namespace RHP.StudentManagement
         public decimal RatingValue { get; set; }
         public string Year { get; set; }
 
+        public static School Select(Guid schoolId)
+        {
+            School school = Utility.Generic.GetByGUID<School>(schoolId);
+            return school;
+        }
+
+        public static List<School> SelectAllList()
+        {
+            return Utility.Generic.GetAll<School>();
+        }
+
         public bool Save()
         {
             bool result = false;

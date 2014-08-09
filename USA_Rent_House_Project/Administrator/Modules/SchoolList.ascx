@@ -33,25 +33,58 @@
             <ClearFilterButton Visible="True">
             </ClearFilterButton>
         </dx:GridViewCommandColumn>
-        <dx:GridViewDataTextColumn Caption="Name" FieldName="Name" VisibleIndex="1">
+        <dx:GridViewDataTextColumn Caption="Name" FieldName="Name" VisibleIndex="1" 
+            UnboundType="String">
+            <PropertiesTextEdit>
+                <ValidationSettings Display="Dynamic" ErrorText="Required" 
+                    SetFocusOnError="True">
+                    <RequiredField IsRequired="True" />
+                </ValidationSettings>
+            </PropertiesTextEdit>
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="StreetAddress" VisibleIndex="2">
+        <dx:GridViewDataTextColumn FieldName="StreetAddress" VisibleIndex="2" 
+            UnboundType="String">
+            <PropertiesTextEdit>
+                <ValidationSettings Display="Dynamic" ErrorText="Required">
+                    <RequiredField IsRequired="True" />
+                </ValidationSettings>
+            </PropertiesTextEdit>
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="City" VisibleIndex="3">
+        <dx:GridViewDataTextColumn FieldName="City" VisibleIndex="3" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="4">
+        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="4" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="5">
+        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="5" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="ContactNumber" VisibleIndex="6">
+        <dx:GridViewDataTextColumn FieldName="ContactNumber" VisibleIndex="6" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Email" VisibleIndex="7">
+        <dx:GridViewDataTextColumn FieldName="Email" VisibleIndex="7" 
+            UnboundType="String">
+            <PropertiesTextEdit>
+                <ValidationSettings Display="Dynamic" SetFocusOnError="True">
+                    <RegularExpression ErrorText="Incorrect Email" 
+                        ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+                </ValidationSettings>
+            </PropertiesTextEdit>
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="WebsiteURL" VisibleIndex="8">
+        <dx:GridViewDataTextColumn FieldName="WebsiteURL" VisibleIndex="8" 
+            UnboundType="String">
+            <PropertiesTextEdit>
+                <ValidationSettings Display="Dynamic" SetFocusOnError="True">
+                    <RegularExpression ErrorText="Incorrect URL" 
+                        ValidationExpression="http(s)?://([\w-]+\.)+[\w-]+(/[\w- ./?%&amp;=]*)?" />
+                </ValidationSettings>
+            </PropertiesTextEdit>
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Location" VisibleIndex="9">
+        <dx:GridViewDataTextColumn FieldName="Location" VisibleIndex="9" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataProgressBarColumn FieldName="RatingValue" VisibleIndex="10">
+        <dx:GridViewDataProgressBarColumn FieldName="RatingValue" VisibleIndex="10" 
+            UnboundType="Decimal">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
             </PropertiesProgressBar>
         </dx:GridViewDataProgressBarColumn>

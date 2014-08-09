@@ -41,7 +41,7 @@ namespace RHP.StudentManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_SchoolInsert");
 
-            db.AddInParameter(command, "SchoolId", DbType.Guid, school.SchoolId);
+            db.AddInParameter(command, "SchoolId", DbType.Guid, Guid.NewGuid());
             db.AddInParameter(command, "Name", DbType.String, school.Name);
             db.AddInParameter(command, "StreetAddress", DbType.String, school.StreetAddress);
             db.AddInParameter(command, "City", DbType.String, school.City);
@@ -51,6 +51,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Email", DbType.String, school.Email);
             db.AddInParameter(command, "Location", DbType.String, school.Location);
             db.AddInParameter(command, "WebsiteURL", DbType.String, school.WebsiteURL);
+            db.AddInParameter(command, "RatingValue", DbType.Decimal, school.RatingValue);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, school.CreatedBy);
 
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -78,7 +79,7 @@ namespace RHP.StudentManagement
 
         public bool Update(School school,Database db, DbTransaction transaction)
         {
-            DbCommand command = db.GetStoredProcCommand("usp_SchoolInsert");
+            DbCommand command = db.GetStoredProcCommand("usp_SchoolUpdate");
 
             db.AddInParameter(command, "SchoolId", DbType.Guid, school.SchoolId);
             db.AddInParameter(command, "Name", DbType.String, school.Name);
@@ -91,7 +92,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Location", DbType.String, school.Location);
             db.AddInParameter(command, "WebsiteURL", DbType.String, school.WebsiteURL);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, school.UpdatedBy);
-            db.AddInParameter(command, "RatingValue", DbType.Guid, school.RatingValue);
+            db.AddInParameter(command, "RatingValue", DbType.Decimal, school.RatingValue);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
             if (transaction == null)
@@ -116,10 +117,18 @@ namespace RHP.StudentManagement
 
         public bool Delete(School school, Database db, DbTransaction transaction)
         {
-            DbCommand command = db.GetStoredProcCommand("usp_SchoolIdDelete");
+            DbCommand command = db.GetStoredProcCommand("usp_SchoolDelete");
             db.AddInParameter(command, "SchoolId", DbType.Guid, school.SchoolId);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, school.UpdatedBy);
-            db.ExecuteNonQuery(command, transaction);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, school.UpdatedBy); 
+            
+            if (transaction == null)
+            {
+                db.ExecuteNonQuery(command);
+            }
+            else
+            {
+                db.ExecuteNonQuery(command, transaction);
+            }
             return true;
         }
     }

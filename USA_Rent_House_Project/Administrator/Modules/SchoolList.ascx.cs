@@ -16,18 +16,31 @@ namespace USA_Rent_House_Project.Administrator.Modules
 {
     public partial class SchoolList : System.Web.UI.UserControl
     {
-        DataSet dsSchools = new DataSet();
+        private DataSet dsSchools
+        {
+            get
+            {
+                DataSet ds;
+                ds = SessionManager.GetSession<DataSet>(Constants.SESSION_SCHOOL_LIST);
+
+                if (ds == null)
+                {
+                    ds = new SchoolDAO().SelectAllDataset();
+                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["SchoolId"] };
+                    Session[Constants.SESSION_SCHOOL_LIST] = ds;
+                }
+
+                return ds;
+            }
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            Session[Constants.SESSION_SCHOOL_LIST] = dsSchools;
             LoadGrid();
         }
 
         private void LoadGrid()
         {
-            dsSchools = SessionManager.GetSession<DataSet>(Constants.SESSION_SCHOOL_LIST);
             gvSchoolList.SettingsText.ConfirmDelete = Messages.Delete_Confirm;
-            dsSchools.Tables[0].PrimaryKey = new DataColumn[] { dsSchools.Tables[0].Columns["SchoolId"] };
             gvSchoolList.DataSource = dsSchools.Tables[0];
             gvSchoolList.DataBind();
         }
@@ -37,15 +50,18 @@ namespace USA_Rent_House_Project.Administrator.Modules
             ASPxGridView gridView = sender as ASPxGridView;
 
             School school = new School();
-            school.State = e.NewValues["State"].ToString();
-            school.StreetAddress = e.NewValues["StreetAddress"].ToString();
-            school.WebsiteURL = e.NewValues["WebsiteURL"].ToString();
-            school.Year = e.NewValues["Year"].ToString();
-            school.Zip = e.NewValues["Zip"].ToString();
-            school.City = e.NewValues["City"].ToString();
-            school.ContactNumber = e.NewValues["ContactNumber"].ToString();
+            school.Name = GetColumnValue(e.NewValues["Name"]);
+            school.State = GetColumnValue(e.NewValues["State"]);
+            school.StreetAddress = GetColumnValue(e.NewValues["StreetAddress"]);
+            school.WebsiteURL = GetColumnValue(e.NewValues["WebsiteURL"]);
+            school.Year = GetColumnValue(e.NewValues["Year"]);
+            school.Zip = GetColumnValue(e.NewValues["Zip"]);
+            school.City = GetColumnValue(e.NewValues["City"]);
+            school.ContactNumber = GetColumnValue(e.NewValues["ContactNumber"]);
             school.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey;
-            school.Email = e.NewValues["Email"].ToString().Trim();
+            school.Email = GetColumnValue(e.NewValues["Email"]);
+            school.RatingValue = e.NewValues["RatingValue"] == null ? decimal.Zero : (decimal)e.NewValues["RatingValue"];
+
             gridView.CancelEdit();
             e.Cancel = true;
 
@@ -57,6 +73,8 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
+
+            Session[Constants.SESSION_SCHOOL_LIST] = new SchoolDAO().SelectAllDataset();
             LoadGrid();
         }
 
@@ -65,15 +83,20 @@ namespace USA_Rent_House_Project.Administrator.Modules
             ASPxGridView gridView = sender as ASPxGridView;
 
             School school = new School();
-            school.State = e.NewValues["State"].ToString();
-            school.StreetAddress = e.NewValues["StreetAddress"].ToString();
-            school.WebsiteURL = e.NewValues["WebsiteURL"].ToString();
-            school.Year = e.NewValues["Year"].ToString();
-            school.Zip = e.NewValues["Zip"].ToString();
-            school.City = e.NewValues["City"].ToString();
-            school.ContactNumber = e.NewValues["ContactNumber"].ToString();
+            school.SchoolId = (Guid)e.Keys[gvSchoolList.KeyFieldName];
+            school.Name = GetColumnValue(e.NewValues["Name"]);
+            school.State = GetColumnValue(e.NewValues["State"]);
+            school.StreetAddress = GetColumnValue(e.NewValues["StreetAddress"]);
+            school.WebsiteURL = GetColumnValue(e.NewValues["WebsiteURL"]);
+            school.Year = GetColumnValue(e.NewValues["Year"]);
+            school.Zip = GetColumnValue(e.NewValues["Zip"]);
+            school.City = GetColumnValue(e.NewValues["City"]);
+            school.ContactNumber = GetColumnValue(e.NewValues["ContactNumber"]);
+            school.Email = GetColumnValue(e.NewValues["Email"]);
+            school.RatingValue = e.NewValues["RatingValue"] == null ? decimal.Zero : (decimal)e.NewValues["RatingValue"];
+
             school.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey;
-            school.Email = e.NewValues["Email"].ToString().Trim();
+
             gridView.CancelEdit();
             e.Cancel = true;
 
@@ -85,7 +108,24 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
+
+            Session[Constants.SESSION_SCHOOL_LIST] = new SchoolDAO().SelectAllDataset();
+
             LoadGrid();
+        }
+
+        private string GetColumnValue(object column)
+        {
+            string text ;
+            if (column != null)
+            {
+                text = column.ToString();
+            }
+            else
+            {
+                text = string.Empty;
+            }
+            return text;
         }
 
         protected void gvSchoolList_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
@@ -105,6 +145,8 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
+
+            Session[Constants.SESSION_SCHOOL_LIST] = new SchoolDAO().SelectAllDataset();
             LoadGrid();
         }
 

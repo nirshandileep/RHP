@@ -15,7 +15,7 @@ namespace RHP.UserManagement
     {
 
         //These properties are required to create the user in ASP Membership tables
-        public Guid UserId { get; set; }
+        public Guid? UserId { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -29,7 +29,7 @@ namespace RHP.UserManagement
         public string City { get; set; }
         public string State { get; set; }
         public string Zip { get; set; }
-        public DateTime DateOfBirth { get; set; }
+        public DateTime? DateOfBirth { get; set; }
         public string BestContactNumber { get; set; }
         public string DriversLicenseNumber { get; set; }
         public string Status { get; set; }

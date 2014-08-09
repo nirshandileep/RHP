@@ -6,16 +6,31 @@ using RHP.Common;
 using RHP.UserManagement;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
+using RHP.Utility;
 
 namespace RHP.StudentManagement
 {
     public class Student : Base
     {
         public Guid StudentId { get; set; }
+        public Guid UserId { get; set; }
+        public Guid SchoolId { get; set; }
         public School School { get; set; }
         public User StudentUser { get; set; }
         public string LandloadName { get; set; }
         public string LandloadPlace { get; set; }
+        public int Year { get; set; }
+
+        public Student Select(Guid studentid)
+        {
+            Student student;
+            student = Generic.GetByGUID<Student>(studentid);
+            if (student != null)
+            {
+                student.School = School.Select(student.SchoolId);
+            }
+            return student;
+        }
 
         public bool Save()
         {

@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace RHP.Common
 {
@@ -24,7 +27,20 @@ namespace RHP.Common
         #region Sessions
 
         public static readonly string SESSION_SCHOOL_LIST = "SESSION_SCHOOL_LIST";
+        public static readonly string SESSION_LOGGED_USER = "SESSION_LOGGED_USER";
 
         #endregion
+
+        #region Dropdown values
+        public static readonly ListItem[] STUDENT_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
+        public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+        #endregion
+
+        public static readonly string DROPDOWN_EMPTY_ITEM_TEXT = "--Please Select--";
+        public static readonly string DROPDOWN_EMPTY_ITEM_VALUE = "-1";
+
+        public static readonly int STUDENT_PROFILE_STARTING_YEAR = 2006;
+        public static readonly int STUDENT_PROFILE_NUMBER_OF_YEARS = 12;
+        
     }
 }

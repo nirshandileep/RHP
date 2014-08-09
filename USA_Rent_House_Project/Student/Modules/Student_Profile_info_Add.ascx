@@ -12,8 +12,6 @@
             <p>
                 <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                 <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
-                    <asp:ListItem Value="male">Male</asp:ListItem>
-                    <asp:ListItem Value="female">Female</asp:ListItem>
                 </asp:DropDownList>
             </p>
 
@@ -183,13 +181,11 @@
             <p>
                 <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year:</asp:Label>
                 <asp:DropDownList ID="DRPYear" runat="server">
-                    <asp:ListItem>2001</asp:ListItem>
                 </asp:DropDownList>
             </p>
             <p>
                 <asp:Label ID="LabelStatus" runat="server" AssociatedControlID="Status" CssClass="form_label">Status:</asp:Label>
                 <asp:DropDownList ID="Status" runat="server">
-                    <asp:ListItem>Junior</asp:ListItem>
                 </asp:DropDownList>
             </p>
              <p>
@@ -226,6 +222,7 @@
         <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Student" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
+            <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>
     </div>
 </div>

@@ -15,7 +15,7 @@ namespace RHP.StudentManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_StudentInsert");
 
-            db.AddInParameter(command, "StudentId", DbType.Guid, student.StudentId);
+            db.AddInParameter(command, "StudentId", DbType.Guid, Guid.NewGuid());
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
