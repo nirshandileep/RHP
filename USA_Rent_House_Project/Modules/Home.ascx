@@ -12,6 +12,6 @@
     </div>
 
     <div class="buttons">
-    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Default.aspx">Search</asp:HyperLink>
+    <asp:HyperLink ID="HyperLink1" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Search.aspx">Search</asp:HyperLink>
     </div>
 </div>

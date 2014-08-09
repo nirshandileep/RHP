@@ -174,8 +174,8 @@
              <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label">School Name:</asp:Label>
                 <asp:DropDownList ID="DrpSchoolName" runat="server" CssClass="dropDownEntry">
-                    <asp:ListItem >SchoolName</asp:ListItem>
-                    <asp:ListItem >SchoolName</asp:ListItem>
+                    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
+                    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
                 </asp:DropDownList>
             </p>
 

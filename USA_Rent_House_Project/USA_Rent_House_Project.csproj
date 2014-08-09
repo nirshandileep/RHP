@@ -204,6 +204,7 @@
     <Content Include="Modules\Request_Password.ascx" />
     <Content Include="Modules\Secret_Question.ascx" />
     <Content Include="Request_New_Password.aspx" />
+    <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Modules\Student_Profile_Comments.ascx" />
     <Content Include="Student\Modules\Student_Profile_Data.ascx" />
@@ -586,6 +587,13 @@
     </Compile>
     <Compile Include="Request_New_Password.aspx.designer.cs">
       <DependentUpon>Request_New_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
     </Compile>
     <Compile Include="Secret_Question.aspx.cs">
       <DependentUpon>Secret_Question.aspx</DependentUpon>

@@ -21,7 +21,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (!IsPostBack)
             {
                 string v = Utility.GetQueryStringValueByKey(Request, "type");
-                if (v == "s")
+                if (v == "l")
                 {
                     loadFBData();
                 }
@@ -127,9 +127,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     else
                     {
                         user.Password = Password.Text.Trim();
-                        user.Name = Name.Text.Trim();
+                        user.UserName = UserName.Text.Trim();
                     }
 
+                    user.Name = Name.Text.Trim();
                     user.Email = Email.Text.Trim();
                     user.StreetAddress = Address.Text.Trim();
                     user.City = City.Text.Trim();
@@ -150,6 +151,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         MembershipUser mUser;
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         string strKey = mUser.ProviderUserKey.ToString();
+                        user.UserId = user.UserId;
 
                         if (user.Save())
                         {

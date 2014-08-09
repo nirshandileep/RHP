@@ -126,9 +126,9 @@ namespace USA_Rent_House_Project.Student.Modules
                     else
                     {
                         user.Password = Password.Text.Trim();
-                        user.Name = Name.Text.Trim();
+                        user.UserName = UserName.Text.Trim();
                     }
-
+                    user.Name = Name.Text.Trim();
                     user.Email = Email.Text.Trim();
                     user.StreetAddress = Address.Text.Trim();
                     user.City = City.Text.Trim();
@@ -143,7 +143,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     //to be added to school table
 
-                    student.StudentUser.UserId = user.UserId;
+                 //   Guid g = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
                     student.School.SchoolId = new Guid(DrpSchoolName.SelectedItem.Value.ToString());
                     student.School.Name = DrpSchoolName.SelectedItem.Text.ToString();
                     student.School.Year = DRPYear.SelectedItem.Value.ToString();
@@ -161,7 +161,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         MembershipUser mUser;
                         mUser = Membership.GetUser(UserName.Text.Trim());
                         user.UserId = new Guid(mUser.ProviderUserKey.ToString());
-
+                        student.StudentUser.UserId = user.UserId;
                         if (user.Save())
                         {
                             student.Save();

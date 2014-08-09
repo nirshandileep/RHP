@@ -27,14 +27,14 @@ namespace USA_Rent_House_Project.Modules
                     CreateProfile.Visible = true;
                     FacebookLogin.Visible = true;
                     FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=s";
-                    CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx?type=s";
+                    CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx";
                 }
                 else if (tupe == "l")
                 {
                     CreateProfile.Visible = true;
                     FacebookLogin.Visible = true;
                     FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
-                    CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx?type=l";
+                    CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx";
                 }
             }
         }
