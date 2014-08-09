@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RHP.LandlordManagement
 {
-    class HouseDAO
+   public class HouseDAO
     {
     }
 }
