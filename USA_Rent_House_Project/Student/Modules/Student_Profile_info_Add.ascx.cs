@@ -21,10 +21,19 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (!IsPostBack)
             {
-             
-                if (user.UserId != null)
+
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    loadFBData();
+                    if (user.IsFBUser == true)
+                    {
+                        loadFBData();
+                    }
+                    else
+                    {
+                        FormsAuthentication.SignOut();
+                        HttpContext.Current.Response.Redirect("/Land_load/Land_load_Profile_Add.aspx", false);
+                    }
+
                 }
 
             }
@@ -93,7 +102,6 @@ namespace USA_Rent_House_Project.Student.Modules
                             user.Answer = Answer.Text.Trim();
 
                             object objCreateMembershipUser = new object();
-
                           
                             objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "student");
 
@@ -103,7 +111,7 @@ namespace USA_Rent_House_Project.Student.Modules
                             {
                                 MembershipUser mUser;
                                 mUser = Membership.GetUser(UserName.Text.Trim());
-                                user.UserId = new Guid(mUser.ProviderUserKey.ToString());
+                                user.UserId = (Guid)mUser.ProviderUserKey;
                             }
                             else
                             {

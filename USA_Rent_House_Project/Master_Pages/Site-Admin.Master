@@ -1,44 +1,60 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site-Admin.master.cs" Inherits="USA_Rent_House_Project.Masrer_Pages.Site_Admin" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site-Admin.master.cs"
+    Inherits="USA_Rent_House_Project.Masrer_Pages.Site_Admin" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title> Rent a property Adminnistrator</title>
+     <link href="~/Styles/Admin_Style.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-      <div class="loginDisplay">
+    <form id="Form1" runat="server">
+    <div class="page">
+        <div class="header">
+            <div class="title">
+                <h1>
+                    Rent a property Adminnistrator
+                </h1>
+            </div>
+            <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
                     <AnonymousTemplate>
-                      <%--  [ <a href="~/Account/Login" ID="HeadLoginStatus" runat="server">Log In</a> ]--%>
+                        <%--  [ <a href="~/Account/Login" ID="HeadLoginStatus" runat="server">Log In</a> ]--%>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                          <asp:LinkButton ID="LBLogOut" runat="server" onclick="LBLogOut_Click"> Log Out</asp:LinkButton>
-                
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!
+                        <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-    <div>
-    <div>
-    <asp:Menu ID="MenuAdmin" runat="server" Orientation="Horizontal">
-        <Items>
-            <asp:MenuItem NavigateUrl="~/Administrator/Landload.aspx" Text="Landload" ToolTip="Landload">
-            </asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/Administrator/Student.aspx" Text="Student" ToolTip="Student">
-            </asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/Administrator/Property.aspx" Text="Property" ToolTip="Property">
-            </asp:MenuItem>
-            <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature.aspx" Text="Property Feature"
-                ToolTip="Property Feature"></asp:MenuItem>
-        </Items>
-    </asp:Menu>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
+            <div class="clear hideSkiplink">
+                <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" EnableViewState="false"
+                    IncludeStyleBlock="false" Orientation="Horizontal">
+                    <Items>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Landload.aspx" Text="Landload" ToolTip="Landload">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Student.aspx" Text="Student" ToolTip="Student">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Property.aspx" Text="Property" ToolTip="Property">
+                        </asp:MenuItem>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature.aspx" Text="Property Feature"
+                            ToolTip="Property Feature"></asp:MenuItem>
+                    </Items>
+                </asp:Menu>
+            </div>
+        </div>
+        <div class="main">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <div class="clear">
+        </div>
+    </div>
+    <div class="footer">
     </div>
     </form>
 </body>

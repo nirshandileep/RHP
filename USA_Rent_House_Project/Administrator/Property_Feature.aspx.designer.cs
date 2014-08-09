@@ -13,15 +13,6 @@ namespace USA_Rent_House_Project.Administrator {
     public partial class Property_Feature {
         
         /// <summary>
-        /// PropertyFeatureAddID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Administrator.Modules.PropertyFeatureAdd PropertyFeatureAddID;
-        
-        /// <summary>
         /// PropertyFeatureListID control.
         /// </summary>
         /// <remarks>

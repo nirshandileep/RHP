@@ -78,7 +78,7 @@ namespace RHP.StudentManagement
 
         public bool Update(School school,Database db, DbTransaction transaction)
         {
-            DbCommand command = db.GetStoredProcCommand("usp_SchoolInsert");
+            DbCommand command = db.GetStoredProcCommand("usp_SchoolUpdate");
 
             db.AddInParameter(command, "SchoolId", DbType.Guid, school.SchoolId);
             db.AddInParameter(command, "Name", DbType.String, school.Name);

@@ -5,16 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace USA_Rent_House_Project.Administrator.Modules
+namespace USA_Rent_House_Project.Administrator
 {
-    public partial class PropertyFeatureEdit : System.Web.UI.UserControl
+    public partial class Property_Feature_Items : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void EditFeature_Click(object sender, EventArgs e)
         {
 
         }

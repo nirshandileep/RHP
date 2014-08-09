@@ -169,8 +169,7 @@
     <Content Include="Administrator\Landload_View.aspx" />
     <Content Include="Administrator\Modules\LandloadList.ascx" />
     <Content Include="Administrator\Modules\LandloadView.ascx" />
-    <Content Include="Administrator\Modules\PropertyFeatureAdd.ascx" />
-    <Content Include="Administrator\Modules\PropertyFeatureEdit.ascx" />
+    <Content Include="Administrator\Modules\PropertyFeatureItemList.ascx" />
     <Content Include="Administrator\Modules\PropertyFeatureList.ascx" />
     <Content Include="Administrator\Modules\PropertyList.ascx" />
     <Content Include="Administrator\Modules\PropertyView.ascx" />
@@ -181,6 +180,7 @@
     <Content Include="Administrator\Modules\UserView.ascx" />
     <Content Include="Administrator\Property.aspx" />
     <Content Include="Administrator\Property_Feature.aspx" />
+    <Content Include="Administrator\Property_Feature_Items.aspx" />
     <Content Include="Administrator\Property_View.aspx" />
     <Content Include="Administrator\School_List.aspx" />
     <Content Include="Administrator\Student.aspx" />
@@ -217,6 +217,7 @@
     <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
+    <Content Include="Styles\Admin_Style.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -304,19 +305,12 @@
     <Compile Include="Administrator\Modules\LandloadView.ascx.designer.cs">
       <DependentUpon>LandloadView.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\Modules\PropertyFeatureAdd.ascx.cs">
-      <DependentUpon>PropertyFeatureAdd.ascx</DependentUpon>
+    <Compile Include="Administrator\Modules\PropertyFeatureItemList.ascx.cs">
+      <DependentUpon>PropertyFeatureItemList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrator\Modules\PropertyFeatureAdd.ascx.designer.cs">
-      <DependentUpon>PropertyFeatureAdd.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrator\Modules\PropertyFeatureEdit.ascx.cs">
-      <DependentUpon>PropertyFeatureEdit.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrator\Modules\PropertyFeatureEdit.ascx.designer.cs">
-      <DependentUpon>PropertyFeatureEdit.ascx</DependentUpon>
+    <Compile Include="Administrator\Modules\PropertyFeatureItemList.ascx.designer.cs">
+      <DependentUpon>PropertyFeatureItemList.ascx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Modules\PropertyFeatureList.ascx.cs">
       <DependentUpon>PropertyFeatureList.ascx</DependentUpon>
@@ -387,6 +381,13 @@
     </Compile>
     <Compile Include="Administrator\Property_Feature.aspx.designer.cs">
       <DependentUpon>Property_Feature.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\Property_Feature_Items.aspx.cs">
+      <DependentUpon>Property_Feature_Items.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\Property_Feature_Items.aspx.designer.cs">
+      <DependentUpon>Property_Feature_Items.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Property_View.aspx.cs">
       <DependentUpon>Property_View.aspx</DependentUpon>
