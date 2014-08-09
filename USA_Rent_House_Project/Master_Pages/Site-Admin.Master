@@ -10,6 +10,19 @@
 </head>
 <body>
     <form id="form1" runat="server">
+      <div class="loginDisplay">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                    <AnonymousTemplate>
+                      <%--  [ <a href="~/Account/Login" ID="HeadLoginStatus" runat="server">Log In</a> ]--%>
+                    </AnonymousTemplate>
+                    <LoggedInTemplate>
+                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                          <asp:LinkButton ID="LBLogOut" runat="server" onclick="LBLogOut_Click"> Log Out</asp:LinkButton>
+                
+                    </LoggedInTemplate>
+                </asp:LoginView>
+            </div>
+    <div>
     <div>
     <asp:Menu ID="MenuAdmin" runat="server" Orientation="Horizontal">
         <Items>

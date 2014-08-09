@@ -75,9 +75,9 @@ namespace RHP.UserManagement
                         {
                             Roles.AddUserToRole(strUserName, "student");
                         }
-                        if (userRole == "landload")
+                        if (userRole == "landlord")
                         {
-                            Roles.AddUserToRole(strUserName, "landload");
+                            Roles.AddUserToRole(strUserName, "landlord");
                         }
 
                         break;
@@ -139,7 +139,7 @@ namespace RHP.UserManagement
 
                 if (success == "True")
                 {
-
+                  
                     MembershipUser newUser;
                     newUser = Membership.GetUser(UserName);
                     UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
@@ -173,6 +173,7 @@ namespace RHP.UserManagement
             }
             else
             {
+                FormsAuthentication.SetAuthCookie(UserName, false);
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(),false);
             }
         }

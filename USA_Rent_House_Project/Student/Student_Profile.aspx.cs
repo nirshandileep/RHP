@@ -11,7 +11,7 @@ namespace USA_Rent_House_Project.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           
         }
     }
 }

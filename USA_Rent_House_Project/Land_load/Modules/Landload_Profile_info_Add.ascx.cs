@@ -20,9 +20,17 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (!IsPostBack)
             {
-                if (user.UserId != null)
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    loadFBData();
+                    if (user.IsFBUser == true)
+                    {
+                        loadFBData();
+                    }
+                    else {
+                        FormsAuthentication.SignOut();
+                        HttpContext.Current.Response.Redirect("/Land_load/Land_load_Profile_Add.aspx", false);
+                    }
+
                 }
 
             }
@@ -67,7 +75,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                    
                     user.Status = "Active";
 
-                    if (user.UserId != null)
+                    if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         // user created by facebook
                         boolMembershipUserCreated = true;
@@ -81,7 +89,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                           object objCreateMembershipUser = new object();
 
-                            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "landload");
+                          objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "landlord");
 
                             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
@@ -90,7 +98,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                 MembershipUser mUser;
                                 mUser = Membership.GetUser(UserName.Text.Trim());
                                 string strKey = mUser.ProviderUserKey.ToString();
-                                user.UserId = user.UserId;
+                               // user.UserId = strKey;
 
                             }
                             else

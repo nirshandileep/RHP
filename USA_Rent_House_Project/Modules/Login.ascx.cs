@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using System.Web.Security;
 using RHP.UserManagement;
 using RHP.Common;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Modules
 {
@@ -20,22 +21,23 @@ namespace USA_Rent_House_Project.Modules
          //   CreateProfile
             if (!IsPostBack)
             {
-                string tupe = Request.QueryString["type"].ToString();
+                string value = Utility.GetQueryStringValueByKey(Request, "type");
 
-                if (tupe == "s")
+                if (value == "s")
                 {
                     CreateProfile.Visible = true;
                     FacebookLogin.Visible = true;
                     FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=s";
                     CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx";
                 }
-                else if (tupe == "l")
+                else if (value == "l")
                 {
                     CreateProfile.Visible = true;
                     FacebookLogin.Visible = true;
                     FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
                     CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx";
                 }
+                
             }
         }
 

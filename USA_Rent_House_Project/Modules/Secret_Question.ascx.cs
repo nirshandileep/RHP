@@ -15,7 +15,7 @@ namespace USA_Rent_House_Project.Modules
         MembershipUser u;
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         protected void EnterUserName_Click(object sender, EventArgs e)
