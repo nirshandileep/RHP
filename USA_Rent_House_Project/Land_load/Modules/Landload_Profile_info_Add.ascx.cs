@@ -97,7 +97,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                             {
                                 MembershipUser mUser;
                                 mUser = Membership.GetUser(UserName.Text.Trim());
-                                string strKey = mUser.ProviderUserKey.ToString();
+                                user.UserId = (Guid)mUser.ProviderUserKey;
                                // user.UserId = strKey;
 
                             }
