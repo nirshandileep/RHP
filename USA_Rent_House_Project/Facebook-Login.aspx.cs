@@ -8,6 +8,7 @@ using RHP.Facebook;
 using DotNetOpenAuth.OAuth2;
 using RHP.UserManagement;
 using RHP.Utility;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project
 {
@@ -26,7 +27,8 @@ namespace USA_Rent_House_Project
         protected void Page_Load(object sender, EventArgs e)
         {
             string ReturnURL = "";
-            string LoginText = "";
+
+            string userRole = "";
 
             if (!IsPostBack)
             {
@@ -34,13 +36,13 @@ namespace USA_Rent_House_Project
 
                 if (value == "s")
                 {
-                    ReturnURL = "~/Student/Student_Profile_Add.aspx?type=s";
-                    LoginText = "Student Login";
+                    ReturnURL = "~/Student/Student_Profile_Add.aspx";
+                    userRole = "student";
                 }
                 else if (value == "l")
                 {
-                    ReturnURL = "~/Land_load/Land_load_Profile_Add.aspx?type=l";
-                    LoginText = "House Login";
+                    ReturnURL = "~/Land_load/Land_load_Profile_Add.aspx";
+                    userRole = "landload";
                 }
                 else
                 {
@@ -118,7 +120,26 @@ namespace USA_Rent_House_Project
                     }
                     else
                     {
-                        Response.Redirect(ReturnURL,false);
+                        object objCreateMembershipUser = new object();
+
+                        bool boolMembershipUserCreated = false;
+
+                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Password, user.Question, user.Answer, true, userRole);
+                        bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                        if (boolMembershipUserCreated)
+                        {
+                            MembershipUser mUser;
+                            mUser = Membership.GetUser(user.UserName);
+                            user.UserId = new Guid(mUser.ProviderUserKey.ToString());
+                            Response.Redirect(ReturnURL, false);
+                        }
+                        else
+                        {
+                            // error
+                        }
+                        
+                       
                     }
                    
                 }

@@ -20,8 +20,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (!IsPostBack)
             {
-                string v = Utility.GetQueryStringValueByKey(Request, "type");
-                if (v == "l")
+                if (user.UserId != null)
                 {
                     loadFBData();
                 }
@@ -46,66 +45,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
         }
 
-        public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon)
-        {
-
-            object objMembershipUser = false;
-            MembershipCreateStatus mcstatus = new MembershipCreateStatus();
-
-            if (!strQuestion.EndsWith("?"))
-                strQuestion = strQuestion + "?";
-
-            Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus);
-            switch (mcstatus)
-            {
-                case (MembershipCreateStatus.Success):
-                    {
-                        objMembershipUser = true;
-
-                        Roles.AddUserToRole(strUserName, "landload"); 
-                        break;
-                    }
-                case (MembershipCreateStatus.DuplicateProviderUserKey):
-                    {
-                        objMembershipUser = "Internal Error. Contact Administrator";
-                        break;
-                    }
-
-                case (MembershipCreateStatus.DuplicateUserName):
-                    {
-                        objMembershipUser = "User Name already in system.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidPassword):
-                    {
-                        objMembershipUser = "Invalid Password.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidUserName):
-                    {
-                        objMembershipUser = "Invalid User Name";
-                        break;
-                    }
-                case (MembershipCreateStatus.DuplicateEmail):
-                    {
-                        objMembershipUser = "Email already in system.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidEmail):
-                    {
-                        objMembershipUser = "Invalid Email.";
-                        break;
-                    }
-                default:
-                    {
-                        objMembershipUser = "Invalid User Name";
-                        break;
-                    }
-            }
-            return objMembershipUser;
-        }
-
-
+     
         protected void CreateUserButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid == true)
@@ -114,21 +54,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 try
                 {
 
-                    object objCreateMembershipUser = new object();
-
                     bool boolMembershipUserCreated = false;
-
-                    if (Utility.GetQueryStringValueByKey(Request, "type") == "s")
-                    {
-                        //user.Password;  FB password
-                        //user.UserName  FB username
-
-                    }
-                    else
-                    {
-                        user.Password = Password.Text.Trim();
-                        user.UserName = UserName.Text.Trim();
-                    }
 
                     user.Name = Name.Text.Trim();
                     user.Email = Email.Text.Trim();
@@ -138,45 +64,54 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     user.Zip = Zip.Text.Trim();
                     user.BestContactNumber = Mobile.Text.Trim();
                     user.Gender = DrpGender.SelectedItem.Value.ToString();
-                    user.Question = Question.Text.Trim();
-                    user.Answer = Answer.Text.Trim();
+                   
                     user.Status = "Active";
 
-                    objCreateMembershipUser = AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true);
+                    if (user.UserId != null)
+                    {
+                        // user created by facebook
+                        boolMembershipUserCreated = true;
+                    }
+                    else
+                    {
+                        user.Password = Password.Text.Trim();
+                        user.UserName = UserName.Text.Trim();
+                        user.Question = Question.Text.Trim();
+                        user.Answer = Answer.Text.Trim();
 
-                    bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+                          object objCreateMembershipUser = new object();
+
+                            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "landload");
+
+                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                            if (boolMembershipUserCreated)
+                            {
+                                MembershipUser mUser;
+                                mUser = Membership.GetUser(UserName.Text.Trim());
+                                string strKey = mUser.ProviderUserKey.ToString();
+                                user.UserId = user.UserId;
+
+                            }
+                            else
+                            {
+                                // error
+                            }
+                    }
 
                     if (boolMembershipUserCreated)
                     {
-                        MembershipUser mUser;
-                        mUser = Membership.GetUser(UserName.Text.Trim());
-                        string strKey = mUser.ProviderUserKey.ToString();
-                        user.UserId = user.UserId;
-
                         if (user.Save())
                         {
                             landload.Save();
 
                             // success
+
                         }
 
-                        string url = "/Land_load/Land_load_Profile.aspx";
-                        string script = "window.onload = function(){ alert('";
-                        script += "Successfully created";
-                        script += "');";
-                        script += "window.location = '";
-                        script += url;
-                        script += "'; }";
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script, true);
-
-
+                       
                     }
-                    else
-                    {
-                        // FormsAuthentication.SetAuthCookie(strUsername, false /* createPersistentCookie */);
-
-                        // LabelError.Text = "" + objCreateMembershipUser.ToString();
-                    }
+                   
                 }
                 catch (Exception ex)
                 {

@@ -43,7 +43,7 @@
                     be changed. This should not be the same as your email. The length must be between
                     4 and 20 characters.</span>
             </p>
-            <p>
+            <p id="setEmail" runat="server">>
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
@@ -206,15 +206,16 @@
                     CssClass="failureNotification" ErrorMessage="Land Load Place is required." ToolTip="Land Load Place is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-            to validate Student when connecting us :
-            <p>
+           <p id="setQuestiontitle" runat="server">        to validate Student when connecting us :</p>
+            <p id="setQuestion" runat="server">
+     
                 <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question" CssClass="form_label">Secret Question:</asp:Label>
                 <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="QuestionRequiredFieldValidator" runat="server" ControlToValidate="Question"
                     CssClass="failureNotification" ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-            <p>
+            <p id="setAnswer" runat="server">
                 <asp:Label ID="LabelAnswer" runat="server" AssociatedControlID="Answer" CssClass="form_label">Answer:</asp:Label>
                 <asp:TextBox ID="Answer" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AnswerRequiredFieldValidator" runat="server" ControlToValidate="Answer"

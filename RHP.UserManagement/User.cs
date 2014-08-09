@@ -56,6 +56,73 @@ namespace RHP.UserManagement
             }
         }
 
+        public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,string userRole)
+        {
+
+            object objMembershipUser = false;
+            MembershipCreateStatus mcstatus = new MembershipCreateStatus();
+
+            if (!strQuestion.EndsWith("?"))
+                strQuestion = strQuestion + "?";
+
+            Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus);
+            switch (mcstatus)
+            {
+                case (MembershipCreateStatus.Success):
+                    {
+                        objMembershipUser = true;
+                        if (userRole == "student")
+                        {
+                            Roles.AddUserToRole(strUserName, "student");
+                        }
+                        if (userRole == "landload")
+                        {
+                            Roles.AddUserToRole(strUserName, "landload");
+                        }
+
+                        break;
+                    }
+                case (MembershipCreateStatus.DuplicateProviderUserKey):
+                    {
+                        objMembershipUser = "Internal Error. Contact Administrator";
+                        break;
+                    }
+
+                case (MembershipCreateStatus.DuplicateUserName):
+                    {
+                        objMembershipUser = "User Name already in system.";
+                        break;
+                    }
+                case (MembershipCreateStatus.InvalidPassword):
+                    {
+                        objMembershipUser = "Invalid Password.";
+                        break;
+                    }
+                case (MembershipCreateStatus.InvalidUserName):
+                    {
+                        objMembershipUser = "Invalid User Name";
+                        break;
+                    }
+                case (MembershipCreateStatus.DuplicateEmail):
+                    {
+                        objMembershipUser = "Email already in system.";
+                        break;
+                    }
+                case (MembershipCreateStatus.InvalidEmail):
+                    {
+                        objMembershipUser = "Invalid Email.";
+                        break;
+                    }
+                default:
+                    {
+                        objMembershipUser = "Invalid User Name";
+                        break;
+                    }
+            }
+            return objMembershipUser;
+        }
+
+
         public bool AuthenticateUser()
         {
             string success = "";
