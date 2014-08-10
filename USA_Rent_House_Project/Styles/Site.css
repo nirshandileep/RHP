@@ -483,9 +483,13 @@ input.actionbutton:hover
 
 .homelargebuttons
 {
-    float:none;
-}  
     
+}  
+   
+ .searchbuttons
+ {
+     width:100% !important;
+ } 
 #forminner input, #forminner select
 {
     
