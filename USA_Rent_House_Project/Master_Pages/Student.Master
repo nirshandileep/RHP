@@ -22,7 +22,7 @@
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-    <div>
+  
     <div>
         <asp:ContentPlaceHolder ID="MainContent" runat="server">
         

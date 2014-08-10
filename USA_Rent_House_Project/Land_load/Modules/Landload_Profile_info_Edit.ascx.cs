@@ -5,14 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.UserManagement;
-using RHP.SessionManager;
 using RHP.Common;
-using RHP.StudentManagement;
-using System.Web.Security;
+using RHP.SessionManager;
+using RHP.LandlordManagement;
 
-namespace USA_Rent_House_Project.Student.Modules
+namespace USA_Rent_House_Project.Land_load.Modules
 {
-    public partial class Student_Profile_info_Edit : System.Web.UI.UserControl
+    public partial class Landload_Profile_info_Edit : System.Web.UI.UserControl
     {
         private User _user;
 
@@ -35,7 +34,7 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
-        RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
+        Landlord landload = new Landlord();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -54,23 +53,6 @@ namespace USA_Rent_House_Project.Student.Modules
             //Set Gender
             DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
 
-            //Set Schools
-            if (DrpSchoolName.Items.Count == 0)
-            {
-                DrpSchoolName.DataSource = School.SelectAllList();
-                DrpSchoolName.DataTextField = "Name";
-                DrpSchoolName.DataValueField = "SchoolId";
-                DrpSchoolName.DataBind();
-            }
-
-            //Load Years
-            DRPYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
-            for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
-            {
-                DRPYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
-            }
-
-            Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
         }
 
         public void LoadUserData()
@@ -82,16 +64,7 @@ namespace USA_Rent_House_Project.Student.Modules
             City.Text = user.City;
             Zip.Text = user.Zip;
             Mobile.Text = user.BestContactNumber;
-            DriversLicense.Text = user.DriversLicenseNumber;
             Question.Text = user.Question;
-
-            for (int i = 0; i < Status.Items.Count; i++)
-            {
-                if (Status.Items[i].Value.ToString().ToLower() == user.Status.ToLower())
-                {
-                    Status.Items[i].Selected = true;
-                }
-            }
 
             for (int i = 0; i < Drpstate.Items.Count; i++)
             {
@@ -109,26 +82,6 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
             }
 
-            // school data
-
-            for (int i = 0; i < DrpSchoolName.Items.Count; i++)
-            {
-                if (DrpSchoolName.Items[i].Value.ToString().ToLower() ==  student.School.SchoolId.ToString())
-                {
-                    DrpSchoolName.Items[i].Selected = true;
-                }
-            }
-
-            for (int i = 0; i < DRPYear.Items.Count; i++)
-            {
-                if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
-                {
-                    DRPYear.Items[i].Selected = true;
-                }
-            }
-
-            LandLoadName.Text = student.LandloadName;
-            LandLoadPlace.Text = student.LandloadPlace;
         }
 
         protected void EditUserButton_Click(object sender, EventArgs e)
@@ -137,7 +90,6 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 try
                 {
-
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         user.Name = Name.Text.Trim();
@@ -146,28 +98,14 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.State = Drpstate.SelectedItem.Value.ToString();
                         user.Zip = Zip.Text.Trim();
                         user.BestContactNumber = Mobile.Text.Trim();
-                        user.DriversLicenseNumber = DriversLicense.Text.Trim();
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.Status = Status.SelectedItem.Value.ToString();
                         user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
 
-                        string schoolId = DrpSchoolName.SelectedValue.ToString().Trim();
-
-                        if (student.School == null)
-                        {
-                            student.School = new School();
-                        }
-
-                        student.School.SchoolId = new Guid(schoolId);
-                        student.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
-                        student.IsDeleted = false;
-                        student.LandloadName = LandLoadName.Text.Trim();
-                        student.LandloadPlace = LandLoadPlace.Text.Trim();
-                        student.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
-                        student.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
                         if (user.Save())
                         {
-                            if (student.Save())
+                            landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
+
+                            if (landload.Save())
                             {
                                 lblError.Text = Messages.Save_Success;
                             }

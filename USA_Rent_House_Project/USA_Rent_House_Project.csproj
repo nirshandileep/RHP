@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -195,6 +198,7 @@
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
+    <Content Include="Land_load\Modules\Landload_Profile_info_Edit.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Login.aspx" />
@@ -207,6 +211,7 @@
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Modules\Student_Profile_Comments.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Comment_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_Data.ascx" />
     <Content Include="Student\Modules\Student_Profile_Header.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
@@ -216,6 +221,7 @@
     <Content Include="Student\Modules\Student_Public_Profile_Header.ascx" />
     <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
+    <Content Include="Student\Student_Profile_Edit.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Styles\Admin_Style.css" />
     <Content Include="Styles\Site.css" />
@@ -490,6 +496,13 @@
     <Compile Include="Land_load\Modules\Landload_Profile_info_Add.ascx.designer.cs">
       <DependentUpon>Landload_Profile_info_Add.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_info_Edit.ascx.cs">
+      <DependentUpon>Landload_Profile_info_Edit.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_info_Edit.ascx.designer.cs">
+      <DependentUpon>Landload_Profile_info_Edit.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx.cs">
       <DependentUpon>Landload_Public_Profile_Banner.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -610,6 +623,13 @@
     <Compile Include="Student\Modules\Student_Profile_Comments.ascx.designer.cs">
       <DependentUpon>Student_Profile_Comments.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Comment_Add.ascx.cs">
+      <DependentUpon>Student_Profile_Comment_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Comment_Add.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Comment_Add.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Modules\Student_Profile_Data.ascx.cs">
       <DependentUpon>Student_Profile_Data.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -672,6 +692,13 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Add.aspx.designer.cs">
       <DependentUpon>Student_Profile_Add.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Edit.aspx.cs">
+      <DependentUpon>Student_Profile_Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Edit.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>
