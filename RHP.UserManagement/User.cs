@@ -9,6 +9,7 @@ using RHP.Common;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 
+
 namespace RHP.UserManagement
 {
     public class User : Base
@@ -54,6 +55,12 @@ namespace RHP.UserManagement
                 rolesList = Roles.GetRolesForUser(UserName).ToList<string>();
                 return rolesList;
             }
+        }
+
+        public static User Select(Guid UserId)
+        {
+            User user = Utility.Generic.GetByGUID<User>(UserId);
+            return user;
         }
 
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,string userRole)

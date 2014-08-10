@@ -85,16 +85,17 @@ namespace USA_Rent_House_Project.Student.Modules
 				setQuestiontitle.Visible = false;
 				setQuestion.Visible = false;
 				setAnswer.Visible = false;
-			}
+			
 			Name.Text = user.Name;
 
-			for (int i = 0; i < DrpGender.Items.Count; i++)
-			{
-				if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
-				{
-					DrpGender.Items[i].Selected = true;
-				}
-			}
+			    for (int i = 0; i < DrpGender.Items.Count; i++)
+			    {
+				    if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+				    {
+					    DrpGender.Items[i].Selected = true;
+				    }
+			    }
+            }
 		}
 
 		protected void CreateUserButton_Click(object sender, EventArgs e)

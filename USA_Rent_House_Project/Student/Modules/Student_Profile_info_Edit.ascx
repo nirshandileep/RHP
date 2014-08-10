@@ -4,9 +4,11 @@
     <h2 class="form_heading">
         Student Profile info - Edit
     </h2>
+
+     <asp:HyperLink ID="HyperLinkChangePassword" runat="server" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink> | <asp:HyperLink ID="HyperLinkChangeQuestion" runat="server">Change Seacret Question</asp:HyperLink> 
+   
     <div id="formwrapper">
-        <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
-            ValidationGroup="RegisterStudentValidationGroup" />
+        <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" ValidationGroup="RegisterStudentValidationGroup" />
         <div id="forminner">
 
             <p>
