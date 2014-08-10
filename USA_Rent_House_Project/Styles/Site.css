@@ -349,6 +349,7 @@ input.actionbutton:hover
 {
    width: 1000px;  
     margin:0 auto;
+    overflow:hidden;
 }
 
 #footer
