@@ -7,16 +7,22 @@
     <div id="div_Search" runat="server" visible="true">
         <p class="homeheadingsub">
             "find your next connection"</p>
-        <p class="submitButton">
+            <div class="searchbuttons">
+        
             <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="homelargebuttons" Text="Search house"
                 OnClick="ButtonSearchHouse_Click" />
-        </p>
-        <p class="submitButton">
+      
+         
+        
             <asp:Button ID="ButtonSearchStudent" runat="server" CssClass="homelargebuttons" Text="Search student"
                 OnClick="ButtonSearchStudent_Click" />
-        </p>
+        
+         <div class="clear"></div>
+        </div>
+         <div class="clear"></div>
     </div>
-    <br />
+   
+   <div class="clear"></div>
     <div id="formwrapper">
         <div id="Div_Search_House" runat="server" visible="false">
             <h1>

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace RHP.LandlordManagement
 {
-    class HouseManager
+    public class HouseManager
     {
     }
 }

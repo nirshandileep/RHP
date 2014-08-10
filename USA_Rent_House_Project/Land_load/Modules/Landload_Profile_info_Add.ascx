@@ -13,8 +13,6 @@
            <p>
                 <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                 <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
-                    <asp:ListItem Value="male">Male</asp:ListItem>
-                    <asp:ListItem Value="female">Female</asp:ListItem>
                 </asp:DropDownList>
             </p>
             <p>
@@ -48,7 +46,7 @@
                     4 and 20 characters.</span>
             </p>
 
-            <p>
+              <p id="setEmail" runat="server">
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
@@ -167,8 +165,8 @@
                     ValidationGroup="RegisterLand_lordValidationGroup" ValidationExpression="^0[0-9]{9}$|^0[0-9]{1}[ ][0-9]{8}$|^0[1-9]{1}[ ][0-9]{4}[ ][0-9]{4}$">*
                 </asp:RegularExpressionValidator>
             </p>
-            to validate landlord when connecting us : 
-            <p>
+            <p id="setQuestiontitle" runat="server">        to validate Student when connecting us :</p>
+            <p id="setQuestion" runat="server">
                 <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question"
                     CssClass="form_label">Secret Question:</asp:Label>
                 <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -177,7 +175,7 @@
                     ToolTip="secret Question is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
                
             </p>
-            <p>
+              <p id="setAnswer" runat="server">
                 <asp:Label ID="LabelAnswer" runat="server" AssociatedControlID="Answer"
                     CssClass="form_label">Answer:</asp:Label>
                 <asp:TextBox ID="Answer" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -192,6 +190,7 @@
                 CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Landlord" ValidationGroup="RegisterLand_lordValidationGroup" 
                 onclick="CreateUserButton_Click"  />
+                 <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>
     </div>
 </div>

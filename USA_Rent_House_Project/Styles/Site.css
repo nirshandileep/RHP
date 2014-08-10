@@ -349,11 +349,17 @@ input.actionbutton:hover
 {
    width: 1000px;  
     margin:0 auto;
+    overflow:hidden;
 }
 
 #footer
 {
-    height:50px;    
+    border-top: 1px solid;
+    clear: both;
+    height: 50px;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: right;   
 }
 
 #two-col-1
@@ -473,8 +479,17 @@ input.actionbutton:hover
     border:none;
     width:100%;
     font-size:1.3em;
-}   
+} 
+
+.homelargebuttons
+{
     
+}  
+   
+ .searchbuttons
+ {
+     width:100% !important;
+ } 
 #forminner input, #forminner select
 {
     
@@ -494,6 +509,12 @@ input.actionbutton:hover
     width:100%;
     
 }
+
+input.homelargebuttons
+{
+    float:none;
+}  
+  
   
   #div_home .form_heading
 {
@@ -575,6 +596,37 @@ a.homelargebuttons
 a.homelargebuttons:hover
 {
     background-color:#083e64;
+}
+
+
+
+input.homelargebuttons 
+{
+    display:inline;
+    float:left;
+    margin:10px 0  15px 30px;
+    background-color:#0e72b8;
+    color:#ffffff;
+    padding:15px;
+    font-size:1.9em;
+   
+    text-decoration:none;
+    width:270px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+   
+}
+
+input.homelargebuttons:hover
+{
+    background-color:#083e64;
+}
+
+.searchbuttons
+{
+    width:650px;
+    margin: 0 auto;
 }
 
 

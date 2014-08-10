@@ -121,6 +121,15 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
         
         /// <summary>
+        /// setEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setEmail;
+        
+        /// <summary>
         /// EmailLabel control.
         /// </summary>
         /// <remarks>
@@ -382,6 +391,24 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator mobileRegularExpression;
         
         /// <summary>
+        /// setQuestiontitle control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setQuestiontitle;
+        
+        /// <summary>
+        /// setQuestion control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setQuestion;
+        
+        /// <summary>
         /// LabelQuestion control.
         /// </summary>
         /// <remarks>
@@ -407,6 +434,15 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator QuestionRequiredFieldValidator;
+        
+        /// <summary>
+        /// setAnswer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setAnswer;
         
         /// <summary>
         /// LabelAnswer control.
@@ -443,5 +479,14 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CreateUserButton;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

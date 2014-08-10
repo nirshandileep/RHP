@@ -27,6 +27,8 @@ namespace RHP.Common
         #region Sessions
 
         public static readonly string SESSION_SCHOOL_LIST = "SESSION_SCHOOL_LIST";
+        public static readonly string SESSION_LANDLOAD_LIST = "SESSION_LANDLOAD_LIST";
+        public static readonly string SESSION_STUDENT_LIST = "SESSION_STUDENT_LIST";
         public static readonly string SESSION_LOGGED_USER = "SESSION_LOGGED_USER";
         public static readonly string SESSION_FEATURE_LIST = "SESSION_FEATURE_LIST";
         public static readonly string SESSION_FEATURE_ITEMS_LIST = "SESSION_FEATURE_ITEMS_LIST";
@@ -36,6 +38,7 @@ namespace RHP.Common
 
         #region Dropdown values
         public static readonly ListItem[] STUDENT_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
+        public static readonly ListItem[] LANDLOAD_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
         public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
         #endregion
 

@@ -42,17 +42,17 @@ namespace USA_Rent_House_Project
                 else if (value == "l")
                 {
                     ReturnURL = "~/Land_load/Land_load_Profile_Add.aspx";
-                    userRole = "landload";
+                    userRole = "landlord";
                 }
                 else
                 {
                     ReturnURL = "~/";
                 }
             }
-            IAuthorizationState authorization = facebookClient.ProcessUserAuthorization();
-
+            
             try
             {
+                IAuthorizationState authorization = facebookClient.ProcessUserAuthorization();
 
                   User user = new User();
 
@@ -88,7 +88,8 @@ namespace USA_Rent_House_Project
                     user.IsFBUser = true;
                     user.Password = user.FBid;
                     user.UserName = user.FBid;
-
+                    user.Question = "Are you FB User ?";
+                    user.Answer = "FB"+user.FBid;
                     //try
                     //{ user.DateOfBirth = Convert.ToDateTime(HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT)); }
                     //catch(Exception ex) {}
@@ -124,7 +125,7 @@ namespace USA_Rent_House_Project
 
                         bool boolMembershipUserCreated = false;
 
-                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Password, user.Question, user.Answer, true, userRole);
+                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
                         bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
                         if (boolMembershipUserCreated)
@@ -148,7 +149,7 @@ namespace USA_Rent_House_Project
             catch (Exception ex)
             {
                 //you will get the exception for the first time anyways
-                StatusLabel.Text = "You are fucked!";
+                StatusLabel.Text = "You are f****d!";
                 throw ex;
             }
 

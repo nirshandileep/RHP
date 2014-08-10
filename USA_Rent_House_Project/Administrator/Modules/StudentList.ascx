@@ -2,9 +2,17 @@
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 
+<h1>
+Student List
+</h1>
 <dx:ASPxGridView ID="gvStudentList" runat="server" AutoGenerateColumns="False" 
     KeyFieldName="StudentId">
     <Columns>
+
+<%--     Student.StudentId, aspnet_Users.UserName, aspnet_Membership.LoweredEmail, aspnet_Membership.PasswordQuestion, [User].IsFBUser, [User].Name, 
+                      [User].StreetAddress, [User].City, [User].State, [User].Zip, [User].BestContactNumber, [User].DriversLicenseNumber, [User].Status, [User].IsDeleted, 
+                      [User].RatingValue, School.Name AS SchoolName, Student.Year, Student.LandloadName, Student.LandloadPlace, [User].CreatedDate--%>
+
         <dx:GridViewDataTextColumn FieldName="Name" UnboundType="String" 
             VisibleIndex="0">
         </dx:GridViewDataTextColumn>
@@ -14,21 +22,35 @@
         <dx:GridViewDataTextColumn FieldName="City" UnboundType="String" 
             VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="3">
+        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="3" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="DriversLicenseNumber" VisibleIndex="4">
+        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="4" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="PersonalEmail" VisibleIndex="5">
+
+        <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="5">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="SchoolName" VisibleIndex="6">
+        <dx:GridViewDataTextColumn FieldName="DriversLicenseNumber" VisibleIndex="6">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="SchoolStreetAddress" VisibleIndex="7">
+        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="7">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="SchoolContactNumber" UnboundType="String" 
-            VisibleIndex="8">
+        <dx:GridViewDataTextColumn FieldName="SchoolName" VisibleIndex="8">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="Year" VisibleIndex="9">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="Status" UnboundType="String" 
+            VisibleIndex="10">
+        </dx:GridViewDataTextColumn>
+         <dx:GridViewDataTextColumn FieldName="IsFBUser" VisibleIndex="11" 
+            UnboundType="String">
+          
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="PasswordQuestion" VisibleIndex="12" 
+            UnboundType="String">
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataProgressBarColumn FieldName="StudentRatingValue" UnboundType="Decimal" 
-            VisibleIndex="9">
+            VisibleIndex="13">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
             </PropertiesProgressBar>
         </dx:GridViewDataProgressBarColumn>

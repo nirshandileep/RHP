@@ -41,7 +41,7 @@
                     be changed. This should not be the same as your email. The length must be between
                     4 and 20 characters.</span>
             </p>
-            <p id="setEmail" runat="server">>
+            <p id="setEmail" runat="server">
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
@@ -172,8 +172,8 @@
              <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label">School Name:</asp:Label>
                 <asp:DropDownList ID="DrpSchoolName" runat="server" CssClass="dropDownEntry">
-                    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
-                    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
+                <%--    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
+                    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>--%>
                 </asp:DropDownList>
             </p>
 

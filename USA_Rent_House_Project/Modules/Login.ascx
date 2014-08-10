@@ -48,7 +48,7 @@
             <div class="clear"></div>
 
             <div class="centerfloat">
-            <p class="submitbutton">
+            <p class="button">
             <asp:HyperLink ID="CreateProfile" Visible="false" CssClass="loginlinks" runat="server" >Create new profile</asp:HyperLink>  
            
             <asp:HyperLink ID="ChangePassword"  CssClass="loginlinks" runat="server" NavigateUrl="~/Secret_Question.aspx">Recover my password</asp:HyperLink>

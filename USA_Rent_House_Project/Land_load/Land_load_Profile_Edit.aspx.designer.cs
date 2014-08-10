@@ -7,18 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Administrator.Modules {
+namespace USA_Rent_House_Project.Land_load {
     
     
-    public partial class LandloadList {
+    public partial class Land_load_Profile_Edit {
         
         /// <summary>
-        /// gvLandloadList control.
+        /// Landload_Profile_info_Edit1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxGridView.ASPxGridView gvLandloadList;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_info_Edit Landload_Profile_info_Edit1;
     }
 }

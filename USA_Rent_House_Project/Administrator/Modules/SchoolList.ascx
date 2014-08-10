@@ -2,6 +2,12 @@
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx" %>
 <%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 
+
+<h1>
+School List
+</h1>
+
+
 <dx:ASPxGridView ID="gvSchoolList" runat="server" AutoGenerateColumns="False" 
     oncommandbuttoninitialize="gvSchoolList_CommandButtonInitialize" 
     onrowdeleting="gvSchoolList_RowDeleting" 

@@ -40,6 +40,15 @@ namespace USA_Rent_House_Project.Student {
         protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Data Student_Public_Profile_DataID;
         
         /// <summary>
+        /// Student_Profile_Comment_Add1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Comment_Add Student_Profile_Comment_Add1;
+        
+        /// <summary>
         /// Student_Profile_CommentsID control.
         /// </summary>
         /// <remarks>

@@ -11,18 +11,22 @@ namespace RHP.LandlordManagement
 {
     public class LandlordDAO
     {
+        public DataSet SelectAllDataset()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_LandlordSelectAll");
+            return db.ExecuteDataSet(command);
+        }
+
         public bool Insert(Landlord landlord, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_LandlordInsert");
 
             db.AddInParameter(command, "LandlordId", DbType.Guid, landlord.LandlordId);
             db.AddInParameter(command, "UserId", DbType.Guid, landlord.user.UserId);
-            db.AddInParameter(command, "LandlordName", DbType.Guid, landlord.LandlordName);
-            db.AddInParameter(command, "IsDeleted", DbType.String, landlord.IsDeleted);
-            db.AddInParameter(command, "CreatedBy", DbType.String, landlord.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, landlord.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.String,landlord.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, landlord.UpdatedDate);
+            db.AddInParameter(command, "LandlordName", DbType.String, landlord.LandlordName);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, landlord.IsDeleted);
+            db.AddInParameter(command, "CreatedBy", DbType.Guid, landlord.CreatedBy);
 
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
@@ -41,17 +45,15 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "LandlordId", DbType.Guid, landlord.LandlordId);
             db.AddInParameter(command, "UserId", DbType.Guid, landlord.user.UserId);
             db.AddInParameter(command, "LandlordName", DbType.Guid, landlord.LandlordName);
-            db.AddInParameter(command, "IsDeleted", DbType.String, landlord.IsDeleted);
-            db.AddInParameter(command, "CreatedBy", DbType.String, landlord.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, landlord.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.String,landlord.UpdatedBy);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, landlord.IsDeleted);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, landlord.UpdatedBy);
             db.AddInParameter(command, "UpdatedDate", DbType.DateTime, landlord.UpdatedDate);
 
-            db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
+            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
 
-            landlord.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "CreatedDate").ToString());
+            landlord.CreatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
             landlord.UpdatedDate = landlord.CreatedDate;
 
             return true;
@@ -78,9 +80,9 @@ namespace RHP.LandlordManagement
         {
 
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand command = db.GetStoredProcCommand("usp_Student_IsStudentExist");
+            DbCommand command = db.GetStoredProcCommand("usp_Landlord_IsLandlordExist");
 
-            db.AddInParameter(command, "StudentId", DbType.Guid, landlord.LandlordId);
+            db.AddInParameter(command, "LandlordId", DbType.Guid, landlord.LandlordId);
             db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
 
             db.ExecuteNonQuery(command);
