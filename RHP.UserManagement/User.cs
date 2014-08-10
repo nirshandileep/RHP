@@ -58,66 +58,73 @@ namespace RHP.UserManagement
 
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,string userRole)
         {
-
             object objMembershipUser = false;
-            MembershipCreateStatus mcstatus = new MembershipCreateStatus();
-
-            if (!strQuestion.EndsWith("?"))
-                strQuestion = strQuestion + "?";
-
-            Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus);
-            switch (mcstatus)
+            try
             {
-                case (MembershipCreateStatus.Success):
-                    {
-                        objMembershipUser = true;
-                        if (userRole == "student")
+               
+                MembershipCreateStatus mcstatus = new MembershipCreateStatus();
+
+                if (!strQuestion.EndsWith("?"))
+                    strQuestion = strQuestion + "?";
+
+                Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus);
+                switch (mcstatus)
+                {
+                    case (MembershipCreateStatus.Success):
                         {
-                            Roles.AddUserToRole(strUserName, "student");
+                            objMembershipUser = true;
+                            if (userRole == "student")
+                            {
+                                Roles.AddUserToRole(strUserName, "student");
+                            }
+                            if (userRole == "landlord")
+                            {
+                                Roles.AddUserToRole(strUserName, "landlord");
+                            }
+
+                            break;
                         }
-                        if (userRole == "landlord")
+                    case (MembershipCreateStatus.DuplicateProviderUserKey):
                         {
-                            Roles.AddUserToRole(strUserName, "landlord");
+                            objMembershipUser = "Internal Error. Contact Administrator";
+                            break;
                         }
 
-                        break;
-                    }
-                case (MembershipCreateStatus.DuplicateProviderUserKey):
-                    {
-                        objMembershipUser = "Internal Error. Contact Administrator";
-                        break;
-                    }
-
-                case (MembershipCreateStatus.DuplicateUserName):
-                    {
-                        objMembershipUser = "User Name already in system.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidPassword):
-                    {
-                        objMembershipUser = "Invalid Password.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidUserName):
-                    {
-                        objMembershipUser = "Invalid User Name";
-                        break;
-                    }
-                case (MembershipCreateStatus.DuplicateEmail):
-                    {
-                        objMembershipUser = "Email already in system.";
-                        break;
-                    }
-                case (MembershipCreateStatus.InvalidEmail):
-                    {
-                        objMembershipUser = "Invalid Email.";
-                        break;
-                    }
-                default:
-                    {
-                        objMembershipUser = "Invalid User Name";
-                        break;
-                    }
+                    case (MembershipCreateStatus.DuplicateUserName):
+                        {
+                            objMembershipUser = "User Name already in system.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidPassword):
+                        {
+                            objMembershipUser = "Invalid Password.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidUserName):
+                        {
+                            objMembershipUser = "Invalid User Name";
+                            break;
+                        }
+                    case (MembershipCreateStatus.DuplicateEmail):
+                        {
+                            objMembershipUser = "Email already in system.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidEmail):
+                        {
+                            objMembershipUser = "Invalid Email.";
+                            break;
+                        }
+                    default:
+                        {
+                            objMembershipUser = "Invalid User Name";
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                objMembershipUser = false;
             }
             return objMembershipUser;
         }
