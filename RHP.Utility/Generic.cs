@@ -81,7 +81,7 @@ namespace RHP.Utility
         /// <param name="dataReader"></param>
         /// <param name="entity"></param>
         /// <param name="enforceAllDbFieldsExist">Throws an exception if the DB returns a field which is not on the entity</param>
-        protected static void AssignDataReaderToEntity(IDataReader dataReader, object entity)
+        public static void AssignDataReaderToEntity(IDataReader dataReader, object entity)
         {
             System.Reflection.PropertyInfo entityProperty;
 
@@ -122,7 +122,7 @@ namespace RHP.Utility
         /// <summary>
         /// Returns a collection of T. T must be an Entity class
         /// </summary>
-        public static List<T> GetAll<T>(int companyId = 0) where T : new()
+        public static List<T> GetAll<T>() where T : new()
         {
             List<T> returnEntityCollection = new List<T>();
 
@@ -184,6 +184,34 @@ namespace RHP.Utility
             DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectAllBy" + fieldName);
 
             db.AddInParameter(dbCommand, fieldName, DbType.String, fieldValue);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    T entity = new T();
+
+                    AssignDataReaderToEntity(dataReader, entity);
+                    returnEntityCollection.Add(entity);
+                }
+            }
+
+            return returnEntityCollection;
+        }
+
+        /// <summary>
+        /// Returns a collection of T. T must be an Entity class
+        /// </summary>
+        public static List<T> GetAllByFieldValue<T>(string fieldName, Guid fieldValue) where T : new()
+        {
+            List<T> returnEntityCollection = new List<T>();
+
+            string TypeName = typeof(T).Name;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectAllBy" + fieldName);
+
+            db.AddInParameter(dbCommand, fieldName, DbType.Guid, fieldValue);
 
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {

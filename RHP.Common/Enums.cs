@@ -20,5 +20,11 @@ namespace RHP.Common
             Student,
             SystemAdmin
         }
+
+        public enum ContextType
+        { 
+            Student = 1,
+            Landlord = 2,
+        }
     }
 }

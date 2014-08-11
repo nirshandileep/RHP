@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>3046f8df-6102-41b6-bac4-9c18691bc62a</ProjectGuid>
+    <ProjectGuid>{161EC1E4-CC1A-4992-9112-1255B9EECF62}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RHP.Comments</RootNamespace>
@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\USA_Rent_House_Project\bin\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\USA_Rent_House_Project\bin\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\USA_Rent_House_Project\bin\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,8 +49,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Comment.cs" />
+    <Compile Include="CommentDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RHP.Common\RHP.Common.csproj">
+      <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
+      <Name>RHP.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.Facebook\RHP.Facebook.csproj">
+      <Project>{20620D31-4E4F-414B-8905-DEAAE11B01FA}</Project>
+      <Name>RHP.Facebook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.UserManagement\RHP.UserManagement.csproj">
+      <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
+      <Name>RHP.UserManagement</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RHP.Utility\RHP.Utility.csproj">
+      <Project>{60191F0E-B553-43B4-A78C-5D0753BC9FFC}</Project>
+      <Name>RHP.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

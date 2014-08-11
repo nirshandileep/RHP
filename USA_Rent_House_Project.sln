@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.StudentManagement", "RH
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.LandlordManagement", "RHP.LandlordManagement\RHP.LandlordManagement.csproj", "{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Comments", "RHP.Comments\RHP.Comments.csproj", "{161EC1E4-CC1A-4992-9112-1255B9EECF62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -55,6 +57,10 @@ Global
 		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
