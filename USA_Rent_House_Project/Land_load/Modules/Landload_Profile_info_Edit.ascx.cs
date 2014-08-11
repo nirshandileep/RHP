@@ -8,6 +8,7 @@ using RHP.UserManagement;
 using RHP.Common;
 using RHP.SessionManager;
 using RHP.LandlordManagement;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -58,15 +59,17 @@ namespace USA_Rent_House_Project.Land_load.Modules
         public void LoadUserData()
         {
             // user data
+          
+
             Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
-            Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
+            Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
             Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip; 
-            Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber; 
-            Question.Text = string.IsNullOrEmpty(user.Question) ? string.Empty : user.Question;
+            Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
+            Question.Text = user.GetSeacretQuestion(Membership.GetUser().UserName.ToString());
 
-            if (string.IsNullOrEmpty(user.State))
+            if (!string.IsNullOrEmpty(user.State))
             {
                 for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
@@ -77,7 +80,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
             }
 
-            if (string.IsNullOrEmpty(user.Gender))
+            if (!string.IsNullOrEmpty(user.Gender))
             {
                 for (int i = 0; i < DrpGender.Items.Count; i++)
                 {
@@ -87,6 +90,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     }
                 }
             }
+
+            landload = Landlord.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
         }
 

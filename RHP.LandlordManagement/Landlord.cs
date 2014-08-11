@@ -6,6 +6,7 @@ using RHP.Common;
 using RHP.UserManagement;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
+using RHP.Utility;
 
 namespace RHP.LandlordManagement
 {
@@ -14,6 +15,15 @@ namespace RHP.LandlordManagement
         public Guid LandlordId { get; set; }
         public User user { get; set; }
         public string LandlordName { get; set; }
+
+
+        public static Landlord Select(Guid Userid)
+        {
+            Landlord landlord = Generic.GetByFieldValue<Landlord>("Userid", Userid.ToString());
+
+            return landlord;
+        }
+
 
         public bool Save()
         {

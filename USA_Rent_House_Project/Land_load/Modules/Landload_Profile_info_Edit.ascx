@@ -28,13 +28,14 @@
 
               <p >
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
-                <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:Label ID="Email" runat="server" CssClass="form_label"></asp:Label>
+              <%--  <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
                     CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
                     ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
                 <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
                     ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="RegisterLand_lordValidationGroup"
-                    ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
+                    ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>--%>
             </p>
             
             <p>
@@ -128,10 +129,11 @@
             <p>
                 <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question"
                     CssClass="form_label">Secret Question:</asp:Label>
-                <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1" ReadOnly="true"></asp:TextBox>
+                    <asp:Label ID="Question" runat="server" CssClass="form_label"></asp:Label>
+              <%--  <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1" ReadOnly="true"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="QuestionRequiredFieldValidator" runat="server" ControlToValidate="Question"
                     CssClass="failureNotification" ErrorMessage="Secret Question is required."
-                    ToolTip="secret Question is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+                    ToolTip="secret Question is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>--%>
                
             </p>
              

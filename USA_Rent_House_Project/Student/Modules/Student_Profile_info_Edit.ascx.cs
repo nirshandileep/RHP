@@ -61,16 +61,16 @@ namespace USA_Rent_House_Project.Student.Modules
             user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
             Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
-            Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
+            Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
             Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip;
             Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-            Question.Text = string.IsNullOrEmpty(user.Question) ? string.Empty : user.Question;
+            Question.Text = user.GetSeacretQuestion(Membership.GetUser().UserName.ToString());
             DriversLicense.Text = string.IsNullOrEmpty(user.DriversLicenseNumber) ? string.Empty : user.DriversLicenseNumber;
            
 
-            if (string.IsNullOrEmpty(user.Status))
+            if (!string.IsNullOrEmpty(user.Status))
             {
                 for (int i = 0; i < Status.Items.Count; i++)
                 {
@@ -80,7 +80,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
             }
-            if (string.IsNullOrEmpty(user.State))
+            if (!string.IsNullOrEmpty(user.State))
             {
                 for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
@@ -90,7 +90,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
             }
-            if (string.IsNullOrEmpty(user.Gender))
+            if (!string.IsNullOrEmpty(user.Gender))
             {
                 for (int i = 0; i < DrpGender.Items.Count; i++)
                 {
@@ -101,8 +101,12 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
 
             }
+
             // school data
-            if (string.IsNullOrEmpty(student.School.SchoolId.ToString()))
+
+            student = RHP.StudentManagement.Student.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
             {
                 for (int i = 0; i < DrpSchoolName.Items.Count; i++)
                 {
@@ -112,7 +116,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
             }
-            if (string.IsNullOrEmpty(student.Year.ToString()))
+            if (!string.IsNullOrEmpty(student.Year.ToString()))
             {
                 for (int i = 0; i < DRPYear.Items.Count; i++)
                 {

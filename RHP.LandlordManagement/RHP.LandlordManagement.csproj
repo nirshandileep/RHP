@@ -76,6 +76,10 @@
       <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
       <Name>RHP.UserManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.Utility\RHP.Utility.csproj">
+      <Project>{60191F0E-B553-43B4-A78C-5D0753BC9FFC}</Project>
+      <Name>RHP.Utility</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

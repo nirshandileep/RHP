@@ -138,6 +138,19 @@ namespace RHP.UserManagement
             return objMembershipUser;
         }
 
+        public string GetSeacretQuestion(string UserName)
+        {
+             MembershipUser u = Membership.GetUser(UserName, false);
+
+             if (u != null)
+            {
+                return u.PasswordQuestion.ToString();
+            }
+            else
+            {
+                 return "";
+            }
+        }
 
         public bool AuthenticateUser()
         {

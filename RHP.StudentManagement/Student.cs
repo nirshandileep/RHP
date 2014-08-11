@@ -21,15 +21,25 @@ namespace RHP.StudentManagement
         public string LandloadPlace { get; set; }
         public int Year { get; set; }
 
-        public Student Select(Guid studentid)
+        //public Student Select(Guid studentid)
+        //{
+        //    Student student;
+        //    student = Generic.GetByGUID<Student>(studentid);
+        //    if (student != null)
+        //    {
+        //        student.School = School.Select(student.SchoolId);
+        //    }
+        //    return student;
+        //}
+
+        public static Student Select(Guid Userid)
         {
-            Student student;
-            student = Generic.GetByGUID<Student>(studentid);
-            if (student != null)
-            {
-                student.School = School.Select(student.SchoolId);
-            }
-            return student;
+            Student student = Generic.GetByFieldValue<Student>("Userid", Userid.ToString());
+             if (student != null)
+             {
+                 student.School = School.Select(student.SchoolId);
+             }
+             return student;
         }
 
         public bool Save()
