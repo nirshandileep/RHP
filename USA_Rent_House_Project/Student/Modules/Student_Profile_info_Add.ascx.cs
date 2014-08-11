@@ -90,8 +90,8 @@ namespace USA_Rent_House_Project.Student.Modules
 				setQuestiontitle.Visible = false;
 				setQuestion.Visible = false;
 				setAnswer.Visible = false;
-			
-			    Name.Text = user.Name;
+
+                Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
 
                 if(string.IsNullOrEmpty(user.Gender))
                 {
