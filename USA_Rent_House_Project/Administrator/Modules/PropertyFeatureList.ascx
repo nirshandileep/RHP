@@ -42,7 +42,7 @@
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3">
+         <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3">
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="ParentOptionId" VisibleIndex="4">
         </dx:GridViewDataTextColumn>
