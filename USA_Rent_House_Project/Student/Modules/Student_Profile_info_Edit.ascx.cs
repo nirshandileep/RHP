@@ -60,59 +60,70 @@ namespace USA_Rent_House_Project.Student.Modules
             // user data
             user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-            Name.Text = user.Name;
-            Email.Text = user.Email;
-            Address.Text = user.StreetAddress;
-            City.Text = user.City;
-            Zip.Text = user.Zip;
-            Mobile.Text = user.BestContactNumber;
-            DriversLicense.Text = user.DriversLicenseNumber;
-            Question.Text = user.Question;
+            Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
+            Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
+            Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
+            City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
+            Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip;
+            Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
+            Question.Text = string.IsNullOrEmpty(user.Question) ? string.Empty : user.Question;
+            DriversLicense.Text = string.IsNullOrEmpty(user.DriversLicenseNumber) ? string.Empty : user.DriversLicenseNumber;
+           
 
-            for (int i = 0; i < Status.Items.Count; i++)
+            if (string.IsNullOrEmpty(user.Status))
             {
-                if (Status.Items[i].Value.ToString().ToLower() == user.Status.ToLower())
+                for (int i = 0; i < Status.Items.Count; i++)
                 {
-                    Status.Items[i].Selected = true;
+                    if (Status.Items[i].Value.ToString().ToLower() == user.Status.ToLower())
+                    {
+                        Status.Items[i].Selected = true;
+                    }
                 }
             }
-
-            for (int i = 0; i < Drpstate.Items.Count; i++)
+            if (string.IsNullOrEmpty(user.State))
             {
-                if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
-                    Drpstate.Items[i].Selected = true;
+                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                    {
+                        Drpstate.Items[i].Selected = true;
+                    }
                 }
             }
-
-            for (int i = 0; i < DrpGender.Items.Count; i++)
+            if (string.IsNullOrEmpty(user.Gender))
             {
-                if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                for (int i = 0; i < DrpGender.Items.Count; i++)
                 {
-                    DrpGender.Items[i].Selected = true;
+                    if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                    {
+                        DrpGender.Items[i].Selected = true;
+                    }
                 }
-            }
 
+            }
             // school data
-
-            for (int i = 0; i < DrpSchoolName.Items.Count; i++)
+            if (string.IsNullOrEmpty(student.School.SchoolId.ToString()))
             {
-                if (DrpSchoolName.Items[i].Value.ToString().ToLower() ==  student.School.SchoolId.ToString())
+                for (int i = 0; i < DrpSchoolName.Items.Count; i++)
                 {
-                    DrpSchoolName.Items[i].Selected = true;
+                    if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                    {
+                        DrpSchoolName.Items[i].Selected = true;
+                    }
                 }
             }
-
-            for (int i = 0; i < DRPYear.Items.Count; i++)
+            if (string.IsNullOrEmpty(student.Year.ToString()))
             {
-                if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
+                for (int i = 0; i < DRPYear.Items.Count; i++)
                 {
-                    DRPYear.Items[i].Selected = true;
+                    if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
+                    {
+                        DRPYear.Items[i].Selected = true;
+                    }
                 }
             }
-
-            LandLoadName.Text = student.LandloadName;
-            LandLoadPlace.Text = student.LandloadPlace;
+            LandLoadName.Text = string.IsNullOrEmpty(student.LandloadName) ? string.Empty : student.LandloadName;
+            LandLoadPlace.Text = string.IsNullOrEmpty(student.LandloadPlace) ? string.Empty : student.LandloadPlace;
         }
 
         protected void EditUserButton_Click(object sender, EventArgs e)

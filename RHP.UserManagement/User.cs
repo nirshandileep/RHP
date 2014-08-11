@@ -89,6 +89,8 @@ namespace RHP.UserManagement
                                 Roles.AddUserToRole(strUserName, "landlord");
                             }
 
+                            FormsAuthentication.SetAuthCookie(UserName, false);
+
                             break;
                         }
                     case (MembershipCreateStatus.DuplicateProviderUserKey):
@@ -183,11 +185,12 @@ namespace RHP.UserManagement
         {
             if (isUseDefault)
             {
-                FormsAuthentication.RedirectFromLoginPage(UserName, false);    
+               // FormsAuthentication.RedirectFromLoginPage(UserName, false);    
+                HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(), false);
             }
             else
             {
-                FormsAuthentication.SetAuthCookie(UserName, false);
+               // FormsAuthentication.SetAuthCookie(UserName, false);
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(),false);
             }
         }

@@ -58,27 +58,33 @@ namespace USA_Rent_House_Project.Land_load.Modules
         public void LoadUserData()
         {
             // user data
-            Name.Text = user.Name;
-            Email.Text = user.Email;
-            Address.Text = user.StreetAddress;
-            City.Text = user.City;
-            Zip.Text = user.Zip;
-            Mobile.Text = user.BestContactNumber;
-            Question.Text = user.Question;
+            Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
+            Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
+            Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
+            City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
+            Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip; 
+            Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber; 
+            Question.Text = string.IsNullOrEmpty(user.Question) ? string.Empty : user.Question;
 
-            for (int i = 0; i < Drpstate.Items.Count; i++)
+            if (string.IsNullOrEmpty(user.State))
             {
-                if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
-                    Drpstate.Items[i].Selected = true;
+                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                    {
+                        Drpstate.Items[i].Selected = true;
+                    }
                 }
             }
 
-            for (int i = 0; i < DrpGender.Items.Count; i++)
+            if (string.IsNullOrEmpty(user.Gender))
             {
-                if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                for (int i = 0; i < DrpGender.Items.Count; i++)
                 {
-                    DrpGender.Items[i].Selected = true;
+                    if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                    {
+                        DrpGender.Items[i].Selected = true;
+                    }
                 }
             }
 

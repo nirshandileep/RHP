@@ -69,24 +69,32 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (user.IsFBUser)
             {
-                setEmail.Visible = false;
+                if (string.IsNullOrEmpty(user.Email) || user.Email == user.UserId + "@FB.com")
+                {
+                    setEmail.Visible = false;
+                }
+                else { Email.Text = user.Email; }
+
                 setUserName.Visible = false;
                 setpwd.Visible = false;
                 confirmpwd.Visible = false;
                 setQuestiontitle.Visible = false;
                 setQuestion.Visible = false;
                 setAnswer.Visible = false;
-            }
-            Name.Text = user.Name;
+            
+                Name.Text = user.Name;
 
-            for (int i = 0; i < DrpGender.Items.Count; i++)
-            {
-                if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                if (string.IsNullOrEmpty(user.Gender))
                 {
-                    DrpGender.Items[i].Selected = true;
+                    for (int i = 0; i < DrpGender.Items.Count; i++)
+                    {
+                        if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
+                        {
+                            DrpGender.Items[i].Selected = true;
+                        }
+                    }
                 }
-            }
-
+             }
         }
 
      

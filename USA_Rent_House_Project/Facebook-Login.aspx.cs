@@ -9,6 +9,9 @@ using DotNetOpenAuth.OAuth2;
 using RHP.UserManagement;
 using RHP.Utility;
 using System.Web.Security;
+using RHP.StudentManagement;
+using RHP.LandlordManagement;
+using RHP.Common;
 
 namespace USA_Rent_House_Project
 {
@@ -30,9 +33,10 @@ namespace USA_Rent_House_Project
 
             string userRole = "";
 
+            string value = Utility.GetQueryStringValueByKey(Request, "type");
+
             if (!IsPostBack)
             {
-                string value = Utility.GetQueryStringValueByKey(Request, "type");
 
                 if (value == "s")
                 {
@@ -55,6 +59,9 @@ namespace USA_Rent_House_Project
                 IAuthorizationState authorization = facebookClient.ProcessUserAuthorization();
 
                   User user = new User();
+                  RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
+
+                  Landlord landload = new Landlord();
 
                 if (authorization == null)
                 {
@@ -81,7 +88,7 @@ namespace USA_Rent_House_Project
 
                     user.FBid = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Id)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Id);
                     user.Name = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Name)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Name);
-                    user.Email = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
+                    user.Email = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? user.FBid+"@FB.com" : HttpUtility.HtmlEncode(oauth2Graph.Email);
                     user.FBAccessToken = string.IsNullOrEmpty(authorization.AccessToken) ? string.Empty : authorization.AccessToken;
                     user.FBProfilePictureURL = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl);
                     user.Gender = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Gender)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Gender);
@@ -90,6 +97,8 @@ namespace USA_Rent_House_Project
                     user.UserName = user.FBid;
                     user.Question = "Are you FB User ?";
                     user.Answer = "FB"+user.FBid;
+
+                    
                     //try
                     //{ user.DateOfBirth = Convert.ToDateTime(HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT)); }
                     //catch(Exception ex) {}
@@ -132,7 +141,55 @@ namespace USA_Rent_House_Project
                         {
                             MembershipUser mUser;
                             mUser = Membership.GetUser(user.UserName);
-                            user.UserId = new Guid(mUser.ProviderUserKey.ToString());
+                            user.UserId = (Guid)mUser.ProviderUserKey;
+                            user.CreatedBy = (Guid)mUser.ProviderUserKey;
+                            user.UpdatedBy = (Guid)mUser.ProviderUserKey;
+
+                            if (user.Save())
+                            {
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+
+                                if (userRole == "student")
+                                {
+
+                                    student.StudentUser = user;
+                                    student.CreatedBy = (Guid)mUser.ProviderUserKey;
+                                    student.UpdatedBy = (Guid)mUser.ProviderUserKey;
+
+                                    if (student.School == null)
+                                    {
+                                        student.School = new School();
+                                    }
+
+                                    //student.School.SchoolId = null;
+                                    //student.Year = null;
+                                    //student.IsDeleted = null;
+                                    //student.LandloadName = null;
+                                    //student.LandloadPlace = null;
+
+                                    if (student.Save())
+                                    {
+                                        // Messages.Save_Success;
+                                    }
+
+                                    
+                                }
+                                else if (userRole == "landlord")
+                                {
+                                    landload.LandlordId = (Guid)mUser.ProviderUserKey;
+                                    landload.LandlordName = user.Name;
+                                    landload.user = user;
+                                    landload.CreatedBy = (Guid)mUser.ProviderUserKey;
+                                    landload.UpdatedBy = (Guid)mUser.ProviderUserKey;
+
+                                    if (landload.Save())
+                                    {
+                                       // Messages.Save_Success;
+                                    }
+
+                                }
+                            }
+
                             Response.Redirect(ReturnURL, false);
                         }
                         else
