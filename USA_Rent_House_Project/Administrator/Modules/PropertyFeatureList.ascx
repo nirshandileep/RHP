@@ -51,6 +51,7 @@
         </dx:GridViewDataComboBoxColumn>
         <dx:GridViewDataCheckColumn FieldName="IsMultiSelect" UnboundType="Boolean" 
             VisibleIndex="6">
+
         </dx:GridViewDataCheckColumn>
       
     </Columns>

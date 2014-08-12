@@ -163,6 +163,7 @@ namespace RHP.UserManagement
                 
                 if (boolAuthenticated)
                 {
+                    FormsAuthentication.SetAuthCookie(UserName, false);
                     success = "True";
                 }
                 else

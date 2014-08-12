@@ -190,6 +190,7 @@
     <Content Include="Administrator\Student_View.aspx" />
     <Content Include="Administrator\UserList.aspx" />
     <Content Include="Change_Password.aspx" />
+    <Content Include="Change_Secret_Question.aspx" />
     <Content Include="CustomError.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\House_Logo.jpg" />
@@ -438,6 +439,13 @@
     </Compile>
     <Compile Include="Change_Password.aspx.designer.cs">
       <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Change_Secret_Question.aspx.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Change_Secret_Question.aspx.designer.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomError.aspx.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
