@@ -8,7 +8,8 @@
     oncommandbuttoninitialize="gvFeatureList_CommandButtonInitialize" 
     onrowdeleting="gvFeatureList_RowDeleting" 
     onrowinserting="gvFeatureList_RowInserting" 
-    onrowupdating="gvFeatureList_RowUpdating" KeyFieldName="SchoolId">
+    onrowupdating="gvFeatureList_RowUpdating" KeyFieldName="OptionId" 
+    oncelleditorinitialize="gvFeatureList_CellEditorInitialize">
     <Columns>
 
 <%--    [OptionId], [Name], [Description], [OptionCategoryId], [ParentOptionId], [IsDeleted], [IsMultiSelect] --%>
@@ -42,13 +43,11 @@
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-         <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3">
+         <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3" 
+            Caption="Option Category" UnboundType="Integer">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="ParentOptionId" VisibleIndex="4">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="5">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsMultiSelect" VisibleIndex="6">
+        <dx:GridViewDataTextColumn FieldName="IsMultiSelect" VisibleIndex="6" 
+            UnboundType="Boolean">
         </dx:GridViewDataTextColumn>
       
     </Columns>

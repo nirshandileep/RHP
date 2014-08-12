@@ -9,7 +9,7 @@ using System.Data.Common;
 
 namespace RHP.LandlordManagement
 {
-   public class PropertyOptionCategoryDAO
+   public class OptionCategoryDAO
     {
        /*
         public int? OptionCategoryId { get; set; }
@@ -24,21 +24,21 @@ namespace RHP.LandlordManagement
             return db.ExecuteDataSet(command);
         }
 
-        public bool Insert(PropertyOptionCategory propertyOptionCategory)
+        public bool Insert(OptionCategory OptionCategory)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Insert(propertyOptionCategory, db, null);
+            return this.Insert(OptionCategory, db, null);
         }
 
-        public bool Insert(PropertyOptionCategory propertyOptionCategory, Database db, DbTransaction transaction)
+        public bool Insert(OptionCategory OptionCategory, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionCategoryInsert");
 
-            db.AddInParameter(command, "Name", DbType.String, propertyOptionCategory.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOptionCategory.Description);
-            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, propertyOptionCategory.OptionCategoryId);
-            db.AddInParameter(command, "CreatedBy", DbType.Guid, propertyOptionCategory.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, propertyOptionCategory.CreatedDate);
+            db.AddInParameter(command, "Name", DbType.String, OptionCategory.Name);
+            db.AddInParameter(command, "Description", DbType.String, OptionCategory.Description);
+            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, OptionCategory.OptionCategoryId);
+            db.AddInParameter(command, "CreatedBy", DbType.Guid, OptionCategory.CreatedBy);
+            db.AddInParameter(command, "CreatedDate", DbType.DateTime, OptionCategory.CreatedDate);
 
             db.AddOutParameter(command, "OptionCategoryId", DbType.Int16, 3);
 
@@ -51,27 +51,27 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOptionCategory.OptionCategoryId = Convert.ToInt16(db.GetParameterValue(command, "OptionCategoryId").ToString());
+            OptionCategory.OptionCategoryId = Convert.ToInt16(db.GetParameterValue(command, "OptionCategoryId").ToString());
 
 
             return true;
         }
 
-        public bool Update(PropertyOptionCategory propertyOptionCategory)
+        public bool Update(OptionCategory OptionCategory)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Update(propertyOptionCategory, db, null);
+            return this.Update(OptionCategory, db, null);
         }
 
-        public bool Update(PropertyOptionCategory propertyOptionCategory, Database db, DbTransaction transaction)
+        public bool Update(OptionCategory OptionCategory, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionCategoryUpdate");
 
-            db.AddInParameter(command, "Name", DbType.String, propertyOptionCategory.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOptionCategory.Description);
-            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, propertyOptionCategory.OptionCategoryId);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, propertyOptionCategory.CreatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, propertyOptionCategory.CreatedDate);
+            db.AddInParameter(command, "Name", DbType.String, OptionCategory.Name);
+            db.AddInParameter(command, "Description", DbType.String, OptionCategory.Description);
+            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, OptionCategory.OptionCategoryId);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, OptionCategory.CreatedBy);
+            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, OptionCategory.CreatedDate);
 
             db.AddOutParameter(command, "OptionCategoryId", DbType.Int16, 3);
 
@@ -84,19 +84,19 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOptionCategory.OptionCategoryId = Convert.ToInt16(db.GetParameterValue(command, "OptionCategoryId").ToString());
+            OptionCategory.OptionCategoryId = Convert.ToInt16(db.GetParameterValue(command, "OptionCategoryId").ToString());
 
 
             return true;
         }
 
-        public bool Delete(PropertyOptionCategory ropertyOptionCategory)
+        public bool Delete(OptionCategory ropertyOptionCategory)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             return this.Delete(ropertyOptionCategory, db, null);
         }
 
-        public bool Delete(PropertyOptionCategory ropertyOptionCategory, Database db, DbTransaction transaction)
+        public bool Delete(OptionCategory ropertyOptionCategory, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionCategoryDelete");
             db.AddInParameter(command, "OptionCategoryId", DbType.Guid, ropertyOptionCategory.OptionCategoryId);

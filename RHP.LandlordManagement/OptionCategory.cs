@@ -8,12 +8,11 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 
 namespace RHP.LandlordManagement 
 {
-    public class PropertyOptionCategory : Base
+    public class OptionCategory : Base
     {
         public int? OptionCategoryId { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-
 
         public bool Save()
         {
@@ -26,7 +25,7 @@ namespace RHP.LandlordManagement
 
             try
             {
-                PropertyOptionCategoryDAO propertyOptionCategoryDAO = new PropertyOptionCategoryDAO();
+                OptionCategoryDAO propertyOptionCategoryDAO = new OptionCategoryDAO();
                 if (this.OptionCategoryId.HasValue)
                 {
                     result = propertyOptionCategoryDAO.Update(this, db, transaction);
@@ -67,7 +66,7 @@ namespace RHP.LandlordManagement
 
             try
             {
-                result = (new PropertyOptionCategoryDAO().Delete(this, db, transaction));
+                result = (new OptionCategoryDAO().Delete(this, db, transaction));
                 transaction.Commit();
             }
             catch (Exception ex)
