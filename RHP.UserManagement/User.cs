@@ -8,7 +8,7 @@ using System.Web.Security;
 using RHP.Common;
 using System.Data.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
-
+using RHP.SessionManager;
 
 namespace RHP.UserManagement
 {
@@ -162,7 +162,9 @@ namespace RHP.UserManagement
                 boolAuthenticated = Membership.ValidateUser(UserName, Password);
                 
                 if (boolAuthenticated)
+                {
                     success = "True";
+                }
                 else
                     success = "False";
 

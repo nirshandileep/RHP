@@ -37,13 +37,20 @@ namespace RHP.LandlordManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionInsert");
 
+    //         @Name nvarchar(50) = NULL,
+    //@Description nvarchar(150) = NULL,
+    //@OptionCategoryId int = NULL,
+    //@ParentOptionId int = NULL,
+    //@IsDeleted bit = NULL,
+    //@IsMultiSelect bit = NULL,
+    //@OptionId int output
+
             db.AddInParameter(command, "Name", DbType.String, propertyOption.Name);
             db.AddInParameter(command, "Description", DbType.String, propertyOption.Description);
             db.AddInParameter(command, "OptionCategoryId", DbType.Int16, propertyOption.OptionCategoryId);
             db.AddInParameter(command, "ParentOptionId", DbType.Int16, propertyOption.ParentOptionId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
             db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, propertyOption.IsMultiSelect);
-
 
             db.AddOutParameter(command, "OptionId", DbType.Int16, 3);
 
@@ -80,7 +87,7 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
             db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, propertyOption.IsMultiSelect);
 
-            db.AddOutParameter(command, "OptionId", DbType.Int16, 3);
+            db.AddOutParameter(command, "OptionId_", DbType.Int16, 3);
 
             if (transaction == null)
             {
@@ -91,7 +98,7 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOption.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId").ToString());
+            propertyOption.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId_").ToString());
 
             return true;
         }
@@ -105,11 +112,20 @@ namespace RHP.LandlordManagement
         public bool Delete(PropertyOption propertyOption, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionDelete");
-            db.AddInParameter(command, "OptionId", DbType.Guid, propertyOption.OptionId);
-            db.AddInParameter(command, "IsDeleted", DbType.Guid, propertyOption.IsDeleted);
-         
-            db.ExecuteNonQuery(command, transaction);
+            db.AddInParameter(command, "OptionId", DbType.Int16, propertyOption.OptionId);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
+
+            if (transaction == null)
+            {
+                db.ExecuteNonQuery(command);
+            }
+            else
+            {
+                db.ExecuteNonQuery(command, transaction);
+            }
             return true;
+
+           
         }
     }
 }

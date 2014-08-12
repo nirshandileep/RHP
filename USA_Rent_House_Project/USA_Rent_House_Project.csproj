@@ -204,6 +204,7 @@
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Change_Password.ascx" />
+    <Content Include="Modules\Change_Secret_Question.ascx" />
     <Content Include="Modules\Home.ascx" />
     <Content Include="Modules\Login.ascx" />
     <Content Include="Modules\Request_Password.ascx" />
@@ -566,6 +567,13 @@
     </Compile>
     <Compile Include="Modules\Change_Password.ascx.designer.cs">
       <DependentUpon>Change_Password.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Change_Secret_Question.ascx.cs">
+      <DependentUpon>Change_Secret_Question.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Change_Secret_Question.ascx.designer.cs">
+      <DependentUpon>Change_Secret_Question.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Home.ascx.cs">
       <DependentUpon>Home.ascx</DependentUpon>

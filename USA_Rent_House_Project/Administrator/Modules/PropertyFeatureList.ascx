@@ -14,7 +14,7 @@
 
 <%--    [OptionId], [Name], [Description], [OptionCategoryId], [ParentOptionId], [IsDeleted], [IsMultiSelect] --%>
 
-        <dx:GridViewCommandColumn Caption="Actions" FixedStyle="Left" VisibleIndex="0" 
+        <dx:GridViewCommandColumn Caption="Actions" FixedStyle="Left" VisibleIndex="0"  
             Width="120px">
             <EditButton Visible="True">
                 <Image ToolTip="Edit">
@@ -43,12 +43,15 @@
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-         <dx:GridViewDataTextColumn FieldName="OptionCategoryId" VisibleIndex="3" 
-            Caption="Option Category" UnboundType="Integer">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsMultiSelect" VisibleIndex="6" 
-            UnboundType="Boolean">
-        </dx:GridViewDataTextColumn>
+         <dx:GridViewDataComboBoxColumn Caption="Option Category" 
+            FieldName="OptionCategoryId" UnboundType="Integer" VisibleIndex="3">
+             <PropertiesComboBox TextField="Name" ValueField="OptionCategoryId" 
+                 ValueType="System.Int32">
+             </PropertiesComboBox>
+        </dx:GridViewDataComboBoxColumn>
+        <dx:GridViewDataCheckColumn FieldName="IsMultiSelect" UnboundType="Boolean" 
+            VisibleIndex="6">
+        </dx:GridViewDataCheckColumn>
       
     </Columns>
     <SettingsBehavior ConfirmDelete="True" />

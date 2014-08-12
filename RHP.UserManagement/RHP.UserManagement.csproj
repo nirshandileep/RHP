@@ -60,6 +60,10 @@
       <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
       <Name>RHP.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.SessionManager\RHP.SessionManager.csproj">
+      <Project>{92A5E511-C5D8-4585-B696-081328FB8B79}</Project>
+      <Name>RHP.SessionManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.Utility\RHP.Utility.csproj">
       <Project>{60191F0E-B553-43B4-A78C-5D0753BC9FFC}</Project>
       <Name>RHP.Utility</Name>

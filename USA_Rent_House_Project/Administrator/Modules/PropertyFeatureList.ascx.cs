@@ -12,6 +12,7 @@ using RHP.LandlordManagement;
 using RHP.Utility;
 using DevExpress.Web.ASPxEditors;
 using RHP.UserManagement;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Administrator.Modules
 {
@@ -35,6 +36,28 @@ namespace USA_Rent_House_Project.Administrator.Modules
                 }
 
                 return ds;
+            }
+        }
+
+
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
             }
         }
 
@@ -68,9 +91,9 @@ namespace USA_Rent_House_Project.Administrator.Modules
             propertyOption.Name = e.NewValues["Name"].ToString().Trim();
             propertyOption.Description = e.NewValues["Description"].ToString().Trim();
             propertyOption.OptionCategoryId =Convert.ToInt16( e.NewValues["OptionCategoryId"].ToString().Trim());
-            propertyOption.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"].ToString().Trim());
-            propertyOption.CreatedBy = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
-            propertyOption.UpdatedBy = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
+            propertyOption.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);
+            propertyOption.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
+            propertyOption.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
            
             gridView.CancelEdit();
             e.Cancel = true;
@@ -83,7 +106,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
-
+            Session[Constants.SESSION_FEATURE_LIST] = new PropertyOptionDAO().SelectAllDataset();
             LoadGrid();
         }
 
@@ -92,15 +115,15 @@ namespace USA_Rent_House_Project.Administrator.Modules
             ASPxGridView gridView = sender as ASPxGridView;
 
             PropertyOption propertyOption = new PropertyOption();
-            propertyOption.OptionId = Convert.ToInt16(e.NewValues["OptionId"].ToString().Trim());
+            propertyOption.OptionId = Convert.ToInt16(e.Keys[gvFeatureList.KeyFieldName]); //e.NewValues["OptionId"].ToString().Trim());
             propertyOption.Name = e.NewValues["Name"].ToString().Trim();
             propertyOption.Description = e.NewValues["Description"].ToString().Trim();
             propertyOption.OptionCategoryId = Convert.ToInt16(e.NewValues["OptionCategoryId"].ToString().Trim());
-            propertyOption.ParentOptionId = Convert.ToInt16(e.NewValues["ParentOptionId"].ToString().Trim());
-            propertyOption.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
-            propertyOption.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"].ToString().Trim());
-            propertyOption.CreatedBy = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
-            propertyOption.UpdatedBy = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
+            //propertyOption.ParentOptionId = Convert.ToInt16(e.NewValues["ParentOptionId"].ToString().Trim());
+            //propertyOption.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
+            propertyOption.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);  //Convert.ToBoolean(e.NewValues["IsMultiSelect"].ToString().Trim());
+            propertyOption.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
+            propertyOption.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
 
             gridView.CancelEdit();
             e.Cancel = true;
@@ -113,7 +136,9 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
+            Session[Constants.SESSION_FEATURE_LIST] = new PropertyOptionDAO().SelectAllDataset();
             LoadGrid();
+
         }
 
         protected void gvFeatureList_RowDeleting(object sender, DevExpress.Web.Data.ASPxDataDeletingEventArgs e)
@@ -124,8 +149,8 @@ namespace USA_Rent_House_Project.Administrator.Modules
             e.Cancel = true;
 
             propertyOption.OptionId = Convert.ToInt16(e.Keys[gvFeatureList.KeyFieldName]);
-            propertyOption.UpdatedBy = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
-
+            propertyOption.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey;  //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
+            propertyOption.IsDeleted = true;
             if (new PropertyOptionDAO().Delete(propertyOption))
             {
                 //Show Success message
@@ -134,6 +159,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             {
                 //Error message
             }
+            Session[Constants.SESSION_FEATURE_LIST] = new PropertyOptionDAO().SelectAllDataset();
             LoadGrid();
         }
 

@@ -51,6 +51,10 @@ namespace USA_Rent_House_Project.Modules
             {
                 try
                 {
+                    //MembershipUser u = Membership.GetUser(user.UserName, false);
+                    //user = User.Select( new Guid(u.ProviderUserKey.ToString()));
+
+                    //Session[Constants.SESSION_LOGGED_USER] = user;
                     user.RedirectUserFromLogin(false);
                 }
                 catch (Exception ex)
