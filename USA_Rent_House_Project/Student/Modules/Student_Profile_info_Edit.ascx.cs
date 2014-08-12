@@ -106,28 +106,32 @@ namespace USA_Rent_House_Project.Student.Modules
 
             student = RHP.StudentManagement.Student.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-            if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
+         
+            if (student != null)
             {
-                for (int i = 0; i < DrpSchoolName.Items.Count; i++)
+                if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
                 {
-                    if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                    for (int i = 0; i < DrpSchoolName.Items.Count; i++)
                     {
-                        DrpSchoolName.Items[i].Selected = true;
+                        if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                        {
+                            DrpSchoolName.Items[i].Selected = true;
+                        }
                     }
                 }
-            }
-            if (!string.IsNullOrEmpty(student.Year.ToString()))
-            {
-                for (int i = 0; i < DRPYear.Items.Count; i++)
+                if (!string.IsNullOrEmpty(student.Year.ToString()))
                 {
-                    if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
+                    for (int i = 0; i < DRPYear.Items.Count; i++)
                     {
-                        DRPYear.Items[i].Selected = true;
+                        if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
+                        {
+                            DRPYear.Items[i].Selected = true;
+                        }
                     }
                 }
+                LandLoadName.Text = string.IsNullOrEmpty(student.LandloadName) ? string.Empty : student.LandloadName;
+                LandLoadPlace.Text = string.IsNullOrEmpty(student.LandloadPlace) ? string.Empty : student.LandloadPlace;
             }
-            LandLoadName.Text = string.IsNullOrEmpty(student.LandloadName) ? string.Empty : student.LandloadName;
-            LandLoadPlace.Text = string.IsNullOrEmpty(student.LandloadPlace) ? string.Empty : student.LandloadPlace;
         }
 
         protected void EditUserButton_Click(object sender, EventArgs e)

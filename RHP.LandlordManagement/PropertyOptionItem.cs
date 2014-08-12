@@ -8,7 +8,7 @@ using System.Data.Common;
 
 namespace RHP.LandlordManagement
 {
-    public class PropertyOptionItem : Base
+    public class OptionItem : Base
     {
  
         public int? OptionItemId { get; set; }
@@ -29,14 +29,14 @@ namespace RHP.LandlordManagement
 
             try
             {
-                PropertyOptionItemDAO propertyOptionItemDAO = new PropertyOptionItemDAO();
+                OptionItemDAO OptionItemDAO = new OptionItemDAO();
                 if (this.OptionItemId.HasValue)
                 {
-                    result = propertyOptionItemDAO.Update(this, db, transaction);
+                    result = OptionItemDAO.Update(this, db, transaction);
                 }
                 else
                 {
-                    result = propertyOptionItemDAO.Insert(this, db, transaction);
+                    result = OptionItemDAO.Insert(this, db, transaction);
                 }
 
                 transaction.Commit();
@@ -70,7 +70,7 @@ namespace RHP.LandlordManagement
 
             try
             {
-                result = (new PropertyOptionItemDAO().Delete(this, db, transaction));
+                result = (new OptionItemDAO().Delete(this, db, transaction));
                 transaction.Commit();
             }
             catch (Exception ex)

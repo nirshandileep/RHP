@@ -194,6 +194,11 @@
     <Content Include="CustomError.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\House_Logo.jpg" />
+    <Content Include="Images\Sample\Bannerimage.jpg" />
+    <Content Include="Images\Sample\profileimage1.jpg" />
+    <Content Include="Images\Sample\profileimage2.jpg" />
+    <Content Include="Images\Sample\profileimage3.jpg" />
+    <Content Include="Images\Sample\profileimage4.jpg" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />

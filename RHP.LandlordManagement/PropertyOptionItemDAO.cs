@@ -9,7 +9,7 @@ using RHP.Common;
 
 namespace RHP.LandlordManagement
 {
-    public class PropertyOptionItemDAO
+    public class OptionItemDAO
     {
         /*public int? OptionItemId { get; set; }
         public string Name { get; set; }
@@ -25,24 +25,24 @@ namespace RHP.LandlordManagement
             return db.ExecuteDataSet(command);
         }
 
-        public bool Insert(PropertyOptionItem propertyOptionItem)
+        public bool Insert(OptionItem OptionItem)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Insert(propertyOptionItem, db, null);
+            return this.Insert(OptionItem, db, null);
         }
 
-        public bool Insert(PropertyOptionItem propertyOptionItem, Database db, DbTransaction transaction)
+        public bool Insert(OptionItem OptionItem, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionItemInsert");
 
-            db.AddInParameter(command, "Name", DbType.String, propertyOptionItem.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOptionItem.Description);
-            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOptionItem.IsDeleted);
-            db.AddInParameter(command, "OptionId", DbType.Int16, propertyOptionItem.OptionId); 
-            db.AddInParameter(command, "CreatedBy", DbType.Guid, propertyOptionItem.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, propertyOptionItem.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, propertyOptionItem.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, propertyOptionItem.UpdatedDate);
+            db.AddInParameter(command, "Name", DbType.String, OptionItem.Name);
+            db.AddInParameter(command, "Description", DbType.String, OptionItem.Description);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, OptionItem.IsDeleted);
+            db.AddInParameter(command, "OptionId", DbType.Int16, OptionItem.OptionId); 
+            db.AddInParameter(command, "CreatedBy", DbType.Guid, OptionItem.CreatedBy);
+            db.AddInParameter(command, "CreatedDate", DbType.DateTime, OptionItem.CreatedDate);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, OptionItem.UpdatedBy);
+            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, OptionItem.UpdatedDate);
 
 
             db.AddOutParameter(command, "OptionItemId", DbType.Int16, 3);
@@ -56,30 +56,30 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOptionItem.OptionItemId = Convert.ToInt16(db.GetParameterValue(command, "OptionItemId").ToString());
+            OptionItem.OptionItemId = Convert.ToInt16(db.GetParameterValue(command, "OptionItemId").ToString());
 
 
             return true;
         }
 
-        public bool Update(PropertyOptionItem propertyOptionItem)
+        public bool Update(OptionItem OptionItem)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Update(propertyOptionItem, db, null);
+            return this.Update(OptionItem, db, null);
         }
 
-        public bool Update(PropertyOptionItem propertyOptionItem, Database db, DbTransaction transaction)
+        public bool Update(OptionItem OptionItem, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionItemUpdate");
 
-            db.AddInParameter(command, "OptionItemId", DbType.String, propertyOptionItem.OptionItemId);
-            db.AddInParameter(command, "Name", DbType.String, propertyOptionItem.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOptionItem.Description);
-            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOptionItem.IsDeleted);
-            db.AddInParameter(command, "CreatedBy", DbType.Guid, propertyOptionItem.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, propertyOptionItem.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, propertyOptionItem.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, propertyOptionItem.UpdatedDate);
+            db.AddInParameter(command, "OptionItemId", DbType.String, OptionItem.OptionItemId);
+            db.AddInParameter(command, "Name", DbType.String, OptionItem.Name);
+            db.AddInParameter(command, "Description", DbType.String, OptionItem.Description);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, OptionItem.IsDeleted);
+            db.AddInParameter(command, "CreatedBy", DbType.Guid, OptionItem.CreatedBy);
+            db.AddInParameter(command, "CreatedDate", DbType.DateTime, OptionItem.CreatedDate);
+            db.AddInParameter(command, "UpdatedBy", DbType.Guid, OptionItem.UpdatedBy);
+            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, OptionItem.UpdatedDate);
 
 
             db.AddOutParameter(command, "OptionItemId", DbType.Int16, 3);
@@ -93,22 +93,22 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOptionItem.OptionItemId = Convert.ToInt16(db.GetParameterValue(command, "OptionItemId").ToString());
+            OptionItem.OptionItemId = Convert.ToInt16(db.GetParameterValue(command, "OptionItemId").ToString());
 
             return true;
         }
 
-        public bool Delete(PropertyOptionItem propertyOptionItem)
+        public bool Delete(OptionItem OptionItem)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Delete(propertyOptionItem, db, null);
+            return this.Delete(OptionItem, db, null);
         }
 
-        public bool Delete(PropertyOptionItem propertyOptionItem, Database db, DbTransaction transaction)
+        public bool Delete(OptionItem OptionItem, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionItemDelete");
-            db.AddInParameter(command, "OptionItemId", DbType.Guid, propertyOptionItem.OptionItemId);
-            db.AddInParameter(command, "IsDeleted", DbType.Guid, propertyOptionItem.IsDeleted);
+            db.AddInParameter(command, "OptionItemId", DbType.Guid, OptionItem.OptionItemId);
+            db.AddInParameter(command, "IsDeleted", DbType.Guid, OptionItem.IsDeleted);
 
             db.ExecuteNonQuery(command, transaction);
             return true;

@@ -8,8 +8,10 @@
     oncommandbuttoninitialize="gvFeatureItemList_CommandButtonInitialize" 
     onrowdeleting="gvFeatureItemList_RowDeleting" 
     onrowinserting="gvFeatureItemList_RowInserting" 
-    onrowupdating="gvFeatureItemList_RowUpdating" KeyFieldName="SchoolId">
+    onrowupdating="gvFeatureItemList_RowUpdating" KeyFieldName="OptionItemId"
+    oncelleditorinitialize="gvFeatureItemList_CellEditorInitialize">
     <Columns>
+
 
 <%--    [OptionItemId]
       ,[Name]
@@ -46,19 +48,17 @@
             <ClearFilterButton Visible="True">
             </ClearFilterButton>
         </dx:GridViewCommandColumn>
-        <dx:GridViewDataTextColumn Caption="Name" FieldName="Name" VisibleIndex="1">
+        <dx:GridViewDataComboBoxColumn Caption="Option Category" 
+            FieldName="OptionId" UnboundType="Integer" VisibleIndex="1">
+             <PropertiesComboBox TextField="Name" ValueField="OptionId" 
+                 ValueType="System.Int32">
+             </PropertiesComboBox>
+        </dx:GridViewDataComboBoxColumn>
+        <dx:GridViewDataTextColumn Caption="Name" FieldName="Name" VisibleIndex="2">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="2">
+        <dx:GridViewDataTextColumn FieldName="Description" VisibleIndex="3">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="3">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="OptionId" VisibleIndex="4">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="CreatedBy" VisibleIndex="5">
-        </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="CreatedDate" VisibleIndex="6">
-        </dx:GridViewDataTextColumn>
-      
+
     </Columns>
     <SettingsBehavior ConfirmDelete="True" />
 </dx:ASPxGridView>

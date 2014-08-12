@@ -5,8 +5,9 @@
     <div id="LeftPanel" runat="server">
         <asp:Menu ID="LeftMenuBar" runat="server" Orientation="Vertical">
         <Items>
-        <asp:MenuItem Text="item 1"></asp:MenuItem>
-         <asp:MenuItem Text="item 2"></asp:MenuItem>
+        <asp:MenuItem Text="View Profile Data" NavigateUrl="~/Student/Student_Profile_Edit.aspx"></asp:MenuItem>
+         <asp:MenuItem Text="Change Password" NavigateUrl="~/Change_Password.aspx"></asp:MenuItem>
+         <asp:MenuItem Text="Change Secret Question" NavigateUrl="~/Change_Secret_Question.aspx"></asp:MenuItem>
         </Items>
         </asp:Menu>
     </div>
@@ -16,8 +17,8 @@
         <div id="currentHomeStudentData" runat="server">
             <asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="2">
                 <ItemTemplate>
-                    <asp:Image ID="currentHomeStudentImage" runat="server" />
-                    <asp:Label ID="currentHomeStudentName" runat="server" Text=""></asp:Label>
+                    <asp:Image ID="currentHomeStudentImage" runat="server" ImageUrl="~/Images/Sample/profileimage4.jpg" Width="100px"   />
+                    <asp:Label ID="currentHomeStudentName" runat="server" Text="Name 1"></asp:Label>
                 </ItemTemplate>
             </asp:DataList>
         </div>

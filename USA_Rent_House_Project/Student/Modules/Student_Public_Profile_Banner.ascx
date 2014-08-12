@@ -6,7 +6,7 @@
 
         <asp:DataList ID="DataListCurrentHomeStudentBanner" runat="server" RepeatColumns="4">
             <ItemTemplate>
-                <asp:Image ID="currentHomeStudentBannerImage" runat="server" />
+                <asp:Image ID="currentHomeStudentBannerImage" runat="server"  ImageUrl="~/Images/Sample/profileimage4.jpg" Width="100px"   />
             </ItemTemplate>
         </asp:DataList>
     </div>

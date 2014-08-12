@@ -9,7 +9,7 @@ using System.Data.Common;
 
 namespace RHP.LandlordManagement
 {
-   public class PropertyOptionDAO
+   public class OptionDAO
     {
         /*
           public string Name { get; set; }
@@ -27,13 +27,13 @@ namespace RHP.LandlordManagement
             return db.ExecuteDataSet(command);
         }
 
-        public bool Insert(PropertyOption propertyOption)
+        public bool Insert(Option Option)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Insert(propertyOption, db, null);
+            return this.Insert(Option, db, null);
         }
 
-        public bool Insert(PropertyOption propertyOption, Database db, DbTransaction transaction)
+        public bool Insert(Option Option, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionInsert");
 
@@ -45,12 +45,12 @@ namespace RHP.LandlordManagement
     //@IsMultiSelect bit = NULL,
     //@OptionId int output
 
-            db.AddInParameter(command, "Name", DbType.String, propertyOption.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOption.Description);
-            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, propertyOption.OptionCategoryId);
-            db.AddInParameter(command, "ParentOptionId", DbType.Int16, propertyOption.ParentOptionId);
-            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
-            db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, propertyOption.IsMultiSelect);
+            db.AddInParameter(command, "Name", DbType.String, Option.Name);
+            db.AddInParameter(command, "Description", DbType.String, Option.Description);
+            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, Option.OptionCategoryId);
+            db.AddInParameter(command, "ParentOptionId", DbType.Int16, Option.ParentOptionId);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, Option.IsDeleted);
+            db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, Option.IsMultiSelect);
 
             db.AddOutParameter(command, "OptionId", DbType.Int16, 3);
 
@@ -63,29 +63,29 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOption.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId").ToString());
+            Option.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId").ToString());
 
 
             return true;
         }
 
-        public bool Update(PropertyOption propertyOption)
+        public bool Update(Option Option)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Update(propertyOption, db, null);
+            return this.Update(Option, db, null);
         }
 
-        public bool Update(PropertyOption propertyOption, Database db, DbTransaction transaction)
+        public bool Update(Option Option, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionUpdate");
 
-            db.AddInParameter(command, "OptionId", DbType.Int16, propertyOption.OptionId);
-            db.AddInParameter(command, "Name", DbType.String, propertyOption.Name);
-            db.AddInParameter(command, "Description", DbType.String, propertyOption.Description);
-            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, propertyOption.OptionCategoryId);
-            db.AddInParameter(command, "ParentOptionId", DbType.Int16, propertyOption.ParentOptionId);
-            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
-            db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, propertyOption.IsMultiSelect);
+            db.AddInParameter(command, "OptionId", DbType.Int16, Option.OptionId);
+            db.AddInParameter(command, "Name", DbType.String, Option.Name);
+            db.AddInParameter(command, "Description", DbType.String, Option.Description);
+            db.AddInParameter(command, "OptionCategoryId", DbType.Int16, Option.OptionCategoryId);
+            db.AddInParameter(command, "ParentOptionId", DbType.Int16, Option.ParentOptionId);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, Option.IsDeleted);
+            db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, Option.IsMultiSelect);
 
             db.AddOutParameter(command, "OptionId_", DbType.Int16, 3);
 
@@ -98,22 +98,22 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            propertyOption.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId_").ToString());
+            Option.OptionId = Convert.ToInt16(db.GetParameterValue(command, "OptionId_").ToString());
 
             return true;
         }
 
-        public bool Delete(PropertyOption propertyOption)
+        public bool Delete(Option Option)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            return this.Delete(propertyOption, db, null);
+            return this.Delete(Option, db, null);
         }
 
-        public bool Delete(PropertyOption propertyOption, Database db, DbTransaction transaction)
+        public bool Delete(Option Option, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionDelete");
-            db.AddInParameter(command, "OptionId", DbType.Int16, propertyOption.OptionId);
-            db.AddInParameter(command, "IsDeleted", DbType.Boolean, propertyOption.IsDeleted);
+            db.AddInParameter(command, "OptionId", DbType.Int16, Option.OptionId);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, Option.IsDeleted);
 
             if (transaction == null)
             {

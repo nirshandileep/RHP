@@ -6,8 +6,8 @@
     <div id="currentHomeStudentData" runat="server">
         <asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="2">
             <ItemTemplate>
-                <asp:Image ID="currentHomeStudentImage" runat="server" />
-                <asp:Label ID="currentHomeStudentName" runat="server" Text=""></asp:Label>
+                <asp:Image ID="currentHomeStudentImage" runat="server" ImageUrl="~/Images/Sample/profileimage4.jpg" Width="100px"   />
+                <asp:Label ID="currentHomeStudentName" runat="server" Text="Name"></asp:Label>
             </ItemTemplate>
         </asp:DataList>
     </div>

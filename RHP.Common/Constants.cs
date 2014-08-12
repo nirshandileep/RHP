@@ -31,6 +31,7 @@ namespace RHP.Common
         public static readonly string SESSION_STUDENT_LIST = "SESSION_STUDENT_LIST";
         public static readonly string SESSION_LOGGED_USER = "SESSION_LOGGED_USER";
         public static readonly string SESSION_FEATURE_LIST = "SESSION_FEATURE_LIST";
+        public static readonly string SESSION_HOUSE_LIST = "SESSION_HOUSE_LIST";
         public static readonly string SESSION_FEATURE_ITEMS_LIST = "SESSION_FEATURE_ITEMS_LIST";
 
 

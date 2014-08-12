@@ -16,7 +16,8 @@
 
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" /></span>!
                           <asp:LinkButton ID="LBLogOut" runat="server" onclick="LBLogOut_Click"> Log Out</asp:LinkButton>
                       
                     </LoggedInTemplate>
