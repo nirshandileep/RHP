@@ -10,6 +10,7 @@
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
+<div id="wrapper">
     <form id="form1" runat="server">
       <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
@@ -30,5 +31,6 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+    </div>
 </body>
 </html>
