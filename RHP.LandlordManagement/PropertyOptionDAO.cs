@@ -37,14 +37,6 @@ namespace RHP.LandlordManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_OptionInsert");
 
-    //         @Name nvarchar(50) = NULL,
-    //@Description nvarchar(150) = NULL,
-    //@OptionCategoryId int = NULL,
-    //@ParentOptionId int = NULL,
-    //@IsDeleted bit = NULL,
-    //@IsMultiSelect bit = NULL,
-    //@OptionId int output
-
             db.AddInParameter(command, "Name", DbType.String, Option.Name);
             db.AddInParameter(command, "Description", DbType.String, Option.Description);
             db.AddInParameter(command, "OptionCategoryId", DbType.Int16, Option.OptionCategoryId);

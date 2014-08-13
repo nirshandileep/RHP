@@ -7,22 +7,19 @@
     <div id="div_Search" runat="server" visible="true">
         <p class="homeheadingsub">
             "find your next connection"</p>
-            <div class="searchbuttons">
-        
+        <div class="searchbuttons">
             <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="homelargebuttons" Text="Search house"
                 OnClick="ButtonSearchHouse_Click" />
-      
-         
-        
             <asp:Button ID="ButtonSearchStudent" runat="server" CssClass="homelargebuttons" Text="Search student"
                 OnClick="ButtonSearchStudent_Click" />
-        
-         <div class="clear"></div>
+            <div class="clear">
+            </div>
         </div>
-         <div class="clear"></div>
+        <div class="clear">
+        </div>
     </div>
-   
-   <div class="clear"></div>
+    <div class="clear">
+    </div>
     <div id="formwrapper">
         <div id="Div_Search_House" runat="server" visible="false">
             <h1>
@@ -96,4 +93,6 @@
             </p>
         </div>
     </div>
+
+    <div>Search results</div>
 </asp:Content>

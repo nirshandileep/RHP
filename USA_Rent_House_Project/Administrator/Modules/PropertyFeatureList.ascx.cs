@@ -165,7 +165,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
         protected void gvFeatureList_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-            if (e.Column.FieldName != "OptionCategoryId") return;
+            if (e.Column.FieldName != "OptionCategoryId" || e.Column.FieldName != "IsMultiSelect") return;
 
             ASPxComboBox combo = e.Editor as ASPxComboBox;
             combo.DataBindItems();

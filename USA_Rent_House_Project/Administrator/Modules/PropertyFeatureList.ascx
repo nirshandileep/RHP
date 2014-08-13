@@ -49,7 +49,7 @@
                  ValueType="System.Int32">
              </PropertiesComboBox>
         </dx:GridViewDataComboBoxColumn>
-        <dx:GridViewDataCheckColumn FieldName="IsMultiSelect" UnboundType="Boolean" 
+        <dx:GridViewDataCheckColumn FieldName="IsMultiSelect" UnboundType="Boolean"
             VisibleIndex="6">
 
         </dx:GridViewDataCheckColumn>
