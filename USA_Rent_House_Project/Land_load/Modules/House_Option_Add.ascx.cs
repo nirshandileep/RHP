@@ -13,5 +13,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
 
         }
+
+        protected void AddPropertyOptionButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -82,9 +82,9 @@
         </div>
     </div>
      <p class="submitButton">
-            <asp:Button ID="CreatePropertyButton" runat="server" 
-                CssClass="actionbutton" CommandName="MoveNext"
-                Text="Create Property" ValidationGroup="PropertyValidationGroup" 
-                 onclick="CreatePropertyButton_Click"  />
+            <asp:Button ID="AddPropertyOptionButton" runat="server" 
+                CssClass="actionbutton" 
+                Text="Add Property Options" ValidationGroup="PropertyValidationGroup" onclick="AddPropertyOptionButton_Click" 
+  />
         </p>
 </div>
