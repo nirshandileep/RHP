@@ -43,10 +43,15 @@ namespace USA_Rent_House_Project.Student.Modules
 			if (!IsPostBack)
 			{
 				LoadInitialData();
-				if (HttpContext.Current.User.Identity.IsAuthenticated)
-				{
-					LoadFBData();
-				}
+
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    Response.Redirect("~/Student/Student_Profile.aspx", false);
+                }
+                else
+                {
+                    LoadFBData();
+                }
 			}
 		}
 
@@ -78,12 +83,12 @@ namespace USA_Rent_House_Project.Student.Modules
 		{
 			if (user.IsFBUser)
 			{
-                if (string.IsNullOrEmpty(user.Email) || user.Email == user.UserId+"@FB.com")
-                {
-                    setEmail.Visible = false;
-                }
-                else { Email.Text = user.Email; }
-               
+                //if (!string.IsNullOrEmpty(user.Email))
+                //{
+                //    setEmail.Visible = false;
+                //}
+                //else { Email.Text = user.Email; }
+
 				setUserName.Visible = false;
 				setpwd.Visible = false;
 				confirmpwd.Visible = false;
@@ -91,9 +96,10 @@ namespace USA_Rent_House_Project.Student.Modules
 				setQuestion.Visible = false;
 				setAnswer.Visible = false;
 
+                Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
                 Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
 
-                if(string.IsNullOrEmpty(user.Gender))
+                if(!string.IsNullOrEmpty(user.Gender))
                 {
 			        for (int i = 0; i < DrpGender.Items.Count; i++)
 			        {
@@ -114,6 +120,7 @@ namespace USA_Rent_House_Project.Student.Modules
 				{
 					bool boolMembershipUserCreated = false;
 
+                    user.Email = Email.Text.Trim();
 					user.Name = Name.Text.Trim();
 					user.StreetAddress = Address.Text.Trim();
 					user.City = City.Text.Trim();
@@ -137,55 +144,51 @@ namespace USA_Rent_House_Project.Student.Modules
 					student.LandloadPlace = LandLoadPlace.Text.Trim();
 					student.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
 
-					if (HttpContext.Current.User.Identity.IsAuthenticated)
-					{
-						// user created by facebook
-						boolMembershipUserCreated = true;
-					}
-					else
-					{
-						user.Email = Email.Text.Trim();
-						user.Password = Password.Text.Trim();
-						user.UserName = UserName.Text.Trim();
-						user.Question = Question.Text.Trim();
-						user.Answer = Answer.Text.Trim();
+                    if (user.IsFBUser)
+                    {
+                        // facebook user
+                        user.UserName = user.Email.Split('@')[0];
+                    }
+                    else
+                    {
+                        
+                        user.Password = Password.Text.Trim();
+                        user.UserName = UserName.Text.Trim();
+                        user.Question = Question.Text.Trim();
+                        user.Answer = Answer.Text.Trim();
+                    }
 
-						object objCreateMembershipUser = new object();
-						objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "student");
+                    object objCreateMembershipUser = new object();
+                    objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "student");
 
-						bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+                    bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
-						if (boolMembershipUserCreated)
-						{
-							MembershipUser mUser;
-							mUser = Membership.GetUser(UserName.Text.Trim());
-							user.UserId = new Guid(mUser.ProviderUserKey.ToString());
-						}
-						else
-						{
-							lblError.Text = boolMembershipUserCreated.ToString();
-						}
-					}
+                    if (boolMembershipUserCreated)
+                    {
+                        MembershipUser mUser;
+                        mUser = Membership.GetUser(user.UserName);
 
-					if (boolMembershipUserCreated)
-					{
-                        MembershipUser mUser = Membership.GetUser(UserName.Text.Trim());
                         user.UserId = (Guid)mUser.ProviderUserKey;
                         user.CreatedBy = (Guid)mUser.ProviderUserKey;
                         user.UpdatedBy = (Guid)mUser.ProviderUserKey;
 
-						if (user.Save())
-						{
+                        if (user.Save())
+                        {
                             student.StudentUser = user;
-                            student.CreatedBy = (Guid) mUser.ProviderUserKey;
+                            student.CreatedBy = (Guid)mUser.ProviderUserKey;
                             student.UpdatedBy = (Guid)mUser.ProviderUserKey;
 
                             if (student.Save())
                             {
                                 lblError.Text = Messages.Save_Success;
                             }
-						}
-					}
+                        }
+                    }
+                    else
+                    {
+                        lblError.Text = boolMembershipUserCreated.ToString();
+                    }
+					
 				}
 				catch (Exception ex)
 				{

@@ -43,17 +43,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (!IsPostBack)
             {
                 LoadInitialData();
+
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    if (user.IsFBUser == true)
-                    {
-                        loadFBData();
-                    }
-                    else {
-                        FormsAuthentication.SignOut();
-                        HttpContext.Current.Response.Redirect("/Land_load/Land_load_Profile_Add.aspx", false);
-                    }
-
+                    Response.Redirect("~/Land_load/Land_load_Profile.aspx", false);
+                }
+                else
+                {
+                    loadFBData();
                 }
 
             }
@@ -69,11 +66,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (user.IsFBUser)
             {
-                if (string.IsNullOrEmpty(user.Email) || user.Email == user.UserId + "@FB.com")
-                {
-                    setEmail.Visible = false;
-                }
-                else { Email.Text = user.Email; }
+                //if (string.IsNullOrEmpty(user.Email) || user.Email == user.UserId + "@FB.com")
+                //{
+                //    setEmail.Visible = false;
+                //}
+                //else { Email.Text = user.Email; }
 
                 setUserName.Visible = false;
                 setpwd.Visible = false;
@@ -82,9 +79,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 setQuestion.Visible = false;
                 setAnswer.Visible = false;
 
+                Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
                 Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
 
-                if (string.IsNullOrEmpty(user.Gender))
+                if (!string.IsNullOrEmpty(user.Gender))
                 {
                     for (int i = 0; i < DrpGender.Items.Count; i++)
                     {
@@ -106,6 +104,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     bool boolMembershipUserCreated = false;
 
+                    user.Email = Email.Text.Trim();
                     user.Name = Name.Text.Trim();
                     user.StreetAddress = Address.Text.Trim();
                     user.City = City.Text.Trim();
@@ -116,19 +115,19 @@ namespace USA_Rent_House_Project.Land_load.Modules
                    
                     user.Status = "Active";
 
-                    if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    if (user.IsFBUser)
                     {
-                        // user created by facebook
-                        boolMembershipUserCreated = true;
+                        // facebook user
+                        user.UserName = user.Email.Split('@')[0];
                     }
                     else
                     {
-                        user.Email = Email.Text.Trim();
+                        
                         user.Password = Password.Text.Trim();
                         user.UserName = UserName.Text.Trim();
                         user.Question = Question.Text.Trim();
                         user.Answer = Answer.Text.Trim();
-
+                    }
                           object objCreateMembershipUser = new object();
                           objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "landlord");
 
@@ -137,44 +136,35 @@ namespace USA_Rent_House_Project.Land_load.Modules
                             if (boolMembershipUserCreated)
                             {
                                 MembershipUser mUser;
-                                mUser = Membership.GetUser(UserName.Text.Trim());
-                                user.UserId = new Guid(mUser.ProviderUserKey.ToString());
+                                mUser = Membership.GetUser(user.UserName);
 
+                                user.UserId = (Guid)mUser.ProviderUserKey;
+                                user.CreatedBy = (Guid)mUser.ProviderUserKey;
+                                user.UpdatedBy = (Guid)mUser.ProviderUserKey;
+
+                                if (user.Save())
+                                {
+                                    landload.LandlordId = (Guid)mUser.ProviderUserKey;
+                                    landload.LandlordName = Name.Text.Trim();
+                                    landload.user = user;
+                                    landload.CreatedBy = (Guid)mUser.ProviderUserKey;
+                                    landload.UpdatedBy = (Guid)mUser.ProviderUserKey;
+
+                                    if (landload.Save())
+                                    {
+                                        lblError.Text = Messages.Save_Success;
+                                    }
+
+
+                                    // success
+
+                                }
                             }
                             else
                             {
                                 lblError.Text = boolMembershipUserCreated.ToString();
                             }
-                    }
 
-                    if (boolMembershipUserCreated)
-                    {
-                        MembershipUser mUser = Membership.GetUser(UserName.Text.Trim());
-                        user.UserId = (Guid)mUser.ProviderUserKey;
-                        user.CreatedBy = (Guid)mUser.ProviderUserKey;
-                        user.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                        if (user.Save())
-                        {
-                            landload.LandlordId = (Guid)mUser.ProviderUserKey;
-                            landload.LandlordName = Name.Text.Trim();
-                            landload.user = user;
-                            landload.CreatedBy = (Guid)mUser.ProviderUserKey;
-                            landload.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                            if ( landload.Save())
-                            {
-                                lblError.Text = Messages.Save_Success;
-                            }
-                           
-
-                            // success
-
-                        }
-
-                       
-                    }
-                   
                 }
                 catch (Exception ex)
                 {

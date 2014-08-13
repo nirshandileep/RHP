@@ -33,6 +33,8 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "PersonalEmail", DbType.String, users.PersonalEmail);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, users.CreatedBy);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
+            db.AddInParameter(command, "FBid", DbType.String, users.FBid);
+            
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
@@ -131,7 +133,7 @@ namespace RHP.UserManagement
             DbCommand command = db.GetStoredProcCommand("usp_UserSelectUsernameByFbId");
 
             db.AddInParameter(command, "FbId", DbType.String, FbId);
-            db.AddOutParameter(command, "Username", DbType.String, 1);
+            db.AddOutParameter(command, "Username", DbType.String, 50);
 
             db.ExecuteNonQuery(command);
 
