@@ -5,7 +5,7 @@
         Student Profile info - Edit
     </h2>
 
-     <asp:HyperLink ID="HyperLinkChangePassword" runat="server" CssClass="loginlinks" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink> | <asp:HyperLink ID="HyperLinkChangeQuestion" CssClass="loginlinks"  NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> 
+     <asp:HyperLink ID="HyperLinkChangePassword" runat="server" CssClass="loginlinks" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>  <asp:HyperLink ID="HyperLinkChangeQuestion" CssClass="loginlinks"  NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> 
    
     <div id="formwrapper">
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification" ValidationGroup="RegisterStudentValidationGroup" />

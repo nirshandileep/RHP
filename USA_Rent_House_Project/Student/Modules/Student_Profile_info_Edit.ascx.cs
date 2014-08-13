@@ -15,7 +15,27 @@ namespace USA_Rent_House_Project.Student.Modules
     public partial class Student_Profile_info_Edit : System.Web.UI.UserControl
     {
 
-        User user = new User();
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
+
 
         RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
 
@@ -27,6 +47,16 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     LoadUserData();
+                    if (user.IsFBUser == true)
+                    {
+                        HyperLinkChangePassword.Visible = false;
+                        HyperLinkChangeQuestion.Visible = false;
+                    }
+                    else
+                    {
+                        HyperLinkChangePassword.Visible = true;
+                        HyperLinkChangeQuestion.Visible = true;
+                    }
                 }
             }
         }

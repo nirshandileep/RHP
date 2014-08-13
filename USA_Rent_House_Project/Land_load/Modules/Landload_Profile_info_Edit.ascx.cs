@@ -45,6 +45,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     LoadUserData();
+                    if (user.IsFBUser == true)
+                    {
+                        HyperLinkChangePassword.Visible = false;
+                        HyperLinkChangeQuestion.Visible = false;
+                    }
+                    else
+                    {
+                        HyperLinkChangePassword.Visible = true;
+                        HyperLinkChangeQuestion.Visible = true;
+                    }
                 }
             }
         }

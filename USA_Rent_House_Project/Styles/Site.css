@@ -291,26 +291,27 @@ input.actionbutton:hover
 
 .loginDisplay
 {
-    font-size: 1.1em;
     display: block;
-    text-align: right;
+    font-size: 1.2em;
+    margin: 0 auto;
     padding: 10px;
-    color: White;
+    text-align: right;
+    width: 960px;    
 }
 
 .loginDisplay a:link
 {
-    color: white;
+    color: #3e3e3e;
 }
 
 .loginDisplay a:visited
 {
-    color: white;
+    color: #3e3e3e;
 }
 
 .loginDisplay a:hover
 {
-    color: white;
+    color: #3e3e3e;
 }
 
 .failureNotification
@@ -739,3 +740,78 @@ a.loginlinks:hover
     width:70%;
 }
 
+
+/* Student profile */
+
+#MainContent_Student_Profile_HeaderID_StidentProfileHeader
+{
+    width:960px;
+    margin:0 auto;
+}
+
+#MainContent_Student_Profile_HeaderID_HeaderImage
+{
+    width:960px;
+    height:315px;
+    overflow:hidden;
+    border: 3px solid;
+}
+
+
+#MainContent_Student_Profile_HeaderID_StudentProfileImage
+{
+    border: 5px solid #fff;
+    box-shadow: 0 0 4px #000;
+    height: 100px;
+    margin-left: 30px;
+    margin-top: -30px;
+    overflow: hidden;
+    position: absolute;
+    width: 100px;
+    z-index: 5;
+}
+
+
+#MainContent_Student_Profile_HeaderID_CurrentHouseImage
+{
+  
+  
+    float: left;
+    height: 101px;
+    margin: 5px;
+    overflow: hidden;
+    position: relative;
+    right: -200px;
+    top: 10px;
+    width: 100px;
+    z-index: 5;
+}
+
+#MainContent_Student_Profile_DataID_currentHomeStudent
+{
+    margin:0 auto;
+    width:960px;
+}
+
+#MainContent_Student_Profile_DataID_LeftPanel
+{
+    float:left;
+    padding:15px 0;
+   
+}
+
+#MainContent_Student_Profile_DataID_RightPanel
+{
+    float:left;
+    margin-left:50px;
+    padding:15px 0;
+}
+
+#MainContent_Student_Profile_CommentsID_StudentComments
+{
+    border-top: 1px dashed;
+    clear: both;
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 960px;
+}

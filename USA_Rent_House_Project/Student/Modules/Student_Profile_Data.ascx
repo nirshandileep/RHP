@@ -4,11 +4,11 @@
 <div id="currentHomeStudent" runat="server">
     <div id="LeftPanel" runat="server">
         <asp:Menu ID="LeftMenuBar" runat="server" Orientation="Vertical">
-        <Items>
+        <%--<Items>
         <asp:MenuItem Text="View Profile Data" NavigateUrl="~/Student/Student_Profile_Edit.aspx"></asp:MenuItem>
          <asp:MenuItem Text="Change Password" NavigateUrl="~/Change_Password.aspx"></asp:MenuItem>
          <asp:MenuItem Text="Change Secret Question" NavigateUrl="~/Change_Secret_Question.aspx"></asp:MenuItem>
-        </Items>
+        </Items>--%>
         </asp:Menu>
     </div>
     <div id="RightPanel" runat="server">
