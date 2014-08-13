@@ -21,7 +21,7 @@ namespace RHP.LandlordManagement
         public DataSet SelectAllDataset()
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand command = db.GetStoredProcCommand("usp_OptionSelectAll");
+            DbCommand command = db.GetStoredProcCommand("usp_OptionItemSelectAll");
             return db.ExecuteDataSet(command);
         }
 
@@ -40,10 +40,6 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, OptionItem.IsDeleted);
             db.AddInParameter(command, "OptionId", DbType.Int16, OptionItem.OptionId); 
             db.AddInParameter(command, "CreatedBy", DbType.Guid, OptionItem.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, OptionItem.CreatedDate);
-            db.AddInParameter(command, "UpdatedBy", DbType.Guid, OptionItem.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, OptionItem.UpdatedDate);
-
 
             db.AddOutParameter(command, "OptionItemId", DbType.Int16, 3);
 
@@ -76,13 +72,11 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "Name", DbType.String, OptionItem.Name);
             db.AddInParameter(command, "Description", DbType.String, OptionItem.Description);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, OptionItem.IsDeleted);
-            db.AddInParameter(command, "CreatedBy", DbType.Guid, OptionItem.CreatedBy);
-            db.AddInParameter(command, "CreatedDate", DbType.DateTime, OptionItem.CreatedDate);
+            db.AddInParameter(command, "OptionId", DbType.Int16, OptionItem.OptionId); 
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, OptionItem.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, OptionItem.UpdatedDate);
 
 
-            db.AddOutParameter(command, "OptionItemId", DbType.Int16, 3);
+            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
             if (transaction == null)
             {
@@ -93,7 +87,7 @@ namespace RHP.LandlordManagement
                 db.ExecuteNonQuery(command, transaction);
             }
 
-            OptionItem.OptionItemId = Convert.ToInt16(db.GetParameterValue(command, "OptionItemId").ToString());
+            OptionItem.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
 
             return true;
         }

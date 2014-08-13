@@ -5,6 +5,8 @@ using System.Text;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Common;
+using RHP.Utility;
+using System.Data;
 
 namespace RHP.LandlordManagement
 {

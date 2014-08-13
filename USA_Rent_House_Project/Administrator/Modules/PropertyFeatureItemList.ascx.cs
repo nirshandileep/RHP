@@ -93,7 +93,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             OptionItem optionItem = new OptionItem();
             optionItem.Name = e.NewValues["Name"].ToString().Trim();
             optionItem.Description = e.NewValues["Description"].ToString().Trim();
-            optionItem.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
+           // optionItem.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
             optionItem.OptionId = Convert.ToInt16(e.NewValues["OptionId"].ToString().Trim());
             optionItem.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey;
             optionItem.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey;
@@ -121,7 +121,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             optionItem.OptionItemId = Convert.ToInt16(e.Keys[gvFeatureItemList.KeyFieldName]);  //Convert.ToInt16(e.NewValues["OptionItemId"].ToString().Trim());
             optionItem.Name = e.NewValues["Name"].ToString().Trim();
             optionItem.Description = e.NewValues["Description"].ToString().Trim();
-            optionItem.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
+            //optionItem.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
             optionItem.OptionId = Convert.ToInt16(e.NewValues["OptionId"].ToString().Trim());
             optionItem.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey;
             optionItem.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey;

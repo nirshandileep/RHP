@@ -17,7 +17,7 @@ namespace RHP.LandlordManagement
         public bool IsDeleted { get; set; }
         public int OptionId { get; set; }
 
-
+      
         public bool Save()
         {
             bool result = false;

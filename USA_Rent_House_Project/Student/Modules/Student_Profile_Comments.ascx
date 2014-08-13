@@ -6,7 +6,9 @@
     <div id="StudentCommentsData" runat="server">
         <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1">
             <ItemTemplate>
-                 <asp:Label ID="CommentID" runat="server" Text="Comments........................"></asp:Label>
+                <div id="DivComment" runat="server">
+                     <asp:Label ID="CommentID" runat="server" Text=""></asp:Label><%--'<%# Eval("Package_Title") %>'--%>
+                </div>
             </ItemTemplate>
         </asp:DataList>
     </div>

@@ -759,6 +759,10 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\RHP.Comments\RHP.Comments.csproj">
+      <Project>{161EC1E4-CC1A-4992-9112-1255B9EECF62}</Project>
+      <Name>RHP.Comments</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.Common\RHP.Common.csproj">
       <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
       <Name>RHP.Common</Name>
