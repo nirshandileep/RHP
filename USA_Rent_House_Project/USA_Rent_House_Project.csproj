@@ -204,6 +204,7 @@
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
+    <Content Include="Land_load\Modules\House_Option_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Edit.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
@@ -510,6 +511,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\House_info_Add.ascx.designer.cs">
       <DependentUpon>House_info_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Option_Add.ascx.cs">
+      <DependentUpon>House_Option_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Option_Add.ascx.designer.cs">
+      <DependentUpon>House_Option_Add.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_info_Add.ascx.cs">
       <DependentUpon>Landload_Profile_info_Add.ascx</DependentUpon>
