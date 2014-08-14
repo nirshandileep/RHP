@@ -5,10 +5,10 @@
 <h2 class="homeheading">www.ratemystudenthome.com</h2>   
 <p class="homeheadingsub">"Student housing made simple, reliable, most of all accountable"</p>
     <div class="buttons">
-    <asp:HyperLink ID="StudentLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=s">Student</asp:HyperLink> 
+    <asp:HyperLink ID="StudentLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=s">I am a Student</asp:HyperLink> 
     </div>
      <div class="buttons">
-    <asp:HyperLink ID="HouseLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=l">Landload</asp:HyperLink>
+    <asp:HyperLink ID="HouseLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=l">I am a Landlord</asp:HyperLink>
     </div>
 
     <div class="buttons">
