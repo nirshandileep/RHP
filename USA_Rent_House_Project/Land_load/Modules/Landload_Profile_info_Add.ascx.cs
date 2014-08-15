@@ -153,27 +153,35 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                     if (landload.Save())
                                     {
                                         lblError.Text = Messages.Save_Success;
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Profile.aspx';}", true);
                                     }
 
 
                                     // success
 
                                 }
+                                else
+                                {
+                                    lblError.Text = boolMembershipUserCreated.ToString();
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + "'); }", true);
+                                }
                             }
                             else
                             {
-                                lblError.Text = boolMembershipUserCreated.ToString();
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + boolMembershipUserCreated.ToString() + "'); }", true);
                             }
 
                 }
                 catch (Exception ex)
                 {
-                    throw new Exception("LandLord Profile info : " + ex.ToString());
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + "'); }", true);
+                   
+                   // throw new Exception("LandLord Profile info : " + ex.ToString());
                 }
             }
             else
             {
-
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Validation_Fail + "'); }", true);
             }
         }
     }

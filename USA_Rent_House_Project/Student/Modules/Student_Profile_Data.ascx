@@ -4,11 +4,7 @@
 <div id="currentHomeStudent" runat="server">
     <div id="LeftPanel" runat="server">
         <asp:Menu ID="LeftMenuBar" runat="server" Orientation="Vertical">
-        <%--<Items>
-        <asp:MenuItem Text="View Profile Data" NavigateUrl="~/Student/Student_Profile_Edit.aspx"></asp:MenuItem>
-         <asp:MenuItem Text="Change Password" NavigateUrl="~/Change_Password.aspx"></asp:MenuItem>
-         <asp:MenuItem Text="Change Secret Question" NavigateUrl="~/Change_Secret_Question.aspx"></asp:MenuItem>
-        </Items>--%>
+        
         </asp:Menu>
     </div>
     <div id="RightPanel" runat="server">
@@ -28,9 +24,9 @@
         <div id="StudentHouseData" runat="server">
             My College housing life..<asp:HyperLink ID="hypStudentHouseData" runat="server">Photos/Videos</asp:HyperLink>
         </div>
-        <div id="Search" runat="server">
-            <asp:HyperLink ID="SearchStudent" runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="SearchHouse" runat="server">Search for House</asp:HyperLink>
+          <div id="Search" runat="server">
+            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" runat="server">Search for Student</asp:HyperLink>
+            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" runat="server">Search for House</asp:HyperLink>
         </div>
     </div>
 </div>

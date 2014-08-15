@@ -20,14 +20,5 @@ namespace USA_Rent_House_Project.Land_load {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Land_load.Modules.House_info_Add House_info_Add1;
-        
-        /// <summary>
-        /// House_Option_Add1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Land_load.Modules.House_Option_Add House_Option_Add1;
     }
 }

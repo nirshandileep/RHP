@@ -14,6 +14,7 @@
                 <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                 <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ErrorMessage="Please select Gender" ControlToValidate="DrpGender" ValidationGroup="RegisterLand_lordValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"

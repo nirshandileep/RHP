@@ -40,6 +40,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.DropDownList DrpGender;
         
         /// <summary>
+        /// GenderRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator GenderRequired;
+        
+        /// <summary>
         /// LabelName control.
         /// </summary>
         /// <remarks>
@@ -436,6 +445,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.DropDownList DrpSchoolName;
         
         /// <summary>
+        /// SchoolNameRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator SchoolNameRequired;
+        
+        /// <summary>
         /// LabelYear control.
         /// </summary>
         /// <remarks>
@@ -454,6 +472,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.DropDownList DRPYear;
         
         /// <summary>
+        /// YearRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator YearRequired;
+        
+        /// <summary>
         /// LabelStatus control.
         /// </summary>
         /// <remarks>
@@ -470,6 +497,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList Status;
+        
+        /// <summary>
+        /// StatusRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StatusRequired;
         
         /// <summary>
         /// LabelLandLoadName control.

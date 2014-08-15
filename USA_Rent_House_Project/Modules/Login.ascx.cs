@@ -21,21 +21,43 @@ namespace USA_Rent_House_Project.Modules
          //   CreateProfile
             if (!IsPostBack)
             {
-                string value = Utility.GetQueryStringValueByKey(Request, "type");
-
-                if (value == "s")
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    CreateProfile.Visible = true;
-                    FacebookLogin.Visible = true;
-                    FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=s";
-                    CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx";
+                    if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "admin"))
+                    {
+                        Response.Redirect("~/Administrator/Default.aspx");
+                    }
+                    else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "student"))
+                    {
+                        Response.Redirect("~/Student/Student_Profile.aspx");
+                    }
+                    else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "landlord"))
+                    {
+                        Response.Redirect("~/Land_load/Land_load_Profile.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("~/Default.aspx");
+                    }
                 }
-                else if (value == "l")
+                else
                 {
-                    CreateProfile.Visible = true;
-                    FacebookLogin.Visible = true;
-                    FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
-                    CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx";
+                    string value = Utility.GetQueryStringValueByKey(Request, "type");
+
+                    if (value == "s")
+                    {
+                        CreateProfile.Visible = true;
+                        FacebookLogin.Visible = true;
+                        FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=s";
+                        CreateProfile.NavigateUrl = "~/Student/Student_Profile_Add.aspx";
+                    }
+                    else if (value == "l")
+                    {
+                        CreateProfile.Visible = true;
+                        FacebookLogin.Visible = true;
+                        FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
+                        CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx";
+                    }
                 }
                 
             }
@@ -60,11 +82,16 @@ namespace USA_Rent_House_Project.Modules
                 catch (Exception ex)
                 {
                     user.LogOut();
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Login_Fail + "'); }", true);
                 }
             }
             else
             {
-                user.LogOut();
+
+             //   string script = "window.onload = function(){ alert('" + Messages.Login_Fail + "'); window.location = '/' }";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Login_Fail + "'); }", true);
+
+                //user.LogOut();
             }
         }
 

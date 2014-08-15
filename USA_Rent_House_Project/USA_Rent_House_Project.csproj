@@ -202,15 +202,20 @@
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
+    <Content Include="Land_load\Land_Load_House_Option_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
+    <Content Include="Land_load\Modules\Landload_Profile_Banner.ascx" />
+    <Content Include="Land_load\Modules\Landload_Profile_Data.ascx" />
+    <Content Include="Land_load\Modules\Landload_Profile_Header.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Edit.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
+    <Content Include="Land_load\Modules\Landload_Public_Profile_Header.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Change_Password.ascx" />
     <Content Include="Modules\Change_Secret_Question.ascx" />
@@ -500,6 +505,13 @@
     <Compile Include="Land_load\Land_Load_House_info_Add.aspx.designer.cs">
       <DependentUpon>Land_Load_House_info_Add.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Land_Load_House_Option_Add.aspx.cs">
+      <DependentUpon>Land_Load_House_Option_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_Load_House_Option_Add.aspx.designer.cs">
+      <DependentUpon>Land_Load_House_Option_Add.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_load_Profile.aspx.cs">
       <DependentUpon>Land_load_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -535,6 +547,27 @@
     <Compile Include="Land_load\Modules\House_Option_Add.ascx.designer.cs">
       <DependentUpon>House_Option_Add.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Banner.ascx.cs">
+      <DependentUpon>Landload_Profile_Banner.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Banner.ascx.designer.cs">
+      <DependentUpon>Landload_Profile_Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Data.ascx.cs">
+      <DependentUpon>Landload_Profile_Data.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Data.ascx.designer.cs">
+      <DependentUpon>Landload_Profile_Data.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Header.ascx.cs">
+      <DependentUpon>Landload_Profile_Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Header.ascx.designer.cs">
+      <DependentUpon>Landload_Profile_Header.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_info_Add.ascx.cs">
       <DependentUpon>Landload_Profile_info_Add.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -562,6 +595,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Public_Profile_Data.ascx.designer.cs">
       <DependentUpon>Landload_Public_Profile_Data.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Header.ascx.cs">
+      <DependentUpon>Landload_Public_Profile_Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Header.ascx.designer.cs">
+      <DependentUpon>Landload_Public_Profile_Header.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

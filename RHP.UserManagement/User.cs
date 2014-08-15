@@ -222,22 +222,22 @@ namespace RHP.UserManagement
 
             if (RolesList != null || rolesList.Count > 0)
             {
-                role = RolesList[0].ToString();
+                role = RolesList[0].ToLower();
             }
 
-            if (role.ToString() == "Admin")
+            if (role.ToLower() == "admin")
             {
                 URL = "~/Administrator/Default.aspx";
             }
-            else if (role.ToString() == "LandLoad")
+            else if (role.ToLower() == "landlord")
             {
                 URL = "~/Land_load/Land_load_Profile.aspx";
             }
-            else if (role.ToString() == "Student")
+            else if (role.ToLower() == "student")
             {
                 URL = "~/Student/Student_Profile.aspx";
             }
-            else if (role.ToString() == "SystemAdmin")
+            else if (role.ToLower() == "systemadmin")
             {
                 URL = "~/";
             }

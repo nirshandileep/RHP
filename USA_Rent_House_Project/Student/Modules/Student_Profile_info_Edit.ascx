@@ -15,6 +15,7 @@
                 <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                 <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
+             <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ErrorMessage="Please select Gender"  CssClass="failureNotification" ControlToValidate="DrpGender" ValidationGroup="RegisterStudentValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
 
             <p>
@@ -139,6 +140,7 @@
                 <%--    <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>
                     <asp:ListItem Value="56570F82-880C-4B6B-95CA-DD775A104668" >SchoolName</asp:ListItem>--%>
                 </asp:DropDownList>
+           <asp:RequiredFieldValidator ID="SchoolNameRequired" runat="server" ErrorMessage="Please select School" CssClass="failureNotification" ControlToValidate="DrpSchoolName" ValidationGroup="RegisterStudentValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
 
            
@@ -146,11 +148,14 @@
                 <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year:</asp:Label>
                 <asp:DropDownList ID="DRPYear" runat="server">
                 </asp:DropDownList>
+             <asp:RequiredFieldValidator ID="YearRequired" runat="server" ErrorMessage="Please select Year" CssClass="failureNotification" ControlToValidate="DRPYear" ValidationGroup="RegisterStudentValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
             <p>
                 <asp:Label ID="LabelStatus" runat="server" AssociatedControlID="Status" CssClass="form_label">Status:</asp:Label>
                 <asp:DropDownList ID="Status" runat="server">
                 </asp:DropDownList>
+             <asp:RequiredFieldValidator ID="StatusRequired" runat="server" ErrorMessage="Please select Status" CssClass="failureNotification"  ControlToValidate="Status" ValidationGroup="RegisterStudentValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
+            
             </p>
              <p>
                 <asp:Label ID="LabelLandLoadName" runat="server" AssociatedControlID="LandLoadName" CssClass="form_label">Land load Name:</asp:Label>

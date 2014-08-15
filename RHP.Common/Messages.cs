@@ -15,6 +15,11 @@ namespace RHP.Common
         public static readonly string Update_Unsuccess = "Cannot Update";
         public static readonly string Delete_Unsuccess = "Cannot Delete";
 
+        public static readonly string Profile_Create_Unsuccess = "Cannot Create Profile";
+        public static readonly string Login_Fail = "User Authantication Failed! Please enter Correct Details..";
+
+        public static readonly string Validation_Fail = "Please Validate required Fields";
+
         public static readonly string Delete_Confirm = "Are you sure you want to delete this record?";
     }
 }

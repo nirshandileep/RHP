@@ -49,24 +49,6 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_Search_House;
         
         /// <summary>
-        /// LabelGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelGender;
-        
-        /// <summary>
-        /// DrpGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DrpGender;
-        
-        /// <summary>
         /// LabelName control.
         /// </summary>
         /// <remarks>
@@ -157,6 +139,24 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_Search_Student;
         
         /// <summary>
+        /// Labellandloadname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labellandloadname;
+        
+        /// <summary>
+        /// landloadname control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox landloadname;
+        
+        /// <summary>
         /// Label5 control.
         /// </summary>
         /// <remarks>
@@ -175,58 +175,22 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
         
         /// <summary>
-        /// LabelSchoolName control.
+        /// LabelDrpGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelSchoolName;
+        protected global::System.Web.UI.WebControls.Label LabelDrpGrade;
         
         /// <summary>
-        /// studentname control.
+        /// DrpGrade control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox studentname;
-        
-        /// <summary>
-        /// ZipLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label ZipLabel;
-        
-        /// <summary>
-        /// Zip control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Zip;
-        
-        /// <summary>
-        /// LabelStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelStatus;
-        
-        /// <summary>
-        /// Status control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Status;
+        protected global::System.Web.UI.WebControls.DropDownList DrpGrade;
         
         /// <summary>
         /// FindStudent control.

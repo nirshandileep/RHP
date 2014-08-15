@@ -181,24 +181,36 @@ namespace USA_Rent_House_Project.Student.Modules
                             if (student.Save())
                             {
                                 lblError.Text = Messages.Save_Success;
+
+
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx'; }", true);
                             }
+                        }
+                         
+                        else
+                        {
+                            lblError.Text = boolMembershipUserCreated.ToString();
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + boolMembershipUserCreated.ToString() + "'); }", true);
                         }
                     }
                     else
                     {
                         lblError.Text = boolMembershipUserCreated.ToString();
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + boolMembershipUserCreated.ToString() + "'); }", true);
                     }
 					
 				}
 				catch (Exception ex)
 				{
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess +  "'); }", true);
+                   
                     throw ex;//new Exception("student Profile info : " + ex.ToString());
 				}
 			}
 			else
 			{
-
-			}
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Validation_Fail + "'); }", true);
+            }
 		}
 	}
 }

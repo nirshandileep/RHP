@@ -3,7 +3,7 @@
     <h2 class="form_heading">
     Land Load Profile info - Edit 
     </h2>
-    <asp:HyperLink ID="HyperLinkChangePassword" runat="server" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>  <asp:HyperLink ID="HyperLinkChangeQuestion" NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> 
+    <asp:HyperLink ID="HyperLinkChangePassword" runat="server"  CssClass="loginlinks" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>  <asp:HyperLink ID="HyperLinkChangeQuestion"  CssClass="loginlinks"  NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> 
       <div id="formwrapper">
       <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="RegisterLand_lordValidationGroup" />
@@ -13,6 +13,7 @@
                 <asp:Label ID="LabelGender" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                 <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
+                                <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ErrorMessage="Please select Gender"  CssClass="failureNotification" ControlToValidate="DrpGender" ValidationGroup="RegisterLand_lordValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
             <p>
                 <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name"

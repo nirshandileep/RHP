@@ -12,7 +12,7 @@
             
             <p>
                 Options / Features</p>
-            <asp:CheckBoxList ID="OptionList" runat="server" RepeatColumns="2">
+            <asp:CheckBoxList ID="OptionList" runat="server" RepeatColumns="5">
                 <asp:ListItem> Cealing fans   </asp:ListItem>
                 <asp:ListItem> Sunroom   </asp:ListItem>
                 <asp:ListItem> mother in low quartes   </asp:ListItem>
@@ -51,7 +51,11 @@
             </asp:DropDownList>
             <br />
             <br />
-            <asp:CheckBox ID="chkFurnishedrooms" runat="server" Text=" Furnished rooms :" />
+
+            <table style="width: 822px">
+            <tr valign="top">
+            <td>
+             Furnished rooms :
             <asp:CheckBoxList ID="chkFurnishedroomoptions" runat="server" RepeatColumns="2">
                 <asp:ListItem> bed</asp:ListItem>
                 <asp:ListItem> chair</asp:ListItem>
@@ -60,15 +64,18 @@
                 <asp:ListItem> cooling fans</asp:ListItem>
                 <asp:ListItem> fans</asp:ListItem>
             </asp:CheckBoxList>
-            <br />
-            <asp:CheckBox ID="chkFurnishedkitchen" runat="server" Text=" Furnished kitchen :" />
+            </td>
+            <td>
+              Furnished kitchen :
             <asp:CheckBoxList ID="chkFurnishedkitchenOptions" runat="server" RepeatColumns="2">
                 <asp:ListItem> toster</asp:ListItem>
                 <asp:ListItem> plates</asp:ListItem>
                 <asp:ListItem> mini oven</asp:ListItem>
             </asp:CheckBoxList>
-            <br />
-            <asp:CheckBox ID="chkFurnishedlivingspace" runat="server" Text=" Furnished living space :" />
+  
+            </td>
+            <td>
+               Furnished living space :
             <asp:CheckBoxList ID="chkFurnishedlivingspaceOptions" runat="server" RepeatColumns="2">
                 <asp:ListItem> TV</asp:ListItem>
  <asp:ListItem> Radio</asp:ListItem>
@@ -77,6 +84,13 @@
  <asp:ListItem> fire place</asp:ListItem>
  <asp:ListItem> table chairs</asp:ListItem>
             </asp:CheckBoxList>
+        
+            </td>
+            </tr>
+            </table>
+          
+           
+  
         
         
         </div>
