@@ -90,19 +90,16 @@
             <p>
                 <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year House build:</asp:Label>
                 <asp:DropDownList ID="DRPYear" runat="server">
-                    <asp:ListItem>2001</asp:ListItem>
                 </asp:DropDownList>
             </p>
             <p>
-                <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="BedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
-                <asp:DropDownList ID="BedRooms" runat="server">
-                    <asp:ListItem>1</asp:ListItem>
+                <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
+                <asp:DropDownList ID="DrpBedRooms" runat="server">
                 </asp:DropDownList>
             </p>
             <p>
-                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="BathRooms" CssClass="form_label">Bath Rooms:</asp:Label>
-                <asp:DropDownList ID="BathRooms" runat="server">
-                    <asp:ListItem>1</asp:ListItem>
+                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="DrpBathRooms" CssClass="form_label">Bath Rooms:</asp:Label>
+                <asp:DropDownList ID="DrpBathRooms" runat="server">
                 </asp:DropDownList>
             </p>
             <p>
@@ -137,5 +134,7 @@
                 CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Property" ValidationGroup="PropertyValidationGroup" 
                  onclick="CreatePropertyButton_Click"  />
+            <asp:HiddenField ID="hdnLandLordId" runat="server" />
+            <asp:HiddenField ID="hdnHouseId" runat="server" />
         </p>
 </div>

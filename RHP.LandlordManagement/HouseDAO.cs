@@ -28,7 +28,8 @@ namespace RHP.LandlordManagement
        {
            DbCommand command = db.GetStoredProcCommand("usp_HouseInsert");
 
-           db.AddInParameter(command, "HouseId", DbType.Guid, Guid.NewGuid());
+           house.HouseId = Guid.NewGuid();
+           db.AddInParameter(command, "HouseId", DbType.Guid, house.HouseId);
            db.AddInParameter(command, "LandlordId", DbType.Guid, house.LandlordId);
            db.AddInParameter(command, "StreetAddress", DbType.String, house.StreetAddress);
            db.AddInParameter(command, "City", DbType.String, house.City);

@@ -10,7 +10,7 @@ namespace RHP.LandlordManagement
 {
     public class House: Base
     {
-        public Guid HouseId { get; set; }
+        public Guid? HouseId { get; set; }
         public Guid LandlordId { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }

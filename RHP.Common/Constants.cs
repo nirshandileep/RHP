@@ -49,6 +49,14 @@ namespace RHP.Common
 
         public static readonly int STUDENT_PROFILE_STARTING_YEAR = 2006;
         public static readonly int STUDENT_PROFILE_NUMBER_OF_YEARS = 12;
-        
+
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_STARTING_YEAR = 1950;
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_NUMBER_OF_YEARS = 100;
+
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BATHROOMS = 25;
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BATHROOMS_MIN = 0;
+
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BEDROOMS = 25;
+        public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BEDROOMS_MIN = 0;
     }
 }

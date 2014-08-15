@@ -177,6 +177,7 @@
     <Content Include="Administrator\Modules\PropertyList.ascx" />
     <Content Include="Administrator\Modules\PropertyView.ascx" />
     <Content Include="Administrator\Modules\SchoolList.ascx" />
+    <Content Include="Administrator\Modules\State_List.ascx" />
     <Content Include="Administrator\Modules\StudentList.ascx" />
     <Content Include="Administrator\Modules\StudentView.ascx" />
     <Content Include="Administrator\Modules\UserList.ascx" />
@@ -186,6 +187,7 @@
     <Content Include="Administrator\Property_Feature_Items.aspx" />
     <Content Include="Administrator\Property_View.aspx" />
     <Content Include="Administrator\School_List.aspx" />
+    <Content Include="Administrator\State.aspx" />
     <Content Include="Administrator\Student.aspx" />
     <Content Include="Administrator\Student_View.aspx" />
     <Content Include="Administrator\UserList.aspx" />
@@ -355,6 +357,13 @@
     <Compile Include="Administrator\Modules\SchoolList.ascx.designer.cs">
       <DependentUpon>SchoolList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Administrator\Modules\State_List.ascx.cs">
+      <DependentUpon>State_List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\Modules\State_List.ascx.designer.cs">
+      <DependentUpon>State_List.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Administrator\Modules\StudentList.ascx.cs">
       <DependentUpon>StudentList.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -417,6 +426,13 @@
     </Compile>
     <Compile Include="Administrator\School_List.aspx.designer.cs">
       <DependentUpon>School_List.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\State.aspx.cs">
+      <DependentUpon>State.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\State.aspx.designer.cs">
+      <DependentUpon>State.aspx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Student.aspx.cs">
       <DependentUpon>Student.aspx</DependentUpon>

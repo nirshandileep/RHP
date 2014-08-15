@@ -157,13 +157,13 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.Label LabelBedRooms;
         
         /// <summary>
-        /// BedRooms control.
+        /// DrpBedRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList BedRooms;
+        protected global::System.Web.UI.WebControls.DropDownList DrpBedRooms;
         
         /// <summary>
         /// LabelBathRooms control.
@@ -175,13 +175,13 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.Label LabelBathRooms;
         
         /// <summary>
-        /// BathRooms control.
+        /// DrpBathRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList BathRooms;
+        protected global::System.Web.UI.WebControls.DropDownList DrpBathRooms;
         
         /// <summary>
         /// LabelLotSQFootage control.
@@ -272,5 +272,23 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CreatePropertyButton;
+        
+        /// <summary>
+        /// hdnLandLordId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnLandLordId;
+        
+        /// <summary>
+        /// hdnHouseId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hdnHouseId;
     }
 }
