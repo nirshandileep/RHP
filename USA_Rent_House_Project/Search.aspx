@@ -65,7 +65,7 @@
                 </p>
                 <p>
                     <asp:Label ID="Label5" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Male Female:</asp:Label>
-                    <asp:DropDownList ID="DropDownList4" runat="server" CssClass="dropDownEntry">
+                    <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                         <asp:ListItem Value="male">Male</asp:ListItem>
                         <asp:ListItem Value="female">Female</asp:ListItem>
                     </asp:DropDownList>
