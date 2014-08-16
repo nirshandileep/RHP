@@ -196,6 +196,7 @@
     <Content Include="CustomError.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\House_Logo.jpg" />
+    <Content Include="Images\login_with_facebook.png" />
     <Content Include="Images\Sample\Bannerimage.jpg" />
     <Content Include="Images\Sample\profileimage1.jpg" />
     <Content Include="Images\Sample\profileimage2.jpg" />
