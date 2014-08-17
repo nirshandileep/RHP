@@ -15,36 +15,42 @@ Land load List
         //              [User].DriversLicenseNumber, [User].RatingValue, [User].IsDeleted, [User].IsFBUser, aspnet_Membership.LoweredEmail, 
         //              aspnet_Membership.PasswordQuestion--%>
 
-        <dx:GridViewDataTextColumn Caption="Landlord Name" FieldName="LandlordName" VisibleIndex="1"  UnboundType="String">
-      
+        <dx:GridViewDataTextColumn FieldName="FirstName" UnboundType="String" 
+            VisibleIndex="0">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="StreetAddress" VisibleIndex="2" 
+        <dx:GridViewDataTextColumn FieldName="MiddleName" UnboundType="String" 
+            VisibleIndex="1">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="LastName" UnboundType="String" 
+            VisibleIndex="2">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="StreetAddress" VisibleIndex="3" 
             UnboundType="String">
         
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="City" VisibleIndex="3" 
+        <dx:GridViewDataTextColumn FieldName="City" VisibleIndex="4" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="4" 
+        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="5" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="5" 
+        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="6" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="6" 
+        <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="7" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn Caption="Email"  FieldName="LoweredEmail" VisibleIndex="7"  UnboundType="String">
+        <dx:GridViewDataTextColumn Caption="Email"  FieldName="LoweredEmail" VisibleIndex="8"  UnboundType="String">
            
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsFBUser" VisibleIndex="8" 
+        <dx:GridViewDataTextColumn FieldName="IsFBUser" VisibleIndex="9" 
             UnboundType="String">
           
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="PasswordQuestion" VisibleIndex="9" 
+        <dx:GridViewDataTextColumn FieldName="PasswordQuestion" VisibleIndex="10" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataProgressBarColumn FieldName="RatingValue" VisibleIndex="10" 
+        <dx:GridViewDataProgressBarColumn FieldName="RatingValue" VisibleIndex="11" 
             UnboundType="Decimal">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
             </PropertiesProgressBar>
