@@ -11,14 +11,6 @@ namespace RHP.LandlordManagement
 {
    public class OptionDAO
     {
-        /*
-          public string Name { get; set; }
-         public string Description { get; set; }
-         public int OptionCategoryId { get; set; }
-         public int ParentOptionId { get; set; }
-         public bool IsDeleted { get; set; }
-         public bool IsMultiSelect { get; set; }
-         */
 
         public DataSet SelectAllDataset()
         {

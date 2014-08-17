@@ -91,6 +91,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
 
             //Drpstate
+            Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+            Drpstate.DataTextField = "StateName";
+            Drpstate.DataValueField = "StateId";
+            Drpstate.DataBind();
+            Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
 
             //DrpBathRooms
             DrpBathRooms.Items.Clear();
@@ -98,6 +103,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 DrpBathRooms.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
+            DrpBathRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
 
             //DrpBedRooms
             DrpBedRooms.Items.Clear();
@@ -105,6 +111,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 DrpBedRooms.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
+            DrpBedRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
         }
 
         protected void CreatePropertyButton_Click(object sender, EventArgs e)
