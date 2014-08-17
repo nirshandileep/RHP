@@ -152,16 +152,20 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (student != null)
             {
-                if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
+                if (student.School != null)
                 {
-                    for (int i = 0; i < DrpSchoolName.Items.Count; i++)
+                    if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
                     {
-                        if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                        for (int i = 0; i < DrpSchoolName.Items.Count; i++)
                         {
-                            DrpSchoolName.Items[i].Selected = true;
+                            if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                            {
+                                DrpSchoolName.Items[i].Selected = true;
+                            }
                         }
                     }
                 }
+
                 if (!string.IsNullOrEmpty(student.Year.ToString()))
                 {
                     for (int i = 0; i < DRPYear.Items.Count; i++)
@@ -173,11 +177,11 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-                if (!string.IsNullOrEmpty(user.Status))
+                if (!string.IsNullOrEmpty(student.Status))
                 {
                     for (int i = 0; i < Status.Items.Count; i++)
                     {
-                        if (Status.Items[i].Value.ToString().ToLower() == user.Status.ToLower())
+                        if (Status.Items[i].Value.ToString().ToLower() == student.Status.ToLower())
                         {
                             Status.Items[i].Selected = true;
                         }

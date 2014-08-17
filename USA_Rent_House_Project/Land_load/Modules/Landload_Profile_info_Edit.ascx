@@ -40,7 +40,7 @@
             </p>
             
             <p>
-                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Address:</asp:Label>
+                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Contact Address:</asp:Label>
                 <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AddressRequiredField" runat="server" ControlToValidate="Address"
                     CssClass="failureNotification" ErrorMessage="Address is required." ToolTip="Address is required."
@@ -61,7 +61,7 @@
                     <asp:ListItem Value="AZ"> Arizona </asp:ListItem>
                     <asp:ListItem Value="AR"> Arkansas  </asp:ListItem>
                     <asp:ListItem Value="CA"> California </asp:ListItem>
-                    <asp:ListItem Value="CO"> Colorado </asp:ListItem>>
+                    <asp:ListItem Value="CO"> Colorado </asp:ListItem>
                     <asp:ListItem Value="CT"> Connecticut </asp:ListItem>
                     <asp:ListItem Value="DE"> Delaware  </asp:ListItem>
                     <asp:ListItem Value="FL"> Florida  </asp:ListItem>
@@ -110,7 +110,7 @@
             </p>
             <p>
                 <asp:Label ID="ZipLabel" runat="server" AssociatedControlID="Zip" CssClass="form_label">Zip:</asp:Label>
-                <asp:TextBox ID="Zip" runat="server" CssClass="textEntry textbox_w3" MaxLength="4"></asp:TextBox>
+                <asp:TextBox ID="Zip" runat="server" CssClass="textEntry textbox_w3" MaxLength="5"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ZipRequiredField" runat="server" ControlToValidate="Zip"
                     CssClass="failureNotification" ErrorMessage="Zip is required." ToolTip="Zip is required."
                     ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
@@ -123,7 +123,7 @@
                 <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="12"></asp:TextBox>
                 <asp:RegularExpressionValidator ID="mobileRegularExpression" runat="server" CssClass="failureNotification"
                     ErrorMessage="Invalid Mobile No." ToolTip="Invalid Mobile No." ControlToValidate="Mobile"
-                    ValidationGroup="RegisterLand_lordValidationGroup" ValidationExpression="^0[0-9]{9}$|^0[0-9]{1}[ ][0-9]{8}$|^0[1-9]{1}[ ][0-9]{4}[ ][0-9]{4}$">*
+                    ValidationGroup="RegisterLand_lordValidationGroup" ValidationExpression="^[0-9]{9}$|^0[0-9]{1}[ ][0-9]{8}$|^0[1-9]{1}[ ][0-9]{4}[ ][0-9]{4}$">*
                 </asp:RegularExpressionValidator>
             </p>
 
