@@ -171,6 +171,8 @@ namespace RHP.Utility
             return returnEntity;
         }
 
+
+
         /// <summary>
         /// Returns a collection of T. T must be an Entity class
         /// </summary>
@@ -184,6 +186,34 @@ namespace RHP.Utility
             DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectAllBy" + fieldName);
 
             db.AddInParameter(dbCommand, fieldName, DbType.String, fieldValue);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    T entity = new T();
+
+                    AssignDataReaderToEntity(dataReader, entity);
+                    returnEntityCollection.Add(entity);
+                }
+            }
+
+            return returnEntityCollection;
+        }
+
+        /// <summary>
+        /// Returns a collection of T. T must be an Entity class
+        /// </summary>
+        public static List<T> GetAllByFieldValue<T>(string fieldName, int fieldValue) where T : new()
+        {
+            List<T> returnEntityCollection = new List<T>();
+
+            string TypeName = typeof(T).Name;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectAllBy" + fieldName);
+
+            db.AddInParameter(dbCommand, fieldName, DbType.Int32, fieldValue);
 
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {

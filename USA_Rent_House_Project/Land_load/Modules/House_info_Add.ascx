@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Land_load.Modules.House_info_Add" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Land Load House / Property info
+        Land Lord House / Property info
     </h2>
     <asp:ValidationSummary ID="PropertyValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="PropertyValidationGroup" />
