@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Profile_info_Edit.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Profile_info_Edit" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-    Land Load Profile info - Edit 
+    Land Load Profile info
     </h2>
     <asp:HyperLink ID="HyperLinkChangePassword" runat="server"  CssClass="loginlinks" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>  <asp:HyperLink ID="HyperLinkChangeQuestion"  CssClass="loginlinks"  NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> 
       <div id="formwrapper">
@@ -56,56 +56,56 @@
             <p>
                 <asp:Label ID="StateLabel" runat="server" AssociatedControlID="Drpstate" CssClass="form_label">State:</asp:Label>
                 <asp:DropDownList ID="Drpstate" runat="server" CssClass="dropDownEntry">
-                    <asp:ListItem Value="AL"> Alabama - Montgomery</asp:ListItem>
-                    <asp:ListItem Value="AK"> Alaska - Juneau</asp:ListItem>
-                    <asp:ListItem Value="AZ"> Arizona - Phoenix</asp:ListItem>
-                    <asp:ListItem Value="AR"> Arkansas - Little Rock</asp:ListItem>
-                    <asp:ListItem Value="CA"> California - Sacramento</asp:ListItem>
-                    <asp:ListItem Value="CO"> Colorado - Denver</asp:ListItem>
-                    <asp:ListItem Value="CT"> Connecticut - Hartford</asp:ListItem>
-                    <asp:ListItem Value="DE"> Delaware - Dover</asp:ListItem>
-                    <asp:ListItem Value="FL"> Florida - Tallahassee</asp:ListItem>
-                    <asp:ListItem Value="GA"> Georgia - Atlanta</asp:ListItem>
-                    <asp:ListItem Value="HI"> Hawaii - Honolulu</asp:ListItem>
-                    <asp:ListItem Value="ID"> Idaho - Boise</asp:ListItem>
-                    <asp:ListItem Value="IL"> Illinois - Springfield</asp:ListItem>
-                    <asp:ListItem Value="IN"> Indiana - Indianapolis</asp:ListItem>
-                    <asp:ListItem Value="IA"> Iowa - Des Moines</asp:ListItem>
-                    <asp:ListItem Value="KS"> Kansas - Topeka</asp:ListItem>
-                    <asp:ListItem Value="KY"> Kentucky - Frankfort</asp:ListItem>
-                    <asp:ListItem Value="LA"> Louisiana - Baton Rouge</asp:ListItem>
-                    <asp:ListItem Value="ME"> Maine - Augusta</asp:ListItem>
-                    <asp:ListItem Value="MD"> Maryland - Annapolis</asp:ListItem>
-                    <asp:ListItem Value="MA"> Massachusetts - Boston</asp:ListItem>
-                    <asp:ListItem Value="MI"> Michigan - Lansing</asp:ListItem>
-                    <asp:ListItem Value="MN"> Minnesota - Saint Paul</asp:ListItem>
-                    <asp:ListItem Value="MS"> Mississippi - Jackson</asp:ListItem>
-                    <asp:ListItem Value="MO"> Missouri - Jefferson City</asp:ListItem>
-                    <asp:ListItem Value="MT"> Montana - Helena</asp:ListItem>
-                    <asp:ListItem Value="NE"> Nebraska - Lincoln</asp:ListItem>
-                    <asp:ListItem Value="NV"> Nevada - Carson City</asp:ListItem>
-                    <asp:ListItem Value="NH"> New Hampshire - Concord</asp:ListItem>
-                    <asp:ListItem Value="NJ"> New Jersey - Trenton</asp:ListItem>
-                    <asp:ListItem Value="NM"> New Mexico - Santa Fe</asp:ListItem>
-                    <asp:ListItem Value="NY"> New York - Albany</asp:ListItem>
-                    <asp:ListItem Value="NC"> North Carolina - Raleigh</asp:ListItem>
-                    <asp:ListItem Value="ND"> North Dakota - Bismarck</asp:ListItem>
-                    <asp:ListItem Value="OH"> Ohio - Columbus</asp:ListItem>
-                    <asp:ListItem Value="OK"> Oklahoma - Oklahoma City</asp:ListItem>
-                    <asp:ListItem Value="OR"> Oregon - Salem</asp:ListItem>
-                    <asp:ListItem Value="PA"> Pennsylvania - Harrisburg</asp:ListItem>
-                    <asp:ListItem Value="RI"> Rhode Island - Providence</asp:ListItem>
-                    <asp:ListItem Value="SC"> South Carolina - Columbia</asp:ListItem>
-                    <asp:ListItem Value="SD"> South Dakota - Pierre</asp:ListItem>
-                    <asp:ListItem Value="TN"> Tennessee - Nashville</asp:ListItem>
-                    <asp:ListItem Value="TX"> Texas - Austin</asp:ListItem>
-                    <asp:ListItem Value="UT"> Utah - Salt Lake City</asp:ListItem>
-                    <asp:ListItem Value="VT"> Vermont - Montpelier</asp:ListItem>
-                    <asp:ListItem Value="VA"> Virginia - Richmond</asp:ListItem>
-                    <asp:ListItem Value="WA"> Washington - Olympia</asp:ListItem>
-                    <asp:ListItem Value="WV"> West Virginia - Charleston</asp:ListItem>
-                    <asp:ListItem Value="WI"> Wisconsin - Madison</asp:ListItem>
-                    <asp:ListItem Value="WY"> Wyoming - Cheyenne</asp:ListItem>
+                   <asp:ListItem Value="AL"> Alabama </asp:ListItem>
+                    <asp:ListItem Value="AK"> Alaska </asp:ListItem>
+                    <asp:ListItem Value="AZ"> Arizona </asp:ListItem>
+                    <asp:ListItem Value="AR"> Arkansas  </asp:ListItem>
+                    <asp:ListItem Value="CA"> California </asp:ListItem>
+                    <asp:ListItem Value="CO"> Colorado </asp:ListItem>>
+                    <asp:ListItem Value="CT"> Connecticut </asp:ListItem>
+                    <asp:ListItem Value="DE"> Delaware  </asp:ListItem>
+                    <asp:ListItem Value="FL"> Florida  </asp:ListItem>
+                    <asp:ListItem Value="GA"> Georgia </asp:ListItem>
+                    <asp:ListItem Value="HI"> Hawaii </asp:ListItem>
+                    <asp:ListItem Value="ID"> Idaho  </asp:ListItem>
+                    <asp:ListItem Value="IL"> Illinois  </asp:ListItem>
+                    <asp:ListItem Value="IN"> Indiana  </asp:ListItem>
+                    <asp:ListItem Value="IA"> Iowa </asp:ListItem>
+                    <asp:ListItem Value="KS"> Kansas  </asp:ListItem>
+                    <asp:ListItem Value="KY"> Kentucky  </asp:ListItem>
+                    <asp:ListItem Value="LA"> Louisiana </asp:ListItem>
+                    <asp:ListItem Value="ME"> Maine </asp:ListItem>
+                    <asp:ListItem Value="MD"> Maryland </asp:ListItem>
+                    <asp:ListItem Value="MA"> Massachusetts  </asp:ListItem>
+                    <asp:ListItem Value="MI"> Michigan  </asp:ListItem>
+                    <asp:ListItem Value="MN"> Minnesota </asp:ListItem>
+                    <asp:ListItem Value="MS"> Mississippi </asp:ListItem>
+                    <asp:ListItem Value="MO"> Missouri </asp:ListItem>
+                    <asp:ListItem Value="MT"> Montana </asp:ListItem>
+                    <asp:ListItem Value="NE"> Nebraska </asp:ListItem>
+                    <asp:ListItem Value="NV"> Nevada </asp:ListItem>
+                    <asp:ListItem Value="NH"> New Hampshire  </asp:ListItem>
+                    <asp:ListItem Value="NJ"> New Jersey  </asp:ListItem>
+                    <asp:ListItem Value="NM"> New Mexico  </asp:ListItem>
+                    <asp:ListItem Value="NY"> New York  </asp:ListItem>
+                    <asp:ListItem Value="NC"> North Carolina </asp:ListItem>
+                    <asp:ListItem Value="ND"> North Dakota </asp:ListItem>
+                    <asp:ListItem Value="OH"> Ohio </asp:ListItem>
+                    <asp:ListItem Value="OK"> Oklahoma  </asp:ListItem>
+                    <asp:ListItem Value="OR"> Oregon  </asp:ListItem>
+                    <asp:ListItem Value="PA"> Pennsylvania </asp:ListItem>
+                    <asp:ListItem Value="RI"> Rhode Island  </asp:ListItem>
+                    <asp:ListItem Value="SC"> South Carolina  </asp:ListItem>
+                    <asp:ListItem Value="SD"> South Dakota </asp:ListItem>
+                    <asp:ListItem Value="TN"> Tennessee  </asp:ListItem>
+                    <asp:ListItem Value="TX"> Texas </asp:ListItem>
+                    <asp:ListItem Value="UT"> Utah </asp:ListItem>
+                    <asp:ListItem Value="VT"> Vermont </asp:ListItem>
+                    <asp:ListItem Value="VA"> Virginia </asp:ListItem>
+                    <asp:ListItem Value="WA"> Washington </asp:ListItem>
+                    <asp:ListItem Value="WV"> West Virginia </asp:ListItem>
+                    <asp:ListItem Value="WI"> Wisconsin </asp:ListItem>
+                    <asp:ListItem Value="WY"> Wyoming  </asp:ListItem>
                 </asp:DropDownList>
             </p>
             <p>
@@ -127,17 +127,6 @@
                 </asp:RegularExpressionValidator>
             </p>
 
-            <p>
-                <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question"
-                    CssClass="form_label">Secret Question:</asp:Label>
-                    <asp:Label ID="Question" runat="server" CssClass="form_label"></asp:Label>
-              <%--  <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1" ReadOnly="true"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="QuestionRequiredFieldValidator" runat="server" ControlToValidate="Question"
-                    CssClass="failureNotification" ErrorMessage="Secret Question is required."
-                    ToolTip="secret Question is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>--%>
-               
-            </p>
-             
       </div>
         <p class="submitButton">
             <asp:Button ID="EditUserButton" runat="server" 

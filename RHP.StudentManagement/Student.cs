@@ -20,6 +20,7 @@ namespace RHP.StudentManagement
         public string LandloadName { get; set; }
         public string LandloadPlace { get; set; }
         public int Year { get; set; }
+        public string Status { get; set; }
 
         //public Student Select(Guid studentid)
         //{

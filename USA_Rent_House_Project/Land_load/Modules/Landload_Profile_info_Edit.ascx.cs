@@ -79,8 +79,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip; 
             Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-            Question.Text = user.GetSeacretQuestion(Membership.GetUser().UserName.ToString());
-
+           
             if (!string.IsNullOrEmpty(user.State))
             {
                 for (int i = 0; i < Drpstate.Items.Count; i++)

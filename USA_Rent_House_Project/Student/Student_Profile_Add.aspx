@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student_Profile_info_Add" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Add.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Add" %>
+﻿<%@ Page Title="Student Profile info" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Add.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Add" %>
 <%@ Register src="Modules/Student_Profile_info_Add.ascx" tagname="Student_Profile_info_Add" tagprefix="uc1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">

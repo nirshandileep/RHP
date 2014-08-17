@@ -28,6 +28,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.String, student.School.Year);
             db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "Status", DbType.String, student.Status);
             db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             
@@ -51,9 +52,9 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.Int16, student.School.Year);
             db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "Status", DbType.String, student.Status);
             db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, student.UpdatedDate);
 
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
