@@ -33,8 +33,8 @@ Student List
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="DriversLicenseNumber" VisibleIndex="6">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="7">
-        </dx:GridViewDataTextColumn>
+       <%-- <dx:GridViewDataTextColumn FieldName="IsDeleted" VisibleIndex="7">
+        </dx:GridViewDataTextColumn>--%>
         <dx:GridViewDataTextColumn FieldName="SchoolName" VisibleIndex="8">
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="Year" VisibleIndex="9">

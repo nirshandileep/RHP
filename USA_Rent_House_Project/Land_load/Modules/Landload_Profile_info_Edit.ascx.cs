@@ -69,7 +69,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
         public void LoadUserData()
         {
             // user data
-          
+            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
             Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
             Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
@@ -113,6 +115,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
+                        user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.Name = Name.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
@@ -120,26 +123,39 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user.Zip = Zip.Text.Trim();
                         user.BestContactNumber = Mobile.Text.Trim();
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
-                        user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
+                        user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                        user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()); 
 
                         if (user.Save())
                         {
-                            landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.NewGuid();
-
+                            landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            landload.LandlordName = Name.Text.Trim();
+                            landload.user = user;
+                            landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                          
                             if (landload.Save())
                             {
                                 lblError.Text = Messages.Save_Success;
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Profile.aspx';}", true);
+                                   
                             }
+                        }
+                        else
+                        {
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
                         }
 
                     }
                     else
                     {
-
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
                     }
                 }
                 catch (Exception ex)
                 {
+                   
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
                     throw ex;//new Exception("student Profile info : " + ex.ToString());
                 }
             }

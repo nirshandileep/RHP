@@ -40,12 +40,12 @@ namespace USA_Rent_House_Project
 
                 if (value == "s")
                 {
-                    ReturnURL = "~/Student/Student_Profile_Add.aspx";
+                    ReturnURL = "/Student/Student_Profile.aspx";
                     userRole = "student";
                 }
                 else if (value == "l")
                 {
-                    ReturnURL = "~/Land_load/Land_load_Profile_Add.aspx";
+                    ReturnURL = "/Land_load/Land_load_Profile.aspx";
                     userRole = "landlord";
                 }
                 else
@@ -98,10 +98,6 @@ namespace USA_Rent_House_Project
                     user.Question = "Are you FB User ?";
                     user.Answer = "FB"+user.FBid;
 
-                    
-                    //try
-                    //{ user.DateOfBirth = Convert.ToDateTime(HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT)); }
-                    //catch(Exception ex) {}
 
                     if (user.IsExistingFbUser(user.FBid))
                     {
@@ -115,6 +111,7 @@ namespace USA_Rent_House_Project
                         {
                             try
                             {
+                                Session[Constants.SESSION_LOGGED_USER] = user;
                                 user.RedirectUserFromLogin(false);
                             }
                             catch (Exception ex)
@@ -130,8 +127,38 @@ namespace USA_Rent_House_Project
                     }
                     else
                     {
-                        Session[Constants.SESSION_LOGGED_USER] = user;
-                        Response.Redirect(ReturnURL, false);
+                        bool boolMembershipUserCreated = false;
+                         object objCreateMembershipUser = new object();
+                         objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
+
+                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                            if (boolMembershipUserCreated)
+                            {
+                                user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                               
+                                if (user.Save())
+                                {
+                                    Session[Constants.SESSION_LOGGED_USER] = user;
+                                    //  Response.Redirect(ReturnURL, false);
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '" + ReturnURL + "';}", true);
+
+                                }
+                                else
+                                {
+                                    user.LogOut();
+                                    Response.Redirect("~/Login.aspx", false);
+                                }
+                            }
+                            else
+                            {
+                                user.LogOut();
+                                Response.Redirect("~/Login.aspx", false);
+                            }
+
+                        
                     }
                    
                 }

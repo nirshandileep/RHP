@@ -45,8 +45,8 @@
                         </asp:MenuItem>
                         <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature.aspx" Text="Property Option"
                             ToolTip="Property Option"></asp:MenuItem>
-                             <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature_Items.aspx" Text="Property  Option Items"
-                            ToolTip="Property Option Items"></asp:MenuItem>
+                          <%--   <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature_Items.aspx" Text="Property  Option Items"
+                            ToolTip="Property Option Items"></asp:MenuItem>--%>
                     </Items>
                 </asp:Menu>
             </div>

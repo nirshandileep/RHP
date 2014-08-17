@@ -42,60 +42,19 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (!IsPostBack)
             {
-                LoadInitialData();
-
+               
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     Response.Redirect("~/Land_load/Land_load_Profile.aspx", false);
                 }
                 else
                 {
-                    loadFBData();
                 }
 
             }
         }
 
-        private void LoadInitialData()
-        {
-            //Set Gender
-            DrpGender.Items.AddRange(Constants.LANDLOAD_SEX_LIST);
-        }
-
-        public void loadFBData()
-        {
-            if (user.IsFBUser)
-            {
-                //if (string.IsNullOrEmpty(user.Email) || user.Email == user.UserId + "@FB.com")
-                //{
-                //    setEmail.Visible = false;
-                //}
-                //else { Email.Text = user.Email; }
-
-                setUserName.Visible = false;
-                setpwd.Visible = false;
-                confirmpwd.Visible = false;
-                setQuestiontitle.Visible = false;
-                setQuestion.Visible = false;
-                setAnswer.Visible = false;
-
-                Email.Text = string.IsNullOrEmpty(user.Email) ? string.Empty : user.Email;
-                Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
-
-                if (!string.IsNullOrEmpty(user.Gender))
-                {
-                    for (int i = 0; i < DrpGender.Items.Count; i++)
-                    {
-                        if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
-                        {
-                            DrpGender.Items[i].Selected = true;
-                        }
-                    }
-                }
-             }
-        }
-
-     
+       
         protected void CreateUserButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid == true)
@@ -105,29 +64,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     bool boolMembershipUserCreated = false;
 
                     user.Email = Email.Text.Trim();
-                    user.Name = Name.Text.Trim();
-                    user.StreetAddress = Address.Text.Trim();
-                    user.City = City.Text.Trim();
-                    user.State = Drpstate.SelectedItem.Value.ToString();
-                    user.Zip = Zip.Text.Trim();
-                    user.BestContactNumber = Mobile.Text.Trim();
-                    user.Gender = DrpGender.SelectedItem.Value.ToString();
-                   
                     user.Status = "Active";
-
-                    if (user.IsFBUser)
-                    {
-                        // facebook user
-                        user.UserName = user.Email.Split('@')[0];
-                    }
-                    else
-                    {
-                        
                         user.Password = Password.Text.Trim();
                         user.UserName = UserName.Text.Trim();
                         user.Question = Question.Text.Trim();
                         user.Answer = Answer.Text.Trim();
-                    }
+
                           object objCreateMembershipUser = new object();
                           objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, "landlord");
 
@@ -135,36 +77,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                             if (boolMembershipUserCreated)
                             {
-                                MembershipUser mUser;
-                                mUser = Membership.GetUser(user.UserName);
-
-                                user.UserId = (Guid)mUser.ProviderUserKey;
-                                user.CreatedBy = (Guid)mUser.ProviderUserKey;
-                                user.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                                if (user.Save())
-                                {
-                                    landload.LandlordId = (Guid)mUser.ProviderUserKey;
-                                    landload.LandlordName = Name.Text.Trim();
-                                    landload.user = user;
-                                    landload.CreatedBy = (Guid)mUser.ProviderUserKey;
-                                    landload.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                                    if (landload.Save())
-                                    {
+                                
                                         lblError.Text = Messages.Save_Success;
                                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Profile.aspx';}", true);
-                                    }
-
-
+                                   
                                     // success
 
-                                }
-                                else
-                                {
-                                    lblError.Text = boolMembershipUserCreated.ToString();
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + "'); }", true);
-                                }
                             }
                             else
                             {

@@ -15,7 +15,7 @@ Land load List
         //              [User].DriversLicenseNumber, [User].RatingValue, [User].IsDeleted, [User].IsFBUser, aspnet_Membership.LoweredEmail, 
         //              aspnet_Membership.PasswordQuestion--%>
 
-        <dx:GridViewDataTextColumn Caption="LandlordName" FieldName="LandlordName" VisibleIndex="1"  UnboundType="String">
+        <dx:GridViewDataTextColumn Caption="Landlord Name" FieldName="LandlordName" VisibleIndex="1"  UnboundType="String">
       
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="StreetAddress" VisibleIndex="2" 
@@ -34,7 +34,7 @@ Land load List
         <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="6" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="LoweredEmail" VisibleIndex="7"  UnboundType="String">
+        <dx:GridViewDataTextColumn Caption="Email"  FieldName="LoweredEmail" VisibleIndex="7"  UnboundType="String">
            
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="IsFBUser" VisibleIndex="8" 

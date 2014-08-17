@@ -19,6 +19,6 @@ namespace USA_Rent_House_Project.Land_load {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UserControl Landload_Profile_info_AddID;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_info_Add Landload_Profile_info_AddID;
     }
 }

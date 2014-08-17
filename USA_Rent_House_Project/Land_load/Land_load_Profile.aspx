@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Land_load_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_load_Profile" %>
+﻿<%@ Page Title="Landload Profile" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Land_load_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_load_Profile" %>
 <%@ Register src="Modules/Landload_Profile_Header.ascx" tagname="Landload_Profile_Header" tagprefix="uc1" %>
 <%@ Register src="Modules/Landload_Profile_Data.ascx" tagname="Landload_Profile_Data" tagprefix="uc2" %>
 <%@ Register src="Modules/Landload_Profile_Banner.ascx" tagname="Landload_Profile_Banner" tagprefix="uc3" %>

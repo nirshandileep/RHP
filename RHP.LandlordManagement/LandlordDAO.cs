@@ -44,11 +44,9 @@ namespace RHP.LandlordManagement
 
             db.AddInParameter(command, "LandlordId", DbType.Guid, landlord.LandlordId);
             db.AddInParameter(command, "UserId", DbType.Guid, landlord.user.UserId);
-            db.AddInParameter(command, "LandlordName", DbType.Guid, landlord.LandlordName);
+            db.AddInParameter(command, "LandlordName", DbType.String, landlord.LandlordName);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, landlord.IsDeleted);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, landlord.UpdatedBy);
-            db.AddInParameter(command, "UpdatedDate", DbType.DateTime, landlord.UpdatedDate);
-
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
