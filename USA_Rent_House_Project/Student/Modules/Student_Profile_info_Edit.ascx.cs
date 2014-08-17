@@ -36,8 +36,28 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+        RHP.StudentManagement.Student _student;
 
-        RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
+        public RHP.StudentManagement.Student student
+        {
+            get
+            {
+                _student = SessionManager.GetSession<RHP.StudentManagement.Student>(Constants.SESSION_LOGGED_STUDENT);
+                if (_student == null)
+                {
+                    _student = new RHP.StudentManagement.Student();
+                }
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+                return _student;
+            }
+            set
+            {
+                _student = value;
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+            }
+        }
+
+       
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -192,7 +212,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         }
 
                         student.School.SchoolId = new Guid(schoolId);
-                        student.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
+                        student.School.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
                         student.IsDeleted = false;
                         student.LandloadName = LandLoadName.Text.Trim();
                         student.LandloadPlace = LandLoadPlace.Text.Trim();

@@ -138,7 +138,7 @@ namespace USA_Rent_House_Project.Student.Modules
 					}
 
 					student.School.SchoolId = new Guid(schoolId);
-					student.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
+                    student.School.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
 					student.IsDeleted = false;
 					student.LandloadName = LandLoadName.Text.Trim();
 					student.LandloadPlace = LandLoadPlace.Text.Trim();

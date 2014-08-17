@@ -166,13 +166,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// DrpGender control.
+        /// DropDownList4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DrpGender;
+        protected global::System.Web.UI.WebControls.DropDownList DropDownList4;
         
         /// <summary>
         /// LabelDrpGrade control.

@@ -21,7 +21,7 @@ namespace RHP.StudentManagement
         public string Location { get; set; }
         public string WebsiteURL { get; set; }
         public decimal RatingValue { get; set; }
-        public string Year { get; set; }
+        public int Year { get; set; }
 
         public static School Select(Guid schoolId)
         {

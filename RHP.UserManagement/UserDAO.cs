@@ -34,7 +34,8 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "CreatedBy", DbType.Guid, users.CreatedBy);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddInParameter(command, "FBid", DbType.String, users.FBid);
-            
+            db.AddInParameter(command, "Gender", DbType.String, users.Gender);
+
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
@@ -69,6 +70,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "LastUpdatedDate", DbType.DateTime, users.UpdatedDate);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
+            db.AddInParameter(command, "Gender", DbType.String, users.Gender);
 
             db.ExecuteNonQuery(command, transaction);
 

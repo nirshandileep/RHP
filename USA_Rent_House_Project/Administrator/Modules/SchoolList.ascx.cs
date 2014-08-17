@@ -54,7 +54,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             school.State = GetColumnValue(e.NewValues["State"]);
             school.StreetAddress = GetColumnValue(e.NewValues["StreetAddress"]);
             school.WebsiteURL = GetColumnValue(e.NewValues["WebsiteURL"]);
-            school.Year = GetColumnValue(e.NewValues["Year"]);
+           // school.Year = GetColumnValue(e.NewValues["Year"]);
             school.Zip = GetColumnValue(e.NewValues["Zip"]);
             school.City = GetColumnValue(e.NewValues["City"]);
             school.ContactNumber = GetColumnValue(e.NewValues["ContactNumber"]);
@@ -88,7 +88,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
             school.State = GetColumnValue(e.NewValues["State"]);
             school.StreetAddress = GetColumnValue(e.NewValues["StreetAddress"]);
             school.WebsiteURL = GetColumnValue(e.NewValues["WebsiteURL"]);
-            school.Year = GetColumnValue(e.NewValues["Year"]);
+            //school.Year = GetColumnValue(e.NewValues["Year"]);
             school.Zip = GetColumnValue(e.NewValues["Zip"]);
             school.City = GetColumnValue(e.NewValues["City"]);
             school.ContactNumber = GetColumnValue(e.NewValues["ContactNumber"]);
