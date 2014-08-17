@@ -79,13 +79,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip; 
             Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-            Question.Text = user.GetSeacretQuestion(Membership.GetUser().UserName.ToString());
-
-            if (!string.IsNullOrEmpty(user.State))
+           
+            if (user.StateId.HasValue)
             {
                 for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
-                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.StateId.ToString().ToLower())
                     {
                         Drpstate.Items[i].Selected = true;
                     }
@@ -119,7 +118,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user.Name = Name.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
+                        if (Drpstate.SelectedItem.Value.ToString() == "-1")
+                        {
+                            user.StateId = null;
+                        }
+                        else
+                        {
+                            user.StateId = int.Parse(Drpstate.SelectedItem.Value.ToString());
+                        }
+                        
                         user.Zip = Zip.Text.Trim();
                         user.BestContactNumber = Mobile.Text.Trim();
                         user.Gender = DrpGender.SelectedItem.Value.ToString();

@@ -233,7 +233,6 @@
     <Content Include="Student\Modules\Student_Profile_Header.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
-    <Content Include="Student\Modules\Student_Profile_School_Edit.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Data.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Header.ascx" />
@@ -752,13 +751,6 @@
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="Student\Modules\Student_Profile_School_Edit.ascx.cs">
-      <DependentUpon>Student_Profile_School_Edit.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Student\Modules\Student_Profile_School_Edit.ascx.designer.cs">
-      <DependentUpon>Student_Profile_School_Edit.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Public_Profile_Banner.ascx.cs">
       <DependentUpon>Student_Public_Profile_Banner.ascx</DependentUpon>

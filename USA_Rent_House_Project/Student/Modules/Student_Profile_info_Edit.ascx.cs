@@ -36,6 +36,28 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+        RHP.StudentManagement.Student _student;
+
+        public RHP.StudentManagement.Student student
+        {
+            get
+            {
+                _student = SessionManager.GetSession<RHP.StudentManagement.Student>(Constants.SESSION_LOGGED_STUDENT);
+                if (_student == null)
+                {
+                    _student = new RHP.StudentManagement.Student();
+                }
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+                return _student;
+            }
+            set
+            {
+                _student = value;
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+            }
+        }
+
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -64,6 +86,23 @@ namespace USA_Rent_House_Project.Student.Modules
             //Set Gender
             DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
 
+            //Set Schools
+            if (DrpSchoolName.Items.Count == 0)
+            {
+                DrpSchoolName.DataSource = School.SelectAllList();
+                DrpSchoolName.DataTextField = "Name";
+                DrpSchoolName.DataValueField = "SchoolId";
+                DrpSchoolName.DataBind();
+            }
+
+            //Load Years
+            DRPYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+            for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
+            {
+                DRPYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
+
+            Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
         }
 
         public void LoadUserData()
@@ -79,15 +118,15 @@ namespace USA_Rent_House_Project.Student.Modules
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip;
             Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-            Question.Text = user.GetSeacretQuestion(Membership.GetUser().UserName.ToString());
+           
             DriversLicense.Text = string.IsNullOrEmpty(user.DriversLicenseNumber) ? string.Empty : user.DriversLicenseNumber;
            
 
-            if (!string.IsNullOrEmpty(user.State))
+            if (user.StateId.HasValue)
             {
                 for (int i = 0; i < Drpstate.Items.Count; i++)
                 {
-                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.State.ToLower())
+                    if (Drpstate.Items[i].Value.ToString().ToLower() == user.StateId.ToString().ToLower())
                     {
                         Drpstate.Items[i].Selected = true;
                     }
@@ -105,7 +144,53 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
 
             }
-           
+
+
+            // school data
+
+            student = RHP.StudentManagement.Student.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (student != null)
+            {
+                if (student.School != null)
+                {
+                    if (!string.IsNullOrEmpty(student.School.SchoolId.ToString()))
+                    {
+                        for (int i = 0; i < DrpSchoolName.Items.Count; i++)
+                        {
+                            if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
+                            {
+                                DrpSchoolName.Items[i].Selected = true;
+                            }
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(student.Year.ToString()))
+                {
+                    for (int i = 0; i < DRPYear.Items.Count; i++)
+                    {
+                        if (DRPYear.Items[i].Value.ToString().ToLower() == student.Year.ToString())
+                        {
+                            DRPYear.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(student.Status))
+                {
+                    for (int i = 0; i < Status.Items.Count; i++)
+                    {
+                        if (Status.Items[i].Value.ToString().ToLower() == student.Status.ToLower())
+                        {
+                            Status.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                LandLoadName.Text = string.IsNullOrEmpty(student.LandloadName) ? string.Empty : student.LandloadName;
+                LandLoadPlace.Text = string.IsNullOrEmpty(student.LandloadPlace) ? string.Empty : student.LandloadPlace;
+            }
         }
 
         protected void EditUserButton_Click(object sender, EventArgs e)
@@ -121,7 +206,15 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.Name = Name.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
-                        user.State = Drpstate.SelectedItem.Value.ToString();
+                        if (Drpstate.SelectedItem.Value.Trim() == "-1")
+                        {
+                            user.StateId = null;
+                        }
+                        else
+                        {
+                            user.StateId = int.Parse(Drpstate.SelectedItem.Value.Trim());
+                        }
+                        
                         user.Zip = Zip.Text.Trim();
                         user.BestContactNumber = Mobile.Text.Trim();
                         user.DriversLicenseNumber = DriversLicense.Text.Trim();
@@ -131,10 +224,35 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         if (user.Save())
                         {
-                            Session[Constants.SESSION_LOGGED_USER] = user;
+
+                            string schoolId = DrpSchoolName.SelectedValue.ToString().Trim();
+
+                            if (student.School == null)
+                            {
+                                student.School = new School();
+                            }
+
+                            student.StudentUser = user;
+
+                            student.School.SchoolId = new Guid(schoolId);
+                            student.School.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
+                            
+                            student.IsDeleted = false;
+                            student.LandloadName = LandLoadName.Text.Trim();
+                            student.Status = Status.SelectedItem.Value.ToString();
+                            student.LandloadPlace = LandLoadPlace.Text.Trim();
+                            student.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            student.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                            if (student.Save())
+                            {
+                                Session[Constants.SESSION_LOGGED_USER] = user;
                                 lblError.Text = Messages.Save_Success;
                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
 
+                            }
+
+                            
                         }
                         else
                         {
@@ -158,5 +276,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
         }
+
     }
 }

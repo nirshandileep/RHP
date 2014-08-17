@@ -36,7 +36,7 @@ namespace USA_Rent_House_Project.Student.Modules
         {
 
             LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
-
+    
             if (user.IsFBUser == true)
             {
 

@@ -23,7 +23,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "Name", DbType.String, users.Name);
             db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
             db.AddInParameter(command, "City", DbType.String, users.City);
-            db.AddInParameter(command, "State", DbType.String, users.State);
+            db.AddInParameter(command, "StateId", DbType.Int32, users.StateId);
             db.AddInParameter(command, "Zip", DbType.String, users.Zip);
             db.AddInParameter(command, "DateOfBirth", DbType.Date, users.DateOfBirth);
             db.AddInParameter(command, "BestContactNumber", DbType.String, users.BestContactNumber);
@@ -58,7 +58,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "Name", DbType.String, users.Name);
             db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
             db.AddInParameter(command, "City", DbType.String, users.City);
-            db.AddInParameter(command, "State", DbType.String, users.State);
+            db.AddInParameter(command, "StateId", DbType.String, users.StateId);
             db.AddInParameter(command, "Zip", DbType.String, users.Zip);
             db.AddInParameter(command, "DateOfBirth", DbType.Date, users.DateOfBirth);
             db.AddInParameter(command, "BestContactNumber", DbType.String, users.BestContactNumber);

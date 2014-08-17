@@ -28,7 +28,7 @@ namespace RHP.UserManagement
         public string Name { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
-        public string State { get; set; }
+        public int? StateId { get; set; }
         public string Zip { get; set; }
         public DateTime? DateOfBirth { get; set; }
         public string BestContactNumber { get; set; }

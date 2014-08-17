@@ -94,9 +94,23 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     if (boolMembershipUserCreated)
                     {
-                        Session[Constants.SESSION_LOGGED_USER] = user;
-                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx'; }", true);
-                           
+                            if (student.School == null)
+                            {
+                                student.School = new School();
+                            }
+
+                            student.StudentUser = user;
+                            student.IsDeleted = false;
+                            student.LandloadName = LandLoadName.Text.Trim();
+                            student.LandloadPlace = LandLoadPlace.Text.Trim();
+                            student.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            student.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                            if (student.Save())
+                            {
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx'; }", true);
+                            }
                     }
                     else
                     {
