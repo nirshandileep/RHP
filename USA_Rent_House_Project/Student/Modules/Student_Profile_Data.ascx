@@ -8,21 +8,26 @@
         </asp:Menu>
     </div>
     <div id="RightPanel" runat="server">
-        <p>
-            All the students live in the current home</p>
+        <h2>
+            All the students live in the current home</h2>
         <div id="currentHomeStudentData" runat="server">
-            <asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="2">
+        <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>
+        <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>
+        <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>
+        <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>
+        <div class="clear"></div>
+            <%--<asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="2">
                 <ItemTemplate>
                     <asp:Image ID="currentHomeStudentImage" runat="server" ImageUrl="~/Images/Sample/profileimage4.jpg" Width="100px"   />
                     <asp:Label ID="currentHomeStudentName" runat="server" Text="Name 1"></asp:Label>
                 </ItemTemplate>
-            </asp:DataList>
+            </asp:DataList>--%>
         </div>
         <div id="StudentRating" runat="server">
-            My Ratings **
+          <h2>My Ratings **</h2>  
         </div>
         <div id="StudentHouseData" runat="server">
-            My College housing life..<asp:HyperLink ID="hypStudentHouseData" runat="server">Photos/Videos</asp:HyperLink>
+            <h2 style="display:inline-block;">My College housing life..</h2><asp:HyperLink ID="hypStudentHouseData" sty CssClass="loginlinks" runat="server">Photos/Videos</asp:HyperLink>
         </div>
           <div id="Search" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" runat="server">Search for Student</asp:HyperLink>
