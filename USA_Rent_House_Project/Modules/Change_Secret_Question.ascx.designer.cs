@@ -13,6 +13,15 @@ namespace USA_Rent_House_Project.Modules {
     public partial class Change_Secret_Question {
         
         /// <summary>
+        /// ChangeSecretPasswordValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary ChangeSecretPasswordValidationSummary;
+        
+        /// <summary>
         /// Msg control.
         /// </summary>
         /// <remarks>

@@ -4,6 +4,9 @@
     Change Password Secret and Answer for
     <%= HttpContext.Current.User.Identity.Name%>
 </h3>
+
+  <asp:ValidationSummary ID="ChangeSecretPasswordValidationSummary" runat="server" CssClass="failureNotification" 
+                 ValidationGroup="ChangeSecretPasswordValidationGroup"/>
 <asp:Label ID="Msg" ForeColor="maroon" runat="server" /><br />
 <table cellpadding="3" border="0">
     <tr>
@@ -27,7 +30,7 @@
         </td>
         <td>
             <asp:RequiredFieldValidator ID="OldPasswordRequiredValidator" runat="server" ControlToValidate="PasswordTextbox"
-                ForeColor="red" Display="Static" ErrorMessage="Required" />
+                ForeColor="red" Display="Static" ErrorMessage="Current Password Required"  ValidationGroup="ChangeSecretPasswordValidationGroup">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -39,7 +42,7 @@
         </td>
         <td>
             <asp:RequiredFieldValidator ID="QuestionRequiredValidator" runat="server" ControlToValidate="QuestionTextbox"
-                ForeColor="red" Display="Static" ErrorMessage="Required" />
+                ForeColor="red" Display="Static" ErrorMessage=" New Secret Question Required"  ValidationGroup="ChangeSecretPasswordValidationGroup">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -51,7 +54,7 @@
         </td>
         <td>
             <asp:RequiredFieldValidator ID="AnswerRequiredValidator" runat="server" ControlToValidate="AnswerTextbox"
-                ForeColor="red" Display="Static" ErrorMessage="Required" />
+                ForeColor="red" Display="Static" ErrorMessage=" New Secret Answer Required"  ValidationGroup="ChangeSecretPasswordValidationGroup">*</asp:RequiredFieldValidator>
         </td>
     </tr>
     <tr>
@@ -59,7 +62,7 @@
         </td>
         <td>
             <asp:Button ID="ChangePasswordQuestionButton" Text="Change Secret Question and Answer"
-                OnClick="ChangePasswordQuestion_OnClick" runat="server" />
+                OnClick="ChangePasswordQuestion_OnClick" runat="server"  ValidationGroup="ChangeSecretPasswordValidationGroup"/>
         </td>
     </tr>
 </table>

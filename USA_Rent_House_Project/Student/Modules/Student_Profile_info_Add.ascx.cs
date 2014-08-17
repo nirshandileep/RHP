@@ -36,7 +36,26 @@ namespace USA_Rent_House_Project.Student.Modules
 			}
 		}
 
-		RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
+        RHP.StudentManagement.Student _student;
+
+        public RHP.StudentManagement.Student student
+        {
+            get
+            {
+                _student = SessionManager.GetSession<RHP.StudentManagement.Student>(Constants.SESSION_LOGGED_STUDENT);
+                if (_student == null)
+                {
+                    _student = new RHP.StudentManagement.Student();
+                }
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+                return _student;
+            }
+            set
+            {
+                _student = value;
+                Session[Constants.SESSION_LOGGED_STUDENT] = _student;
+            }
+        }
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -61,6 +80,7 @@ namespace USA_Rent_House_Project.Student.Modules
 				try
 				{
 					bool boolMembershipUserCreated = false;
+                   
                     user.Email = Email.Text.Trim();
                         user.Password = Password.Text.Trim();
                         user.UserName = UserName.Text.Trim();
@@ -74,7 +94,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     if (boolMembershipUserCreated)
                     {
-                       
+                        Session[Constants.SESSION_LOGGED_USER] = user;
                          Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx'; }", true);
                            
                     }

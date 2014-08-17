@@ -8,13 +8,33 @@ using System.Web.Security;
 using RHP.UserManagement;
 using RHP.Common;
 using RHP.Utility;
+using RHP.SessionManager;
 
 namespace USA_Rent_House_Project.Modules
 {
     public partial class Login : System.Web.UI.UserControl
     {
 
-        private User user = new User();
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
         
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -73,12 +93,11 @@ namespace USA_Rent_House_Project.Modules
             {
                 try
                 {
-                    //MembershipUser u = Membership.GetUser(user.UserName, false);
-                    //user = User.Select( new Guid(u.ProviderUserKey.ToString()));
+                    //user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-                    user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                    user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                    Session[Constants.SESSION_LOGGED_USER] = user;
+                    //user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                    //Session[Constants.SESSION_LOGGED_USER] = user;
 
                     user.RedirectUserFromLogin(false);
                 }

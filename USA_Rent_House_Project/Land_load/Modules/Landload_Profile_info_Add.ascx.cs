@@ -77,7 +77,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                             if (boolMembershipUserCreated)
                             {
-                                
+                                Session[Constants.SESSION_LOGGED_USER] = user;
                                         lblError.Text = Messages.Save_Success;
                                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Profile.aspx';}", true);
                                    

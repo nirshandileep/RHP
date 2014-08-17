@@ -14,16 +14,12 @@
     </p>           
         
   
-    <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" 
-         SuccessPageUrl="ChangePasswordSuccess.aspx">
+    <asp:ChangePassword ID="ChangeUserPassword" runat="server" CancelDestinationPageUrl="~/" EnableViewState="false" RenderOuterTable="false" >
         <ChangePasswordTemplate>
             <span class="failureNotification">
                 <asp:Literal ID="FailureText" runat="server"></asp:Literal>
             </span>
            
-           
-                
-                     
                     <p>
                         <asp:Label ID="CurrentPasswordLabel" runat="server" AssociatedControlID="CurrentPassword" CssClass="bold1">Current Password:</asp:Label>
                         <asp:TextBox ID="CurrentPassword" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>
