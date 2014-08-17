@@ -18,24 +18,36 @@
              <asp:RequiredFieldValidator ID="GenderRequired" runat="server" ErrorMessage="Please select Gender"  CssClass="failureNotification" ControlToValidate="DrpGender" ValidationGroup="RegisterStudentValidationGroup" InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
 
-            <p>
-                <asp:Label ID="LabelName" runat="server" AssociatedControlID="Name" CssClass="form_label">Name:</asp:Label>
-                <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="NameRequired" runat="server" ControlToValidate="Name"
-                    CssClass="failureNotification" ErrorMessage="Name is required." ToolTip="Name is required."
-                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
+           <p>
+                <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName"
+                    CssClass="form_label">First Name:</asp:Label>
+                <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="FirstName"
+                    CssClass="failureNotification" ErrorMessage="First Name is required."
+                    ToolTip="First Name is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+               
             </p>
+             <p>
+                <asp:Label ID="LabelMiddleName" runat="server" AssociatedControlID="MiddleName"
+                    CssClass="form_label">Middle Name:</asp:Label>
+                <asp:TextBox ID="MiddleName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+            
+            </p>
+             <p>
+                <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName"
+                    CssClass="form_label">Last Name:</asp:Label>
+                <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="LastName"
+                    CssClass="failureNotification" ErrorMessage="Last Name is required."
+                    ToolTip="Last Name is required." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+               
+            </p>
+
          
             <p id="setEmail" runat="server">
                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                  <asp:Label ID="Email" runat="server" CssClass="form_label"></asp:Label>
-               <%-- <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1" ReadOnly="true"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-                    CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
-                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                    ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="RegisterStudentValidationGroup"
-                    ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>--%>
+              
             </p>
            
             <p>
@@ -113,17 +125,23 @@
                 <asp:RequiredFieldValidator ID="ZipRequiredField" runat="server" ControlToValidate="Zip"
                     CssClass="failureNotification" ErrorMessage="Zip is required." ToolTip="Zip is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Zip must be 4 numbers"
-                    ControlToValidate="Zip" CssClass="failureNotification" ValidationExpression="^[0-9]{4}$"
-                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RegularExpressionValidator>
-            </p>
+               
+                 <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Zip must be 5 numbers"
+                    ControlToValidate="Zip" CssClass="failureNotification"
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+
             <p>
                 <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Best Contact #:</asp:Label>
-                <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="12"></asp:TextBox>
-                <asp:RegularExpressionValidator ID="mobileRegularExpression" runat="server" CssClass="failureNotification"
-                    ErrorMessage="Invalid Mobile No." ToolTip="Invalid Mobile No." ControlToValidate="Mobile"
-                    ValidationGroup="RegisterStudentValidationGroup" ValidationExpression="^[0-9]{9}$|^0[0-9]{1}[ ][0-9]{8}$|^0[1-9]{1}[ ][0-9]{4}[ ][0-9]{4}$">*
-                </asp:RegularExpressionValidator>
+                <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="15"></asp:TextBox>
+
+                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobile"
+                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
+
+                 <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck" Type="Integer" CssClass="failureNotification"
+                    ErrorMessage="Invalid Best Contact No." ToolTip="Invalid Best Contact No." ControlToValidate="Mobile"
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+            </p>
             </p>
             <p>
                 <asp:Label ID="LabelDriversLicense" runat="server" AssociatedControlID="DriversLicense"

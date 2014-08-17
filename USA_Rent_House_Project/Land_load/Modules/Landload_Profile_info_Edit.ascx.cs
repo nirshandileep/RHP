@@ -73,7 +73,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
-            Name.Text = string.IsNullOrEmpty(user.Name) ? string.Empty : user.Name;
+            FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
+            MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
+            LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
             Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
             Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
@@ -115,7 +117,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        user.Name = Name.Text.Trim();
+                        user.FirstName = FirstName.Text.Trim();
+                        user.MiddleName = MiddleName.Text.Trim();
+                        user.LastName = LastName.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
                         user.State = Drpstate.SelectedItem.Value.ToString();
@@ -123,12 +127,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user.BestContactNumber = Mobile.Text.Trim();
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
                         user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()); 
+                        user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                      
 
                         if (user.Save())
                         {
                             landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                            landload.LandlordName = Name.Text.Trim();
+                            landload.LandlordName =  user.FirstName + " " + user.MiddleName + " " + user.LastName;
                             landload.user = user;
                             landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                             landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());

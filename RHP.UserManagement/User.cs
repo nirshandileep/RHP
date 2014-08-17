@@ -25,7 +25,9 @@ namespace RHP.UserManagement
         public string FBAccessToken { get; set; }
         public string FBUrl { get; set; }
         public string FBProfilePictureURL { get; set; }
-        public string Name { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public string State { get; set; }

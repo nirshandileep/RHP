@@ -20,7 +20,9 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
             db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
             db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
-            db.AddInParameter(command, "Name", DbType.String, users.Name);
+            db.AddInParameter(command, "FirstName", DbType.String, users.FirstName);
+            db.AddInParameter(command, "MiddleName", DbType.String, users.MiddleName);
+            db.AddInParameter(command, "LastName", DbType.String, users.LastName);
             db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
             db.AddInParameter(command, "City", DbType.String, users.City);
             db.AddInParameter(command, "State", DbType.String, users.State);
@@ -55,7 +57,9 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
             db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
             db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
-            db.AddInParameter(command, "Name", DbType.String, users.Name);
+            db.AddInParameter(command, "FirstName", DbType.String, users.FirstName);
+            db.AddInParameter(command, "MiddleName", DbType.String, users.MiddleName);
+            db.AddInParameter(command, "LastName", DbType.String, users.LastName);
             db.AddInParameter(command, "StreetAddress", DbType.String, users.StreetAddress);
             db.AddInParameter(command, "City", DbType.String, users.City);
             db.AddInParameter(command, "State", DbType.String, users.State);
