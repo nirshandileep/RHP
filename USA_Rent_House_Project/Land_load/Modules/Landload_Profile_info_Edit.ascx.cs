@@ -64,6 +64,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
             //Set Gender
             DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
 
+            //Drpstate
+            Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+            Drpstate.DataTextField = "StateName";
+            Drpstate.DataValueField = "StateId";
+            Drpstate.DataBind();
+            Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
         }
 
         public void LoadUserData()

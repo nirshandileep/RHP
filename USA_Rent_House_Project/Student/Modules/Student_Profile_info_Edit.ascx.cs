@@ -95,6 +95,14 @@ namespace USA_Rent_House_Project.Student.Modules
                 DrpSchoolName.DataBind();
             }
 
+            //Drpstate
+            Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+            Drpstate.DataTextField = "StateName";
+            Drpstate.DataValueField = "StateId";
+            Drpstate.DataBind();
+            Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+
             //Load Years
             DRPYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
             for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
