@@ -14,7 +14,7 @@ namespace RHP.LandlordManagement
         public Guid LandlordId { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
-        public string State { get; set; }
+        public int? StateId { get; set; }
         public string Zip { get; set; }
         public int? YearHomeBuild { get; set; }
         public int? BedRooms { get; set; }
