@@ -98,7 +98,7 @@
         <p class="submitButton">
             <asp:Button ID="EditUserButton" runat="server" 
                 CssClass="actionbutton" CommandName="MoveNext"
-                Text="Edit Landlord" ValidationGroup="RegisterLand_lordValidationGroup" 
+                Text="Save" ValidationGroup="RegisterLand_lordValidationGroup" 
                 onclick="EditUserButton_Click"  />
                  <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>

@@ -62,20 +62,7 @@
                     ErrorMessage="The password and confirmation password must match." ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
             </p>
            
-             <p>
-                <asp:Label ID="LabelLandLoadName" runat="server" AssociatedControlID="LandLoadName" CssClass="form_label">Land load Name:</asp:Label>
-                <asp:TextBox ID="LandLoadName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="SLandLoadNameRequiredFieldValidator" runat="server"
-                    ControlToValidate="LandLoadName" CssClass="failureNotification" ErrorMessage="Land load Name is required."
-                    ToolTip="Land load Name is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-            </p>
-            <p>
-                <asp:Label ID="LabelLandLoadPlace" runat="server" AssociatedControlID="LandLoadPlace" CssClass="form_label">Land Load Place:</asp:Label>
-                <asp:TextBox ID="LandLoadPlace" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                <asp:RequiredFieldValidator ID="LandLoadPlaceRequiredFieldValidator" runat="server" ControlToValidate="LandLoadPlace"
-                    CssClass="failureNotification" ErrorMessage="Land Load Place is required." ToolTip="Land Load Place is required."
-                    ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-            </p>
+            
            <p id="setQuestiontitle" runat="server">        to validate Student when connecting us :</p>
             <p id="setQuestion" runat="server">
      
