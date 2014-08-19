@@ -77,7 +77,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadInitialData();
+            if (!IsPostBack)
+            {
+                LoadInitialData();
+                LoadHouse();
+            }
         }
 
         private void LoadInitialData()
@@ -114,6 +118,20 @@ namespace USA_Rent_House_Project.Land_load.Modules
             DrpBedRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
         }
 
+        private void LoadHouse()
+        {
+            Guid houseId;
+            if (hdnHouseId.Value.Trim() != string.Empty && Guid.TryParse(hdnHouseId.Value.Trim(), out houseId))
+            {
+                House house = RHP.Utility.Generic.GetByGUID<House>(houseId);
+                Address.Text = house.StreetAddress;
+                City.Text = house.City;
+                Drpstate.SelectedValue = house.StateId.HasValue ? house.StateId.Value.ToString() : "-1";
+                Zip.Text = house.Zip;
+                DRPYear.SelectedValue = house.YearHomeBuild.Value.ToString();
+            }
+        }
+
         protected void CreatePropertyButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid == true)
@@ -125,7 +143,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     
                     house.StreetAddress = Address.Text.Trim();
                     house.City = City.Text.Trim();
-                    house.State = Drpstate.SelectedValue.Trim();
+                    house.StateId = Int32.Parse(Drpstate.SelectedValue.Trim());
                     house.Zip = Zip.Text.Trim();
                     house.YearHomeBuild = int.Parse(DRPYear.SelectedValue.Trim());
                     house.BedRooms = int.Parse(DrpBedRooms.SelectedValue.Trim());

@@ -33,7 +33,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "LandlordId", DbType.Guid, house.LandlordId);
            db.AddInParameter(command, "StreetAddress", DbType.String, house.StreetAddress);
            db.AddInParameter(command, "City", DbType.String, house.City);
-           db.AddInParameter(command, "State", DbType.String, house.State);
+           db.AddInParameter(command, "StateId", DbType.Int32, house.StateId);
            db.AddInParameter(command, "Zip", DbType.String, house.Zip);
            db.AddInParameter(command, "YearHomeBuild", DbType.Int16, house.YearHomeBuild);
            db.AddInParameter(command, "BedRooms", DbType.Int16, house.BathRooms);
@@ -76,7 +76,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "LandlordId", DbType.Guid, house.LandlordId);
            db.AddInParameter(command, "StreetAddress", DbType.String, house.StreetAddress);
            db.AddInParameter(command, "City", DbType.String, house.City);
-           db.AddInParameter(command, "State", DbType.String, house.State);
+           db.AddInParameter(command, "StateId", DbType.Int32, house.StateId);
            db.AddInParameter(command, "Zip", DbType.String, house.Zip);
            db.AddInParameter(command, "YearHomeBuild", DbType.Int16, house.YearHomeBuild);
            db.AddInParameter(command, "BedRooms", DbType.Int16, house.BathRooms);
