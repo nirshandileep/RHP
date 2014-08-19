@@ -143,7 +143,7 @@
         </div>
         <p class="submitButton">
             <asp:Button ID="EditUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                Text="Edit Student" ValidationGroup="RegisterStudentValidationGroup" 
+                Text="Save" ValidationGroup="RegisterStudentValidationGroup" 
                 onclick="EditUserButton_Click" />
             <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>

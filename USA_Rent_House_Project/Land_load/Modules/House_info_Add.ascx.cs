@@ -77,7 +77,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadInitialData();
+            if(!IsPostBack)
+            {
+                LoadInitialData();
+            }
+           
         }
 
         private void LoadInitialData()
