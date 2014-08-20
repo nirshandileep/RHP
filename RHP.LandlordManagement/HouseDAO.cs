@@ -140,5 +140,13 @@ namespace RHP.LandlordManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
+       public bool Select(House house)
+       {
+           bool result = true;
+
+
+
+           return result;
+       }
    }
 }

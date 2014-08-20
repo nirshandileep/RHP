@@ -67,5 +67,6 @@
                 CssClass="actionbutton" 
                 Text="Add Property Options" ValidationGroup="PropertyValidationGroup" onclick="AddPropertyOptionButton_Click" 
   />
+            <asp:HiddenField ID="hdnHouseId" runat="server" />
         </p>
 </div>

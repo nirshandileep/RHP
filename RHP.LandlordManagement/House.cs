@@ -25,7 +25,13 @@ namespace RHP.LandlordManagement
         public string PropertyImagePath { get; set; }
         public decimal? RatingValue { get; set; }
         public decimal? Price { get; set; }
+        public List<HouseOption> HouseOptionList { get; set; }
 
+        public House Select(Guid houseId)
+        {
+
+            return new House();
+        }
 
         public bool Save()
         {

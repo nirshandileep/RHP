@@ -55,6 +55,7 @@
     <Compile Include="House.cs" />
     <Compile Include="HouseDAO.cs" />
     <Compile Include="HouseManager.cs" />
+    <Compile Include="HouseOption.cs" />
     <Compile Include="Landlord.cs" />
     <Compile Include="LandlordDAO.cs" />
     <Compile Include="LandlordManager.cs" />

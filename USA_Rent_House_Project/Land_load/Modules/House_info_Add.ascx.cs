@@ -126,9 +126,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 House house = RHP.Utility.Generic.GetByGUID<House>(houseId);
                 Address.Text = house.StreetAddress;
                 City.Text = house.City;
-                Drpstate.SelectedValue = house.StateId.HasValue ? house.StateId.Value.ToString() : "-1";
                 Zip.Text = house.Zip;
-                DRPYear.SelectedValue = house.YearHomeBuild.Value.ToString();
+
+                DRPYear.SelectedValue = house.YearHomeBuild.HasValue ? house.YearHomeBuild.Value.ToString() : "-1";
+                DrpBedRooms.SelectedValue = house.BedRooms.HasValue ? house.BedRooms.Value.ToString() : "-1";
+                DrpBathRooms.SelectedValue = house.BathRooms.HasValue ? house.BathRooms.Value.ToString() : "-1";
+                Drpstate.SelectedValue = house.StateId.HasValue ? house.StateId.Value.ToString() : "-1";
+                LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
+                TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
+                Utilities.Text = house.UtilitiesIncludedInRent.ToString();
             }
         }
 

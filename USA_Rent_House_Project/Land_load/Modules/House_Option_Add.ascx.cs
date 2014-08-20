@@ -10,9 +10,33 @@ namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class House_Option_Add : System.Web.UI.UserControl
     {
+        public Guid HouseId
+        {
+            get
+            {
+                Guid houseid;
+                Guid.TryParse(hdnHouseId.Value.Trim(), out houseid);
+                return houseid;
+            }
+            set
+            {
+                hdnHouseId.Value = value.ToString();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadInitialData();
+            if (!IsPostBack)
+            {
+                LoadInitialData();
+                FillOptions();
+            }
+        }
+
+        private void FillOptions()
+        {
+            //string selectedoptions = RHP.Utility.Generic.GetByGUID<House>()
+
         }
 
         private void LoadInitialData()
