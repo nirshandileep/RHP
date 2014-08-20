@@ -140,12 +140,37 @@ namespace RHP.LandlordManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
-       public bool Select(House house)
+       public bool Select(House entity)
        {
            bool result = true;
+           
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand dbCommand = db.GetStoredProcCommand("usp_HouseSelect");
 
+           db.AddInParameter(dbCommand, "HouseId", DbType.Guid, entity.HouseId);
 
+           using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+           {
+               if (dataReader.Read())
+               {
+                   if (entity == null)
+                   {
+                       entity = new House(); 
+                   }
+                   RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+               }
 
+               if (dataReader.NextResult())
+               {
+                   if (dataReader.Read())
+                   {
+                       HouseOption houseOption = new HouseOption();
+                       RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, houseOption);
+                       entity.HouseOptionList.Add(houseOption);
+                   }
+               }
+           }
+           
            return result;
        }
    }

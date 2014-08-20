@@ -29,6 +29,8 @@ namespace RHP.LandlordManagement
 
         public House Select(Guid houseId)
         {
+            House house;
+            house = RHP.Utility.Generic.GetByGUID<House>(houseId);
 
             return new House();
         }
