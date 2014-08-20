@@ -194,6 +194,7 @@
     <Content Include="Change_Password.aspx" />
     <Content Include="Change_Secret_Question.aspx" />
     <Content Include="CustomError.aspx" />
+    <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\login_with_facebook.png" />
@@ -488,6 +489,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Email_Verification.aspx.cs">
+      <DependentUpon>Email_Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Email_Verification.aspx.designer.cs">
+      <DependentUpon>Email_Verification.aspx</DependentUpon>
     </Compile>
     <Compile Include="Facebook-Login.aspx.cs">
       <DependentUpon>Facebook-Login.aspx</DependentUpon>

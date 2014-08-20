@@ -13,6 +13,7 @@ using RHP.StudentManagement;
 using RHP.LandlordManagement;
 using RHP.Common;
 
+
 namespace USA_Rent_House_Project
 {
     public partial class Facebook_Login : System.Web.UI.Page
@@ -142,9 +143,12 @@ namespace USA_Rent_House_Project
                                 if (user.Save())
                                 {
                                     Session[Constants.SESSION_LOGGED_USER] = user;
-                                    //  Response.Redirect(ReturnURL, false);
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '" + ReturnURL + "';}", true);
 
+                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                                    MembershipUser newUser = Membership.GetUser(user.UserName);
+
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                    
                                 }
                                 else
                                 {
@@ -248,5 +252,7 @@ namespace USA_Rent_House_Project
 
            // }
         }
+
+       
     }
 }

@@ -91,7 +91,7 @@ namespace RHP.UserManagement
                                 Roles.AddUserToRole(strUserName, "landlord");
                             }
 
-                            FormsAuthentication.SetAuthCookie(UserName, false);
+                           // FormsAuthentication.SetAuthCookie(UserName, false);
 
                             break;
                         }
@@ -330,5 +330,6 @@ namespace RHP.UserManagement
             return new UserDAO().GetUsernameByFBId(fbid);
         }
 
+       
     }
 }

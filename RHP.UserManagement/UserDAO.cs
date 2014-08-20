@@ -131,7 +131,7 @@ namespace RHP.UserManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
-
+       
         public string GetUsernameByFBId(string FbId)
         {
 
