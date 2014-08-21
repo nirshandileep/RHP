@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.LandlordManagement;
+using RHP.Common;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -35,8 +36,67 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private void FillOptions()
         {
-            //string selectedoptions = RHP.Utility.Generic.GetByGUID<House>()
+            House house = House.Select(HouseId);
+            if (house != null && house.HouseOptionList.Count > 0)
+            {
+                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).Count() > 0)
+                {
+                    CheckBasicFeatureList();
+                }
 
+                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Kitchen).Count() > 0)
+                {
+                    CheckFurnishedKitchenList();
+                }
+
+                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Living_Space).Count() > 0)
+                {
+                    CheckFurnishedLivingSpaceList();
+                }
+
+                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Rooms).Count() > 0)
+                {
+                    CheckFurnishedRoomsList();
+                }
+            }
+
+        }
+
+        private void CheckFurnishedRoomsList()
+        {
+            foreach (CheckBox cb in chkFurnishedroomoptions.Items)
+            {
+                //if (cb.)
+                //{
+                    
+                //}
+                ////Todo check the checkbox
+            }
+        }
+
+        private void CheckFurnishedLivingSpaceList()
+        {
+            foreach (CheckBox cb in chkFurnishedlivingspaceOptions.Items)
+            {
+                //Todo check the checkbox
+            }
+        }
+
+        private void CheckFurnishedKitchenList()
+        {
+            foreach (CheckBox cb in chkFurnishedkitchenOptions.Items)
+            {
+                //Todo check the checkbox
+            }
+        }
+
+        private void CheckBasicFeatureList()
+        {
+            List<ListItem> items = chkOptionList.Items.Cast<ListItem>().ToList();
+            foreach(CheckBox cb in chkOptionList.Items)
+            {
+                //Todo check the checkbox
+            }
         }
 
         private void LoadInitialData()

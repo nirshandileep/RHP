@@ -27,12 +27,16 @@ namespace RHP.LandlordManagement
         public decimal? Price { get; set; }
         public List<HouseOption> HouseOptionList { get; set; }
 
-        public House Select(Guid houseId)
+        public static House Select(Guid houseId)
         {
-            House house;
-            house = RHP.Utility.Generic.GetByGUID<House>(houseId);
+            House house = new House();
+            house.HouseId = houseId;
+            if (!new HouseDAO().Select(house))
+            {
+                house = null;
+            }
 
-            return new House();
+            return house;
         }
 
         public bool Save()

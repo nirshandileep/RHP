@@ -10,6 +10,7 @@ namespace RHP.LandlordManagement
         public Guid HouseOptionId { get; set; }
         public Guid HouseId { get; set; }
         public int OptionId { get; set; }
+        public Option Option { get; set; }
         public string OptionValue { get; set; }
     }
 }

@@ -170,6 +170,13 @@ namespace RHP.LandlordManagement
                    }
                }
            }
+
+           foreach (HouseOption houseOption in entity.HouseOptionList)
+           {
+               Option option = RHP.Utility.Generic.Get<Option>(houseOption.OptionId);
+               houseOption.Option = option;
+           }
+
            
            return result;
        }
