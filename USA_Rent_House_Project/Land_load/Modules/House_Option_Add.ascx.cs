@@ -25,6 +25,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
         }
 
+        private House house = new House();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -36,66 +38,83 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private void FillOptions()
         {
-            House house = House.Select(HouseId);
-            if (house != null && house.HouseOptionList.Count > 0)
+            house = House.Select(HouseId);
+            if (house.HouseOptionList != null && house.HouseOptionList.Count > 0)
             {
-                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).Count() > 0)
+                List<HouseOption> houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).ToList(); 
+                if (houseOptions.Count() > 0)
                 {
-                    CheckBasicFeatureList();
+                    CheckBasicFeatureList(houseOptions);
                 }
 
-                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Kitchen).Count() > 0)
+                houseOptions.Clear();
+                houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Kitchen).ToList();
+                if (houseOptions.Count() > 0)
                 {
-                    CheckFurnishedKitchenList();
+                    CheckFurnishedKitchenList(houseOptions);
                 }
 
-                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Living_Space).Count() > 0)
+                houseOptions.Clear();
+                houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Living_Space).ToList();
+                if (houseOptions.Count() > 0)
                 {
-                    CheckFurnishedLivingSpaceList();
+                    CheckFurnishedLivingSpaceList(houseOptions);
                 }
 
-                if (house.HouseOptionList.Select(items => items.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Rooms).Count() > 0)
+                houseOptions.Clear();
+                houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Rooms).ToList();
+                if (houseOptions.Count() > 0)
                 {
-                    CheckFurnishedRoomsList();
+                    CheckFurnishedRoomsList(houseOptions);
                 }
             }
-
         }
 
-        private void CheckFurnishedRoomsList()
+        private void CheckFurnishedRoomsList(List<HouseOption> houseOptions)
         {
-            foreach (CheckBox cb in chkFurnishedroomoptions.Items)
+            List<ListItem> items = chkFurnishedroomoptions.Items.Cast<ListItem>().ToList();
+            foreach (ListItem checkBox in items)
             {
-                //if (cb.)
-                //{
-                    
-                //}
-                ////Todo check the checkbox
+                if (houseOptions.Find(opt => opt.OptionId == int.Parse(checkBox.Value.Trim())) != null)
+                {
+                    checkBox.Selected = true;
+                }
             }
         }
 
-        private void CheckFurnishedLivingSpaceList()
+        private void CheckFurnishedLivingSpaceList(List<HouseOption> houseOptions)
         {
-            foreach (CheckBox cb in chkFurnishedlivingspaceOptions.Items)
+            List<ListItem> items = chkFurnishedlivingspaceOptions.Items.Cast<ListItem>().ToList();
+            foreach (ListItem checkBox in items)
             {
-                //Todo check the checkbox
+                if (houseOptions.Find(opt => opt.OptionId == int.Parse(checkBox.Value.Trim())) != null)
+                {
+                    checkBox.Selected = true;
+                }
             }
         }
 
-        private void CheckFurnishedKitchenList()
+        private void CheckFurnishedKitchenList(List<HouseOption> houseOptions)
         {
-            foreach (CheckBox cb in chkFurnishedkitchenOptions.Items)
+            List<ListItem> items = chkFurnishedkitchenOptions.Items.Cast<ListItem>().ToList();
+            foreach (ListItem checkBox in items)
             {
-                //Todo check the checkbox
+                if (houseOptions.Find(opt => opt.OptionId == int.Parse(checkBox.Value.Trim())) != null)
+                {
+                    checkBox.Selected = true;
+                }
             }
         }
 
-        private void CheckBasicFeatureList()
+        private void CheckBasicFeatureList(List<HouseOption> houseOptions)
         {
             List<ListItem> items = chkOptionList.Items.Cast<ListItem>().ToList();
-            foreach(CheckBox cb in chkOptionList.Items)
+            foreach(ListItem checkBox in items)
             {
-                //Todo check the checkbox
+                if (houseOptions.Find(opt => opt.OptionId == int.Parse(checkBox.Value.Trim())) != null)
+                {
+                    checkBox.Selected = true;
+                }
             }
         }
 
@@ -124,7 +143,55 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void AddPropertyOptionButton_Click(object sender, EventArgs e)
         {
+            house = House.Select(HouseId);
+            if (house == null)
+                house = new House();
 
+            house.HouseOptionList.Clear();
+            foreach (ListItem item in chkOptionList.Items)
+            {
+                if (item.Selected)
+                {
+                    HouseOption option = new HouseOption();
+                    option.OptionId = int.Parse(item.Value);
+                    house.HouseOptionList.Add(option);
+                }
+            }
+
+            foreach (ListItem item in chkFurnishedroomoptions.Items)
+            {
+                if (item.Selected)
+                {
+                    HouseOption option = new HouseOption();
+                    option.OptionId = int.Parse(item.Value);
+                    house.HouseOptionList.Add(option);
+                }
+            }
+
+            foreach (ListItem item in chkFurnishedlivingspaceOptions.Items)
+            {
+                if (item.Selected)
+                {
+                    HouseOption option = new HouseOption();
+                    option.OptionId = int.Parse(item.Value);
+                    house.HouseOptionList.Add(option);
+                }
+            }
+
+            foreach (ListItem item in chkFurnishedkitchenOptions.Items)
+            {
+                if (item.Selected)
+                {
+                    HouseOption option = new HouseOption();
+                    option.OptionId = int.Parse(item.Value);
+                    house.HouseOptionList.Add(option);
+                }
+            }
+
+            if (house.Save())
+            {
+
+            }
         }
     }
 }
