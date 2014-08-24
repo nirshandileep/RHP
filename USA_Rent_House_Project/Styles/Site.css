@@ -348,19 +348,27 @@ input.actionbutton:hover
 
 #wrapper
 {
-   width: 1000px;  
+   width: 1000px; 
+   min-height:500px; 
     margin:0 auto;
     overflow:hidden;
 }
+.footerleft
+{
+    float:left;
+}
 
+.footerright
+{
+    float:right;
+}
 #footer
 {
     border-top: 1px solid;
     clear: both;
     height: 50px;
     margin-top: 50px;
-    padding: 20px;
-    text-align: right;   
+    padding: 20px;   
 }
 
 #two-col-1
@@ -583,7 +591,7 @@ a.homelargebuttons
     margin:10px 0  15px 30px;
     background-color:#0e72b8;
     color:#ffffff;
-    padding:15px;
+    padding:7px;
     font-size:1.9em;
    
     text-decoration:none;
@@ -599,6 +607,17 @@ a.homelargebuttons:hover
     background-color:#083e64;
 }
 
+.socialmediaicons
+{
+    width:40%;
+    margin:5% auto;
+}
+
+.socialmediaicons img
+{
+    float:left;
+    margin:15px;
+}
 
 
 input.homelargebuttons 
@@ -770,7 +789,7 @@ a.loginlinks:hover
 
 /* Student profile */
 
-#MainContent_Student_Profile_HeaderID_StidentProfileHeader
+#MainContent_Student_Profile_HeaderID_StidentProfileHeader, #MainContent_Student_Public_Profile_HeaderID_StidentProfileHeader
 {
     height: 400px;
     margin: 0 auto;
@@ -779,7 +798,7 @@ a.loginlinks:hover
     width: 970px;
 }
 
-#MainContent_Student_Profile_HeaderID_HeaderImage
+#MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage
 {
     width:970px;
     height:250px;
@@ -788,7 +807,7 @@ a.loginlinks:hover
 }
 
 
-#MainContent_Student_Profile_HeaderID_StudentProfileImage
+#MainContent_Student_Profile_HeaderID_StudentProfileImage, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage 
 {
    border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
@@ -802,7 +821,7 @@ a.loginlinks:hover
 }
 
 
-#MainContent_Student_Profile_HeaderID_CurrentHouseImage
+#MainContent_Student_Profile_HeaderID_CurrentHouseImage, #MainContent_Student_Public_Profile_HeaderID_CurrentHouseImage
 {
     border: 5px solid #fff;
     box-shadow: 0 0 2px #000;  
@@ -815,13 +834,13 @@ a.loginlinks:hover
     width: 100px
 }
 
-#MainContent_Student_Profile_DataID_currentHomeStudent
+#MainContent_Student_Profile_DataID_currentHomeStudent, #MainContent_Student_Public_Profile_DataID_currentHomeStudent
 {
     margin:0 auto;
     width:960px;
 }
 
-#MainContent_Student_Profile_HeaderID_LandloadProfileImage
+#MainContent_Student_Profile_HeaderID_LandloadProfileImage, #MainContent_Student_Public_Profile_HeaderID_LandloadProfileImage
 {
     border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
@@ -834,7 +853,7 @@ a.loginlinks:hover
     z-index: 5;
 }
 
-#MainContent_Student_Profile_DataID_LeftPanel
+#MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel
 {
     float: left;   
     padding: 15px 0;
@@ -843,7 +862,7 @@ a.loginlinks:hover
    
 }
 
-#MainContent_Student_Profile_DataID_RightPanel
+#MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel
 {
     float: left;
     margin-left: 2%;
@@ -851,7 +870,8 @@ a.loginlinks:hover
     width: 80%;
 }
 
-#MainContent_Student_Profile_CommentsID_StudentComments
+#MainContent_Student_Profile_CommentsID_StudentComments, 
+#MainContent_Student_Public_Profile_CommentsID_StudentComments
 {
    
     clear: both;
