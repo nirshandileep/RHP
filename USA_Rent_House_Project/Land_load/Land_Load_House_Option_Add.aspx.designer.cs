@@ -31,6 +31,42 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Banner Landload_Profile_Banner1;
         
         /// <summary>
+        /// currentHomeStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
+        
+        /// <summary>
+        /// LeftPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
+        
+        /// <summary>
+        /// Menu_Bar1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Menu_Bar Menu_Bar1;
+        
+        /// <summary>
+        /// RightPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
+        
+        /// <summary>
         /// House_Option_Add1 control.
         /// </summary>
         /// <remarks>

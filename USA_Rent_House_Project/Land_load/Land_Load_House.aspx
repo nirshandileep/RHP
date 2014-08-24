@@ -7,7 +7,7 @@
 <%@ Register Src="Modules/Landload_Profile_Banner.ascx" TagName="Landload_Profile_Banner"
     TagPrefix="uc3" %>
 
-<%@ Register src="Modules/Menu_Bar.ascx" tagname="Menu_Bar" tagprefix="uc2" %>
+<%@ Register src="Modules/Menu_Bar.ascx" tagname="Menu_Bar" tagprefix="uc4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -17,7 +17,7 @@
     <div id="currentHomeStudent" runat="server">
         <div id="LeftPanel" runat="server">
            
-            <uc2:Menu_Bar ID="Menu_Bar1" runat="server" />
+            <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
            
         </div>
         <div id="RightPanel" runat="server">
