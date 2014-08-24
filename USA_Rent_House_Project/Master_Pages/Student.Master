@@ -32,7 +32,10 @@
     </div>
     </form>
     </div>
-    <div id="footer">© 2014 | All rights reserved | www.ratemystudenthome.com
+     <div id="footer">
+    <div class="footerleft">text</div>
+   <div class="footerright">© 2014 | All rights reserved | www.ratemystudenthome.com</div>
+   <div class="clear"></div> 
 </div>
 </body>
 </html>
