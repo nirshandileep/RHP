@@ -13,12 +13,30 @@ namespace USA_Rent_House_Project.Land_load {
     public partial class Land_Load_House_info_Add {
         
         /// <summary>
-        /// House_info_Add1 control.
+        /// Landload_Profile_Header1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Land_load.Modules.House_info_Add House_info_Add1;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Header Landload_Profile_Header1;
+        
+        /// <summary>
+        /// Landload_Profile_Banner1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Banner Landload_Profile_Banner1;
+        
+        /// <summary>
+        /// House_info_AddID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.House_info_Add House_info_AddID;
     }
 }

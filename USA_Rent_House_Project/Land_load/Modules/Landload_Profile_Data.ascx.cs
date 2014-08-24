@@ -35,18 +35,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileID", "", "~/Land_load/Land_load_Profile_Edit.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("Properties", "PropertyID", "", "~/Land_load/Land_Load_House_info_Add.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("Property Options", "PropertyOptionID", "", "~/Land_load/Land_Load_House_Option_Add.aspx"));
-            if (user.IsFBUser == true)
-            {
-
-            }
-            else
-            {
-                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Change_Password.aspx"));
-                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Change_Secret_Question.aspx"));
-            }
+           
         }
     }
 }

@@ -44,8 +44,9 @@ namespace RHP.Common
         public static readonly string SESSION_HOUSE_LIST = "SESSION_HOUSE_LIST";
         public static readonly string SESSION_COMMENTS = "SESSION_COMMENTS";
         public static readonly string SESSION_FEATURE_ITEMS_LIST = "SESSION_FEATURE_ITEMS_LIST";
+        public static readonly string SESSION_HOUSELIST = "SESSION_HOUSELIST";
 
-
+        public static readonly string SESSION_HOUSE = "SESSION_HOUSE";
         #endregion
 
         #region Dropdown values

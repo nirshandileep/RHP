@@ -18,6 +18,15 @@ namespace RHP.LandlordManagement
            return db.ExecuteDataSet(command);
        }
 
+       public DataSet SelectAllDataset(Guid LandlordId)
+       {
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand command = db.GetStoredProcCommand("usp_HouseSelectByLandlordId");
+           db.AddInParameter(command, "LandlordId", DbType.Guid, LandlordId);
+
+           return db.ExecuteDataSet(command);
+       }
+
        public bool Insert(House house)
        {
            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
@@ -45,6 +54,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);
            db.AddInParameter(command, "CreatedBy", DbType.Guid, house.CreatedBy);
            db.AddInParameter(command, "RatingValue", DbType.Decimal, house.RatingValue);
+           db.AddInParameter(command, "Price", DbType.Decimal, house.Price);
            db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
            if (transaction == null)
@@ -72,7 +82,8 @@ namespace RHP.LandlordManagement
        {
            DbCommand command = db.GetStoredProcCommand("usp_HouseUpdate");
 
-           db.AddInParameter(command, "HouseId", DbType.Guid, Guid.NewGuid());
+
+           db.AddInParameter(command, "HouseId", DbType.Guid, house.HouseId);
            db.AddInParameter(command, "LandlordId", DbType.Guid, house.LandlordId);
            db.AddInParameter(command, "StreetAddress", DbType.String, house.StreetAddress);
            db.AddInParameter(command, "City", DbType.String, house.City);
@@ -88,6 +99,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);
            db.AddInParameter(command, "UpdatedBy", DbType.Guid, house.UpdatedBy);
            db.AddInParameter(command, "RatingValue", DbType.Decimal, house.RatingValue);
+           db.AddInParameter(command, "Price", DbType.Decimal, house.Price);
            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
 
            if (transaction == null)
@@ -171,13 +183,15 @@ namespace RHP.LandlordManagement
                }
            }
 
-           foreach (HouseOption houseOption in entity.HouseOptionList)
+           if (entity.HouseOptionList != null)
            {
-               Option option = RHP.Utility.Generic.Get<Option>(houseOption.OptionId);
-               houseOption.Option = option;
-           }
+               foreach (HouseOption houseOption in entity.HouseOptionList)
+               {
+                   Option option = RHP.Utility.Generic.Get<Option>(houseOption.OptionId);
+                   houseOption.Option = option;
+               }
 
-           
+           }
            return result;
        }
    }

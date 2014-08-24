@@ -4,13 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
 
-namespace USA_Rent_House_Project.Student.Modules
+namespace USA_Rent_House_Project.Land_load
 {
-    public partial class Student_Profile_Data : System.Web.UI.UserControl
+    public partial class Land_Load_House : System.Web.UI.Page
     {
         private User _user;
 
@@ -32,10 +33,17 @@ namespace USA_Rent_House_Project.Student.Modules
                 Session[Constants.SESSION_LOGGED_USER] = _user;
             }
         }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
-          
+           
         }
+
+
+        protected void LB_House_Add_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Land_load/Land_Load_House_info_Add.aspx");
+        }
+
     }
 }

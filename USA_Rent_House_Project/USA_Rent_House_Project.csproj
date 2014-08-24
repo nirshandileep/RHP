@@ -203,12 +203,14 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Land_load\Land_Load_House.aspx" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
     <Content Include="Land_load\Land_Load_House_Option_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
+    <Content Include="Land_load\Modules\House_List.ascx" />
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Data.ascx" />
@@ -218,6 +220,7 @@
     <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Header.ascx" />
+    <Content Include="Land_load\Modules\Menu_Bar.ascx" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Change_Password.ascx" />
     <Content Include="Modules\Change_Secret_Question.ascx" />
@@ -228,6 +231,7 @@
     <Content Include="Request_New_Password.aspx" />
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
+    <Content Include="Student\Modules\Menu_Bar.ascx" />
     <Content Include="Student\Modules\Student_Profile_Comments.ascx" />
     <Content Include="Student\Modules\Student_Profile_Comment_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_Data.ascx" />
@@ -507,6 +511,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Land_Load_House.aspx.cs">
+      <DependentUpon>Land_Load_House.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_Load_House.aspx.designer.cs">
+      <DependentUpon>Land_Load_House.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_Load_House_info_Add.aspx.cs">
       <DependentUpon>Land_Load_House_info_Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -548,6 +559,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\House_info_Add.ascx.designer.cs">
       <DependentUpon>House_info_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_List.ascx.cs">
+      <DependentUpon>House_List.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_List.ascx.designer.cs">
+      <DependentUpon>House_List.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\House_Option_Add.ascx.cs">
       <DependentUpon>House_Option_Add.ascx</DependentUpon>
@@ -611,6 +629,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Public_Profile_Header.ascx.designer.cs">
       <DependentUpon>Landload_Public_Profile_Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Menu_Bar.ascx.cs">
+      <DependentUpon>Menu_Bar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Menu_Bar.ascx.designer.cs">
+      <DependentUpon>Menu_Bar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -717,6 +742,13 @@
     </Compile>
     <Compile Include="Secret_Question.aspx.designer.cs">
       <DependentUpon>Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Menu_Bar.ascx.cs">
+      <DependentUpon>Menu_Bar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Menu_Bar.ascx.designer.cs">
+      <DependentUpon>Menu_Bar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_Comments.ascx.cs">
       <DependentUpon>Student_Profile_Comments.ascx</DependentUpon>

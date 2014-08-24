@@ -7,10 +7,28 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Land_load.Modules {
+namespace USA_Rent_House_Project.Land_load {
     
     
-    public partial class Landload_Profile_Data {
+    public partial class Land_Load_House {
+        
+        /// <summary>
+        /// Landload_Profile_Header1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Header Landload_Profile_Header1;
+        
+        /// <summary>
+        /// Landload_Profile_Banner1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Banner Landload_Profile_Banner1;
         
         /// <summary>
         /// currentHomeStudent control.
@@ -49,21 +67,21 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// currentHomeStudentData control.
+        /// LB_House_Add control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudentData;
+        protected global::System.Web.UI.WebControls.LinkButton LB_House_Add;
         
         /// <summary>
-        /// DataListCurrentHomeStudent control.
+        /// House_ListID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListCurrentHomeStudent;
+        protected global::USA_Rent_House_Project.Land_load.Modules.House_List House_ListID;
     }
 }

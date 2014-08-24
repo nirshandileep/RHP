@@ -6,8 +6,8 @@
     </h2>
     <asp:ValidationSummary ID="PropertyValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="PropertyValidationGroup" />
-      <div id="formwrapper">
-            <div id="forminner">
+    <div id="formwrapper">
+        <div id="forminner">
             <p>
                 <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Rental Address:</asp:Label>
                 <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -48,7 +48,8 @@
                 </asp:DropDownList>
             </p>
             <p>
-                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="DrpBathRooms" CssClass="form_label">Bath Rooms:</asp:Label>
+                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="DrpBathRooms"
+                    CssClass="form_label">Bath Rooms:</asp:Label>
                 <asp:DropDownList ID="DrpBathRooms" runat="server">
                 </asp:DropDownList>
             </p>
@@ -75,16 +76,12 @@
                     CssClass="failureNotification" ErrorMessage="Utilities included is required."
                     ToolTip="Utilities included is required." ValidationGroup="PropertyValidationGroup">*</asp:RequiredFieldValidator>
             </p>
-           
-        
-        </div>
-    </div>
-     <p class="submitButton">
-            <asp:Button ID="CreatePropertyButton" runat="server" 
-                CssClass="actionbutton" CommandName="MoveNext"
-                Text="Create Property" ValidationGroup="PropertyValidationGroup" 
-                 onclick="CreatePropertyButton_Click"  />
             <asp:HiddenField ID="hdnLandLordId" runat="server" />
             <asp:HiddenField ID="hdnHouseId" runat="server" />
-        </p>
+            <p class="submitButton">
+                <asp:Button ID="CreatePropertyButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+                    Text="Create Property" ValidationGroup="PropertyValidationGroup" OnClick="CreatePropertyButton_Click" />
+            </p>
+        </div>
+    </div>
 </div>

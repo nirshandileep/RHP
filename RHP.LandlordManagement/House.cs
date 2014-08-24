@@ -5,6 +5,7 @@ using System.Text;
 using RHP.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
+using RHP.Utility;
 
 namespace RHP.LandlordManagement
 {
@@ -19,8 +20,8 @@ namespace RHP.LandlordManagement
         public int? YearHomeBuild { get; set; }
         public int? BedRooms { get; set; }
         public int? BathRooms { get; set; }
-        public decimal? LotSquareFootage { get; set; }
-        public decimal? TotalSquareFootage { get; set; }
+        public int? LotSquareFootage { get; set; }
+        public int? TotalSquareFootage { get; set; }
         public string UtilitiesIncludedInRent { get; set; }
         public string PropertyImagePath { get; set; }
         public decimal? RatingValue { get; set; }
@@ -39,6 +40,7 @@ namespace RHP.LandlordManagement
             return house;
         }
 
+       
         public bool Save()
         {
             bool result = false;
@@ -60,14 +62,17 @@ namespace RHP.LandlordManagement
                     result = houseDAO.Insert(this, db, transaction);
                 }
 
-                if (result)
-                {
-                    result = new HouseOptionDAO().Delete(new HouseOption() { HouseId = this.HouseId.Value }, db, transaction);
-                    foreach (HouseOption item in this.HouseOptionList)
-                    {
-                        new HouseOptionDAO().Insert(item, db, transaction);
-                    }
-                }
+                //if (result)
+                //{
+                //    result = new HouseOptionDAO().Delete(new HouseOption() { HouseId = this.HouseId.Value }, db, transaction);
+                //    if (HouseOptionList != null)
+                //    {
+                //        foreach (HouseOption item in this.HouseOptionList)
+                //        {
+                //            new HouseOptionDAO().Insert(item, db, transaction);
+                //        }
+                //    }
+                //}
 
                 if (result)
                 {

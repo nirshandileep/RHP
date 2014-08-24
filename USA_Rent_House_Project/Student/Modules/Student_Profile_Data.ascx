@@ -1,11 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Data.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Data" %>
 
+<%@ Register src="Menu_Bar.ascx" tagname="Menu_Bar" tagprefix="uc1" %>
+
 <div id="currentHomeStudent" runat="server">
     <div id="LeftPanel" runat="server">
-        <asp:Menu ID="LeftMenuBar" runat="server" Orientation="Vertical">
-        
-        </asp:Menu>
+       
+        <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
+       
     </div>
     <div id="RightPanel" runat="server">
         <h2>

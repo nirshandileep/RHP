@@ -8,16 +8,36 @@ using RHP.LandlordManagement;
 using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
+using System.Web.Security;
+using System.Data;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class House_info_Add : System.Web.UI.UserControl
     {
-        House house = new House();
-        Landlord landload = new Landlord();
+
+        private House _house;
+
+        public House house
+        {
+            get
+            {
+                _house = SessionManager.GetSession<House>(Constants.SESSION_HOUSE);
+                if (_house == null)
+                {
+                    _house = new House();
+                }
+                Session[Constants.SESSION_HOUSE] = _house;
+                return _house;
+            }
+            set
+            {
+                _house = value;
+                Session[Constants.SESSION_HOUSE] = _house;
+            }
+        }
 
         private User _user;
-
         public User user
         {
             get
@@ -34,44 +54,6 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 _user = value;
                 Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
-
-        public Guid? LandlordId
-        {
-            get
-            {
-                if (hdnLandLordId.Value.Trim() == string.Empty)
-                {
-                    return (Guid?)null;
-                }
-                else
-                {
-                    return new Guid(hdnLandLordId.Value.Trim());
-                }
-            }
-            set 
-            {
-                hdnLandLordId.Value = value.HasValue ? value.Value.ToString() : string.Empty;
-            }
-        }
-
-        public Guid? HouseId
-        {
-            get
-            {
-                if (hdnHouseId.Value.Trim() == string.Empty)
-                {
-                    return (Guid?)null;
-                }
-                else
-                {
-                    return new Guid(hdnHouseId.Value.Trim());
-                }
-            }
-            set
-            {
-                hdnHouseId.Value = value.HasValue ? value.Value.ToString() : string.Empty;
             }
         }
 
@@ -120,10 +102,6 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private void LoadHouse()
         {
-            Guid houseId;
-            if (hdnHouseId.Value.Trim() != string.Empty && Guid.TryParse(hdnHouseId.Value.Trim(), out houseId))
-            {
-                House house = RHP.Utility.Generic.GetByGUID<House>(houseId);
                 Address.Text = house.StreetAddress;
                 City.Text = house.City;
                 Zip.Text = house.Zip;
@@ -135,18 +113,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
                 TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
                 Utilities.Text = house.UtilitiesIncludedInRent.ToString();
-            }
         }
 
-        protected void CreatePropertyButton_Click(object sender, EventArgs e)
+        public void CreateHouse()
         {
             if (Page.IsValid == true)
             {
                 try
                 {
-                    house.HouseId = HouseId.Value;
-                    house.LandlordId = LandlordId.Value;
-                    
+
+                    house.LandlordId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     house.StreetAddress = Address.Text.Trim();
                     house.City = City.Text.Trim();
                     house.StateId = Int32.Parse(Drpstate.SelectedValue.Trim());
@@ -154,28 +130,48 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     house.YearHomeBuild = int.Parse(DRPYear.SelectedValue.Trim());
                     house.BedRooms = int.Parse(DrpBedRooms.SelectedValue.Trim());
                     house.BathRooms = int.Parse(DrpBathRooms.SelectedValue.Trim());
-                    house.LotSquareFootage = LotSQFootage.Text.Trim() == string.Empty ? Decimal.Zero : Decimal.Parse(LotSQFootage.Text.Trim());
-                    house.TotalSquareFootage = TotalSQFootage.Text.Trim() == string.Empty ? Decimal.Zero : Decimal.Parse(TotalSQFootage.Text.Trim());
+                    house.LotSquareFootage = LotSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(LotSQFootage.Text.Trim());
+                    house.TotalSquareFootage = TotalSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(TotalSQFootage.Text.Trim());
                     house.UtilitiesIncludedInRent = Utilities.Text.Trim();
 
-                    house.UpdatedBy = user.UserId.Value;
-                    house.CreatedBy = user.UserId.Value;
+                    house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
+                    house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
 
                     if (house.Save())
                     {
-                        //Save true
+                        Session[Constants.SESSION_HOUSE] = house;
+
+                        DataSet ds;
+                        ds = new HouseDAO().SelectAllDataset(house.LandlordId);
+                        ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
+                        Session[Constants.SESSION_HOUSELIST] = ds;
+
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_Load_House_Option_Add.aspx'; }", true);
+                                
                     }
                     else
                     {
-                            //Save error
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
+                       
+                        //Save error
                     }
 
                 }
                 catch (Exception ex)
                 {
-
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
                 }
             }
+           
         }
+
+        protected void CreatePropertyButton_Click(object sender, EventArgs e)
+        {
+            CreateHouse();
+        }
+
+
+
+        
     }
 }

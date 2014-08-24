@@ -1,9 +1,13 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Profile_Data.ascx.cs"
     Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Data" %>
+
+    <%@ Register src="~/Land_load/Modules/Menu_Bar.ascx" tagname="Menu_Bar" tagprefix="uc2" %>
+
+
 <div id="currentHomeStudent" runat="server">
     <div id="LeftPanel" runat="server">
-        <asp:Menu ID="LeftMenuBar" runat="server" Orientation="Vertical">
-        </asp:Menu>
+         <uc2:Menu_Bar ID="Menu_Bar1" runat="server" />
+           
     </div>
     <div id="RightPanel" runat="server">
         <p>

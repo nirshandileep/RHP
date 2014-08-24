@@ -10,7 +10,7 @@ using RHP.Common;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
-    public partial class Student_Profile_Data : System.Web.UI.UserControl
+    public partial class Menu_Bar : System.Web.UI.UserControl
     {
         private User _user;
 
@@ -34,8 +34,17 @@ namespace USA_Rent_House_Project.Student.Modules
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
 
-          
+            if (user.IsFBUser == true)
+            {
+
+            }
+            else
+            {
+                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Change_Password.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Change_Secret_Question.aspx"));
+            }
         }
     }
 }

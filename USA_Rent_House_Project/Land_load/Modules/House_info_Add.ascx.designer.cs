@@ -265,15 +265,6 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorUtilities;
         
         /// <summary>
-        /// CreatePropertyButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreatePropertyButton;
-        
-        /// <summary>
         /// hdnLandLordId control.
         /// </summary>
         /// <remarks>
@@ -290,5 +281,14 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdnHouseId;
+        
+        /// <summary>
+        /// CreatePropertyButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreatePropertyButton;
     }
 }

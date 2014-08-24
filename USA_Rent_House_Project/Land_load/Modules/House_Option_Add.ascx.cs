@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.LandlordManagement;
 using RHP.Common;
+using RHP.SessionManager;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -26,19 +27,23 @@ namespace USA_Rent_House_Project.Land_load.Modules
         }
 
         private House house = new House();
+        
+        HouseOption houseOption = new HouseOption();
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 LoadInitialData();
-                FillOptions();
+              //  FillOptions();
             }
         }
 
         private void FillOptions()
         {
-            house = House.Select(HouseId);
+          //  HouseId = Guid.Parse(Session[Constants.SESSION_HOUSEID].ToString());
+
+            house = SessionManager.GetSession<House>(Constants.SESSION_HOUSE); //House.Select(HouseId);
             if (house.HouseOptionList != null && house.HouseOptionList.Count > 0)
             {
                 List<HouseOption> houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).ToList(); 
@@ -141,13 +146,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
             chkFurnishedlivingspaceOptions.DataBind();
         }
 
-        protected void AddPropertyOptionButton_Click(object sender, EventArgs e)
+        public void AddPropertyInfo()
         {
             house = House.Select(HouseId);
             if (house == null)
                 house = new House();
 
-            house.HouseOptionList.Clear();
+         // house.HouseOptionList.Clear();
             foreach (ListItem item in chkOptionList.Items)
             {
                 if (item.Selected)
@@ -188,10 +193,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
             }
 
-            if (house.Save())
+            if (houseOption.Save())
             {
 
             }
         }
+
+        protected void AddPropertyOptionButton_Click(object sender, EventArgs e)
+        {
+            AddPropertyInfo();
+        }
+        
     }
 }
