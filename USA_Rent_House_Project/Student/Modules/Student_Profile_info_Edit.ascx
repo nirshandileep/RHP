@@ -80,7 +80,7 @@
                  <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck" Type="Integer" ErrorMessage="Zip must be 5 numbers"
                     ControlToValidate="Zip" CssClass="failureNotification"
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
-
+  </p>
             <p>
                 <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Best Contact #:</asp:Label>
                 <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="15"></asp:TextBox>
@@ -93,7 +93,7 @@
                     ErrorMessage="Invalid Best Contact No." ToolTip="Invalid Best Contact No." ControlToValidate="Mobile"
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
             </p>
-            </p>
+           
             <p>
                 <asp:Label ID="LabelDriversLicense" runat="server" AssociatedControlID="DriversLicense"
                     CssClass="form_label">Drivers License:</asp:Label>
@@ -104,7 +104,7 @@
             </p>
 
             
-             <p>
+         <%--    <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label">School Name:</asp:Label>
                 <asp:DropDownList ID="DrpSchoolName" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
@@ -138,7 +138,7 @@
                 <asp:RequiredFieldValidator ID="LandLoadPlaceRequiredFieldValidator" runat="server" ControlToValidate="LandLoadPlace"
                     CssClass="failureNotification" ErrorMessage="Land Load Place is required." ToolTip="Land Load Place is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-            </p>
+            </p>--%>
             
         </div>
         <p class="submitButton">

@@ -95,6 +95,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     if (Drpstate.Items[i].Value.ToString().ToLower() == user.StateId.ToString().ToLower())
                     {
+                        Drpstate.ClearSelection();
                         Drpstate.Items[i].Selected = true;
                     }
                 }
@@ -106,6 +107,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     if (DrpGender.Items[i].Value.ToString().ToLower() == user.Gender.ToLower())
                     {
+                        DrpGender.ClearSelection();
                         DrpGender.Items[i].Selected = true;
                     }
                 }

@@ -10,7 +10,7 @@
 namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Student_Profile_Edit {
+    public partial class Student_Profile_Current_House {
         
         /// <summary>
         /// Student_Profile_HeaderID control.
@@ -67,12 +67,21 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
         
         /// <summary>
-        /// Student_Profile_info_Edit1 control.
+        /// Current_House_Landload_infoID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_info_Edit Student_Profile_info_Edit1;
+        protected global::USA_Rent_House_Project.Student.Modules.Current_House_Landload_info Current_House_Landload_infoID;
+        
+        /// <summary>
+        /// Current_House_Rental_Address_infoID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Current_House_Rental_Address_info Current_House_Rental_Address_infoID;
     }
 }
