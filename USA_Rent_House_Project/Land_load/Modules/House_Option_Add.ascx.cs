@@ -152,6 +152,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (house == null)
                 house = new House();
 
+            if (house.HouseOptionList == null)
+            {
+                house.HouseOptionList = new List<HouseOption>();
+            }
          // house.HouseOptionList.Clear();
             foreach (ListItem item in chkOptionList.Items)
             {

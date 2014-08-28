@@ -112,7 +112,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 Drpstate.SelectedValue = house.StateId.HasValue ? house.StateId.Value.ToString() : "-1";
                 LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
                 TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
-                Utilities.Text = house.UtilitiesIncludedInRent.ToString();
+                Utilities.Text = house.UtilitiesIncludedInRent != null ? house.UtilitiesIncludedInRent : string.Empty;
         }
 
         public void CreateHouse()
