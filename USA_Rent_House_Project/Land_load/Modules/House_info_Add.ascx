@@ -80,7 +80,7 @@
             <asp:HiddenField ID="hdnHouseId" runat="server" />
             <p class="submitButton">
                 <asp:Button ID="CreatePropertyButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                    Text="Create Property" ValidationGroup="PropertyValidationGroup" OnClick="CreatePropertyButton_Click" />
+                    Text="Save House" ValidationGroup="PropertyValidationGroup" OnClick="CreatePropertyButton_Click" />
             </p>
         </div>
     </div>

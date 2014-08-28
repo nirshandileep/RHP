@@ -62,18 +62,18 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             Guid HouseId = Guid.Parse(((HiddenField)DataListHouseList.SelectedItem.FindControl("hdnHouseId")).Value);
 
-            Session[Constants.SESSION_HOUSE] = RHP.Utility.Generic.GetByGUID<House>(HouseId);
+            //Session[Constants.SESSION_HOUSE] = RHP.Utility.Generic.GetByGUID<House>(HouseId);
 
             string arg = e.CommandArgument.ToString();
             string name = e.CommandName.ToString();
 
             if (name == "ViewHouse")
             {
-                Response.Redirect("~/Land_load/Land_Load_House_info_Add.aspx");
+                Response.Redirect(string.Format("~/Land_load/Land_Load_House_info_Add.aspx?{0}={1}", Constants.QUERYSTRING_HOUSE_ID, HouseId.ToString()));
             }
             if (name == "ViewOptions")
             {
-                Response.Redirect("~/Land_load/Land_Load_House_Option_Add.aspx");
+                Response.Redirect(string.Format("~/Land_load/Land_Load_House_Option_Add.aspx?{0}={1}", Constants.QUERYSTRING_HOUSE_ID, HouseId.ToString()));
             }
         }
 

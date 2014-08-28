@@ -69,5 +69,7 @@ namespace RHP.Common
 
         public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BEDROOMS = 25;
         public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BEDROOMS_MIN = 0;
+
+        public static readonly string QUERYSTRING_HOUSE_ID = "HouseId";
     }
 }
