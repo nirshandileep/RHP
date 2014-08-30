@@ -23,11 +23,14 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (ViewState["CurrentTable"] != null)
             {
-                SaveRommateButton.Enabled = false;
+                SaveRommateButton.Visible = true;
+                SaveRommateButton.Enabled = true;
             }
             else
             {
-                SaveRommateButton.Enabled = true;
+                SaveRommateButton.Enabled = false;
+                SaveRommateButton.Visible = false;
+               
             }
         }
 
@@ -50,10 +53,10 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 // Define the columns of the table.
                 dt.Columns.Add(new DataColumn("Email", typeof(String)));
-                dt.Columns.Add(new DataColumn("FirstName", typeof(String)));
-                dt.Columns.Add(new DataColumn("MiddleName", typeof(String)));
-                dt.Columns.Add(new DataColumn("LastName", typeof(String)));
-                dt.Columns.Add(new DataColumn("Mobile", typeof(String)));
+                dt.Columns.Add(new DataColumn("First Name", typeof(String)));
+                dt.Columns.Add(new DataColumn("Middl eName", typeof(String)));
+                dt.Columns.Add(new DataColumn("Last Name", typeof(String)));
+                dt.Columns.Add(new DataColumn("Contact No", typeof(String)));
             }
 
             // Populate the table with sample values.
@@ -71,6 +74,48 @@ namespace USA_Rent_House_Project.Student.Modules
 
             ViewState["CurrentTable"] =  dt;
             return dv;
+        }
+
+        protected void RemoveRoommate_Click(object sender, EventArgs e)
+        {
+
+            LinkButton lb = (LinkButton)sender;
+
+            GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+
+            int rowID = gvRow.RowIndex + 1;
+
+            if (ViewState["CurrentTable"] != null)
+            {
+
+                DataTable dt = (DataTable)ViewState["CurrentTable"];
+
+                if (dt.Rows.Count > 1)
+                {
+
+                    if (gvRow.RowIndex < dt.Rows.Count - 1)
+                    {
+
+                        //Remove the Selected Row data
+
+                        dt.Rows.Remove(dt.Rows[rowID]);
+
+                    }
+
+                }
+
+                //Store the current data in ViewState for future reference
+
+                ViewState["CurrentTable"] = dt;
+
+                //Re bind the GridView for the updated data
+
+                GridviewRoommatelist.DataSource = dt;
+                GridviewRoommatelist.DataBind();
+
+            }
+
+
         }
 
         protected void SaveRommateButton_Click(object sender, EventArgs e)

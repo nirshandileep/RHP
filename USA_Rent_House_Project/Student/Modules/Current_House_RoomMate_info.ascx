@@ -53,12 +53,19 @@
 <div>
 <h1>
     Room-mate List</h1>
-    <asp:GridView ID="GridviewRoommatelist" runat="server" ForeColor="#333333" GridLines="None" >
+    <asp:GridView ID="GridviewRoommatelist" runat="server" CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Width="600">
+    <Columns>
+     <asp:TemplateField>
+                <ItemTemplate>
+                    <asp:LinkButton ID="RemAudition" runat="server" OnClick="RemoveRoommate_Click" ForeColor="Black">Remove</asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
+            </Columns>
     </asp:GridView>
   
    <p>
     <asp:Button ID="SaveRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false" />
+        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"  Visible="false"/>
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>
 </div>
