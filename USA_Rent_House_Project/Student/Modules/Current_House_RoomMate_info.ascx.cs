@@ -93,17 +93,17 @@ namespace USA_Rent_House_Project.Student.Modules
 
             GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
 
-            int rowID = gvRow.RowIndex + 1;
+            int rowID = gvRow.RowIndex; //+1;
 
             if (ViewState["CurrentTable"] != null)
             {
 
                 DataTable dt = (DataTable)ViewState["CurrentTable"];
 
-                if (dt.Rows.Count > 1)
+                if (dt.Rows.Count >= 1)
                 {
 
-                    if (gvRow.RowIndex < dt.Rows.Count - 1)
+                    if (gvRow.RowIndex <= dt.Rows.Count - 1)
                     {
 
                         //Remove the Selected Row data
