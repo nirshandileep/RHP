@@ -4,6 +4,9 @@
     Room-mate info</h1>
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />
+
+<asp:UpdatePanel ID="UpdatePanelRoommateinfo" runat="server">
+<ContentTemplate>
 <p id="setEmail" runat="server">
     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
     <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -42,7 +45,7 @@
         Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
         ToolTip="Invalid Best Contact No." ControlToValidate="Mobile" ValidationGroup="ValidationGroup3">*</asp:CompareValidator>
 </p>
-
+   
 <p>
     <asp:Button ID="CreateRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Add Rome-mate" OnClick="CreateRommateButton_Click" ValidationGroup="ValidationGroup3" />
@@ -62,10 +65,12 @@
             </asp:TemplateField>
             </Columns>
     </asp:GridView>
-  
+    </div>
+   </ContentTemplate>
+</asp:UpdatePanel>
    <p>
     <asp:Button ID="SaveRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"  Visible="false"/>
+        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"/>
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>
-</div>
+

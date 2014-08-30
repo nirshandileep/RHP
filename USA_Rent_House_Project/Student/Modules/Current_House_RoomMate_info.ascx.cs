@@ -16,24 +16,34 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
+
+      
         protected void CreateRommateButton_Click(object sender, EventArgs e)
         {
             GridviewRoommatelist.DataSource = CreateDataSource();
             GridviewRoommatelist.DataBind();
 
+            clear();
+
             if (ViewState["CurrentTable"] != null)
             {
-                SaveRommateButton.Visible = true;
                 SaveRommateButton.Enabled = true;
             }
             else
             {
                 SaveRommateButton.Enabled = false;
-                SaveRommateButton.Visible = false;
                
             }
         }
 
+        public void clear()
+        {
+            Email.Text = "";
+            FirstName.Text = "";
+            MiddleName.Text = "";
+            LastName.Text= "";
+            Mobile.Text = "";
+        }
         ICollection CreateDataSource()
         {
             DataTable dt = null;

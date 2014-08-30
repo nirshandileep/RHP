@@ -4,25 +4,30 @@
     Landload Info</h1>
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
-<p id="setEmail" runat="server">
-    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
-    <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-        CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
-        ValidationGroup="ValidationGroup1">*</asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-        ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="ValidationGroup1"
-        ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
-    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Email"
-        CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required.">*</asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-        ControlToValidate="Email" CssClass="failureNotification" ErrorMessage="Enter valid email address."
-        ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
-</p>
-<p>
+<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
+    <ContentTemplate>
+        <p id="setEmail" runat="server">
+            <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
+            <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
+                CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
+                ValidationGroup="ValidationGroup1">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="ValidationGroup1"
+                ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Email"
+                CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required.">*</asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                ControlToValidate="Email" CssClass="failureNotification" ErrorMessage="Enter valid email address."
+                ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
+        </p>
+
+        <p>
     <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Verify Landload" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
 </p>
+
+
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
@@ -48,6 +53,9 @@
         Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
         ToolTip="Invalid Best Contact No." ControlToValidate="Mobile">*</asp:CompareValidator>
 </p>
+    </ContentTemplate>
+</asp:UpdatePanel>
+
 <p>
     <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Save and continue" OnClick="CreateLandloadButton_Click" />

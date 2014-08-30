@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RHP.Common;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -11,8 +12,20 @@ namespace USA_Rent_House_Project.Student.Modules
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            LoadInitialData();
+        }
+
+        private void LoadInitialData()
+        {
+            //Drpstate
+            Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+            Drpstate.DataTextField = "StateName";
+            Drpstate.DataValueField = "StateId";
+            Drpstate.DataBind();
+            Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
 
         }
+
 
         protected void CreateRentalButton_Click(object sender, EventArgs e)
         {
