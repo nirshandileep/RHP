@@ -40,7 +40,7 @@
         CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required.">*</asp:RequiredFieldValidator>
 </p>
 <p>
-    <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Mobile:</asp:Label>
+    <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Contact No:</asp:Label>
     <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="15" Enabled="false"></asp:TextBox>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobile"
         CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required.">*</asp:RequiredFieldValidator>

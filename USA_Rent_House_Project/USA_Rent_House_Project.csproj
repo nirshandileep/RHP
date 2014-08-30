@@ -233,6 +233,7 @@
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Rental_Address_info.ascx" />
+    <Content Include="Student\Modules\Current_House_RoomMate_info.ascx" />
     <Content Include="Student\Modules\Menu_Bar.ascx" />
     <Content Include="Student\Modules\Student_Profile_Comments.ascx" />
     <Content Include="Student\Modules\Student_Profile_Comment_Add.ascx" />
@@ -759,6 +760,13 @@
     </Compile>
     <Compile Include="Student\Modules\Current_House_Rental_Address_info.ascx.designer.cs">
       <DependentUpon>Current_House_Rental_Address_info.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_RoomMate_info.ascx.cs">
+      <DependentUpon>Current_House_RoomMate_info.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_RoomMate_info.ascx.designer.cs">
+      <DependentUpon>Current_House_RoomMate_info.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Menu_Bar.ascx.cs">
       <DependentUpon>Menu_Bar.ascx</DependentUpon>

@@ -8,6 +8,7 @@
     TagPrefix="uc1" %>
 <%@ Register Src="Modules/Current_House_Rental_Address_info.ascx" TagName="Current_House_Rental_Address_info"
     TagPrefix="uc2" %>
+<%@ Register src="Modules/Current_House_RoomMate_info.ascx" tagname="Current_House_RoomMate_info" tagprefix="uc3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -29,6 +30,7 @@
                     <div id="forminner">
                         <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" runat="server" />
                         <uc2:Current_House_Rental_Address_info ID="Current_House_Rental_Address_infoID" runat="server" Visible="false" />
+                        <uc3:Current_House_RoomMate_info ID="Current_House_RoomMate_infoID" runat="server"  Visible="false"/>
                     </div>
                 </div>
             </div>

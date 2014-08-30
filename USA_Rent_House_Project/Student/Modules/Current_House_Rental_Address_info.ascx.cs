@@ -18,7 +18,7 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             this.Visible = false;
             //show step 2
-            ((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
+            ((UserControl)this.Parent.FindControl("Current_House_RoomMate_infoID")).Visible = true;
         }
 
         protected void chknotavailable_CheckedChanged(object sender, EventArgs e)

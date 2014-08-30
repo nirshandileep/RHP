@@ -83,5 +83,14 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Student.Modules.Current_House_Rental_Address_info Current_House_Rental_Address_infoID;
+        
+        /// <summary>
+        /// Current_House_RoomMate_infoID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Current_House_RoomMate_info Current_House_RoomMate_infoID;
     }
 }
