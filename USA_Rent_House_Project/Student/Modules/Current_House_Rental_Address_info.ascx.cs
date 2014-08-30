@@ -16,7 +16,29 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void CreateRentalButton_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            //show step 2
+            ((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
+        }
 
+        protected void chknotavailable_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chknotavailable.Checked ==  true)
+            {
+                Address.Enabled = true;
+                City.Enabled = true;
+                Zip.Enabled = true;
+            }
+            else
+            {
+                Address.Text = "";
+                City.Text = "";
+                Zip.Text = "";
+
+                Address.Enabled = false;
+                City.Enabled = false;
+                Zip.Enabled = false;
+            }
         }
     }
 }

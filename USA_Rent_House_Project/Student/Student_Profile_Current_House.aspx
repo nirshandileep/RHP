@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Current House" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
     CodeBehind="Student_Profile_Current_House.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Current_House" %>
 
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
@@ -28,7 +28,7 @@
                 <div id="formwrapper">
                     <div id="forminner">
                         <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" runat="server" />
-                        <uc2:Current_House_Rental_Address_info ID="Current_House_Rental_Address_infoID" runat="server" />
+                        <uc2:Current_House_Rental_Address_info ID="Current_House_Rental_Address_infoID" runat="server" Visible="false" />
                     </div>
                 </div>
             </div>
