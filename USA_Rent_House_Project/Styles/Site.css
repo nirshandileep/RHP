@@ -226,6 +226,11 @@ div.menu ul li a:active
     
 }
 
+input[type="checkbox"]
+{
+    width:1% !important;
+}
+
 input, input[type="text"], select
 {
    -webkit-border-radius: 5px;
@@ -578,7 +583,7 @@ div.buttons
     color: #0e72b8;
     font-size: 1.5em;
     font-style: italic;
-    margin-bottom: 15px;
+    margin-bottom: 65px;
     text-align: center;
     text-transform: lowercase;
     
@@ -795,15 +800,22 @@ a.loginlinks:hover
     margin: 0 auto;
     
     position: relative;
-    width: 970px;
+    width: 1000px;
 }
 
 #MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage
 {
-    width:970px;
+    width:990px;
     height:250px;
     overflow:hidden;
     border: 3px solid;
+}
+
+#MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img
+{
+    width:1000px !important;
+    height:250px;
+   
 }
 
 
@@ -837,7 +849,7 @@ a.loginlinks:hover
 #MainContent_Student_Profile_DataID_currentHomeStudent, #MainContent_Student_Public_Profile_DataID_currentHomeStudent
 {
     margin:0 auto;
-    width:960px;
+    width:1000px;
 }
 
 #MainContent_Student_Profile_HeaderID_LandloadProfileImage, #MainContent_Student_Public_Profile_HeaderID_LandloadProfileImage
@@ -845,7 +857,7 @@ a.loginlinks:hover
     border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
     height: 100px;
-    right: -5px;
+    right: 1px;
     overflow: hidden;
     position: absolute;
     top: 230px;
@@ -853,7 +865,7 @@ a.loginlinks:hover
     z-index: 5;
 }
 
-#MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel
+#MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel
 {
     float: left;   
     padding: 15px 0;
@@ -862,9 +874,17 @@ a.loginlinks:hover
    
 }
 
-#MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel
+#MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel, #MainContent_RightPanel, .comment_box
 {
     float: left;
+    margin-left: 2%;
+    padding: 15px 0;
+    width: 80%;
+}
+
+.comment_box
+{
+    float:right;
     margin-left: 2%;
     padding: 15px 0;
     width: 80%;
@@ -902,7 +922,7 @@ a.loginlinks:hover
    
 }
 
-#MainContent_Student_Profile_DataID_Search
+#MainContent_Student_Profile_DataID_Search, #MainContent_Student_Public_Profile_DataID_Search
 {
     text-align:right;
 }
