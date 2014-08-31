@@ -8,43 +8,43 @@
         ValidationGroup="PropertyValidationGroup" />
     <div id="formwrapper">
         <div id="forminner">
-            <p>
-                Options / Features</p>
-            <asp:CheckBoxList ID="chkOptionList" runat="server" RepeatColumns="5">
+            
+               <strong>Options / Features</strong> 
+            <asp:CheckBoxList ID="chkOptionList" runat="server" RepeatColumns="15">
             </asp:CheckBoxList>
             <br />
             <br />
-            Garage :<br />
+           <strong> Garage :</strong><br />
             <asp:CheckBox ID="chkAttachedgarage" runat="server" Text="Attached garage" />
             <asp:DropDownList ID="drpAttachedgarage" runat="server">
                 <asp:ListItem>1</asp:ListItem>
             </asp:DropDownList>
-            <br />
+            <br />     <br />
             <asp:CheckBox ID="chkdeattachedgarage" runat="server" Text="deattached garage" />
             <asp:DropDownList ID="drldeattachedgarage" runat="server">
                 <asp:ListItem>1</asp:ListItem>
             </asp:DropDownList>
-            <br />
+            <br />     <br />
             <asp:CheckBox ID="chkdrivewayparking" runat="server" Text="drive way parking" />
             <asp:DropDownList ID="drpdrivewayparking" runat="server">
                 <asp:ListItem>1</asp:ListItem>
             </asp:DropDownList>
             <br />
             <br />
-            <table style="width: 822px">
+            <table style="width: 900px">
                 <tr valign="top">
                     <td>
-                        Furnished rooms :
+                       <strong>Furnished rooms :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedroomoptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>
                     <td>
-                        Furnished kitchen :
+                       <strong>Furnished kitchen :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedkitchenOptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>
                     <td>
-                        Furnished living space :
+                       <strong>Furnished living space :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedlivingspaceOptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>
