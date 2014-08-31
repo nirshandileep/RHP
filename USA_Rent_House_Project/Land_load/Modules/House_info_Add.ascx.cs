@@ -151,10 +151,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     if (house.Save())
                     {
-                        //DataSet ds;
-                        //ds = new HouseDAO().SelectAllDataset(house.LandlordId);
-                        //ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
-                        //Session[Constants.SESSION_HOUSELIST] = ds;
+                        DataSet ds;
+                        ds = new HouseDAO().SelectAllDataset(house.LandlordId);
+                        ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
+                        Session[Constants.SESSION_HOUSELIST] = ds;
 
                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_Load_House_Option_Add.aspx'; }", true);
                                 

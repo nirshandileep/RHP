@@ -8,6 +8,7 @@ using System.Data;
 using RHP.SessionManager;
 using RHP.Common;
 using RHP.Comments;
+using System.Web.Security;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -23,8 +24,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (ds == null)
                 {
-                    ds = new CommentDAO().SelectByContext(1,new Guid());
-                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["OptionId"] };
+                    ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
                     Session[Constants.SESSION_COMMENTS] = ds;
                 }
 
@@ -35,7 +36,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           // LoadComments();
+            LoadComments();
         }
 
         public void LoadComments()

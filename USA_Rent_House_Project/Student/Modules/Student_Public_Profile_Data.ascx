@@ -8,7 +8,7 @@
     <div id="RightPanel" runat="server">
         <h2>
             All the students live in the current home</h2> 
-        <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Public_Profile.aspx" CssClass="loginlinks"  style="float:right" runat="server">My Page</asp:HyperLink>
+        <%--<asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Public_Profile.aspx" CssClass="loginlinks"  style="float:right" runat="server">My Page</asp:HyperLink>--%>
         <div id="currentHomeStudentData" runat="server">
         <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>
         <div class="imagegallerycontainer"><div class="imagegallery"></div> The Student Name</div>

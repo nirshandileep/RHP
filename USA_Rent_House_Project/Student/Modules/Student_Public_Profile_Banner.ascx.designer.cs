@@ -22,15 +22,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudentBanner;
         
         /// <summary>
-        /// MyPage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink MyPage;
-        
-        /// <summary>
         /// DataListCurrentHomeStudentBanner control.
         /// </summary>
         /// <remarks>

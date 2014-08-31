@@ -21,7 +21,7 @@
 
         <p>Comment on our page</p>
          <p>
-                <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w1" Width="790px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="790px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
               
             </p>
         </div>

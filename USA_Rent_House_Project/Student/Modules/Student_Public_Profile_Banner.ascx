@@ -2,8 +2,8 @@
 
  <div id="currentHomeStudentBanner" runat="server">
 
-     <asp:HyperLink ID="MyPage" runat="server">My Page</asp:HyperLink>
-
+    <%-- <asp:HyperLink ID="MyPage" runat="server">My Page</asp:HyperLink>
+--%>
         <asp:DataList ID="DataListCurrentHomeStudentBanner" runat="server" RepeatColumns="4">
             <ItemTemplate>
                 <asp:Image ID="currentHomeStudentBannerImage" runat="server"  ImageUrl="~/Images/Sample/profileimage4.jpg" Width="100px"   />

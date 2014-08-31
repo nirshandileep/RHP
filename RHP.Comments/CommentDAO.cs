@@ -25,9 +25,10 @@ namespace RHP.Comments
         {
             DbCommand command = db.GetStoredProcCommand("usp_CommentInsert");
             comment.CommentId = Guid.NewGuid();
-            db.AddInParameter(command, "CommentId", DbType.Guid, comment.CommentId);
+          //  db.AddInParameter(command, "CommentId", DbType.Guid, comment.CommentId);
             db.AddInParameter(command, "CommentText", DbType.String, comment.CommentText);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, comment.RatingValue);
+            db.AddInParameter(command, "ContextId", DbType.Guid, comment.ContextId);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)comment.ContextType);
             db.AddInParameter(command, "IsDeleted", DbType.String, comment.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, comment.CreatedBy);

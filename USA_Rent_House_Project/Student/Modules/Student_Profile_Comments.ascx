@@ -7,7 +7,10 @@
         <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1">
             <ItemTemplate>
                 <div id="DivComment" runat="server">
-                     <asp:Label ID="CommentID" runat="server" Text=""></asp:Label><%--'<%# Eval("Package_Title") %>'--%>
+                    <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("CommentId") %>' runat="server" />
+                     <asp:Label ID="CommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
+                     <br />
+                     -----------------------------------------------------------------------------------------------------------------------------------------------------------------
                 </div>
             </ItemTemplate>
         </asp:DataList>
