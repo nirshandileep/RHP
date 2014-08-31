@@ -22,7 +22,7 @@
         </div>
         <div id="RightPanel" runat="server">
       
-            <asp:LinkButton ID="LB_House_Add" runat="server" OnClick="LB_House_Add_Click">Add a New House</asp:LinkButton>
+            <asp:LinkButton ID="LB_House_Add" runat="server" CssClass="loginlinks" OnClick="LB_House_Add_Click">Add a New House</asp:LinkButton>
             <uc1:House_List ID="House_ListID" runat="server" />
         </div>
     </div>
