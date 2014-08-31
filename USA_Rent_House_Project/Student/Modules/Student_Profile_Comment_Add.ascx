@@ -2,10 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Comment_Add" %>
 <div id="div_register_User">
 
-    <div id="formwrapper">
-        
-
-        <div id="forminner">
+   <div class="comment_box">
         <p>Please share</p>
   
           <!-- AddThis Button BEGIN -->
@@ -24,14 +21,15 @@
 
         <p>Comment on our page</p>
          <p>
-                <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w1" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w1" Width="790px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
               
             </p>
         </div>
+        <div class="clear"></div>
          <p class="submitButton">
             <asp:Button ID="CommentButton" runat="server" CssClass="actionbutton" 
                  CommandName="MoveNext" Text="Post" onclick="CommentButton_Click"  />
             <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>
     </div>
-</div>
+
