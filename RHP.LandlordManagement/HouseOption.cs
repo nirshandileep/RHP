@@ -17,7 +17,7 @@ namespace RHP.LandlordManagement
         public string OptionValue { get; set; }
 
 
-        public bool Save()
+        public bool Save(House house)
         {
             bool result = false;
 
@@ -29,7 +29,7 @@ namespace RHP.LandlordManagement
             try
             {
                 HouseDAO houseDAO = new HouseDAO();
-                House house = new House();
+               // House house = new House();
 
                 if (houseDAO.IsHouseExist(house))
                 {

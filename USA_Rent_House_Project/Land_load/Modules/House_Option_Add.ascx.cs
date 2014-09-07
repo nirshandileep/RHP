@@ -162,6 +162,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 if (item.Selected)
                 {
                     HouseOption option = new HouseOption();
+                    option.HouseId = house.HouseId.Value;
                     option.OptionId = int.Parse(item.Value);
                     house.HouseOptionList.Add(option);
                 }
@@ -172,6 +173,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 if (item.Selected)
                 {
                     HouseOption option = new HouseOption();
+                    option.HouseId = house.HouseId.Value;
                     option.OptionId = int.Parse(item.Value);
                     house.HouseOptionList.Add(option);
                 }
@@ -182,6 +184,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 if (item.Selected)
                 {
                     HouseOption option = new HouseOption();
+                    option.HouseId = house.HouseId.Value;
                     option.OptionId = int.Parse(item.Value);
                     house.HouseOptionList.Add(option);
                 }
@@ -192,12 +195,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 if (item.Selected)
                 {
                     HouseOption option = new HouseOption();
+                    option.HouseId = house.HouseId.Value; 
                     option.OptionId = int.Parse(item.Value);
                     house.HouseOptionList.Add(option);
                 }
             }
 
-            if (houseOption.Save())
+            if (houseOption.Save(house))
             {
 
             }

@@ -8,7 +8,8 @@
     <ContentTemplate>
         <p>
             <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House owned by landload:</asp:Label>
-            <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry">
+            <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" 
+                onselectedindexchanged="DrpHouse_SelectedIndexChanged" AutoPostBack="true">
             </asp:DropDownList>
             <br />
             <asp:CheckBox ID="chknotavailable" runat="server" Text="Not Available" AutoPostBack="true"

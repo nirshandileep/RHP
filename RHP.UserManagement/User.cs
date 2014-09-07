@@ -65,6 +65,12 @@ namespace RHP.UserManagement
             return user;
         }
 
+        public static User SelectUserByEmail(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2)
+        {
+            User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
+            return user;
+        }
+
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,string userRole)
         {
             object objMembershipUser = false;

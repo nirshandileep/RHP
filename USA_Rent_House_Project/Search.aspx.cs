@@ -16,10 +16,15 @@ namespace USA_Rent_House_Project
             if (v == "s")
             {
                 div_Search.Visible = false;
+                Div_Search_Student.Visible = true;
+                Div_Search_House.Visible = false;
+
             }
             else if (v == "l")
             {
                 div_Search.Visible = false;
+                Div_Search_House.Visible = true;
+                Div_Search_Student.Visible = false;
             }
             else
             {

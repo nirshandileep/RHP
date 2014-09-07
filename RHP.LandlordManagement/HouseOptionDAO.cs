@@ -17,7 +17,7 @@ namespace RHP.LandlordManagement
             DbCommand command = db.GetStoredProcCommand("usp_HouseInsert");
 
             db.AddInParameter(command, "HouseId", DbType.Guid, option.HouseId);
-            db.AddInParameter(command, "OptionId", DbType.Guid, option.OptionId);
+            db.AddInParameter(command, "OptionId", DbType.Int32, option.OptionId);
             db.AddInParameter(command, "OptionValue", DbType.String, option.OptionValue);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, option.CreatedBy);
 

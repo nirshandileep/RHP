@@ -34,8 +34,8 @@
             <h2 style="display:inline-block;">My College housing life..</h2><asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" runat="server">Photos/Videos</asp:HyperLink>
         </div>
           <div id="Search" runat="server">
-            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" runat="server">Search for House</asp:HyperLink>
+            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s" runat="server">Search for Student</asp:HyperLink>
+            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l" runat="server">Search for House</asp:HyperLink>
         </div>
     </div>
 </div>

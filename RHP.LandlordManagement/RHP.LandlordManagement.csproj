@@ -61,6 +61,8 @@
     <Compile Include="LandlordDAO.cs" />
     <Compile Include="LandlordManager.cs" />
     <Compile Include="LandlordSearch.cs" />
+    <Compile Include="PartialHouse.cs" />
+    <Compile Include="PartialHouseDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PropertyOption.cs" />
     <Compile Include="OptionCategory.cs" />

@@ -171,6 +171,33 @@ namespace RHP.Utility
             return returnEntity;
         }
 
+        /// <summary>
+        /// Returns a collection of T. T must be an Entity class
+        /// </summary>
+        public static T GetByFieldValue<T>(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2) where T : new()
+        {
+
+            T returnEntity = default(T);
+
+            string TypeName = typeof(T).Name;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectBy" + fieldName1);
+
+            db.AddInParameter(dbCommand, fieldName1, DbType.String, fieldValue1);
+            db.AddInParameter(dbCommand, fieldName2, DbType.String, fieldValue2);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    returnEntity = new T();
+                    AssignDataReaderToEntity(dataReader, returnEntity);
+                }
+            }
+
+            return returnEntity;
+        }
 
 
         /// <summary>
@@ -228,6 +255,8 @@ namespace RHP.Utility
 
             return returnEntityCollection;
         }
+
+       
 
         /// <summary>
         /// Returns a collection of T. T must be an Entity class
