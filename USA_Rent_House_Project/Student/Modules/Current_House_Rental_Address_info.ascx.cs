@@ -89,10 +89,10 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void loaddata()
         {
-         
-            if (Session["HiddenFieldLandloadID"] != null && Session["HiddenFieldLandloadID"] != "")
+
+            if (ViewState["HiddenFieldLandloadID"] != null)
             {
-                house.LandlordId = Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
+                house.LandlordId = Guid.Parse(ViewState["HiddenFieldLandloadID"].ToString());
 
 
                    DrpHouse.DataSource = dsHouseList;

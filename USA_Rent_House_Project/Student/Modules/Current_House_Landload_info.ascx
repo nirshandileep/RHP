@@ -58,6 +58,6 @@
 
 <p>
     <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" OnClick="CreateLandloadButton_Click" Visible="false" />
+        Text="Save and continue" OnClick="CreateLandloadButton_Click"  />
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>

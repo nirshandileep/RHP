@@ -57,7 +57,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void Save()
         {
-            if (Session["HiddenFieldLandloadID"] == null)
+            if (ViewState["HiddenFieldLandloadID"] == null)
             {
 
                 PartialUser partialUser = new PartialUser();
@@ -82,7 +82,7 @@ namespace USA_Rent_House_Project.Student.Modules
           
             if (Email.Text.Trim() != "")
             {
-                Session["HiddenFieldLandloadID"] = null;
+                ViewState["HiddenFieldLandloadID"] = null;
 
                 User _user = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
               
@@ -90,7 +90,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 {
 
 
-                    Session["HiddenFieldLandloadID"] = _user.UserId.Value.ToString();
+                  ViewState["HiddenFieldLandloadID"] = _user.UserId.Value.ToString();
                     Email.Text = _user.Email;
                     FirstName.Text = _user.FirstName;
                     MiddleName.Text = _user.MiddleName;

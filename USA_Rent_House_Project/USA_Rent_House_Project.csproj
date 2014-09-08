@@ -244,11 +244,13 @@
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Data.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Header.ascx" />
+    <Content Include="Student\Modules\Student_School_info.ascx" />
     <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Student\Student_Profile_Current_House.aspx" />
     <Content Include="Student\Student_Profile_Edit.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
+    <Content Include="Student\Student_School_info.aspx" />
     <Content Include="Styles\Admin_Style.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
@@ -838,6 +840,13 @@
     <Compile Include="Student\Modules\Student_Public_Profile_Header.ascx.designer.cs">
       <DependentUpon>Student_Public_Profile_Header.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\Student_School_info.ascx.cs">
+      <DependentUpon>Student_School_info.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_School_info.ascx.designer.cs">
+      <DependentUpon>Student_School_info.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Student_Profile.aspx.cs">
       <DependentUpon>Student_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -872,6 +881,13 @@
     </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.designer.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_School_info.aspx.cs">
+      <DependentUpon>Student_School_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_School_info.aspx.designer.cs">
+      <DependentUpon>Student_School_info.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
