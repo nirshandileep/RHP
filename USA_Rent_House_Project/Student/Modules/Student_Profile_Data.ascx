@@ -31,7 +31,7 @@
           <h2>My Ratings **</h2>  
         </div>
         <div id="StudentHouseData" runat="server">
-            <h2 style="display:inline-block;">My College housing life..</h2><asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" runat="server">Photos/Videos</asp:HyperLink>
+            <h2 style="display:inline-block;">My College housing life..</h2><asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" NavigateUrl="~/Student/Current_House_Life.aspx" runat="server">Photos/Videos</asp:HyperLink>
         </div>
           <div id="Search" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s" runat="server">Search for Student</asp:HyperLink>

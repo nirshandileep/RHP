@@ -229,8 +229,12 @@
     <Content Include="Modules\Request_Password.ascx" />
     <Content Include="Modules\Secret_Question.ascx" />
     <Content Include="Request_New_Password.aspx" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
+    <Content Include="Student\Current_House_Life.aspx" />
+    <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Rental_Address_info.ascx" />
     <Content Include="Student\Modules\Current_House_RoomMate_info.ascx" />
@@ -692,6 +696,9 @@
     <Compile Include="Modules\Change_Secret_Question.ascx.designer.cs">
       <DependentUpon>Change_Secret_Question.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\FileHandler.ashx.cs">
+      <DependentUpon>FileHandler.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Home.ascx.cs">
       <DependentUpon>Home.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -748,6 +755,20 @@
     </Compile>
     <Compile Include="Secret_Question.aspx.designer.cs">
       <DependentUpon>Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Current_House_Life.aspx.cs">
+      <DependentUpon>Current_House_Life.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Current_House_Life.aspx.designer.cs">
+      <DependentUpon>Current_House_Life.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Current_House_Life_Add.aspx.cs">
+      <DependentUpon>Current_House_Life_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Current_House_Life_Add.aspx.designer.cs">
+      <DependentUpon>Current_House_Life_Add.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Current_House_Landload_info.ascx.cs">
       <DependentUpon>Current_House_Landload_info.ascx</DependentUpon>
@@ -897,6 +918,7 @@
     <Folder Include="Images\.svn\tmp\prop-base\" />
     <Folder Include="Images\.svn\tmp\props\" />
     <Folder Include="Images\.svn\tmp\text-base\" />
+    <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -910,6 +932,7 @@
     <Content Include="Master_Pages\Site-Admin.Master" />
     <Content Include="Master_Pages\Student.Master" />
     <Content Include="packages.config" />
+    <Content Include="Modules\FileHandler.ashx" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RHP.Comments\RHP.Comments.csproj">
