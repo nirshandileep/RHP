@@ -110,5 +110,14 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Student.Modules.Current_House_RoomMate_info Current_House_RoomMate_infoID;
+        
+        /// <summary>
+        /// CreateLandloadButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button CreateLandloadButton;
     }
 }

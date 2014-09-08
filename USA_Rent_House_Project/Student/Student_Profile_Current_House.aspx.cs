@@ -13,5 +13,10 @@ namespace USA_Rent_House_Project.Student
         {
 
         }
+
+        protected void CreateLandloadButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

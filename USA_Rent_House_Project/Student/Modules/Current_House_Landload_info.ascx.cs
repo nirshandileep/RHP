@@ -46,6 +46,17 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {
+            Save();
+
+            this.Visible = false;
+            //show step 2
+            ((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
+
+
+        }
+
+        public void Save()
+        {
             if (Session["HiddenFieldLandloadID"] == null)
             {
 
@@ -59,17 +70,11 @@ namespace USA_Rent_House_Project.Student.Modules
                 partialUser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 partialUser.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 partialUser.RoleId = Guid.Parse("0A3FDA72-FC47-402D-817B-445D89C4C4DF");
-        
+
 
                 partialUser.RoleId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 partialUser.Save();
             }
-
-            this.Visible = false;
-            //show step 2
-            ((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
-
-
         }
 
         protected void ButtonVerify_Click(object sender, EventArgs e)

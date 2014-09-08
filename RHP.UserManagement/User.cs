@@ -76,13 +76,13 @@ namespace RHP.UserManagement
             object objMembershipUser = false;
             try
             {
-               
+                //UserId = Guid.NewGuid();
                 MembershipCreateStatus mcstatus = new MembershipCreateStatus();
 
                 if (!strQuestion.EndsWith("?"))
                     strQuestion = strQuestion + "?";
 
-                Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus);
+                Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, out mcstatus); //UserId,
                 switch (mcstatus)
                 {
                     case (MembershipCreateStatus.Success):
