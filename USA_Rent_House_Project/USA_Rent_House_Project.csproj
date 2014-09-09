@@ -145,6 +145,7 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="System.Security" />
     <Reference Include="System.Threading.Tasks, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
@@ -228,6 +229,7 @@
     <Content Include="Modules\Login.ascx" />
     <Content Include="Modules\Request_Password.ascx" />
     <Content Include="Modules\Secret_Question.ascx" />
+    <Content Include="Partial_User_Verification.aspx" />
     <Content Include="Request_New_Password.aspx" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
@@ -726,6 +728,13 @@
     </Compile>
     <Compile Include="Modules\Secret_Question.ascx.designer.cs">
       <DependentUpon>Secret_Question.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Partial_User_Verification.aspx.cs">
+      <DependentUpon>Partial_User_Verification.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partial_User_Verification.aspx.designer.cs">
+      <DependentUpon>Partial_User_Verification.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Master_Pages\Site.Master.cs">

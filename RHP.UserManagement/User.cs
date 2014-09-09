@@ -17,6 +17,8 @@ namespace RHP.UserManagement
 
         //These properties are required to create the user in ASP Membership tables
         public Guid? UserId { get; set; }
+        public Guid AspnetUserId { get; set; }
+        public bool IsPartialUser { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
@@ -69,6 +71,81 @@ namespace RHP.UserManagement
         {
             User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
             return user;
+        }
+
+        public object AddMembershipPartialUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,Guid GuidUserId, string userRole)
+        {
+            object objMembershipUser = false;
+            try
+            {
+                
+                MembershipCreateStatus mcstatus = new MembershipCreateStatus();
+
+                if (!strQuestion.EndsWith("?"))
+                    strQuestion = strQuestion + "?";
+
+                Membership.CreateUser(strUserName, strPassword, strEmail, strQuestion, strAnswer, boolAllowLogon, GuidUserId, out mcstatus); 
+                switch (mcstatus)
+                {
+                    case (MembershipCreateStatus.Success):
+                        {
+                            objMembershipUser = true;
+                            if (userRole == "student")
+                            {
+                                Roles.AddUserToRole(strUserName, "student");
+                            }
+                            if (userRole == "landlord")
+                            {
+                                Roles.AddUserToRole(strUserName, "landlord");
+                            }
+
+                            // FormsAuthentication.SetAuthCookie(UserName, false);
+
+                            break;
+                        }
+                    case (MembershipCreateStatus.DuplicateProviderUserKey):
+                        {
+                            objMembershipUser = "Internal Error. Contact Administrator";
+                            break;
+                        }
+
+                    case (MembershipCreateStatus.DuplicateUserName):
+                        {
+                            objMembershipUser = "User Name already in system.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidPassword):
+                        {
+                            objMembershipUser = "Invalid Password.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidUserName):
+                        {
+                            objMembershipUser = "Invalid User Name";
+                            break;
+                        }
+                    case (MembershipCreateStatus.DuplicateEmail):
+                        {
+                            objMembershipUser = "Email already in system.";
+                            break;
+                        }
+                    case (MembershipCreateStatus.InvalidEmail):
+                        {
+                            objMembershipUser = "Invalid Email.";
+                            break;
+                        }
+                    default:
+                        {
+                            objMembershipUser = "Invalid User Name";
+                            break;
+                        }
+                }
+            }
+            catch (Exception ex)
+            {
+                objMembershipUser = false;
+            }
+            return objMembershipUser;
         }
 
         public object AddMembershipUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,string userRole)
@@ -330,6 +407,12 @@ namespace RHP.UserManagement
         {
             return new UserDAO().IsFBUserExist(fbid);
         }
+
+        public bool IsPartialUserExist(User user)
+        {
+            return new UserDAO().IsPartialUserExist(user);
+        }
+
 
         public string GetFBUsernameByFBId(string fbid)
         {

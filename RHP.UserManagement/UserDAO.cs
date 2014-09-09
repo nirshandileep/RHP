@@ -17,6 +17,8 @@ namespace RHP.UserManagement
 
             db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
             db.AddInParameter(command, "IsFBUser", DbType.Boolean, users.IsFBUser);
+            db.AddInParameter(command, "AspnetUserId", DbType.Guid, users.AspnetUserId);
+            db.AddInParameter(command, "IsPartialUser", DbType.Boolean, users.IsPartialUser);
             db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
             db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
             db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
@@ -54,6 +56,8 @@ namespace RHP.UserManagement
 
             db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
             db.AddInParameter(command, "IsFBUser", DbType.Boolean, users.IsFBUser);
+            db.AddInParameter(command, "AspnetUserId", DbType.Guid, users.AspnetUserId);
+            db.AddInParameter(command, "IsPartialUser", DbType.Boolean, users.IsPartialUser);
             db.AddInParameter(command, "FBAccessToken", DbType.String, users.FBAccessToken);
             db.AddInParameter(command, "FBUrl", DbType.String, users.FBUrl);
             db.AddInParameter(command, "FBProfilePictureURL", DbType.String, users.FBProfilePictureURL);
@@ -131,7 +135,20 @@ namespace RHP.UserManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
-       
+        public bool IsPartialUserExist(User user)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_User_IsPartialUserExist");
+
+            db.AddInParameter(command, "UserId", DbType.String, user.UserId);
+            db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
+        }
+        
         public string GetUsernameByFBId(string FbId)
         {
 

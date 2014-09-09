@@ -93,8 +93,16 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.Answer = Answer.Text.Trim();
                   
                     object objCreateMembershipUser = new object();
-                    objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "student");
 
+                    if (user.IsPartialUser)
+                    {
+                        objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, user.UserId.Value, "student");
+                    }
+                    else
+                    {
+                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "student");
+                    }
+                    
                     bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
                     if (boolMembershipUserCreated)

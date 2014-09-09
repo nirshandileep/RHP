@@ -59,22 +59,19 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (ViewState["HiddenFieldLandloadID"] == null)
             {
-
-                PartialUser partialUser = new PartialUser();
-                partialUser.Email = Email.Text.Trim();
-                partialUser.FirstName = FirstName.Text.Trim();
-                partialUser.MiddleName = MiddleName.Text.Trim();
-                partialUser.LastName = LastName.Text.Trim();
-                partialUser.Contact = Mobile.Text.Trim();
-                partialUser.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                partialUser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                partialUser.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                partialUser.RoleId = Guid.Parse("0A3FDA72-FC47-402D-817B-445D89C4C4DF");
-
-
-                partialUser.RoleId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                partialUser.Save();
+                _user.UserId = Guid.NewGuid();
+                _user.Email = Email.Text.Trim();
+                _user.FirstName = FirstName.Text.Trim();
+                _user.MiddleName = MiddleName.Text.Trim();
+                _user.LastName = LastName.Text.Trim();
+                _user.BestContactNumber = Mobile.Text.Trim();
+                _user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                _user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                _user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+               
+                _user.Save();
             }
+
         }
 
         protected void ButtonVerify_Click(object sender, EventArgs e)

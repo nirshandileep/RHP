@@ -6,11 +6,37 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Collections;
 using System.Data;
+using RHP.UserManagement;
+using RHP.Common;
+using RHP.SessionManager;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Current_House_RoomMate_info : System.Web.UI.UserControl
     {
+
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -130,7 +156,17 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void SaveRommateButton_Click(object sender, EventArgs e)
         {
+            _user.UserId = Guid.NewGuid();
+            _user.Email = Email.Text.Trim();
+            _user.FirstName = FirstName.Text.Trim();
+            _user.MiddleName = MiddleName.Text.Trim();
+            _user.LastName = LastName.Text.Trim();
+            _user.BestContactNumber = Mobile.Text.Trim();
+            _user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            _user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            _user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
+           // _user.Save();
         }
 
 

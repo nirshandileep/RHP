@@ -32,8 +32,11 @@ namespace USA_Rent_House_Project.Student.Modules
                 Session[Constants.SESSION_LOGGED_USER] = _user;
             }
         }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
+
             LeftMenuBar.Items.Clear();
             LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileinfoID", "", "~/Student/Student_Profile.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("Profile info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));

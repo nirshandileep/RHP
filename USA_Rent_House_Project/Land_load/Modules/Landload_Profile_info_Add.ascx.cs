@@ -74,7 +74,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user.Answer = Answer.Text.Trim();
 
                           object objCreateMembershipUser = new object();
-                          objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "landlord");
+
+                          if (user.IsPartialUser)
+                            {
+                                objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, user.UserId.Value, "landlord");
+                            }
+                            else
+                            {
+                                objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "landlord");
+                            }
 
                             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
