@@ -48,15 +48,16 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             Save();
 
-            this.Visible = false;
+            //this.Visible = false;
             //show step 2
-            ((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
+            //((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
 
 
         }
 
-        public void Save()
+        public bool Save()
         {
+            bool result = true;
             if (ViewState["HiddenFieldLandloadID"] == null)
             {
                 _user.UserId = Guid.NewGuid();
@@ -68,10 +69,10 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 _user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 _user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-               
-                _user.Save();
-            }
 
+                result = _user.Save();
+            }
+            return result;
         }
 
         protected void ButtonVerify_Click(object sender, EventArgs e)

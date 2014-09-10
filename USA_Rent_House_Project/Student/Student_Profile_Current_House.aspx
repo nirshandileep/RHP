@@ -25,6 +25,7 @@
             <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Student/Student_Public_Profile.aspx"
                 runat="server">My Page</asp:HyperLink>
             <div class="clear">
+                <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">

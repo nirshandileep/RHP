@@ -105,9 +105,14 @@ namespace USA_Rent_House_Project.Student.Modules
         }
         protected void CreateRentalButton_Click(object sender, EventArgs e)
         {
-            this.Visible = false;
-            //show step 2
-            ((UserControl)this.Parent.FindControl("Current_House_RoomMate_infoID")).Visible = true;
+            //this.Visible = false;
+            ////show step 2
+            //((UserControl)this.Parent.FindControl("Current_House_RoomMate_infoID")).Visible = true;
+        }
+
+        public bool Save()
+        {
+            throw new NotImplementedException("Write the code");
         }
 
         protected void chknotavailable_CheckedChanged(object sender, EventArgs e)

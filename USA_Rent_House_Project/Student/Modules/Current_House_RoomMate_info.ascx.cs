@@ -70,6 +70,7 @@ namespace USA_Rent_House_Project.Student.Modules
             LastName.Text= "";
             Mobile.Text = "";
         }
+
         ICollection CreateDataSource()
         {
             DataTable dt = null;
@@ -169,7 +170,10 @@ namespace USA_Rent_House_Project.Student.Modules
            // _user.Save();
         }
 
-
+        public bool Save()
+        {
+            throw new NotImplementedException("Write the code");
+        }
 
 
     }

@@ -11,14 +11,63 @@ namespace USA_Rent_House_Project.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                hdnStepNumber.Value = "1";
+            }
 
+            Current_House_Landload_infoID.Visible = false;
+            Current_House_Rental_Address_infoID.Visible = false;
+            Current_House_RoomMate_infoID.Visible = false;
+
+            switch (hdnStepNumber.Value.Trim())
+            {
+                case "1":
+                    Current_House_Landload_infoID.Visible = true;
+                    //Todo: Similar to save method written, write the load method in the user control
+                    break;
+                case "2":
+                    Current_House_Rental_Address_infoID.Visible = true;
+                    //Todo: Similar to save method written, write the load method in the user control
+                    break;
+                case "3":
+                    Current_House_RoomMate_infoID.Visible = true;
+                    //Todo: Similar to save method written, write the load method in the user control
+                    break;
+                default:
+                    break;
+            }
         }
 
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {
-         
-           
-
+            switch (hdnStepNumber.Value.Trim())
+            {
+                case "1":
+                    if (Current_House_Landload_infoID.Save())
+                    {
+                        hdnStepNumber.Value = "2";
+                        //Todo: Show a save success message if needed
+                    }
+                    break;
+                case "2":
+                    if (Current_House_Rental_Address_infoID.Save())
+                    {
+                        hdnStepNumber.Value = "3";
+                        //Todo: Show a save success message if needed
+                    }
+                    break;
+                case "3":
+                    if (Current_House_RoomMate_infoID.Save())
+                    {
+                        //Todo: write the code here
+                        //Todo: Show a save success message if needed
+                    }
+                    Current_House_RoomMate_infoID.Visible = true;
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
