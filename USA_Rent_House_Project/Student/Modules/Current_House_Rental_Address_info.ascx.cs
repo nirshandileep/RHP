@@ -9,41 +9,15 @@ using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.LandlordManagement;
 using System.Data;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Current_House_Rental_Address_info : System.Web.UI.UserControl
     {
 
-        private User _user;
+        User user = new User();
 
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
-                    _user = new User();
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
-
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if(IsPostBack)
-            {
-                LoadInitialData();
-                loaddata();
-            }
-        }
 
         House house = new House();
 
@@ -60,8 +34,9 @@ namespace USA_Rent_House_Project.Student.Modules
                     ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
                     Session[Constants.SESSION_HOUSELIST] = ds;
                 }
-                else { 
-                
+                else
+                {
+
                 }
                 return ds;
             }
@@ -74,6 +49,17 @@ namespace USA_Rent_House_Project.Student.Modules
                 Session[Constants.SESSION_HOUSELIST] = ds;
             }
         }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if(IsPostBack)
+            {
+                LoadInitialData();
+                loaddata();
+            }
+        }
+
+        
 
         private void LoadInitialData()
         {
@@ -90,9 +76,9 @@ namespace USA_Rent_House_Project.Student.Modules
         public void loaddata()
         {
 
-            if (ViewState["HiddenFieldLandloadID"] != null)
+            if (Session["HiddenFieldLandloadID"] != null)
             {
-                house.LandlordId = Guid.Parse(ViewState["HiddenFieldLandloadID"].ToString());
+                house.LandlordId = Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
 
 
                    DrpHouse.DataSource = dsHouseList;
@@ -112,7 +98,27 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public bool Save()
         {
-            throw new NotImplementedException("Write the code");
+            bool result = true;
+
+            if (Session["HiddenFieldLandloadID"] != null)
+            {
+                house.LandlordId = Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
+
+                house.StreetAddress = Address.Text.Trim();
+                house.City = City.Text.Trim();
+                house.StateId = Int32.Parse(Drpstate.SelectedValue.Trim());
+                house.Zip = Zip.Text.Trim();
+
+                house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                house.IsPartialHouse = true;
+                result = house.Save();
+            }
+                return result;
+
+           // throw new NotImplementedException("Write the code");
+
+
         }
 
         protected void chknotavailable_CheckedChanged(object sender, EventArgs e)

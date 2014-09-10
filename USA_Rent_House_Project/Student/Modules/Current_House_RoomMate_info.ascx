@@ -69,8 +69,8 @@
    </ContentTemplate>
 </asp:UpdatePanel>
    <p>
-    <asp:Button ID="SaveRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"/>
+   <%-- <asp:Button ID="SaveRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"/>--%>
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>
 

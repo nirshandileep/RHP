@@ -53,11 +53,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (ViewState["CurrentTable"] != null)
             {
-                SaveRommateButton.Enabled = true;
+              //  SaveRommateButton.Enabled = true;
             }
             else
             {
-                SaveRommateButton.Enabled = false;
+              //  SaveRommateButton.Enabled = false;
                
             }
         }
@@ -157,22 +157,29 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void SaveRommateButton_Click(object sender, EventArgs e)
         {
-            _user.UserId = Guid.NewGuid();
-            _user.Email = Email.Text.Trim();
-            _user.FirstName = FirstName.Text.Trim();
-            _user.MiddleName = MiddleName.Text.Trim();
-            _user.LastName = LastName.Text.Trim();
-            _user.BestContactNumber = Mobile.Text.Trim();
-            _user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            _user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            _user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
-           // _user.Save();
         }
 
         public bool Save()
         {
-            throw new NotImplementedException("Write the code");
+            bool result = true;
+
+            foreach (GridViewRow row in GridviewRoommatelist.Rows)
+            {
+                user.PersonalEmail = row.Cells[1].Text;
+                user.FirstName = row.Cells[2].Text;
+                user.MiddleName = row.Cells[3].Text;
+                user.LastName = row.Cells[4].Text;
+                user.BestContactNumber = row.Cells[5].Text;
+
+                user.UserId = Guid.NewGuid();
+                user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user.IsPartialUser = true;
+
+                result = user.Save();
+            }
+            return result;
         }
 
 

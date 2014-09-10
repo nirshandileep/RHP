@@ -9,36 +9,16 @@ using RHP.SessionManager;
 using RHP.Common;
 using RHP.Utility;
 using System.Web.Security;
+using RHP.LandlordManagement;
 
 
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Current_House_Landload_info : System.Web.UI.UserControl
     {
-
-        private User _user;
-
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
-                    _user = new User();
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
-
+        User user = new User();
+        Landlord landload = new Landlord();
        
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -58,19 +38,34 @@ namespace USA_Rent_House_Project.Student.Modules
         public bool Save()
         {
             bool result = true;
-            if (ViewState["HiddenFieldLandloadID"] == null)
-            {
-                _user.UserId = Guid.NewGuid();
-                _user.Email = Email.Text.Trim();
-                _user.FirstName = FirstName.Text.Trim();
-                _user.MiddleName = MiddleName.Text.Trim();
-                _user.LastName = LastName.Text.Trim();
-                _user.BestContactNumber = Mobile.Text.Trim();
-                _user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                _user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                _user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
-                result = _user.Save();
+            if (Session["HiddenFieldLandloadID"] == null)
+            {
+                user.UserId = Guid.NewGuid();
+                user.PersonalEmail = Email.Text.Trim();
+                user.FirstName = FirstName.Text.Trim();
+                user.MiddleName = MiddleName.Text.Trim();
+                user.LastName = LastName.Text.Trim();
+                user.BestContactNumber = Mobile.Text.Trim();
+                user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user.IsPartialUser = true;
+
+                if (user.Save())
+                {
+                    landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : user.UserId.Value;
+                    landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
+                    landload.user = user;
+                    landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    result = landload.Save();
+                }
+
+                Session["HiddenFieldLandloadID"] = user.UserId;
+            }
+            else
+            {
+                // Landload already registerd
             }
             return result;
         }
@@ -80,7 +75,7 @@ namespace USA_Rent_House_Project.Student.Modules
           
             if (Email.Text.Trim() != "")
             {
-                ViewState["HiddenFieldLandloadID"] = null;
+                Session["HiddenFieldLandloadID"] = null;
 
                 User _user = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
               
@@ -88,7 +83,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 {
 
 
-                  ViewState["HiddenFieldLandloadID"] = _user.UserId.Value.ToString();
+                    Session["HiddenFieldLandloadID"] = _user.UserId.Value.ToString();
                     Email.Text = _user.Email;
                     FirstName.Text = _user.FirstName;
                     MiddleName.Text = _user.MiddleName;

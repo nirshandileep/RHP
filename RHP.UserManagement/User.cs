@@ -17,7 +17,7 @@ namespace RHP.UserManagement
 
         //These properties are required to create the user in ASP Membership tables
         public Guid? UserId { get; set; }
-        public Guid AspnetUserId { get; set; }
+        public Guid? AspnetUserId { get; set; }
         public bool IsPartialUser { get; set; }
         public string UserName { get; set; }
         public string Email { get; set; }
@@ -403,6 +403,7 @@ namespace RHP.UserManagement
             return result;
         }
 
+       
         public bool IsExistingFbUser(string fbid)
         {
             return new UserDAO().IsFBUserExist(fbid);

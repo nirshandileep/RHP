@@ -51,7 +51,7 @@
     </ContentTemplate>
 </asp:UpdatePanel>
 <p>
-    <asp:Button ID="CreateRentalButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" OnClick="CreateRentalButton_Click" ValidationGroup="ValidationGroup2" />
+   <%-- <asp:Button ID="CreateRentalButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+        Text="Save and continue" OnClick="CreateRentalButton_Click" ValidationGroup="ValidationGroup2"  Visible="false" />--%>
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>

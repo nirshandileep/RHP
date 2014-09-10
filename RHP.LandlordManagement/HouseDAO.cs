@@ -52,6 +52,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "UtilitiesIncludedInRent", DbType.String, house.UtilitiesIncludedInRent);
            db.AddInParameter(command, "PropertyImagePath", DbType.String, house.PropertyImagePath);
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);
+           db.AddInParameter(command, "IsPartialHouse", DbType.Boolean, house.IsPartialHouse);
            db.AddInParameter(command, "CreatedBy", DbType.Guid, house.CreatedBy);
            db.AddInParameter(command, "RatingValue", DbType.Decimal, house.RatingValue);
            db.AddInParameter(command, "Price", DbType.Decimal, house.Price);
@@ -97,6 +98,7 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "UtilitiesIncludedInRent", DbType.String, house.UtilitiesIncludedInRent);
            db.AddInParameter(command, "PropertyImagePath", DbType.String, house.PropertyImagePath);
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);
+           db.AddInParameter(command, "IsPartialHouse", DbType.Boolean, house.IsPartialHouse);
            db.AddInParameter(command, "UpdatedBy", DbType.Guid, house.UpdatedBy);
            db.AddInParameter(command, "RatingValue", DbType.Decimal, house.RatingValue);
            db.AddInParameter(command, "Price", DbType.Decimal, house.Price);

@@ -16,6 +16,12 @@ namespace USA_Rent_House_Project.Student
                 hdnStepNumber.Value = "1";
             }
 
+            loadcontrol();
+        }
+
+
+        public void loadcontrol()
+        {
             Current_House_Landload_infoID.Visible = false;
             Current_House_Rental_Address_infoID.Visible = false;
             Current_House_RoomMate_infoID.Visible = false;
@@ -68,6 +74,8 @@ namespace USA_Rent_House_Project.Student
                 default:
                     break;
             }
+
+            loadcontrol();
         }
     }
 }

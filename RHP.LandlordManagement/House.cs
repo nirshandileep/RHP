@@ -13,6 +13,7 @@ namespace RHP.LandlordManagement
     {
         public Guid? HouseId { get; set; }
         public Guid LandlordId { get; set; }
+        public bool IsPartialHouse { get; set; }
         public string StreetAddress { get; set; }
         public string City { get; set; }
         public int? StateId { get; set; }
