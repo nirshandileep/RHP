@@ -17,7 +17,26 @@ namespace USA_Rent_House_Project.Student.Modules
     public partial class Current_House_Landload_info : System.Web.UI.UserControl
     {
         User user = new User();
-        Landlord landload = new Landlord();
+        public Landlord landload = new Landlord();
+
+        public Guid? LandlordId
+        {
+            get
+            {
+                if (ViewState["LandlordID"] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return Guid.Parse(ViewState["LandloadID"].ToString().Trim());
+                }
+            }
+            set 
+            {
+                ViewState["LandlordID"] = value;
+            }
+        }
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +58,8 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             bool result = true;
 
-            if (Session["HiddenFieldLandloadID"] == null)
+
+            if (LandlordId == null)
             {
                 user.UserId = Guid.NewGuid();
                 user.PersonalEmail = Email.Text.Trim();
@@ -54,6 +74,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (user.Save())
                 {
                     landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : user.UserId.Value;
+                    LandlordId = landload.LandlordId;//setting value of property
                     landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
                     landload.user = user;
                     landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());

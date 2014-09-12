@@ -50,8 +50,18 @@ namespace USA_Rent_House_Project.Student
             switch (hdnStepNumber.Value.Trim())
             {
                 case "1":
+                    if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
+                    {
+                        Current_House_Landload_infoID.LandlordId = null;
+                    }
+                    else
+                    {
+                        Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
+                    
                     if (Current_House_Landload_infoID.Save())
                     {
+                        HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
                         hdnStepNumber.Value = "2";
                         //Todo: Show a save success message if needed
                     }
