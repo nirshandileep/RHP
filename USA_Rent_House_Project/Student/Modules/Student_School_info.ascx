@@ -9,6 +9,7 @@
         <asp:ValidationSummary ID="SaveSchoolValidationSummary" runat="server" CssClass="failureNotification"
             ValidationGroup="SaveSchoolValidationGroup" />
         <div id="forminner">
+            <asp:HiddenField ID="HiddenFieldSchoolId" runat="server" />
             <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName"
                     CssClass="form_label">School Name:</asp:Label>
@@ -34,7 +35,7 @@
                     CssClass="failureNotification" ControlToValidate="Status" ValidationGroup="SaveSchoolValidationGroup"
                     InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
-            <p>
+           <%-- <p>
                 <asp:Label ID="LabelLandLoadName" runat="server" AssociatedControlID="LandLoadName"
                     CssClass="form_label">Land load Name:</asp:Label>
                 <asp:TextBox ID="LandLoadName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -49,7 +50,7 @@
                 <asp:RequiredFieldValidator ID="LandLoadPlaceRequiredFieldValidator" runat="server"
                     ControlToValidate="LandLoadPlace" CssClass="failureNotification" ErrorMessage="Land Load Place is required."
                     ToolTip="Land Load Place is required." ValidationGroup="SaveSchoolValidationGroup">*</asp:RequiredFieldValidator>
-            </p>
+            </p>--%>
         </div>
         <p class="submitButton">
             <asp:Button ID="SaveSchoolButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
