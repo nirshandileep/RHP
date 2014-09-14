@@ -10,6 +10,7 @@ using RHP.SessionManager;
 using RHP.LandlordManagement;
 using System.Data;
 using System.Web.Security;
+using RHP.StudentManagement;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -18,7 +19,26 @@ namespace USA_Rent_House_Project.Student.Modules
 
         User user = new User();
 
+        public Guid? LandlordId
+        {
+            get
+            {
+                if (ViewState["LandlordID"] == null)
+                {
+                    return null;
+                }
+                else
+                {
+                    return Guid.Parse(ViewState["LandloadID"].ToString().Trim());
+                }
+            }
+            set
+            {
+                ViewState["LandlordID"] = value;
+            }
+        }
 
+        StudentHouse studentHouse = new StudentHouse();
         House house = new House();
 
         private DataSet dsHouseList
@@ -76,10 +96,9 @@ namespace USA_Rent_House_Project.Student.Modules
         public void loaddata()
         {
 
-            if (Session["HiddenFieldLandloadID"] != null)
+            if (LandlordId != null)
             {
-                house.LandlordId = Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
-
+                house.LandlordId = LandlordId.Value;
 
                    DrpHouse.DataSource = dsHouseList;
                    DrpHouse.DataTextField = "StreetAddress";
@@ -100,9 +119,10 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             bool result = true;
 
-            if (Session["HiddenFieldLandloadID"] != null)
+
+            if (chknotavailable.Checked == true)
             {
-                house.LandlordId = Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
+                house.LandlordId = LandlordId.Value; // Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
 
                 house.StreetAddress = Address.Text.Trim();
                 house.City = City.Text.Trim();
@@ -112,11 +132,42 @@ namespace USA_Rent_House_Project.Student.Modules
                 house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 house.IsPartialHouse = true;
-                result = house.Save();
+                
+                if(result = house.Save())
+                {
+                    Save_Student_House();
+                }
             }
-                return result;
+            else
+            {
+                if (DrpHouse.SelectedItem.Value.ToString() != "-1")
+                {
+                    Save_Student_House();
+                }
+            }
+            
 
-           // throw new NotImplementedException("Write the code");
+            ViewState["HouseId"] = house.HouseId.Value; 
+
+            return result;
+
+        }
+
+
+        public void Save_Student_House()
+        {
+            // save current house for student
+            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            user.HouseId = house.HouseId.Value; 
+            user.UpdateHouse();
+
+            // log house details for futer use
+            studentHouse.HouseId = house.HouseId.Value;
+            studentHouse.StudentId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+            studentHouse.Save();
 
 
         }
@@ -145,11 +196,14 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             House _house = House.Select(Guid.Parse(DrpHouse.SelectedItem.Value));
 
+            chknotavailable.Checked = false;
+
             Address.Text = _house.StreetAddress;
             City.Text = _house.City;
             Zip.Text = _house.Zip;
             Drpstate.SelectedValue = _house.StateId.HasValue ? _house.StateId.Value.ToString() : "-1";
 
+            ViewState["HouseId"] = house.HouseId; 
         }
     }
 }

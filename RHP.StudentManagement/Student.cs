@@ -17,6 +17,7 @@ namespace RHP.StudentManagement
         public Guid SchoolId { get; set; }
         public School School { get; set; }
         public User StudentUser { get; set; }
+    
         public string LandloadName { get; set; }
         public string LandloadPlace { get; set; }
         public int Year { get; set; }

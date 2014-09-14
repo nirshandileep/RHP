@@ -10,11 +10,17 @@ using RHP.UserManagement;
 using RHP.Common;
 using RHP.SessionManager;
 using System.Web.Security;
+using RHP.StudentManagement;
+using RHP.LandlordManagement;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Current_House_RoomMate_info : System.Web.UI.UserControl
     {
+      
+        StudentHouse studentHouse = new StudentHouse();
+        House house = new House();
+       
 
         private User _user;
 
@@ -54,6 +60,7 @@ namespace USA_Rent_House_Project.Student.Modules
             if (ViewState["CurrentTable"] != null)
             {
               //  SaveRommateButton.Enabled = true;
+
             }
             else
             {
@@ -177,11 +184,29 @@ namespace USA_Rent_House_Project.Student.Modules
                 user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 user.IsPartialUser = true;
 
-                result = user.Save();
+                if (result = user.Save())
+                {
+                    Save_Student_House();
+                }
             }
             return result;
         }
 
+        public void Save_Student_House()
+        {
+            // save current house for student
+            user.HouseId = house.HouseId.Value;
+            user.UpdateHouse();
 
+            // log house details for futer use
+            studentHouse.HouseId = house.HouseId.Value;
+            studentHouse.StudentId = user.UserId.Value;
+            studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+            studentHouse.Save();
+
+
+        }
     }
 }

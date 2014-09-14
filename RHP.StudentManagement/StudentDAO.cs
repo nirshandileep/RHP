@@ -30,6 +30,8 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
             db.AddInParameter(command, "Status", DbType.String, student.Status);
             db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
+          
+            
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);

@@ -42,7 +42,7 @@ namespace RHP.UserManagement
         public decimal RatingValue { get; set; }
         public string FBid { get; set; }
         public string Gender { get; set; }
-
+        public Guid? HouseId { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
 
@@ -403,7 +403,45 @@ namespace RHP.UserManagement
             return result;
         }
 
-       
+
+        public bool UpdateHouse()
+        {
+            bool result = false;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbConnection connection = db.CreateConnection();
+            connection.Open();
+            DbTransaction transaction = connection.BeginTransaction();
+
+            try
+            {
+                UserDAO userDao = new UserDAO();
+                if (userDao.IsUserExist(this))
+                {
+                    result = (new UserDAO()).UpdateHouse(this, db, transaction);
+                }
+                else
+                {
+                    result = false;
+                }
+
+                transaction.Commit();
+            }
+            catch (System.Exception ex)
+            {
+                transaction.Rollback();
+                result = false;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+        }
+
+
+
         public bool IsExistingFbUser(string fbid)
         {
             return new UserDAO().IsFBUserExist(fbid);

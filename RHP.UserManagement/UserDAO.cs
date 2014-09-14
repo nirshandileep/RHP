@@ -39,7 +39,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddInParameter(command, "FBid", DbType.String, users.FBid);
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
-
+            db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
@@ -79,13 +79,28 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "RatingValue", DbType.Decimal, users.RatingValue);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
-
+            db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
             db.ExecuteNonQuery(command, transaction);
 
             users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
 
             return true;
         }
+
+        public bool UpdateHouse(User users, Database db, DbTransaction transaction)
+        {
+            DbCommand command = db.GetStoredProcCommand("usp_UserUpdateHouse");
+
+            db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
+            db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
+            db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
+            db.ExecuteNonQuery(command, transaction);
+
+            users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
+
+            return true;
+        }
+
 
         public bool Delete(User user, Database db, DbTransaction transaction)
         {
