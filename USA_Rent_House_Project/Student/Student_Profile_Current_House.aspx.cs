@@ -29,14 +29,23 @@ namespace USA_Rent_House_Project.Student
             switch (hdnStepNumber.Value.Trim())
             {
                 case "1":
+                    if (!string.IsNullOrEmpty(HiddenFieldLandloadID.Value))
+                    {
+                        Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
                     Current_House_Landload_infoID.Visible = true;
                     //Todo: Similar to save method written, write the load method in the user control
                     break;
                 case "2":
                     Current_House_Rental_Address_infoID.Visible = true;
+                    if (!string.IsNullOrEmpty(HiddenFieldLandloadID.Value))
+                    {
+                        Current_House_Rental_Address_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
                     //Todo: Similar to save method written, write the load method in the user control
                     break;
                 case "3":
+
                     Current_House_RoomMate_infoID.Visible = true;
                     //Todo: Similar to save method written, write the load method in the user control
                     break;
@@ -67,6 +76,15 @@ namespace USA_Rent_House_Project.Student
                     }
                     break;
                 case "2":
+                    if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
+                    {
+                        Current_House_Rental_Address_infoID.LandlordId = null;
+                    }
+                    else
+                    {
+                        Current_House_Rental_Address_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
+
                     if (Current_House_Rental_Address_infoID.Save())
                     {
                         hdnStepNumber.Value = "3";

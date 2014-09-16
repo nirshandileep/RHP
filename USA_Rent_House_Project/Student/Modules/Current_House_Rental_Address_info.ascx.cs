@@ -23,18 +23,26 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             get
             {
-                if (ViewState["LandlordID"] == null)
+                if (string.IsNullOrEmpty(hdnLandlordId.Value.Trim()))
                 {
                     return null;
                 }
                 else
                 {
-                    return Guid.Parse(ViewState["LandloadID"].ToString().Trim());
+                    return Guid.Parse(hdnLandlordId.Value.Trim());
                 }
             }
             set
             {
-                ViewState["LandlordID"] = value;
+                if (value.HasValue)
+                {
+                    hdnLandlordId.Value = value.Value.ToString();
+                }
+                else
+                {
+                    hdnLandlordId.Value = string.Empty;
+                }
+                
             }
         }
 

@@ -57,7 +57,8 @@
 </asp:UpdatePanel>
 
 <p>
-  <%--  <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+    <%--  <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Save and continue" OnClick="CreateLandloadButton_Click" Visible="false"  />--%>
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
+    <asp:HiddenField ID="hdnLandlordId" runat="server" />
 </p>

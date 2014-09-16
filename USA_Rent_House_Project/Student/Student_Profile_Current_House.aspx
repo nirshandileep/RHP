@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Current House" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
+﻿<%@ Page Title="Current House" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" EnableViewState="true"
     AutoEventWireup="true" CodeBehind="Student_Profile_Current_House.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Current_House" %>
 
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
@@ -33,11 +33,12 @@
                 </h2>
                 <div id="formwrapper">
                     <div id="forminner">
-                        <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" runat="server" />
+                        <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" 
+                            runat="server" ViewStateMode="Enabled" />
                         <uc2:Current_House_Rental_Address_info ID="Current_House_Rental_Address_infoID" runat="server"
-                            Visible="false" />
+                            Visible="false" ViewStateMode="Enabled" />
                         <uc3:Current_House_RoomMate_info ID="Current_House_RoomMate_infoID" runat="server"
-                            Visible="false" />
+                            Visible="false" ViewStateMode="Enabled" />
                         <p>
                             <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                 Text="Save and continue" OnClick="CreateLandloadButton_Click" />
