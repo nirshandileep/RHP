@@ -75,13 +75,24 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                           object objCreateMembershipUser = new object();
 
+                          bool IsActivate = false;
+
+                          if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
+                          {
+                              IsActivate = false;
+                          }
+                          else
+                          {
+                              IsActivate = true;
+                          }
+
                           if (user.IsPartialUser)
                             {
-                                objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, user.UserId.Value, "landlord");
+                                objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, user.UserId.Value, "landlord");
                             }
                             else
                             {
-                                objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "landlord");
+                                objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "landlord");
                             }
 
                             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
@@ -91,16 +102,23 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                 Session[Constants.SESSION_LOGGED_USER] = user;
 
                                 MembershipUser newUser = Membership.GetUser(user.UserName);
-                                if (SendingMail((Guid)newUser.ProviderUserKey))
+                                 if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                                 {
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                
+                                        if (SendingMail((Guid)newUser.ProviderUserKey))
+                                        {
+                                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                        }
+                                        else
+                                        {
+                                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx'; }", true);
+                                        }
+                                            // success
                                 }
-                                else
-                                {
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx'; }", true);
-                                }
-                                    // success
-
+                                 else
+                                 {
+                                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                 }
                             }
                             else
                             {

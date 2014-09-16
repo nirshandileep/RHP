@@ -11,6 +11,7 @@ namespace RHP.Common
         {
             FacebookAppID = 1,
             FacebookAppSecret = 2,
+            IsEmailActivation = 3,
         }
 
         public enum UserRoles
