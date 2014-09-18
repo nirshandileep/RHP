@@ -179,6 +179,17 @@ namespace RHP.UserManagement
         }
 
 
+        public DataSet SelectLandlordByHouseId(Guid HouseId)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserSelectLandlordByHouseId");
+
+            db.AddInParameter(command, "HouseId", DbType.Guid, HouseId);
+
+            return db.ExecuteDataSet(command);
+        }
+
         public DataSet SelectAll()
         {
 

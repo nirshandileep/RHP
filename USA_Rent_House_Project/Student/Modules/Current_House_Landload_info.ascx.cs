@@ -10,13 +10,35 @@ using RHP.Common;
 using RHP.Utility;
 using System.Web.Security;
 using RHP.LandlordManagement;
+using System.Data;
+
 
 
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Current_House_Landload_info : System.Web.UI.UserControl
     {
-        User user = new User();
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
+
         public Landlord landload = new Landlord();
 
         public Guid? LandlordId
@@ -48,16 +70,52 @@ namespace USA_Rent_House_Project.Student.Modules
        
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    
+                }
+            }
         }
 
-        protected void CreateLandloadButton_Click(object sender, EventArgs e)
+        public void LoadUserData()
         {
-            Save();
+            // user data
+            
 
-            //this.Visible = false;
-            //show step 2
-            //((UserControl)this.Parent.FindControl("Current_House_Rental_Address_infoID")).Visible = true;
+            UserDAO userDAO = new UserDAO();
+
+            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (user.HouseId != null)
+            {
+                Labelmessage.Text = "Current landload Details";
+                DataSet LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
+
+       
+                if(LandlordData != null && LandlordData.Tables[0].Rows.Count > 0)
+                {
+                    
+                     FirstName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim();
+                     MiddleName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
+                     LastName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
+                     Email.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["Email"].ToString().Trim();
+                     Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["Mobile"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["Mobile"].ToString().Trim();
+                }
+               
+            }
+
+
+            //user.HouseId
+
+            //user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            //user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            //FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
+            //MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
+            //LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
+            //Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
+            //Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
 
 
         }
@@ -66,33 +124,31 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             bool result = true;
 
-
+            User Landlorduser = new User();
             if (LandlordId == null)
             {
-                user.UserId = Guid.NewGuid();
-                user.PersonalEmail = Email.Text.Trim();
-                user.FirstName = FirstName.Text.Trim();
-                user.MiddleName = MiddleName.Text.Trim();
-                user.LastName = LastName.Text.Trim();
-                user.BestContactNumber = Mobile.Text.Trim();
-                user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                user.IsPartialUser = true;
+                Landlorduser.UserId = Guid.NewGuid();
+                Landlorduser.PersonalEmail = Email.Text.Trim();
+                Landlorduser.FirstName = FirstName.Text.Trim();
+                Landlorduser.MiddleName = MiddleName.Text.Trim();
+                Landlorduser.LastName = LastName.Text.Trim();
+                Landlorduser.BestContactNumber = Mobile.Text.Trim();
+                Landlorduser.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Landlorduser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Landlorduser.IsPartialUser = true;
 
-                if (user.Save())
+                if (Landlorduser.Save())
                 {
-                    landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : user.UserId.Value;
+                    landload.LandlordId = Landlorduser.UserId.HasValue ? Landlorduser.UserId.Value : Landlorduser.UserId.Value;
                     LandlordId = landload.LandlordId;//setting value of property
-                    landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
+                    landload.LandlordName = Landlorduser.FirstName + " " + Landlorduser.MiddleName + " " + Landlorduser.LastName;
                     landload.user = user;
                     landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     result = landload.Save();
                 }
 
-              //  ViewState["LandlordID"];
-
-                 LandlordId = user.UserId;
+                LandlordId = Landlorduser.UserId;
             }
             else
             {
@@ -103,28 +159,35 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void ButtonVerify_Click(object sender, EventArgs e)
         {
-          
+            Labelmessage.Text = "";
             if (Email.Text.Trim() != "")
             {
-               // Session["HiddenFieldLandloadID"] = null;
 
-                User _user = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
-              
-                if (_user != null)
+                User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
+
+                if (user_ != null)
                 {
+                    Labelmessage.Text = "landload verified for email : " + Email.Text.Trim().ToLower();
 
+                    LandlordId = user_.UserId;
 
-                    ViewState["LandlordID"] = _user.UserId.Value.ToString();
-                    Email.Text = _user.Email;
-                    FirstName.Text = _user.FirstName;
-                    MiddleName.Text = _user.MiddleName;
-                    LastName.Text = _user.LastName;
-                    Mobile.Text = _user.BestContactNumber;
+                   // ViewState["LandlordID"] = _user.UserId.Value.ToString();
+                    Email.Text = user_.Email;
+                    FirstName.Text = user_.FirstName;
+                    MiddleName.Text = user_.MiddleName;
+                    LastName.Text = user_.LastName;
+                    Mobile.Text = user_.BestContactNumber;
 
-                  
+                  //  Student_Profile_Current_House student_Profile_Current_House = new Student_Profile_Current_House();
+                  //  student_Profile_Current_House.setData();
                 }
                 else
                 {
+                    Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() +". Please enter details to continue..";
+                    FirstName.Text = "";
+                    MiddleName.Text = "";
+                    LastName.Text = "";
+                    Mobile.Text = "";
                     FirstName.Enabled = true;
                     MiddleName.Enabled = true;
                     LastName.Enabled = true;
@@ -140,6 +203,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void clear()
         {
+            Labelmessage.Text = "";
             Email.Text = "";
             FirstName.Text = "";
             MiddleName.Text = "";

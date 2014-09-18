@@ -12,7 +12,7 @@ namespace RHP.StudentManagement
     {
         public int StudentHouseId { get; set; }
        public Guid HouseId {get; set;}
-       public Guid StudentId { get; set; }
+       public Guid UserId { get; set; }
 
 
        public static StudentHouse Select(int StudentHouseId)

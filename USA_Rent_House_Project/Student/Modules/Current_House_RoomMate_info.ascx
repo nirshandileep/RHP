@@ -69,8 +69,8 @@
    </ContentTemplate>
 </asp:UpdatePanel>
    <p>
-   <%-- <asp:Button ID="SaveRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" onclick="SaveRommateButton_Click" Enabled="false"/>--%>
+      <asp:HiddenField ID="hdnLandlordId" runat="server" />
+    <asp:HiddenField ID="hdHouseId" runat="server" />
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>
 

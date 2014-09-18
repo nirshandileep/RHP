@@ -20,7 +20,60 @@ namespace USA_Rent_House_Project.Student.Modules
       
         StudentHouse studentHouse = new StudentHouse();
         House house = new House();
-       
+
+        public Guid? LandlordId
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(hdnLandlordId.Value.Trim()))
+                {
+                    return null;
+                }
+                else
+                {
+                    return Guid.Parse(hdnLandlordId.Value.Trim());
+                }
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    hdnLandlordId.Value = value.Value.ToString();
+                }
+                else
+                {
+                    hdnLandlordId.Value = string.Empty;
+                }
+
+            }
+        }
+
+        public Guid? HouseId
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(hdHouseId.Value.Trim()))
+                {
+                    return null;
+                }
+                else
+                {
+                    return Guid.Parse(hdHouseId.Value.Trim());
+                }
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    hdHouseId.Value = value.Value.ToString();
+                }
+                else
+                {
+                    hdHouseId.Value = string.Empty;
+                }
+
+            }
+        }
 
         private User _user;
 
@@ -159,13 +212,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
 
-
         }
 
-        protected void SaveRommateButton_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public bool Save()
         {
@@ -183,6 +231,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 user.IsPartialUser = true;
+                user.HouseId = HouseId.Value;
 
                 if (result = user.Save())
                 {
@@ -195,12 +244,12 @@ namespace USA_Rent_House_Project.Student.Modules
         public void Save_Student_House()
         {
             // save current house for student
-            user.HouseId = house.HouseId.Value;
+            user.HouseId = HouseId.Value;
             user.UpdateHouse();
 
             // log house details for futer use
-            studentHouse.HouseId = house.HouseId.Value;
-            studentHouse.StudentId = user.UserId.Value;
+            studentHouse.HouseId = HouseId.Value;
+            studentHouse.UserId = user.UserId.Value;
             studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 

@@ -27,7 +27,8 @@
         Text="Verify Landload" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
 </p>
 
-
+        
+<p id="idmessase" runat="server"><asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
@@ -57,8 +58,7 @@
 </asp:UpdatePanel>
 
 <p>
-    <%--  <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Save and continue" OnClick="CreateLandloadButton_Click" Visible="false"  />--%>
+
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
     <asp:HiddenField ID="hdnLandlordId" runat="server" />
 </p>

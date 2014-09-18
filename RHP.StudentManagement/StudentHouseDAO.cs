@@ -43,11 +43,11 @@ namespace RHP.StudentManagement
             return result;
         }
 
-        public DataSet SelectAllByStudentIdDataset(Guid StudentId)
+        public DataSet SelectAllByStudentIdDataset(Guid UserId)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_StudentHouseSelectByStudentId");
-            db.AddInParameter(command, "StudentId", DbType.Guid, StudentId);
+            db.AddInParameter(command, "UserId", DbType.Guid, UserId);
 
             return db.ExecuteDataSet(command);
         }
@@ -72,7 +72,7 @@ namespace RHP.StudentManagement
             DbCommand command = db.GetStoredProcCommand("usp_StudentHouseInsert");
 
             db.AddInParameter(command, "HouseId", DbType.Guid, studentHouse.HouseId);
-            db.AddInParameter(command, "StudentId", DbType.Guid, studentHouse.StudentId);
+            db.AddInParameter(command, "UserId", DbType.Guid, studentHouse.UserId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, studentHouse.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, studentHouse.CreatedBy);
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -104,7 +104,7 @@ namespace RHP.StudentManagement
 
             db.AddInParameter(command, "StudentHouseId", DbType.Int16, studentHouse.StudentHouseId);
             db.AddInParameter(command, "HouseId", DbType.Guid, studentHouse.HouseId);
-            db.AddInParameter(command, "StudentId", DbType.Guid, studentHouse.StudentId);
+            db.AddInParameter(command, "UserId", DbType.Guid, studentHouse.UserId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, studentHouse.IsDeleted);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, studentHouse.UpdatedBy);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);

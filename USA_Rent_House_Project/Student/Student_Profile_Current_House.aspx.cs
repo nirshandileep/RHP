@@ -54,6 +54,11 @@ namespace USA_Rent_House_Project.Student
             }
         }
 
+        public void setData()
+        {
+            HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
+        }
+
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {
             switch (hdnStepNumber.Value.Trim())
@@ -62,12 +67,15 @@ namespace USA_Rent_House_Project.Student
                     if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
                     {
                         Current_House_Landload_infoID.LandlordId = null;
+                        setData();
                     }
                     else
                     {
                         Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
                     }
-                    
+
+                   
+
                     if (Current_House_Landload_infoID.Save())
                     {
                         HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
@@ -87,13 +95,37 @@ namespace USA_Rent_House_Project.Student
 
                     if (Current_House_Rental_Address_infoID.Save())
                     {
+                        HiddenFieldLandloadID.Value = Current_House_Rental_Address_infoID.LandlordId.ToString();
+                        HiddenFieldHouseID.Value = Current_House_Rental_Address_infoID.HouseId.ToString();
+
                         hdnStepNumber.Value = "3";
                         //Todo: Show a save success message if needed
                     }
                     break;
                 case "3":
+                    if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
+                    {
+                        Current_House_RoomMate_infoID.LandlordId = null;
+                    }
+                    else
+                    {
+                        Current_House_RoomMate_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
+
+                    if (String.IsNullOrEmpty(HiddenFieldHouseID.Value.Trim()))
+                    {
+                        Current_House_RoomMate_infoID.HouseId = null;
+                    }
+                    else
+                    {
+                        Current_House_RoomMate_infoID.HouseId = Guid.Parse(HiddenFieldHouseID.Value.Trim());
+                    }
+
                     if (Current_House_RoomMate_infoID.Save())
                     {
+                        //HiddenFieldLandloadID.Value = Current_House_RoomMate_infoID.LandlordId.ToString();
+                        //HiddenFieldHouseID.Value = Current_House_RoomMate_infoID.HouseId.ToString();
+
                         //Todo: write the code here
                         //Todo: Show a save success message if needed
                     }

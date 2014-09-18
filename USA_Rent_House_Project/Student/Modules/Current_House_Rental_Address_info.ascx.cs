@@ -46,6 +46,34 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+        public Guid? HouseId
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(hdHouseId.Value.Trim()))
+                {
+                    return null;
+                }
+                else
+                {
+                    return Guid.Parse(hdHouseId.Value.Trim());
+                }
+            }
+            set
+            {
+                if (value.HasValue)
+                {
+                    hdHouseId.Value = value.Value.ToString();
+                }
+                else
+                {
+                    hdHouseId.Value = string.Empty;
+                }
+
+            }
+        }
+
+
         StudentHouse studentHouse = new StudentHouse();
         House house = new House();
 
@@ -116,34 +144,38 @@ namespace USA_Rent_House_Project.Student.Modules
             }
          
         }
-        protected void CreateRentalButton_Click(object sender, EventArgs e)
-        {
-            //this.Visible = false;
-            ////show step 2
-            //((UserControl)this.Parent.FindControl("Current_House_RoomMate_infoID")).Visible = true;
-        }
 
         public bool Save()
         {
             bool result = true;
 
-
-            if (chknotavailable.Checked == true)
+            if (HouseId == null)
             {
-                house.LandlordId = LandlordId.Value; // Guid.Parse(Session["HiddenFieldLandloadID"].ToString());
-
-                house.StreetAddress = Address.Text.Trim();
-                house.City = City.Text.Trim();
-                house.StateId = Int32.Parse(Drpstate.SelectedValue.Trim());
-                house.Zip = Zip.Text.Trim();
-
-                house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                house.IsPartialHouse = true;
-                
-                if(result = house.Save())
+                if (chknotavailable.Checked == true)
                 {
-                    Save_Student_House();
+                    house.LandlordId = LandlordId.Value;
+
+                    house.StreetAddress = Address.Text.Trim();
+                    house.City = City.Text.Trim();
+                    house.StateId = Int32.Parse(Drpstate.SelectedValue.Trim());
+                    house.Zip = Zip.Text.Trim();
+
+                    house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    house.IsPartialHouse = true;
+
+                    if (result = house.Save())
+                    {
+                        HouseId = house.HouseId.Value;
+                        if (Save_Student_House())
+                        { 
+
+                        }
+                        else
+                        {
+ 
+                        }
+                    }
                 }
             }
             else
@@ -153,37 +185,39 @@ namespace USA_Rent_House_Project.Student.Modules
                     Save_Student_House();
                 }
             }
-            
-
-            ViewState["HouseId"] = house.HouseId.Value; 
 
             return result;
 
         }
 
-
-        public void Save_Student_House()
+        public bool Save_Student_House()
         {
+            bool result = true;
             // save current house for student
             user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            user.HouseId = house.HouseId.Value; 
-            user.UpdateHouse();
+            user.HouseId = house.HouseId.Value;
 
-            // log house details for futer use
-            studentHouse.HouseId = house.HouseId.Value;
-            studentHouse.StudentId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            if (user.UpdateHouse())
+            {
+                // log house details 
+                studentHouse.HouseId = house.HouseId.Value;
+                studentHouse.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
-            studentHouse.Save();
+                result = studentHouse.Save();
+            }
 
-
+           return result;
         }
 
         protected void chknotavailable_CheckedChanged(object sender, EventArgs e)
         {
             if (chknotavailable.Checked ==  true)
             {
+                Address.Text = "";
+                City.Text = "";
+                Zip.Text = "";
                 Address.Enabled = true;
                 City.Enabled = true;
                 Zip.Enabled = true;
@@ -211,7 +245,7 @@ namespace USA_Rent_House_Project.Student.Modules
             Zip.Text = _house.Zip;
             Drpstate.SelectedValue = _house.StateId.HasValue ? _house.StateId.Value.ToString() : "-1";
 
-            ViewState["HouseId"] = house.HouseId; 
+            HouseId = house.HouseId; 
         }
     }
 }
