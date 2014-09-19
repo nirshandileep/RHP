@@ -39,7 +39,7 @@
                         <uc2:Current_House_Rental_Address_info ID="Current_House_Rental_Address_infoID" runat="server"
                             Visible="false" ViewStateMode="Enabled" />
                         <uc3:Current_House_RoomMate_info ID="Current_House_RoomMate_infoID" runat="server"
-                            Visible="false" ViewStateMode="Enabled" />
+                            Visible="true" ViewStateMode="Enabled" />
                         <p>
                             <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                 Text="Save and continue" OnClick="CreateLandloadButton_Click" />

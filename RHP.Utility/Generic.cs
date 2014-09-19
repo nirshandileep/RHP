@@ -199,6 +199,36 @@ namespace RHP.Utility
             return returnEntity;
         }
 
+        /// <summary>
+        /// Returns a collection of T. T must be an Entity class
+        /// </summary>
+        public static List<T> GetAllByFieldValue<T>(string fieldName1, Guid fieldValue1, string fieldName2, string fieldValue2) where T : new()
+        {
+            List<T> returnEntityCollection = new List<T>();
+
+            string TypeName = typeof(T).Name;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_" + TypeName + "SelectAllBy" + fieldName1);
+
+            db.AddInParameter(dbCommand, fieldName1, DbType.Guid, fieldValue1);
+            db.AddInParameter(dbCommand, fieldName2, DbType.String, fieldValue2);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    T entity = new T();
+
+                    AssignDataReaderToEntity(dataReader, entity);
+                    returnEntityCollection.Add(entity);
+                }
+            }
+
+            return returnEntityCollection;
+        }
+
+
 
         /// <summary>
         /// Returns a collection of T. T must be an Entity class

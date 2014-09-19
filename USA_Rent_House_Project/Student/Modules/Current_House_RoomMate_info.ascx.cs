@@ -84,7 +84,11 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User();
+                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+                   
                 }
                 Session[Constants.SESSION_LOGGED_USER] = _user;
                 return _user;
@@ -96,12 +100,23 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LoadStudent();
         }
 
+        public void LoadStudent()
+        {
+         
+            if (HouseId.HasValue)
+            {
+                List<User> userList = User.SelectUserByHouseId("HouseId", HouseId.Value, "RoleName", "student");
 
+                DataListStudentList.DataSource = userList;
+                DataListStudentList.DataBind();
+            }
+        }
       
         protected void CreateRommateButton_Click(object sender, EventArgs e)
         {

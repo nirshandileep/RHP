@@ -2,6 +2,29 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Current_House_RoomMate_info" %>
 <h1>
     Room-mate info</h1>
+
+    <h2>Current students</h2>
+
+        <div id="StudentListData" runat="server">
+        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="1" DataKeyField="UserId">
+            <ItemTemplate>
+                <div id="DivStudent" runat="server">
+
+
+                <%--<asp:label id="userEmail" runat="server" text='<%# Eval("IsPartialUser").Equals("1") ? "Win" : "Lose" %>' />--%>
+
+                    Email : <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>' Visible='<%# Eval("IsPartialUser").Equals("true") %>'></asp:Label>
+                    <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>' Visible='<%# Eval("IsPartialUser").Equals("false") %>'></asp:Label>
+                    <br />
+                    Full Name :  <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>  <asp:Label ID="Label2" runat="server" Text= '<%# Eval("MiddleName") %>' ></asp:Label>   <asp:Label ID="Label3" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label><br />
+                   
+                    Best Contact Number : <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("BestContactNumber") %>'></asp:Label>
+                   
+                </div>
+            </ItemTemplate>
+        </asp:DataList>
+    </div>
+
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />
 

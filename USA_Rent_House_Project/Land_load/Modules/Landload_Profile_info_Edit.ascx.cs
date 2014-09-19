@@ -23,7 +23,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User();
+                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+                   
                 }
                 Session[Constants.SESSION_LOGGED_USER] = _user;
                 return _user;

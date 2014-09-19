@@ -27,7 +27,11 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User();
+                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+                   
                 }
                 Session[Constants.SESSION_LOGGED_USER] = _user;
                 return _user;
@@ -139,10 +143,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (Landlorduser.Save())
                 {
+                    landload.user = Landlorduser;
                     landload.LandlordId = Landlorduser.UserId.HasValue ? Landlorduser.UserId.Value : Landlorduser.UserId.Value;
                     LandlordId = landload.LandlordId;//setting value of property
                     landload.LandlordName = Landlorduser.FirstName + " " + Landlorduser.MiddleName + " " + Landlorduser.LastName;
-                    landload.user = user;
+             
                     landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     result = landload.Save();
@@ -152,6 +157,7 @@ namespace USA_Rent_House_Project.Student.Modules
             }
             else
             {
+               
                 // Landload already registerd
             }
             return result;

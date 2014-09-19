@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -21,7 +22,11 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User();
+                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+                    
                 }
                 Session[Constants.SESSION_LOGGED_USER] = _user;
                 return _user;

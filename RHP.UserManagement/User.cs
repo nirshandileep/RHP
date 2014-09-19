@@ -73,6 +73,12 @@ namespace RHP.UserManagement
             return user;
         }
 
+        public static List<User> SelectUserByHouseId(string fieldName1, Guid fieldValue1, string fieldName2, string fieldValue2)
+        {
+            return Utility.Generic.GetAllByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
+            
+        }
+
         public object AddMembershipPartialUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,Guid GuidUserId, string userRole)
         {
             object objMembershipUser = false;

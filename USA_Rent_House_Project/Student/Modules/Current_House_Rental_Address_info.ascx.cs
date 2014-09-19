@@ -215,6 +215,8 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (chknotavailable.Checked ==  true)
             {
+                HouseId = null;
+
                 Address.Text = "";
                 City.Text = "";
                 Zip.Text = "";
