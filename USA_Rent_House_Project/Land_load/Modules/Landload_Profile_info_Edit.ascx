@@ -47,6 +47,20 @@
             </p>
             
             <p>
+                <asp:Label ID="Label1" runat="server" AssociatedControlID="DOB" CssClass="form_label">Date of Birth:</asp:Label>
+                <asp:TextBox ID="DOB" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox> DD/MM/YYYY
+
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DOB"
+                    CssClass="failureNotification" ErrorMessage="Date of Birth is required." ToolTip="Date of Birth is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+           
+             <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck"
+                    Type="Date" ErrorMessage="Invalid Date of Birth " ControlToValidate="DOB" CssClass="failureNotification"
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+           
+            </p>
+
+            <p>
                 <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Contact Address:</asp:Label>
                 <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AddressRequiredField" runat="server" ControlToValidate="Address"
@@ -78,7 +92,37 @@
 
          
             </p>
-            <p>
+
+             <p>
+                <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="MobileArea" CssClass="form_label">Best Contact #:</asp:Label>
+                <asp:TextBox ID="MobileArea" runat="server" CssClass="MobiletextEntry" MaxLength="3"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="MobileArea"
+                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="DataTypeCheck"
+                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
+                    ToolTip="Invalid Best Contact No." ControlToValidate="MobileArea" ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+
+
+                <asp:TextBox ID="Mobile1" runat="server" CssClass="MobiletextEntry" MaxLength="3"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mobile1"
+                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator4" runat="server" Operator="DataTypeCheck"
+                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
+                    ToolTip="Invalid Best Contact No." ControlToValidate="Mobile1" ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+
+
+                <asp:TextBox ID="Mobile2" runat="server" CssClass="MobiletextEntry" MaxLength="4"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobile2"
+                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+                <asp:CompareValidator ID="CompareValidator2" runat="server" Operator="DataTypeCheck"
+                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
+                    ToolTip="Invalid Best Contact No." ControlToValidate="Mobile2" ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
+            </p>
+
+           <%-- <p>
                 <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Best Contact #:</asp:Label>
                 <asp:TextBox ID="Mobile" runat="server" CssClass="textEntry" MaxLength="15"></asp:TextBox>
 
@@ -92,7 +136,7 @@
                     ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
 
            
-            </p>
+            </p>--%>
 
       </div>
         <p class="submitButton">

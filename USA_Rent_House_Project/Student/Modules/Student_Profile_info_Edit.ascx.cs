@@ -91,9 +91,22 @@ namespace USA_Rent_House_Project.Student.Modules
             Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip;
-            Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
+
+            //if (user.DateOfBirth.HasValue)
+            //{
+            //    DateTime DOB_ = user.DateOfBirth.Value;
+
+            //}
+            DOB.Text = string.IsNullOrEmpty(user.DateOfBirth.ToString()) ? string.Empty : user.DateOfBirth.Value.ToShortDateString();
+
+            MobileArea.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber.Substring(0, 3);
+            Mobile1.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber.Substring(3, 3);
+            Mobile2.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber.Substring(6, 4);
+          
+
+           // Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
            
-            DriversLicense.Text = string.IsNullOrEmpty(user.DriversLicenseNumber) ? string.Empty : user.DriversLicenseNumber;
+           // DriversLicense.Text = string.IsNullOrEmpty(user.DriversLicenseNumber) ? string.Empty : user.DriversLicenseNumber;
            
 
             if (user.StateId.HasValue)
@@ -138,6 +151,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.FirstName = FirstName.Text.Trim();
                         user.MiddleName = MiddleName.Text.Trim();
+                        user.DateOfBirth = DateTime.Parse(DOB.Text.Trim());
                         user.LastName = LastName.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
@@ -151,8 +165,8 @@ namespace USA_Rent_House_Project.Student.Modules
                         }
                         
                         user.Zip = Zip.Text.Trim();
-                        user.BestContactNumber = Mobile.Text.Trim();
-                        user.DriversLicenseNumber = DriversLicense.Text.Trim();
+                        user.BestContactNumber = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();
+                       // user.DriversLicenseNumber = DriversLicense.Text.Trim();
                         user.Gender = DrpGender.SelectedItem.Value.ToString();
                         user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());

@@ -11,6 +11,10 @@ body
     color: #3e3e3e;
 }
 
+.MobiletextEntry
+{
+    width: 30px !important;
+    }
 a:link, a:visited
 {
     color: #034af3;
@@ -18,7 +22,7 @@ a:link, a:visited
 
 a:hover
 {
-    color: #1d60ff;
+    color: #1d60ff;222
     text-decoration: none;
 }
 
@@ -88,7 +92,7 @@ first child of the left and right table columns */
 
 .page
 {
-    width: 960px;
+    width: 1200px;
     background-color: #fff;
     margin: 20px auto 0px auto;
     border: 1px solid #496077;
@@ -301,7 +305,7 @@ input.actionbutton:hover
     margin: 0 auto;
     padding: 10px;
     text-align: right;
-    width: 960px;    
+    width: 1175px;    
 }
 
 .loginDisplay a:link
@@ -347,13 +351,13 @@ input.actionbutton:hover
 
 #topheaderinner
 {
-    width: 1000px; 
+    width: 1200px; 
     margin:0 auto;
 }
 
 #wrapper
 {
-   width: 1000px; 
+   width: 1200px; 
    min-height:500px; 
     margin:0 auto;
     overflow:hidden;
@@ -620,8 +624,9 @@ a.homelargebuttons:hover
 
 .socialmediaicons img
 {
-    float:left;
-    margin:15px;
+    
+    margin: 10px;
+    width: 40px;
 }
 
 
@@ -796,25 +801,25 @@ a.loginlinks:hover
 
 #MainContent_Student_Profile_HeaderID_StidentProfileHeader, #MainContent_Student_Public_Profile_HeaderID_StidentProfileHeader, #MainContent_Landload_Profile_Header1_StidentProfileHeader
 {
-    height: 400px;
+    height: 320px;
     margin: 0 auto;
     
     position: relative;
-    width: 1000px;
+    width: 1200px;
 }
 
 #MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage, #MainContent_Landload_Profile_Header1_HeaderImage
 {
-    width:990px;
-    height:250px;
+    width:1195px;
+    height:225px;
     overflow:hidden;
     border: 3px solid;
 }
 
 #MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img, #MainContent_Landload_Profile_Header1_HeaderImage img
 {
-    width:1000px !important;
-    height:250px;
+    width:1195px !important;
+    height:225px;
    
 }
 
@@ -827,7 +832,7 @@ a.loginlinks:hover
     left: 1px;
     overflow: hidden;
     position: absolute;
-    top: 230px;
+    top: 210px;
     width: 100px;
     z-index: 5;
 }
@@ -841,15 +846,15 @@ a.loginlinks:hover
     margin: 5px;
     overflow: hidden;
     position: relative;
-    right: -415px;
-    top: 25px;
+    right: -520px;
+    top: 0px;
     width: 100px
 }
 
 #MainContent_Student_Profile_DataID_currentHomeStudent, #MainContent_Student_Public_Profile_DataID_currentHomeStudent
 {
     margin:0 auto;
-    width:1000px;
+    width:1200px;
 }
 
 #MainContent_Student_Profile_HeaderID_LandloadProfileImage, #MainContent_Student_Public_Profile_HeaderID_LandloadProfileImage
@@ -860,7 +865,7 @@ a.loginlinks:hover
     right: 1px;
     overflow: hidden;
     position: absolute;
-    top: 230px;
+    top: 210px;
     width: 100px;
     z-index: 5;
 }
@@ -916,9 +921,9 @@ a.loginlinks:hover
    border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
     float: left;
-    height: 80px;
+    height: 70px;
     margin: 0 5% 0 0;
-    width: 80px;
+    width: 70px;
    
 }
 
