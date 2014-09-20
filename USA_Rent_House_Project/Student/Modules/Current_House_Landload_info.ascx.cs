@@ -73,6 +73,7 @@ namespace USA_Rent_House_Project.Student.Modules
         }
 
         public delegate void PassLandlordIDToParent(Guid landlordId);
+
         public event PassLandlordIDToParent PassID;
        
         protected void Page_Load(object sender, EventArgs e)

@@ -28,8 +28,7 @@
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />
 
-<asp:UpdatePanel ID="UpdatePanelRoommateinfo" runat="server">
-<ContentTemplate>
+
 <p id="setEmail" runat="server">
     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
     <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -89,8 +88,7 @@
             </Columns>
     </asp:GridView>
     </div>
-   </ContentTemplate>
-</asp:UpdatePanel>
+
    <p>
       <asp:HiddenField ID="hdnLandlordId" runat="server" />
     <asp:HiddenField ID="hdHouseId" runat="server" />

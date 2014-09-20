@@ -10,10 +10,11 @@ namespace USA_Rent_House_Project.Student
 {
     public partial class Student_Profile_Current_House : System.Web.UI.Page
     {
-        
+
         protected void Page_Init(object sender, EventArgs e)
         {
             Current_House_Landload_infoID.PassID += new Current_House_Landload_info.PassLandlordIDToParent(PassID);
+            Current_House_Rental_Address_infoID.PassHouseID += new Current_House_Rental_Address_info.PassHouseIDToParent(PassHouseID);
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -28,6 +29,15 @@ namespace USA_Rent_House_Project.Student
         protected void PassID(Guid id)
         {
             HiddenFieldLandloadID.Value = id.ToString();
+            Current_House_Rental_Address_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+            Current_House_RoomMate_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+        }
+
+        protected void PassHouseID(Guid id)
+        {
+            HiddenFieldHouseID.Value = id.ToString();
+            Current_House_Rental_Address_infoID.HouseId = Guid.Parse(HiddenFieldHouseID.Value.Trim());
+            Current_House_RoomMate_infoID.HouseId = Guid.Parse(HiddenFieldHouseID.Value.Trim());
         }
 
         public void loadcontrol()
@@ -64,11 +74,6 @@ namespace USA_Rent_House_Project.Student
             }
         }
 
-        public void setData()
-        {
-            HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
-           // LandLordId.Text = Current_House_Landload_infoID.LandlordId.ToString();
-        }
 
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {
@@ -81,30 +86,46 @@ namespace USA_Rent_House_Project.Student
                         {
                             Current_House_Landload_infoID.LandlordId = null;
                         }
-                      
+
                     }
                     else
                     {
                         Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
                     }
 
-                   
-
                     if (Current_House_Landload_infoID.Save())
                     {
                         HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
                         hdnStepNumber.Value = "2";
-                        //Todo: Show a save success message if needed
+
                     }
                     break;
                 case "2":
+
+
                     if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
                     {
-                        Current_House_Rental_Address_infoID.LandlordId = null;
+                        if (!Current_House_Rental_Address_infoID.LandlordId.HasValue)
+                        {
+                            Current_House_Rental_Address_infoID.LandlordId = null;
+                        }
+
                     }
                     else
                     {
                         Current_House_Rental_Address_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
+                    }
+
+                    if (String.IsNullOrEmpty(HiddenFieldHouseID.Value.Trim()))
+                    {
+                        if (!Current_House_Rental_Address_infoID.HouseId.HasValue)
+                        {
+                            Current_House_Rental_Address_infoID.HouseId = null;
+                        }
+                    }
+                    else
+                    {
+                        Current_House_Rental_Address_infoID.HouseId = Guid.Parse(HiddenFieldHouseID.Value.Trim());
                     }
 
                     if (Current_House_Rental_Address_infoID.Save())
@@ -119,7 +140,10 @@ namespace USA_Rent_House_Project.Student
                 case "3":
                     if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
                     {
-                        Current_House_RoomMate_infoID.LandlordId = null;
+                        if (!Current_House_RoomMate_infoID.LandlordId.HasValue)
+                        {
+                            Current_House_RoomMate_infoID.LandlordId = null;
+                        }
                     }
                     else
                     {
@@ -128,7 +152,10 @@ namespace USA_Rent_House_Project.Student
 
                     if (String.IsNullOrEmpty(HiddenFieldHouseID.Value.Trim()))
                     {
-                        Current_House_RoomMate_infoID.HouseId = null;
+                        if (!Current_House_Rental_Address_infoID.HouseId.HasValue)
+                        {
+                            Current_House_Rental_Address_infoID.HouseId = null;
+                        }
                     }
                     else
                     {

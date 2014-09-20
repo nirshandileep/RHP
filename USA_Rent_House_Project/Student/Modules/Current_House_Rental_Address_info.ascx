@@ -4,8 +4,7 @@
     Rental Address</h1>
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup2" />
-<asp:UpdatePanel ID="UpdatePanelRentalAddress" runat="server">
-    <ContentTemplate>
+
         <p>
             <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House owned by landload:</asp:Label>
             <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" 
@@ -48,8 +47,7 @@
         ControlToValidate="Zip" CssClass="failureNotification" ValidationExpression="^[0-9]{5}$"
         ValidationGroup="ValidationGroup2">*</asp:RegularExpressionValidator>
 </p>
-    </ContentTemplate>
-</asp:UpdatePanel>
+
 <p>
    
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
