@@ -71,6 +71,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
         }
+
+        public delegate void PassLandlordIDToParent(Guid landlordId);
+        public event PassLandlordIDToParent PassID;
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -109,19 +112,6 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                
             }
-
-
-            //user.HouseId
-
-            //user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            //user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            //FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
-            //MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
-            //LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
-            //Email.Text = string.IsNullOrEmpty(Membership.GetUser().Email.ToString()) ? string.Empty : Membership.GetUser().Email.ToString();
-            //Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-
-
         }
 
         public bool Save()
@@ -168,24 +158,21 @@ namespace USA_Rent_House_Project.Student.Modules
             Labelmessage.Text = "";
             if (Email.Text.Trim() != "")
             {
-
                 User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
 
                 if (user_ != null)
                 {
                     Labelmessage.Text = "landload verified for email : " + Email.Text.Trim().ToLower();
-
                     LandlordId = user_.UserId;
 
-                   // ViewState["LandlordID"] = _user.UserId.Value.ToString();
+                    //Pass the landlordId back to the main page
+                    PassID(user_.UserId.Value);
+
                     Email.Text = user_.Email;
                     FirstName.Text = user_.FirstName;
                     MiddleName.Text = user_.MiddleName;
                     LastName.Text = user_.LastName;
                     Mobile.Text = user_.BestContactNumber;
-
-                  //  Student_Profile_Current_House student_Profile_Current_House = new Student_Profile_Current_House();
-                  //  student_Profile_Current_House.setData();
                 }
                 else
                 {

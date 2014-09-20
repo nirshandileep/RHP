@@ -13,7 +13,7 @@
 <div id="wrapper">
     <form id="form1" runat="server">
       <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false">
+                <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="true">
                     <AnonymousTemplate>
 
                     </AnonymousTemplate>

@@ -4,7 +4,7 @@
     Landload Info</h1>
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
-<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
+<%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">--%>
     <ContentTemplate>
         <p id="setEmail" runat="server">
             <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
@@ -54,11 +54,13 @@
         Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
         ToolTip="Invalid Best Contact No." ControlToValidate="Mobile">*</asp:CompareValidator>
 </p>
+<asp:HiddenField ID="hdnLandlordId" runat="server" />
     </ContentTemplate>
-</asp:UpdatePanel>
+<%--</asp:UpdatePanel>--%>
 
 <p>
 
     <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
-    <asp:HiddenField ID="hdnLandlordId" runat="server" />
+    
+    
 </p>

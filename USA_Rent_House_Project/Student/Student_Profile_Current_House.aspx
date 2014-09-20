@@ -16,8 +16,8 @@
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <uc1:Student_Profile_Header ID="Student_Profile_HeaderID" runat="server" />
+    <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
     <div id="currentHomeStudent" runat="server">
-        <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
         <asp:HiddenField ID="HiddenFieldHouseID" runat="server" />
         <div id="LeftPanel" runat="server">
             <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
