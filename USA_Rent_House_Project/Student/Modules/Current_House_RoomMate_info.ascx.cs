@@ -101,6 +101,7 @@ namespace USA_Rent_House_Project.Student.Modules
         }
 
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadStudent();
@@ -108,7 +109,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void LoadStudent()
         {
-         
+
+           
             if (HouseId.HasValue)
             {
                // HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
@@ -278,6 +280,15 @@ namespace USA_Rent_House_Project.Student.Modules
             studentHouse.Save();
 
 
+        }
+
+        public bool Next(bool val)
+        {
+            if (val)
+            {
+                RoommateAdd.Visible = false;
+            }
+            return true;
         }
     }
 }

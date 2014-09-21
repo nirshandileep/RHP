@@ -5,11 +5,39 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using USA_Rent_House_Project.Student.Modules;
+using RHP.UserManagement;
+using RHP.SessionManager;
+using RHP.Common;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Student
 {
     public partial class Student_Profile_Current_House : System.Web.UI.Page
     {
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -24,6 +52,17 @@ namespace USA_Rent_House_Project.Student
                 hdnStepNumber.Value = "1";
             }
             loadcontrol();
+            loaddata();
+        }
+
+
+        public void loaddata()
+        {
+            if (user.HouseId != null)
+            {
+                ButtonNext.Visible = true;
+                CreateLandloadButton.Visible = false;
+            }
         }
 
         protected void PassID(Guid id)
@@ -66,7 +105,10 @@ namespace USA_Rent_House_Project.Student
                     break;
                 case "3":
 
+                    ButtonNext.Visible = false;
                     Current_House_RoomMate_infoID.Visible = true;
+                   
+
                     //Todo: Similar to save method written, write the load method in the user control
                     break;
                 default:
@@ -176,6 +218,51 @@ namespace USA_Rent_House_Project.Student
                     break;
             }
 
+            loadcontrol();
+        }
+
+        protected void ButtonNext_Click(object sender, EventArgs e)
+        {
+
+            switch (hdnStepNumber.Value.Trim())
+            {
+                case "1":
+                   
+                    if (Current_House_Landload_infoID.Next())
+                    {
+                        HiddenFieldLandloadID.Value = Current_House_Landload_infoID.LandlordId.ToString();
+                        hdnStepNumber.Value = "2";
+
+                    }
+                    break;
+                case "2":
+
+
+
+                    if (Current_House_Rental_Address_infoID.Next())
+                    {
+                        HiddenFieldLandloadID.Value = Current_House_Rental_Address_infoID.LandlordId.ToString();
+                        HiddenFieldHouseID.Value = Current_House_Rental_Address_infoID.HouseId.ToString();
+
+                        hdnStepNumber.Value = "3";
+                        //Todo: Show a save success message if needed
+                    }
+                    break;
+                case "3":
+
+                    if (Current_House_RoomMate_infoID.Next(true))
+                    {
+                        //HiddenFieldLandloadID.Value = Current_House_RoomMate_infoID.LandlordId.ToString();
+                        //HiddenFieldHouseID.Value = Current_House_RoomMate_infoID.HouseId.ToString();
+
+                        //Todo: write the code here
+                        //Todo: Show a save success message if needed
+                    }
+                    Current_House_RoomMate_infoID.Visible = true;
+                    break;
+                default:
+                    break;
+            }
             loadcontrol();
         }
     }

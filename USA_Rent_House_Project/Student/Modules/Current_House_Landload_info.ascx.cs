@@ -82,7 +82,7 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
-                    
+                    LoadUserData();
                 }
             }
         }
@@ -104,12 +104,15 @@ namespace USA_Rent_House_Project.Student.Modules
        
                 if(LandlordData != null && LandlordData.Tables[0].Rows.Count > 0)
                 {
-                    
-                     FirstName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim();
-                     MiddleName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
-                     LastName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
-                     Email.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["Email"].ToString().Trim();
-                     Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["Mobile"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["Mobile"].ToString().Trim();
+                    PassID(Guid.Parse(LandlordData.Tables[0].Rows[0]["UserId"].ToString().Trim()));
+
+                    ButtonVerify.Visible = false;
+                    Email.Enabled = false;
+                    FirstName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim();
+                    MiddleName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
+                    LastName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
+                    Email.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim();
+                    Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim();
                 }
                
             }
@@ -212,6 +215,11 @@ namespace USA_Rent_House_Project.Student.Modules
             MiddleName.Enabled = false;
             LastName.Enabled = false;
             Mobile.Enabled = false;
+        }
+
+        public bool Next()
+        {
+            return true;
         }
     }
 }

@@ -5,6 +5,7 @@
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup2" />
 
+    <div id="HouseSearch" runat="server">
         <p>
             <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House owned by landload:</asp:Label>
             <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" 
@@ -17,6 +18,7 @@
 
 <h1>
     OR</h1>
+    </div>
 <p>
     <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Rental Address:</asp:Label>
     <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
@@ -33,7 +35,7 @@
 </p>
 <p>
     <asp:Label ID="StateLabel" runat="server" AssociatedControlID="Drpstate" CssClass="form_label">State:</asp:Label>
-      <asp:DropDownList ID="Drpstate" runat="server" CssClass="dropDownEntry">
+      <asp:DropDownList ID="Drpstate" runat="server" CssClass="dropDownEntry" Enabled="false">
                 </asp:DropDownList>
 </p>
 <p>
