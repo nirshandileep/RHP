@@ -91,7 +91,7 @@ namespace USA_Rent_House_Project.Student.Modules
             Address.Text = string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress;
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Zip.Text = string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip;
-
+            
             //if (user.DateOfBirth.HasValue)
             //{
             //    DateTime DOB_ = user.DateOfBirth.Value;
@@ -147,6 +147,10 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
+                        aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+
+                        aspnet_Roles_ = aspnet_Roles.Select("student");
+
                         user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.FirstName = FirstName.Text.Trim();
@@ -155,6 +159,9 @@ namespace USA_Rent_House_Project.Student.Modules
                         user.LastName = LastName.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
+                        user.RoleId = aspnet_Roles_.RoleId;
+                        user.PersonalEmail = Email.Text.Trim();
+
                         if (Drpstate.SelectedItem.Value.Trim() == "-1")
                         {
                             user.StateId = null;

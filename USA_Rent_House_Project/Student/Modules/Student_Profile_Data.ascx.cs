@@ -49,10 +49,15 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user.HouseId.HasValue)
             {
+                
+                //user.HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A83");
                 List<User> userList = User.SelectUserByHouseId("HouseId", user.HouseId.Value, "RoleName", "student");
 
                 DataListStudentList.DataSource = userList;
                 DataListStudentList.DataBind();
+
+                if (userList.Count > 0)
+                { currentHomeStudentData.Visible = true; }
             }
         }
     }

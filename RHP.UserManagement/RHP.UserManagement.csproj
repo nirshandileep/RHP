@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="aspnet_Roles.cs" />
+    <Compile Include="aspnet_RolesDAO.cs" />
     <Compile Include="PartialUser.cs" />
     <Compile Include="PartialUserDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

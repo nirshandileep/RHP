@@ -111,6 +111,8 @@ namespace USA_Rent_House_Project.Student.Modules
          
             if (HouseId.HasValue)
             {
+               // HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
+
                 List<User> userList = User.SelectUserByHouseId("HouseId", HouseId.Value, "RoleName", "student");
 
                 DataListStudentList.DataSource = userList;
@@ -234,6 +236,10 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             bool result = true;
 
+            aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+
+            aspnet_Roles_ = aspnet_Roles.Select("student");
+
             foreach (GridViewRow row in GridviewRoommatelist.Rows)
             {
                 user.PersonalEmail = row.Cells[1].Text;
@@ -247,6 +253,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 user.IsPartialUser = true;
                 user.HouseId = HouseId.Value;
+                user.RoleId = aspnet_Roles_.RoleId;
 
                 if (result = user.Save())
                 {

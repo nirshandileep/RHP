@@ -138,7 +138,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
-                       
+                        aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+
+                        aspnet_Roles_ = aspnet_Roles.Select("landlord");
+
                         user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                         user.FirstName = FirstName.Text.Trim();
@@ -146,6 +149,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user.LastName = LastName.Text.Trim();
                         user.StreetAddress = Address.Text.Trim();
                         user.City = City.Text.Trim();
+
+                        user.RoleId = aspnet_Roles_.RoleId;
+                        user.PersonalEmail = Email.Text.Trim();
 
                         user.DateOfBirth = DateTime.Parse(DOB.Text.Trim());
 

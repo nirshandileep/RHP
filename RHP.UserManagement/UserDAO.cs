@@ -40,6 +40,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "FBid", DbType.String, users.FBid);
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
+            db.AddInParameter(command, "RoleId", DbType.Guid, users.RoleId);
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);
@@ -80,6 +81,7 @@ namespace RHP.UserManagement
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
+            db.AddInParameter(command, "RoleId", DbType.Guid, users.RoleId);
             db.ExecuteNonQuery(command, transaction);
 
             users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
@@ -178,6 +180,7 @@ namespace RHP.UserManagement
             return Convert.ToString(db.GetParameterValue(command, "Username").ToString());
         }
 
+        
 
         public DataSet SelectLandlordByHouseId(Guid HouseId)
         {

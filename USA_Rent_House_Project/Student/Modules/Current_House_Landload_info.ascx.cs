@@ -118,10 +118,14 @@ namespace USA_Rent_House_Project.Student.Modules
         public bool Save()
         {
             bool result = true;
+            aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+
+            aspnet_Roles_ = aspnet_Roles.Select("landlord");
 
             User Landlorduser = new User();
             if (LandlordId == null)
             {
+
                 Landlorduser.UserId = Guid.NewGuid();
                 Landlorduser.PersonalEmail = Email.Text.Trim();
                 Landlorduser.FirstName = FirstName.Text.Trim();
@@ -131,6 +135,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 Landlorduser.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 Landlorduser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 Landlorduser.IsPartialUser = true;
+                Landlorduser.RoleId = aspnet_Roles_.RoleId;
 
                 if (Landlorduser.Save())
                 {
