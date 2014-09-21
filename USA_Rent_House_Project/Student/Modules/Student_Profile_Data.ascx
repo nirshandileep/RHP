@@ -20,9 +20,8 @@
                         <div class="imagegallery">
                         </div>
                         <div>
-                            <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>' Visible='<%# Eval("IsPartialUser").Equals("true") %>'></asp:Label>
-                            <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>'
-                                Visible='<%# Eval("IsPartialUser").Equals("false") %>'></asp:Label>
+     
+                            <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>'></asp:Label>
                             <br />
                             <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>

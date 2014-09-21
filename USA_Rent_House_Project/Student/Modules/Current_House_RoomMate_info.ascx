@@ -13,8 +13,8 @@
 
                 <%--<asp:label id="userEmail" runat="server" text='<%# Eval("IsPartialUser").Equals("1") ? "Win" : "Lose" %>' />--%>
 
-                    Email : <asp:Label ID="lblEmail" runat="server" Text='<%# Eval("Email") %>' Visible='<%# Eval("IsPartialUser").Equals("true") %>'></asp:Label>
-                    <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>' Visible='<%# Eval("IsPartialUser").Equals("false") %>'></asp:Label>
+                    Email : 
+                    <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>' ></asp:Label>
                     <br />
                     Full Name :  <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>  <asp:Label ID="Label2" runat="server" Text= '<%# Eval("MiddleName") %>' ></asp:Label>   <asp:Label ID="Label3" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label><br />
                    
