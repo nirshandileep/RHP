@@ -5,6 +5,7 @@ using System.Text;
 using RHP.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
+using System.Data;
 
 namespace RHP.StudentManagement
 {
@@ -32,6 +33,11 @@ namespace RHP.StudentManagement
         public static List<School> SelectAllList()
         {
             return Utility.Generic.GetAll<School>();
+        }
+
+        public static DataSet SelectAllDataSet()
+        {
+            return new SchoolDAO().SelectAllDataset();
         }
 
         public bool Save()

@@ -78,8 +78,8 @@ namespace USA_Rent_House_Project.Student.Modules
             if (DrpSchoolName.Items.Count == 0)
             {
                 DrpSchoolName.DataSource = School.SelectAllList();
-                DrpSchoolName.DataTextField = "Name";
-                DrpSchoolName.DataValueField = "SchoolId";
+                DrpSchoolName.TextField = "Name";
+                DrpSchoolName.ValueField = "SchoolId";
                 DrpSchoolName.DataBind();
             }
 
@@ -114,8 +114,8 @@ namespace USA_Rent_House_Project.Student.Modules
                         {
                             if (DrpSchoolName.Items[i].Value.ToString().ToLower() == student.School.SchoolId.ToString())
                             {
-                                DrpSchoolName.ClearSelection();
-                                DrpSchoolName.Items[i].Selected = true;
+                                DrpSchoolName.Value = student.School.SchoolId.ToString();
+                                //DrpSchoolName.Items[i].Selected = true;
                             }
                         }
                     }
@@ -152,7 +152,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void SaveSchoolButton_Click(object sender, EventArgs e)
         {
-            string schoolId = DrpSchoolName.SelectedValue.ToString().Trim();
+            string schoolId = DrpSchoolName.Value.ToString().Trim();
 
             if (student.School == null)
             {

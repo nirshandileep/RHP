@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_School_info.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Student_School_info" %>
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <div id="div_register_User">
     <h2 class="form_heading">
         Student School info
@@ -13,8 +15,18 @@
             <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName"
                     CssClass="form_label">School Name:</asp:Label>
-                <asp:DropDownList ID="DrpSchoolName" runat="server" CssClass="dropDownEntry">
-                </asp:DropDownList>
+                <dx:ASPxComboBox ID="DrpSchoolName" runat="server" 
+                    AutoResizeWithContainer="True" TextFormatString="{0} ({1}, {2})" DropDownRows="10" 
+                    IncrementalFilteringMode="Contains" Theme="DevEx" 
+                    EnableDefaultAppearance="False" ShowShadow="False">
+                    <Columns>
+                        <dx:ListBoxColumn FieldName="Name" Name="Name" />
+                        <dx:ListBoxColumn FieldName="StreetAddress" Name="Address" />
+                        <dx:ListBoxColumn FieldName="City" Name="City" />
+                    </Columns>
+                    <ValidationSettings Display="Dynamic">
+                    </ValidationSettings>
+                </dx:ASPxComboBox>
                 <asp:RequiredFieldValidator ID="SchoolNameRequired" runat="server" ErrorMessage="Please select School"
                     CssClass="failureNotification" ControlToValidate="DrpSchoolName" ValidationGroup="SaveSchoolValidationGroup"
                     InitialValue="-1">*</asp:RequiredFieldValidator>
