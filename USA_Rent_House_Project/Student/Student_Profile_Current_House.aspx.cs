@@ -60,8 +60,17 @@ namespace USA_Rent_House_Project.Student
         {
             if (user.HouseId != null)
             {
+                if (hdnStepNumber.Value.Trim() !="3")
+                {
                 ButtonNext.Visible = true;
                 CreateLandloadButton.Visible = false;
+                }
+                else
+                {
+                    ButtonNext.Visible = false;
+                    CreateLandloadButton.Visible = true;
+                    CreateLandloadButton.Text = "Save";
+                }
             }
         }
 
@@ -104,7 +113,8 @@ namespace USA_Rent_House_Project.Student
                     //Todo: Similar to save method written, write the load method in the user control
                     break;
                 case "3":
-
+                    CreateLandloadButton.Visible = true;
+                    CreateLandloadButton.Text = "Save";
                     ButtonNext.Visible = false;
                     Current_House_RoomMate_infoID.Visible = true;
                    

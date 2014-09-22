@@ -58,13 +58,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.Label LabelName;
         
         /// <summary>
-        /// Name control.
+        /// DrpSchoolName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Name;
+        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox DrpSchoolName;
         
         /// <summary>
         /// LabelZipcode control.
@@ -85,13 +85,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.TextBox Zipcode;
         
         /// <summary>
-        /// LabelDrpBedRooms control.
+        /// LabelBedRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDrpBedRooms;
+        protected global::System.Web.UI.WebControls.Label LabelBedRooms;
         
         /// <summary>
         /// DrpBedRooms control.
@@ -175,22 +175,31 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.DropDownList DrpGender;
         
         /// <summary>
-        /// LabelDrpGrade control.
+        /// LabelStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelDrpGrade;
+        protected global::System.Web.UI.WebControls.Label LabelStatus;
         
         /// <summary>
-        /// DrpGrade control.
+        /// Status control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DrpGrade;
+        protected global::System.Web.UI.WebControls.DropDownList Status;
+        
+        /// <summary>
+        /// StatusRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator StatusRequired;
         
         /// <summary>
         /// FindStudent control.

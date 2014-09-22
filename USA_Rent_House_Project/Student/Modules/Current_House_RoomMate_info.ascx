@@ -4,12 +4,10 @@
     <h2>Current students</h2>
 
         <div id="StudentListData" runat="server">
-        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="1" DataKeyField="UserId">
+        <%--<asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="1" DataKeyField="UserId">
             <ItemTemplate>
                 <div id="DivStudent" runat="server">
 
-
-                <%--<asp:label id="userEmail" runat="server" text='<%# Eval("IsPartialUser").Equals("1") ? "Win" : "Lose" %>' />--%>
 
                     Email : 
                     <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>' ></asp:Label>
@@ -20,7 +18,26 @@
                    
                 </div>
             </ItemTemplate>
-        </asp:DataList>
+        </asp:DataList>--%>
+
+        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId">
+                <ItemTemplate>
+                    <div class="imagegallerycontainer">
+                        <div class="imagegallery">
+                        </div>
+                        <div>
+     <%--
+                            <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>'></asp:Label>
+                            <br />--%>
+                            <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
+                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
+                            <asp:Label ID="Label3" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label><br />
+                         <%--   <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("BestContactNumber") %>'></asp:Label>--%>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:DataList>
+
     </div>
 
 <div id="RoommateAdd" runat="server">

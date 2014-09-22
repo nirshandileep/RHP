@@ -232,7 +232,7 @@ div.menu ul li a:active
 
 input[type="checkbox"]
 {
-    width:1% !important;
+    width:10% !important;
 }
 
 input, input[type="text"], select

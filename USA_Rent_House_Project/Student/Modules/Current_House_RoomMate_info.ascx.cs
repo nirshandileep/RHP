@@ -84,7 +84,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User(); //_user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
                 }
                 else
                 {
@@ -260,6 +260,9 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (result = user.Save())
                 {
                     Save_Student_House();
+
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+
                 }
             }
             return result;

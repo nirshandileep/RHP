@@ -24,7 +24,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User();  //_user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
                 }
                 else
                 {

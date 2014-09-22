@@ -15,25 +15,24 @@
          <h2 style="float: left">
             All the students live in the current home</h2>
             <br />
-            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId">
+            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">
                         </div>
                         <div>
-     
+     <%--
                             <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>'></asp:Label>
-                            <br />
+                            <br />--%>
                             <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label><br />
-                            <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("BestContactNumber") %>'></asp:Label>
+                           <%-- <asp:Label ID="lblMobile" runat="server" Text='<%# Eval("BestContactNumber") %>'></asp:Label>--%>
                         </div>
                     </div>
                 </ItemTemplate>
             </asp:DataList>
-            <div class="clear">
-            </div>
+           
             <%-- <div class="imagegallerycontainer">
             <div class="imagegallery">
             </div>
@@ -59,6 +58,8 @@
                 </ItemTemplate>
             </asp:DataList>--%>
         </div>
+         <div class="clear">
+            </div>
         <div id="StudentRating" runat="server">
             <h2>
                 My Ratings **</h2>
