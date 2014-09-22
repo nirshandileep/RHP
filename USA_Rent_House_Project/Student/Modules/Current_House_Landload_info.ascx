@@ -4,8 +4,10 @@
     Landload Info</h1>
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
-<%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">--%>
-    <ContentTemplate>
+<%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
+    <ContentTemplate>--%>
+
+    <p id="idmessase" runat="server"><asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
         <p id="setEmail" runat="server">
             <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
             <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -26,9 +28,8 @@
     <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Verify Landload" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
 </p>
+      
 
-        
-<p id="idmessase" runat="server"><asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>

@@ -11,9 +11,10 @@
             runat="server">My Page</asp:HyperLink>
         <div class="clear">
         </div>
-        <div id="currentHomeStudentData" runat="server" runat="server" visible="false">
+        <div id="currentHomeStudentData" runat="server" visible="false">
          <h2 style="float: left">
             All the students live in the current home</h2>
+            <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">

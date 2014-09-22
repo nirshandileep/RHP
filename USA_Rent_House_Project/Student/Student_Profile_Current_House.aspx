@@ -43,7 +43,11 @@
                         <p>
                             <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                 Text="Save and continue" OnClick="CreateLandloadButton_Click" />
+
+                                <asp:Button ID="ButtonNext" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+                                Text="Next" onclick="ButtonNext_Click" Visible="false" />
                         </p>
+                        
                     </div>
                 </div>
             </div>

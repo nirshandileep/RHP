@@ -1,7 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Current_House_RoomMate_info.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Current_House_RoomMate_info" %>
-<h1>
-    Room-mate info</h1>
 
     <h2>Current students</h2>
 
@@ -24,6 +22,10 @@
             </ItemTemplate>
         </asp:DataList>
     </div>
+
+<div id="RoommateAdd" runat="server">
+    <h1>
+    Room-mate info</h1>
 
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />
@@ -88,7 +90,7 @@
             </Columns>
     </asp:GridView>
     </div>
-
+</div>
    <p>
       <asp:HiddenField ID="hdnLandlordId" runat="server" />
     <asp:HiddenField ID="hdHouseId" runat="server" />

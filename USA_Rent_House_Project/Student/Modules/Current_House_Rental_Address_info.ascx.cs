@@ -149,6 +149,53 @@ namespace USA_Rent_House_Project.Student.Modules
                     DrpHouse.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
                 }
             }
+
+            UserDAO userDAO = new UserDAO();
+            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (user.HouseId != null)
+            {
+                // set selected house
+                if (user.HouseId.HasValue)
+                {
+                    for (int i = 0; i < DrpHouse.Items.Count; i++)
+                    {
+                        if (DrpHouse.Items[i].Value.ToString().ToLower() == user.HouseId.ToString().ToLower())
+                        {
+                            DrpHouse.ClearSelection();
+                            DrpHouse.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                House house =  House.Select(user.HouseId.Value);
+
+                if (house != null)
+                {
+                    HouseSearch.Visible = false;
+                    chknotavailable.Visible = false;
+                    DrpHouse.Enabled = false;
+                    Drpstate.Enabled = false;
+                    PassHouseID(house.HouseId.Value);
+                    // set selected house details
+                    if (house.StateId.HasValue)
+                    {
+                       
+                        for (int i = 0; i < Drpstate.Items.Count; i++)
+                        {
+                            if (Drpstate.Items[i].Value.ToString().ToLower() == house.StateId.ToString().ToLower())
+                            {
+                                Drpstate.ClearSelection();
+                                Drpstate.Items[i].Selected = true;
+                            }
+                        }
+                    }
+
+                    Address.Text = house.StreetAddress;
+                    City.Text = house.City;
+                    Zip.Text = house.Zip;
+                }
+            }
          
         }
 
@@ -230,13 +277,14 @@ namespace USA_Rent_House_Project.Student.Modules
                 Address.Enabled = true;
                 City.Enabled = true;
                 Zip.Enabled = true;
+                Drpstate.Enabled = true;
             }
             else
             {
                 Address.Text = "";
                 City.Text = "";
                 Zip.Text = "";
-
+                Drpstate.Enabled = false;
                 Address.Enabled = false;
                 City.Enabled = false;
                 Zip.Enabled = false;
@@ -260,6 +308,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 PassHouseID(_house.HouseId.Value);
             }
+        }
+
+        public bool Next()
+        {
+            return true;
         }
     }
 }
