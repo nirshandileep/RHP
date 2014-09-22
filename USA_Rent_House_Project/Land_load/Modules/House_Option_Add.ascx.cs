@@ -35,7 +35,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (!IsPostBack)
             {
                 LoadInitialData();
-              //  FillOptions();
+                FillOptions();
             }
         }
 
@@ -43,7 +43,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
           //  HouseId = Guid.Parse(Session[Constants.SESSION_HOUSEID].ToString());
 
-            house = SessionManager.GetSession<House>(Constants.SESSION_HOUSE); //House.Select(HouseId);
+            house = House.Select(HouseId);
+                //SessionManager.GetSession<House>(Constants.SESSION_HOUSE); //House.Select(HouseId);
             if (house.HouseOptionList != null && house.HouseOptionList.Count > 0)
             {
                 List<HouseOption> houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).ToList(); 

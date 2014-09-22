@@ -10,7 +10,7 @@ namespace RHP.LandlordManagement
 {
     public class HouseOption : Common.Base
     {
-        public Guid HouseOptionId { get; set; }
+        public int HouseOptionId { get; set; }
         public Guid HouseId { get; set; }
         public int OptionId { get; set; }
         public Option Option { get; set; }

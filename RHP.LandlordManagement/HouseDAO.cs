@@ -176,10 +176,14 @@ namespace RHP.LandlordManagement
 
                if (dataReader.NextResult())
                {
-                   if (dataReader.Read())
+                   while (dataReader.Read())
                    {
                        HouseOption houseOption = new HouseOption();
                        RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, houseOption);
+                       if (entity.HouseOptionList == null)
+                       {
+                           entity.HouseOptionList = new List<HouseOption>();
+                       }
                        entity.HouseOptionList.Add(houseOption);
                    }
                }

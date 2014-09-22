@@ -14,7 +14,7 @@ namespace RHP.LandlordManagement
 
         public bool Insert(HouseOption option, Database db, DbTransaction transaction)
         {
-            DbCommand command = db.GetStoredProcCommand("usp_HouseInsert");
+            DbCommand command = db.GetStoredProcCommand("usp_HouseOptionInsert");
 
             db.AddInParameter(command, "HouseId", DbType.Guid, option.HouseId);
             db.AddInParameter(command, "OptionId", DbType.Int32, option.OptionId);
