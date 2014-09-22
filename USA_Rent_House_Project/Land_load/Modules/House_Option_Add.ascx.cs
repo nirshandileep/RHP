@@ -157,6 +157,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 house.HouseOptionList = new List<HouseOption>();
             }
+            else
+            {
+                house.HouseOptionList.Clear();
+            }
          // house.HouseOptionList.Clear();
             foreach (ListItem item in chkOptionList.Items)
             {
@@ -167,6 +171,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     option.OptionId = int.Parse(item.Value);
                     house.HouseOptionList.Add(option);
                 }
+
             }
 
             foreach (ListItem item in chkFurnishedroomoptions.Items)
