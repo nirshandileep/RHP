@@ -620,6 +620,7 @@ a.homelargebuttons:hover
 {
     width:40%;
     margin:5% auto;
+    text-align:center;
 }
 
 .socialmediaicons img
@@ -972,3 +973,10 @@ table#MainContent_House_ListID_DataListHouseList td
 .Grid .pgr a { color: Gray; text-decoration: none; }
 .Grid .pgr a:hover { color: #000; text-decoration: none; }
 /* grid view styling end*/
+
+ .homebuttonsdiv
+{
+    margin: 0 auto;
+    overflow: hidden;   
+    width: 990px;
+}
