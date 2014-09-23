@@ -6,8 +6,9 @@
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
-   
+   <div class="homebuttonsdiv">
     <uc1:Home ID="HomeID" runat="server" />
+    </div>
     <div class="clear"></div>
    <div class="socialmediaicons">
     <img src="Images/icon-fb.jpg" />
