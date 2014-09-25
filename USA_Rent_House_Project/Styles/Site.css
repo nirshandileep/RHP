@@ -358,7 +358,7 @@ input.actionbutton:hover
 #wrapper
 {
    width: 1200px; 
-   min-height:500px; 
+   min-height:440px; 
     margin:0 auto;
     overflow:hidden;
 }
@@ -374,10 +374,9 @@ input.actionbutton:hover
 #footer
 {
     border-top: 1px solid;
-    clear: both;
-    height: 50px;
+    clear: both;   
     margin-top: 50px;
-    padding: 20px;   
+    padding: 10px;   
 }
 
 #two-col-1
@@ -885,7 +884,7 @@ a.loginlinks:hover
     float: left;
     margin-left: 2%;
     padding: 15px 0;
-    width: 80%;
+    width: 81%;
 }
 
 .comment_box
@@ -915,6 +914,13 @@ a.loginlinks:hover
         float:left;
         margin:15px;
         width:45%;
+}
+
+#MainContent_Student_Profile_DataID_DataListStudentList .imagegallerycontainer, #MainContent_Current_House_RoomMate_infoID_DataListStudentList .imagegallerycontainer
+{
+   
+        float:left;
+        margin:15px 60px;
 }
 
 .imagegallery, imagegallery img
@@ -979,4 +985,42 @@ table#MainContent_House_ListID_DataListHouseList td
     margin: 0 auto;
     overflow: hidden;   
     width: 990px;
+}
+
+#MainContent_Student_Profile_DataID_StudentRating
+{
+    float:left;
+    width:50%;
+}
+
+#MainContent_Student_Profile_DataID_StudentHouseData
+{
+    float:right;
+   
+}
+
+#MainContent_Student_Profile_CommentsID_DataListStudentComments td
+{
+    border-bottom:1px solid #cdcdcd;
+    padding:12px;
+}
+
+ul.level1 li a
+{
+    background-color: #0e72b8;
+    border-bottom: 1px solid;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    width: 140px;
+}
+
+ul.level1 li a:hover
+{
+ background-color: #083e64;      
+}
+
+.floatright
+{
+    float:right;
 }
