@@ -224,38 +224,44 @@
            
      <h1> House - Search results</h1>
             <br /> <br />
+
+
+            <%-- [User].UserId, [User].IsPartialUser, [User].AspnetUserId, [User].IsFBUser, [User].FBAccessToken, [User].FBUrl, [User].FBTokenTimeStamp, 
+                      [User].FBProfilePictureURL, [User].StreetAddress, [User].City, [User].StateId, [User].Zip, [User].DateOfBirth, [User].BestContactNumber, [User].DriversLicenseNumber, 
+                      [User].Status, [User].PersonalEmail, [User].IsDeleted, [User].CreatedBy, [User].CreatedDate, [User].UpdatedBy, [User].UpdatedDate, [User].RatingValue, [User].FBid, 
+                      [User].Gender, [User].FirstName, [User].MiddleName, [User].LastName, [User].HouseId, [User].RoleId, House.HouseId AS Expr1, House.LandlordId, 
+                      House.StreetAddress AS HouseStreetAddress, House.City AS HouseCity, House.StateId AS Expr4, House.Zip AS HouseZip, House.YearHomeBuild, House.BedRooms, House.BathRooms, 
+                      House.LotSquareFootage, House.TotalSquareFootage, House.UtilitiesIncludedInRent, House.PropertyImagePath, House.IsDeleted AS HouseIsDeleted, 
+                      House.CreatedBy AS HouseCreatedBy, House.CreatedDate AS HouseCreatedDate, House.UpdatedBy AS HouseUpdatedBy, House.UpdatedDate AS HouseUpdatedDate, House.RatingValue AS HouseRatingValue, House.Price, 
+                      House.IsPartialHouse--%>
             <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="1">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
                         <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("UserId") %>' runat="server" />
-                        Name :
+                         Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                         <asp:Label ID="LastName" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>
-
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
-                        <br />Gender :
-                        <asp:Label ID="Gender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                         <br />
                         Location :
                         <asp:Label ID="StreetAddress" runat="server" Text='<%# Eval("StreetAddress") %>'></asp:Label>
                         <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>
                         <asp:Label ID="Zip" runat="server" Text='<%# Eval("Zip") %>'></asp:Label>
+
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
+                        <br />Year Home Build :
+                        <asp:Label ID="YearHomeBuild" runat="server" Text='<%# Eval("YearHomeBuild") %>'></asp:Label>
                         <br />
+                        BedRooms :
+                        <asp:Label ID="BedRooms" runat="server" Text='<%# Eval("BedRooms") %>'></asp:Label>
+                        BathRooms :
+                        <asp:Label ID="BathRooms" runat="server" Text='<%# Eval("BathRooms") %>'></asp:Label>
+                        <br />Lot Square Footage : 
+                        <asp:Label ID="LotSquareFootage" runat="server" Text='<%# Eval("LotSquareFootage") %>'></asp:Label>
+                        <br />TotalSquareFootage :
+                        <asp:Label ID="TotalSquareFootage" runat="server" Text='<%# Eval("TotalSquareFootage") %>'></asp:Label>
                         <br />
-                        School Name :
-                        <asp:Label ID="SchoolName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
-                        <br />School Address :
-                        <asp:Label ID="SchoolStreetAddress" runat="server" Text='<%# Eval("SchoolStreetAddress") %>'></asp:Label>,
-                        <asp:Label ID="SchoolCity" runat="server" Text='<%# Eval("SchoolCity") %>'></asp:Label>,
-                        <asp:Label ID="SchoolZip" runat="server" Text='<%# Eval("SchoolZip") %>'></asp:Label>
-                        <br />
-                        Year : <asp:Label ID="Year" runat="server" Text='<%# Eval("Year") %>'></asp:Label> ,
-                        Student Status : <asp:Label ID="Label2" runat="server" Text='<%# Eval("StudentStatus") %>'></asp:Label> 
-                        <br />
-                        Website :
-                        <asp:Label ID="WebsiteURL" runat="server" Text='<%# Eval("WebsiteURL") %>'></asp:Label>
-                        <br />
+                        Price : <asp:Label ID="Price" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
                         -----------------------------------------------------------------------------------------------------------------------------------------------------------------
                     </div>
                 </ItemTemplate>

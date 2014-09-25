@@ -116,10 +116,29 @@ namespace USA_Rent_House_Project
             House house = new House();
             HouseDAO houseDAO = new HouseDAO();
 
-           string SelectedSchoolname =  DrpSchoolName.SelectedItem.Value.ToString();
-           house.Zip = Zipcode.Text.Trim();
-           house.BathRooms = int.Parse( DrpBedRooms.SelectedItem.Value);
-           house.BathRooms = int.Parse(DrpBathRooms.SelectedItem.Value);
+            string SelectedSchoolname = "";// DrpSchoolName.SelectedItem.Value.ToString();
+            house.Zip = string.IsNullOrEmpty(Zipcode.Text.Trim()) ? null : Zipcode.Text.Trim(); 
+
+            if (DrpBedRooms.SelectedItem.Value != "-1")
+            {
+                house.BathRooms = int.Parse(DrpBedRooms.SelectedItem.Value);
+            }
+            else
+            {
+                house.BathRooms = null;
+            }
+
+            if (DrpBathRooms.SelectedItem.Value != "-1")
+            {
+                house.BathRooms = int.Parse(DrpBathRooms.SelectedItem.Value);
+            }
+            else
+            {
+                house.BathRooms = null;
+            }
+
+            
+           
 
            DataSet ds;
 
