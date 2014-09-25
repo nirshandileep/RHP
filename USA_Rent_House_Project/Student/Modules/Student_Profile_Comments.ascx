@@ -9,8 +9,7 @@
                 <div id="DivComment" runat="server">
                     <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("CommentId") %>' runat="server" />
                      <asp:Label ID="CommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
-                     <br />
-                     -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+                  
                 </div>
             </ItemTemplate>
         </asp:DataList>
