@@ -15,7 +15,7 @@
             <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName"
                     CssClass="form_label">School Name:</asp:Label>
-                <dx:ASPxComboBox ID="DrpSchoolName" runat="server"  Width="100%"
+                <dx:ASPxComboBox ID="DrpSchoolName" runat="server"  Width="52%"
                     AutoResizeWithContainer="True" TextFormatString="{0} ({1}, {2})" DropDownRows="10" 
                     IncrementalFilteringMode="Contains" Theme="DevEx" 
                     EnableDefaultAppearance="False" ShowShadow="False">
