@@ -6,6 +6,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using System.Data;
 using RHP.Common;
+using RHP.UserManagement;
 
 namespace RHP.StudentManagement
 {
@@ -100,13 +101,29 @@ namespace RHP.StudentManagement
         }
 
 
-        public static DataSet Search(StudentSearch searchStudent)
+        //public static DataSet Search(StudentSearch searchStudent)
+        //{
+        //    Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+        //    DbCommand command = db.GetStoredProcCommand("usp_Student_Search");
+
+        //    db.AddInParameter(command, "StudentId", DbType.Guid, searchStudent.StudentId);
+        //    db.AddInParameter(command, "SchoolId", DbType.Guid, searchStudent.SchoolId);
+
+        //    return db.ExecuteDataSet(command);
+
+        //}
+
+        public DataSet Search(User user)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand command = db.GetStoredProcCommand("usp_Student_Search");
+            DbCommand command = db.GetStoredProcCommand("usp_StudentSearch");
 
-            db.AddInParameter(command, "StudentId", DbType.Guid, searchStudent.StudentId);
-            db.AddInParameter(command, "SchoolId", DbType.Guid, searchStudent.SchoolId);
+            db.AddInParameter(command, "FirstName", DbType.String, user.FirstName);
+            db.AddInParameter(command, "MiddleName", DbType.String, user.MiddleName);
+            db.AddInParameter(command, "LastName", DbType.String, user.LastName);
+            db.AddInParameter(command, "Zip", DbType.String, user.Zip);
+            db.AddInParameter(command, "Gender", DbType.String, user.Gender);
+            db.AddInParameter(command, "Status", DbType.String, user.Status);
 
             return db.ExecuteDataSet(command);
 

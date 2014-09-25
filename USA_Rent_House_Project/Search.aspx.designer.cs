@@ -13,6 +13,15 @@ namespace USA_Rent_House_Project {
     public partial class Search {
         
         /// <summary>
+        /// HiddenFieldCurrentStep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldCurrentStep;
+        
+        /// <summary>
         /// div_Search control.
         /// </summary>
         /// <remarks>
@@ -139,22 +148,76 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_Search_Student;
         
         /// <summary>
-        /// Labellandloadname control.
+        /// LabelFirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labellandloadname;
+        protected global::System.Web.UI.WebControls.Label LabelFirstName;
         
         /// <summary>
-        /// landloadname control.
+        /// FirstName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox landloadname;
+        protected global::System.Web.UI.WebControls.TextBox FirstName;
+        
+        /// <summary>
+        /// LabelMiddleName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelMiddleName;
+        
+        /// <summary>
+        /// MiddleName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox MiddleName;
+        
+        /// <summary>
+        /// LabelLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelLastName;
+        
+        /// <summary>
+        /// LastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox LastName;
+        
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+        
+        /// <summary>
+        /// Zipcode2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox Zipcode2;
         
         /// <summary>
         /// Label5 control.
@@ -184,13 +247,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.Label LabelStatus;
         
         /// <summary>
-        /// Status control.
+        /// DrpStatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList Status;
+        protected global::System.Web.UI.WebControls.DropDownList DrpStatus;
         
         /// <summary>
         /// StatusRequired control.
@@ -209,5 +272,50 @@ namespace USA_Rent_House_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button FindStudent;
+        
+        /// <summary>
+        /// Searchresults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Searchresults;
+        
+        /// <summary>
+        /// StudentSearchresults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentSearchresults;
+        
+        /// <summary>
+        /// DataListStudentSearchresults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListStudentSearchresults;
+        
+        /// <summary>
+        /// HouseSearchresults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HouseSearchresults;
+        
+        /// <summary>
+        /// DataListHouseSearchresults control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListHouseSearchresults;
     }
 }

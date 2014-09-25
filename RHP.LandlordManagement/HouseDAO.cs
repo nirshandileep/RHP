@@ -6,6 +6,7 @@ using System.Data;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Common;
+using RHP.UserManagement;
 
 namespace RHP.LandlordManagement
 {
@@ -199,6 +200,20 @@ namespace RHP.LandlordManagement
 
            }
            return result;
+       }
+
+       public DataSet Search(House house,string SelectedSchoolname)
+       {
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand command = db.GetStoredProcCommand("usp_HouseSearch");
+
+           db.AddInParameter(command, "Schoolname", DbType.String, SelectedSchoolname);
+           db.AddInParameter(command, "BathRooms", DbType.String, house.BathRooms);
+           db.AddInParameter(command, "BedRooms", DbType.String, house.BedRooms);
+           db.AddInParameter(command, "Zip", DbType.String, house.Zip);
+
+           return db.ExecuteDataSet(command);
+
        }
    }
 }

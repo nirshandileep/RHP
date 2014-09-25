@@ -10,6 +10,7 @@ using RHP.SessionManager;
 using RHP.Common;
 using System.Web.Security;
 using System.Data;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -44,12 +45,28 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadUserData();
+            string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+
+            if (AccessCode != null && AccessCode != string.Empty)
+            {
+                try
+                {
+                    LoadUserData(Guid.Parse(AccessCode));
+                }
+                catch (Exception ex)
+                {
+ 
+                }
+            }
+
+            
         }
 
-        public void LoadUserData()
+        public void LoadUserData(Guid AccessCode)
         {
-            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+          //  user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+            user = User.Select(AccessCode);
+
         }
 
         protected void CommentButton_Click(object sender, EventArgs e)

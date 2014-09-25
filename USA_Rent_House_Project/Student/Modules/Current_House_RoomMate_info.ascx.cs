@@ -261,7 +261,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 {
                     Save_Student_House();
 
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Edit.aspx';}", true);
 
                 }
             }

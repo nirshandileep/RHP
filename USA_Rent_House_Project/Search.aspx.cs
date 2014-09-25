@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using RHP.Utility;
 using RHP.StudentManagement;
 using RHP.Common;
+using RHP.UserManagement;
+using System.Data;
+using RHP.LandlordManagement;
 
 namespace USA_Rent_House_Project
 {
@@ -17,6 +20,7 @@ namespace USA_Rent_House_Project
             string v = Utility.GetQueryStringValueByKey(Request, "type");
             if (v == "s")
             {
+                loadStudentdata();
                 div_Search.Visible = false;
                 Div_Search_Student.Visible = true;
                 Div_Search_House.Visible = false;
@@ -24,6 +28,7 @@ namespace USA_Rent_House_Project
             }
             else if (v == "l")
             {
+                loadHousedata();
                 div_Search.Visible = false;
                 Div_Search_House.Visible = true;
                 Div_Search_Student.Visible = false;
@@ -33,14 +38,18 @@ namespace USA_Rent_House_Project
                 div_Search.Visible = true;
             }
 
-            if (!IsPostBack)
+            if (HiddenFieldCurrentStep.Value != "1" || HiddenFieldCurrentStep.Value != "2")
             {
-                loaddata();
+                Searchresults.Visible = true;
             }
+
+           
+
+            
         }
 
 
-        public void loaddata()
+        public void loadHousedata()
         {
              if (DrpSchoolName.Items.Count == 0)
             {
@@ -66,29 +75,119 @@ namespace USA_Rent_House_Project
              }
              DrpBedRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
 
-             Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
-             DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
-            
         }
+
+        public void loadStudentdata()
+        {
+           
+            //if (DrpSchoolName2.Items.Count == 0)
+            //{
+            //    DrpSchoolName2.DataSource = School.SelectAllList();
+            //    DrpSchoolName2.TextField = "Name";
+            //    DrpSchoolName2.ValueField = "SchoolId";
+            //    DrpSchoolName2.DataBind();
+            //}
+
+            DrpStatus.Items.Clear();
+            DrpStatus.Items.AddRange(Constants.STUDENT_STATUS_LIST);
+            DrpGender.Items.Clear();
+            DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
+
+        }
+
         protected void ButtonSearchHouse_Click(object sender, EventArgs e)
         {
+            loadHousedata();
+            HiddenFieldCurrentStep.Value = "1";
             Div_Search_House.Visible = true;
             Div_Search_Student.Visible = false;
         }
 
         protected void ButtonSearchStudent_Click(object sender, EventArgs e)
         {
+            loadStudentdata();
+            HiddenFieldCurrentStep.Value = "2";
             Div_Search_Student.Visible = true;
             Div_Search_House.Visible = false;
         }
 
         protected void FindHome_Click(object sender, EventArgs e)
         {
+            House house = new House();
+            HouseDAO houseDAO = new HouseDAO();
 
+           string SelectedSchoolname =  DrpSchoolName.SelectedItem.Value.ToString();
+           house.Zip = Zipcode.Text.Trim();
+           house.BathRooms = int.Parse( DrpBedRooms.SelectedItem.Value);
+           house.BathRooms = int.Parse(DrpBathRooms.SelectedItem.Value);
+
+           DataSet ds;
+
+           ds = houseDAO.Search(house, SelectedSchoolname);
+
+           if (ds != null)
+           {
+
+               DataListHouseSearchresults.DataSource = ds.Tables[0];
+               DataListHouseSearchresults.DataBind();
+
+               HouseSearchresults.Visible = true;
+           }
+           else
+           {
+               Searchresults.Visible = true;
+           }
         }
+
 
         protected void FindStudent_Click(object sender, EventArgs e)
         {
+            User user = new User();
+            StudentDAO studentDAO = new StudentDAO();
+
+            user.FirstName = string.IsNullOrEmpty(FirstName.Text.Trim()) ? null : FirstName.Text.Trim();
+            user.MiddleName = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? null : MiddleName.Text.Trim(); 
+            user.LastName = string.IsNullOrEmpty(LastName.Text.Trim()) ? null : LastName.Text.Trim();
+
+            user.Zip = string.IsNullOrEmpty(Zipcode2.Text.Trim()) ? null : Zipcode2.Text.Trim();
+
+            if (DrpGender.SelectedItem.Value != "-1")
+            {
+                 user.Gender = DrpGender.SelectedItem.Value;
+            }
+            else
+            {
+                user.Gender = null;
+            }
+
+            if (DrpStatus.SelectedItem.Value != "-1")
+            {
+                user.Status = DrpStatus.SelectedItem.Value;
+            }
+            else
+            {
+                user.Status = null;
+            }
+            
+
+            DataSet ds;
+
+            ds = studentDAO.Search(user);
+
+            if (ds != null)
+            {
+                
+                DataListStudentSearchresults.DataSource = ds.Tables[0];
+                DataListStudentSearchresults.DataBind();
+
+                StudentSearchresults.Visible = true;
+            }
+            else
+            {
+            Searchresults.Visible = true;
+           
+
+            }
 
         }
     }
