@@ -20,7 +20,7 @@
             </ItemTemplate>
         </asp:DataList>--%>
 
-        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId">
+        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">
