@@ -9,10 +9,16 @@
        
         <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Student/Student_Public_Profile.aspx"
             runat="server">My Page</asp:HyperLink>
+             <div id="Search" runat="server">
+            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+                runat="server">Search for Student</asp:HyperLink>
+            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
+                runat="server">Search for House</asp:HyperLink>
+        </div>
         <div class="clear">
         </div>
         <div id="currentHomeStudentData" runat="server" visible="false">
-         <h2 style="float: left">
+         <h2>
             All the students live in the current home</h2>
             <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId">
@@ -70,11 +76,6 @@
             <asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" NavigateUrl="~/Student/Current_House_Life.aspx"
                 runat="server">Photos/Videos</asp:HyperLink>
         </div>
-        <div id="Search" runat="server">
-            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                runat="server">Search for House</asp:HyperLink>
-        </div>
+       
     </div>
 </div>
