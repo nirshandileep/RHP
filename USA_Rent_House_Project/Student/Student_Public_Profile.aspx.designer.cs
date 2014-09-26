@@ -55,6 +55,6 @@ namespace USA_Rent_House_Project.Student {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Comments Student_Profile_CommentsID;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Comments Student_Profile_CommentsID;
     }
 }

@@ -113,6 +113,7 @@ namespace USA_Rent_House_Project
 
         protected void FindHome_Click(object sender, EventArgs e)
         {
+            StudentSearchresults.Visible = false;
             House house = new House();
             HouseDAO houseDAO = new HouseDAO();
 
@@ -146,7 +147,6 @@ namespace USA_Rent_House_Project
 
            if (ds != null)
            {
-
                DataListHouseSearchresults.DataSource = ds.Tables[0];
                DataListHouseSearchresults.DataBind();
 
@@ -161,6 +161,7 @@ namespace USA_Rent_House_Project
 
         protected void FindStudent_Click(object sender, EventArgs e)
         {
+            HouseSearchresults.Visible = false;
             User user = new User();
             StudentDAO studentDAO = new StudentDAO();
 

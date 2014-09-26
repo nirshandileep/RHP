@@ -42,7 +42,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             LeftMenuBar.Items.Clear();
             LeftMenuBar.Items.Add(new MenuItem("Profile", "PublicID", "", "~/Land_load/Land_load_Profile.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("Profile info", "ProfileID", "", "~/Land_load/Land_load_Profile_Edit.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("Properties", "PropertyID", "", "~/Land_load/Land_Load_House.aspx"));
+            //LeftMenuBar.Items.Add(new MenuItem("Properties", "PropertyID", "", "~/Land_load/Land_Load_House.aspx"));
             //LeftMenuBar.Items.Add(new MenuItem("Property Options", "PropertyOptionID", "", "~/Land_load/Land_Load_House_Option_Add.aspx"));
             if (user.IsFBUser == true)
             {

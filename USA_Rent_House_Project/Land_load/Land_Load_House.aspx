@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="Land-Load House" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
     AutoEventWireup="true" CodeBehind="Land_Load_House.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_Load_House" %>
 
-<%@ Register Src="Modules/House_List.ascx" TagName="House_List" TagPrefix="uc1" %>
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"
     TagPrefix="uc1" %>
 <%@ Register Src="Modules/Landload_Profile_Banner.ascx" TagName="Landload_Profile_Banner"
@@ -22,8 +21,7 @@
         </div>
         <div id="RightPanel" runat="server">
       
-            <asp:LinkButton ID="LB_House_Add" runat="server" CssClass="loginlinks" OnClick="LB_House_Add_Click">Add a New House</asp:LinkButton>
-            <uc1:House_List ID="House_ListID" runat="server" />
+            
         </div>
     </div>
 </asp:Content>

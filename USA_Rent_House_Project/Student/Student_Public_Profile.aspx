@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Public_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Public_Profile" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Student_Public_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Public_Profile" %>
 
 <%@ Register src="Modules/Student_Public_Profile_Header.ascx" tagname="Student_Public_Profile_Header" tagprefix="uc1" %>
 <%@ Register src="Modules/Student_Public_Profile_Banner.ascx" tagname="Student_Public_Profile_Banner" tagprefix="uc2" %>
 <%@ Register src="Modules/Student_Public_Profile_Data.ascx" tagname="Student_Public_Profile_Data" tagprefix="uc3" %>
-<%@ Register src="Modules/Student_Profile_Comments.ascx" tagname="Student_Profile_Comments" tagprefix="uc4" %>
+<%@ Register src="Modules/Student_Public_Profile_Comments.ascx" tagname="Student_Profile_Comments" tagprefix="uc4" %>
 
 <%@ Register src="Modules/Student_Profile_Comment_Add.ascx" tagname="Student_Profile_Comment_Add" tagprefix="uc5" %>
 
