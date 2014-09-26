@@ -53,8 +53,8 @@ namespace USA_Rent_House_Project.Student.Modules
             }
             else
             {
-                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Change_Password.aspx"));
-                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Change_Secret_Question.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Student/Change_Password.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Student/Change_Secret_Question.aspx"));
             }
         }
     }

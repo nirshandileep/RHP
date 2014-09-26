@@ -50,8 +50,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
             else
             {
-                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Change_Password.aspx"));
-                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Change_Secret_Question.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Land_load/Change_Password.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Land_load/Change_Secret_Question.aspx"));
             }
         }
     }

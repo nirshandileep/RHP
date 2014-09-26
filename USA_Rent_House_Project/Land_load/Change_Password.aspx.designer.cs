@@ -7,54 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Land_load.Modules {
+namespace USA_Rent_House_Project.Land_load {
     
     
-    public partial class Landload_Public_Profile_Header {
+    public partial class Change_Password {
         
         /// <summary>
-        /// StidentProfileHeader control.
+        /// Landload_Profile_Header1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StidentProfileHeader;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Header Landload_Profile_Header1;
         
         /// <summary>
-        /// HeaderImage control.
+        /// LeftPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeaderImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
         
         /// <summary>
-        /// jmgHeaderImage control.
+        /// Menu_Bar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image jmgHeaderImage;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Menu_Bar Menu_Bar1;
         
         /// <summary>
-        /// LandloadProfileImage control.
+        /// RightPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LandloadProfileImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// imgLandloadProfileImage control.
+        /// Change_Password1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
+        protected global::USA_Rent_House_Project.Modules.Change_Password Change_Password1;
     }
 }

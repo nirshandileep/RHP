@@ -204,6 +204,8 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Land_load\Change_Password.aspx" />
+    <Content Include="Land_load\Change_Secret_Question.aspx" />
     <Content Include="Land_load\Land_Load_House.aspx" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
     <Content Include="Land_load\Land_Load_House_Option_Add.aspx" />
@@ -236,6 +238,8 @@
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
+    <Content Include="Student\Change_Password.aspx" />
+    <Content Include="Student\Change_Secret_Question.aspx" />
     <Content Include="Student\Current_House_Life.aspx" />
     <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
@@ -525,6 +529,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Change_Password.aspx.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Change_Password.aspx.designer.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Change_Secret_Question.aspx.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Change_Secret_Question.aspx.designer.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_Load_House.aspx.cs">
       <DependentUpon>Land_Load_House.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -773,6 +791,20 @@
     </Compile>
     <Compile Include="Secret_Question.aspx.designer.cs">
       <DependentUpon>Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Change_Password.aspx.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Change_Password.aspx.designer.cs">
+      <DependentUpon>Change_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Change_Secret_Question.aspx.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Change_Secret_Question.aspx.designer.cs">
+      <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Current_House_Life.aspx.cs">
       <DependentUpon>Current_House_Life.aspx</DependentUpon>

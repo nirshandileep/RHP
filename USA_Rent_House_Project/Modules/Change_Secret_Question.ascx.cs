@@ -39,7 +39,7 @@ namespace USA_Rent_House_Project.Modules
             MembershipUser u = Membership.GetUser();
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                CurrentQuestionTextbox.Text = u.PasswordQuestion.ToString();
+                CurrentQuestionTextbox.Text = string.IsNullOrEmpty(u.PasswordQuestion) ? string.Empty : u.PasswordQuestion;
 
                 if (user.IsFBUser == true)
                 {

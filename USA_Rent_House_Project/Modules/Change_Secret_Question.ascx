@@ -1,9 +1,9 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Change_Secret_Question.ascx.cs"
     Inherits="USA_Rent_House_Project.Modules.Change_Secret_Question" %>
-<h3>
-    Change Password Secret and Answer for
-    <%= HttpContext.Current.User.Identity.Name%>
-</h3>
+<h2 class="form_heading">
+    Change Secret Question and Answer 
+   <%-- <%= HttpContext.Current.User.Identity.Name%>--%>
+</h2>
 
   <asp:ValidationSummary ID="ChangeSecretPasswordValidationSummary" runat="server" CssClass="failureNotification" 
                  ValidationGroup="ChangeSecretPasswordValidationGroup"/>
