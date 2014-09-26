@@ -13,13 +13,14 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <uc1:Landload_Profile_Header ID="Landload_Profile_Header1" runat="server" />
-    <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />
+   
     <%-- <uc2:Landload_Profile_Data ID="Landload_Profile_Data1" runat="server" />
     --%>
     <div id="LeftPanel" runat="server">
         <uc2:Menu_Bar ID="Menu_Bar1" runat="server" />
     </div>
     <div id="RightPanel" runat="server">
+
      <div id="Search" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>

@@ -40,7 +40,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadStudent();
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                LoadStudent();
+            }
         }
 
         public void LoadStudent()

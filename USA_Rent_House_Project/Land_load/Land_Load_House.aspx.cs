@@ -8,6 +8,7 @@ using System.Web.Security;
 using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Land_load
 {
@@ -36,7 +37,40 @@ namespace USA_Rent_House_Project.Land_load
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+
+                if (AccessCode != string.Empty && AccessCode != null)
+                {
+                    try
+                    {
+                        LoadStudent(Guid.Parse(AccessCode));
+                    }
+                    catch (Exception ex)
+                    { }
+                }
+
+               
+            }
+        }
+
+        public void LoadStudent(Guid AccessCode)
+        {
+           // user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (AccessCode != null )
+            {
+
+                //user.HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A83");
+                List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", AccessCode, "RoleName", "student");
+
+                DataListCurrentHomeStudent.DataSource = userList;
+                DataListCurrentHomeStudent.DataBind();
+
+                if (userList.Count > 0)
+                { currentHomeStudentData.Visible = true; }
+            }
         }
 
 
