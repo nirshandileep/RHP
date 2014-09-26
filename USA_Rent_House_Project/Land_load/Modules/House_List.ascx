@@ -33,9 +33,9 @@
                     UtilitiesIncludedInRent :
                     <asp:Label ID="UtilitiesIncludedInRent" runat="server" Text='<%# Eval("UtilitiesIncludedInRent") %>'></asp:Label>
                      <br />
-                    <asp:HyperLink ID="HyperLink3" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'>View Property</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink3" CssClass="loginlinks" runat="server" Target="_blank"  NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'>View Property</asp:HyperLink>
 
-                     <asp:HyperLink ID="HyperLinkviewStudent" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>Public View</asp:HyperLink>
+                     <asp:HyperLink ID="HyperLinkviewStudent" CssClass="loginlinks" Target="_blank"  runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>Public View</asp:HyperLink>
               
   <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House_info_Add.aspx?HouseId={0}") %>'>Edit House</asp:HyperLink>
                       

@@ -23,7 +23,11 @@ namespace USA_Rent_House_Project.Student
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User();
+                    if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        _user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
                 }
                 else
                 {
@@ -51,8 +55,15 @@ namespace USA_Rent_House_Project.Student
             {
                 hdnStepNumber.Value = "1";
             }
-            loadcontrol();
-            loaddata();
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                loadcontrol();
+                loaddata();
+            }
+
+            
         }
 
 

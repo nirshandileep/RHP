@@ -23,7 +23,12 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (_user == null)
                 {
 
-                    _user = new User(); // User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User(); // 
+
+                    if (HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
                 }
                 else
                 {
@@ -41,8 +46,11 @@ namespace USA_Rent_House_Project.Student.Modules
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            LoadStudent();
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                LoadStudent();
+            }
         }
 
         public void LoadStudent()
@@ -50,7 +58,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user.HouseId.HasValue)
             {
-                
+              
                 //user.HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A83");
                 List<User> userList = User.SelectUserByHouseId("HouseId", user.HouseId.Value, "RoleName", "student");
 
