@@ -34,8 +34,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
         {
             if (!IsPostBack)
             {
-                LoadInitialData();
-                FillOptions();
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    LoadInitialData();
+                    FillOptions();
+                }
             }
         }
 

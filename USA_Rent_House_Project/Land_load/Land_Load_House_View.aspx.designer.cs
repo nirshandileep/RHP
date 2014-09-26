@@ -10,7 +10,7 @@
 namespace USA_Rent_House_Project.Land_load {
     
     
-    public partial class Land_Load_House {
+    public partial class Land_Load_House_View {
         
         /// <summary>
         /// Landload_Profile_Header1 control.
@@ -85,15 +85,6 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
         
         /// <summary>
-        /// Landload_Profile_Banner2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Banner Landload_Profile_Banner2;
-        
-        /// <summary>
         /// Search control.
         /// </summary>
         /// <remarks>
@@ -121,48 +112,12 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// HouseDetails control.
+        /// House_Details1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HouseDetails;
-        
-        /// <summary>
-        /// HyperLinkHouseDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkHouseDetails;
-        
-        /// <summary>
-        /// currentHomeStudentData control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudentData;
-        
-        /// <summary>
-        /// DataListCurrentHomeStudent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListCurrentHomeStudent;
-        
-        /// <summary>
-        /// Landload_Profile_Comments1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Comments Landload_Profile_Comments1;
+        protected global::USA_Rent_House_Project.Land_load.Modules.House_Details House_Details1;
     }
 }

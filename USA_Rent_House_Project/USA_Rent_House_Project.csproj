@@ -209,10 +209,12 @@
     <Content Include="Land_load\Land_Load_House.aspx" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
     <Content Include="Land_load\Land_Load_House_Option_Add.aspx" />
+    <Content Include="Land_load\Land_Load_House_View.aspx" />
     <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
     <Content Include="Land_load\Land_load_Public_Profile.aspx" />
+    <Content Include="Land_load\Modules\House_Details.ascx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\House_List.ascx" />
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
@@ -565,6 +567,13 @@
     <Compile Include="Land_load\Land_Load_House_Option_Add.aspx.designer.cs">
       <DependentUpon>Land_Load_House_Option_Add.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Land_Load_House_View.aspx.cs">
+      <DependentUpon>Land_Load_House_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_Load_House_View.aspx.designer.cs">
+      <DependentUpon>Land_Load_House_View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_load_Profile.aspx.cs">
       <DependentUpon>Land_load_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -592,6 +601,13 @@
     </Compile>
     <Compile Include="Land_load\Land_load_Public_Profile.aspx.designer.cs">
       <DependentUpon>Land_load_Public_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Details.ascx.cs">
+      <DependentUpon>House_Details.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Details.ascx.designer.cs">
+      <DependentUpon>House_Details.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\House_info_Add.ascx.cs">
       <DependentUpon>House_info_Add.ascx</DependentUpon>

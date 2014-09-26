@@ -34,7 +34,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadComments();
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                LoadComments();
+            }
         }
 
         public void LoadComments()

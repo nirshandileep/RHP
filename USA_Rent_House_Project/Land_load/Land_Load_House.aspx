@@ -29,6 +29,10 @@
                 <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                     runat="server">Search for House</asp:HyperLink>
             </div>
+
+            <div id="HouseDetails" runat="server">
+                <asp:HyperLink ID="HyperLinkHouseDetails" runat="server">House Details</asp:HyperLink>
+            </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>
                     All the students live in the current home</h2>
