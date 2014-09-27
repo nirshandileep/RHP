@@ -916,6 +916,14 @@ a.loginlinks:hover
         width:45%;
 }
 
+#MainContent_Landload_Profile_Banner1_LandloadBanner .imagegallerycontainer
+{
+    float:left;
+        margin:15px;
+        width:100%;
+    
+}
+
 #MainContent_Student_Profile_DataID_DataListStudentList .imagegallerycontainer, #MainContent_Current_House_RoomMate_infoID_DataListStudentList .imagegallerycontainer
 {
    
@@ -926,12 +934,12 @@ a.loginlinks:hover
 .imagegallery, imagegallery img
 {
    border: 5px solid #fff;
+    border-radius: 10px;
     box-shadow: 0 0 2px #000;
     float: left;
-    height: 70px;
+    height: 90px;
     margin: 0 5% 0 0;
-    width: 70px;
-   
+    width: 90px;
 }
 
 #MainContent_Student_Profile_DataID_Search, #MainContent_Student_Public_Profile_DataID_Search
@@ -946,7 +954,6 @@ table#MainContent_House_Option_Add1_chkOptionList
 }
 #MainContent_House_Option_Add1_chkOptionList label
 {
-    float: left;
     overflow: hidden;
     text-overflow: ellipsis;
     width: 85px;
@@ -955,7 +962,7 @@ table#MainContent_House_Option_Add1_chkOptionList
 
 table#MainContent_House_ListID_DataListHouseList td
 {
-    border-bottom:1px solid #f4f4f4;
+    border-bottom:1px solid #707070;
     padding-top:10px;
     padding-bottom:10px;
 }
@@ -1023,4 +1030,37 @@ ul.level1 li a:hover
 .floatright
 {
     float:right;
+}
+
+
+#MainContent_DataListStudentSearchresults, #MainContent_DataListHouseSearchresults
+{
+    width:100%;
+}
+
+#MainContent_DataListStudentSearchresults td, #MainContent_DataListHouseSearchresults td
+{
+     background-color: #f4f4f4;
+    border-bottom: 1px solid #707070;
+    font-size: 0.9em;
+    padding: 10px 30px;
+}
+
+#MainContent_Landload_Profile_Banner1_LandloadBanner
+{
+    text-align:center;
+}
+
+#MainContent_House_ListID_DataListHouseList
+{
+    width:100%;
+}
+
+
+#MainContent_House_ListID_DataListHouseList td
+{
+    background-color: #f4f4f4;
+    border-bottom: 1px solid #707070;
+    font-size:1em;
+    padding: 10px 30px;
 }
