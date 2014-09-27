@@ -31,7 +31,7 @@
                 <p>
                     <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
                     <%-- <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w3"></asp:TextBox>--%>
-                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" AutoResizeWithContainer="True"
+                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="53%" AutoResizeWithContainer="True"
                         TextFormatString="{0} ({1}, {2})" DropDownRows="10" IncrementalFilteringMode="Contains"
                         Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
                         <Columns>
@@ -190,7 +190,7 @@
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                         <asp:Label ID="LastName" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>
 
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
                         <br />Gender :
                         <asp:Label ID="Gender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                         <br />
@@ -213,7 +213,7 @@
                         Website :
                         <asp:Label ID="WebsiteURL" runat="server" Text='<%# Eval("WebsiteURL") %>'></asp:Label>
                         <br />
-                        -----------------------------------------------------------------------------------------------------------------------------------------------------------------
+                       
                     </div>
                 </ItemTemplate>
             </asp:DataList>
@@ -248,7 +248,7 @@
                         <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>
                         <asp:Label ID="Zip" runat="server" Text='<%# Eval("Zip") %>'></asp:Label>
 
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
                         <br />Year Home Build :
                         <asp:Label ID="YearHomeBuild" runat="server" Text='<%# Eval("YearHomeBuild") %>'></asp:Label>
                         <br />
@@ -262,8 +262,7 @@
                         <asp:Label ID="TotalSquareFootage" runat="server" Text='<%# Eval("TotalSquareFootage") %>'></asp:Label>
                         <br />
                         Price : <asp:Label ID="Price" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                        -----------------------------------------------------------------------------------------------------------------------------------------------------------------
-                    </div>
+                                           </div>
                 </ItemTemplate>
             </asp:DataList>
         </div>
