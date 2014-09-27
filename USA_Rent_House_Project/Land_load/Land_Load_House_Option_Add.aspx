@@ -13,7 +13,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <uc1:Landload_Profile_Header ID="Landload_Profile_Header1" runat="server" />
-    <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />
+   
     
     <div id="currentHomeStudent" runat="server">
         <div id="LeftPanel" runat="server">
@@ -22,7 +22,7 @@
            
         </div>
         <div id="RightPanel" runat="server">
-      
+       <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />
                <uc2:House_Option_Add ID="House_Option_Add1" runat="server" />
         </div>
     </div>
