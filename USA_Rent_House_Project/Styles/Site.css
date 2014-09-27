@@ -916,7 +916,7 @@ a.loginlinks:hover
         width:45%;
 }
 
-#MainContent_Landload_Profile_Banner1_LandloadBanner .imagegallerycontainer
+#MainContent_Landload_Profile_Banner1_LandloadBanner .imagegallerycontainer, #MainContent_Landload_Profile_Banner2_LandloadBanner .imagegallerycontainer
 {
     float:left;
         margin:15px;
