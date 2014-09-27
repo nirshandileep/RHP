@@ -21,14 +21,16 @@
     </div>
     <div id="RightPanel" runat="server">
 
-     <div id="Search" runat="server">
+     <div id="Search" class="floatright" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>
             <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                 runat="server">Search for House</asp:HyperLink>
-        </div>
-        <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_Load_House_info_Add.aspx"
+                <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_Load_House_info_Add.aspx"
             runat="server">Add a New House</asp:HyperLink>
-        <uc1:House_List ID="House_ListID" runat="server" />
+        <div class="clear"></div>
+        </div>
+                <div class="clear"></div>
+      <uc1:House_List ID="House_ListID" runat="server" />  
     </div>
 </asp:Content>
