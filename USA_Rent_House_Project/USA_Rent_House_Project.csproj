@@ -220,6 +220,7 @@
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Comments.ascx" />
+    <Content Include="Land_load\Modules\Landload_Profile_Comment_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Data.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Header.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
@@ -643,6 +644,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_Comments.ascx.designer.cs">
       <DependentUpon>Landload_Profile_Comments.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Comment_Add.ascx.cs">
+      <DependentUpon>Landload_Profile_Comment_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Profile_Comment_Add.ascx.designer.cs">
+      <DependentUpon>Landload_Profile_Comment_Add.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_Data.ascx.cs">
       <DependentUpon>Landload_Profile_Data.ascx</DependentUpon>

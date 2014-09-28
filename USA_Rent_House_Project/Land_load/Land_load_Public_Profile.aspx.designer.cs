@@ -38,5 +38,14 @@ namespace USA_Rent_House_Project.Land_load {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Data Landload_Public_Profile_Data1;
+        
+        /// <summary>
+        /// Landload_Profile_Comment_Add1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Comment_Add Landload_Profile_Comment_Add1;
     }
 }

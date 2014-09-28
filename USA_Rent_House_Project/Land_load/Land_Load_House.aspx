@@ -16,6 +16,7 @@
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
+        <div id="MyRatings"> My Ratings</div>
             <div id="Div1" runat="server">
                 <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_load_Profile.aspx"
                     runat="server">My Properties</asp:HyperLink>
@@ -23,15 +24,10 @@
                     Target="_blank" runat="server">Public view</asp:HyperLink>
             </div>
             <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner2" runat="server" />
-            <div id="Search" runat="server">
-                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                    runat="server">Search for Student</asp:HyperLink>
-                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                    runat="server">Search for House</asp:HyperLink>
-            </div>
+           
 
             <div id="HouseDetails" runat="server">
-                <asp:HyperLink ID="HyperLinkHouseDetails" runat="server">House Details</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkHouseDetails" runat="server"> Details about House</asp:HyperLink>
             </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>
@@ -52,7 +48,12 @@
                 </asp:DataList>
                 
             </div>
-
+             <div id="Search" runat="server">
+                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+                    runat="server">Search for Student</asp:HyperLink>
+                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
+                    runat="server">Search for House</asp:HyperLink>
+            </div>
             <uc2:Landload_Profile_Comments ID="Landload_Profile_Comments1" runat="server" />
         </div>
     </div>
