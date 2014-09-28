@@ -944,6 +944,7 @@ a.loginlinks:hover
     height: 60px;
     margin: 0 5% 0 0;
     width: 60px;
+    overflow:hidden;
 }
 
 

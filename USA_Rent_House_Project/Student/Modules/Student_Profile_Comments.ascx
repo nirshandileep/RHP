@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Comments" %>
     <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
-<div id="StudentComments" runat="server">
+<div id="StudentComments" class="comment_box" runat="server">
     <p>
         Comments...</p>
     <div id="StudentCommentsData" runat="server">
