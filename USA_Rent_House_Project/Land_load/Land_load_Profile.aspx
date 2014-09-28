@@ -3,8 +3,8 @@
 
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"
     TagPrefix="uc1" %>
-<%@ Register Src="Modules/Landload_Profile_Data.ascx" TagName="Landload_Profile_Data"
-    TagPrefix="uc2" %>
+<%--<%@ Register Src="Modules/Landload_Profile_Data.ascx" TagName="Landload_Profile_Data"
+    TagPrefix="uc2" %>--%>
 <%@ Register Src="Modules/Landload_Profile_Banner.ascx" TagName="Landload_Profile_Banner"
     TagPrefix="uc3" %>
 <%@ Register Src="~/Land_load/Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc2" %>

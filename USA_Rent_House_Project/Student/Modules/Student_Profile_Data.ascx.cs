@@ -8,6 +8,8 @@ using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
 using System.Web.Security;
+using System.Data;
+using RHP.Comments;
 
 namespace USA_Rent_House_Project.Student.Modules
 {
@@ -50,7 +52,7 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 LoadStudent();
-                MyRatingValue.Value = decimal.Parse("3.50");
+              LoadComments(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
             }
         }
 
@@ -69,6 +71,32 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (userList.Count > 0)
                 { currentHomeStudentData.Visible = true; }
             }
+        }
+
+
+        public void LoadComments(Guid AccessCode)
+        {
+
+            DataSet ds;
+            ds = new CommentDAO().SelectByContext(1, AccessCode);
+
+            if (ds != null)
+            {
+                decimal rate = 0;
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
+                }
+
+                if (rate > 0)
+                {
+                    rate = rate / ds.Tables[0].Rows.Count;
+                }
+                MyRatingValue.Value = rate;
+            }
+
+
         }
     }
 }
