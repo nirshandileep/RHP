@@ -5,14 +5,21 @@
 <%@ Register src="Modules/Landload_Profile_Comment_Add.ascx" tagname="Landload_Profile_Comment_Add" tagprefix="uc4" %>
 <%@ Register src="Modules/Landload_Profile_Comments.ascx" tagname="Landload_Profile_Comments" tagprefix="uc5" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
      <uc3:Landload_Public_Profile_Header ID="Landload_Public_Profile_Header1" 
         runat="server" />
            <div id="MyRatings"> My Ratings</div>
-        <uc1:Landload_Public_Profile_Banner ID="Landload_Public_Profile_Banner1" 
+        
+        <div id="LeftPanel" runat="server">
+        
+    </div>
+  <div id="RightPanel">    
+  <uc1:Landload_Public_Profile_Banner ID="Landload_Public_Profile_Banner1" 
         runat="server" />
-     
     <uc2:Landload_Public_Profile_Data ID="Landload_Public_Profile_Data1" 
         runat="server" />
 
@@ -20,4 +27,6 @@
          runat="server" />
            <uc5:landload_profile_comments ID="Landload_Profile_Comments1" 
          runat="server" />
+         </div>
+
 </asp:Content>

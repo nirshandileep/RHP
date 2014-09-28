@@ -799,7 +799,7 @@ a.loginlinks:hover
 
 /* Student profile */
 
-#MainContent_Student_Profile_HeaderID_StidentProfileHeader, #MainContent_Student_Public_Profile_HeaderID_StidentProfileHeader, #MainContent_Landload_Profile_Header1_StidentProfileHeader
+#MainContent_Student_Profile_HeaderID_StidentProfileHeader, #MainContent_Student_Public_Profile_HeaderID_StidentProfileHeader, #MainContent_Landload_Profile_Header1_StidentProfileHeader, #MainContent_Landload_Public_Profile_Header1_StidentProfileHeader
 {
     height: 320px;
     margin: 0 auto;
@@ -808,7 +808,7 @@ a.loginlinks:hover
     width: 1200px;
 }
 
-#MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage, #MainContent_Landload_Profile_Header1_HeaderImage
+#MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage, #MainContent_Landload_Profile_Header1_HeaderImage, #MainContent_Landload_Public_Profile_Header1_HeaderImage img
 {
     width:1195px;
     height:225px;
@@ -816,7 +816,7 @@ a.loginlinks:hover
     border: 3px solid;
 }
 
-#MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img, #MainContent_Landload_Profile_Header1_HeaderImage img
+#MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img, #MainContent_Landload_Profile_Header1_HeaderImage img, #MainContent_Landload_Public_Profile_Header1_HeaderImage img
 {
     width:1195px !important;
     height:225px;
@@ -824,7 +824,7 @@ a.loginlinks:hover
 }
 
 
-#MainContent_Student_Profile_HeaderID_StudentProfileImage, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage, #MainContent_Landload_Profile_Header1_imgLandloadProfileImage 
+#MainContent_Student_Profile_HeaderID_StudentProfileImage, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage, #MainContent_Landload_Profile_Header1_imgLandloadProfileImage, #MainContent_Landload_Public_Profile_Header1_imgLandloadProfileImage
 {
    border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
@@ -871,7 +871,7 @@ a.loginlinks:hover
     z-index: 5;
 }
 
-#MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel, #MainContent_Landload_Profile_Data1_LeftPanel
+#MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel, #MainContent_Landload_Profile_Data1_LeftPanel, #LeftPanel
 {
     float: left;   
     padding: 15px 0;
@@ -880,7 +880,7 @@ a.loginlinks:hover
    
 }
 
-#MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel, #MainContent_RightPanel, #MainContent_Landload_Profile_Data1_RightPanel
+#MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel, #MainContent_RightPanel, #MainContent_Landload_Profile_Data1_RightPanel, #RightPanel
 {
     float: left;
     margin-left: 2%;

@@ -17,17 +17,24 @@
         </div>
         <div id="RightPanel" runat="server">
         <div id="MyRatings"> My Ratings</div>
-            <div id="Div1" runat="server">
+            <div id="Div1" class="floatright" runat="server">
                 <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_load_Profile.aspx"
                     runat="server">My Properties</asp:HyperLink>
                 <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
                     Target="_blank" runat="server">Public view</asp:HyperLink>
+                     <div id="Search" style="display:inline-block" runat="server">
+                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+                    runat="server">Search for Student</asp:HyperLink>
+                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
+                    runat="server">Search for House</asp:HyperLink>
+            </div>
+            <div class="clear"></div>
             </div>
             <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner2" runat="server" />
            
 
             <div id="HouseDetails" runat="server">
-                <asp:HyperLink ID="HyperLinkHouseDetails" runat="server"> Details about House</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details about House</asp:HyperLink>
             </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>
@@ -48,12 +55,7 @@
                 </asp:DataList>
                 
             </div>
-             <div id="Search" runat="server">
-                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                    runat="server">Search for Student</asp:HyperLink>
-                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                    runat="server">Search for House</asp:HyperLink>
-            </div>
+            
             <uc2:Landload_Profile_Comments ID="Landload_Profile_Comments1" runat="server" />
         </div>
     </div>

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Profile_Comment_Add.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Comment_Add" %>
 <div id="div_register_User">
 
-   <div class="comment_box">
+   <div>
         <p>Please share</p>
   
           <!-- AddThis Button BEGIN -->

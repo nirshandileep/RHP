@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Public_Profile_Data.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Data" %>
+  
 
             <div id="HouseDetails" runat="server">
                 <asp:HyperLink ID="HyperLinkHouseDetails" runat="server"> Details about House</asp:HyperLink>
@@ -28,3 +29,4 @@
                 <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                     runat="server">Search for House</asp:HyperLink>
             </div>
+            
