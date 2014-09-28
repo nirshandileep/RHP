@@ -22,15 +22,6 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Header Landload_Public_Profile_Header1;
         
         /// <summary>
-        /// ASPxRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRating;
-        
-        /// <summary>
         /// HyperLinkPublicView control.
         /// </summary>
         /// <remarks>
@@ -40,13 +31,40 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
         
         /// <summary>
-        /// LeftPanel control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
+        
+        /// <summary>
+        /// SearchStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink SearchStudent;
+        
+        /// <summary>
+        /// SearchHouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
+        
+        /// <summary>
+        /// LeftPanelLL control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanelLL;
         
         /// <summary>
         /// Landload_Public_Profile_Banner1 control.

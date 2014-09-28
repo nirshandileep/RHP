@@ -14,12 +14,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-     <uc3:Landload_Public_Profile_Header ID="Landload_Public_Profile_Header1" 
-        runat="server" />
-           <div id="MyRatings"> My Ratings
+     <uc3:Landload_Public_Profile_Header ID="Landload_Public_Profile_Header1"  runat="server" />
+          <%-- <div id="MyRatings"  class="floatright" > My Ratings
            <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
             </dx:ASPxRatingControl>
-           </div>
+           </div>--%>
          <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Land_load/Land_load_Profile.aspx" runat="server">My Page</asp:HyperLink>
           <div id="Search" class="floatright" runat="server">
                 <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"

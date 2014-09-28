@@ -58,15 +58,6 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// ASPxRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRating;
-        
-        /// <summary>
         /// Div1 control.
         /// </summary>
         /// <remarks>

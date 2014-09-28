@@ -93,7 +93,7 @@ namespace USA_Rent_House_Project.Student.Modules
                                 Session[Constants.SESSION_COMMENTS] = ds;
 
                                 CommentMessage.Text = "";
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx';}", true);
                             }
                             else
                             {

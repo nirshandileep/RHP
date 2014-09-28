@@ -25,7 +25,7 @@ namespace USA_Rent_House_Project.Land_load
             //    { }
             //}
 
-            ASPxRating.Value = decimal.Parse("4.00");
+           // ASPxRating.Value = decimal.Parse("4.00");
         }
     }
 }

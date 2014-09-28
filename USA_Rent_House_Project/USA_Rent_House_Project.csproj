@@ -206,6 +206,7 @@
     <Content Include="Images\Sample\profileimage4.jpg" />
     <Content Include="Land_load\Change_Password.aspx" />
     <Content Include="Land_load\Change_Secret_Question.aspx" />
+    <Content Include="Land_load\Current_Students.aspx" />
     <Content Include="Land_load\Land_Load_House.aspx" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
     <Content Include="Land_load\Land_Load_House_Option_Add.aspx" />
@@ -214,6 +215,7 @@
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
     <Content Include="Land_load\Land_load_Public_Profile.aspx" />
+    <Content Include="Land_load\Modules\Current_Students_Add.ascx" />
     <Content Include="Land_load\Modules\House_Details.ascx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\House_List.ascx" />
@@ -548,6 +550,13 @@
     <Compile Include="Land_load\Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Current_Students.aspx.cs">
+      <DependentUpon>Current_Students.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Current_Students.aspx.designer.cs">
+      <DependentUpon>Current_Students.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_Load_House.aspx.cs">
       <DependentUpon>Land_Load_House.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -603,6 +612,13 @@
     </Compile>
     <Compile Include="Land_load\Land_load_Public_Profile.aspx.designer.cs">
       <DependentUpon>Land_load_Public_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Current_Students_Add.ascx.cs">
+      <DependentUpon>Current_Students_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Current_Students_Add.ascx.designer.cs">
+      <DependentUpon>Current_Students_Add.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\House_Details.ascx.cs">
       <DependentUpon>House_Details.ascx</DependentUpon>

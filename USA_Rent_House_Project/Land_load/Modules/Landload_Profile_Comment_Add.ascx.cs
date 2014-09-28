@@ -97,7 +97,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                  Session[Constants.SESSION_HOUSE_COMMENTS] = ds;
 
                                  CommentMessage.Text = "";
-                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Public_Profile.aspx';}", true);
                              }
                              else
                              {
