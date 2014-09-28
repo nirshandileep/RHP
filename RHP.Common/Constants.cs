@@ -54,7 +54,15 @@ namespace RHP.Common
         public static readonly ListItem[] STUDENT_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
         public static readonly ListItem[] LANDLOAD_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
         public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+
+        public static readonly ListItem[] SEARCH_STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--ANY--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+        public static readonly ListItem[] SEARCH_STUDENT_SEX_LIST = new ListItem[] { new ListItem("--ANY--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
+       
+        
         #endregion
+
+        public static readonly string SEARCH_DROPDOWN_EMPTY_ITEM_TEXT = "--ANY--";
+        public static readonly string SEARCH_DROPDOWN_EMPTY_ITEM_VALUE = "-1";
 
         public static readonly string DROPDOWN_EMPTY_ITEM_TEXT = "--Please Select--";
         public static readonly string DROPDOWN_EMPTY_ITEM_VALUE = "-1";

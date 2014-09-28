@@ -31,60 +31,6 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.CheckBoxList chkOptionList;
         
         /// <summary>
-        /// chkAttachedgarage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkAttachedgarage;
-        
-        /// <summary>
-        /// drpAttachedgarage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpAttachedgarage;
-        
-        /// <summary>
-        /// chkdeattachedgarage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkdeattachedgarage;
-        
-        /// <summary>
-        /// drldeattachedgarage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drldeattachedgarage;
-        
-        /// <summary>
-        /// chkdrivewayparking control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkdrivewayparking;
-        
-        /// <summary>
-        /// drpdrivewayparking control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpdrivewayparking;
-        
-        /// <summary>
         /// chkFurnishedroomoptions control.
         /// </summary>
         /// <remarks>

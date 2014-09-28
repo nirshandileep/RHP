@@ -65,7 +65,7 @@ namespace USA_Rent_House_Project
              {
                  DrpBathRooms.Items.Add(new ListItem(i.ToString(), i.ToString()));
              }
-             DrpBathRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+             DrpBathRooms.Items.Insert(0, new ListItem(Constants.SEARCH_DROPDOWN_EMPTY_ITEM_TEXT, Constants.SEARCH_DROPDOWN_EMPTY_ITEM_VALUE));
 
              //DrpBedRooms
              DrpBedRooms.Items.Clear();
@@ -73,7 +73,7 @@ namespace USA_Rent_House_Project
              {
                  DrpBedRooms.Items.Add(new ListItem(i.ToString(), i.ToString()));
              }
-             DrpBedRooms.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+             DrpBedRooms.Items.Insert(0, new ListItem(Constants.SEARCH_DROPDOWN_EMPTY_ITEM_TEXT, Constants.SEARCH_DROPDOWN_EMPTY_ITEM_VALUE));
 
         }
 
@@ -89,9 +89,9 @@ namespace USA_Rent_House_Project
             //}
 
             DrpStatus.Items.Clear();
-            DrpStatus.Items.AddRange(Constants.STUDENT_STATUS_LIST);
+            DrpStatus.Items.AddRange(Constants.SEARCH_STUDENT_STATUS_LIST);
             DrpGender.Items.Clear();
-            DrpGender.Items.AddRange(Constants.STUDENT_SEX_LIST);
+            DrpGender.Items.AddRange(Constants.SEARCH_STUDENT_SEX_LIST);
 
         }
 

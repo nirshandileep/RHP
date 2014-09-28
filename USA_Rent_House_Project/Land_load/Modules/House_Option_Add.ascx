@@ -12,7 +12,7 @@
                <strong>Options / Features</strong> 
             <asp:CheckBoxList ID="chkOptionList" runat="server" RepeatColumns="15">
             </asp:CheckBoxList>
-            <br />
+           <%-- <br />
             <br />
            <strong> Garage :</strong><br />
             <asp:CheckBox ID="chkAttachedgarage" runat="server" Text="Attached garage" />
@@ -28,7 +28,7 @@
             <asp:CheckBox ID="chkdrivewayparking" runat="server" Text="drive way parking" />
             <asp:DropDownList ID="drpdrivewayparking" runat="server">
                 <asp:ListItem>1</asp:ListItem>
-            </asp:DropDownList>
+            </asp:DropDownList>--%>
             <br />
             <br />
             <table style="width: 900px">
