@@ -61,8 +61,9 @@
         <td>
         </td>
         <td>
-            <asp:Button ID="ChangePasswordQuestionButton" Text="Change Secret Question and Answer"
-                OnClick="ChangePasswordQuestion_OnClick" runat="server"  ValidationGroup="ChangeSecretPasswordValidationGroup"/>
+            
         </td>
     </tr>
 </table>
+<asp:Button ID="ChangePasswordQuestionButton" CssClass="actionbutton" Text="Change Secret Question and Answer"
+                OnClick="ChangePasswordQuestion_OnClick" runat="server"  ValidationGroup="ChangeSecretPasswordValidationGroup"/>

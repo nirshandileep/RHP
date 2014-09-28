@@ -928,8 +928,9 @@ a.loginlinks:hover
 #MainContent_Student_Profile_DataID_DataListStudentList .imagegallerycontainer, #MainContent_Current_House_RoomMate_infoID_DataListStudentList .imagegallerycontainer
 {
    
-        float:left;
-        margin:15px 60px;
+    float: left;
+    margin: 5px 40px;
+    width: 250px;
 }
 
 .imagegallery, imagegallery img
@@ -938,9 +939,15 @@ a.loginlinks:hover
     border-radius: 10px;
     box-shadow: 0 0 2px #000;
     float: left;
-    height: 90px;
+    height: 60px;
     margin: 0 5% 0 0;
-    width: 90px;
+    width: 60px;
+}
+
+
+.lblnames
+{
+    float:left;
 }
 
 #MainContent_Student_Profile_DataID_Search, #MainContent_Student_Public_Profile_DataID_Search
@@ -998,12 +1005,13 @@ table#MainContent_House_ListID_DataListHouseList td
 #MainContent_Student_Profile_DataID_StudentRating
 {
     float:left;
-    width:50%;
+    width:30%;
 }
 
 #MainContent_Student_Profile_DataID_StudentHouseData
 {
     float:right;
+    margin-right:340px;
    
 }
 
@@ -1025,7 +1033,8 @@ ul.level1 li a
 
 ul.level1 li a:hover
 {
- /*background-color: #083e64;   */   
+ /*background-color: #083e64;   */  
+ color: #083e64;
 }
 
 .floatright
@@ -1064,4 +1073,10 @@ ul.level1 li a:hover
     border-bottom: 1px solid #707070;
     font-size:1em;
     padding: 10px 30px;
+}
+
+
+input#MainContent_Student_School_info1_DrpSchoolName_I
+{
+    width:100% !important;
 }

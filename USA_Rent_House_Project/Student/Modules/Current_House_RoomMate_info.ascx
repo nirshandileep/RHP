@@ -88,7 +88,7 @@
 </p>
    
 <p>
-    <asp:Button ID="CreateRommateButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+    <asp:Button ID="CreateRommateButton" runat="server" width="150px" CssClass="actionbutton" CommandName="MoveNext"
         Text="Add Rome-mate" OnClick="CreateRommateButton_Click" ValidationGroup="ValidationGroup3" />
     <asp:Label ID="Label1" runat="server" CssClass="failureNotification" Text=""></asp:Label>
 </p>

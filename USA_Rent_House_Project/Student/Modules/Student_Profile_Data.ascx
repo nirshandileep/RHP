@@ -24,7 +24,7 @@
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">
                         </div>
-                        <div id="Name" >
+                        <div id="Name" class="lblnames">
                             <%--
                             <asp:Label ID="lblPersonalEmail" runat="server" Text='<%# Eval("PersonalEmail") %>'></asp:Label>
                             <br />--%>

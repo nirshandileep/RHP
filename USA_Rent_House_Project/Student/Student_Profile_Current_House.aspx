@@ -24,7 +24,7 @@
         </div>
         <div id="RightPanel" runat="server">
             <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" runat="server">Public view</asp:HyperLink>
-            <div id="Search" runat="server">
+            <div id="Search" class="floatright" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>
             <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
@@ -45,15 +45,16 @@
                             Visible="false" ViewStateMode="Enabled" />
                         <uc3:Current_House_RoomMate_info ID="Current_House_RoomMate_infoID" runat="server"
                             Visible="true" ViewStateMode="Enabled" />
-                        <p>
+                        
+                        
+                    </div>
+                    <p>
                             <asp:Button ID="CreateLandloadButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                 Text="Save and continue" OnClick="CreateLandloadButton_Click" />
 
                                 <asp:Button ID="ButtonNext" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                 Text="Next" onclick="ButtonNext_Click" Visible="false" />
                         </p>
-                        
-                    </div>
                 </div>
             </div>
         </div>
