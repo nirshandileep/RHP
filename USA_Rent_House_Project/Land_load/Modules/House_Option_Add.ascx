@@ -10,7 +10,7 @@
         <div id="forminner">
             
                <strong>Options / Features</strong> 
-            <asp:CheckBoxList ID="chkOptionList" runat="server" RepeatColumns="15">
+            <asp:CheckBoxList ID="chkOptionList" runat="server" RepeatColumns="4">
             </asp:CheckBoxList>
            <%-- <br />
             <br />
