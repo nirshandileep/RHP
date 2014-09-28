@@ -10,7 +10,7 @@
             <h2>
                 All the students live in the current home</h2>
             <br />
-            <asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="3" DataKeyField="UserId">
+            <asp:DataList ID="DataListCurrentHomeStudent" runat="server"  RepeatColumns="3" DataKeyField="UserId">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">

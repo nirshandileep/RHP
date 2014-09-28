@@ -9,6 +9,9 @@
         <asp:DataList ID="DataListHouseList" runat="server" RepeatColumns="1" DataKeyField="HouseId"
             OnItemCommand="DataListHouseList_ItemCommand">
             <ItemTemplate>
+             <div class="imagegallery">
+                        </div>
+
                 <div id="DivHouse" runat="server">
            
                     <asp:HiddenField ID="hdnHouseId" runat="server" Value='<%# Eval("HouseId") %>' />
@@ -32,8 +35,9 @@
                     <asp:Label ID="LotSquareFootage" runat="server" Text='<%# Eval("LotSquareFootage") %>'></asp:Label>
                     UtilitiesIncludedInRent :
                     <asp:Label ID="UtilitiesIncludedInRent" runat="server" Text='<%# Eval("UtilitiesIncludedInRent") %>'></asp:Label>
-                     <br />
-                    <asp:HyperLink ID="HyperLink3" CssClass="loginlinks" runat="server" Target="_blank"  NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'>View Property</asp:HyperLink>
+                   <br />
+                    <asp:HyperLink ID="HyperLink3" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'>View Property</asp:HyperLink>
+                 
 
                      <asp:HyperLink ID="HyperLinkviewStudent" CssClass="loginlinks" Target="_blank"  runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>Public View</asp:HyperLink>
               
@@ -41,10 +45,7 @@
                       
                         <asp:HyperLink ID="HyperLink2" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House_Option_Add.aspx?HouseId={0}") %>'>Edit House Options</asp:HyperLink>
                       
-                    <%--<asp:LinkButton ID="LB_view_house" CssClass="loginlinks" CommandName="ViewHouse" CommandArgument='<%# Eval("HouseId") %>'
-                        runat="server">View/Edit House</asp:LinkButton>
-                    <asp:LinkButton ID="LB_view_options" CssClass="loginlinks" CommandName="ViewOptions" CommandArgument='<%# Eval("HouseId") %>'
-                        runat="server">View/Edit Options</asp:LinkButton>--%>
+                  
                     
                 </div>
             </ItemTemplate>

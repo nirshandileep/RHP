@@ -336,7 +336,7 @@ input.actionbutton:hover
 
 .submitButton
 {
-    text-align: right;
+    text-align:left;
 }
 
 /* ------------------------------- Main Master ---------------------------- */
@@ -1014,9 +1014,9 @@ table#MainContent_House_ListID_DataListHouseList td
 
 ul.level1 li a
 {
-    background-color: #0e72b8;
+  /* background-color: #0e72b8;*/
     border-bottom: 1px solid;
-    color: #fff;
+  /*   color: #fff;*/
     display: block;
     padding: 10px;
     width: 140px;
@@ -1024,7 +1024,7 @@ ul.level1 li a
 
 ul.level1 li a:hover
 {
- background-color: #083e64;      
+ /*background-color: #083e64;   */   
 }
 
 .floatright

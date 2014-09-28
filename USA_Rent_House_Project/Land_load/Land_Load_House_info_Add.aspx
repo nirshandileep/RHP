@@ -22,7 +22,7 @@
            
         </div>
         <div id="RightPanel" runat="server">
-       <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />
+     <%--  <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />--%>
             <uc2:House_info_Add ID="House_info_AddID" runat="server" />
         </div>
     </div>
