@@ -13,6 +13,15 @@ namespace USA_Rent_House_Project.Student {
     public partial class Change_Secret_Question {
         
         /// <summary>
+        /// Student_Profile_HeaderID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
+        
+        /// <summary>
         /// currentHomeStudent control.
         /// </summary>
         /// <remarks>
@@ -83,15 +92,6 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
-        
-        /// <summary>
-        /// Student_Profile_HeaderID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
         
         /// <summary>
         /// Change_Secret_Question1 control.

@@ -39,10 +39,10 @@
         </div>
          <div class="clear">
         </div>
-        <div id="StudentRating" runat="server">
+      <%--  <div id="StudentRating" runat="server">
             <h2>
                 My Ratings **</h2>
-        </div>
+        </div>--%>
         <div id="StudentHouseData" runat="server">
             <h2 style="display: inline-block;">
                 My College housing life..</h2>

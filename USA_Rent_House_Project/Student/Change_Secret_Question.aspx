@@ -17,7 +17,7 @@
         </div>
         <div id="RightPanel" runat="server">
             <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
-                Target="_blank" runat="server">Public view</asp:HyperLink>
+                 runat="server">Public view</asp:HyperLink>
             <div id="Search" runat="server">
                 <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                     runat="server">Search for Student</asp:HyperLink>

@@ -11,8 +11,9 @@
         <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/profileimage2.jpg" Width="100px"  />
     </div>
     <div class="clear"></div>
-    <div id="LandloadProfileImage" runat="server">
-        <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/profileimage3.jpg" Width="100px"   />
-    </div>
-
+   
+    <div id="StudentRating" runat="server">
+            <h2>
+                My Ratings **</h2>
+        </div>
 </div>
