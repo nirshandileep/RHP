@@ -21,10 +21,17 @@
             </dx:ASPxRatingControl>
            </div>
          <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Land_load/Land_load_Profile.aspx" runat="server">My Page</asp:HyperLink>
-        <div id="LeftPanel" runat="server">
+          <div id="Search" class="floatright" runat="server">
+                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+                    runat="server">Search for Student</asp:HyperLink>
+                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
+                    runat="server">Search for House</asp:HyperLink>
+            </div>
+            <div class="clear"></div>
+        <div id="LeftPanelLL" runat="server">
         
     </div>
-  <div id="RightPanel">    
+  <div id="RightPanelLL">    
   <uc1:Landload_Public_Profile_Banner ID="Landload_Public_Profile_Banner1" 
         runat="server" />
     <uc2:Landload_Public_Profile_Data ID="Landload_Public_Profile_Data1" 

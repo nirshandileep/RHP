@@ -890,6 +890,21 @@ a.loginlinks:hover
     width: 81%;
 }
 
+#RightPanelLL
+{
+      float: left;
+    margin-left: 2%;
+    padding: 15px 0;
+   
+}
+
+
+#MainContent_LeftPanelLL
+{
+    float: left;   
+    padding: 15px 0;
+    width: 17%; 
+}
 .comment_box
 {
     float:right;
