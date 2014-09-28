@@ -150,28 +150,29 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             try
             {
-                using (MailMessage mm = new MailMessage(Constants.FROMEMAIL, user.Email))
-                {
-                    mm.Subject = Constants.ACTIVATIONEMAILSUBJECT;
-                    mm.Body = message(ActivationKey);
+                throw new Exception("not implemented");
+                //using (MailMessage mm = new MailMessage(Constants.FROMEMAIL, user.Email))
+                //{
+                //    mm.Subject = Constants.ACTIVATIONEMAILSUBJECT;
+                //    mm.Body = message(ActivationKey);
 
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
+                //    mm.IsBodyHtml = true;
+                //    SmtpClient smtp = new SmtpClient();
 
-                    smtp.Host = Constants.EMAILHOST;
+                //    smtp.Host = Constants.EMAILHOST;
 
-                    smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential(Constants.FROMEMAIL, Constants.FROMEMAILPASSWORD);
+                //    smtp.EnableSsl = true;
+                //    NetworkCredential NetworkCred = new NetworkCredential(Constants.FROMEMAIL, Constants.FROMEMAILPASSWORD);
 
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = NetworkCred;
+                //    smtp.UseDefaultCredentials = true;
+                //    smtp.Credentials = NetworkCred;
 
-                    smtp.Port = Convert.ToInt16(Constants.EMAILPORT);
+                //    smtp.Port = Convert.ToInt16(Constants.EMAILPORT);
 
-                    smtp.Send(mm);
+                //    smtp.Send(mm);
 
-                    return true;
-                }
+                //    return true;
+                //}
             }
             catch (Exception ex)
             {

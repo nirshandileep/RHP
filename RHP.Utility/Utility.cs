@@ -22,5 +22,31 @@ namespace RHP.Utility
             
             return returnValue;
         }
+
+        /// <summary>
+        /// Gets the email addresses.
+        /// </summary>
+        /// <param name="emailAddressList">"," or ";" seperated list of email addresses.</param>
+        /// <returns></returns>
+        public static string[] SplitStrings(string delimiterList)
+        {
+            char[] delimiter = new char[2];
+            delimiter[0] = ',';
+            delimiter[1] = ';';
+            string[] splitStrings = null;
+            try
+            {
+                if (!string.IsNullOrEmpty(delimiterList))
+                {
+                    splitStrings = delimiterList.Split(delimiter);
+                }
+
+                return splitStrings;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

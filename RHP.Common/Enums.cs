@@ -12,6 +12,8 @@ namespace RHP.Common
             FacebookAppID = 1,
             FacebookAppSecret = 2,
             IsEmailActivation = 3,
+            SMTP_HOST = 4,
+            SMTP_PORT = 5,
         }
 
         public enum UserRoles

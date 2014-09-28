@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.LandlordManagement", "R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Comments", "RHP.Comments\RHP.Comments.csproj", "{161EC1E4-CC1A-4992-9112-1255B9EECF62}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.CommunicationManagement", "RHP.CommunicationManagement\RHP.CommunicationManagement.csproj", "{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -61,6 +63,10 @@ Global
 		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{161EC1E4-CC1A-4992-9112-1255B9EECF62}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
