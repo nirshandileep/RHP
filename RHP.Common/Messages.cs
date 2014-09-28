@@ -16,7 +16,7 @@ namespace RHP.Common
         public static readonly string Update_Unsuccess = "Cannot Update";
         public static readonly string Delete_Unsuccess = "Cannot Delete";
 
-        public static readonly string ProfileInfoError = "Current House featue is not Activated. Please enter Profile info first.";
+        public static readonly string ProfileInfoError = "House featue is not Activated. Please enter Profile info first.";
 
         public static readonly string Sending_Email_Error = "Email sending failed. please contact administrator.";
 

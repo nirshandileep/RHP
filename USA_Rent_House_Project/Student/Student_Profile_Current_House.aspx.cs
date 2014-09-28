@@ -24,6 +24,7 @@ namespace USA_Rent_House_Project.Student
                 if (_user == null)
                 {
                     _user = new User();
+
                     if (HttpContext.Current.User.Identity.IsAuthenticated)
                     {
                         _user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
@@ -58,9 +59,16 @@ namespace USA_Rent_House_Project.Student
 
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                loadcontrol();
-                loaddata();
+                if (user.UserId != null)
+                {
+                    HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    loadcontrol();
+                    loaddata();
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.ProfileInfoError + "'); window.location = '/Student/Student_Profile_Edit.aspx'; }", true);
+                }
             }
 
             

@@ -58,7 +58,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void LoadStudent()
         {
-
+            if (user != null)
+            {
             if (user.HouseId.HasValue)
             {
               
@@ -70,7 +71,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (userList.Count > 0)
                 { currentHomeStudentData.Visible = true; }
-            }
+            }}
         }
 
 

@@ -29,12 +29,12 @@
             </p>
             <p>
                 <asp:Label ID="ZipLabel" runat="server" AssociatedControlID="Zip" CssClass="form_label">Zip:</asp:Label>
-                <asp:TextBox ID="Zip" runat="server" CssClass="textEntry textbox_w3" MaxLength="4"></asp:TextBox>
+                <asp:TextBox ID="Zip" runat="server" CssClass="textEntry textbox_w3" MaxLength="5"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="ZipRequiredField" runat="server" ControlToValidate="Zip"
                     CssClass="failureNotification" ErrorMessage="Zip is required." ToolTip="Zip is required."
                     ValidationGroup="PropertyValidationGroup">*</asp:RequiredFieldValidator>
-                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Zip must be 4 numbers"
-                    ControlToValidate="Zip" CssClass="failureNotification" ValidationExpression="^[0-9]{4}$"
+                <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server" ErrorMessage="Zip must be 5 numbers"
+                    ControlToValidate="Zip" CssClass="failureNotification" ValidationExpression="^[0-9]{5}$"
                     ValidationGroup="PropertyValidationGroup">*</asp:RegularExpressionValidator>
             </p>
             <p>
