@@ -1,6 +1,9 @@
 ﻿<%@ Page Title="Land-Load House" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
     AutoEventWireup="true" CodeBehind="Land_Load_House.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_Load_House" %>
 
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
+
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"
     TagPrefix="uc1" %>
 <%@ Register Src="Modules/Landload_Profile_Banner.ascx" TagName="Landload_Profile_Banner"
@@ -16,22 +19,25 @@
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
-        <div id="MyRatings"> My Ratings</div>
+        <div id="MyRatings"> My Ratings 
+        <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
+            </dx:ASPxRatingControl>
+        </div>
             <div id="Div1" class="floatright" runat="server">
                 <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_load_Profile.aspx"
                     runat="server">My Properties</asp:HyperLink>
                 <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
-                    Target="_blank" runat="server">Public view</asp:HyperLink>
+                     runat="server">Public view</asp:HyperLink>
                      <div id="Search" style="display:inline-block" runat="server">
-                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+              <%--  <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                     runat="server">Search for Student</asp:HyperLink>
                 <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                    runat="server">Search for House</asp:HyperLink>
+                    runat="server">Search for House</asp:HyperLink>--%>
             </div>
             <div class="clear"></div>
             </div>
             <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner2" runat="server" />
-           
+            
 
             <div id="HouseDetails" runat="server">
                 <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details about House</asp:HyperLink>

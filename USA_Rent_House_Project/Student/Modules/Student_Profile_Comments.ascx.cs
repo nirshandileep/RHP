@@ -9,6 +9,7 @@ using RHP.SessionManager;
 using RHP.Common;
 using RHP.Comments;
 using System.Web.Security;
+using RHP.Utility;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -36,15 +37,37 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+
+            //if (AccessCode != string.Empty && AccessCode != null)
+            //{
+            //    try
+            //    {
+            //        LoadComments(Guid.Parse(AccessCode));
+            //    }
+            //    catch (Exception ex)
+            //    { }
+            //} 
             LoadComments();
         }
+
+        //public void LoadComments(Guid AccessCode)
+        //{
+        //    DataSet ds;
+        //    ds = new CommentDAO().SelectByContext(1, AccessCode);
+        //    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
+
+        //    DataListStudentComments.DataSource = ds.Tables[0];
+        //    DataListStudentComments.DataBind();
+
+        //}
 
         public void LoadComments()
         {
 
             DataListStudentComments.DataSource = dsComments.Tables[0];
             DataListStudentComments.DataBind();
-              
+
         }
     }
 }

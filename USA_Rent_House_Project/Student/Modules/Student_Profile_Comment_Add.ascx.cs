@@ -74,34 +74,37 @@ namespace USA_Rent_House_Project.Student.Modules
             if (Page.IsValid == true)
             {
                 try
-                {
-                    if (CommentMessage.Text.Trim() != "")
+                    {string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+
+                    if (AccessCode != null && AccessCode != string.Empty)
                     {
-                        comment.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        comment.CommentText = CommentMessage.Text.Trim();
-                        comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        comment.ContextTypeId = 1;
-
-                        if (comment.Insert(comment))
+                        if (CommentMessage.Text.Trim() != "")
                         {
-                            DataSet ds;
-                            ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
-                            Session[Constants.SESSION_COMMENTS] = ds;
+                            comment.ContextId = Guid.Parse(AccessCode); //Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            comment.CommentText = CommentMessage.Text.Trim();
+                            comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            comment.ContextTypeId = 1;
+                            comment.RatingValue = ASPxRatingvalue.Value;
+                            if (comment.Insert(comment))
+                            {
+                                DataSet ds;
+                                ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                                ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
+                                Session[Constants.SESSION_COMMENTS] = ds;
 
-                            CommentMessage.Text = "";
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                                CommentMessage.Text = "";
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                            }
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
+                            }
                         }
                         else
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "');}", true);
                         }
                     }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "');}", true);
-                    }
-
                 }
                 catch (Exception ex)
                 {

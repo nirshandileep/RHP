@@ -1,5 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Data.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Data" %>
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
 <%@ Register Src="Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
 <div id="currentHomeStudent" runat="server">
     <div id="LeftPanel" runat="server">
@@ -65,7 +67,8 @@
         </div>
         <div id="StudentRating" runat="server">
             <h2>
-                My Ratings **</h2>
+                My Ratings 
+                <dx:ASPxRatingControl ID="MyRatingValue" Enabled="false" runat="server"> </dx:ASPxRatingControl> </h2>
         </div>
         <div id="StudentHouseData" runat="server">
             <h2 style="display: inline-block;">

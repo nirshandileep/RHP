@@ -13,6 +13,15 @@ namespace USA_Rent_House_Project.Student.Modules {
     public partial class Student_Profile_Comment_Add {
         
         /// <summary>
+        /// ASPxRatingvalue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingvalue;
+        
+        /// <summary>
         /// CommentMessage control.
         /// </summary>
         /// <remarks>

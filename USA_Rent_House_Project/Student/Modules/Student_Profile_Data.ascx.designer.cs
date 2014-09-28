@@ -112,6 +112,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentRating;
         
         /// <summary>
+        /// MyRatingValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl MyRatingValue;
+        
+        /// <summary>
         /// StudentHouseData control.
         /// </summary>
         /// <remarks>

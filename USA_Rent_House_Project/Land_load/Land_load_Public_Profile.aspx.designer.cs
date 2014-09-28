@@ -22,6 +22,33 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Header Landload_Public_Profile_Header1;
         
         /// <summary>
+        /// ASPxRating control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRating;
+        
+        /// <summary>
+        /// HyperLinkPublicView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
+        
+        /// <summary>
+        /// LeftPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
+        
+        /// <summary>
         /// Landload_Public_Profile_Banner1 control.
         /// </summary>
         /// <remarks>
@@ -47,5 +74,14 @@ namespace USA_Rent_House_Project.Land_load {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Comment_Add Landload_Profile_Comment_Add1;
+        
+        /// <summary>
+        /// Landload_Profile_Comments1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Comments Landload_Profile_Comments1;
     }
 }

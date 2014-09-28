@@ -226,6 +226,7 @@
     <Content Include="Land_load\Modules\Landload_Profile_info_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_info_Edit.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx" />
+    <Content Include="Land_load\Modules\Landload_Public_Profile_Comments.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Header.ascx" />
     <Content Include="Land_load\Modules\Menu_Bar.ascx" />
@@ -686,6 +687,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Public_Profile_Banner.ascx.designer.cs">
       <DependentUpon>Landload_Public_Profile_Banner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Comments.ascx.cs">
+      <DependentUpon>Landload_Public_Profile_Comments.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_Public_Profile_Comments.ascx.designer.cs">
+      <DependentUpon>Landload_Public_Profile_Comments.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Public_Profile_Data.ascx.cs">
       <DependentUpon>Landload_Public_Profile_Data.ascx</DependentUpon>

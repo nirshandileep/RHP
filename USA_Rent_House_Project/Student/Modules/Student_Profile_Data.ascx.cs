@@ -50,6 +50,7 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 LoadStudent();
+                MyRatingValue.Value = decimal.Parse("3.50");
             }
         }
 

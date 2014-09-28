@@ -1,4 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Public_Profile_Header.ascx.cs" Inherits="USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Header" %>
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
 
 <div id="StidentProfileHeader" runat="server">
     <div id="HeaderImage" runat="server">
@@ -11,9 +13,10 @@
         <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/profileimage2.jpg" Width="100px"  />
     </div>
     <div class="clear"></div>
-   
+    
     <div id="StudentRating" runat="server">
             <h2>
-                My Ratings **</h2>
+                My Ratings  <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
+    </dx:ASPxRatingControl> </h2>
         </div>
 </div>

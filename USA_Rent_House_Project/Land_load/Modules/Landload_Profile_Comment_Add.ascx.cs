@@ -76,33 +76,40 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 try
                 {
-                    if (CommentMessage.Text.Trim() != "")
-                    {
-                        comment.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        comment.CommentText = CommentMessage.Text.Trim();
-                        comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                        comment.ContextTypeId = 2;
+                     string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
 
-                        if (comment.Insert(comment))
-                        {
-                            DataSet ds;
-                            ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
-                            Session[Constants.SESSION_COMMENTS] = ds;
+                     if (AccessCode != null && AccessCode != string.Empty)
+                     {
 
-                            CommentMessage.Text = "";
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
-                        }
-                        else
-                        {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
-                        }
-                    }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "');}", true);
-                    }
+                         if (CommentMessage.Text.Trim() != "")
+                         {
+                             comment.ContextId = Guid.Parse(AccessCode); //Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                             comment.CommentText = CommentMessage.Text.Trim();
+                             comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                             comment.ContextTypeId = 2;
+                             comment.RatingValue = ASPxRating.Value;
 
+                             if (comment.Insert(comment))
+                             {
+                                 DataSet ds;
+                                 ds = new CommentDAO().SelectByContext(2, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                                 ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
+                                 Session[Constants.SESSION_HOUSE_COMMENTS] = ds;
+
+                                 CommentMessage.Text = "";
+                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                             }
+                             else
+                             {
+                                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
+                             }
+
+                         }
+                         else
+                         {
+                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "');}", true);
+                         }
+                     }
                 }
                 catch (Exception ex)
                 {

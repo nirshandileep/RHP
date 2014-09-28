@@ -3,7 +3,11 @@
 <%@ Register src="Modules/Landload_Public_Profile_Data.ascx" tagname="Landload_Public_Profile_Data" tagprefix="uc2" %>
 <%@ Register src="Modules/Landload_Public_Profile_Header.ascx" tagname="Landload_Public_Profile_Header" tagprefix="uc3" %>
 <%@ Register src="Modules/Landload_Profile_Comment_Add.ascx" tagname="Landload_Profile_Comment_Add" tagprefix="uc4" %>
-<%@ Register src="Modules/Landload_Profile_Comments.ascx" tagname="Landload_Profile_Comments" tagprefix="uc5" %>
+<%@ Register src="~/Land_load/Modules/Landload_Public_Profile_Comments.ascx" tagname="Landload_Profile_Comments" tagprefix="uc5" %>
+
+<%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
+    Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 </asp:Content>
@@ -12,8 +16,11 @@
 
      <uc3:Landload_Public_Profile_Header ID="Landload_Public_Profile_Header1" 
         runat="server" />
-           <div id="MyRatings"> My Ratings</div>
-        
+           <div id="MyRatings"> My Ratings
+           <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
+            </dx:ASPxRatingControl>
+           </div>
+         <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Land_load/Land_load_Profile.aspx" runat="server">My Page</asp:HyperLink>
         <div id="LeftPanel" runat="server">
         
     </div>

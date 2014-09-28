@@ -13,7 +13,7 @@ namespace USA_Rent_House_Project.Student.Modules
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            ASPxRating.Value = decimal.Parse("3.75");
         }
 
        

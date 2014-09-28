@@ -184,6 +184,8 @@
             <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="1">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
+                    <div class="imagegallery">
+                        </div>
                         <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("UserId") %>' runat="server" />
                         Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
@@ -237,6 +239,8 @@
             <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="1">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
+                    <div class="imagegallery">
+                        </div>
                         <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("UserId") %>' runat="server" />
                          Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>

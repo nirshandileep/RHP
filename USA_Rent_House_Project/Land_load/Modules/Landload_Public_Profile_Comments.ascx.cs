@@ -11,10 +11,12 @@ using RHP.Comments;
 using System.Web.Security;
 using RHP.Utility;
 
+
 namespace USA_Rent_House_Project.Land_load.Modules
 {
-    public partial class Landload_Profile_Comments : System.Web.UI.UserControl
+    public partial class Landload_Public_Profile_Comments : System.Web.UI.UserControl
     {
+
         //private DataSet dsComments
         //{
         //    get
@@ -35,23 +37,24 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.IsAuthenticated)
-            {
-                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+           // if (HttpContext.Current.User.Identity.IsAuthenticated)
+           // {
+                 string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
 
-                if (AccessCode != null && AccessCode != string.Empty)
-                {
-                    try
-                    {
-                        LoadComments(Guid.Parse(AccessCode));
-                    }
-                    catch (Exception ex)
-                    {
+                 if (AccessCode != null && AccessCode != string.Empty)
+                 {
+                     try
+                     {
+                         LoadComments(Guid.Parse(AccessCode));
+                     }
+                     catch (Exception ex)
+                     {
 
-                    }
-
-                }
-            }
+                     }
+                     
+                 }
+               
+           // }
         }
 
         public void LoadComments(Guid AccessCode)
@@ -65,7 +68,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
-        //public void LoadComments()
+        //public void LoadComments(Guid AccessCode)
         //{
 
         //    DataListStudentComments.DataSource = dsComments.Tables[0];

@@ -10,42 +10,33 @@
 namespace USA_Rent_House_Project.Land_load.Modules {
     
     
-    public partial class Landload_Profile_Comment_Add {
+    public partial class Landload_Public_Profile_Comments {
         
         /// <summary>
-        /// ASPxRating control.
+        /// StudentComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRating;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentComments;
         
         /// <summary>
-        /// CommentMessage control.
+        /// StudentCommentsData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox CommentMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentCommentsData;
         
         /// <summary>
-        /// CommentButton control.
+        /// DataListStudentComments control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CommentButton;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.WebControls.DataList DataListStudentComments;
     }
 }

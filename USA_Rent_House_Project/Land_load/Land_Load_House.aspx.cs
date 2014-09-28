@@ -46,6 +46,7 @@ namespace USA_Rent_House_Project.Land_load
                     try
                     {
                         LoadStudent(Guid.Parse(AccessCode));
+                        ASPxRating.Value = decimal.Parse("4.00");
                     }
                     catch (Exception ex)
                     { }
