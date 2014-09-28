@@ -13,13 +13,14 @@
    
     <uc1:Student_Public_Profile_Header ID="Student_Public_Profile_HeaderID" 
         runat="server" />
-    <uc2:Student_Public_Profile_Banner ID="Student_Public_Profile_BannerID" 
+   <div id="LeftPanel"></div>
+    <div id="RightPanel">
+     <uc2:Student_Public_Profile_Banner ID="Student_Public_Profile_BannerID" 
         runat="server" />
-    
     <uc3:Student_Public_Profile_Data ID="Student_Public_Profile_DataID" 
         runat="server" />
         <uc5:Student_Profile_Comment_Add ID="Student_Profile_Comment_Add1" 
         runat="server" />
     <uc4:Student_Profile_Comments ID="Student_Profile_CommentsID" runat="server" />
-   
+</div>   
 </asp:Content>

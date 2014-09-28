@@ -433,7 +433,7 @@ input.actionbutton:hover
     clear:both;
 }
 
-@media screen and (max-width: 980px) {
+/*@media screen and (max-width: 980px) {
 
 
 #topheaderinner
@@ -556,6 +556,8 @@ input.homelargebuttons, input.searchbuttonslarge
     margin:5px 0;
 }
 }
+
+*/
 
 /* -------------------- Home Page content ---------------------------------------- */
 
@@ -897,7 +899,7 @@ a.loginlinks:hover
 }
 
 #MainContent_Student_Profile_CommentsID_StudentComments, 
-#MainContent_Student_Public_Profile_CommentsID_StudentComments
+
 {
    
     clear: both;

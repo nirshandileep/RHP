@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Comment_Add" %>
 <div id="div_register_User">
 
-   <div class="comment_box">
+   <div>
         <p>Please share</p>
   
           <!-- AddThis Button BEGIN -->
