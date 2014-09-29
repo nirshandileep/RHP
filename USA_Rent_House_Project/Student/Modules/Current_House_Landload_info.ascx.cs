@@ -11,6 +11,7 @@ using RHP.Utility;
 using System.Web.Security;
 using RHP.LandlordManagement;
 using System.Data;
+using RHP.CommunicationManagement;
 
 
 
@@ -150,6 +151,16 @@ namespace USA_Rent_House_Project.Student.Modules
                     landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     result = landload.Save();
+
+                    string strMsgContent = message(Landlorduser.UserId.Value,Landlorduser);
+
+                    string strMsgTitle = "www.ratemystudenthome.com - Request you to join with ratemystudenthome.com.";
+
+                     int rtn = SendEmail(Landlorduser.PersonalEmail, strMsgTitle, strMsgContent);
+
+                    if (rtn == 1)
+                    {
+                    }
                 }
 
                 LandlordId = Landlorduser.UserId;
@@ -221,5 +232,82 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             return true;
         }
+
+        protected int SendEmail(string To, string Subject, string Body)
+        {
+
+            try
+            {
+                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
+
+                EmailManager emailManager = new EmailManager(host, fromEmail);
+
+                //Use the parameters where needed, if not required use empty
+                emailManager.SendEmail(To, Subject, string.Empty, fromEmail, string.Empty, Body);
+
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+
+        }
+
+
+        private string message(Guid ActivationKey, User _user)
+        {
+            string strMsgContent = string.Empty;
+
+            try
+            {
+                string name = _user.FirstName + " " + _user.MiddleName + " " + _user.LastName;
+
+                string RegisterUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Land_load/Land_load_Profile_Add.aspx?ActivationKey=" + ActivationKey;
+                strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
+                                    "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
+                                    " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
+                                    "<br />";
+
+                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
+
+                strMsgContent = strMsgContent + "One of your house Room-mate created account with ratemystudenthome.com, and Request you to join with ratemystudenthome.com,<br/><br/>";
+
+                //strMsgContent = strMsgContent + "Your account details are as follows. <br/><br/>";
+
+                //strMsgContent = strMsgContent + "Your Name:  " + name + " <br/>";
+
+                //strMsgContent = strMsgContent + "Email : " + _user.PersonalEmail + " <br/>";
+
+                //strMsgContent = strMsgContent + "Contact No : " + _user.BestContactNumber + " <br/>";
+
+                //strMsgContent = strMsgContent + "Please keep these details safe for future use.<br/>";
+
+                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
+                                
+                strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/>";
+
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your www.ratemystudenthome.com Account </a>  <br/><br/>";
+
+                strMsgContent = strMsgContent + "If you have any issues with creating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with creating my account\">  support@ratemystudenthome.com </a><br/>";
+
+                strMsgContent = strMsgContent + "If you have already Registred, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
+
+                strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to activate your account. Please do not reply to this email.<br /><br />";
+
+                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
+
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+
+            }
+            catch (Exception ex)
+            {
+                strMsgContent = string.Empty;
+
+            }
+            return strMsgContent;
+        }
+
     }
 }

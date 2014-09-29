@@ -78,10 +78,37 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+
+                    if (AccessCode != string.Empty && AccessCode != null)
+                    {
+                        try
+                        {
+                            LoadStudent(Guid.Parse(AccessCode));
+                        }
+                        catch (Exception ex)
+                        { }
+                    }
                 }
 			}
 		}
 
+        public void LoadStudent(Guid AccessCode)
+        {
+
+            user = User.Select(AccessCode);
+
+            if (user != null)
+            {
+                if (user.UserId.HasValue && user.IsPartialUser == true)
+                {
+
+                    Email.Text = user.PersonalEmail;
+                    
+                }
+            }
+
+        }
 
 		protected void CreateUserButton_Click(object sender, EventArgs e)
 		{
@@ -211,7 +238,7 @@ namespace USA_Rent_House_Project.Student.Modules
                                     " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + " " + user.UserName + ", " + "</span></div>" +
                                     "<br />";
 
-                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx";
+                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
                 strMsgContent = strMsgContent + "Thank you for creating a account with ratemystudenthome.com, Your account details are as follows. <br/><br/>";
 
@@ -229,7 +256,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 strMsgContent = strMsgContent + "<a href=" + verifyUrl + "> Verify Your Email Account </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:info@ratemystudenthome.com?subject=I have issue with activating my account\">  info@ratemystudenthome.com </a><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with activating my account\">  support@ratemystudenthome.com </a><br/>";
 
                 strMsgContent = strMsgContent + "If you have already activated your account, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
 
@@ -296,7 +323,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             string strMsgContent = message(Guid.Parse("3D8B43C5-119E-4701-B18C-80C39A1293FE"));
 
-            string strMsgTitle = "www.ratemystudenthome.com - Student Account Activation Email.";
+            string strMsgTitle = "www.ratemystudenthome.com - Student Account Activation Email - test by admin.";
 
             int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
         }

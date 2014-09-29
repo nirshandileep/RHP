@@ -13,6 +13,7 @@ using RHP.Common;
 
 using System.Net;
 using System.Net.Mail;
+using RHP.CommunicationManagement;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -108,8 +109,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                 MembershipUser newUser = Membership.GetUser(user.UserName);
                                  if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                                 {
-                                
-                                        if (SendingMail((Guid)newUser.ProviderUserKey))
+
+                                    string strMsgContent = message((Guid)newUser.ProviderUserKey);
+
+                                    string strMsgTitle = "www.ratemystudenthome.com - Action required for account activation.";
+
+                                    int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+
+                                        if (rtn == 1)
                                         {
                                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=l'; }", true);
                                         }
@@ -143,44 +150,28 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
         }
 
-
-
-        protected bool SendingMail(Guid ActivationKey)
+        protected int SendEmail(string To, string Subject, string Body)
         {
 
             try
             {
-                throw new Exception("not implemented");
-                //using (MailMessage mm = new MailMessage(Constants.FROMEMAIL, user.Email))
-                //{
-                //    mm.Subject = Constants.ACTIVATIONEMAILSUBJECT;
-                //    mm.Body = message(ActivationKey);
+                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
 
-                //    mm.IsBodyHtml = true;
-                //    SmtpClient smtp = new SmtpClient();
+                EmailManager emailManager = new EmailManager(host, fromEmail);
 
-                //    smtp.Host = Constants.EMAILHOST;
+                //Use the parameters where needed, if not required use empty
+                emailManager.SendEmail(To, Subject, string.Empty, fromEmail, string.Empty, Body);
 
-                //    smtp.EnableSsl = true;
-                //    NetworkCredential NetworkCred = new NetworkCredential(Constants.FROMEMAIL, Constants.FROMEMAILPASSWORD);
-
-                //    smtp.UseDefaultCredentials = true;
-                //    smtp.Credentials = NetworkCred;
-
-                //    smtp.Port = Convert.ToInt16(Constants.EMAILPORT);
-
-                //    smtp.Send(mm);
-
-                //    return true;
-                //}
+                return 1;
             }
             catch (Exception ex)
             {
-                return false;
-                throw ex;
+                return 0;
             }
 
         }
+
 
         private string message(Guid ActivationKey)
         {
@@ -188,13 +179,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             try
             {
-                string verifyUrl = Constants.SITEURL + "Email_Verification.aspx?ActivationKey=" + ActivationKey;
+                string verifyUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Email_Verification.aspx?ActivationKey=" + ActivationKey;
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
                                     " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + " " + user.UserName + ", " + "</span></div>" +
                                     "<br />";
 
-                string loginpath = Constants.SITEURL + "Login.aspx";
+                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
 
                 strMsgContent = strMsgContent + "Thank you for creating a account with ratemystudenthome.com, Your account details are as follows. <br/><br/>";
 
@@ -212,7 +203,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 strMsgContent = strMsgContent + "<a href=" + verifyUrl + "> Verify Your Email Account </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:info@ratemystudenthome.com?subject=I have issue with activating my account\">  info@ratemystudenthome.com </a><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with activating my account\">  support@ratemystudenthome.com </a><br/>";
 
                 strMsgContent = strMsgContent + "If you have already activated your account, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
 
