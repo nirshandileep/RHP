@@ -12,9 +12,7 @@ namespace RHP.Common
     {
         public static readonly string CONNECTIONSTRING = "ApplicationServices";
 
-        public static readonly string SITEURL = "http://localhost:63990/";
-
-        public static readonly string ACTIVATIONEMAILSUBJECT = "Ratemystudenthome.com - Action required for account activation";
+        //public static readonly string ACTIVATIONEMAILSUBJECT = "Ratemystudenthome.com - Action required for account activation";
         //public static readonly string FROMEMAIL = "smtpemailsetup@gmail.Com";
         //public static readonly string FROMEMAILPASSWORD = "pwd4smtpemail";
         //public static readonly string TOEMAIL = "look2cool@gmail.com";

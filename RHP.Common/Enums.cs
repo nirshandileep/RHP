@@ -16,6 +16,7 @@ namespace RHP.Common
             SMTP_PORT = 5,
             SMTP_FROM_EMAIL = 6,
             SMTP_FROM_EMAIL_PASSWORD = 7,
+            SITEURL = 8,
         }
 
         public enum UserRoles

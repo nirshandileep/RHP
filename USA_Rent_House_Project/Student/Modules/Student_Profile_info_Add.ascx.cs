@@ -14,6 +14,7 @@ using RHP.SessionManager;
 
 using System.Net;
 using System.Net.Mail;
+using RHP.CommunicationManagement;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -129,18 +130,29 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                         {
-                            if (SendingMail((Guid)newUser.ProviderUserKey))
+                            //if (SendingMail((Guid)newUser.ProviderUserKey))
+                            //{ 
+                            // simple email function
+                            //}
+
+                            string strMsgContent = message((Guid)newUser.ProviderUserKey);
+
+                            string strMsgTitle = "www.ratemystudenthome.com - Action required for account activation.";
+
+                            int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+
+                            if (rtn == 1)
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
                             }
                             else
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx'; }", true);
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=s'; }", true);
                             }
                         }
                         else
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
                         }
                            
                     }
@@ -165,40 +177,25 @@ namespace USA_Rent_House_Project.Student.Modules
 		}
 
 
-        protected bool SendingMail(Guid ActivationKey)
+        protected int SendEmail(string To, string Subject, string Body)
         {
-           
-                try
-                {
-                    throw new Exception("not implemented");
-                    //using (MailMessage mm = new MailMessage(Constants.FROMEMAIL, user.Email))
-                    //{
-                    //    mm.Subject = Constants.ACTIVATIONEMAILSUBJECT;
-                    //    mm.Body = message(ActivationKey);
 
-                    //    mm.IsBodyHtml = true;
-                    //    SmtpClient smtp = new SmtpClient();
+            try
+            {
+                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
 
-                    //    smtp.Host = Constants.EMAILHOST;
+                EmailManager emailManager = new EmailManager(host, fromEmail);
 
-                    //    smtp.EnableSsl = true;
-                    //    NetworkCredential NetworkCred = new NetworkCredential(Constants.FROMEMAIL, Constants.FROMEMAILPASSWORD);
-                       
-                    //    smtp.UseDefaultCredentials = true;
-                    //    smtp.Credentials = NetworkCred;
+                //Use the parameters where needed, if not required use empty
+                emailManager.SendEmail(To, Subject, string.Empty, fromEmail, string.Empty, Body);
 
-                    //    smtp.Port = Convert.ToInt16(Constants.EMAILPORT);
-
-                    //    smtp.Send(mm);
-
-                    //    return true;
-                    //}
-                }
-                catch (Exception ex)
-                {
-                    return false;
-                    throw ex;
-                }
+                return 1;
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
 
         }
 
@@ -208,13 +205,13 @@ namespace USA_Rent_House_Project.Student.Modules
 
             try
             {
-                string verifyUrl = Constants.SITEURL+"Email_Verification.aspx?ActivationKey=" + ActivationKey;
+                string verifyUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Email_Verification.aspx?ActivationKey=" + ActivationKey;
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
                                     " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + " " + user.UserName + ", " + "</span></div>" +
                                     "<br />";
 
-                string loginpath = Constants.SITEURL + "Login.aspx";
+                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx";
 
                 strMsgContent = strMsgContent + "Thank you for creating a account with ratemystudenthome.com, Your account details are as follows. <br/><br/>";
 
@@ -241,14 +238,68 @@ namespace USA_Rent_House_Project.Student.Modules
                 strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
 
                 strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
-                            
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 strMsgContent = string.Empty;
 
             }
             return strMsgContent;
         }
+
+
+
+        protected bool SendingMail(Guid ActivationKey)
+        {
+
+            try
+            {
+
+                // throw new Exception("not implemented");
+                using (MailMessage mm = new MailMessage("support@ratemystudenthome.com", "look2cool@gmail.com"))
+                {
+                    mm.Subject = "test email from rate my home";
+                    mm.Body = message(ActivationKey);
+
+                    mm.IsBodyHtml = true;
+                    SmtpClient smtp = new SmtpClient();
+
+                    smtp.Host = "smtpout.secureserver.net";
+
+                    smtp.EnableSsl = false;
+                    NetworkCredential NetworkCred = new NetworkCredential("support@ratemystudenthome.com", "support");
+
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = NetworkCred;
+
+                    smtp.Port = Convert.ToInt16("80");
+
+                    smtp.Send(mm);
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                return false;
+                throw ex;
+            }
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            user.UserName = "Test User";
+            user.Email = "look2cool@gmail.com";
+            user.Question = "this is Qus";
+
+            string strMsgContent = message(Guid.Parse("3D8B43C5-119E-4701-B18C-80C39A1293FE"));
+
+            string strMsgTitle = "www.ratemystudenthome.com - Student Account Activation Email.";
+
+            int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+        }
+
 	}
 }

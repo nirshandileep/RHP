@@ -180,16 +180,14 @@ namespace RHP.CommunicationManagement
                 //SPECIAL NOTE : NO need to set the body as adding alternate views of body will take care of it
 
                 //alternate view for plain text
-                AlternateView mailBodyPlainView = AlternateView.CreateAlternateViewFromString(
-                    contentInPlainText, new System.Net.Mime.ContentType("text/plain"));
+                AlternateView mailBodyPlainView = AlternateView.CreateAlternateViewFromString( contentInPlainText, new System.Net.Mime.ContentType("text/plain"));
                 mail.AlternateViews.Add(mailBodyPlainView);
 
                 //alternate view for html
                 // Request ID : 21714 Added UTF8 Encoding as it seems to fix problems with unusual characters
                 if (string.IsNullOrEmpty(contentInHTML) == false)
                 {
-                    AlternateView mailBodyHTMLView = AlternateView.CreateAlternateViewFromString(
-                        contentInHTML, Encoding.UTF8, "text/html");
+                    AlternateView mailBodyHTMLView = AlternateView.CreateAlternateViewFromString(contentInHTML, Encoding.UTF8, "text/html");
 
                     // attach the images to the email
                     //if (imageList != null)
