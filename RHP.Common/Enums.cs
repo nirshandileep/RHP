@@ -14,6 +14,8 @@ namespace RHP.Common
             IsEmailActivation = 3,
             SMTP_HOST = 4,
             SMTP_PORT = 5,
+            SMTP_FROM_EMAIL = 6,
+            SMTP_FROM_EMAIL_PASSWORD = 7,
         }
 
         public enum UserRoles

@@ -9,6 +9,8 @@ using System.Web.Security;
 using System.Configuration;
 using System.Net.Mail;
 using System.Net;
+using RHP.CommunicationManagement;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Modules
 {
@@ -74,33 +76,19 @@ namespace USA_Rent_House_Project.Modules
 
       }
 
+        //The place I changed for email generation
         protected int SendEmail(string To, string Subject, string Body)
         {
 
             try
             {
-                string fromemail = ConfigurationManager.AppSettings["FromMail"].ToString();
-                string pwd = ConfigurationManager.AppSettings["pwd"].ToString();
+                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
 
-                using (MailMessage mm = new MailMessage(fromemail, To))
-                {
-                    mm.Subject = Subject;
-                    mm.Body = Body;
+                EmailManager emailManager = new EmailManager(host, fromEmail);
 
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-
-                    smtp.Host = ConfigurationManager.AppSettings["Host"].ToString();
-
-                    smtp.EnableSsl = false;
-                    NetworkCredential NetworkCred = new NetworkCredential(fromemail, pwd);
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = NetworkCred;
-
-                    smtp.Port = Convert.ToInt16(ConfigurationManager.AppSettings["Port"].ToString());
-
-                    smtp.Send(mm);
-                }
+                //Use the parameters where needed, if not required use empty
+                emailManager.SendEmail(To, Subject, Body, fromEmail, string.Empty, string.Empty);
 
                 return 1;
             }

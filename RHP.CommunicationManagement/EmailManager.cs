@@ -17,6 +17,44 @@ namespace RHP.CommunicationManagement
         private string smtpUsername;
         private string smtpPassword;
 
+        public string SmtpEmailFrom
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(smtpEmailFrom))
+                {
+                    smtpEmailFrom = SystemConfig.GetValue(Enums.SystemConfig.SMTP_FROM_EMAIL).ToLower();
+                }
+                return smtpEmailFrom;
+            }
+            set { smtpEmailFrom = value; }
+        }
+
+        public string SmtpUsername{
+            get
+            {
+                if (string.IsNullOrEmpty(smtpUsername))
+                {
+                    smtpUsername = SystemConfig.GetValue(Enums.SystemConfig.SMTP_FROM_EMAIL).ToLower();
+                }
+                return smtpUsername;
+            }
+            set { smtpUsername = value; }
+        }
+
+        public string SmtpPassword
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(smtpPassword))
+                {
+                    smtpPassword = SystemConfig.GetValue(Enums.SystemConfig.SMTP_FROM_EMAIL_PASSWORD);
+                }
+                return smtpPassword;
+            }
+            set { smtpPassword = value; }
+        }
+
         public string SmtpServerName
         {
             get
@@ -227,7 +265,7 @@ namespace RHP.CommunicationManagement
                 //}
 
                 // Now setup the mail client:
-                SmtpClient smtpClient = new SmtpClient(this.smtpServerName);
+                SmtpClient smtpClient = new SmtpClient(this.SmtpServerName);
 
                 //This block of code is for development environments: if no SMTP server name
                 //is provided then write the emails to the file system.
@@ -242,10 +280,10 @@ namespace RHP.CommunicationManagement
                     smtpClient.Port = portNumber.Value;
                 }
 
-                if ((!string.IsNullOrEmpty(this.smtpUsername)) && (!string.IsNullOrEmpty(this.smtpPassword)))
+                if ((!string.IsNullOrEmpty(this.SmtpUsername)) && (!string.IsNullOrEmpty(this.SmtpPassword)))
                 {
                     smtpClient.UseDefaultCredentials = false;
-                    smtpClient.Credentials = new System.Net.NetworkCredential(this.smtpUsername, this.smtpPassword);
+                    smtpClient.Credentials = new System.Net.NetworkCredential(this.SmtpUsername, this.SmtpPassword);
                 }
 
                 smtpClient.Send(mail);

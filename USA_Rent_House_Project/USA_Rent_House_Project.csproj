@@ -1056,6 +1056,10 @@
       <Project>{E798F0A9-479C-49E1-B4BB-3B5FB047C415}</Project>
       <Name>RHP.Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.CommunicationManagement\RHP.CommunicationManagement.csproj">
+      <Project>{39BE2258-07E4-4F48-B8DB-ABEB6532AC5B}</Project>
+      <Name>RHP.CommunicationManagement</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.Facebook\RHP.Facebook.csproj">
       <Project>{20620D31-4E4F-414B-8905-DEAAE11B01FA}</Project>
       <Name>RHP.Facebook</Name>
