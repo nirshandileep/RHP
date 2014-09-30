@@ -57,12 +57,40 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
                 else
                 {
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
+
+                    if (AccessCode != string.Empty && AccessCode != null)
+                    {
+                        try
+                        {
+                            LoadStudent(Guid.Parse(AccessCode));
+                        }
+                        catch (Exception ex)
+                        { }
+                    }
                 }
 
             }
         }
 
-       
+
+        public void LoadStudent(Guid AccessCode)
+        {
+
+            user = User.Select(AccessCode);
+
+            if (user != null)
+            {
+                if (user.UserId.HasValue && user.IsPartialUser == true)
+                {
+
+                    Email.Text = user.PersonalEmail;
+
+                }
+            }
+
+        }
+
         protected void CreateUserButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid == true)
@@ -71,8 +99,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     bool boolMembershipUserCreated = false;
 
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
+
+                    if (AccessCode != string.Empty && AccessCode != null)
+                    {
+                        user = User.Select(Guid.Parse(AccessCode));
+                    }
+
                     user.Email = Email.Text.Trim();
                     user.Status = "Active";
+                    user.PersonalEmail = Email.Text.Trim();
                         user.Password = Password.Text.Trim();
                         user.UserName = UserName.Text.Trim();
                         user.Question = Question.Text.Trim();
@@ -81,6 +117,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                           object objCreateMembershipUser = new object();
 
                           bool IsActivate = false;
+
 
                           if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                           {

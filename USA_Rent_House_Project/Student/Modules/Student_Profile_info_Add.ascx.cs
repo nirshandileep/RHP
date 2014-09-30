@@ -78,7 +78,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
 
                     if (AccessCode != string.Empty && AccessCode != null)
                     {
@@ -116,13 +116,22 @@ namespace USA_Rent_House_Project.Student.Modules
 			{
 				try
 				{
+
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
+
+                     if (AccessCode != string.Empty && AccessCode != null)
+                     {
+                         user = User.Select(Guid.Parse(AccessCode));
+                     }
+
 					bool boolMembershipUserCreated = false;
                    
                     user.Email = Email.Text.Trim();
-                        user.Password = Password.Text.Trim();
-                        user.UserName = UserName.Text.Trim();
-                        user.Question = Question.Text.Trim();
-                        user.Answer = Answer.Text.Trim();
+                    user.PersonalEmail = Email.Text.Trim();
+                    user.Password = Password.Text.Trim();
+                    user.UserName = UserName.Text.Trim();
+                    user.Question = Question.Text.Trim();
+                    user.Answer = Answer.Text.Trim();
                   
                     object objCreateMembershipUser = new object();
 
