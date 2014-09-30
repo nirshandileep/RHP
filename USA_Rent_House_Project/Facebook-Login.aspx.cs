@@ -34,6 +34,8 @@ namespace USA_Rent_House_Project
 
             string userRole = "";
 
+            Uri currentDomainURL = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
+
             string value = Utility.GetQueryStringValueByKey(Request, "type");
 
             if (!IsPostBack)
@@ -67,7 +69,7 @@ namespace USA_Rent_House_Project
                 if (authorization == null)
                 {
                     // Kick off authorization request
-                    facebookClient.RequestUserAuthorization();
+                    facebookClient.RequestUserAuthorization(null, currentDomainURL);
 
                     // Alternatively you can ask for more information
                     //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email });
