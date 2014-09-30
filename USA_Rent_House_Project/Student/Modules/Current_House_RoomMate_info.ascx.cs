@@ -131,16 +131,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
             clear();
 
-            if (ViewState["CurrentTable"] != null)
-            {
-              //  SaveRommateButton.Enabled = true;
-
-            }
-            else
-            {
-              //  SaveRommateButton.Enabled = false;
-               
-            }
         }
 
         public void clear()
@@ -265,7 +255,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     string strMsgContent = message(user.UserId.Value, user);
 
-                    string strMsgTitle = "www.ratemystudenthome.com - Request you to join with ratemystudenthome.com.";
+                    string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
 
                     int rtn = SendEmail(user.PersonalEmail, strMsgTitle, strMsgContent);
 
@@ -364,7 +354,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
 
-                strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/>";
+                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
+
+                strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/><br/>";
 
                 strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your www.ratemystudenthome.com Account </a>  <br/><br/>";
 
