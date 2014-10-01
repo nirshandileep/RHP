@@ -83,8 +83,8 @@ namespace USA_Rent_House_Project.Student.Modules
             // user data
             user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+           // user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+           // user.AspnetUserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
             MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
             LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;

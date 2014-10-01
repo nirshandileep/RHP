@@ -261,7 +261,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 strMsgContent = strMsgContent + "If you forget your password, you can get a new password by using secret question.<br/><br/>";
 
-                strMsgContent = strMsgContent + "Please click on the link below to activate your account.<br/>";
+                strMsgContent = strMsgContent + "<b>Please click on the link below to activate your account.</b><br/>";
 
                 strMsgContent = strMsgContent + "<a href=" + verifyUrl + "> Verify Your Email Account </a>  <br/><br/>";
 
