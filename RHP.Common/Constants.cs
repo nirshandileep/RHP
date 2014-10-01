@@ -51,9 +51,14 @@ namespace RHP.Common
         #region Dropdown values
         public static readonly ListItem[] STUDENT_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
         public static readonly ListItem[] LANDLOAD_SEX_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
-        public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+        public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Freshman", "Freshman"), new ListItem("Sophomore", "Sophomore"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior"), new ListItem("5th Year Senior", "5th Year Senior"), new ListItem("6th Year Senior", "6th Year Senior"), new ListItem("MA ", "MA "), new ListItem("Phd", "Phd"), new ListItem("Post Grad", "Post Grad") };
 
-        public static readonly ListItem[] SEARCH_STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--ANY--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+       // public static readonly ListItem[] STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior") };
+        
+        public static readonly ListItem[] PREVIOUS_SCHOOL_INFO_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("High school student", "High school student"), new ListItem("Transfer student", "Transfer student") };
+        public static readonly ListItem[] CURENT_MAJOR_LIST = new ListItem[] { new ListItem("--Please Select--", "-1"), new ListItem("major 1", "major 1"), new ListItem("major 2", "major 2") };
+
+        public static readonly ListItem[] SEARCH_STUDENT_STATUS_LIST = new ListItem[] { new ListItem("--ANY--", "-1"), new ListItem("Freshman", "Freshman"), new ListItem("Sophomore", "Sophomore"), new ListItem("Junior", "Junior"), new ListItem("Senior", "Senior"), new ListItem("5th Year Senior", "5th Year Senior"), new ListItem("6th Year Senior", "6th Year Senior"), new ListItem("MA ", "MA "), new ListItem("Phd", "Phd"), new ListItem("Post Grad", "Post Grad") };
         public static readonly ListItem[] SEARCH_STUDENT_SEX_LIST = new ListItem[] { new ListItem("--ANY--", "-1"), new ListItem("Male", "Male"), new ListItem("Female", "Female") };
        
         

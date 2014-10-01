@@ -31,6 +31,69 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.HiddenField HiddenFieldSchoolId;
         
         /// <summary>
+        /// Labelpreviousschoolinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelpreviousschoolinfo;
+        
+        /// <summary>
+        /// DRPpreviousschoolinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DRPpreviousschoolinfo;
+        
+        /// <summary>
+        /// Requiredpreviousschoolinfo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Requiredpreviousschoolinfo;
+        
+        /// <summary>
+        /// previousschoolID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl previousschoolID;
+        
+        /// <summary>
+        /// Labelpreviousschool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Labelpreviousschool;
+        
+        /// <summary>
+        /// previousschool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox previousschool;
+        
+        /// <summary>
+        /// Requiredpreviousschool control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Requiredpreviousschool;
+        
+        /// <summary>
         /// LabelSchoolName control.
         /// </summary>
         /// <remarks>
@@ -58,31 +121,31 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator SchoolNameRequired;
         
         /// <summary>
-        /// LabelYear control.
+        /// Labelstartdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelYear;
+        protected global::System.Web.UI.WebControls.Label Labelstartdate;
         
         /// <summary>
-        /// DRPYear control.
+        /// startdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DRPYear;
+        protected global::System.Web.UI.WebControls.TextBox startdate;
         
         /// <summary>
-        /// YearRequired control.
+        /// Requiredstartdate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator YearRequired;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator Requiredstartdate;
         
         /// <summary>
         /// LabelStatus control.
@@ -110,6 +173,60 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator StatusRequired;
+        
+        /// <summary>
+        /// LabelCurentMajor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelCurentMajor;
+        
+        /// <summary>
+        /// DRPCurentMajor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DRPCurentMajor;
+        
+        /// <summary>
+        /// RequiredCurentMajor control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCurentMajor;
+        
+        /// <summary>
+        /// LabelYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelYear;
+        
+        /// <summary>
+        /// DRPYear control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DRPYear;
+        
+        /// <summary>
+        /// YearRequired control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator YearRequired;
         
         /// <summary>
         /// SaveSchoolButton control.

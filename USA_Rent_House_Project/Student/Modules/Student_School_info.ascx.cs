@@ -91,6 +91,8 @@ namespace USA_Rent_House_Project.Student.Modules
             }
 
             Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
+            DRPpreviousschoolinfo.Items.AddRange(Constants.PREVIOUS_SCHOOL_INFO_LIST);
+            DRPCurentMajor.Items.AddRange(Constants.CURENT_MAJOR_LIST);
         }
 
 
@@ -195,6 +197,18 @@ namespace USA_Rent_House_Project.Student.Modules
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
             }
 
+        }
+
+        protected void DRPpreviousschoolinfo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DRPpreviousschoolinfo.SelectedItem.Value == "Transfer student")
+            {
+                previousschoolID.Visible = true;
+            }
+            else
+            {
+                previousschoolID.Visible = false;
+            }
         }
     }
 }

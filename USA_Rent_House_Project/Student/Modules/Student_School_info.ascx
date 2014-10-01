@@ -12,6 +12,24 @@
             ValidationGroup="SaveSchoolValidationGroup" />
         <div id="forminner">
             <asp:HiddenField ID="HiddenFieldSchoolId" runat="server" />
+
+              <p>
+                <asp:Label ID="Labelpreviousschoolinfo" runat="server" AssociatedControlID="DRPpreviousschoolinfo" CssClass="form_label">previous school info:</asp:Label>
+                <asp:DropDownList ID="DRPpreviousschoolinfo" runat="server" 
+                     onselectedindexchanged="DRPpreviousschoolinfo_SelectedIndexChanged" AutoPostBack="true">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="Requiredpreviousschoolinfo" runat="server" ErrorMessage="Please select previous school info"
+                    CssClass="failureNotification" ControlToValidate="DRPpreviousschoolinfo" ValidationGroup="SaveSchoolValidationGroup"
+                    InitialValue="-1">*</asp:RequiredFieldValidator>
+            </p>
+
+             <p id="previousschoolID" runat="server" visible="false">
+                <asp:Label ID="Labelpreviousschool" runat="server" AssociatedControlID="previousschool" CssClass="form_label">Previous School:</asp:Label>
+                 <asp:TextBox ID="previousschool" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="Requiredpreviousschool" runat="server" ErrorMessage="Please enter previous school"
+                    CssClass="failureNotification" ControlToValidate="previousschool" ValidationGroup="SaveSchoolValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+
             <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName"
                     CssClass="form_label">School Name:</asp:Label>
@@ -31,14 +49,14 @@
                     CssClass="failureNotification" ControlToValidate="DrpSchoolName" ValidationGroup="SaveSchoolValidationGroup"
                     InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
-            <p>
-                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year:</asp:Label>
-                <asp:DropDownList ID="DRPYear" runat="server">
-                </asp:DropDownList>
-                <asp:RequiredFieldValidator ID="YearRequired" runat="server" ErrorMessage="Please select Year"
-                    CssClass="failureNotification" ControlToValidate="DRPYear" ValidationGroup="SaveSchoolValidationGroup"
-                    InitialValue="-1">*</asp:RequiredFieldValidator>
+
+             <p>
+                <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="startdate" CssClass="form_label">start date of current University:</asp:Label>
+                 <asp:TextBox ID="startdate" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="Requiredstartdate" runat="server" ErrorMessage="Please enter start date of current University"
+                    CssClass="failureNotification" ControlToValidate="startdate" ValidationGroup="SaveSchoolValidationGroup">*</asp:RequiredFieldValidator>
             </p>
+
             <p>
                 <asp:Label ID="LabelStatus" runat="server" AssociatedControlID="Status" CssClass="form_label">Status:</asp:Label>
                 <asp:DropDownList ID="Status" runat="server">
@@ -47,6 +65,28 @@
                     CssClass="failureNotification" ControlToValidate="Status" ValidationGroup="SaveSchoolValidationGroup"
                     InitialValue="-1">*</asp:RequiredFieldValidator>
             </p>
+
+            <p>
+                <asp:Label ID="LabelCurentMajor" runat="server" AssociatedControlID="DRPCurentMajor" CssClass="form_label">Curent Major:</asp:Label>
+                <asp:DropDownList ID="DRPCurentMajor" runat="server">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="RequiredCurentMajor" runat="server" ErrorMessage="Please Enter Curent Major"
+                    CssClass="failureNotification" ControlToValidate="DRPCurentMajor" ValidationGroup="SaveSchoolValidationGroup"
+                    InitialValue="-1">*</asp:RequiredFieldValidator>
+            </p>
+
+            <p>
+                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Expected Graduation Year:</asp:Label>
+                <asp:DropDownList ID="DRPYear" runat="server">
+                </asp:DropDownList>
+                <asp:RequiredFieldValidator ID="YearRequired" runat="server" ErrorMessage="Please select Year"
+                    CssClass="failureNotification" ControlToValidate="DRPYear" ValidationGroup="SaveSchoolValidationGroup"
+                    InitialValue="-1">*</asp:RequiredFieldValidator>
+            </p>
+            
+
+           
+
            <%-- <p>
                 <asp:Label ID="LabelLandLoadName" runat="server" AssociatedControlID="LandLoadName"
                     CssClass="form_label">Land load Name:</asp:Label>

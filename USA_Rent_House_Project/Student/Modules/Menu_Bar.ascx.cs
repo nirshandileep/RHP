@@ -46,6 +46,7 @@ namespace USA_Rent_House_Project.Student.Modules
             LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileinfoID", "", "~/Student/Student_Profile.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("Profile info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("School info", "SchoolinfoID", "", "~/Student/Student_School_info.aspx"));
+            LeftMenuBar.Items.Add(new MenuItem("Spotlight", "SpotlightID", "", "~/Student/Student_Spotlight.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House.aspx"));
             if (user.IsFBUser == true)
             {
