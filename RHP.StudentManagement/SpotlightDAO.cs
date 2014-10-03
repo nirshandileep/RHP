@@ -24,7 +24,7 @@ namespace RHP.StudentManagement
             DbCommand command = db.GetStoredProcCommand("usp_SpotlightInsert");
 
             db.AddInParameter(command, "UserId", DbType.Guid, spotlight.UserId);
-            db.AddInParameter(command, "Awards", DbType.Guid, spotlight.Awards);
+            db.AddInParameter(command, "Awards", DbType.String, spotlight.Awards);
             db.AddInParameter(command, "Achievements", DbType.String, spotlight.Achievements);
             db.AddInParameter(command, "CurentGPA", DbType.String, spotlight.CurentGPA);
             db.AddInParameter(command, "Oraganizations", DbType.String, spotlight.Oraganizations);
@@ -48,8 +48,8 @@ namespace RHP.StudentManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_SpotlightUpdate");
 
-            db.AddInParameter(command, "SpotlightId", DbType.Int16, spotlight.SpotlightId);
-            db.AddInParameter(command, "Awards", DbType.Guid, spotlight.Awards);
+            db.AddInParameter(command, "UserId", DbType.Guid, spotlight.UserId);
+            db.AddInParameter(command, "Awards", DbType.String, spotlight.Awards);
             db.AddInParameter(command, "Achievements", DbType.String, spotlight.Achievements);
             db.AddInParameter(command, "CurentGPA", DbType.String, spotlight.CurentGPA);
             db.AddInParameter(command, "Oraganizations", DbType.String, spotlight.Oraganizations);
@@ -93,7 +93,7 @@ namespace RHP.StudentManagement
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_Spotlight_IsSpotlightExist");
 
-            db.AddInParameter(command, "SpotlightId", DbType.Guid, spotlight.SpotlightId);
+            db.AddInParameter(command, "UserId", DbType.Guid, spotlight.UserId);
             db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
 
             db.ExecuteNonQuery(command);
