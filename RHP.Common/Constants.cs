@@ -73,6 +73,9 @@ namespace RHP.Common
         public static readonly int STUDENT_PROFILE_STARTING_YEAR = 2006;
         public static readonly int STUDENT_PROFILE_NUMBER_OF_YEARS = 12;
 
+        public static readonly int STUDENT_PROFILE_STARTING_MONTH = 1;
+        public static readonly int STUDENT_PROFILE_NUMBER_OF_MONTHS = 11;
+
         public static readonly int LANDLORD_PROFILE_HOUSEBUILD_STARTING_YEAR = 1950;
         public static readonly int LANDLORD_PROFILE_HOUSEBUILD_NUMBER_OF_YEARS = 100;
 

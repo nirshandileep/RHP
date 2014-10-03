@@ -23,16 +23,35 @@ namespace RHP.StudentManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_StudentInsert");
 
+
+           // <StudentId, uniqueidentifier,>
+           //,<UserId, uniqueidentifier,>
+           //,<SchoolId, uniqueidentifier,>
+           //,<Year, int,>
+           //,<StartYear, int,>
+           //,<StartMonth, int,>
+           //,<Status, nvarchar(50),>
+           //,<CurentMajor, nvarchar(256),>
+           //,<PreviousSchoolInfo, nvarchar(50),>
+           //,<PreviousSchool, nvarchar(256),>
+           //,<IsDeleted, bit,>
+           //,<CreatedBy, uniqueidentifier,>
+           //,<CreatedDate, datetime,>
+           //,<UpdatedBy, uniqueidentifier,>
+           //,<UpdatedDate, datetime,>)
+
+
             db.AddInParameter(command, "StudentId", DbType.Guid, Guid.NewGuid());
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.String, student.School.Year);
-            db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "StartYear", DbType.String, student.StartYear);
+            db.AddInParameter(command, "StartMonth", DbType.String, student.StartMonth);
             db.AddInParameter(command, "Status", DbType.String, student.Status);
-            db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
-          
-            
+            db.AddInParameter(command, "PreviousSchoolInfo", DbType.String, student.PreviousSchoolInfo);
+            db.AddInParameter(command, "PreviousSchool", DbType.String, student.PreviousSchool);
+            db.AddInParameter(command, "CurentMajor", DbType.String, student.CurentMajor);  
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -54,9 +73,12 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
             db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.Int16, student.School.Year);
-            db.AddInParameter(command, "LandloadName", DbType.String, student.LandloadName);
+            db.AddInParameter(command, "StartYear", DbType.String, student.StartYear);
+            db.AddInParameter(command, "StartMonth", DbType.String, student.StartMonth);
             db.AddInParameter(command, "Status", DbType.String, student.Status);
-            db.AddInParameter(command, "LandloadPlace", DbType.String, student.LandloadPlace);
+            db.AddInParameter(command, "PreviousSchoolInfo", DbType.String, student.PreviousSchoolInfo);
+            db.AddInParameter(command, "PreviousSchool", DbType.String, student.PreviousSchool);
+            db.AddInParameter(command, "CurentMajor", DbType.String, student.CurentMajor);  
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
 
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);

@@ -17,10 +17,13 @@ namespace RHP.StudentManagement
         public Guid SchoolId { get; set; }
         public School School { get; set; }
         public User StudentUser { get; set; }
-    
-        public string LandloadName { get; set; }
-        public string LandloadPlace { get; set; }
+
+        public string CurentMajor { get; set; }
+        public string PreviousSchoolInfo { get; set; }
+        public string PreviousSchool { get; set; }
         public int Year { get; set; }
+        public int StartYear { get; set; }
+        public int StartMonth { get; set; }
         public string Status { get; set; }
 
         //public Student Select(Guid studentid)

@@ -90,6 +90,18 @@ namespace USA_Rent_House_Project.Student.Modules
                 DRPYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
 
+            DRPstartMonth.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+            for (int i = Constants.STUDENT_PROFILE_STARTING_MONTH; i <= Constants.STUDENT_PROFILE_NUMBER_OF_MONTHS + Constants.STUDENT_PROFILE_STARTING_MONTH; i++)
+            {
+                DRPstartMonth.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
+
+            DRPstartYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+            for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
+            {
+                DRPstartYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
+            }
+
             Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
             DRPpreviousschoolinfo.Items.AddRange(Constants.PREVIOUS_SCHOOL_INFO_LIST);
             DRPCurentMajor.Items.AddRange(Constants.CURENT_MAJOR_LIST);
@@ -147,7 +159,80 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-              //  LandLoadName.Text = string.IsNullOrEmpty(student.LandloadName) ? string.Empty : student.LandloadName;
+                if (!string.IsNullOrEmpty(student.PreviousSchoolInfo))
+                {
+                    for (int i = 0; i < DRPpreviousschoolinfo.Items.Count; i++)
+                    {
+                        if (DRPpreviousschoolinfo.Items[i].Value.ToString().ToLower() == student.PreviousSchoolInfo.ToLower())
+                        {
+                            DRPpreviousschoolinfo.ClearSelection();
+                            DRPpreviousschoolinfo.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(student.PreviousSchoolInfo))
+                {
+                    for (int i = 0; i < DRPpreviousschoolinfo.Items.Count; i++)
+                    {
+                        if (DRPpreviousschoolinfo.Items[i].Value.ToString().ToLower() == student.PreviousSchoolInfo.ToLower())
+                        {
+                            DRPpreviousschoolinfo.ClearSelection();
+                            DRPpreviousschoolinfo.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(student.CurentMajor))
+                {
+                    for (int i = 0; i < DRPCurentMajor.Items.Count; i++)
+                    {
+                        if (DRPCurentMajor.Items[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
+                        {
+                            DRPCurentMajor.ClearSelection();
+                            DRPCurentMajor.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(student.StartMonth.ToString()))
+                {
+                    for (int i = 0; i < DRPstartMonth.Items.Count; i++)
+                    {
+                        if (DRPstartMonth.Items[i].Value.ToString().ToLower() == student.StartMonth.ToString())
+                        {
+                            DRPstartMonth.ClearSelection();
+                            DRPstartMonth.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+
+                if (!string.IsNullOrEmpty(student.StartYear.ToString()))
+                {
+                    for (int i = 0; i < DRPstartYear.Items.Count; i++)
+                    {
+                        if (DRPstartYear.Items[i].Value.ToString().ToLower() == student.StartYear.ToString())
+                        {
+                            DRPstartYear.ClearSelection();
+                            DRPstartYear.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (DRPpreviousschoolinfo.SelectedItem.Value == "Transfer student")
+                {
+                    previousschoolID.Visible = true;
+                    previousschool.Text = string.IsNullOrEmpty(student.PreviousSchool) ? string.Empty : student.PreviousSchool;
+                }
+                else
+                {
+                    previousschoolID.Visible = false;
+                }
+
+                
+               // startMonth.Text = string.IsNullOrEmpty(student.StartMonth.ToString()) ? string.Empty : student.StartMonth.ToString();
+               // startYear.Text = string.IsNullOrEmpty(student.StartYear.ToString()) ? string.Empty : student.StartYear.ToString();
               //  LandLoadPlace.Text = string.IsNullOrEmpty(student.LandloadPlace) ? string.Empty : student.LandloadPlace;
             }
         }
@@ -175,13 +260,17 @@ namespace USA_Rent_House_Project.Student.Modules
 
             student.StudentUser = user;
 
-            
             student.School.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
+            student.StartMonth = int.Parse(DRPstartMonth.SelectedItem.Value.ToString());//int.Parse(startMonth.Text.ToString());
+            student.StartYear = int.Parse(DRPstartYear.SelectedItem.Value.ToString());//int.Parse(startYear.Text.ToString());
+            student.CurentMajor = DRPCurentMajor.SelectedItem.Value.ToString();
+            student.PreviousSchoolInfo = DRPpreviousschoolinfo.SelectedItem.Value.ToString();
+            student.PreviousSchool = string.IsNullOrEmpty(previousschool.Text) ? string.Empty : previousschool.Text;
 
             student.IsDeleted = false;
-           // student.LandloadName = LandLoadName.Text.Trim();
+           
             student.Status = Status.SelectedItem.Value.ToString();
-           // student.LandloadPlace = LandLoadPlace.Text.Trim();
+           
             student.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             student.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
