@@ -16,7 +16,7 @@
 <div id="topheaderinner">
 <%--<asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/House_Logo.jpg"/>--%>
 
-<asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/House_Logo.jpg" NavigateUrl="~/Default.aspx"  ></asp:HyperLink>
+<asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/House_Logo.jpg" NavigateUrl="~/Default.aspx"></asp:HyperLink>
 </div>
 
 
