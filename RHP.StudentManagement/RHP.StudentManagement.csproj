@@ -52,6 +52,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="School.cs" />
     <Compile Include="SchoolDAO.cs" />
+    <Compile Include="Spotlight.cs" />
+    <Compile Include="SpotlightDAO.cs" />
     <Compile Include="Student.cs" />
     <Compile Include="StudentDAO.cs" />
     <Compile Include="StudentHouse.cs" />

@@ -44,7 +44,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "StudentId", DbType.Guid, Guid.NewGuid());
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
-            db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.String, student.School.Year);
             db.AddInParameter(command, "StartYear", DbType.String, student.StartYear);
             db.AddInParameter(command, "StartMonth", DbType.String, student.StartMonth);
@@ -71,7 +71,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "StudentId", DbType.Guid, student.StudentId);
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
-            db.AddInParameter(command, "IsDeleted", DbType.String, student.IsDeleted);
+            db.AddInParameter(command, "IsDeleted", DbType.Boolean, student.IsDeleted);
             db.AddInParameter(command, "Year", DbType.Int16, student.School.Year);
             db.AddInParameter(command, "StartYear", DbType.String, student.StartYear);
             db.AddInParameter(command, "StartMonth", DbType.String, student.StartMonth);
