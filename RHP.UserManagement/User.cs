@@ -465,6 +465,10 @@ namespace RHP.UserManagement
             return new UserDAO().GetUsernameByFBId(fbid);
         }
 
+        public bool IsUserEmailExist(string Email)
+        {
+            return new UserDAO().IsUserEmailExist(Email);
+        }
        
     }
 }

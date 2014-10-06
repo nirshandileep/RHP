@@ -112,7 +112,6 @@ namespace USA_Rent_House_Project.Student.Modules
         public void LoadStudent()
         {
 
-           
             if (HouseId.HasValue)
             {
                // HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
@@ -126,11 +125,13 @@ namespace USA_Rent_House_Project.Student.Modules
       
         protected void CreateRommateButton_Click(object sender, EventArgs e)
         {
-            GridviewRoommatelist.DataSource = CreateDataSource();
-            GridviewRoommatelist.DataBind();
+            if (validateemail() == false)
+            {
+                GridviewRoommatelist.DataSource = CreateDataSource();
+                GridviewRoommatelist.DataBind();
 
-            clear();
-
+                clear();
+            }
         }
 
         public void clear()
@@ -139,7 +140,10 @@ namespace USA_Rent_House_Project.Student.Modules
             FirstName.Text = "";
             MiddleName.Text = "";
             LastName.Text= "";
-            Mobile.Text = "";
+           // Mobile.Text = "";
+            MobileArea.Text = "";
+            Mobile1.Text = "";
+            Mobile2.Text = "";
         }
 
         ICollection CreateDataSource()
@@ -175,7 +179,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 dr[1] = FirstName.Text.Trim();
                 dr[2] = MiddleName.Text.Trim();
                 dr[3] = LastName.Text.Trim();
-                dr[4] = Mobile.Text.Trim();
+                dr[4] = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();//Mobile.Text.Trim();
                 dt.Rows.Add(dr);
             
             DataView dv = new DataView(dt);
@@ -269,7 +273,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (result)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Edit.aspx';}", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
             }
             return result;
         }
@@ -377,6 +381,37 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
             return strMsgContent;
+        }
+
+        public bool validateemail()
+        {
+            bool isexist = false;
+            Labelmessage.Text = "";
+            if (Email.Text.Trim() != "")
+            {
+                User user_ = new User();
+
+               // user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "student");
+               // if (user_ != null)
+
+                if(user_.IsUserEmailExist(Email.Text.Trim().ToLower()))
+                {
+                    Labelmessage.Text = "landlord / student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+                    isexist = true;
+                    clear();
+                }
+                else
+                {
+                    isexist = false;
+                  //  Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                }
+            }
+            else
+            {
+                isexist = false;
+            }
+
+            return isexist;
         }
     }
 }

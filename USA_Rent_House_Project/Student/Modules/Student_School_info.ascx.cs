@@ -67,15 +67,18 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (!IsPostBack)
             {
-                LoadInitialData();
-                loaddata();
             }
+            LoadInitialData();
+            loaddata();
+            
+           
+          
         }
 
         private void LoadInitialData()
         {
             //Set Schools
-
+            DrpSchoolName.Items.Clear();
             if (DrpSchoolName.Items.Count == 0)
             {
                 DrpSchoolName.DataSource = School.SelectAllList();
@@ -85,23 +88,30 @@ namespace USA_Rent_House_Project.Student.Modules
             }
 
            // Load Years
+            DRPYear.Items.Clear();
             DRPYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
             for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
             {
                 DRPYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
 
+            DRPstartMonth.Items.Clear();
             DRPstartMonth.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
             for (int i = Constants.STUDENT_PROFILE_STARTING_MONTH; i <= Constants.STUDENT_PROFILE_NUMBER_OF_MONTHS + Constants.STUDENT_PROFILE_STARTING_MONTH; i++)
             {
                 DRPstartMonth.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
 
+            DRPstartYear.Items.Clear();
             DRPstartYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
             for (int i = Constants.STUDENT_PROFILE_STARTING_YEAR; i <= Constants.STUDENT_PROFILE_NUMBER_OF_YEARS + Constants.STUDENT_PROFILE_STARTING_YEAR; i++)
             {
                 DRPstartYear.Items.Add(new ListItem(i.ToString(), i.ToString()));
             }
+
+            Status.Items.Clear();
+            DRPpreviousschoolinfo.Items.Clear();
+            DRPCurentMajor.Items.Clear();
 
             Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
             DRPpreviousschoolinfo.Items.AddRange(Constants.PREVIOUS_SCHOOL_INFO_LIST);
@@ -160,18 +170,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-                if (!string.IsNullOrEmpty(student.PreviousSchoolInfo))
-                {
-                    for (int i = 0; i < DRPpreviousschoolinfo.Items.Count; i++)
-                    {
-                        if (DRPpreviousschoolinfo.Items[i].Value.ToString().ToLower() == student.PreviousSchoolInfo.ToLower())
-                        {
-                            DRPpreviousschoolinfo.ClearSelection();
-                            DRPpreviousschoolinfo.Items[i].Selected = true;
-                        }
-                    }
-                }
-
+         
                 if (!string.IsNullOrEmpty(student.PreviousSchoolInfo))
                 {
                     for (int i = 0; i < DRPpreviousschoolinfo.Items.Count; i++)

@@ -76,7 +76,8 @@ namespace USA_Rent_House_Project.Student.Modules
         public delegate void PassLandlordIDToParent(Guid landlordId);
 
         public event PassLandlordIDToParent PassID;
-       
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -113,7 +114,12 @@ namespace USA_Rent_House_Project.Student.Modules
                     MiddleName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
                     LastName.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
                     Email.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim();
-                    Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim();
+                   // Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim();
+
+                    MobileArea.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Substring(0, 3);
+                    Mobile1.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Substring(3, 3);
+                    Mobile2.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Substring(6, 4);
+                
                 }
                
             }
@@ -135,7 +141,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 Landlorduser.FirstName = FirstName.Text.Trim();
                 Landlorduser.MiddleName = MiddleName.Text.Trim();
                 Landlorduser.LastName = LastName.Text.Trim();
-                Landlorduser.BestContactNumber = Mobile.Text.Trim();
+                Landlorduser.BestContactNumber = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();//Mobile.Text.Trim();
                 Landlorduser.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 Landlorduser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                 Landlorduser.IsPartialUser = true;
@@ -188,11 +194,17 @@ namespace USA_Rent_House_Project.Student.Modules
                     //Pass the landlordId back to the main page
                     PassID(user_.UserId.Value);
 
-                    Email.Text = user_.Email;
+                   // Email.Text = user_.PersonalEmail;
                     FirstName.Text = user_.FirstName;
                     MiddleName.Text = user_.MiddleName;
                     LastName.Text = user_.LastName;
-                    Mobile.Text = user_.BestContactNumber;
+
+                    MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                    Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                    Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+          
+
+                    //Mobile.Text = user_.BestContactNumber;
                 }
                 else
                 {
@@ -200,11 +212,16 @@ namespace USA_Rent_House_Project.Student.Modules
                     FirstName.Text = "";
                     MiddleName.Text = "";
                     LastName.Text = "";
-                    Mobile.Text = "";
+                    MobileArea.Text = "";
+                    Mobile1.Text = "";
+                    Mobile2.Text = "";
+                   // Mobile.Text = "";
                     FirstName.Enabled = true;
                     MiddleName.Enabled = true;
                     LastName.Enabled = true;
-                    Mobile.Enabled = true;
+                    MobileArea.Enabled = true;
+                    Mobile1.Enabled = true;
+                    Mobile2.Enabled = true;
                 }
             }
             else
@@ -221,11 +238,15 @@ namespace USA_Rent_House_Project.Student.Modules
             FirstName.Text = "";
             MiddleName.Text = "";
             LastName.Text = "";
-            Mobile.Text = "";
+            MobileArea.Text = "";
+            Mobile1.Text = "";
+            Mobile2.Text = "";
             FirstName.Enabled = false;
             MiddleName.Enabled = false;
             LastName.Enabled = false;
-            Mobile.Enabled = false;
+            MobileArea.Enabled = true;
+            Mobile1.Enabled = true;
+            Mobile2.Enabled = true;
         }
 
         public bool Next()

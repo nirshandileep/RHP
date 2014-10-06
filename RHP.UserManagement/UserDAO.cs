@@ -152,6 +152,21 @@ namespace RHP.UserManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
+
+        public bool IsUserEmailExist(string Email)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_User_IsUserEmailExist");
+
+            db.AddInParameter(command, "Email", DbType.String, Email);
+            db.AddOutParameter(command, "IsExist", DbType.Boolean, 1);
+
+            db.ExecuteNonQuery(command);
+
+            return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
+        }
+
         public bool IsPartialUserExist(User user)
         {
 

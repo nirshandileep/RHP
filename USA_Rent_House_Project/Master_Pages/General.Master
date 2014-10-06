@@ -1,51 +1,51 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.master.cs" Inherits="USA_Rent_House_Project.Masrer_Pages.General" %>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Home</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
-    
     </asp:ContentPlaceHolder>
 </head>
 <body>
-<div id="topheader">
-<div id="topheaderinner">
-<%--<asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/House_Logo.jpg"/>--%>
-
-<asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/House_Logo.jpg" NavigateUrl="~/Default.aspx"></asp:HyperLink>
-</div>
-
-
-</div>
-<div id="wrapper">
-    <form id="form1" runat="server">
-    <div class="loginDisplay">
+    <div id="topheader">
+        <div id="topheaderinner">
+            <%--<asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/House_Logo.jpg"/>--%>
+            <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/House_Logo.jpg"
+                NavigateUrl="~/Default.aspx"></asp:HyperLink>
+        </div>
+    </div>
+    <div id="wrapper">
+        <form id="form1" runat="server">
+        <div id="body">
+            <div class="loginDisplay">
                 <asp:LoginView ID="HeadLoginView" runat="server" Visible="false" EnableViewState="true">
                     <AnonymousTemplate>
-                     
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
-                          <asp:LinkButton ID="LBLogOut" runat="server" onclick="LBLogOut_Click"> Log Out</asp:LinkButton>
-                   
+                        Welcome <span class="bold">
+                            <asp:LoginName ID="HeadLoginName" runat="server" />
+                        </span>!
+                        <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>
                     </LoggedInTemplate>
                 </asp:LoginView>
             </div>
-    <div>
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+            <div>
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        </form>
     </div>
     <div id="footer">
-    <div class="footerleft">Patent Pending</div>
-   <div class="footerright">© 2014 | All rights reserved | www.ratemystudenthome.com</div>
-   <div class="clear"></div> 
-</div>
+        <div class="footerleft">
+            Patent Pending</div>
+        <div class="footerright">
+            © 2014 | All rights reserved | www.ratemystudenthome.com</div>
+        <div class="clear">
+        </div>
+    </div>
 </body>
 </html>

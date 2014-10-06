@@ -114,23 +114,28 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if(IsPostBack)
             {
-                LoadInitialData();
-                loaddata();
+               
             }
+
+            LoadInitialData();
+            loaddata();
         }
 
         
 
         private void LoadInitialData()
         {
-          
-            //Drpstate
-            Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
-            Drpstate.DataTextField = "StateName";
-            Drpstate.DataValueField = "StateId";
-            Drpstate.DataBind();
-            Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
 
+            //Drpstate 
+
+            if (Drpstate.Items.Count < 1)
+            {
+                Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+                Drpstate.DataTextField = "StateName";
+                Drpstate.DataValueField = "StateId";
+                Drpstate.DataBind();
+                Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+            }
         }
 
         public void loaddata()
