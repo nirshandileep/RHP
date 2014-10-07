@@ -114,11 +114,11 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if(IsPostBack)
             {
-               
+                LoadInitialData();
+                loaddata();
             }
 
-            LoadInitialData();
-            loaddata();
+           
         }
 
         
