@@ -87,20 +87,23 @@
             <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
-             <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" runat="server">Public view</asp:HyperLink>
+            <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
+                runat="server">Public view</asp:HyperLink>
             <div id="Search" runat="server">
-            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                runat="server">Search for House</asp:HyperLink>
-        </div>
+                <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+                    runat="server">Search for Student</asp:HyperLink>
+                <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
+                    runat="server">Search for House</asp:HyperLink>
+            </div>
             <div class="clear">
             </div>
-              <h2 class="form_heading">
-       My College Housing Life
-    </h2>
+            <h2 class="form_heading">
+                My College Housing Life
+            </h2>
+            <div id="dragdrop"  runat="server" visible="false">
             <center>
-            <h1>Add Photo(s)</h1>
+                <h1>
+                    Add Photo(s)</h1>
                 <div id="box">
                     Drag & Drop Photos from your machine on this box.</div>
                 <br />
@@ -108,6 +111,9 @@
                 <br />
                 OR
                 <br />
+                </center>
+            </div>
+            <center>
                 <div>
                     <table cellpadding="3">
                         <tr>
@@ -129,14 +135,14 @@
                 <div id="clear">
                 </div>
             </center>
-
             <div>
-            <h2 class="form_heading">House Life</h2>
-            <asp:Repeater ID="RepeaterImages" runat="server" >
-                <ItemTemplate>
-                    <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
-                </ItemTemplate>
-            </asp:Repeater>
+                <h2 class="form_heading">
+                    House Life</h2>
+                <asp:Repeater ID="RepeaterImages" runat="server">
+                    <ItemTemplate>
+                        <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
+                    </ItemTemplate>
+                </asp:Repeater>
             </div>
         </div>
     </div>

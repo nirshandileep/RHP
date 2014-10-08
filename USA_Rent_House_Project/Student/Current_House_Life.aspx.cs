@@ -51,19 +51,28 @@ namespace USA_Rent_House_Project.Student
 
         public void loadimage()
         {
-            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/HouseLife";
+            string path = "~/uploads/"+ Membership.GetUser().ProviderUserKey.ToString() + "/HouseLife";
 
-            string[] filesindirectory = Directory.GetFiles(Server.MapPath(path));
-            List<String> images = new List<string>(filesindirectory.Count());
-
-            foreach (string item in filesindirectory)
+            try
             {
-                // images.Add(String.Format("~/Images/{0}", System.IO.Path.GetFileName(item)));
-                images.Add(String.Format(path + "/{0}", System.IO.Path.GetFileName(item)));
-            }
+                string[] filesindirectory = Directory.GetFiles(Server.MapPath(path));
 
-            RepeaterImages.DataSource = images;
-            RepeaterImages.DataBind();
+                if (filesindirectory != null)
+                {
+                    List<String> images = new List<string>(filesindirectory.Count());
+
+                    foreach (string item in filesindirectory)
+                    {
+                        // images.Add(String.Format("~/Images/{0}", System.IO.Path.GetFileName(item)));
+                        images.Add(String.Format(path + "/{0}", System.IO.Path.GetFileName(item)));
+                    }
+
+                    RepeaterImages.DataSource = images;
+                    RepeaterImages.DataBind();
+                }
+            }
+            catch (Exception ec)
+            { }
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
