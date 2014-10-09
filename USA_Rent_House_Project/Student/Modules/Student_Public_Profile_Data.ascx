@@ -2,16 +2,9 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Data" %>
 
 <div id="currentHomeStudent" runat="server">
-    <div id="LeftPanel" runat="server">
-        
-    </div>
+   
     <div id="RightPanel" runat="server">
-          <div id="Div1" runat="server">
-            <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="HyperLink2" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                runat="server">Search for House</asp:HyperLink>
-        </div>
+         
 
         <div id="currentHomeStudentData" runat="server" visible="false">
          <h2>

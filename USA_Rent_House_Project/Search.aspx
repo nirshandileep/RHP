@@ -181,7 +181,7 @@
     School.Location--%>
      <h1> Student - Search results</h1>
             <br /> <br />
-            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="1">
+            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="2">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
                     <div class="imagegallery">
@@ -236,7 +236,7 @@
                       House.LotSquareFootage, House.TotalSquareFootage, House.UtilitiesIncludedInRent, House.PropertyImagePath, House.IsDeleted AS HouseIsDeleted, 
                       House.CreatedBy AS HouseCreatedBy, House.CreatedDate AS HouseCreatedDate, House.UpdatedBy AS HouseUpdatedBy, House.UpdatedDate AS HouseUpdatedDate, House.RatingValue AS HouseRatingValue, House.Price, 
                       House.IsPartialHouse--%>
-            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="1">
+            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="2">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
                     <div class="imagegallery">
