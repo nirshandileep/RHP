@@ -257,6 +257,7 @@
     <Content Include="Student\Modules\Student_Profile_Comment_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_Data.ascx" />
     <Content Include="Student\Modules\Student_Profile_Header.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Images_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
@@ -269,6 +270,7 @@
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Student\Student_Profile_Current_House.aspx" />
     <Content Include="Student\Student_Profile_Edit.aspx" />
+    <Content Include="Student\Student_Profile_Image.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Student\Student_School_info.aspx" />
     <Content Include="Student\Student_Spotlight.aspx" />
@@ -934,6 +936,13 @@
     <Compile Include="Student\Modules\Student_Profile_Header.ascx.designer.cs">
       <DependentUpon>Student_Profile_Header.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Images_Add.ascx.cs">
+      <DependentUpon>Student_Profile_Images_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Images_Add.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Images_Add.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Add.ascx.cs">
       <DependentUpon>Student_Profile_info_Add.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1017,6 +1026,13 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Edit.aspx.designer.cs">
       <DependentUpon>Student_Profile_Edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Image.aspx.cs">
+      <DependentUpon>Student_Profile_Image.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Image.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Image.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>

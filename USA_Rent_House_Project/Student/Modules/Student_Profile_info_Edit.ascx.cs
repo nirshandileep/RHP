@@ -10,6 +10,7 @@ using RHP.Common;
 using RHP.StudentManagement;
 using System.Web.Security;
 
+
 namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Profile_info_Edit : System.Web.UI.UserControl
@@ -50,6 +51,8 @@ namespace USA_Rent_House_Project.Student.Modules
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     LoadUserData();
+
+                   
                     if (user.IsFBUser == true)
                     {
                         HyperLinkChangePassword.Visible = false;
@@ -211,5 +214,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+       
     }
 }

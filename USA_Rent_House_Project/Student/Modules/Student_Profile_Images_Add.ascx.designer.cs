@@ -10,105 +10,132 @@
 namespace USA_Rent_House_Project.Student.Modules {
     
     
-    public partial class Student_Profile_Header {
+    public partial class Student_Profile_Images_Add {
         
         /// <summary>
-        /// StidentProfileHeader control.
+        /// Div1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StidentProfileHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         
         /// <summary>
-        /// HeaderImage control.
+        /// RepeaterCoverImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeaderImage;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterCoverImage;
         
         /// <summary>
-        /// jmgHeaderImage control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image jmgHeaderImage;
+        protected global::System.Web.UI.WebControls.Label Label3;
         
         /// <summary>
-        /// ChangeCoverImage control.
+        /// FileUploadCoverImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangeCoverImage;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadCoverImage;
         
         /// <summary>
-        /// StudentProfileImage control.
+        /// ButtonCoverImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentProfileImage;
+        protected global::System.Web.UI.WebControls.Button ButtonCoverImage;
         
         /// <summary>
-        /// imgStudentProfileImage control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgStudentProfileImage;
+        protected global::System.Web.UI.WebControls.Label Label4;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// Label5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// CurrentHouseImage control.
+        /// ProfileImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CurrentHouseImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProfileImage;
         
         /// <summary>
-        /// imgCurrentHouseImage control.
+        /// RepeaterImages control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCurrentHouseImage;
+        protected global::System.Web.UI.WebControls.Repeater RepeaterImages;
         
         /// <summary>
-        /// LandloadProfileImage control.
+        /// LogoLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LandloadProfileImage;
+        protected global::System.Web.UI.WebControls.Label LogoLabel;
         
         /// <summary>
-        /// imgLandloadProfileImage control.
+        /// FileUploads control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
+        protected global::System.Web.UI.WebControls.FileUpload FileUploads;
+        
+        /// <summary>
+        /// btn_Photos control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Photos;
+        
+        /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// AllowedLogoLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label AllowedLogoLabel;
     }
 }

@@ -5,13 +5,16 @@
         Student Profile info
     </h2>
     <div class="floatright">
-    <asp:HyperLink ID="HyperLinkChangePassword" runat="server" CssClass="loginlinks"
-        NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>
-    <asp:HyperLink ID="HyperLinkChangeQuestion" CssClass="loginlinks" NavigateUrl="~/Change_Secret_Question.aspx"
-        runat="server">Change Seacret Question</asp:HyperLink>
-        </div>
-        <div class="clear"></div>
+        <asp:HyperLink ID="HyperLinkChangePassword" runat="server" CssClass="loginlinks"
+            NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>
+        <asp:HyperLink ID="HyperLinkChangeQuestion" CssClass="loginlinks" NavigateUrl="~/Change_Secret_Question.aspx"
+            runat="server">Change Seacret Question</asp:HyperLink>
+    </div>
+    <div class="clear">
+    </div>
     <div id="formwrapper">
+
+       
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
             ValidationGroup="RegisterStudentValidationGroup" />
         <div id="forminner">
@@ -47,16 +50,14 @@
             </p>
             <p>
                 <asp:Label ID="Label1" runat="server" AssociatedControlID="DOB" CssClass="form_label">Date of Birth:</asp:Label>
-                <asp:TextBox ID="DOB" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox> DD/MM/YYYY
-
+                <asp:TextBox ID="DOB" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                DD/MM/YYYY
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="DOB"
                     CssClass="failureNotification" ErrorMessage="Date of Birth is required." ToolTip="Date of Birth is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-           
-             <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck"
+                <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck"
                     Type="Date" ErrorMessage="Invalid Date of Birth " ControlToValidate="DOB" CssClass="failureNotification"
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
-           
             </p>
             <p>
                 <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Address:</asp:Label>
@@ -96,8 +97,6 @@
                 <asp:CompareValidator ID="CompareValidator3" runat="server" Operator="DataTypeCheck"
                     Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
                     ToolTip="Invalid Best Contact No." ControlToValidate="MobileArea" ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
-
-
                 <asp:TextBox ID="Mobile1" runat="server" CssClass="MobiletextEntry" MaxLength="3"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="Mobile1"
                     CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
@@ -105,8 +104,6 @@
                 <asp:CompareValidator ID="CompareValidator4" runat="server" Operator="DataTypeCheck"
                     Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
                     ToolTip="Invalid Best Contact No." ControlToValidate="Mobile1" ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
-
-
                 <asp:TextBox ID="Mobile2" runat="server" CssClass="MobiletextEntry" MaxLength="4"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="Mobile2"
                     CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."

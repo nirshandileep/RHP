@@ -7,108 +7,99 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Student.Modules {
+namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Student_Profile_Header {
+    public partial class Student_Profile_Image {
         
         /// <summary>
-        /// StidentProfileHeader control.
+        /// Student_Profile_HeaderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StidentProfileHeader;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
         
         /// <summary>
-        /// HeaderImage control.
+        /// currentHomeStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeaderImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
         
         /// <summary>
-        /// jmgHeaderImage control.
+        /// LeftPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image jmgHeaderImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
         
         /// <summary>
-        /// ChangeCoverImage control.
+        /// Menu_Bar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangeCoverImage;
+        protected global::USA_Rent_House_Project.Student.Modules.Menu_Bar Menu_Bar1;
         
         /// <summary>
-        /// StudentProfileImage control.
+        /// RightPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentProfileImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// imgStudentProfileImage control.
+        /// HyperLinkPublicView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgStudentProfileImage;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
         
         /// <summary>
-        /// CurrentHouseImage control.
+        /// SearchStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CurrentHouseImage;
+        protected global::System.Web.UI.WebControls.HyperLink SearchStudent;
         
         /// <summary>
-        /// imgCurrentHouseImage control.
+        /// SearchHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCurrentHouseImage;
+        protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// LandloadProfileImage control.
+        /// Student_Profile_Images_Add1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LandloadProfileImage;
-        
-        /// <summary>
-        /// imgLandloadProfileImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Images_Add Student_Profile_Images_Add1;
     }
 }
