@@ -242,6 +242,7 @@
     <Content Include="Partial_User_Verification.aspx" />
     <Content Include="Request_New_Password.aspx" />
     <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery.Jcrop.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
@@ -271,10 +272,12 @@
     <Content Include="Student\Student_Profile_Current_House.aspx" />
     <Content Include="Student\Student_Profile_Edit.aspx" />
     <Content Include="Student\Student_Profile_Image.aspx" />
+    <Content Include="Student\Student_Profile_Image_Crop.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Student\Student_School_info.aspx" />
     <Content Include="Student\Student_Spotlight.aspx" />
     <Content Include="Styles\Admin_Style.css" />
+    <Content Include="Styles\jquery.Jcrop.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -1033,6 +1036,13 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Image.aspx.designer.cs">
       <DependentUpon>Student_Profile_Image.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Image_Crop.aspx.cs">
+      <DependentUpon>Student_Profile_Image_Crop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Image_Crop.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Image_Crop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>

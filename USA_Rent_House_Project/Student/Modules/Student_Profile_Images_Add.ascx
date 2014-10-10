@@ -5,6 +5,7 @@
     </h2>
  <div id="Div1" runat="server">
         <h2>Profile Cover Image</h2>
+     <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Profile_Image_Crop.aspx" runat="server">Crop Image</asp:HyperLink>
             <table cellpadding="3">
                 <tr>
                     <td>
