@@ -1100,6 +1100,10 @@
       <Project>{D6735A86-B99D-4F80-9A47-5C53D91CDFFA}</Project>
       <Name>RHP.LandlordManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.Photos\RHP.Photos.csproj">
+      <Project>{64E585D8-C854-4085-AD65-003DAA2DFDC5}</Project>
+      <Name>RHP.Photos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.SessionManager\RHP.SessionManager.csproj">
       <Project>{92A5E511-C5D8-4585-B696-081328FB8B79}</Project>
       <Name>RHP.SessionManager</Name>
