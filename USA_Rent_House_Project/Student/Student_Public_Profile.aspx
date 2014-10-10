@@ -13,8 +13,8 @@
    
     <uc1:Student_Public_Profile_Header ID="Student_Public_Profile_HeaderID" 
         runat="server" />
-   <div id="LeftPanel"></div>
-    <div id="RightPanel">
+   
+    <div id="RightPanel_public">
      <uc2:Student_Public_Profile_Banner ID="Student_Public_Profile_BannerID" 
         runat="server" />
     <uc3:Student_Public_Profile_Data ID="Student_Public_Profile_DataID" 

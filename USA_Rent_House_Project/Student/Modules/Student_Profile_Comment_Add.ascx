@@ -23,12 +23,13 @@
 <!-- AddThis Button END -->
 
        
-        <p>Comment on our page</p>
+        <p class="floatleft">Comment on our page</p>
          <p>   
          <dx:ASPxRatingControl ID="ASPxRatingvalue" runat="server" ></dx:ASPxRatingControl>
-                <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="790px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
+                <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="690px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
               
             </p>
+            <div class="clear"></div>
         </div>
         <div class="clear"></div>
          <p class="submitButton">

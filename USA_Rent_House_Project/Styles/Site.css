@@ -920,6 +920,14 @@ a.loginlinks:hover
     width: 81%;
 }
 
+#RightPanel_public
+{
+   
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 690px;
+}
+
 #RightPanelLL
 {
       float: left;
@@ -1090,6 +1098,16 @@ ul.level1 li a:hover
     float:right;
 }
 
+.floatleft
+{
+    float:left;
+}
+
+#MainContent_Student_Profile_Comment_Add1_ASPxRatingvalue
+{
+    float:right;
+}
+
 
 #MainContent_DataListStudentSearchresults, #MainContent_DataListHouseSearchresults
 {
@@ -1143,8 +1161,9 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .puliclinks
 {
-    margin-top: -80px;
+     margin-top: -80px;
     position: relative;
+    right: -257px;
     z-index: 153;
 }
 
@@ -1167,9 +1186,15 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .changecoverlink
 {
+     background-image: url("../Images/cover-change.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 37px;
     position: absolute;
     right: 18px;
-    top: 165px;
+    text-indent: -9999px;
+    top: 150px;
+    width: 176px;
     z-index: 200;
     
 }
@@ -1177,8 +1202,14 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .changeprofilelink
 {
+      background-image: url("../Images/profile-change.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 25px;
     position: absolute;
-    right: 18px;
-    top: 65px;
+    right: 1px;
+    text-indent: -9999px;
+    top: 77px;
+    width: 97px;
     z-index: 200;
 }
