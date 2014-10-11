@@ -41,7 +41,6 @@ namespace USA_Rent_House_Project.Student
 
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-
                  path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
             }
             try
