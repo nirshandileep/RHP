@@ -69,7 +69,7 @@ namespace USA_Rent_House_Project
                 if (authorization == null)
                 {
                     // Kick off authorization request
-                    facebookClient.RequestUserAuthorization(null, currentDomainURL);
+                    facebookClient.RequestUserAuthorization(null, currentDomainURL); 
 
                     // Alternatively you can ask for more information
                     //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email });

@@ -40,6 +40,11 @@ namespace RHP.Common
             Furnished_Kitchen = 3,
             Furnished_Living_Space = 4,
         }
-             
+
+        public enum PhotoCategory
+        {
+            Profile_Picture = 1,
+
+        }
     }
 }
