@@ -93,7 +93,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
         }
 
 
-         protected void gvFeatureList_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
+        protected void gvFeatureList_RowInserting(object sender, DevExpress.Web.Data.ASPxDataInsertingEventArgs e)
         {
             ASPxGridView gridView = sender as ASPxGridView;
 
@@ -101,10 +101,10 @@ namespace USA_Rent_House_Project.Administrator.Modules
             Option.Name = e.NewValues["Name"].ToString().Trim();
             Option.Description = e.NewValues["Description"].ToString().Trim();
             Option.OptionCategoryId = Convert.ToInt16(e.NewValues["OptionCategoryId"].ToString().Trim());
-           // Option.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);
+            // Option.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);
             Option.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
             Option.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
-           
+
             gridView.CancelEdit();
             e.Cancel = true;
 
@@ -175,10 +175,10 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
         protected void gvFeatureList_CellEditorInitialize(object sender, ASPxGridViewEditorEventArgs e)
         {
-           // if (e.Column.FieldName != "OptionCategoryId" || e.Column.FieldName != "IsMultiSelect") return;
+            if (e.Column.FieldName != "OptionCategoryId") return;
 
-            //ASPxComboBox combo = e.Editor as ASPxComboBox;
-            //combo.DataBindItems();
+            ASPxComboBox combo = e.Editor as ASPxComboBox;
+            combo.DataBindItems();
         }
 
         protected void gvFeatureList_CommandButtonInitialize(object sender, DevExpress.Web.ASPxGridView.ASPxGridViewCommandButtonEventArgs e)

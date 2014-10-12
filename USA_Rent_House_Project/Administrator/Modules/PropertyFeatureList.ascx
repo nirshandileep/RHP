@@ -47,6 +47,9 @@
             FieldName="OptionCategoryId" UnboundType="Integer" VisibleIndex="3">
              <PropertiesComboBox TextField="Name" ValueField="OptionCategoryId" 
                  ValueType="System.Int32">
+                 <ValidationSettings Display="Dynamic">
+                     <RequiredField ErrorText="Required" IsRequired="True" />
+                 </ValidationSettings>
              </PropertiesComboBox>
         </dx:GridViewDataComboBoxColumn>
        <%-- <dx:GridViewDataCheckColumn FieldName="IsMultiSelect" UnboundType="Boolean"
