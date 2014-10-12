@@ -197,9 +197,11 @@
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
+    <Content Include="Images\Sample\House.jpg" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\login_with_facebook.png" />
     <Content Include="Images\Sample\Bannerimage.jpg" />
+    <Content Include="Images\Sample\Noimage.jpg" />
     <Content Include="Images\Sample\profileimage1.jpg" />
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
