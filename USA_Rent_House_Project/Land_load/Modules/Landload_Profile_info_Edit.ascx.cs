@@ -32,6 +32,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 Session[Constants.SESSION_LOGGED_USER] = _user;
                 return _user;
             }
+
             set
             {
                 _user = value;

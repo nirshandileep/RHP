@@ -136,22 +136,11 @@ first child of the left and right table columns */
     min-height: 200px;
 }
 
-/*.footer
-{
-    color: #4e5766;
-    padding: 8px 0px 0px 0px;
-    margin: 0px auto;
-    text-align: center;
-    line-height: normal;
-}
+ /*
 
-#body {
-   height:100%;
-}*/
-
-#body {
+ #body {
    padding:10px;
-   padding-bottom:20px;   /* Height of the footer */
+   padding-bottom:20px;   // Height of the footer //
 }
 
 #footer 
@@ -163,9 +152,9 @@ first child of the left and right table columns */
    height:20px; 
    padding:5px 0;
     background:#FFF;
-   /* Height of the footerabsolute; */
+   /* Height of the footerabsolute; //
   
-}
+}*/
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -401,13 +390,13 @@ input.actionbutton:hover
     float:right;
 }
 
-/*#footer
+#footer
 {
     border-top: 1px solid;
     clear: both;   
     margin-top: 50px;
     padding: 10px;   
-}*/
+}
 
 #two-col-1
 {

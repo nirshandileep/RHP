@@ -37,6 +37,16 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
                 return ds;
             }
+            set {
+
+                DataSet ds;
+                
+                    ds = new OptionDAO().SelectAllDataset();
+                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["OptionId"] };
+                    Session[Constants.SESSION_FEATURE_LIST] = ds;
+
+            }
+
         }
 
 

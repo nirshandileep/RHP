@@ -11,6 +11,7 @@ using System.Web.Security;
 using RHP.Common;
 using RHP.SessionManager;
 using RHP.Utility;
+using System.IO;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -46,11 +47,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
         protected void Page_Load(object sender, EventArgs e)
         {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-
+            LoadStudentImages();
                 if (AccessCode != string.Empty && AccessCode != null)
                 {
                     try
                     {
+                        
                          LoadComments(Guid.Parse(AccessCode));
                     }
                     catch (Exception ex)
@@ -60,6 +62,56 @@ namespace USA_Rent_House_Project.Land_load.Modules
            
             
         }
+
+
+        public void LoadStudentImages()
+        {
+
+            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
+            try
+            {
+                path = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+                if (File.Exists(Server.MapPath(path)))
+                {
+
+                    imgLandloadProfileImage.ImageUrl = path;
+                }
+                else
+                {
+                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                }
+            }
+            catch (Exception ec)
+            {
+                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+            }
+
+
+            try
+            {
+                path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
+                path = path + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+                if (File.Exists(Server.MapPath(path)))
+                {
+                    jmgHeaderImage.ImageUrl = path;
+
+                }
+                else
+                {
+                    jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                }
+            }
+            catch (Exception ec)
+            {
+                jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+            }
+            // need a path to landlord house and profile image
+            // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+            // imgLandloadProfileImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+
+        }
+
+
 
         public void LoadComments(Guid AccessCode)
         {

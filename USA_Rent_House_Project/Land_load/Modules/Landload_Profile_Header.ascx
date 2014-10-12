@@ -5,12 +5,14 @@
 
 <div id="StidentProfileHeader" runat="server">
     <div id="HeaderImage" runat="server">
-        <asp:Image ID="jmgHeaderImage" runat="server" ImageUrl="~/Images/Sample/Bannerimage.jpg" Width="960px" />
+        <asp:Image ID="jmgHeaderImage" runat="server" ImageUrl="~/Images/Sample/Bannerimage.jpg" Width="970px" />
+        <asp:HyperLink ID="ChangeCoverImage" runat="server" cssClass="changecoverlink" NavigateUrl="~/Land_load/Landload_Profile_Image.aspx">Change Cover Image</asp:HyperLink>
     </div>
   
 
     <div id="LandloadProfileImage" runat="server">
         <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/profileimage3.jpg" Width="100px"   />
+         <asp:HyperLink ID="HyperLink1" runat="server" cssClass="changeprofilelink" NavigateUrl="~/Land_load/Landload_Profile_Image.aspx">Change Profile Image</asp:HyperLink>
     </div>
  <div id="MyRatings"  class="floatright" > My Ratings 
         <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">

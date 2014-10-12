@@ -1,11 +1,11 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Images_Add.ascx.cs" Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Images_Add" %>
- 
-  <h2 class="form_heading">
-        Student Profile / Cover Image
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Profile_Images_Add.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Profile_Images_Add" %>
+
+<h2 class="form_heading">
+        Landload Profile / Cover Image
     </h2>
  <div id="Div1" runat="server">
         <h2>Profile Cover Image</h2>
-    <%-- <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Profile_Image_Crop.aspx" runat="server">Crop Image</asp:HyperLink>--%>
+   <%--  <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Profile_Image_Crop.aspx" runat="server">Crop Image</asp:HyperLink>--%>
             <table cellpadding="3">
                 <tr>
                     <td>

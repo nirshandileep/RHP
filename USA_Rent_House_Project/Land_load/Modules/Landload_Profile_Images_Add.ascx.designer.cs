@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Student.Modules {
+namespace USA_Rent_House_Project.Land_load.Modules {
     
     
-    public partial class Student_Profile_Images_Add {
+    public partial class Landload_Profile_Images_Add {
         
         /// <summary>
         /// Div1 control.
