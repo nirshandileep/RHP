@@ -16,6 +16,8 @@ namespace RHP.Common
         public static readonly string Update_Unsuccess = "Cannot Update";
         public static readonly string Delete_Unsuccess = "Cannot Delete";
 
+        public static readonly string Allowed_fileExtension = "Allowed Only -  .jpg  .jpeg  .png";
+        public static readonly string Allowed_MaxImageSize = "Max Image Size : 6 MB";
         public static readonly string ProfileInfoError = "House featue is not Activated. Please enter Profile info first.";
 
         public static readonly string Sending_Email_Error = "Email sending failed. please contact administrator.";

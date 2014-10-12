@@ -14,9 +14,10 @@
     </div>
     <div class="clear"></div>
     
-    <div id="StudentRating" runat="server"  class="floatright" >
+    <div id="StudentRating" runat="server"  class="publicrating" >
             <h2>
                 My Ratings  <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
     </dx:ASPxRatingControl> </h2>
         </div>
+
 </div>

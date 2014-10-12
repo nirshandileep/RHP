@@ -7,81 +7,63 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Land_load.Modules {
+namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Landload_Profile_Header {
+    public partial class Student_Profile_Image_Crop {
         
         /// <summary>
-        /// StidentProfileHeader control.
+        /// hdnx control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StidentProfileHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnx;
         
         /// <summary>
-        /// HeaderImage control.
+        /// hdny control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl HeaderImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdny;
         
         /// <summary>
-        /// jmgHeaderImage control.
+        /// hdnw control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image jmgHeaderImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnw;
         
         /// <summary>
-        /// ChangeCoverImage control.
+        /// hdnh control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink ChangeCoverImage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnh;
         
         /// <summary>
-        /// LandloadProfileImage control.
+        /// btncrop control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LandloadProfileImage;
+        protected global::System.Web.UI.WebControls.Button btncrop;
         
         /// <summary>
-        /// imgLandloadProfileImage control.
+        /// imgcropped control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
-        
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
-        
-        /// <summary>
-        /// ASPxRating control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRating;
+        protected global::System.Web.UI.HtmlControls.HtmlImage imgcropped;
     }
 }

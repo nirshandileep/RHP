@@ -34,7 +34,9 @@
                     <asp:Label ID="UtilitiesIncludedInRent" runat="server" Text='<%# Eval("UtilitiesIncludedInRent") %>'></asp:Label>
                     <br />
                     <asp:HyperLink ID="HyperLink3" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'>View Property</asp:HyperLink>
-                    <asp:HyperLink ID="HyperLinkviewStudent" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>Public View</asp:HyperLink>
+                    
+                     <asp:HyperLink ID="HyperLinkviewLandlord" CssClass="loginlinks" runat="server"  NavigateUrl='<%# String.Format("~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}", DataBinder.Eval(Container.DataItem, "HouseId"), DataBinder.Eval(Container.DataItem, "LandlordId")) %>'>Public View</asp:HyperLink>
+                   
                     <asp:HyperLink ID="HyperLink4" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Current_Students.aspx?AccessCode={0}") %>'>Current Students</asp:HyperLink>
                     <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House_info_Add.aspx?HouseId={0}") %>'>Edit House</asp:HyperLink>
                     <asp:HyperLink ID="HyperLink2" CssClass="loginlinks" runat="server" NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House_Option_Add.aspx?HouseId={0}") %>'>Edit House Options</asp:HyperLink>

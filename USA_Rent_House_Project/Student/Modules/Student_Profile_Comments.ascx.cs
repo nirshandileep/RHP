@@ -48,7 +48,14 @@ namespace USA_Rent_House_Project.Student.Modules
             //    catch (Exception ex)
             //    { }
             //} 
-            LoadComments();
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                LoadComments();
+            }
+            else
+            {
+                Response.Redirect("~/Default.aspx");
+            }
         }
 
         //public void LoadComments(Guid AccessCode)

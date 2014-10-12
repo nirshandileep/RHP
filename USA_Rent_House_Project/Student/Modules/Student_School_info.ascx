@@ -53,7 +53,7 @@
             
 
              <p>
-                <asp:Label ID="Labelstartdate" runat="server" CssClass="form_label">start date of current University:</asp:Label>
+                <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="DRPstartMonth" CssClass="form_label">start date of current University:</asp:Label>
 
                 <asp:DropDownList ID="DRPstartMonth" runat="server" Width="90px" >
                 </asp:DropDownList>

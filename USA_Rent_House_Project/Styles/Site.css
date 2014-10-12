@@ -136,22 +136,11 @@ first child of the left and right table columns */
     min-height: 200px;
 }
 
-/*.footer
-{
-    color: #4e5766;
-    padding: 8px 0px 0px 0px;
-    margin: 0px auto;
-    text-align: center;
-    line-height: normal;
-}
+ /*
 
-#body {
-   height:100%;
-}*/
-
-#body {
+ #body {
    padding:10px;
-   padding-bottom:60px;   /* Height of the footer */
+   padding-bottom:20px;   // Height of the footer //
 }
 
 #footer 
@@ -160,11 +149,12 @@ first child of the left and right table columns */
    position:fixed; 
    bottom:0;
    width:100%;
-   height:60px; 
+   height:20px; 
+   padding:5px 0;
     background:#FFF;
-   /* Height of the footerabsolute; */
+   /* Height of the footerabsolute; //
   
-}
+}*/
 
 /* TAB MENU   
 ----------------------------------------------------------*/
@@ -400,13 +390,13 @@ input.actionbutton:hover
     float:right;
 }
 
-/*#footer
+#footer
 {
     border-top: 1px solid;
     clear: both;   
     margin-top: 50px;
     padding: 10px;   
-}*/
+}
 
 #two-col-1
 {
@@ -919,6 +909,14 @@ a.loginlinks:hover
     width: 81%;
 }
 
+#RightPanel_public
+{
+   
+    margin: 0 auto;
+    padding: 15px 0;
+    width: 690px;
+}
+
 #RightPanelLL
 {
       float: left;
@@ -1089,6 +1087,16 @@ ul.level1 li a:hover
     float:right;
 }
 
+.floatleft
+{
+    float:left;
+}
+
+#MainContent_Student_Profile_Comment_Add1_ASPxRatingvalue
+{
+    float:right;
+}
+
 
 #MainContent_DataListStudentSearchresults, #MainContent_DataListHouseSearchresults
 {
@@ -1126,4 +1134,71 @@ ul.level1 li a:hover
 input#MainContent_Student_School_info1_DrpSchoolName_I
 {
     width:100% !important;
+}
+
+
+.publicrating
+{
+     position: absolute;
+    right: 30px;
+    top: 150px;
+}
+.publicrating h2
+{
+    color:#fff;
+}
+
+.puliclinks
+{
+     margin-top: -80px;
+    position: relative;
+    right: -257px;
+    z-index: 153;
+}
+
+.publicimagegallerycontainer {
+       float: left;
+    margin: 80px 0 0 140px;
+    width: 100%;
+}
+
+#MainContent_Student_Profile_CommentsID_StudentComments
+{
+    float:left;
+   
+}
+
+#MainContent_Search
+{
+    float:right;
+}
+
+.changecoverlink
+{
+     background-image: url("../Images/cover-change.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 37px;
+    position: absolute;
+    right: 18px;
+    text-indent: -9999px;
+    top: 150px;
+    width: 176px;
+    z-index: 200;
+    
+}
+
+
+.changeprofilelink
+{
+      background-image: url("../Images/profile-change.png");
+    background-repeat: no-repeat;
+    display: block;
+    height: 25px;
+    position: absolute;
+    right: 1px;
+    text-indent: -9999px;
+    top: 77px;
+    width: 97px;
+    z-index: 200;
 }

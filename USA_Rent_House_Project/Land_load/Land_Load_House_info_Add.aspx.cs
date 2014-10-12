@@ -54,8 +54,9 @@ namespace USA_Rent_House_Project.Land_load
 
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                if (user.UserId != null)
+                if (user.UserId.HasValue)
                 {
+
                 }
                 else
                 {

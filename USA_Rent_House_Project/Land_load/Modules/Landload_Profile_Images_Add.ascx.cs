@@ -8,15 +8,15 @@ using System.Web.Security;
 using System.IO;
 using RHP.Common;
 
-namespace USA_Rent_House_Project.Student.Modules
+namespace USA_Rent_House_Project.Land_load.Modules
 {
-    public partial class Student_Profile_Images_Add : System.Web.UI.UserControl
+    public partial class Landload_Profile_Images_Add : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                
+
                 string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
                 loadCoverimage(path);
                 string path2 = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
@@ -42,13 +42,13 @@ namespace USA_Rent_House_Project.Student.Modules
 
                  if (FileUploads.PostedFile.ContentLength <= 6291456)
                 {
-                      FileInfo finfo = new FileInfo(FileUploads.FileName);
-                         string fileExtension = finfo.Extension.ToLower();
+                    FileInfo finfo = new FileInfo(FileUploads.FileName);
+                    string fileExtension = finfo.Extension.ToLower();
 
                     if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension != ".png")
                     {
-                        try
-                        {
+                        try{
+
                             if (!Directory.Exists(Server.MapPath(path)))
                                 Directory.CreateDirectory(Server.MapPath(path));
 
@@ -58,8 +58,9 @@ namespace USA_Rent_House_Project.Student.Modules
                             string fileName = Path.Combine(Server.MapPath(path), imagename); //FileUploads.FileName
                             //save the file to our local path
                             FileUploads.SaveAs(fileName);
+
                         }
-                        catch(Exception ex)
+                                catch(Exception ex)
                         {}
                     }
                     else
@@ -69,12 +70,12 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     }
                 }
-                 else
-                 {
-                     // max size 
-                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
-
-                 }
+                else
+                {
+                    // max size 
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
+                      
+                }
             }
             loadimage(path);
 
@@ -111,7 +112,7 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
             Saveimage(path);
-            Response.Redirect("~/Student/Student_Profile.aspx");
+            Response.Redirect("~/Land_load/Land_load_Profile.aspx");
         }
 
 
@@ -129,7 +130,6 @@ namespace USA_Rent_House_Project.Student.Modules
                 //    uploadedFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Images/"),
                 //    uploadedFile.FileName)); listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
                 //}
-
                 if (FileUploadCoverImage.PostedFile.ContentLength <= 6291456)
                 {
                     FileInfo finfo = new FileInfo(FileUploadCoverImage.FileName);
@@ -137,7 +137,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension != ".png")
                     {
-
                         try
                         {
 
@@ -150,10 +149,10 @@ namespace USA_Rent_House_Project.Student.Modules
                             string fileName = Path.Combine(Server.MapPath(path), imagename); //FileUploads.FileName
                             //save the file to our local path
                             FileUploadCoverImage.SaveAs(fileName);
-                        }
-                        catch(Exception ex)
+                         }
+                                catch(Exception ex)
                         {}
-                 }
+                    }
                     else
                     {
                         // extention
@@ -206,7 +205,7 @@ namespace USA_Rent_House_Project.Student.Modules
             string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
             SaveCoverimage(path);
 
-            Response.Redirect("~/Student/Student_Profile.aspx");
+            Response.Redirect("~/Land_load/Land_load_Profile.aspx");
         }
     }
 }

@@ -16,7 +16,7 @@
             </p>
             <p>
                 <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Curent GPA:</asp:Label>
-                <asp:TextBox ID="CurentGPA" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
+                <asp:TextBox ID="CurentGPA" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="2"></asp:TextBox>
             </p>
             <p>
                 <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Student Oraganizations/clubs/ect:</asp:Label>
