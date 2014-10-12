@@ -9,10 +9,13 @@ using RHP.Comments;
 using RHP.Utility;
 using System.IO;
 
+
 namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class Landload_Public_Profile_Header : System.Web.UI.UserControl
     {
+
+       
         protected void Page_Load(object sender, EventArgs e)
         {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
@@ -23,6 +26,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 try
                 {
                     LoadComments(Guid.Parse(AccessCode));
+
+                   
                     if (AccessCode2 != string.Empty && AccessCode2 != null)
                     {
                         LoadStudentImages(Guid.Parse(AccessCode2));
@@ -34,7 +39,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
-
+       
         public void LoadStudentImages(Guid AccessCode)
         {
 
@@ -49,12 +54,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
                 else
                 {
-                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
             }
 
 
@@ -69,12 +74,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
                 else
                 {
-                    jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                    jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
             }
             // need a path to landlord house and profile image
             // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";

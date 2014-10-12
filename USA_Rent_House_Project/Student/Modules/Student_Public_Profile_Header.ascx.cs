@@ -8,6 +8,8 @@ using System.Data;
 using RHP.Comments;
 using RHP.Utility;
 using System.IO;
+using RHP.UserManagement;
+using RHP.LandlordManagement;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -24,6 +26,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 try
                 {
                     LoadComments(Guid.Parse(AccessCode));
+                    LoadHouseData(Guid.Parse(AccessCode));
                     LoadStudentImages(Guid.Parse(AccessCode));
                 }
                 catch (Exception ex)
@@ -32,6 +35,36 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
+        private void LoadHouseData(Guid LandlordId)
+        {
+            User user = User.Select(LandlordId);
+           
+            if (user.HouseId.HasValue)
+            {
+                House house = House.Select(user.HouseId.Value);
+
+                string path = "~/uploads/" + house.LandlordId;
+                    try
+                    {
+                        path = path + "/House/" + user.HouseId.Value.ToString() + ".jpg";
+                        if (File.Exists(Server.MapPath(path)))
+                        {
+
+                            imgCurrentHouseImage.ImageUrl = path;
+                        }
+                        else
+                        {
+                            imgCurrentHouseImage.ImageUrl = "~/Images/Sample/House.jpg";
+                        }
+                    }
+                    catch (Exception ec)
+                    {
+                        imgCurrentHouseImage.ImageUrl = "~/Images/Sample/House.jpg";
+                    }
+               
+            }
+            
+        }
 
         public void LoadStudentImages(Guid AccessCode)
         {
@@ -47,12 +80,12 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
-                    imgStudentProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                    imgStudentProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                imgStudentProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                imgStudentProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
             }
 
 
@@ -67,12 +100,12 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
-                    jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                    jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
             }
             // need a path to landlord house and profile image
             // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";

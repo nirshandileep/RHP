@@ -7,10 +7,10 @@
         <asp:Image ID="jmgHeaderImage" runat="server" ImageUrl="~/Images/Sample/Bannerimage.jpg" Width="970px" />
     </div>
     <div id="StudentProfileImage" runat="server">
-        <asp:Image ID="imgStudentProfileImage" runat="server" ImageUrl="~/Images/Sample/profileimage1.jpg" Width="100px" />
+        <asp:Image ID="imgStudentProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" />
     </div>
     <div id="CurrentHouseImage" runat="server">
-        <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/profileimage2.jpg" Width="100px"  />
+        <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px"  />
     </div>
     <div class="clear"></div>
     

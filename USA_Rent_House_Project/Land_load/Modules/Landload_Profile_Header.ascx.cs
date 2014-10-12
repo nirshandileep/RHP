@@ -78,12 +78,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
                 else
                 {
-                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/profileimage1.jpg";
+                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
             }
 
 
@@ -98,12 +98,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
                 else
                 {
-                    jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                    jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
                 }
             }
             catch (Exception ec)
             {
-                jmgHeaderImage.ImageUrl = "~/Images/Sample/profileimage2.jpg";
+                jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
             }
             // need a path to landlord house and profile image
             // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";

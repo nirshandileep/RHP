@@ -10,7 +10,7 @@
   
 
     <div id="LandloadProfileImage" runat="server">
-        <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/profileimage3.jpg" Width="100px"   />
+        <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px"   />
     </div>
 
         <div id="MyRatings"  class="floatright" > My Ratings 

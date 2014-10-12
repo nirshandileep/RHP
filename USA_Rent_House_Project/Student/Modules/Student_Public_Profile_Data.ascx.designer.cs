@@ -22,15 +22,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
         
         /// <summary>
-        /// LeftPanel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
-        
-        /// <summary>
         /// RightPanel control.
         /// </summary>
         /// <remarks>
@@ -38,33 +29,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
-        
-        /// <summary>
-        /// Div1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
-        
-        /// <summary>
-        /// HyperLink1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
-        
-        /// <summary>
-        /// HyperLink2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
         
         /// <summary>
         /// currentHomeStudentData control.
