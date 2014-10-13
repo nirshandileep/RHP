@@ -17,6 +17,31 @@ namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Profile_Header : System.Web.UI.UserControl
     {
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    _user = new User();
+                    //_user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else
+                {
+
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
        
         private House _house;
 
@@ -64,35 +89,35 @@ namespace USA_Rent_House_Project.Student.Modules
 
         private void LoadImages()
         {
-            Photo photo = new Photo();
-            string path = "~/uploads/";
-            User user = new User();
-            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+           
+                Photo photo = new Photo();
+                string path = "~/uploads/";
 
-            if (user.HouseId.HasValue)
-            {
+               user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-                hdnHouseId.Value = user.HouseId.Value.ToString();
+                if (user.HouseId.HasValue)
+                {
 
-                CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
+                    hdnHouseId.Value = user.HouseId.Value.ToString();
 
+                    CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
 
-                path = "~/uploads/" + house.LandlordId.ToString() + "/House/" + user.HouseId.Value.ToString() + ".jpg";
-                imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(path);
-
-
-                path = "~/uploads/" + house.LandlordId.ToString() + "/Profile/" + house.LandlordId.ToString() + ".jpg";
-                imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
-
-            }
+                    path = "~/uploads/" + house.LandlordId.ToString() + "/House/" + user.HouseId.Value.ToString() + ".jpg";
+                    imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(path);
 
 
-            path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
-                   
-            path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
-                  
+                    path = "~/uploads/" + house.LandlordId.ToString() + "/Profile/" + house.LandlordId.ToString() + ".jpg";
+                    imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
+                    
+                }
+
+
+                path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+                imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
+
+                path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+                jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
+           
        }
         
     }
