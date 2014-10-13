@@ -6,6 +6,10 @@ using RHP.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using System.Data;
+using System.IO;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace RHP.Photos
 {
@@ -155,6 +159,173 @@ namespace RHP.Photos
         public DataSet SelectDataSetByLandlordId(Guid landlordId)
         {
             return new PhotoDAO().SelectByContext((int)Enums.ContextType.Landlord, landlordId);
+        }
+
+        public Photo ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
+        {
+            FileUpload UploadImage = FileUploadImage;
+
+            bool isupload = false;
+
+            if (UploadImage.HasFile)
+            {
+                if (UploadImage.PostedFile.ContentLength <= 6291456)
+                {
+                    FileInfo finfo = new FileInfo(UploadImage.FileName);
+                    string fileExtension = finfo.Extension.ToLower();
+
+                    if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension != ".png")
+                    {
+                        try
+                        {
+
+                            if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
+                                Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
+
+                            //create the path to save the file to
+                            string imagename = Membership.GetUser().ProviderUserKey.ToString() + fileExtension;
+
+                            string fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename);
+                            //save the file to our local path
+                            UploadImage.SaveAs(fileName);
+
+                            isupload = true;
+                            photo.PhotoId = Guid.NewGuid(); 
+                            photo.FileName = imagename;
+                            photo.FilePath = FolderPath +"/"+fileName;
+                            photo.Description = imagename;
+                            photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                        }
+                        catch (Exception ex)
+                        {
+                            isupload = false;
+                        }
+                    }
+                    else
+                    {
+                        isupload = false;
+                        // extention
+                       // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
+
+                    }
+                }
+                else
+                {
+                    isupload = false;
+                    // max size 
+                   // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
+
+                }
+
+
+            }
+
+
+           
+
+            return photo;
+        }
+
+        public string LoadProfileImage(string ImagePath)
+        {
+
+            string ImageUrl = "";
+            try
+            {
+                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
+                {
+
+                    ImageUrl = ImagePath;
+                }
+                else
+                {
+                    ImageUrl = "~/Images/Sample/Noimage.jpg";
+                }
+            }
+            catch (Exception ec)
+            {
+                ImageUrl = "~/Images/Sample/Noimage.jpg";
+            }
+
+            return ImageUrl;
+        }
+
+        public string LoadHouseImage(string ImagePath)
+        {
+
+            string ImageUrl = "";
+            try
+            {
+                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
+                {
+
+                    ImageUrl = ImagePath;
+                }
+                else
+                {
+                    ImageUrl = "~/Images/Sample/House.jpg";
+                }
+            }
+            catch (Exception ec)
+            {
+                ImageUrl = "~/Images/Sample/House.jpg";
+            }
+
+            return ImageUrl;
+        }
+
+        public string LoadProfileCoverImage(string ImagePath)
+        {
+
+            string ImageUrl = "";
+            try
+            {
+                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
+                {
+
+                    ImageUrl = ImagePath;
+                }
+                else
+                {
+                    ImageUrl = "~/Images/Sample/Bannerimage.jpg";
+                }
+            }
+            catch (Exception ec)
+            {
+                ImageUrl = "~/Images/Sample/Bannerimage.jpg";
+            }
+
+            return ImageUrl;
+        }
+
+        public List<String> LoadImageList(string ImageFolderPath)
+        {
+            List<String> images = null;
+
+            if (ImageFolderPath != string.Empty)
+            {
+                try
+                {
+                    string[] filesindirectory = Directory.GetFiles(System.Web.HttpContext.Current.Server.MapPath(ImageFolderPath));
+
+                    if (filesindirectory != null)
+                    {
+                         images = new List<string>(filesindirectory.Count());
+
+                        foreach (string item in filesindirectory)
+                        {
+                            images.Add(String.Format(ImageFolderPath + "/{0}", System.IO.Path.GetFileName(item)));
+                        }
+
+                       
+                    }
+                }
+                catch (Exception ec)
+                { }
+            }
+
+            return images;
         }
     }
 }

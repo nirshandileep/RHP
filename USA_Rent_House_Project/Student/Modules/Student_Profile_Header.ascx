@@ -14,6 +14,7 @@
     </div>
     <div id="CurrentHouseImage" runat="server">
         <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/House.jpg" Width="100px"  />
+        <asp:HyperLink ID="CurrentHouse" runat="server" NavigateUrl="~/Student/Student_Profile_Image.aspx">View House</asp:HyperLink>
         <asp:HiddenField ID="hdnHouseId" runat="server" />
     </div>
     <div class="clear"></div>

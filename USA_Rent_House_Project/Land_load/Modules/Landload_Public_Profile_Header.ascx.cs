@@ -8,6 +8,7 @@ using System.Data;
 using RHP.Comments;
 using RHP.Utility;
 using System.IO;
+using RHP.Photos;
 
 
 namespace USA_Rent_House_Project.Land_load.Modules
@@ -30,7 +31,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                    
                     if (AccessCode2 != string.Empty && AccessCode2 != null)
                     {
-                        LoadStudentImages(Guid.Parse(AccessCode2));
+                        LoadImages(Guid.Parse(AccessCode),Guid.Parse(AccessCode2));
                     }
                 }
                 catch (Exception ex)
@@ -39,55 +40,19 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
-       
-        public void LoadStudentImages(Guid AccessCode)
+
+        public void LoadImages(Guid AccessCode, Guid AccessCode2)
         {
+            Photo photo = new Photo();
+            string path = "~/uploads/";
 
-            string path = "~/uploads/" + AccessCode;
-            try
-            {
-                path = path + "/Profile/" + AccessCode + ".jpg";
-                if (File.Exists(Server.MapPath(path)))
-                {
-
-                    imgLandloadProfileImage.ImageUrl = path;
-                }
-                else
-                {
-                    imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                imgLandloadProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
-            }
-
-
-            try
-            {
-                path = "~/uploads/" + AccessCode;
-                path = path + "/ProfileCover/" + AccessCode + ".jpg";
-                if (File.Exists(Server.MapPath(path)))
-                {
-                    jmgHeaderImage.ImageUrl = path;
-
-                }
-                else
-                {
-                    jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-            }
-            // need a path to landlord house and profile image
-            // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            // imgLandloadProfileImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-
+            path = "~/uploads/" + AccessCode + "/Profile/" + AccessCode + ".jpg";
+            imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
+               
+            path = "~/uploads/" + AccessCode + "/ProfileCover/" + AccessCode + ".jpg";
+            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
+ 
         }
-
-
 
         public void LoadComments(Guid AccessCode)
         {

@@ -10,6 +10,7 @@ using RHP.Utility;
 using System.IO;
 using RHP.UserManagement;
 using RHP.LandlordManagement;
+using RHP.Photos;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -38,79 +39,33 @@ namespace USA_Rent_House_Project.Student.Modules
         private void LoadHouseData(Guid LandlordId)
         {
             User user = User.Select(LandlordId);
-           
+            Photo photo = new Photo();
+
             if (user.HouseId.HasValue)
             {
                 House house = House.Select(user.HouseId.Value);
+                CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
+              
+                string path = "~/uploads/" + house.LandlordId + "/House/" + user.HouseId.Value.ToString() + ".jpg";
+                imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(path);        
 
-                string path = "~/uploads/" + house.LandlordId;
-                    try
-                    {
-                        path = path + "/House/" + user.HouseId.Value.ToString() + ".jpg";
-                        if (File.Exists(Server.MapPath(path)))
-                        {
-
-                            imgCurrentHouseImage.ImageUrl = path;
-                        }
-                        else
-                        {
-                            imgCurrentHouseImage.ImageUrl = "~/Images/Sample/House.jpg";
-                        }
-                    }
-                    catch (Exception ec)
-                    {
-                        imgCurrentHouseImage.ImageUrl = "~/Images/Sample/House.jpg";
-                    }
-               
             }
             
         }
 
         public void LoadStudentImages(Guid AccessCode)
         {
+            Photo photo = new Photo();
+            string path = "~/uploads/";
 
-            string path = "~/uploads/" + AccessCode;
-            try
-            {
-                path = path + "/Profile/" + AccessCode + ".jpg";
-                if (File.Exists(Server.MapPath(path)))
-                {
+            path = "~/uploads/" + AccessCode + "/Profile/" + AccessCode + ".jpg";
+            imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
+                
 
-                    imgStudentProfileImage.ImageUrl = path;
-                }
-                else
-                {
-                    imgStudentProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                imgStudentProfileImage.ImageUrl = "~/Images/Sample/Noimage.jpg";
-            }
+            path = "~/uploads/" + AccessCode + "/ProfileCover/" + AccessCode + ".jpg";
+            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
 
-
-            try
-            {
-                path = "~/uploads/" + AccessCode;
-                path = path + "/ProfileCover/" + AccessCode + ".jpg";
-                if (File.Exists(Server.MapPath(path)))
-                {
-                    jmgHeaderImage.ImageUrl = path;
-
-                }
-                else
-                {
-                    jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                jmgHeaderImage.ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-            }
-            // need a path to landlord house and profile image
-            // imgCurrentHouseImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            // imgLandloadProfileImage.ImageUrl = path + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-
+               
         }
 
         public void LoadComments(Guid AccessCode)
