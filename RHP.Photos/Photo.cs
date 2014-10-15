@@ -19,8 +19,8 @@ namespace RHP.Photos
 	   public string FileName  { get; set; }
 	   public string FilePath  { get; set; }
 	   public string Description  { get; set; }
-       public string ContextSubTypeId  { get; set; }
-       public string PhotoCategoryId { get; set; }
+       public int ContextSubTypeId { get; set; }
+       public int PhotoCategoryId { get; set; }
 
         private int _contextTypeId;
         public int ContextTypeId
@@ -195,6 +195,7 @@ namespace RHP.Photos
                             photo.FilePath = FolderPath +"/"+fileName;
                             photo.Description = imagename;
                             photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                         }
                         catch (Exception ex)

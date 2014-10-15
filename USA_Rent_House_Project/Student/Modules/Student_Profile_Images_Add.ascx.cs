@@ -34,7 +34,14 @@ namespace USA_Rent_House_Project.Student.Modules
             string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
             photo = photo.ImageUpload(FileUploads, path, photo);
 
-           
+            if (photo != null)
+            {
+                photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                photo.ContextTypeId = 1;
+                photo.PhotoCategoryId = 1;
+
+                photo.Insert(photo);
+            }
             Response.Redirect("~/Student/Student_Profile.aspx");
         }
 
