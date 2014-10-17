@@ -11,16 +11,7 @@ namespace RHP.Photos
 {
     public class PhotoDAO
     {
-        public DataSet SelectByContext(int contextTypeId, Guid contextId)
-        {
-            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand command = db.GetStoredProcCommand("usp_PhotoSelectAllByContextId");
-            db.AddInParameter(command, "ContextTypeId", DbType.Int32, contextTypeId);
-            db.AddInParameter(command, "ContextId", DbType.Guid, contextId);
-
-            return db.ExecuteDataSet(command);
-        }
-
+       
         public bool Insert(Photo photo, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_PhotoInsert");
@@ -30,7 +21,7 @@ namespace RHP.Photos
             db.AddInParameter(command, "FileName", DbType.String, photo.FileName);
             db.AddInParameter(command, "FilePath", DbType.String, photo.FilePath);
             db.AddInParameter(command, "ContextId", DbType.Guid, photo.ContextId);
-            db.AddInParameter(command, "Description", DbType.Guid, photo.Description);
+            db.AddInParameter(command, "Description", DbType.String, photo.Description);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)photo.ContextType);
             db.AddInParameter(command, "ContextSubTypeId", DbType.Int32, photo.ContextSubTypeId);
             db.AddInParameter(command, "PhotoCategoryId", DbType.Int32, photo.PhotoCategoryId);
@@ -60,7 +51,7 @@ namespace RHP.Photos
             db.AddInParameter(command, "FileName", DbType.String, photo.FileName);
             db.AddInParameter(command, "FilePath", DbType.String, photo.FilePath);
             db.AddInParameter(command, "ContextId", DbType.Guid, photo.ContextId);
-            db.AddInParameter(command, "Description", DbType.Guid, photo.Description);
+            db.AddInParameter(command, "Description", DbType.String, photo.Description);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)photo.ContextType);
             db.AddInParameter(command, "ContextSubTypeId", DbType.Int32, photo.ContextSubTypeId);
             db.AddInParameter(command, "PhotoCategoryId", DbType.Int32, photo.PhotoCategoryId);
@@ -100,18 +91,53 @@ namespace RHP.Photos
             return true;
         }
 
+        public DataSet SelectByContext(int contextTypeId, Guid contextId)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_PhotoSelectAllByContextId");
+            db.AddInParameter(command, "ContextTypeId", DbType.Int32, contextTypeId);
+            db.AddInParameter(command, "ContextId", DbType.Guid, contextId);
+
+            return db.ExecuteDataSet(command);
+        }
+
+
         /// <summary>
         /// Returns a collection of T. T must be an Entity class
         /// </summary>
-        public static List<Photo> GetAllByFieldValue(string fieldName, Guid fieldValue, Enums.ContextType contextType)
+        public static List<Photo> GetAllByFieldValue(string fieldName, Guid fieldValue, Enums.PhotoCategory PhotoCategoryId)
         {
             List<Photo> returnEntityCollection = new List<Photo>();
 
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-            DbCommand dbCommand = db.GetStoredProcCommand("usp_CommentSelectAllBy" + fieldName);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_PhotoSelectAllBy" + fieldName);
 
             db.AddInParameter(dbCommand, fieldName, DbType.Guid, fieldValue);
-            db.AddInParameter(dbCommand, "ContextTypeId", DbType.Int32, (int)contextType);
+            db.AddInParameter(dbCommand, "PhotoCategoryId", DbType.Int32, (int)PhotoCategoryId);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    Photo entity = new Photo();
+
+                    Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+                    returnEntityCollection.Add(entity);
+                }
+            }
+
+            return returnEntityCollection;
+        }
+
+        public static List<Photo> GetAllByFieldValue(string fieldName, Guid fieldValue)
+        {
+            List<Photo> returnEntityCollection = new List<Photo>();
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_PhotoSelectAllBy" + fieldName);
+
+            db.AddInParameter(dbCommand, fieldName, DbType.Guid, fieldValue);
+            db.AddInParameter(dbCommand, "PhotoCategoryId", DbType.Int32, null);
 
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {

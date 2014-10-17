@@ -111,12 +111,33 @@ namespace USA_Rent_House_Project.Student.Modules
                     
                 }
 
+                string ProfileCoverImagePath = "";
+                string ProfileImagePath = ""; 
 
-                path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-                imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
+                List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-                path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-                jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
+                if (PhotoList.Count > 0)
+                {
+                    foreach (Photo _List in PhotoList)
+                    {
+                        if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+                        {
+                            ProfileCoverImagePath = _List.FilePath;
+                           
+                        }
+
+                        if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+                        {
+                            ProfileImagePath = _List.FilePath;
+                        }
+
+                    }
+
+                }
+
+                imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
+
+                jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
            
        }
         

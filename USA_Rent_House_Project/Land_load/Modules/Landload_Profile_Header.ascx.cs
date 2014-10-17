@@ -46,14 +46,42 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         public void LoadImages()
         {
+            string ProfileCoverImagePath = "";
+            string ProfileImagePath = "";
             Photo photo = new Photo();
-            string path = "~/uploads/";
 
-            path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
+            List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (PhotoList.Count > 0)
+            {
+                foreach (Photo _List in PhotoList)
+                {
+                    if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+                    {
+                        ProfileCoverImagePath = _List.FilePath;
+
+                    }
+
+                    if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+                    {
+                        ProfileImagePath = _List.FilePath;
+                    }
+
+                }
+
+            }
+
+            imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
+
+            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
+
+            //string path = "~/uploads/";
+
+            //path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+            //imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
                
-            path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
-            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
+            //path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover/" + Membership.GetUser().ProviderUserKey.ToString() + ".jpg";
+            //jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
 
         }
 

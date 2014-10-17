@@ -22,13 +22,22 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div1;
         
         /// <summary>
-        /// RepeaterCoverImage control.
+        /// hdprofilecoverimageId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCoverImage;
+        protected global::System.Web.UI.WebControls.HiddenField hdprofilecoverimageId;
+        
+        /// <summary>
+        /// CoverImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image CoverImage;
         
         /// <summary>
         /// Label3 control.
@@ -76,22 +85,31 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label Label5;
         
         /// <summary>
-        /// ProfileImage control.
+        /// DevProfileImage control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ProfileImage;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DevProfileImage;
         
         /// <summary>
-        /// RepeaterImages control.
+        /// hdProfileImageId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterImages;
+        protected global::System.Web.UI.WebControls.HiddenField hdProfileImageId;
+        
+        /// <summary>
+        /// ProfileImage_ control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image ProfileImage_;
         
         /// <summary>
         /// LogoLabel control.

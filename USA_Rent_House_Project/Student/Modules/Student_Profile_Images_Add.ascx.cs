@@ -17,43 +17,36 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                
-                string ProfileCoverImagePath = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
-                string ProfileImagePath = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
+                if (!IsPostBack)
+                {
+                    Photo photo = new Photo();
 
-                LoadImage(ProfileImagePath, ProfileCoverImagePath);
+                    string ProfileCoverImagePath = "";  
+                    string ProfileImagePath = ""; 
 
+                    List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+                    if (PhotoList.Count > 0)
+                    {
+                        foreach (Photo _List in PhotoList)
+                        {
+                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+                            {
+                                ProfileCoverImagePath = _List.FilePath;
+                            }
+
+                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+                            {
+                                ProfileImagePath = _List.FilePath;
+                            }
+
+                        }
+                        
+                    }
+
+                    LoadImage(ProfileImagePath, ProfileCoverImagePath);
+                }
             }
-        }
-
-       
-        protected void btn_Photos_Click(object sender, EventArgs e)
-        {
-            Photo photo = new Photo();
-
-            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
-            photo = photo.ImageUpload(FileUploads, path, photo);
-
-            if (photo != null)
-            {
-                photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                photo.ContextTypeId = 1;
-                photo.PhotoCategoryId = 1;
-
-                photo.Insert(photo);
-            }
-            Response.Redirect("~/Student/Student_Profile.aspx");
-        }
-
-        protected void ButtonCoverImage_Click(object sender, EventArgs e)
-        {
-            Photo photo = new Photo();
-            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
-
-           photo = photo.ImageUpload(FileUploadCoverImage, path, photo);
-          
-            
-            Response.Redirect("~/Student/Student_Profile.aspx");
         }
 
         public void LoadImage(string ProfileImagePath, string ProfileCoverImagePath)
@@ -62,14 +55,17 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 try
                 {
-                    Photo photo = new Photo();
-                    List<String> images = photo.LoadImageList(ProfileImagePath);
+                    Photo photoProfileImage = new Photo();
 
-                    if (images != null)
+                    string images = photoProfileImage.LoadProfileImage(ProfileImagePath);
+
+                    if (images != string.Empty)
                     {
-                        RepeaterImages.DataSource = images;
-                        RepeaterImages.DataBind();
+
+                        ProfileImage_.ImageUrl = images;
+                       
                     }
+
                 }
                 catch (Exception ec)
                 { }
@@ -79,21 +75,67 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 try
                 {
-                     Photo photo = new Photo();
-                     List<String> CoverImages = photo.LoadImageList(ProfileCoverImagePath);
+                    Photo photoProfileCover = new Photo();
 
-                     if (CoverImages != null)
-                     {
-                         RepeaterCoverImage.DataSource = CoverImages;
-                         RepeaterCoverImage.DataBind();
-                     }
+                    string CoverImages = photoProfileCover.LoadProfileCoverImage(ProfileCoverImagePath);
+
+                    if (CoverImages != string.Empty)
+                    {
+
+                        CoverImage.ImageUrl = CoverImages;
+
+                    }
+
                 }
                 catch (Exception ec)
                 { }
             }
+            else
+            {
+ 
+            }
 
         }
         
-       
+        protected void btn_Photos_Click(object sender, EventArgs e)
+        {
+            Photo photo = new Photo();
+
+            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
+
+            bool IsUpload = photo.ImageUpload(FileUploads, path, photo);
+
+            if (IsUpload == true)
+            {
+                photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                photo.ContextTypeId = (int)Enums.ContextType.Student;
+                photo.PhotoCategoryId = (int)Enums.PhotoCategory.Profile_Picture;
+
+                photo.Insert(photo);
+            }
+            Response.Redirect("~/Student/Student_Profile.aspx");
+        }
+
+        protected void ButtonCoverImage_Click(object sender, EventArgs e)
+        {
+            Photo photo = new Photo();
+            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() ;
+
+           bool IsUpload = photo.ImageUpload(FileUploadCoverImage, path, photo);
+
+           if (IsUpload == true)
+           {
+               photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+               photo.ContextTypeId = (int)Enums.ContextType.Student;
+               photo.PhotoCategoryId = (int)Enums.PhotoCategory.Cover_Picture;
+
+               photo.Insert(photo);
+           }
+
+            
+            Response.Redirect("~/Student/Student_Profile.aspx");
+        }
+
+
     }
 }

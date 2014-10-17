@@ -18,10 +18,37 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
 
-                string ProfileCoverImagePath = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
-                string ProfileImagePath = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
+                if (!IsPostBack)
+                {
+                    Photo photo = new Photo();
 
-                LoadImage(ProfileImagePath, ProfileCoverImagePath);
+                    string ProfileCoverImagePath = "";
+                    string ProfileImagePath = "";
+
+                    List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+                    if (PhotoList.Count > 0)
+                    {
+                        foreach (Photo _List in PhotoList)
+                        {
+                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+                            {
+                                ProfileCoverImagePath = _List.FilePath;
+
+                            }
+
+                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+                            {
+                                ProfileImagePath = _List.FilePath;
+                               
+                            }
+
+                        }
+
+                    }
+
+                    LoadImage(ProfileImagePath, ProfileCoverImagePath);
+                }
             }
         }
 
@@ -32,13 +59,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 try
                 {
-                    Photo photo = new Photo();
-                    List<String> images = photo.LoadImageList(ProfileImagePath);
+                    Photo photoProfileImage = new Photo();
 
-                    if (images != null)
+                    string images = photoProfileImage.LoadProfileImage(ProfileImagePath);
+
+                    if (images != string.Empty)
                     {
-                        RepeaterImages.DataSource = images;
-                        RepeaterImages.DataBind();
+
+                        ProfileImage_.ImageUrl = images;
+
                     }
                 }
                 catch (Exception ec)
@@ -49,13 +78,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 try
                 {
-                    Photo photo = new Photo();
-                    List<String> CoverImages = photo.LoadImageList(ProfileCoverImagePath);
+                    Photo photoProfileCover = new Photo();
 
-                    if (CoverImages != null)
+                    string CoverImages = photoProfileCover.LoadProfileCoverImage(ProfileCoverImagePath);
+
+                    if (CoverImages != string.Empty)
                     {
-                        RepeaterCoverImage.DataSource = CoverImages;
-                        RepeaterCoverImage.DataBind();
+
+                        CoverImage.ImageUrl = CoverImages;
+
                     }
                 }
                 catch (Exception ec)
@@ -69,8 +100,20 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             Photo photo = new Photo();
 
-            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/Profile";
-            photo = photo.ImageUpload(FileUploads, path, photo);
+            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
+
+            bool IsUpload = photo.ImageUpload(FileUploads, path, photo);
+
+            if (IsUpload == true)
+            {
+                photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                photo.ContextTypeId = (int)Enums.ContextType.Landlord;
+                photo.PhotoCategoryId = (int)Enums.PhotoCategory.Profile_Picture;
+
+                photo.Insert(photo);
+            }
+
+
 
             Response.Redirect("~/Land_load/Land_load_Profile.aspx");
         }
@@ -78,10 +121,18 @@ namespace USA_Rent_House_Project.Land_load.Modules
         protected void ButtonCoverImage_Click(object sender, EventArgs e)
         {
             Photo photo = new Photo();
-            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() + "/ProfileCover";
+            string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
 
-            photo = photo.ImageUpload(FileUploadCoverImage, path, photo);
-          
+            bool IsUpload = photo.ImageUpload(FileUploadCoverImage, path, photo);
+
+            if (IsUpload == true)
+            {
+                photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                photo.ContextTypeId = (int)Enums.ContextType.Landlord;
+                photo.PhotoCategoryId = (int)Enums.PhotoCategory.Cover_Picture;
+
+                photo.Insert(photo);
+            }
 
             Response.Redirect("~/Land_load/Land_load_Profile.aspx");
         }
