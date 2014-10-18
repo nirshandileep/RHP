@@ -21,6 +21,7 @@ namespace RHP.Photos
             db.AddInParameter(command, "FileName", DbType.String, photo.FileName);
             db.AddInParameter(command, "FilePath", DbType.String, photo.FilePath);
             db.AddInParameter(command, "ContextId", DbType.Guid, photo.ContextId);
+            db.AddInParameter(command, "ContextSubId", DbType.Guid, photo.ContextSubId);
             db.AddInParameter(command, "Description", DbType.String, photo.Description);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)photo.ContextType);
             db.AddInParameter(command, "ContextSubTypeId", DbType.Int32, photo.ContextSubTypeId);
@@ -51,6 +52,7 @@ namespace RHP.Photos
             db.AddInParameter(command, "FileName", DbType.String, photo.FileName);
             db.AddInParameter(command, "FilePath", DbType.String, photo.FilePath);
             db.AddInParameter(command, "ContextId", DbType.Guid, photo.ContextId);
+            db.AddInParameter(command, "ContextSubId", DbType.Guid, photo.ContextSubId);
             db.AddInParameter(command, "Description", DbType.String, photo.Description);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)photo.ContextType);
             db.AddInParameter(command, "ContextSubTypeId", DbType.Int32, photo.ContextSubTypeId);

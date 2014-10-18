@@ -15,52 +15,75 @@ namespace RHP.Photos
 {
     public class Photo : Base
     {
-       public Guid? PhotoId { get; set; }
-	   public string FileName  { get; set; }
-	   public string FilePath  { get; set; }
-	   public string Description  { get; set; }
-       public int ContextSubTypeId { get; set; }
+        public Guid? PhotoId { get; set; }
+        public string FileName { get; set; }
+        public string FilePath { get; set; }
+        public string Description { get; set; }
 
-       public int _photoCategoryId;
-       public int PhotoCategoryId
-       {
-           get
-           {
-               return _photoCategoryId;
-           }
-           set
-           {
-               PhotoCategory = (Enums.PhotoCategory)value;
-               _photoCategoryId = value;
-           }
-       }
-       public Enums.PhotoCategory PhotoCategory { get; set; }
+        public int _photoCategoryId;
+        public int PhotoCategoryId
+        {
+            get
+            {
+                return _photoCategoryId;
+            }
+            set
+            {
+                PhotoCategory = (Enums.PhotoCategory)value;
+                _photoCategoryId = value;
+            }
+        }
+        public Enums.PhotoCategory PhotoCategory { get; set; }
 
-       private int _contextTypeId;
-       public int ContextTypeId
-       {
-           get
-           {
-               return _contextTypeId;
-           }
-           set
-           {
-               ContextType = (Enums.ContextType)value;
-               _contextTypeId = value;
-           }
-       }
-       public Enums.ContextType ContextType { get; set; }
+        private int _contextTypeId;
+        public Enums.ContextType ContextType { get; set; }
+        public int ContextTypeId
+        {
+            get
+            {
+                return _contextTypeId;
+            }
+            set
+            {
+                ContextType = (Enums.ContextType)value;
+                _contextTypeId = value;
+            }
+        }
 
-       public Guid ContextId { get; set; }
+        private int? _contextSubTypeId;
+        public Enums.ContextSubType? ContextSubType { get; set; }
+        public int? ContextSubTypeId
+        {
+            get 
+            {
+                return _contextSubTypeId;
+            }
+            set 
+            {
+                if (value.HasValue)
+                {
+                    ContextSubType = (Enums.ContextSubType)value;
+                    _contextSubTypeId = value;
+                }
+                else
+                {
+                    ContextSubType = null;
+                    _contextSubTypeId = null;
+                }
+                
+            }
+        }
 
-     
+        public Guid ContextId { get; set; }
+        public Guid? ContextSubId { get; set; }
+
 
         /// <summary>
         /// Only to be used for Generic methods. Avoid using this constructor for other purposes.
         /// </summary>
         public Photo()
         {
- 
+
         }
 
         public Photo(Enums.ContextType contextType, Guid contextId)
@@ -140,7 +163,7 @@ namespace RHP.Photos
 
             try
             {
-                result= new PhotoDAO().Delete(photo, db, transaction);
+                result = new PhotoDAO().Delete(photo, db, transaction);
 
                 transaction.Commit();
             }
@@ -201,7 +224,7 @@ namespace RHP.Photos
                             UploadImage.SaveAs(fileName);
 
                             isupload = true;
-                           // photo.PhotoId = Guid.NewGuid(); 
+                            // photo.PhotoId = Guid.NewGuid(); 
                             photo.FileName = imagename;
                             photo.FilePath = FolderPath + "/" + imagename;
                             photo.Description = imagename;
@@ -218,7 +241,7 @@ namespace RHP.Photos
                     {
                         isupload = false;
                         // extention
-                       // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
+                        // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
 
                     }
                 }
@@ -226,7 +249,7 @@ namespace RHP.Photos
                 {
                     isupload = false;
                     // max size 
-                   // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
+                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
 
                 }
 
@@ -242,11 +265,11 @@ namespace RHP.Photos
 
             string imagePath = "~/Images/Sample/Noimage.jpg";
 
-            if(PhotoCategoryId == Enums.PhotoCategory.Cover_Picture)
+            if (PhotoCategoryId == Enums.PhotoCategory.Cover_Picture)
             { imagePath = "~/Images/Sample/Bannerimage.jpg"; }
 
-            if(PhotoCategoryId == Enums.PhotoCategory.Profile_Picture)
-            {imagePath = "~/Images/Sample/Noimage.jpg";}
+            if (PhotoCategoryId == Enums.PhotoCategory.Profile_Picture)
+            { imagePath = "~/Images/Sample/Noimage.jpg"; }
 
             if (PhotoCategoryId == Enums.PhotoCategory.House_Picture)
             { imagePath = "~/Images/Sample/House.jpg"; }
