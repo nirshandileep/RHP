@@ -46,6 +46,7 @@ namespace RHP.Common
             Profile_Picture = 1,
             Cover_Picture = 2,
             House_Picture = 3,
+            House_Life_Picture = 4,
         }
     }
 }

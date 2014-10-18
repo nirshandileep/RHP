@@ -19,83 +19,89 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 if (!IsPostBack)
                 {
-                    Photo photo = new Photo();
-
-                    string ProfileCoverImagePath = "";  
-                    string ProfileImagePath = ""; 
-
-                    List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-
-                    if (PhotoList.Count > 0)
-                    {
-                        foreach (Photo _List in PhotoList)
-                        {
-                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
-                            {
-                                ProfileCoverImagePath = _List.FilePath;
-                            }
-
-                            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
-                            {
-                                ProfileImagePath = _List.FilePath;
-                            }
-
-                        }
-                        
-                    }
-
-                    LoadImage(ProfileImagePath, ProfileCoverImagePath);
+                    LoadImage();
                 }
             }
         }
 
-        public void LoadImage(string ProfileImagePath, string ProfileCoverImagePath)
+        public void LoadImage()
         {
-            if (ProfileImagePath != string.Empty)
-            {
-                try
-                {
-                    Photo photoProfileImage = new Photo();
+              Photo photo = new Photo();
 
-                    string images = photoProfileImage.LoadProfileImage(ProfileImagePath);
-
-                    if (images != string.Empty)
-                    {
-
-                        ProfileImage_.ImageUrl = images;
-                       
-                    }
-
-                }
-                catch (Exception ec)
-                { }
-            }
-
-            if (ProfileCoverImagePath != string.Empty)
-            {
-                try
-                {
-                    Photo photoProfileCover = new Photo();
-
-                    string CoverImages = photoProfileCover.LoadProfileCoverImage(ProfileCoverImagePath);
-
-                    if (CoverImages != string.Empty)
-                    {
-
-                        CoverImage.ImageUrl = CoverImages;
-
-                    }
-
-                }
-                catch (Exception ec)
-                { }
-            }
-            else
-            {
- 
-            }
-
+              ProfileImage_.ImageUrl = photo.LoadImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.Profile_Picture);
+              CoverImage.ImageUrl = photo.LoadImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.Cover_Picture);
         }
+
+        //public void LoadImageTemp()
+        //{
+
+        //    Photo photo = new Photo();
+
+        //    string ProfileCoverImagePath = "";
+        //    string ProfileImagePath = "";
+
+        //    List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+        //    if (PhotoList.Count > 0)
+        //    {
+        //        foreach (Photo _List in PhotoList)
+        //        {
+        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+        //            {
+        //                ProfileCoverImagePath = _List.FilePath;
+        //            }
+
+        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+        //            {
+        //                ProfileImagePath = _List.FilePath;
+        //            }
+
+        //        }
+
+        //    }
+
+        //    if (ProfileImagePath != string.Empty)
+        //    {
+        //        try
+        //        {
+
+        //            string images = photo.LoadProfileImage(ProfileImagePath);
+
+        //            if (images != string.Empty)
+        //            {
+
+        //                ProfileImage_.ImageUrl = images;
+                       
+        //            }
+
+        //        }
+        //        catch (Exception ec)
+        //        { }
+        //    }
+
+        //    if (ProfileCoverImagePath != string.Empty)
+        //    {
+        //        try
+        //        {
+        //            string CoverImages = photo.LoadProfileCoverImage(ProfileCoverImagePath);
+
+        //            if (CoverImages != string.Empty)
+        //            {
+
+        //                CoverImage.ImageUrl = CoverImages;
+
+        //            }
+
+        //        }
+        //        catch (Exception ec)
+        //        { }
+        //    }
+        //    else
+        //    {
+ 
+        //    }
+
+        //}
         
         protected void btn_Photos_Click(object sender, EventArgs e)
         {

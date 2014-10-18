@@ -10,6 +10,7 @@ using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
 using System.Web.Security;
+using RHP.Photos;
 
 namespace USA_Rent_House_Project.Student
 {
@@ -51,28 +52,23 @@ namespace USA_Rent_House_Project.Student
 
         public void loadimage()
         {
-            string path = "~/uploads/"+ Membership.GetUser().ProviderUserKey.ToString() + "/HouseLife";
-
-            try
-            {
-                string[] filesindirectory = Directory.GetFiles(Server.MapPath(path));
-
-                if (filesindirectory != null)
+            Photo photo = new Photo();
+             try
                 {
-                    List<String> images = new List<string>(filesindirectory.Count());
 
-                    foreach (string item in filesindirectory)
+                    List<String> images = photo.LoadImageList(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.House_Life_Picture);
+
+                    if (images != null)
                     {
-                        // images.Add(String.Format("~/Images/{0}", System.IO.Path.GetFileName(item)));
-                        images.Add(String.Format(path + "/{0}", System.IO.Path.GetFileName(item)));
+                        RepeaterImages.DataSource = images;
+                        RepeaterImages.DataBind();
+
                     }
 
-                    RepeaterImages.DataSource = images;
-                    RepeaterImages.DataBind();
                 }
-            }
-            catch (Exception ec)
-            { }
+                catch (Exception ec)
+                { }
+
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
@@ -91,33 +87,22 @@ namespace USA_Rent_House_Project.Student
         {
             if (Page.IsValid)
             {
-                string strpath = string.Empty;
 
-                if (FileUploads.HasFile)
+                Photo photo = new Photo();
+
+                string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
+
+                bool IsUpload = photo.ImageUpload(FileUploads, path, photo);
+
+                if (IsUpload == true)
                 {
-                    // framework 4.5
+                    photo.ContextId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    photo.ContextTypeId = (int)Enums.ContextType.Student;
+                    photo.PhotoCategoryId = (int)Enums.PhotoCategory.House_Life_Picture;
 
-                    //foreach (HttpPostedFile uploadedFile in FileUploads.PostedFiles)
-                    //{
-                    //    uploadedFile.SaveAs(System.IO.Path.Combine(Server.MapPath("~/Images/"),
-                    //    uploadedFile.FileName)); listofuploadedfiles.Text += String.Format("{0}<br />", uploadedFile.FileName);
-                    //}
-
-                    FileInfo finfo = new FileInfo(FileUploads.FileName);
-                    string fileExtension = finfo.Extension.ToLower();
-
-                    string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString() +"/HouseLife";
-                        if (!Directory.Exists(Server.MapPath(path)))
-                            Directory.CreateDirectory(Server.MapPath(path));
-
-                        //create the path to save the file to
-                        string imagename = Guid.NewGuid().ToString() + fileExtension;
-
-                        string fileName = Path.Combine(Server.MapPath(path), imagename); //FileUploads.FileName
-                        //save the file to our local path
-                        FileUploads.SaveAs(fileName);
-                    
+                    photo.Insert(photo);
                 }
+
                 loadimage();
 
             }

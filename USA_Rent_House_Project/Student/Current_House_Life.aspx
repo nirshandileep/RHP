@@ -127,10 +127,10 @@
                             </td>
                         </tr>
                     </table>
-                    <%--<asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="FileUploads"
-                        ErrorMessage="Image Size Cannot Exceed 6 MB" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>--%>
+                    <asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="FileUploads"
+                        ErrorMessage="Image Size Cannot Exceed 6 MB" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>
                     <asp:Label ID="Label1" runat="server" Text="">Max Image Size : 6 MB</asp:Label><br />
-                    <asp:Label ID="AllowedLogoLabel" runat="server" Text="">Allowed Only - .gif  .jpg  .jpeg  .png</asp:Label>
+                    <asp:Label ID="AllowedLogoLabel" runat="server" Text="">Allowed Only - .jpg  .jpeg  .png</asp:Label>
                 </div>
                 <div id="clear">
                 </div>

@@ -12,7 +12,14 @@
         <div class="clear"></div>
 </div>
    <div class="publicimagegallerycontainer">
-            <div class="imagegallery">
+
+            <asp:Repeater ID="RepeaterImages" runat="server">
+                    <ItemTemplate>
+                        <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
+                    </ItemTemplate>
+                </asp:Repeater>
+    
+           <%-- <div class="imagegallery">
                 <asp:Image ID="currentHomeStudentBannerImage" runat="server" ImageUrl="" Width="100px" />
                
             </div>
@@ -28,7 +35,7 @@
                 <asp:Image ID="Image3" runat="server" ImageUrl="" Width="100px" />
                
             </div>
-            
+            --%>
             </div>
             <div class="clear"></div>
 <%--

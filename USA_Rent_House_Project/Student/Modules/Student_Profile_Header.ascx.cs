@@ -81,19 +81,25 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-
-                LoadImages();
+                LoadHouseImages();
+                LoadProfileImage();
             }
         }
 
 
-        private void LoadImages()
+        public void LoadProfileImage()
         {
-           
-                Photo photo = new Photo();
-                string path = "~/uploads/";
+            Photo photo = new Photo();
 
-               user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+            imgStudentProfileImage.ImageUrl = photo.LoadImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.Profile_Picture);
+            jmgHeaderImage.ImageUrl = photo.LoadImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.Cover_Picture);
+        }
+
+        private void LoadHouseImages()
+        {
+           Photo photo = new Photo();
+                
+            user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
                 if (user.HouseId.HasValue)
                 {
@@ -102,43 +108,12 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
 
-                    path = "~/uploads/" + house.LandlordId.ToString() + "/House/" + user.HouseId.Value.ToString() + ".jpg";
-                    imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(path);
+                    imgCurrentHouseImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.House_Picture); 
 
-
-                    path = "~/uploads/" + house.LandlordId.ToString() + "/Profile/" + house.LandlordId.ToString() + ".jpg";
-                    imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(path);
+                    imgLandloadProfileImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.Profile_Picture); 
                     
                 }
 
-                string ProfileCoverImagePath = "";
-                string ProfileImagePath = ""; 
-
-                List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-
-                if (PhotoList.Count > 0)
-                {
-                    foreach (Photo _List in PhotoList)
-                    {
-                        if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
-                        {
-                            ProfileCoverImagePath = _List.FilePath;
-                           
-                        }
-
-                        if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
-                        {
-                            ProfileImagePath = _List.FilePath;
-                        }
-
-                    }
-
-                }
-
-                imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
-
-                jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
-           
        }
         
     }

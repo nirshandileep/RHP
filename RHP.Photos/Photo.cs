@@ -165,26 +165,9 @@ namespace RHP.Photos
         }
 
 
-        public static List<Photo> Select(Guid contextId, int contextTypeId, int contextSubType = 0)
-        {
-            List<Photo> allPhotos = new List<Photo>();
-            return allPhotos;
-        }
-
-        public static List<Photo> SelectAllByContextId(Guid contextId)
-        {
-            return PhotoDAO.GetAllByFieldValue("ContextId", contextId);
-         
-        }
-
         public List<Photo> SelectAllByPhotoCategoryId(Guid contextId, Enums.PhotoCategory PhotoCategoryId)
         {
             return PhotoDAO.GetAllByFieldValue("ContextId", contextId, PhotoCategoryId);
-        }
-
-        public DataSet SelectDataSetBycontextId(Guid contextId, Enums.ContextType ContextType)
-        {
-            return new PhotoDAO().SelectByContext((int)ContextType, contextId);
         }
 
 
@@ -253,105 +236,88 @@ namespace RHP.Photos
             return isupload;
         }
 
-        public string LoadProfileImage(string ImagePath)
-        {
-
-            string ImageUrl = "";
-            try
-            {
-                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
-                {
-
-                    ImageUrl = ImagePath;
-                }
-                else
-                {
-                    ImageUrl = "~/Images/Sample/Noimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                ImageUrl = "~/Images/Sample/Noimage.jpg";
-            }
-
-            return ImageUrl;
-        }
-
-        public string LoadHouseImage(string ImagePath)
-        {
-
-            string ImageUrl = "";
-            try
-            {
-                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
-                {
-
-                    ImageUrl = ImagePath;
-                }
-                else
-                {
-                    ImageUrl = "~/Images/Sample/House.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                ImageUrl = "~/Images/Sample/House.jpg";
-            }
-
-            return ImageUrl;
-        }
-
-        public string LoadProfileCoverImage(string ImagePath)
-        {
-
-            string ImageUrl = "";
-            try
-            {
-                if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(ImagePath)))
-                {
-
-                    ImageUrl = ImagePath;
-                }
-                else
-                {
-                    ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-                }
-            }
-            catch (Exception ec)
-            {
-                ImageUrl = "~/Images/Sample/Bannerimage.jpg";
-            }
-
-            return ImageUrl;
-        }
-
-        public List<String> LoadImageList(string ImageFolderPath)
+        public string LoadImage(Guid contextId, Enums.PhotoCategory PhotoCategoryId)
         {
             List<String> images = null;
 
-            if (ImageFolderPath != string.Empty)
+            string imagePath = "~/Images/Sample/Noimage.jpg";
+
+            if(PhotoCategoryId == Enums.PhotoCategory.Cover_Picture)
+            { imagePath = "~/Images/Sample/Bannerimage.jpg"; }
+
+            if(PhotoCategoryId == Enums.PhotoCategory.Profile_Picture)
+            {imagePath = "~/Images/Sample/Noimage.jpg";}
+
+            if (PhotoCategoryId == Enums.PhotoCategory.House_Picture)
+            { imagePath = "~/Images/Sample/House.jpg"; }
+
+            try
             {
-                try
+                List<Photo> PhotoList = SelectAllByPhotoCategoryId(contextId, PhotoCategoryId);
+
+                if (PhotoList.Count > 0)
                 {
-                    string[] filesindirectory = Directory.GetFiles(System.Web.HttpContext.Current.Server.MapPath(ImageFolderPath));
+                    images = new List<string>(PhotoList.Count);
 
-                    if (filesindirectory != null)
+                    foreach (Photo _List in PhotoList)
                     {
-                         images = new List<string>(filesindirectory.Count());
-
-                        foreach (string item in filesindirectory)
+                        if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(_List.FilePath)))
                         {
-                            images.Add(String.Format(ImageFolderPath + "/{0}", System.IO.Path.GetFileName(item)));
+                            imagePath = _List.FilePath;
                         }
-
-                       
                     }
                 }
-                catch (Exception ec)
-                { }
             }
+            catch (Exception ec)
+            { }
+
+            return imagePath;
+        }
+
+        public List<String> LoadImageList(Guid contextId, Enums.PhotoCategory PhotoCategoryId)
+        {
+            List<String> images = null;
+
+            try
+            {
+                List<Photo> PhotoList = SelectAllByPhotoCategoryId(contextId, PhotoCategoryId);
+
+                if (PhotoList.Count > 0)
+                {
+                    images = new List<string>(PhotoList.Count);
+
+                    foreach (Photo _List in PhotoList)
+                    {
+                        if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(_List.FilePath)))
+                        {
+                            images.Add(_List.FilePath);
+                        }
+                    }
+                }
+            }
+            catch (Exception ec)
+            { }
 
             return images;
         }
+
+
+        public static List<Photo> Select(Guid contextId, int contextTypeId, int contextSubType = 0)
+        {
+            List<Photo> allPhotos = new List<Photo>();
+            return allPhotos;
+        }
+
+        public static List<Photo> SelectAllByContextId(Guid contextId)
+        {
+            return PhotoDAO.GetAllByFieldValue("ContextId", contextId);
+
+        }
+
+        public DataSet SelectDataSetBycontextId(Guid contextId, Enums.ContextType ContextType)
+        {
+            return new PhotoDAO().SelectByContext((int)ContextType, contextId);
+        }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Student_Profile_Image" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
     CodeBehind="Student_Profile_Image.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Image" %>
 
 <%@ Register Src="Modules/Student_Profile_Images_Add.ascx" TagName="Student_Profile_Images_Add"

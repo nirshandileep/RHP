@@ -29,6 +29,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 {
                     LoadComments(Guid.Parse(AccessCode));
                     LoadHouseData(Guid.Parse(AccessCode));
+                    LoadProfileImage(Guid.Parse(AccessCode));
                     LoadStudentImages(Guid.Parse(AccessCode));
                 }
                 catch (Exception ex)
@@ -47,8 +48,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 House house = House.Select(user.HouseId.Value);
                 CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
               
-                string path = "~/uploads/" + house.LandlordId + "/House/" + user.HouseId.Value.ToString() + ".jpg";
-                imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(path);        
+                imgCurrentHouseImage.ImageUrl = photo.LoadImage(LandlordId, Enums.PhotoCategory.House_Picture);   
 
             }
             
@@ -81,22 +81,15 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
 
-            imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
-
-            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
-           
-
-            //Photo photo = new Photo();
-            //string path = "~/uploads/";
-
-            //path = "~/uploads/" + AccessCode + "/Profile/" + AccessCode + ".jpg";
-            //imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
-                
-
-            //path = "~/uploads/" + AccessCode + "/ProfileCover/" + AccessCode + ".jpg";
-            //jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
-
                
+        }
+
+        public void LoadProfileImage(Guid AccessCode)
+        {
+            Photo photo = new Photo();
+
+            imgStudentProfileImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Profile_Picture);
+            jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Cover_Picture);
         }
 
         public void LoadComments(Guid AccessCode)
