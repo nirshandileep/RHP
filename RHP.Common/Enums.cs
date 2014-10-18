@@ -33,6 +33,11 @@ namespace RHP.Common
             Landlord = 2,
         }
 
+        public enum ContextSubType
+        {
+            House = 1
+        }
+
         public enum OptionCategory
         {
             Basic_Features = 1,
