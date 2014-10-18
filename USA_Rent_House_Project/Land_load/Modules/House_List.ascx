@@ -7,11 +7,13 @@
     </strong>--%>
     <div id="HouseListData" runat="server">
         <asp:DataList ID="DataListHouseList" runat="server" RepeatColumns="1" DataKeyField="HouseId"
-            OnItemCommand="DataListHouseList_ItemCommand">
+            OnItemCommand="DataListHouseList_ItemCommand"  OnItemDataBound="ItemDataBound">
             <ItemTemplate>
                 <div class="imagegallery">
+                 <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("StreetAddress") + " " +  Eval("City")%>' ImageUrl="~/Images/Sample/Noimage.jpg"  NavigateUrl='<%# Eval("HouseId","~/Land_load/Land_Load_House.aspx?AccessCode={0}") %>'></asp:HyperLink>
                 </div>
                 <div id="DivHouse" runat="server">
+                 <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("LandlordId") %>' />
                     <asp:HiddenField ID="hdnHouseId" runat="server" Value='<%# Eval("HouseId") %>' />
                     <asp:Label ID="StreetAddress" runat="server" Text='<%# Eval("StreetAddress") %>'></asp:Label>,
                     <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>,

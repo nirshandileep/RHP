@@ -7,12 +7,14 @@
         <div id="StudentListData" runat="server">
    
 
-        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId">
+        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"  OnItemDataBound="ItemDataBound">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">
+                       <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>' ImageUrl="~/Images/Sample/Noimage.jpg"  NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
+                      
                         </div>
-                        <div>
+                        <div> <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
                             <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />

@@ -10,6 +10,7 @@ using RHP.Common;
 using RHP.UserManagement;
 using System.Data;
 using RHP.LandlordManagement;
+using RHP.Photos;
 
 namespace USA_Rent_House_Project
 {
@@ -158,7 +159,6 @@ namespace USA_Rent_House_Project
            }
         }
 
-
         protected void FindStudent_Click(object sender, EventArgs e)
         {
             HouseSearchresults.Visible = false;
@@ -209,6 +209,26 @@ namespace USA_Rent_House_Project
 
             }
 
+        }
+
+        protected void StudentItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Photo photo = new Photo();
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+
+            HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+        }
+
+        protected void HouseItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Photo photo = new Photo();
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+
+            HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
         }
     }
 }

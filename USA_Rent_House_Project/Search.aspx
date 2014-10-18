@@ -181,12 +181,13 @@
     School.Location--%>
      <h1> Student - Search results</h1>
             <br /> <br />
-            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="2">
+            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="2" OnItemDataBound="StudentItemDataBound">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
                     <div class="imagegallery">
+                    <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>' ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
                         </div>
-                        <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("UserId") %>' runat="server" />
+                       <asp:HiddenField ID="hdUserId" Value='<%# Eval("UserId") %>' runat="server" />
                         Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
@@ -236,12 +237,13 @@
                       House.LotSquareFootage, House.TotalSquareFootage, House.UtilitiesIncludedInRent, House.PropertyImagePath, House.IsDeleted AS HouseIsDeleted, 
                       House.CreatedBy AS HouseCreatedBy, House.CreatedDate AS HouseCreatedDate, House.UpdatedBy AS HouseUpdatedBy, House.UpdatedDate AS HouseUpdatedDate, House.RatingValue AS HouseRatingValue, House.Price, 
                       House.IsPartialHouse--%>
-            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="2">
+            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="2"  OnItemDataBound="HouseItemDataBound">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
                     <div class="imagegallery">
+                        <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>' ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
                         </div>
-                        <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("UserId") %>' runat="server" />
+                        <asp:HiddenField ID="hdUserId" Value='<%# Eval("UserId") %>' runat="server" />
                          Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>

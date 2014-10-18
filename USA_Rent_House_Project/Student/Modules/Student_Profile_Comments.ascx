@@ -6,9 +6,14 @@
     <p>
         Comments...</p>
     <div id="StudentCommentsData" runat="server">
-        <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1">
+        <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1" OnItemDataBound="ItemDataBound">
             <ItemTemplate>
                 <div id="DivComment" runat="server">
+                     <div class="imagegallery">
+                            <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("ContextId") %>' />
+                            <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("CommentText") %>'
+                                ImageUrl="~/Images/Sample/Noimage.jpg" ></asp:HyperLink>
+                        </div>
                     <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("CommentId") %>' runat="server" />
                      <asp:Label ID="CommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
                     <dx:ASPxRatingControl ID="Rating" Enabled="false" runat="server" Value='<%# Eval("RatingValue") %>'></dx:ASPxRatingControl>

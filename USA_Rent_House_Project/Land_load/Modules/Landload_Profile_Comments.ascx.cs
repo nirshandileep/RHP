@@ -10,6 +10,7 @@ using RHP.Common;
 using RHP.Comments;
 using System.Web.Security;
 using RHP.Utility;
+using RHP.Photos;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -65,12 +66,17 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
-        //public void LoadComments()
-        //{
 
-        //    DataListStudentComments.DataSource = dsComments.Tables[0];
-        //    DataListStudentComments.DataBind();
+        protected void ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Photo photo = new Photo();
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
 
-        //}
+            HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+        }
+
+       
     }
 }
