@@ -44,6 +44,7 @@ namespace RHP.Common
         public enum PhotoCategory
         {
             Profile_Picture = 1,
+            Panoramic_Image = 2,
 
         }
     }
