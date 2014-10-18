@@ -5,15 +5,12 @@
     </h2>
  <div id="Div1" runat="server">
         <h2>Profile Cover Image</h2>
+     <asp:HiddenField ID="hdprofilecoverimageId" runat="server" />
     <%-- <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Student/Student_Profile_Image_Crop.aspx" runat="server">Crop Image</asp:HyperLink>--%>
             <table cellpadding="3">
                 <tr>
-                    <td>
-                        <asp:Repeater ID="RepeaterCoverImage" runat="server">
-                            <ItemTemplate>
-                                <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
-                            </ItemTemplate>
-                        </asp:Repeater>
+                    <td> <asp:Image ID="CoverImage" runat="server" Width="150" Height="100" ImageUrl="~/Images/Sample/Bannerimage.jpg" />
+                      
                     </td>
                     <td>
                         <asp:Label ID="Label3" runat="server" Text="Select Logo :">Select Photo :</asp:Label>
@@ -25,24 +22,22 @@
                     </td>
                 </tr>
             </table>
-            <%--<asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="FileUploads"
-                        ErrorMessage="Image Size Cannot Exceed 6 MB" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>--%>
+          
             <asp:Label ID="Label4" runat="server" Text="">Max Image Size : 6 MB</asp:Label><br />
             <asp:Label ID="Label5" runat="server" Text="">Allowed Only -  .jpg  .jpeg  .png</asp:Label>
         </div>
         <div id="Div2">
         </div>
 
-        <div id="ProfileImage" runat="server">
+        <div id="DevProfileImage" runat="server">
         <h2>Profile Image</h2>
+         <asp:HiddenField ID="hdProfileImageId" runat="server" />
             <table cellpadding="3">
                 <tr>
+
                     <td>
-                        <asp:Repeater ID="RepeaterImages" runat="server">
-                            <ItemTemplate>
-                                <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
-                            </ItemTemplate>
-                        </asp:Repeater>
+                     <asp:Image ID="ProfileImage_" runat="server" Width="150" Height="100" ImageUrl="~/Images/Sample/Noimage.jpg" />
+                      
                     </td>
                     <td>
                         <asp:Label ID="LogoLabel" runat="server" Text="Select Logo :">Select Photo :</asp:Label>
@@ -54,8 +49,7 @@
                     </td>
                 </tr>
             </table>
-            <%--<asp:CustomValidator ID="CustomValidator1" runat="server" ControlToValidate="FileUploads"
-                        ErrorMessage="Image Size Cannot Exceed 6 MB" OnServerValidate="CustomValidator1_ServerValidate"></asp:CustomValidator>--%>
+   
             <asp:Label ID="Label2" runat="server" Text="">Max Image Size : 6 MB</asp:Label><br />
             <asp:Label ID="AllowedLogoLabel" runat="server" Text="">Allowed Only -  .jpg  .jpeg  .png</asp:Label>
         </div>

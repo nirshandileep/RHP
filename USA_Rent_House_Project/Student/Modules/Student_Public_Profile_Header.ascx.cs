@@ -11,6 +11,7 @@ using System.IO;
 using RHP.UserManagement;
 using RHP.LandlordManagement;
 using RHP.Photos;
+using RHP.Common;
 
 
 namespace USA_Rent_House_Project.Student.Modules
@@ -56,14 +57,44 @@ namespace USA_Rent_House_Project.Student.Modules
         public void LoadStudentImages(Guid AccessCode)
         {
             Photo photo = new Photo();
-            string path = "~/uploads/";
+            string ProfileCoverImagePath = "";
+            string ProfileImagePath = "";
 
-            path = "~/uploads/" + AccessCode + "/Profile/" + AccessCode + ".jpg";
-            imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
+            List<Photo> PhotoList = Photo.SelectAllByContextId(AccessCode);
+
+            if (PhotoList.Count > 0)
+            {
+                foreach (Photo _List in PhotoList)
+                {
+                    if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
+                    {
+                        ProfileCoverImagePath = _List.FilePath;
+
+                    }
+
+                    if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
+                    {
+                        ProfileImagePath = _List.FilePath;
+                    }
+
+                }
+
+            }
+
+            imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
+
+            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
+           
+
+            //Photo photo = new Photo();
+            //string path = "~/uploads/";
+
+            //path = "~/uploads/" + AccessCode + "/Profile/" + AccessCode + ".jpg";
+            //imgStudentProfileImage.ImageUrl = photo.LoadProfileImage(path);
                 
 
-            path = "~/uploads/" + AccessCode + "/ProfileCover/" + AccessCode + ".jpg";
-            jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
+            //path = "~/uploads/" + AccessCode + "/ProfileCover/" + AccessCode + ".jpg";
+            //jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(path);
 
                
         }

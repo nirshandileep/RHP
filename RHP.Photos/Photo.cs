@@ -20,23 +20,40 @@ namespace RHP.Photos
 	   public string FilePath  { get; set; }
 	   public string Description  { get; set; }
        public int ContextSubTypeId { get; set; }
-       public int PhotoCategoryId { get; set; }
 
-        private int _contextTypeId;
-        public int ContextTypeId
-        {
-            get 
-            {
-                return _contextTypeId;
-            }
-            set
-            {
-                ContextType = (Enums.ContextType)value;
-                _contextTypeId = value;
-            }
-        }
-        public Enums.ContextType ContextType { get; set; }
-        public Guid ContextId { get; set; }
+       public int _photoCategoryId;
+       public int PhotoCategoryId
+       {
+           get
+           {
+               return _photoCategoryId;
+           }
+           set
+           {
+               PhotoCategory = (Enums.PhotoCategory)value;
+               _photoCategoryId = value;
+           }
+       }
+       public Enums.PhotoCategory PhotoCategory { get; set; }
+
+       private int _contextTypeId;
+       public int ContextTypeId
+       {
+           get
+           {
+               return _contextTypeId;
+           }
+           set
+           {
+               ContextType = (Enums.ContextType)value;
+               _contextTypeId = value;
+           }
+       }
+       public Enums.ContextType ContextType { get; set; }
+
+       public Guid ContextId { get; set; }
+
+     
 
         /// <summary>
         /// Only to be used for Generic methods. Avoid using this constructor for other purposes.
@@ -46,11 +63,18 @@ namespace RHP.Photos
  
         }
 
-        public Photo(Enums.ContextType contextType)
+        public Photo(Enums.ContextType contextType, Guid contextId)
         {
             ContextTypeId = (int)contextType;
             ContextType = contextType;
+            ContextId = contextId;
         }
+
+        public Photo(Enums.PhotoCategory photoCategory)
+        {
+            PhotoCategoryId = (int)photoCategory;
+        }
+
 
         public bool Insert(Photo photo)
         {
@@ -133,35 +157,38 @@ namespace RHP.Photos
             return result;
         }
 
-        public Photo(Enums.ContextType contextType, Guid contextId)
+
+        public static Photo Select(Guid photoId)
         {
-            ContextTypeId = (int)contextType;
-            ContextType = contextType;
-            ContextId = contextId;
+            Photo photo = Utility.Generic.GetByGUID<Photo>(photoId);
+            return photo;
         }
 
-        public List<Photo> SelectListByStudentId(Guid studentId)
+
+        public static List<Photo> Select(Guid contextId, int contextTypeId, int contextSubType = 0)
         {
-            return PhotoDAO.GetAllByFieldValue("ContextId", studentId, Enums.ContextType.Student);
+            List<Photo> allPhotos = new List<Photo>();
+            return allPhotos;
         }
 
-        public List<Photo> SelectListByLandLordId(Guid landlordId)
+        public static List<Photo> SelectAllByContextId(Guid contextId)
         {
-            return PhotoDAO.GetAllByFieldValue("ContextId", landlordId, Enums.ContextType.Landlord);
+            return PhotoDAO.GetAllByFieldValue("ContextId", contextId);
+         
         }
 
-        public DataSet SelectDataSetByStudentId(Guid studentId)
+        public List<Photo> SelectAllByPhotoCategoryId(Guid contextId, Enums.PhotoCategory PhotoCategoryId)
         {
-
-            return new PhotoDAO().SelectByContext((int)Enums.ContextType.Student, studentId);
+            return PhotoDAO.GetAllByFieldValue("ContextId", contextId, PhotoCategoryId);
         }
 
-        public DataSet SelectDataSetByLandlordId(Guid landlordId)
+        public DataSet SelectDataSetBycontextId(Guid contextId, Enums.ContextType ContextType)
         {
-            return new PhotoDAO().SelectByContext((int)Enums.ContextType.Landlord, landlordId);
+            return new PhotoDAO().SelectByContext((int)ContextType, contextId);
         }
 
-        public Photo ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
+
+        public bool ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
         {
             FileUpload UploadImage = FileUploadImage;
 
@@ -182,17 +209,18 @@ namespace RHP.Photos
                             if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
                                 Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
 
-                            //create the path to save the file to
-                            string imagename = Membership.GetUser().ProviderUserKey.ToString() + fileExtension;
+                            //create the path to save the file to 
+                            photo.PhotoId = Guid.NewGuid();
+                            string imagename = photo.PhotoId + fileExtension; // Membership.GetUser().ProviderUserKey.ToString() 
 
                             string fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename);
                             //save the file to our local path
                             UploadImage.SaveAs(fileName);
 
                             isupload = true;
-                            photo.PhotoId = Guid.NewGuid(); 
+                           // photo.PhotoId = Guid.NewGuid(); 
                             photo.FileName = imagename;
-                            photo.FilePath = FolderPath +"/"+fileName;
+                            photo.FilePath = FolderPath + "/" + imagename;
                             photo.Description = imagename;
                             photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                             photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
@@ -222,10 +250,7 @@ namespace RHP.Photos
 
             }
 
-
-           
-
-            return photo;
+            return isupload;
         }
 
         public string LoadProfileImage(string ImagePath)
