@@ -22,11 +22,13 @@
             <h2>
                 All the students live in the current home</h2>
             <br />
-            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId">
+            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
+                OnItemDataBound="ItemDataBound">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">
-                            <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>'
+                            <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
+                            <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName") %>'
                                 ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
                         </div>
                         <div id="Name" class="lblnames">
