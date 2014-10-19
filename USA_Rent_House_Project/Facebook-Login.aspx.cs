@@ -12,15 +12,17 @@ using System.Web.Security;
 using RHP.StudentManagement;
 using RHP.LandlordManagement;
 using RHP.Common;
+using RHP.CommunicationManagement;
 
 
 namespace USA_Rent_House_Project
 {
     public partial class Facebook_Login : System.Web.UI.Page
     {
-        //private static string facebookAppID = "1442754675988252";
-        //private static string facebookAppSecret = "f7c55471278a90514530f0e4806976ec";
-
+       
+        /// <summary>
+        /// AppId and AppSecret is set in the class
+        /// </summary>
         private static readonly FBClient facebookClient = new FBClient
         {
             //ClientIdentifier = facebookAppID,
@@ -30,10 +32,8 @@ namespace USA_Rent_House_Project
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            string ReturnURL = "";
-
-            string userRole = "";
-
+            string ReturnURL = string.Empty;
+            string userRole = string.Empty;
             Uri currentDomainURL = new Uri(HttpContext.Current.Request.Url.AbsoluteUri);
 
             string value = Utility.GetQueryStringValueByKey(Request, "type");
@@ -56,20 +56,22 @@ namespace USA_Rent_House_Project
                     ReturnURL = "~/";
                 }
             }
-            
+
             try
             {
                 IAuthorizationState authorization = facebookClient.ProcessUserAuthorization();
 
-                  User user = new User();
-                  RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
+                User user = new User();
+                RHP.StudentManagement.Student student = new RHP.StudentManagement.Student();
 
-                  Landlord landload = new Landlord();
+                Landlord landload = new Landlord();
 
                 if (authorization == null)
                 {
+                    SendEmail("FBReturn URL", string.Format("Return URL: {0}", currentDomainURL.ToString()));
+
                     // Kick off authorization request
-                    facebookClient.RequestUserAuthorization(null, currentDomainURL); 
+                    facebookClient.RequestUserAuthorization(null, currentDomainURL);
 
                     // Alternatively you can ask for more information
                     //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email });
@@ -86,8 +88,7 @@ namespace USA_Rent_House_Project
                     //StatusLabel.Text += name + "<br />";
                     //StatusLabel.Text += DOB + ",<br />";
                     //StatusLabel.Text += email;
-
-                     //Todo: Register the user here if not an existing member.
+                    //Todo: Register the user here if not an existing member.
 
                     user.FBid = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Id)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Id);
                     user.LastName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Name)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Name);
@@ -99,7 +100,7 @@ namespace USA_Rent_House_Project
                     user.Password = user.FBid;
                     user.UserName = user.FBid;
                     user.Question = "Are you FB User ?";
-                    user.Answer = "FB"+user.FBid;
+                    user.Answer = "FB" + user.FBid;
 
 
                     if (user.IsExistingFbUser(user.FBid))
@@ -131,130 +132,62 @@ namespace USA_Rent_House_Project
                     else
                     {
                         bool boolMembershipUserCreated = false;
-                         object objCreateMembershipUser = new object();
-                         objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
+                        object objCreateMembershipUser = new object();
+                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
 
-                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+                        bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
-                            if (boolMembershipUserCreated)
+                        if (boolMembershipUserCreated)
+                        {
+                            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                            if (user.Save())
                             {
-                                user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                                user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                                user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                               
-                                if (user.Save())
-                                {
-                                    Session[Constants.SESSION_LOGGED_USER] = user;
+                                Session[Constants.SESSION_LOGGED_USER] = user;
 
-                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
-                                    MembershipUser newUser = Membership.GetUser(user.UserName);
+                                FormsAuthentication.SetAuthCookie(user.UserName, false);
+                                MembershipUser newUser = Membership.GetUser(user.UserName);
 
-                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
-                                    
-                                }
-                                else
-                                {
-                                    user.LogOut();
-                                    Response.Redirect("~/Login.aspx", false);
-                                }
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+
                             }
                             else
                             {
                                 user.LogOut();
                                 Response.Redirect("~/Login.aspx", false);
                             }
-
-                        
+                        }
+                        else
+                        {
+                            user.LogOut();
+                            Response.Redirect("~/Login.aspx", false);
+                        }
                     }
-                   
+
                 }
-            
+
             }
             catch (Exception ex)
             {
-                //you will get the exception for the first time anyways
-                StatusLabel.Text = "You are f****d!";
+                string emailText = String.Format("Message:{0}, Source:{1}, StackTrace:{2}", ex.Message, ex.Source, ex.StackTrace);
+                SendEmail("FB Exception", emailText);
                 throw ex;
             }
-
-            //IAuthorizationState AccessToken = facebookClient.GetClientAccessToken();
-            //HashSet<string> accessScope = new HashSet<string>();
-            //accessScope = AccessToken.Scope;
-            //string token = AccessToken.AccessToken;//This can be saved in the datebase to use later to post things.
-
-
-           // public void CreateFBUser()
-           // {
-                 //object objCreateMembershipUser = new object();
-
-                        //bool boolMembershipUserCreated = false;
-
-                        //objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
-                        //bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
-
-                        //if (boolMembershipUserCreated)
-                        //{
-                        //    MembershipUser mUser;
-                        //    mUser = Membership.GetUser(user.UserName);
-                        //    user.UserId = (Guid)mUser.ProviderUserKey;
-                        //    user.CreatedBy = (Guid)mUser.ProviderUserKey;
-                        //    user.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                        //    if (user.Save())
-                        //    {
-                        //        Session[Constants.SESSION_LOGGED_USER] = user;
-
-                        //        if (userRole == "student")
-                        //        {
-
-                        //            student.StudentUser = user;
-                        //            student.CreatedBy = (Guid)mUser.ProviderUserKey;
-                        //            student.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                        //            if (student.School == null)
-                        //            {
-                        //                student.School = new School();
-                        //            }
-
-                        //            //student.School.SchoolId = null;
-                        //            //student.Year = null;
-                        //            //student.IsDeleted = null;
-                        //            //student.LandloadName = null;
-                        //            //student.LandloadPlace = null;
-
-                        //            if (student.Save())
-                        //            {
-                        //                // Messages.Save_Success;
-                        //            }
-
-                                    
-                        //        }
-                        //        else if (userRole == "landlord")
-                        //        {
-                        //            landload.LandlordId = (Guid)mUser.ProviderUserKey;
-                        //            landload.LandlordName = user.Name;
-                        //            landload.user = user;
-                        //            landload.CreatedBy = (Guid)mUser.ProviderUserKey;
-                        //            landload.UpdatedBy = (Guid)mUser.ProviderUserKey;
-
-                        //            if (landload.Save())
-                        //            {
-                        //               // Messages.Save_Success;
-                        //            }
-
-                        //        }
-                        //    }
-
-                        //    Response.Redirect(ReturnURL, false);
-                        //}
-                        //else
-                        //{
-                        //    // error
-                        //}
-
-           // }
         }
 
-       
+        private static void SendEmail(string subject, string emailText)
+        {
+            if (SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.ENABLE_DEVELOPER_EMAILS) == "true")
+            {
+                //you will get the exception for the first time anyways
+                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
+                EmailManager emailManager = new EmailManager(host, fromEmail);
+                emailManager.SendEmail(SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.DEVELOPER_EMAIL),
+                    subject, emailText, fromEmail, string.Empty, string.Empty);
+            }
+        }
     }
 }

@@ -17,6 +17,16 @@ namespace RHP.Common
             SMTP_FROM_EMAIL = 6,
             SMTP_FROM_EMAIL_PASSWORD = 7,
             SITEURL = 8,
+
+            /// <summary>
+            /// Set this to true in database to get information to 
+            /// </summary>
+            ENABLE_DEVELOPER_EMAILS = 9,
+
+            /// <summary>
+            /// Can used to obtain comma selerated email addresses
+            /// </summary>
+            DEVELOPER_EMAIL = 10
         }
 
         public enum UserRoles

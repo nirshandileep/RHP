@@ -15,10 +15,7 @@ namespace RHP.Multimedia
         public string FilePath { get; set; }
         public int ContextTypeId { get; set; }
         public Enums.ContextType ContextType { get; set; }
-
         public int ContextSubTypeId { get; set; }
-
-
         public int ContextId { get; set; }
         public int PhotoCategoryId { get; set; }
         public Enums.PhotoCategory PhotoCategory { get; set; }
