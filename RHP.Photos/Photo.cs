@@ -10,6 +10,8 @@ using System.IO;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
+using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace RHP.Photos
 {
@@ -198,71 +200,7 @@ namespace RHP.Photos
             return PhotoDAO.GetAllByFieldValue("ContextId", contextId, "ContextSubId",ContextSubId,ContextSubTypeId, PhotoCategoryId);
         }
 
-        public bool ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
-        {
-            FileUpload UploadImage = FileUploadImage;
-
-            bool isupload = false;
-
-            if (UploadImage.HasFile)
-            {
-                if (UploadImage.PostedFile.ContentLength <= 6291456)
-                {
-                    FileInfo finfo = new FileInfo(UploadImage.FileName);
-                    string fileExtension = finfo.Extension.ToLower();
-
-                    if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension != ".png")
-                    {
-                        try
-                        {
-
-                            if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
-                                Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
-
-                            //create the path to save the file to 
-                            photo.PhotoId = Guid.NewGuid();
-                            string imagename = photo.PhotoId + fileExtension; // Membership.GetUser().ProviderUserKey.ToString() 
-
-                            string fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename);
-                            //save the file to our local path
-                            UploadImage.SaveAs(fileName);
-
-                            isupload = true;
-                            // photo.PhotoId = Guid.NewGuid(); 
-                            photo.FileName = imagename;
-                            photo.FilePath = FolderPath + "/" + imagename;
-                            photo.Description = imagename;
-                            photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                            photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-
-                        }
-                        catch (Exception ex)
-                        {
-                            isupload = false;
-                        }
-                    }
-                    else
-                    {
-                        isupload = false;
-                        // extention
-                        // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
-
-                    }
-                }
-                else
-                {
-                    isupload = false;
-                    // max size 
-                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
-
-                }
-
-
-            }
-
-            return isupload;
-        }
-
+       
         public string LoadHouseImage(Guid contextId, Guid ContextSubId, Enums.ContextSubType ContextSubTypeId, Enums.PhotoCategory PhotoCategoryId)
         {
             List<String> images = null;
@@ -374,5 +312,217 @@ namespace RHP.Photos
             return new PhotoDAO().SelectByContext((int)ContextType, contextId);
         }
 
+        public bool ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
+        {
+            FileUpload UploadImage = FileUploadImage;
+
+            bool isupload = false;
+
+            if (UploadImage.HasFile)
+            {
+                if (UploadImage.PostedFile.ContentLength <= 6291456)
+                {
+                    FileInfo finfo = new FileInfo(UploadImage.FileName);
+                    string fileExtension = finfo.Extension.ToLower();
+
+                    if (fileExtension == ".jpg" || fileExtension == ".jpeg" || fileExtension != ".png" || fileExtension != ".gif" || fileExtension != ".bmp")
+                    {
+                        try
+                        {
+
+                            if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
+                                Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
+
+                            //create the path to save the file to 
+                            photo.PhotoId = Guid.NewGuid();
+                            string imagename = photo.PhotoId + fileExtension; 
+
+                            string fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename);
+                            //save the file to our local path
+                            UploadImage.SaveAs(fileName);
+
+                            isupload = true;
+                        
+                            photo.FileName = imagename;
+                            photo.FilePath = FolderPath + "/" + imagename;
+                            photo.Description = imagename;
+                            photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                        }
+                        catch (Exception ex)
+                        {
+                            isupload = false;
+                        }
+                    }
+                    else
+                    {
+                        isupload = false;
+                        // extention
+                        // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
+
+                    }
+                }
+                else
+                {
+                    isupload = false;
+                    // max size 
+                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
+
+                }
+
+
+            }
+
+            return isupload;
+        }
+
+        public bool ImageResize(FileUpload UploadImage, string FolderPath, Photo photo)
+        {
+            bool isupload = false;
+
+            //  The uploaded file should not be a blank file
+            if (UploadImage.FileBytes.Length == 0)
+            {
+                isupload = false;
+            }
+            else
+            {
+                // The uploaded file should be having one of the allowed extensions
+                string fileExtension = System.IO.Path.GetExtension(UploadImage.FileName).TrimStart(".".ToCharArray()).ToLower();
+
+                if ((fileExtension != "jpeg") && (fileExtension != "jpg") && (fileExtension != "png") && (fileExtension != "gif") && (fileExtension != "bmp"))
+                {
+                    isupload = false;
+                }
+                else
+                {
+                    try
+                    {
+                        // Validation successful
+                        // Load the image into Bitmap Object
+                        Bitmap uploadedImage = new Bitmap(UploadImage.FileContent);
+
+                        // Set the maximum width and height here.
+                        // You can make this versatile by getting these values from
+                        // QueryString or textboxes
+                        int maxWidth = 100;
+                        int maxHeight = 100;
+
+                        // Resize the image
+                        Bitmap resizedImage = GetScaledPicture(uploadedImage, maxWidth, maxHeight);
+
+                        //create the path to save the file to 
+                        photo.PhotoId = Guid.NewGuid();
+                        string imagename = photo.PhotoId +"."+ fileExtension;
+
+                        if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
+                            Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
+
+                        //Save the image
+                        String tempFileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename); //System.Web.HttpContext.Current.Server.MapPath(virtualPath);
+                        resizedImage.Save(tempFileName, uploadedImage.RawFormat);
+
+                        isupload = true;
+                     
+                        photo.FileName = imagename;
+                        photo.FilePath = FolderPath + "/" + imagename;
+                        photo.Description = imagename;
+                        photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                        photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    }
+                    catch(Exception ex)
+                    {
+                        isupload = false;
+                    }
+                }
+            
+                
+            }
+            
+            return isupload;
+        }
+
+
+        protected Bitmap GetScaledPicture(Bitmap source, int maxWidth, int maxHeight)
+        {
+            int width, height;
+            float aspectRatio = (float)source.Width / (float)source.Height;
+
+            if ((maxHeight > 0) && (maxWidth > 0))
+            {
+                if ((source.Width < maxWidth) && (source.Height < maxHeight))
+                {
+                    //Return unchanged image
+                    return source;
+                }
+                else if (aspectRatio > 1)
+                {
+                    // Calculated width and height,
+                    // and recalcuate if the height exceeds maxHeight
+                    width = maxWidth;
+                    height = (int)(width / aspectRatio);
+                    if (height > maxHeight)
+                    {
+                        height = maxHeight;
+                        width = (int)(height * aspectRatio);
+                    }
+                }
+                else
+                {
+                    // Calculated width and height,
+                    // and recalcuate if the width exceeds maxWidth
+                    height = maxHeight;
+                    width = (int)(height * aspectRatio);
+                    if (width > maxWidth)
+                    {
+                        width = maxWidth;
+                        height = (int)(width / aspectRatio);
+                    }
+                }
+            }
+            else if ((maxHeight == 0) && (source.Width > maxWidth))
+            {
+                // If MaxHeight is not provided (unlimited), and
+                // the source width exceeds maxWidth,
+                // then recalculate height
+                width = maxWidth;
+                height = (int)(width / aspectRatio);
+            }
+            else if ((maxWidth == 0) && (source.Height > maxHeight))
+            {
+                // If MaxWidth is not provided (unlimited), and the
+                // source height exceeds maxHeight, then
+                // recalculate width
+                height = maxHeight;
+                width = (int)(height * aspectRatio);
+            }
+            else
+            {
+                //Return unchanged image
+                return source;
+            }
+
+            Bitmap newImage = GetResizedImage(source, width, height);
+            return newImage;
+        }
+
+        protected Bitmap GetResizedImage(Bitmap source, int width, int height)
+        {
+            //This function creates the thumbnail image.
+            //The logic is to create a blank image and to
+            // draw the source image onto it
+
+            Bitmap thumb = new Bitmap(width, height);
+            Graphics gr = Graphics.FromImage(thumb);
+
+            gr.InterpolationMode = InterpolationMode.HighQualityBicubic;
+            gr.SmoothingMode = SmoothingMode.HighQuality;
+            gr.PixelOffsetMode = PixelOffsetMode.HighQuality;
+            gr.CompositingQuality = CompositingQuality.HighQuality;
+
+            gr.DrawImage(source, 0, 0, width, height);
+            return thumb;
+        }
     }
 }

@@ -111,7 +111,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
 
-            bool IsUpload = photo.ImageUpload(FileUploads, path, photo);
+            bool IsUpload = photo.ImageResize(FileUploads, path, photo);
 
             if (IsUpload == true)
             {
