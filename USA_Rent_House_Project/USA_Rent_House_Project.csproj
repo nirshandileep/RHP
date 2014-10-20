@@ -209,6 +209,7 @@
     <Content Include="Land_load\Change_Password.aspx" />
     <Content Include="Land_load\Change_Secret_Question.aspx" />
     <Content Include="Land_load\Current_Students.aspx" />
+    <Content Include="Land_load\Landload_House_Images_Add.aspx" />
     <Content Include="Land_load\Landload_Profile_Image.aspx" />
     <Content Include="Land_load\Land_Load_House.aspx" />
     <Content Include="Land_load\Land_Load_House_info_Add.aspx" />
@@ -223,6 +224,7 @@
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\House_List.ascx" />
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
+    <Content Include="Land_load\Modules\Landload_House_Images_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Comments.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Comment_Add.ascx" />
@@ -568,6 +570,13 @@
     <Compile Include="Land_load\Current_Students.aspx.designer.cs">
       <DependentUpon>Current_Students.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Landload_House_Images_Add.aspx.cs">
+      <DependentUpon>Landload_House_Images_Add.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Landload_House_Images_Add.aspx.designer.cs">
+      <DependentUpon>Landload_House_Images_Add.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Landload_Profile_Image.aspx.cs">
       <DependentUpon>Landload_Profile_Image.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -665,6 +674,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\House_Option_Add.ascx.designer.cs">
       <DependentUpon>House_Option_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_House_Images_Add.ascx.cs">
+      <DependentUpon>Landload_House_Images_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landload_House_Images_Add.ascx.designer.cs">
+      <DependentUpon>Landload_House_Images_Add.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\Landload_Profile_Banner.ascx.cs">
       <DependentUpon>Landload_Profile_Banner.ascx</DependentUpon>

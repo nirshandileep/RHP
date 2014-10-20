@@ -193,6 +193,10 @@ namespace RHP.Photos
             return PhotoDAO.GetAllByFieldValue("ContextId", contextId, PhotoCategoryId);
         }
 
+        public List<Photo> SelectAllByContextSubTypeId(Guid contextId,Guid ContextSubId,Enums.ContextSubType ContextSubTypeId, Enums.PhotoCategory PhotoCategoryId)
+        {
+            return PhotoDAO.GetAllByFieldValue("ContextId", contextId, "ContextSubId",ContextSubId,ContextSubTypeId, PhotoCategoryId);
+        }
 
         public bool ImageUpload(FileUpload FileUploadImage, string FolderPath, Photo photo)
         {
@@ -259,6 +263,35 @@ namespace RHP.Photos
             return isupload;
         }
 
+        public string LoadHouseImage(Guid contextId, Guid ContextSubId, Enums.ContextSubType ContextSubTypeId, Enums.PhotoCategory PhotoCategoryId)
+        {
+            List<String> images = null;
+
+            string imagePath = "~/Images/Sample/House.jpg";
+
+            try
+            {
+                List<Photo> PhotoList = SelectAllByContextSubTypeId(contextId, ContextSubId, ContextSubTypeId, PhotoCategoryId);
+
+                if (PhotoList.Count > 0)
+                {
+                    images = new List<string>(PhotoList.Count);
+
+                    foreach (Photo _List in PhotoList)
+                    {
+                        if (File.Exists(System.Web.HttpContext.Current.Server.MapPath(_List.FilePath)))
+                        {
+                            imagePath = _List.FilePath;
+                        }
+                    }
+                }
+            }
+            catch (Exception ec)
+            { }
+
+            return imagePath;
+        }
+
         public string LoadImage(Guid contextId, Enums.PhotoCategory PhotoCategoryId)
         {
             List<String> images = null;
@@ -323,7 +356,6 @@ namespace RHP.Photos
 
             return images;
         }
-
 
         public static List<Photo> Select(Guid contextId, int contextTypeId, int contextSubType = 0)
         {

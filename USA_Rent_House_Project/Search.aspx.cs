@@ -225,10 +225,13 @@ namespace USA_Rent_House_Project
         {
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
-
+            HiddenField hdUserId_ = (HiddenField)e.Item.FindControl("hdUserId");
+            
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
 
-            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+           // Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+
+            Image_.ImageUrl = photo.LoadHouseImage(Guid.Parse(hdUserId_.Value.ToString()), Guid.Parse(HiddenField_.Value.ToString()), Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
         }
     }
 }

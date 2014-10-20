@@ -38,9 +38,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
-        private void LoadHouseData(Guid LandlordId)
+        private void LoadHouseData(Guid UserId)
         {
-            User user = User.Select(LandlordId);
+            User user = User.Select(UserId);
             Photo photo = new Photo();
 
             if (user.HouseId.HasValue)
@@ -48,7 +48,8 @@ namespace USA_Rent_House_Project.Student.Modules
                 House house = House.Select(user.HouseId.Value);
                 CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
               
-                imgCurrentHouseImage.ImageUrl = photo.LoadImage(LandlordId, Enums.PhotoCategory.House_Picture);   
+               // imgCurrentHouseImage.ImageUrl = photo.LoadImage(LandlordId, Enums.PhotoCategory.House_Picture);
+                imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(house.LandlordId, user.HouseId.Value, Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
 
             }
             
@@ -90,6 +91,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
             imgStudentProfileImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Profile_Picture);
             jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Cover_Picture);
+
+           
         }
 
         public void LoadComments(Guid AccessCode)

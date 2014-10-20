@@ -131,6 +131,32 @@ namespace RHP.Photos
             return returnEntityCollection;
         }
 
+        public static List<Photo> GetAllByFieldValue(string fieldName, Guid fieldValue, string fieldName2, Guid fieldValue2,Enums.ContextSubType ContextSubTypeId, Enums.PhotoCategory PhotoCategoryId)
+        {
+            List<Photo> returnEntityCollection = new List<Photo>();
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_PhotoSelectAllBy" + fieldName2);
+
+            db.AddInParameter(dbCommand, fieldName, DbType.Guid, fieldValue);
+            db.AddInParameter(dbCommand, fieldName2, DbType.Guid, fieldValue2);
+            db.AddInParameter(dbCommand, "ContextSubTypeId", DbType.Int32, (int)ContextSubTypeId);
+            db.AddInParameter(dbCommand, "PhotoCategoryId", DbType.Int32, (int)PhotoCategoryId);
+
+            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+            {
+                while (dataReader.Read())
+                {
+                    Photo entity = new Photo();
+
+                    Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+                    returnEntityCollection.Add(entity);
+                }
+            }
+
+            return returnEntityCollection;
+        }
+
         public static List<Photo> GetAllByFieldValue(string fieldName, Guid fieldValue)
         {
             List<Photo> returnEntityCollection = new List<Photo>();

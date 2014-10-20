@@ -108,7 +108,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
 
-                    imgCurrentHouseImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.House_Picture); 
+                    imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(house.LandlordId, user.HouseId.Value, Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
+
+                   // imgCurrentHouseImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.House_Picture); 
 
                     imgLandloadProfileImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.Profile_Picture); 
                     

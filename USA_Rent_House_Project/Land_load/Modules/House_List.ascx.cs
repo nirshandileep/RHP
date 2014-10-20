@@ -70,7 +70,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             if (name == "ViewHouse")
             {
-                Response.Redirect(string.Format("~/Land_load/Land_Load_House_info_Add.aspx?{0}={1}", Constants.QUERYSTRING_HOUSE_ID, HouseId.ToString()));
+                Response.Redirect(string.Format("~/Land_load/Land_Load_House_info_Add .aspx?{0}={1}", Constants.QUERYSTRING_HOUSE_ID, HouseId.ToString()));
             }
             if (name == "ViewOptions")
             {
@@ -81,11 +81,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
             Photo photo = new Photo();
-            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdnHouseId");
 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
 
-            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+           // Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+
+            Image_.ImageUrl = photo.LoadHouseImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Guid.Parse(HiddenField_.Value.ToString()), Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
         }
     }
 }
