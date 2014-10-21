@@ -15,7 +15,8 @@
 
             <asp:Repeater ID="RepeaterImages" runat="server">
                     <ItemTemplate>
-                        <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />
+                   
+                      <a href="<%# Container.DataItem %>" rel="lightbox" >  <asp:Image ID="Image" runat="server" Width="150" Height="100" ImageUrl='<%# Container.DataItem %>' />CC</a>
                     </ItemTemplate>
                 </asp:Repeater>
     

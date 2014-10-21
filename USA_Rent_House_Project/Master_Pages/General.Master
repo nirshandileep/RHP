@@ -6,6 +6,8 @@
 <head runat="server">
     <title>Home</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/lightbox/lightbox.css" type="text/css" media="screen" />
+<script type="text/javascript" src="../lightbox/lightbox.js"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

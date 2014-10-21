@@ -316,7 +316,7 @@ input.actionbutton:hover
     display: block;
     font-size: 1.2em;
     margin: 0 auto;
-    padding: 10px;
+    padding: 7px;
     text-align: right;
     width: 1175px;    
 }
@@ -812,6 +812,33 @@ a.loginlinks:hover
 }
 
 
+
+a.loginlinks_img
+{
+    background-color: #0e72b8;
+    border-radius: 15px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.8em;
+    margin: 5px;
+    padding: 2px;
+    text-align: center;
+    text-decoration: none;
+    width: 88%;
+}
+
+a.loginlinks_img:hover
+{
+    background-color:#083e64;
+}
+
+
+#MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled
+{
+    float:left;
+}
+
 .formlinkswidthleft
 {
     width:70%;
@@ -989,6 +1016,12 @@ a.loginlinks:hover
     overflow:hidden;
 }
 
+.imagegallery a img
+{
+ width: 60px;   
+ height: 60px;
+}
+
 
 .lblnames
 {
@@ -1158,7 +1191,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .publicimagegallerycontainer {
        float: left;
-    margin: 80px 0 0 140px;
+    margin: 80px 0 0 95px;
     width: 100%;
 }
 
