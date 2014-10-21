@@ -5,7 +5,7 @@
     <p>
         Comments...</p>
     <div id="StudentCommentsData" runat="server">
-        <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1">
+        <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1" OnItemDataBound="ItemDataBound">
             <ItemTemplate>
                 <div id="DivComment" runat="server">
                 <div class="imagegallery">

@@ -238,6 +238,11 @@
     <Content Include="Land_load\Modules\Landload_Public_Profile_Data.ascx" />
     <Content Include="Land_load\Modules\Landload_Public_Profile_Header.ascx" />
     <Content Include="Land_load\Modules\Menu_Bar.ascx" />
+    <Content Include="lightbox\close.gif" />
+    <Content Include="lightbox\lightbox.css" />
+    <Content Include="lightbox\lightbox.js" />
+    <Content Include="lightbox\loading.gif" />
+    <Content Include="lightbox\overlay.png" />
     <Content Include="Login.aspx" />
     <Content Include="Modules\Change_Password.ascx" />
     <Content Include="Modules\Change_Secret_Question.ascx" />

@@ -129,6 +129,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
                 TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
                 Utilities.Text = house.UtilitiesIncludedInRent != null ? house.UtilitiesIncludedInRent : string.Empty;
+                Price.Text = house.Price != null ? house.Price.ToString() : string.Empty;
         }
 
         public void CreateHouse()
@@ -149,7 +150,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     house.LotSquareFootage = LotSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(LotSQFootage.Text.Trim());
                     house.TotalSquareFootage = TotalSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(TotalSQFootage.Text.Trim());
                     house.UtilitiesIncludedInRent = Utilities.Text.Trim();
-
+                    house.Price = decimal.Parse(Price.Text.ToString());
                     house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
                     house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
 

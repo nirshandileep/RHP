@@ -76,6 +76,16 @@
                     CssClass="failureNotification" ErrorMessage="Utilities included is required."
                     ToolTip="Utilities included is required." ValidationGroup="PropertyValidationGroup">*</asp:RequiredFieldValidator>
             </p>
+              <p>
+                <asp:Label ID="LabelPrice" runat="server" AssociatedControlID="Price" CssClass="form_label">Price:</asp:Label>
+                <asp:TextBox ID="Price" runat="server" CssClass="textEntry textbox_w1" MaxLength="6"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="PriceRequired" runat="server" ControlToValidate="Price"
+                    CssClass="failureNotification" ErrorMessage="Price is required."
+                    ToolTip="Price is required." ValidationGroup="PropertyValidationGroup">*</asp:RequiredFieldValidator>
+
+                  
+
+            </p>
             <asp:HiddenField ID="hdnLandLordId" runat="server" />
             <asp:HiddenField ID="hdnHouseId" runat="server" />
             <p class="submitButton">

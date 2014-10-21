@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.Utility;
 using RHP.UserManagement;
+using RHP.Photos;
+using RHP.Common;
 
 namespace USA_Rent_House_Project.Land_load.Modules
 {
@@ -43,6 +45,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 DataListCurrentHomeStudent.DataSource = userList;
                 DataListCurrentHomeStudent.DataBind();
             
+        }
+
+        protected void ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Photo photo = new Photo();
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+
+            HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
         }
     }
 }

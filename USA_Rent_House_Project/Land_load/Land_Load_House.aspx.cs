@@ -9,6 +9,7 @@ using RHP.UserManagement;
 using RHP.SessionManager;
 using RHP.Common;
 using RHP.Utility;
+using RHP.Photos;
 
 namespace USA_Rent_House_Project.Land_load
 {
@@ -76,6 +77,15 @@ namespace USA_Rent_House_Project.Land_load
             }
         }
 
+        protected void ItemDataBound(object sender, DataListItemEventArgs e)
+        {
+            Photo photo = new Photo();
+            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+
+            HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+        }
 
         protected void LB_House_Add_Click(object sender, EventArgs e)
         {

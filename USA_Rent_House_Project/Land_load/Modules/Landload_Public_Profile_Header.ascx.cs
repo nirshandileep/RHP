@@ -31,7 +31,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     if (AccessCode2 != string.Empty && AccessCode2 != null)
                     {
-                        LoadImage(Guid.Parse(AccessCode2));
+                        LoadImage(Guid.Parse(AccessCode),Guid.Parse(AccessCode2));
                     }
                 }
                 catch (Exception ex)
@@ -41,12 +41,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
         }
 
 
-        public void LoadImage(Guid AccessCode)
+        public void LoadImage(Guid AccessCode, Guid AccessCode2)
         {
             Photo photo = new Photo();
 
-            imgLandloadProfileImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Profile_Picture);
-            jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Cover_Picture);
+            imgLandloadProfileImage.ImageUrl = photo.LoadImage(AccessCode2, Enums.PhotoCategory.Profile_Picture);
+            jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode2, Enums.PhotoCategory.Cover_Picture);
         }
 
         //public void LoadImages(Guid AccessCode, Guid AccessCode2)

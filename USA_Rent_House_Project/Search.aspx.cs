@@ -98,6 +98,8 @@ namespace USA_Rent_House_Project
 
         protected void ButtonSearchHouse_Click(object sender, EventArgs e)
         {
+            HouseSearchresults.Visible = false;
+            StudentSearchresults.Visible = false;
             loadHousedata();
             HiddenFieldCurrentStep.Value = "1";
             Div_Search_House.Visible = true;
@@ -106,6 +108,8 @@ namespace USA_Rent_House_Project
 
         protected void ButtonSearchStudent_Click(object sender, EventArgs e)
         {
+            HouseSearchresults.Visible = false;
+            StudentSearchresults.Visible = false;
             loadStudentdata();
             HiddenFieldCurrentStep.Value = "2";
             Div_Search_Student.Visible = true;
