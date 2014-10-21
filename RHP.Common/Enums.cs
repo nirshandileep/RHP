@@ -26,7 +26,12 @@ namespace RHP.Common
             /// <summary>
             /// Can used to obtain comma selerated email addresses
             /// </summary>
-            DEVELOPER_EMAIL = 10
+            DEVELOPER_EMAIL = 10,
+
+            /// <summary>
+            /// Fb return url set from database
+            /// </summary>
+            FB_REDIRECT_URL = 11
         }
 
         public enum UserRoles
