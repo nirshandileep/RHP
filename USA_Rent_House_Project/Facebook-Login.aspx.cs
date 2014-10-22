@@ -73,14 +73,17 @@ namespace USA_Rent_House_Project
 
                     string fbRedirectURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.FB_REDIRECT_URL);
 
-                    Uri url;
-                    if (value == "s")
+                    Uri url = null;
+                    if (!string.IsNullOrEmpty(fbRedirectURL))
                     {
-                        url = new Uri(string.Format(fbRedirectURL, "s"));
-                    }
-                    else// if(value == "l")
-                    {
-                        url = new Uri(string.Format(fbRedirectURL, "l"));
+                        if (value == "s")
+                        {
+                            url = new Uri(string.Format(fbRedirectURL, "s"));
+                        }
+                        else// if(value == "l")
+                        {
+                            url = new Uri(string.Format(fbRedirectURL, "l"));
+                        }
                     }
 
                     // Kick off authorization request
