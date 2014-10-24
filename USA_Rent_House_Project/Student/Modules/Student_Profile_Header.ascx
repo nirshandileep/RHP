@@ -9,8 +9,9 @@
         <asp:HyperLink ID="ChangeCoverImage" runat="server" cssClass="changecoverlink" NavigateUrl="~/Student/Student_Profile_Image.aspx">Change Cover Image</asp:HyperLink>
     </div>
     <div id="StudentProfileImage" runat="server">
-        <asp:Image ID="imgStudentProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" />
-        <asp:HyperLink ID="HyperLink1" runat="server" cssClass="changeprofilelink" NavigateUrl="~/Student/Student_Profile_Image.aspx">Change Profile Image</asp:HyperLink>
+      <%--  <asp:Image ID="imgStudentProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" />  --%>
+
+        <asp:HyperLink ID="imgStudentProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" NavigateUrl="~/Student/Student_Profile_Image.aspx">Change Profile Image</asp:HyperLink> <%--cssClass="changeprofilelink" --%>
     </div>
     <div id="CurrentHouseImage" runat="server">
         <asp:Image ID="imgCurrentHouseImage" runat="server" ImageUrl="~/Images/Sample/House.jpg" Width="100px"  />

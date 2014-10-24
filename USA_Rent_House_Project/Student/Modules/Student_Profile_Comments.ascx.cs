@@ -63,11 +63,11 @@ namespace USA_Rent_House_Project.Student.Modules
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
             Photo photo = new Photo();
-            HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
-
+            HiddenField HiddenFieldUserId_ = (HiddenField)e.Item.FindControl("hdUserId");
+            HiddenField HiddenFieldCreatedBy_ = (HiddenField)e.Item.FindControl("hdCreatedBy"); 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
 
-            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+            Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenFieldCreatedBy_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
         }
 
 

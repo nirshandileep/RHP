@@ -41,12 +41,12 @@ namespace USA_Rent_House_Project.Land_load
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-
+                string AccessCode2 = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
                 if (AccessCode != string.Empty && AccessCode != null)
                 {
                     try
                     {
-                        LoadStudent(Guid.Parse(AccessCode));
+                        LoadStudent(Guid.Parse(AccessCode),Guid.Parse(AccessCode2));
                       
                     }
                     catch (Exception ex)
@@ -57,14 +57,14 @@ namespace USA_Rent_House_Project.Land_load
             }
         }
 
-        public void LoadStudent(Guid AccessCode)
+        public void LoadStudent(Guid AccessCode, Guid AccessCode2)
         {
            // user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
             if (AccessCode != null )
             {
-                HyperLinkPublicView.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode;
-                HyperLinkHouseDetails.NavigateUrl = "~/Land_load/Land_Load_House_View.aspx?AccessCode=" + AccessCode;
+                HyperLinkPublicView.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2;
+                HyperLinkHouseDetails.NavigateUrl = "~/Land_load/Land_Load_House_View.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2;
 
                // AccessCode = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
                 List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", AccessCode, "RoleName", "student");

@@ -11,6 +11,7 @@
                 <div id="DivComment" runat="server">
                     <div class="imagegallery">
                             <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("ContextId") %>' />
+                             <asp:HiddenField ID="hdCreatedBy" runat="server" Value='<%# Eval("CreatedBy") %>' />
                             <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("CommentText") %>' ImageUrl="~/Images/Sample/Noimage.jpg" ></asp:HyperLink>
                         </div>
                     
