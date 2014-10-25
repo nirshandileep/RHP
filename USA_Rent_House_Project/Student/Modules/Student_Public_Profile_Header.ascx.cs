@@ -45,12 +45,21 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user.HouseId.HasValue)
             {
+
+                ProfileUserName.Text = user.FirstName + " " + user.LastName;
+                ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
+                imgStudentProfileImage.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
+
                 House house = House.Select(user.HouseId.Value);
-                CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
-              
-               // imgCurrentHouseImage.ImageUrl = photo.LoadImage(LandlordId, Enums.PhotoCategory.House_Picture);
+                imgCurrentHouseImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
                 imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(house.LandlordId, user.HouseId.Value, Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
 
+                User user_ = new User();
+                user_ = User.Select(house.LandlordId);
+
+                ProfileLandlordName.Text = user_.FirstName + " " + user_.LastName;
+                ProfileLandlordName.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
+               
             }
             
         }

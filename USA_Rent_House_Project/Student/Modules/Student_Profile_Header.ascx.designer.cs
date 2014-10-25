@@ -67,6 +67,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.HyperLink imgStudentProfileImage;
         
         /// <summary>
+        /// ProfileUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ProfileUserName;
+        
+        /// <summary>
         /// CurrentHouseImage control.
         /// </summary>
         /// <remarks>
@@ -82,16 +91,7 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCurrentHouseImage;
-        
-        /// <summary>
-        /// CurrentHouse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CurrentHouse;
+        protected global::System.Web.UI.WebControls.HyperLink imgCurrentHouseImage;
         
         /// <summary>
         /// hdnHouseId control.
@@ -118,15 +118,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
+        protected global::System.Web.UI.WebControls.HyperLink imgLandloadProfileImage;
         
         /// <summary>
-        /// CurrentLandlord control.
+        /// ProfileLandlordName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CurrentLandlord;
+        protected global::System.Web.UI.WebControls.HyperLink ProfileLandlordName;
     }
 }

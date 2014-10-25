@@ -103,19 +103,25 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (user.HouseId.HasValue)
                 {
-
+                    ProfileUserName.Text = user.FirstName + " " + user.LastName;
+                    ProfileUserName.NavigateUrl = "~/Student/Student_Profile.aspx";
                     hdnHouseId.Value = user.HouseId.Value.ToString();
 
-                    CurrentHouse.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
-                    CurrentLandlord.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
-
+                    imgCurrentHouseImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
                     imgCurrentHouseImage.ImageUrl = photo.LoadHouseImage(house.LandlordId, user.HouseId.Value, Enums.ContextSubType.House, Enums.PhotoCategory.House_Picture);
 
-                   // imgCurrentHouseImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.House_Picture); 
 
-                    imgLandloadProfileImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.Profile_Picture); 
-                    
+                    imgLandloadProfileImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
+                    imgLandloadProfileImage.ImageUrl = photo.LoadImage(house.LandlordId, Enums.PhotoCategory.Profile_Picture);
+
+                    User user_ = new User();
+                    user_ = User.Select(house.LandlordId);
+
+                    ProfileLandlordName.Text = user_.FirstName + " " + user_.LastName;
+                    ProfileLandlordName.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
                 }
+
+                
 
        }
         

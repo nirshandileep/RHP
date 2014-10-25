@@ -58,6 +58,15 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.Image imgLandloadProfileImage;
         
         /// <summary>
+        /// ProfileUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ProfileUserName;
+        
+        /// <summary>
         /// ASPxRating control.
         /// </summary>
         /// <remarks>

@@ -11,6 +11,8 @@
 
     <div id="LandloadProfileImage" runat="server">
         <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px"   />
+
+         <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
     </div>
 
         <div id="MyRatings"  class="floatright" > My Ratings 

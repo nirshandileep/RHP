@@ -10,6 +10,7 @@ using RHP.Utility;
 using System.IO;
 using RHP.Photos;
 using RHP.Common;
+using RHP.UserManagement;
 
 
 namespace USA_Rent_House_Project.Land_load.Modules
@@ -43,6 +44,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         public void LoadImage(Guid AccessCode, Guid AccessCode2)
         {
+            User user = User.Select(AccessCode2);
+            if (user.UserId.HasValue)
+            {
+                ProfileUserName.Text = user.FirstName + " " + user.LastName;
+                ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode2;
+
+            }
+            
             Photo photo = new Photo();
 
             imgLandloadProfileImage.ImageUrl = photo.LoadImage(AccessCode2, Enums.PhotoCategory.Profile_Picture);

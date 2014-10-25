@@ -55,7 +55,16 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgStudentProfileImage;
+        protected global::System.Web.UI.WebControls.HyperLink imgStudentProfileImage;
+        
+        /// <summary>
+        /// ProfileUserName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink ProfileUserName;
         
         /// <summary>
         /// CurrentHouseImage control.
@@ -73,16 +82,16 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imgCurrentHouseImage;
+        protected global::System.Web.UI.WebControls.HyperLink imgCurrentHouseImage;
         
         /// <summary>
-        /// CurrentHouse control.
+        /// ProfileLandlordName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink CurrentHouse;
+        protected global::System.Web.UI.WebControls.HyperLink ProfileLandlordName;
         
         /// <summary>
         /// StudentRating control.
