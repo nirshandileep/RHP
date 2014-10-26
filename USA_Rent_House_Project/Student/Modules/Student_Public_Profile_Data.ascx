@@ -38,8 +38,8 @@
                 
                   <h2 style="display: inline-block;">
                 College housing life..</h2>
-            <asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" NavigateUrl="~/Student/Current_House_Life.aspx"
-                runat="server">Photos/Videos</asp:HyperLink>
+            <asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" 
+                runat="server">Photos</asp:HyperLink>
 
         </div>
 

@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="Current House Life" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
     AutoEventWireup="true" CodeBehind="Current_House_Life.aspx.cs" Inherits="USA_Rent_House_Project.Student.Current_House_Life" %>
 
-<%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
-    TagPrefix="uc1" %>
+<%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header" TagPrefix="uc1" %>
 <%@ Register Src="Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <script type="text/javascript" src="../Scripts/jquery-1.7.2.min.js"></script>

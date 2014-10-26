@@ -24,6 +24,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 try
                 {
                     LoadStudent(Guid.Parse(AccessCode));
+                    hypStudentHouseData.NavigateUrl = "~/Student/Current_House_Life_View.aspx?AccessCode=" + Guid.Parse(AccessCode);
                 }
                 catch(Exception ex)
                 {}
