@@ -4,7 +4,10 @@
 <div class="puliclinks">
   <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile.aspx" Style="float: right" runat="server">My Page</asp:HyperLink>
    <div class="floatright" runat="server">
-            <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
+            <asp:HyperLink ID="HyperLinkabout" CssClass="loginlinks" NavigateUrl="~/Student/Student_Public_Profile_info.aspx"
+                runat="server">About</asp:HyperLink>
+                
+                 <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>
             <asp:HyperLink ID="HyperLink2" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                 runat="server">Search for House</asp:HyperLink>

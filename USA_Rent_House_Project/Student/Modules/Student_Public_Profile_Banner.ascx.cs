@@ -21,6 +21,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 try
                 {
                     loadimage(Guid.Parse(AccessCode));
+                    HyperLinkabout.NavigateUrl = "~/Student/Student_Public_Profile_info.aspx?AccessCode=" + AccessCode;
                 }
                 catch (Exception ex)
                 { }

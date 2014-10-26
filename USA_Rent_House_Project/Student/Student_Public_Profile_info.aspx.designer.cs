@@ -7,19 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Student.Modules {
+namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Student_Public_Profile_Banner {
+    public partial class Student_Public_Profile_info {
         
         /// <summary>
-        /// currentHomeStudentBanner control.
+        /// Student_Public_Profile_HeaderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudentBanner;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Header Student_Public_Profile_HeaderID;
         
         /// <summary>
         /// HyperLinkPublicView control.
@@ -31,6 +31,15 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
         
         /// <summary>
+        /// Search control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
+        
+        /// <summary>
         /// HyperLinkabout control.
         /// </summary>
         /// <remarks>
@@ -40,30 +49,30 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.HyperLink HyperLinkabout;
         
         /// <summary>
-        /// HyperLink1 control.
+        /// SearchStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        protected global::System.Web.UI.WebControls.HyperLink SearchStudent;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// SearchHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// RepeaterImages control.
+        /// Student_Public_Profile_info_View1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterImages;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Public_Profile_info_View Student_Public_Profile_info_View1;
     }
 }
