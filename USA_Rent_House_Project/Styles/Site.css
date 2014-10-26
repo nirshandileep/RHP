@@ -944,7 +944,7 @@ a.loginlinks_img:hover
     width: 690px;
 }
 
-#MainContent_RightPanelLL
+#MainContent_RightPanelLL, #RightPanelLL
 {
    float: left;
     margin-left: 2%;
@@ -1015,7 +1015,7 @@ a.loginlinks_img:hover
     box-shadow: 0 0 2px #000;
     float: left;
     height: 60px;
-    margin: 0 5% 0 0;
+    margin: 0 5% 10px 0;
     width: 60px;
     overflow:hidden;
 }
@@ -1199,6 +1199,22 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     width: 100%;
 }
 
+.LLpublicrating
+{
+     color: #fff;
+    margin-right: 23px;
+    margin-top: -100px;
+    position: relative;
+    z-index: 20;
+}
+
+#MainContent_HyperLinkPublicView, .llpublicsearch
+{
+    z-index:20;
+    position:relative;
+ 
+}
+
 #MainContent_Student_Profile_CommentsID_StudentComments
 {
     float:left;
@@ -1210,6 +1226,22 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     float:right;
 }
 
+.LLcommentstar
+{
+    float:right;
+}
+
+
+.comment_text_LL
+{
+    width:790px;
+}
+.LLcommenttext
+{
+    float:left;
+    width:550px;
+}
+
 .changecoverlink
 {
      background-image: url("../Images/cover-change.png");
@@ -1219,7 +1251,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     position: absolute;
     right: 18px;
     text-indent: -9999px;
-    top: 150px;
+    top: 137px;
     width: 176px;
     z-index: 200;
     
@@ -1270,12 +1302,12 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Landload_Profile_Header1_StidentProfileHeader #MyRatings
 {
-       color: #fff;
+    color: #fff;
     font-weight: bold;
-    margin-right: 90px;
-    margin-top: -157px;
+    margin-right: 26px;
+    margin-top: -183px;
     position: relative;
-    z-index: 45;
+    z-index: 14;
 }
 
 #MainContent_Landload_Profile_Comments1_StudentCommentsData

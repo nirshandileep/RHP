@@ -18,16 +18,18 @@
 <script type="text/javascript">    var addthis_config = { "data_track_addressbar": true };</script>
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51590e4634ef5a41"></script>
 <!-- AddThis Button END -->
-
-       <dx:ASPxRatingControl ID="ASPxRating" runat="server">
+<div class="comment_text_LL">
+       <dx:ASPxRatingControl ID="ASPxRating" CssClass="LLcommentstar" runat="server">
        </dx:ASPxRatingControl>
-        <p>Comment on our page</p>
+        <p class="LLcommenttext">Comment on our page</p>
+        <div class="clear"></div>
          <p>
                 <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="790px"  Rows="5" TextMode="MultiLine"></asp:TextBox>
               
             </p>
         </div>
         <div class="clear"></div>
+        </div>
          <p class="submitButton">
             <asp:Button ID="CommentButton" runat="server" CssClass="actionbutton" 
                  CommandName="MoveNext" Text="Post" onclick="CommentButton_Click"  />

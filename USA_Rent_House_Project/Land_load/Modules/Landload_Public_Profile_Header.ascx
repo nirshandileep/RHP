@@ -14,9 +14,10 @@
 
          <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
     </div>
-
-        <div id="MyRatings"  class="floatright" > My Ratings 
+    <h2>
+        <div id="MyRatings"  class="floatright LLpublicrating" > My Ratings 
         <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
             </dx:ASPxRatingControl>
         </div>
+        </h2>
 </div>

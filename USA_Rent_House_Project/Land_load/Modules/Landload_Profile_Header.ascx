@@ -16,8 +16,10 @@
          <asp:HyperLink ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" NavigateUrl="~/Land_load/Landload_Profile_Image.aspx"></asp:HyperLink>  <%--cssClass="changeprofilelink"--%> 
     <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
     </div>
+    <h2>
  <div id="MyRatings"  class="floatright" > My Ratings 
         <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
             </dx:ASPxRatingControl>
         </div>
+        </h2>
 </div>
