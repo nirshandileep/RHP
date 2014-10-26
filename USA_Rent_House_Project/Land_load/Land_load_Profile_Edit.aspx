@@ -20,7 +20,7 @@
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
            
         </div>
-        <div id="RightPanel" runat="server">
+        <div id="RightPanelLL" runat="server">
 <%--       <uc3:Landload_Profile_Banner ID="Landload_Profile_Banner1" runat="server" />--%>
               <uc1:Landload_Profile_info_Edit ID="Landload_Profile_info_Edit1"   runat="server" />
         </div>

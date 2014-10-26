@@ -13,7 +13,7 @@
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
            
         </div>
-        <div id="RightPanel" runat="server">
+        <div id="RightPanelLL" runat="server">
          <uc1:Current_Students_Add ID="Current_Students_Add1" runat="server" />
          </div>
 </asp:Content>

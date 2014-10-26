@@ -14,7 +14,7 @@
         <div id="LeftPanel" runat="server">
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
-        <div id="RightPanel" runat="server">
+        <div id="RightPanelLL" runat="server">
             <div id="Div1" runat="server">
                 <asp:HyperLink ID="HyperLink1" CssClass="loginlinks" NavigateUrl="~/Land_load/Land_load_Profile.aspx"
                     runat="server">My Properties</asp:HyperLink>

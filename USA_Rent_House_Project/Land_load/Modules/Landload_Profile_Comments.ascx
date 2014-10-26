@@ -17,7 +17,7 @@
                     
                     <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("CommentId") %>' runat="server" />
                      <asp:Label ID="CommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
-                     <dx:ASPxRatingControl ID="Rating" Enabled="false" runat="server" Value='<%# Eval("RatingValue") %>'></dx:ASPxRatingControl>
+                     <dx:ASPxRatingControl CssClass="comments_LL" ID="Rating" Enabled="false" runat="server" Value='<%# Eval("RatingValue") %>'></dx:ASPxRatingControl>
                 </div>
             </ItemTemplate>
         </asp:DataList>

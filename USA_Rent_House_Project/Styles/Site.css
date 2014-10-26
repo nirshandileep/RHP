@@ -16,7 +16,7 @@ body
 
 .MobiletextEntry
 {
-    width: 30px !important;
+    width: 55px !important;
     }
 a:link, a:visited
 {
@@ -604,7 +604,7 @@ div.buttons
 .homeheadingsub
 {
     
-    color: #0e72b8;
+    color: #ea8400;
     font-size: 1.5em;
     font-style: italic;
     margin-bottom: 65px;
@@ -834,7 +834,7 @@ a.loginlinks_img:hover
 }
 
 
-#MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled
+#MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled, .comments_LL
 {
     float:left;
 }
@@ -878,7 +878,8 @@ a.loginlinks_img:hover
     box-shadow: 0 0 2px #000;
     height: 100px;
     left: 1px;
-    overflow: hidden;
+    border-radius:5px;
+   
     position: absolute;
     top: 210px;
     width: 100px;
@@ -893,7 +894,7 @@ a.loginlinks_img:hover
     box-shadow: 0 0 2px #000;  
     height: 101px;
     margin: 5px;
-    overflow: hidden;
+
     position: relative;
     right: -520px;
     top: 0px;
@@ -912,7 +913,6 @@ a.loginlinks_img:hover
     box-shadow: 0 0 2px #000;
     height: 100px;
     right: 1px;
-    overflow: hidden;
     position: absolute;
     top: 210px;
     width: 100px;
@@ -922,7 +922,7 @@ a.loginlinks_img:hover
 #MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel, #MainContent_Landload_Profile_Data1_LeftPanel, #LeftPanel
 {
     float: left;   
-    padding: 15px 0;
+    padding: 35px 0;
     width: 17%;
    
    
@@ -932,7 +932,7 @@ a.loginlinks_img:hover
 {
     float: left;
     margin-left: 2%;
-    padding: 15px 0;
+    padding: 30px 0;
     width: 81%;
 }
 
@@ -944,11 +944,15 @@ a.loginlinks_img:hover
     width: 690px;
 }
 
-#RightPanelLL
+#MainContent_RightPanelLL
 {
-      float: left;
+   float: left;
     margin-left: 2%;
-    padding: 15px 0;
+    margin-top: -125px;
+    padding: 30px 0;
+    position: relative;
+    width: 81%;
+    z-index: 15;
    
 }
 
@@ -1233,4 +1237,54 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     top: 77px;
     width: 97px;
     z-index: 200;
+}
+
+#MainContent_Student_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Student_Profile_HeaderID_imgStudentProfileImage img, #MainContent_Student_Profile_HeaderID_imgLandloadProfileImage img, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage img , #MainContent_Student_Public_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Landload_Profile_Header1_LandloadProfileImage img
+{
+    width:100px;
+    height:100px;   
+}
+
+    
+#MainContent_Student_Profile_HeaderID_ProfileUserName, #MainContent_Student_Public_Profile_HeaderID_ProfileUserName
+{
+    display: block;
+    margin-left: -6px;
+    margin-top: 8px;
+}
+
+#MainContent_Student_Profile_HeaderID_ProfileLandlordName, #MainContent_Student_Public_Profile_HeaderID_ProfileLandlordName
+{
+    display: block;
+    margin-bottom: 0;
+    margin-left: 66px;
+    margin-top: 8px;
+}
+
+#MainContent_Landload_Profile_Header1_ProfileUserName
+{
+    display: inline-block;
+    margin-left: -6px;
+    margin-top: 94px;
+}
+
+#MainContent_Landload_Profile_Header1_StidentProfileHeader #MyRatings
+{
+       color: #fff;
+    font-weight: bold;
+    margin-right: 90px;
+    margin-top: -157px;
+    position: relative;
+    z-index: 45;
+}
+
+#MainContent_Landload_Profile_Comments1_StudentCommentsData
+{
+    width:500px;
+    
+}
+
+#MainContent_HouseDetails
+{
+    float:right;
 }

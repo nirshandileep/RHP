@@ -12,6 +12,6 @@
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
            
         </div>
-        <div id="RightPanel" runat="server"> <uc1:Change_Secret_Question ID="Change_Secret_Question1" runat="server" />
+        <div id="RightPanelLL" runat="server"> <uc1:Change_Secret_Question ID="Change_Secret_Question1" runat="server" />
          </div>
 </asp:Content>
