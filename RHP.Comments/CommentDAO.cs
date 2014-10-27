@@ -30,6 +30,9 @@ namespace RHP.Comments
             db.AddInParameter(command, "RatingValue", DbType.Decimal, comment.RatingValue);
             db.AddInParameter(command, "ContextId", DbType.Guid, comment.ContextId);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)comment.ContextType);
+            db.AddInParameter(command, "CommentTypeId", DbType.Int32, (int)comment.CommentType);
+            db.AddInParameter(command, "FilePath", DbType.String, comment.FilePath);
+
             db.AddInParameter(command, "IsDeleted", DbType.String, comment.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, comment.CreatedBy);
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -57,6 +60,8 @@ namespace RHP.Comments
             db.AddInParameter(command, "CommentText", DbType.String, comment.CommentText);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, comment.RatingValue);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)comment.ContextType);
+            db.AddInParameter(command, "CommentTypeId", DbType.Int32, (int)comment.CommentType);
+            db.AddInParameter(command, "FilePath", DbType.String, comment.FilePath);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, comment.IsDeleted);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, comment.UpdatedBy);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
@@ -103,6 +108,9 @@ namespace RHP.Comments
             db.AddInParameter(commandInsert, "CommentText", DbType.String, "CommentText", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "RatingValue", DbType.Decimal, "RatingValue", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "ContextTypeId", DbType.Int32, "ContextTypeId", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "CommentTypeId", DbType.Int32, "CommentTypeId", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "FilePath", DbType.String, "FilePath", DataRowVersion.Current);
+
             db.AddInParameter(commandInsert, "IsDeleted", DbType.String, "IsDeleted", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "CreatedBy", DbType.Guid, "CreatedBy", DataRowVersion.Current);
             db.AddOutParameter(commandInsert, "CreatedDate", DbType.DateTime, 30);
@@ -113,6 +121,9 @@ namespace RHP.Comments
             db.AddInParameter(commandUpdate, "CommentText", DbType.String, "CommentText", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "RatingValue", DbType.Decimal, "RatingValue", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "ContextTypeId", DbType.Int32, "ContextType", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "CommentTypeId", DbType.Int32, "CommentTypeId", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "FilePath", DbType.String, "FilePath", DataRowVersion.Current);
+
             db.AddInParameter(commandUpdate, "IsDeleted", DbType.Boolean, "IsDeleted", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "UpdatedBy", DbType.Guid, "UpdatedBy", DataRowVersion.Current);
             db.AddOutParameter(commandUpdate, "UpdatedDate", DbType.DateTime, 30);

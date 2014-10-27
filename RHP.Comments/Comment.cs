@@ -14,7 +14,7 @@ namespace RHP.Comments
         public Guid? CommentId { get; set; }
         public string CommentText { get; set; }
         public decimal RatingValue { get; set; }
-        
+        public string FilePath { get; set; }
         private int _contextTypeId;
         public int ContextTypeId
         {
@@ -28,7 +28,25 @@ namespace RHP.Comments
                 _contextTypeId = value;
             }
         }
+
         public Enums.ContextType ContextType { get; set; }
+
+        private int _commentTypeId;
+        public int CommentTypeId
+        {
+            get
+            {
+                return _commentTypeId;
+            }
+            set
+            {
+                CommentType = (Enums.CommentType)value;
+                _commentTypeId = value;
+            }
+        }
+
+        public Enums.CommentType CommentType { get; set; }
+
         public Guid ContextId { get; set; }
 
         /// <summary>
@@ -39,12 +57,17 @@ namespace RHP.Comments
  
         }
 
+        public Comment(Enums.CommentType commentType)
+        {
+            CommentTypeId = (int)commentType;
+            CommentType = commentType;
+        }
+
         public Comment(Enums.ContextType contextType)
         {
             ContextTypeId = (int)contextType;
             ContextType = contextType;
         }
-
         public bool Insert(Comment comment)
         {
             bool result = false;

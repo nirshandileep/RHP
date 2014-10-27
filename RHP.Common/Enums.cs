@@ -67,6 +67,17 @@ namespace RHP.Common
             Cover_Picture = 2,
             House_Picture = 3,
             House_Life_Picture = 4,
+            Photo_Comment = 5,
+            Document_Comment = 6,
+        }
+
+        public enum CommentType
+        {
+
+            Comment = 1,
+            Feedback = 2,
+            Photo = 3,
+            Document = 4,
         }
     }
 }

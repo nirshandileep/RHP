@@ -86,7 +86,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
                              comment.ContextId = Guid.Parse(AccessCode); //Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                              comment.CommentText = CommentMessage.Text.Trim();
                              comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                             comment.ContextTypeId = 2;
+                             comment.ContextTypeId = (int)Enums.ContextType.Landlord;
+                             comment.CommentTypeId = (int)Enums.CommentType.Comment;
+                             comment.FilePath = "";
                              comment.RatingValue = ASPxRating.Value;
 
                              if (comment.Insert(comment))
