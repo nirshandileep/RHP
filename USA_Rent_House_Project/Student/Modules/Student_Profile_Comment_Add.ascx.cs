@@ -21,19 +21,22 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            LbComment.Attributes.Add("onClick", "return false;");
+            LbFeedback.Attributes.Add("onClick", "return false;");
+            LbPhoto.Attributes.Add("onClick", "return false;");
+            LbUpload.Attributes.Add("onClick", "return false;");
         }
 
         protected void LbComment_Click(object sender, EventArgs e)
         {
             DissableOptions();
-            DivComment.Visible = true;
+            //DivComment.Visible = true;
         }
 
         protected void LbFeedback_Click(object sender, EventArgs e)
         {
             DissableOptions();
-            DivFeedback.Visible = true;
+            //DivFeedback.Visible = true;
             paymentontime.Visible = true;
             Ratinggoodroommate.Visible = true;
 
@@ -42,21 +45,21 @@ namespace USA_Rent_House_Project.Student.Modules
         protected void LbPhoto_Click(object sender, EventArgs e)
         {
             DissableOptions();
-            DivPhoto.Visible = true;
+            //DivPhoto.Visible = true;
         }
 
         protected void LbUpload_Click(object sender, EventArgs e)
         {
             DissableOptions();
-            DivUpload.Visible = true;
+            //DivUpload.Visible = true;
         }
 
         public void DissableOptions()
         {
-            DivComment.Visible = false;
-            DivFeedback.Visible = false;
-            DivPhoto.Visible = false;
-            DivUpload.Visible = false;
+            //DivComment.Visible = false;
+            //DivFeedback.Visible = false;
+            //DivPhoto.Visible = false;
+            //DivUpload.Visible = false;
         }
 
         protected void CommentButton_Click(object sender, EventArgs e)

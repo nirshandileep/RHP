@@ -67,13 +67,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.LinkButton LbUpload;
         
         /// <summary>
-        /// DivComment control.
+        /// hdnCommentTypeId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivComment;
+        protected global::System.Web.UI.WebControls.HiddenField hdnCommentTypeId;
         
         /// <summary>
         /// CommentMessage control.
@@ -92,15 +92,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CommentButton;
-        
-        /// <summary>
-        /// DivFeedback control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivFeedback;
         
         /// <summary>
         /// paymentontime control.
@@ -265,15 +256,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Button FeedbackButton;
         
         /// <summary>
-        /// DivPhoto control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivPhoto;
-        
-        /// <summary>
         /// PhotoUpload control.
         /// </summary>
         /// <remarks>
@@ -290,15 +272,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button PhotoButton;
-        
-        /// <summary>
-        /// DivUpload control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DivUpload;
         
         /// <summary>
         /// DocumentUpload control.
