@@ -9,11 +9,11 @@
         <asp:DataList ID="DataListStudentComments" runat="server" RepeatColumns="1" OnItemDataBound="ItemDataBound">
             <ItemTemplate>
                 <div id="DivComment" runat="server">
-                    <div class="imagegallery">
+                   <%-- <div class="imagegallery">--%>
                             <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("ContextId") %>' />
                              <asp:HiddenField ID="hdCreatedBy" runat="server" Value='<%# Eval("CreatedBy") %>' />
-                            <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("CommentText") %>' ImageUrl="~/Images/Sample/Noimage.jpg" ></asp:HyperLink>
-                        </div>
+                          <%--  <asp:HyperLink ID="HyperLinkimage" Width="55px" Height="55px" runat="server" Text='<%# Eval("CommentText") %>' ImageUrl="~/Images/Sample/Noimage.jpg" ></asp:HyperLink>
+                        </div>--%>
                     
                     <asp:HiddenField ID="CommentMessageID" Value='<%# Eval("CommentId") %>' runat="server" />
                      <asp:Label ID="CommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
