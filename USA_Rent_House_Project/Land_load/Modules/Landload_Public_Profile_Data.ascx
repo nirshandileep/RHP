@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Public_Profile_Data.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Public_Profile_Data" %>
   
 
-            <div id="HouseDetails" runat="server">
-                <asp:HyperLink ID="HyperLinkHouseDetails" runat="server"> Details about House</asp:HyperLink>
+           <div id="HouseDetails" runat="server">
+                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details about House</asp:HyperLink>
             </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>

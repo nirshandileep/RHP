@@ -49,12 +49,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
             User user = new User();
 
              user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-
-             if (user.UserId.HasValue)
-             {
-                 ProfileUserName.Text = user.FirstName + " " + user.LastName;
-                 ProfileUserName.NavigateUrl = "~/Student/Student_Profile.aspx";
-             }
+             if (user != null)
+            {
+                 if (user.UserId.HasValue)
+                 {
+                     ProfileUserName.Text = user.FirstName + " " + user.LastName;
+                     ProfileUserName.NavigateUrl = "~/Student/Student_Profile.aspx";
+                 }
+            }
         }
 
         public void LoadImage()

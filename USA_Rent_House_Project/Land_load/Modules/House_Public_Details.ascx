@@ -1,7 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="House_Details.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.House_Details" %>
- <div id="formwrapper">
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="House_Public_Details.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.House_Public_Details" %>
+<div id="formwrapper">
         <div id="forminner">
-         <h2 class="form_heading">
+          <h2 class="form_heading">
     House Details
     </h2>
         <div id="DivHouseDetails" runat="server">

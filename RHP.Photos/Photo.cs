@@ -377,6 +377,71 @@ namespace RHP.Photos
             return isupload;
         }
 
+        public bool DocumentUpload(FileUpload DocumentUpload, string FolderPath, Photo photo)
+        {
+            FileUpload UploadImage = DocumentUpload;
+
+            bool isupload = false;
+
+            if (UploadImage.HasFile)
+            {
+                if (UploadImage.PostedFile.ContentLength <= 6291456)
+                {
+                    FileInfo finfo = new FileInfo(UploadImage.FileName);
+                    string fileExtension = finfo.Extension.ToLower();
+
+                    if (fileExtension == ".pdf" || fileExtension == ".doc" || fileExtension != ".docx" || fileExtension != ".txt" || fileExtension != ".xls" || fileExtension != ".xlsx" || fileExtension != ".zip" || fileExtension != ".rar")
+                    {
+                        try
+                        {
+
+                            if (!Directory.Exists(System.Web.HttpContext.Current.Server.MapPath(FolderPath)))
+                                Directory.CreateDirectory(System.Web.HttpContext.Current.Server.MapPath(FolderPath));
+
+                            //create the path to save the file to 
+                            photo.PhotoId = Guid.NewGuid();
+                            string imagename = photo.PhotoId + fileExtension;
+
+                            string fileName = Path.Combine(System.Web.HttpContext.Current.Server.MapPath(FolderPath), imagename);
+                            //save the file to our local path
+                            UploadImage.SaveAs(fileName);
+
+                            isupload = true;
+
+                            photo.FileName = imagename;
+                            photo.FilePath = FolderPath + "/" + imagename;
+                            photo.Description = imagename;
+                            photo.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            photo.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                        }
+                        catch (Exception ex)
+                        {
+                            isupload = false;
+                        }
+                    }
+                    else
+                    {
+                        isupload = false;
+                        // extention
+                        // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_fileExtension + "'); }", true);
+
+                    }
+                }
+                else
+                {
+                    isupload = false;
+                    // max size 
+                    // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Allowed_MaxImageSize + "'); }", true);
+
+                }
+
+
+            }
+
+            return isupload;
+        }
+
         public bool ImageResize(FileUpload UploadImage, string FolderPath, Photo photo)
         {
             bool isupload = false;

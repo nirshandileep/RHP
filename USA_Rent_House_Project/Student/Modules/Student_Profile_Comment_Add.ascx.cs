@@ -132,7 +132,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 string path = "~/uploads/" + Membership.GetUser().ProviderUserKey.ToString();
 
-                bool IsUpload = photo.ImageResize(DocumentUpload, path, photo);
+                bool IsUpload = photo.DocumentUpload(DocumentUpload, path, photo);
 
                 if (IsUpload == true)
                 {

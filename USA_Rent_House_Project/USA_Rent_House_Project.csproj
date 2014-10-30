@@ -218,12 +218,14 @@
     <Content Include="Land_load\Land_load_Profile.aspx" />
     <Content Include="Land_load\Land_load_Profile_Add.aspx" />
     <Content Include="Land_load\Land_load_Profile_Edit.aspx" />
+    <Content Include="Land_load\Land_Load_Public_House_View.aspx" />
     <Content Include="Land_load\Land_load_Public_Profile.aspx" />
     <Content Include="Land_load\Modules\Current_Students_Add.ascx" />
     <Content Include="Land_load\Modules\House_Details.ascx" />
     <Content Include="Land_load\Modules\House_info_Add.ascx" />
     <Content Include="Land_load\Modules\House_List.ascx" />
     <Content Include="Land_load\Modules\House_Option_Add.ascx" />
+    <Content Include="Land_load\Modules\House_Public_Details.ascx" />
     <Content Include="Land_load\Modules\Landload_House_Images_Add.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Banner.ascx" />
     <Content Include="Land_load\Modules\Landload_Profile_Comments.ascx" />
@@ -642,6 +644,13 @@
     <Compile Include="Land_load\Land_load_Profile_Edit.aspx.designer.cs">
       <DependentUpon>Land_load_Profile_Edit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Land_Load_Public_House_View.aspx.cs">
+      <DependentUpon>Land_Load_Public_House_View.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_Load_Public_House_View.aspx.designer.cs">
+      <DependentUpon>Land_Load_Public_House_View.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Land_load\Land_load_Public_Profile.aspx.cs">
       <DependentUpon>Land_load_Public_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -683,6 +692,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\House_Option_Add.ascx.designer.cs">
       <DependentUpon>House_Option_Add.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Public_Details.ascx.cs">
+      <DependentUpon>House_Public_Details.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\House_Public_Details.ascx.designer.cs">
+      <DependentUpon>House_Public_Details.ascx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Modules\Landload_House_Images_Add.ascx.cs">
       <DependentUpon>Landload_House_Images_Add.ascx</DependentUpon>
