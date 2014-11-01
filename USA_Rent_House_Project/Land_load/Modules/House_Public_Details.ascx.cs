@@ -99,30 +99,55 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 List<HouseOption> houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).ToList();
                 if (houseOptions.Count() > 0)
                 {
-
+                    CheckBasicFeatureList(houseOptions);
                 }
 
                 houseOptions.Clear();
                 houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Kitchen).ToList();
                 if (houseOptions.Count() > 0)
                 {
-
+                    CheckFurnishedKitchenList(houseOptions);
                 }
 
                 houseOptions.Clear();
                 houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Living_Space).ToList();
                 if (houseOptions.Count() > 0)
                 {
-
+                    CheckFurnishedLivingSpaceList(houseOptions);
                 }
 
                 houseOptions.Clear();
                 houseOptions = house.HouseOptionList.Where<HouseOption>(v => v.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Rooms).ToList();
                 if (houseOptions.Count() > 0)
                 {
-
+                    CheckFurnishedRoomsList(houseOptions);
                 }
             }
+        }
+
+        private void CheckFurnishedRoomsList(List<HouseOption> houseOptions)
+        {
+            Furnishedrooms.DataSource = houseOptions;
+            Furnishedrooms.DataBind();
+
+        }
+
+        private void CheckFurnishedLivingSpaceList(List<HouseOption> houseOptions)
+        {
+            Furnishedlivingspace.DataSource = houseOptions;
+            Furnishedlivingspace.DataBind();
+        }
+
+        private void CheckFurnishedKitchenList(List<HouseOption> houseOptions)
+        {
+            Furnishedkitchen.DataSource = houseOptions;
+            Furnishedkitchen.DataBind();
+        }
+
+        private void CheckBasicFeatureList(List<HouseOption> houseOptions)
+        {
+            Features.DataSource = houseOptions;
+            Features.DataBind();
         }
     }
 }

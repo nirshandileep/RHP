@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Current_House_Life_View.aspx.cs" Inherits="USA_Rent_House_Project.Student.Current_House_Life_View" %>
-<%@ Register src="Modules/Current_House_Life_View.ascx" tagname="Current_House_Life_View" tagprefix="uc2" %>
+
+<%@ Register src="Modules/Current_House_Life_View.ascx" tagname="Current_House_Life_View_" tagprefix="uc2" %>
 <%@ Register Src="Modules/Student_Public_Profile_info_View.ascx" TagName="Student_Public_Profile_info_View"
     TagPrefix="uc3" %>
 <%@ Register Src="Modules/Student_Public_Profile_Header.ascx" TagName="Student_Public_Profile_Header"
@@ -23,6 +24,6 @@
             <div class="clear">
             </div>
 
- <uc2:Current_House_Life_View ID="Current_House_Life_View1" runat="server" />
+ <uc2:Current_House_Life_View_ ID="Current_House_Life_View1" runat="server" />
 
 </asp:Content>

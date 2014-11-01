@@ -126,7 +126,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 if (IsUpload == true)
                 {
-                    comment.CommentText = photo.FileName;
+                    comment.CommentText = PhotoUploadComment.Text.Trim();
                     comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     comment.ContextTypeId = (int)Enums.ContextType.Landlord;
                     comment.CommentTypeId = (int)Enums.CommentType.Photo;
@@ -152,7 +152,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 if (IsUpload == true)
                 {
-                    comment.CommentText = photo.FileName;
+                    comment.CommentText = DocumentUploadComment.Text.Trim();
                     comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     comment.ContextTypeId = (int)Enums.ContextType.Landlord;
                     comment.CommentTypeId = (int)Enums.CommentType.Document;

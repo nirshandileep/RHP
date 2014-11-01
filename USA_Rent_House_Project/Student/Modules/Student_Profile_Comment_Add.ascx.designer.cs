@@ -265,6 +265,24 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.FileUpload PhotoUpload;
         
         /// <summary>
+        /// divPhotoUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPhotoUpload;
+        
+        /// <summary>
+        /// PhotoUploadComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PhotoUploadComment;
+        
+        /// <summary>
         /// PhotoButton control.
         /// </summary>
         /// <remarks>
@@ -281,6 +299,24 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload DocumentUpload;
+        
+        /// <summary>
+        /// divDocumentUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divDocumentUpload;
+        
+        /// <summary>
+        /// DocumentUploadComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox DocumentUploadComment;
         
         /// <summary>
         /// UploadButton control.
