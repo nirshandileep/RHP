@@ -11,6 +11,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <uc3:Landload_Public_Profile_Header ID="Landload_Public_Profile_Header1" runat="server" />
+    <div class="ll_info_search_bar">
     <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
         NavigateUrl="~/Land_load/Land_load_Profile.aspx" runat="server">My Page</asp:HyperLink>
     <div id="Search" class="floatright llpublicsearch" runat="server">
@@ -18,6 +19,7 @@
             runat="server">Search for Student</asp:HyperLink>
         <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
             runat="server">Search for House</asp:HyperLink>
+    </div>
     </div>
     <div class="clear">
     </div>

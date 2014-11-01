@@ -19,12 +19,14 @@
            <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
             </dx:ASPxRatingControl>
            </div>--%>
+           <div class="LL_PP_Searchbar">
          <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" NavigateUrl="~/Land_load/Land_load_Profile.aspx" runat="server">My Page</asp:HyperLink>
           <div id="Search" class="floatright llpublicsearch" runat="server">
                 <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                     runat="server">Search for Student</asp:HyperLink>
                 <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                     runat="server">Search for House</asp:HyperLink>
+            </div>
             </div>
             <div class="clear"></div>
         <div id="LeftPanel" runat="server">

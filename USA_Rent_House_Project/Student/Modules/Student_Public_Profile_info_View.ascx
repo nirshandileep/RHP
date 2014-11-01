@@ -1,6 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Public_Profile_info_View.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Public_Profile_info_View" %>
 <div id="div_register_User">
+<div id="forminfo">
     <div id="formwrapper">
         <div id="forminner">
             <div id="BasicInfomation">
@@ -115,5 +116,6 @@
                 </p>
             </div>
         </div>
+    </div>
     </div>
 </div>

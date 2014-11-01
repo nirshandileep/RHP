@@ -21,12 +21,14 @@ body
 a:link, a:visited
 {
     color: #034af3;
+     text-decoration: none;
 }
 
 a:hover
 {
     color: #1d60ff;
-    text-decoration: none;
+    font-weight:bold;
+   
 }
 
 a:active
@@ -245,7 +247,10 @@ div.menu ul li a:active
 
 input[type="checkbox"]
 {
-    width:10% !important;
+    
+     float: left;
+    margin: 8px 0;
+    width: 30px !important;
 }
 
 input, input[type="text"], select
@@ -634,6 +639,7 @@ a.homelargebuttons
 a.homelargebuttons:hover
 {
     background-color:#083e64;
+    font-weight:normal;
 }
 
 .socialmediaicons
@@ -809,6 +815,7 @@ a.loginlinks
 a.loginlinks:hover
 {
     background-color:#083e64;
+    font-weight:normal;
 }
 
 
@@ -834,11 +841,16 @@ a.loginlinks_img:hover
 }
 
 
-#MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled, .comments_LL
+#MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled, .comments_LL, #MainContent_Landload_Profile_Comments1_DataListStudentComments .aspNetDisabled
 {
-    float:left;
+    float:right;
 }
 
+
+#MainContent_Landload_Profile_Comments1_DataListStudentComments
+{
+    width:700px;
+}
 .formlinkswidthleft
 {
     width:70%;
@@ -932,7 +944,7 @@ a.loginlinks_img:hover
 {
     float: left;
     margin-left: 2%;
-    padding: 30px 0;
+    padding: 23px 0;
     width: 81%;
 }
 
@@ -1005,7 +1017,7 @@ a.loginlinks_img:hover
    
     float: left;
     margin: 5px 40px;
-    width: 250px;
+    width: 45%;
 }
 
 .imagegallery, imagegallery img
@@ -1097,7 +1109,7 @@ table#MainContent_House_ListID_DataListHouseList td
    
 }
 
-#MainContent_Student_Profile_CommentsID_DataListStudentComments td
+#MainContent_Student_Profile_CommentsID_DataListStudentComments td, #MainContent_Landload_Profile_Comments1_DataListStudentComments td
 {
     border-bottom:1px solid #cdcdcd;
     padding:12px;
@@ -1195,7 +1207,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .publicimagegallerycontainer {
        float: left;
-    margin: 80px 0 0 95px;
+    margin: 80px 0 0 0;
     width: 100%;
 }
 
@@ -1283,21 +1295,36 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     display: block;
     margin-left: -6px;
     margin-top: 8px;
+    font-weight:bold;
+    color:#666;
+    text-decoration:none;
+    font-size:1.3em;
 }
 
 #MainContent_Student_Profile_HeaderID_ProfileLandlordName, #MainContent_Student_Public_Profile_HeaderID_ProfileLandlordName
 {
+    color: #666;
     display: block;
+    font-weight: bold;
     margin-bottom: 0;
-    margin-left: 66px;
+    margin-left: -3px;
     margin-top: 8px;
+    text-align: right;
+    text-decoration: none;
+    width: 108px;
+    font-size:1.3em;    
 }
 
 #MainContent_Landload_Profile_Header1_ProfileUserName
 {
+     color: #666666;
     display: inline-block;
-    margin-left: -6px;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 3px;
     margin-top: 94px;
+
+    text-decoration: none;
 }
 
 #MainContent_Landload_Profile_Header1_StidentProfileHeader #MyRatings
@@ -1305,7 +1332,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     color: #fff;
     font-weight: bold;
     margin-right: 26px;
-    margin-top: -183px;
+    margin-top: -187px;
     position: relative;
     z-index: 14;
 }
@@ -1319,4 +1346,71 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 #MainContent_HouseDetails
 {
     float:right;
+}
+
+#MainContent_Student_Public_Profile_DataID_RightPanel
+{
+    margin-left:0px;
+}
+
+#MainContent_Student_Profile_CommentsID_DataListStudentComments
+{
+    width:700px;
+}
+
+.student_public_about_search
+{
+    margin-top: -65px;
+    position: relative;
+    z-index: 20;
+}
+
+#forminfo label
+{
+    width:30%;
+}
+
+#forminfo
+{
+    margin-top:35px;
+}
+
+#MainContent_Student_Profile_Comment_Add1_Options a, #MainContent_Landload_Profile_Comment_Add1_Options a
+{
+     background-color: #f6f6f6;
+    color: #666;
+    display: inline-block;
+    margin: 15px 0 0px;
+    padding: 7px 15px;
+}
+
+#MainContent_Student_Profile_Comment_Add1_Options a:hover, #MainContent_Landload_Profile_Comment_Add1_Options a:hover
+{
+    font-weight:normal;
+    background-color:#0e72b8;
+    color:#fff; 
+}
+
+#MainContent_Student_Profile_Comment_Add1_Options, #MainContent_Landload_Profile_Comment_Add1_Options
+{
+    border-bottom:1px solid #bdc7d8;
+    color:#bdc7d8;
+    width:700px;
+}
+
+#MainContent_Landload_Public_Profile_Data1_HouseDetails
+{
+    float:right;
+}
+
+
+#MainContent_Current_Students_Add1_StudentListData .imagegallerycontainer
+{
+    width:75%;
+}
+ 
+.ll_info_search_bar, .LL_PP_Searchbar
+{
+    position: relative;
+    top: -75px;
 }

@@ -10,9 +10,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
     <uc1:Student_Public_Profile_Header ID="Student_Public_Profile_HeaderID" runat="server" />
-    <div id="RightPanel_public">
-        <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
+    <div class="student_public_about_search">
+     <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
                 runat="server">Public view</asp:HyperLink>
             <div id="Search" runat="server">
               <asp:HyperLink ID="HyperLinkabout" CssClass="loginlinks" NavigateUrl="~/Student/Student_Public_Profile_info.aspx"
@@ -22,8 +23,11 @@
                 <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
                     runat="server">Search for House</asp:HyperLink>
             </div>
+            </div>
             <div class="clear">
             </div>
+    <div id="RightPanel_public">
+       
 
         <uc3:Student_Public_Profile_info_View ID="Student_Public_Profile_info_View1" runat="server" />
       
