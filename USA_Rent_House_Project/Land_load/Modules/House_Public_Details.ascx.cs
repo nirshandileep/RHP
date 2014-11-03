@@ -127,27 +127,35 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private void CheckFurnishedRoomsList(List<HouseOption> houseOptions)
         {
-            Furnishedrooms.DataSource = houseOptions;
-            Furnishedrooms.DataBind();
+            foreach (HouseOption house in houseOptions.Where(house => house.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Rooms).ToList<HouseOption>())
+            {
+                Furnishedrooms.Items.Add(house.Option.Name);
+            }
 
         }
 
         private void CheckFurnishedLivingSpaceList(List<HouseOption> houseOptions)
         {
-            Furnishedlivingspace.DataSource = houseOptions;
-            Furnishedlivingspace.DataBind();
+            foreach (HouseOption house in houseOptions.Where(house => house.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Living_Space).ToList<HouseOption>())
+            {
+                Furnishedlivingspace.Items.Add(house.Option.Name);
+            }
         }
 
         private void CheckFurnishedKitchenList(List<HouseOption> houseOptions)
         {
-            Furnishedkitchen.DataSource = houseOptions;
-            Furnishedkitchen.DataBind();
+            foreach (HouseOption house in houseOptions.Where(house => house.Option.OptionCategoryId == (int)Enums.OptionCategory.Furnished_Kitchen).ToList<HouseOption>())
+            {
+                Furnishedkitchen.Items.Add(house.Option.Name);
+            }
         }
 
         private void CheckBasicFeatureList(List<HouseOption> houseOptions)
         {
-            Features.DataSource = houseOptions;
-            Features.DataBind();
+            foreach (HouseOption house in houseOptions.Where(house => house.Option.OptionCategoryId == (int)Enums.OptionCategory.Basic_Features).ToList<HouseOption>())
+            {
+                Features.Items.Add(house.Option.Name);
+            }
         }
     }
 }
