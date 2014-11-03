@@ -48,8 +48,8 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "YearHomeBuild", DbType.Int16, house.YearHomeBuild);
            db.AddInParameter(command, "BedRooms", DbType.Int16, house.BathRooms);
            db.AddInParameter(command, "BathRooms", DbType.Int16, house.BedRooms);
-           db.AddInParameter(command, "LotSquareFootage", DbType.Decimal, house.LotSquareFootage);
-           db.AddInParameter(command, "TotalSquareFootage", DbType.Decimal, house.TotalSquareFootage);
+           db.AddInParameter(command, "LotSquareFootage", DbType.Int32, house.LotSquareFootage);
+           db.AddInParameter(command, "TotalSquareFootage", DbType.Int32, house.TotalSquareFootage);
            db.AddInParameter(command, "UtilitiesIncludedInRent", DbType.String, house.UtilitiesIncludedInRent);
            db.AddInParameter(command, "PropertyImagePath", DbType.String, house.PropertyImagePath);
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);

@@ -60,7 +60,7 @@
             <table style="width: 900px">
                 <tr valign="top">
                     <td>
-                        <strong>Furnished rooms :</strong>
+                        <strong>Furnished rooms111 :</strong>
                         <asp:BulletedList ID="Furnishedrooms" runat="server">
                         </asp:BulletedList>
                     </td>
