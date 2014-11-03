@@ -155,9 +155,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                 Session[Constants.SESSION_LOGGED_USER] = user;
 
                                 MembershipUser newUser = Membership.GetUser(user.UserName);
-
+                                user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
                                 user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
-
+                                user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
                                 user.Save();
 
                                  if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")

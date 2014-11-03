@@ -58,13 +58,13 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// LeftPanelLL control.
+        /// LeftPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanelLL;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
         
         /// <summary>
         /// Landload_Public_Profile_Banner1 control.

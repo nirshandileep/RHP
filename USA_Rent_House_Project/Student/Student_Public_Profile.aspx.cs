@@ -10,8 +10,12 @@ namespace USA_Rent_House_Project.Student
     public partial class Student_Public_Profile : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
+        { 
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Student_Profile_Comment_Add1.Visible = true;
+            }
+            
         }
     }
 }

@@ -43,12 +43,14 @@ namespace USA_Rent_House_Project.Student.Modules
             User user = User.Select(UserId);
             Photo photo = new Photo();
 
+            ProfileUserName.Text = user.FirstName + " " + user.LastName;
+            ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
+            imgStudentProfileImage.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
+
             if (user.HouseId.HasValue)
             {
 
-                ProfileUserName.Text = user.FirstName + " " + user.LastName;
-                ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
-                imgStudentProfileImage.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + UserId;
+               
 
                 House house = House.Select(user.HouseId.Value);
                 imgCurrentHouseImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();

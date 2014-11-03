@@ -38,7 +38,7 @@
     <uc2:Landload_Public_Profile_Data ID="Landload_Public_Profile_Data1" 
         runat="server" />
 
-   <uc4:Landload_Profile_Comment_Add ID="Landload_Profile_Comment_Add1" 
+   <uc4:Landload_Profile_Comment_Add ID="Landload_Profile_Comment_Add1" Visible="false" 
          runat="server" />
            <uc5:landload_profile_comments ID="Landload_Profile_Comments1" 
          runat="server" />

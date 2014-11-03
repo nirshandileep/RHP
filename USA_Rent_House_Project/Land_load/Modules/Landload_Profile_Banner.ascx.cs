@@ -37,10 +37,49 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 if (images != null)
                 {
-                    RepeaterImages.DataSource = images;
-                    RepeaterImages.DataBind();
 
+                    int imagescount = images.Count;
+
+                    if (imagescount <= 1)
+                    {
+                        RepeaterImages.DataSource = images;
+                        RepeaterImages.DataBind();
+                    }
+                    else
+                    {
+                        int check = 0;
+                        int length = 5;
+
+                        if (imagescount < 5)
+                        { length = imagescount; }
+
+                        int[] NumberList = new int[length];
+                        Random rand = new Random();
+                        List<String> imageList = new List<string>(length);
+
+                        for (int i = 0; i < length; )
+                        {
+                            check = rand.Next(1, imagescount);
+
+                            if (!NumberList.Contains(check))
+                            {
+                                imageList.Add(images[check].ToString());
+                                NumberList[i] = check;
+                                i++;
+                            }
+                        }
+                        RepeaterImages.DataSource = imageList;
+                        RepeaterImages.DataBind();
+
+                    }
                 }
+
+                //if (images != null)
+                //{
+                //    RepeaterImages.DataSource = images;
+                //    RepeaterImages.DataBind();
+
+                //}
 
             }
             catch (Exception ec)

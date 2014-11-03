@@ -51,26 +51,39 @@
             <asp:HiddenField ID="hdnLandLordId" runat="server" />
             <asp:HiddenField ID="hdnHouseId" runat="server" />
         </div>
+        <br />
         <div id="divHouseOptions" runat="server">
-            <strong>Options / Features</strong>
-            <asp:BulletedList ID="Features" runat="server">
-            </asp:BulletedList>
-            <br />
+           
             <br />
             <table style="width: 900px">
                 <tr valign="top">
                     <td>
-                        <strong>Furnished rooms111 :</strong>
-                        <asp:BulletedList ID="Furnishedrooms" runat="server">
+                        <h2 class="form_heading">
+                            Options / Features
+                        </h2>
+                        <asp:BulletedList ID="Features" runat="server">
                         </asp:BulletedList>
                     </td>
                     <td>
-                        <strong>Furnished kitchen :</strong>
+                        <h2 class="form_heading">
+                            Furnished rooms :
+                        </h2>
+                        <asp:BulletedList ID="Furnishedrooms" runat="server">
+                        </asp:BulletedList>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 class="form_heading">
+                            Furnished kitchen :
+                        </h2>
                         <asp:BulletedList ID="Furnishedkitchen" runat="server">
                         </asp:BulletedList>
                     </td>
                     <td>
-                        <strong>Furnished living space :</strong>
+                        <h2 class="form_heading">
+                            Furnished living space :
+                        </h2>
                         <asp:BulletedList ID="Furnishedlivingspace" runat="server">
                         </asp:BulletedList>
                     </td>

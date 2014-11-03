@@ -49,13 +49,13 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::USA_Rent_House_Project.Land_load.Modules.Menu_Bar Menu_Bar1;
         
         /// <summary>
-        /// RightPanel control.
+        /// RightPanelLL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanelLL;
         
         /// <summary>
         /// Div1 control.
