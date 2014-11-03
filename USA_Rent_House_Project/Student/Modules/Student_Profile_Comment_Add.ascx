@@ -104,7 +104,7 @@
             Select Photo :
             <asp:FileUpload ID="PhotoUpload" CssClass="textEntry" runat="server" AllowMultiple="true" />
         </p>
-        <p id="divPhotoUpload" runat="server" Visible="false">
+        <p id="divPhotoUpload" runat="server" Visible="true">
             Feedback Comment :
             <asp:TextBox ID="PhotoUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="690px"
                 Rows="5" TextMode="MultiLine"></asp:TextBox>
@@ -122,7 +122,7 @@
             Select File :<asp:FileUpload ID="DocumentUpload" CssClass="textEntry" runat="server"
                 AllowMultiple="true" />
         </p>
-         <p id="divDocumentUpload" runat="server" Visible="false">
+         <p id="divDocumentUpload" runat="server" Visible="true">
             Feedback Comment :
             <asp:TextBox ID="DocumentUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="690px"
                 Rows="5" TextMode="MultiLine"></asp:TextBox>

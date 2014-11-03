@@ -40,7 +40,7 @@
                     ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
             </p>
 
-           <%--  <p>
+             <p>
                 <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
                 <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="FirstName"
@@ -58,7 +58,7 @@
                     CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
---%>
+
             <p id="setpwd" runat="server">
                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
                 <asp:TextBox ID="Password" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>

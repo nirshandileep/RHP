@@ -43,6 +43,28 @@
                     ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="RegisterLand_lordValidationGroup"
                     ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
             </p>
+
+
+            <p>
+                <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
+                <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="FirstName"
+                    CssClass="failureNotification" ErrorMessage="First Name is required." ToolTip="First Name is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+            <p>
+                <asp:Label ID="LabelMiddleName" runat="server" AssociatedControlID="MiddleName" CssClass="form_label">Middle Name:</asp:Label>
+                <asp:TextBox ID="MiddleName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+            </p>
+            <p>
+                <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
+                <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="LastName"
+                    CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required."
+                    ValidationGroup="RegisterLand_lordValidationGroup">*</asp:RequiredFieldValidator>
+            </p>
+
+
             <p id="setpwd" runat="server">
                 <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
                 <asp:TextBox ID="Password" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>

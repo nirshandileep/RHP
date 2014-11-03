@@ -104,9 +104,9 @@ namespace USA_Rent_House_Project.Student.Modules
                 {
 
                     Email.Text = user.PersonalEmail;
-                  //  FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
-                  //  MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
-                  //  LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
+                    FirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
+                    MiddleName.Text = string.IsNullOrEmpty(user.MiddleName) ? string.Empty : user.MiddleName;
+                    LastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
                 }
             }
 
@@ -134,14 +134,14 @@ namespace USA_Rent_House_Project.Student.Modules
                     user.UserName = UserName.Text.Trim();
                     user.Question = Question.Text.Trim();
                     user.Answer = Answer.Text.Trim();
-                    
-                    // aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
-                    // aspnet_Roles_ = aspnet_Roles.Select("student");
 
-                   // user.FirstName = FirstName.Text.Trim();
-                   // user.MiddleName = MiddleName.Text.Trim();
-                   // user.LastName = LastName.Text.Trim();
-                   // user.RoleId = aspnet_Roles_.RoleId;
+                    aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+                    aspnet_Roles_ = aspnet_Roles.Select("student");
+
+                    user.FirstName = FirstName.Text.Trim();
+                    user.MiddleName = MiddleName.Text.Trim();
+                    user.LastName = LastName.Text.Trim();
+                    user.RoleId = aspnet_Roles_.RoleId;
                     
 
                     object objCreateMembershipUser = new object();
@@ -176,11 +176,8 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
 
-                       // if (user.Save())
-                      //  {
-
-                      //  }
-                        
+                        user.Save();
+                     
 
                         if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                         {
