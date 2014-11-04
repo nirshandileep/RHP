@@ -101,10 +101,12 @@ namespace USA_Rent_House_Project.Student.Modules
                 
             user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
+            ProfileUserName.Text = user.FirstName + " " + user.LastName;
+            ProfileUserName.NavigateUrl = "~/Student/Student_Profile.aspx";
+
                 if (user.HouseId.HasValue)
                 {
-                    ProfileUserName.Text = user.FirstName + " " + user.LastName;
-                    ProfileUserName.NavigateUrl = "~/Student/Student_Profile.aspx";
+                    
                     hdnHouseId.Value = user.HouseId.Value.ToString();
 
                     imgCurrentHouseImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();

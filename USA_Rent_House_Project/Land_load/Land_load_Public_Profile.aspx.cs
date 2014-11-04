@@ -12,6 +12,12 @@ namespace USA_Rent_House_Project.Land_load
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                Landload_Profile_Comment_Add1.Visible = true;
+            }
+
+
             //string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
 
             //if (AccessCode != string.Empty && AccessCode != null)

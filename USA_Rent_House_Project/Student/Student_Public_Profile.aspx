@@ -19,8 +19,7 @@
         runat="server" />
     <uc3:Student_Public_Profile_Data ID="Student_Public_Profile_DataID" 
         runat="server" />
-        <uc5:Student_Profile_Comment_Add ID="Student_Profile_Comment_Add1" 
-        runat="server" />
+        <uc5:Student_Profile_Comment_Add ID="Student_Profile_Comment_Add1" Visible="false" runat="server" />
     <uc4:Student_Profile_Comments ID="Student_Profile_CommentsID" runat="server" />
 </div>   
 </asp:Content>
