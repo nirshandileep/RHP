@@ -2,8 +2,8 @@
 
 
 <div id="div_Home"> 
-<h2 class="homeheading">www.ratemystudenthome.com</h2>   
-<p class="homeheadingsub">"Student housing made simple, reliable, most of all accountable"</p>
+<h2 class="homeheading">www.ratemystudenthousingandme.com</h2>   
+<p class="homeheadingsub">"Student Housing Made Simple, Reliable, Most of all Accountable"</p>
     <div class="buttons">
     <asp:HyperLink ID="StudentLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=s">I am a Student</asp:HyperLink> 
     </div>

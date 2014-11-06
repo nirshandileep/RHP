@@ -20,7 +20,7 @@
         </div>
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
-                All the students live in the current home</h2>
+                My roommates</h2>
             <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
                 OnItemDataBound="ItemDataBound">

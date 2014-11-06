@@ -17,23 +17,25 @@ namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Profile_Comments : System.Web.UI.UserControl
     {
-        private DataSet dsComments
-        {
-            get
-            {
-                DataSet ds;
-                ds = SessionManager.GetSession<DataSet>(Constants.SESSION_COMMENTS);
+        //private DataSet dsComments
+        //{ 
+          
+        //    get
+        //    {
+        //        DataSet ds = null;
+        //       ds = SessionManager.GetSession<DataSet>(Constants.SESSION_COMMENTS);
 
-                if (ds == null)
-                {
-                    ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                    ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
-                    Session[Constants.SESSION_COMMENTS] = ds;
-                }
+        //        if (ds == null)
+        //        {
+        //            ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+        //            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
+        //            Session[Constants.SESSION_COMMENTS] = ds;
+        //        }
 
-                return ds;
-            }
-        }
+        //        return ds;
+        //    }
+            
+        //}
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -84,8 +86,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void LoadComments()
         {
+            DataSet ds = null;
+            ds = new CommentDAO().SelectByContext(1, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
 
-            DataListStudentComments.DataSource = dsComments.Tables[0];
+            DataListStudentComments.DataSource = ds.Tables[0];
             DataListStudentComments.DataBind();
 
         }
