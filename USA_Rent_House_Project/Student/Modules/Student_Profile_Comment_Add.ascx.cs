@@ -17,6 +17,33 @@ namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Profile_Comment_Add : System.Web.UI.UserControl
     {
+
+        private User _user;
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    //_user = new User();
+                    
+                }
+                else
+                {
+
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
+
         Comment comment = new Comment();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -25,27 +52,33 @@ namespace USA_Rent_House_Project.Student.Modules
             LbFeedback.Attributes.Add("onClick", "return false;");
             LbPhoto.Attributes.Add("onClick", "return false;");
             LbUpload.Attributes.Add("onClick", "return false;");
-        }
 
-        protected void LbComment_Click(object sender, EventArgs e)
-        {
-            DissableOptions();
-            //DivComment.Visible = true;
-        }
+            string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+            User currentProfileUser = User.Select(Guid.Parse(AccessCode));
 
-        protected void LbFeedback_Click(object sender, EventArgs e)
-        {
-            DissableOptions();
-            //DivFeedback.Visible = true;
-            paymentontime.Visible = true;
-            Ratinggoodroommate.Visible = true;
+            //Check if the user is the same as the logged users id
+            if (currentProfileUser.HouseId == user.HouseId)
+            {
+                //Show the comments add section
+            }
+            else
+            {
+                //Hide the comments add section
+            }
 
-        }
-
-        protected void LbPhoto_Click(object sender, EventArgs e)
-        {
-            DissableOptions();
-            //DivPhoto.Visible = true;
+            if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+            {
+                paymentontime.Visible = true;
+            }
+            else if(user.RoleId == Constants.USER_ROLE_STUDENT)
+            {
+                Ratinggoodroommate.Visible = true;
+            }
+            else
+            {
+                paymentontime.Visible = false;
+                Ratinggoodroommate.Visible = false;
+            }
         }
 
         protected void LbUpload_Click(object sender, EventArgs e)

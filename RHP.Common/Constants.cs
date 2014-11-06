@@ -87,5 +87,15 @@ namespace RHP.Common
         public static readonly int LANDLORD_PROFILE_HOUSEBUILD_BEDROOMS_MIN = 0;
 
         public static readonly string QUERYSTRING_HOUSE_ID = "HouseId";
+
+        #region UserRoles
+
+        public static readonly Guid USER_ROLE_LANDLORD = Guid.Parse("0A3FDA72-FC47-402D-817B-445D89C4C4DF");
+        public static readonly Guid USER_ROLE_STUDENT = Guid.Parse("6E712B8E-3559-40C2-A170-5E08B194AA1A");
+
+
+        #endregion
+
+
     }
 }
