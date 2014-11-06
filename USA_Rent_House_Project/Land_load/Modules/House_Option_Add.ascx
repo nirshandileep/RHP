@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Land_load.Modules.House_Option_Add" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Land Load House / Property Option info
+        Land Load House / Property Option Info
     </h2>
     <asp:ValidationSummary ID="PropertyValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="PropertyValidationGroup" />
@@ -34,17 +34,17 @@
             <table style="width: 900px">
                 <tr valign="top">
                     <td>
-                       <strong>Furnished rooms :</strong> 
+                       <strong>Furnished Rooms :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedroomoptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>
                     <td>
-                       <strong>Furnished kitchen :</strong> 
+                       <strong>Furnished Kitchen :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedkitchenOptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>
                     <td>
-                       <strong>Furnished living space :</strong> 
+                       <strong>Furnished Living Space :</strong> 
                         <asp:CheckBoxList ID="chkFurnishedlivingspaceOptions" runat="server" RepeatColumns="2">
                         </asp:CheckBoxList>
                     </td>

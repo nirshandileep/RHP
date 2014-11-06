@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_info_Add" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Student Profile info
+        Student Profile Info
     </h2>
     <div id="formwrapper">
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
@@ -83,7 +83,7 @@
             </p>
            
             
-           <p id="setQuestiontitle" runat="server">        to validate Student when connecting us :</p>
+           <p id="setQuestiontitle" runat="server">        To Validate Student When Connecting Us :</p>
             <p id="setQuestion" runat="server">
      
                 <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question" CssClass="form_label">Secret Question:</asp:Label>

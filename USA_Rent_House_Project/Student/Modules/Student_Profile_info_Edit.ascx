@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_info_Edit" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Student Profile info
+        Student Profile Info
     </h2>
     <div class="floatright" runat="server" visible="false">
         <asp:HyperLink ID="HyperLinkChangePassword" runat="server" CssClass="loginlinks"

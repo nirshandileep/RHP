@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Current_Students_Add.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Current_Students_Add" %>
 
-<h2 class="form_heading">Current students</h2>
+<h2 class="form_heading">Current Students</h2>
    <div id="formwrapper">
         <div id="forminner">
 
@@ -28,7 +28,7 @@
 
 <div id="RoommateAdd" runat="server">
     <h1>
-    Current student info</h1>
+    Current Student Info</h1>
 
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />

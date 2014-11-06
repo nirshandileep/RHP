@@ -94,12 +94,12 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// Change_Password1 control.
+        /// Change_Password2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Modules.Change_Password Change_Password1;
+        protected global::USA_Rent_House_Project.Modules.Change_Password Change_Password2;
     }
 }

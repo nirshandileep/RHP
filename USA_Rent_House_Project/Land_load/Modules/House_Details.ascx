@@ -23,7 +23,7 @@
                 <asp:Label ID="Zip" runat="server" AssociatedControlID="Zip" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="Year" CssClass="form_label">Year House build:</asp:Label>
+                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="Year" CssClass="form_label">Year House Build:</asp:Label>
                 <asp:Label ID="Year" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
@@ -45,7 +45,7 @@
                 <asp:Label ID="TotalSQFootage" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities included in rent:</asp:Label>
+                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities Included in Rent:</asp:Label>
                 <asp:Label ID="Utilities" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <asp:HiddenField ID="hdnLandLordId" runat="server" />
@@ -65,7 +65,7 @@
                     </td>
                     <td>
                         <h2 class="form_heading">
-                            Furnished rooms :</h2>
+                            Furnished Rooms :</h2>
                         <asp:BulletedList ID="Furnishedrooms" runat="server">
                         </asp:BulletedList>
                     </td>
@@ -73,13 +73,13 @@
                 <tr>
                     <td>
                         <h2 class="form_heading">
-                            Furnished kitchen :</h2>
+                            Furnished Kitchen :</h2>
                         <asp:BulletedList ID="Furnishedkitchen" runat="server">
                         </asp:BulletedList>
                     </td>
                     <td>
                         <h2 class="form_heading">
-                            Furnished living space :</h2>
+                            Furnished Living Space :</h2>
                         <asp:BulletedList ID="Furnishedlivingspace" runat="server">
                         </asp:BulletedList>
                     </td>

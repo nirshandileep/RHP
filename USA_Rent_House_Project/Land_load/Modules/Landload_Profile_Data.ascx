@@ -8,7 +8,7 @@
     <div id="RightPanel" runat="server">
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
-                My roommates</h2>
+                My Roommates</h2>
             <br />
             <asp:DataList ID="DataListCurrentHomeStudent" runat="server"  RepeatColumns="3" DataKeyField="UserId" OnItemDataBound="ItemDataBound">
                 <ItemTemplate>

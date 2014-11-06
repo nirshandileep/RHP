@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Land_load.Modules.House_info_Add" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Land Lord House / Property info
+        Land Lord House / Property Info
     </h2>
     <asp:ValidationSummary ID="PropertyValidationSummary" runat="server" CssClass="failureNotification"
         ValidationGroup="PropertyValidationGroup" />
@@ -38,7 +38,7 @@
                     ValidationGroup="PropertyValidationGroup">*</asp:RegularExpressionValidator>
             </p>
             <p>
-                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year House build:</asp:Label>
+                <asp:Label ID="LabelYear" runat="server" AssociatedControlID="DRPYear" CssClass="form_label">Year House Build:</asp:Label>
                 <asp:DropDownList ID="DRPYear" runat="server">
                 </asp:DropDownList>
             </p>
@@ -70,7 +70,7 @@
                     ToolTip="total SQ Footage is required." ValidationGroup="PropertyValidationGroup">*</asp:RequiredFieldValidator>
             </p>
             <p>
-                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities included in rent:</asp:Label>
+                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities Included in Rent:</asp:Label>
                 <asp:TextBox ID="Utilities" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorUtilities" runat="server" ControlToValidate="Utilities"
                     CssClass="failureNotification" ErrorMessage="Utilities included is required."

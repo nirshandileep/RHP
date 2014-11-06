@@ -94,12 +94,12 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// Student_Spotlight1 control.
+        /// Student_Spotlight2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Student_Spotlight Student_Spotlight1;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Spotlight Student_Spotlight2;
     }
 }

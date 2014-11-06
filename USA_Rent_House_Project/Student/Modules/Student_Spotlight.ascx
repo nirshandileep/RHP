@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Spotlight" %>
 <div id="div_Student_Spotlight">
     <h2 class="form_heading">
-        Student Spotlight info
+        Student Spotlight Info
     </h2>
     <div id="formwrapper">
         <div id="forminner">
@@ -19,7 +19,7 @@
                 <asp:TextBox ID="CurentGPA" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="2"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Student Oraganizations/clubs/ect:</asp:Label>
+                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Student Oraganizations/Clubs/ect:</asp:Label>
                 <asp:TextBox ID="Oraganizations" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
             </p>
             <p>

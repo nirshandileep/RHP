@@ -16,7 +16,7 @@
         </div>
         <div id="RightPanel" runat="server">
             <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
-                runat="server">Public view</asp:HyperLink>
+                runat="server">Public View</asp:HyperLink>
             <div id="Search" class="floatright" runat="server">
                 <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                     runat="server">Search for Student</asp:HyperLink>
@@ -26,7 +26,7 @@
             <div class="clear">
             </div>
            
-            <uc1:Change_Password ID="Change_Password1" runat="server" />
+            <uc1:Change_Password ID="Change_Password2" runat="server" />
         </div>
     </div>
 </asp:Content>

@@ -24,7 +24,7 @@
         </div>
             <div class="clear">
             </div>
-            <uc1:Student_Profile_info_Edit ID="Student_Profile_info_Edit1" runat="server" />
+            <uc1:Student_Profile_info_Edit ID="Student_Profile_info_Edit2" runat="server" />
         </div>
     </div>
 </asp:Content>

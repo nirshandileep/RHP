@@ -15,7 +15,7 @@
             <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
-            <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" runat="server">Public view</asp:HyperLink>
+            <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" runat="server">Public View</asp:HyperLink>
             <div id="Search" class="floatright" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>
@@ -24,7 +24,7 @@
         </div>
             <div class="clear">
             </div>
-            <uc1:Student_School_info ID="Student_School_info1" runat="server" />
+            <uc1:Student_School_info ID="Student_School_info2" runat="server" />
         </div>
     </div>
 </asp:Content>

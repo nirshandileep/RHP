@@ -6,7 +6,7 @@
 <div id="div_register_User">
     <div id="Pleaseshare" runat="server">
         <p>
-            Please share</p>
+            Please Share</p>
         <!-- AddThis Button BEGIN -->
         <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
             <a class="addthis_button_preferred_1"></a><a class="addthis_button_preferred_2">
@@ -47,13 +47,13 @@
     <div id="DivFeedback" style="display: none">
         <p id="paymentontime" runat="server" visible="false">
             <asp:Label ID="LabelAwards" runat="server" AssociatedControlID="ASPxRatingpayment"
-                CssClass="form_label">Payment on time :</asp:Label>
+                CssClass="form_label">Payment on Time :</asp:Label>
             <dx:ASPxRatingControl ID="ASPxRatingpayment" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>
             <asp:Label ID="Label1" runat="server" AssociatedControlID="ASPxRatingcleanliness"
-                CssClass="form_label">Cleanliness throughout stay :</asp:Label>
+                CssClass="form_label">Cleanliness Throughout Stay :</asp:Label>
             <dx:ASPxRatingControl ID="ASPxRatingcleanliness" runat="server">
             </dx:ASPxRatingControl>
         </p>
@@ -64,7 +64,7 @@
         </p>
         <p>
             <asp:Label ID="Label3" runat="server" AssociatedControlID="ASPxRatingresponsiveness"
-                CssClass="form_label">Responsiveness of student :</asp:Label>
+                CssClass="form_label">Responsiveness of Student :</asp:Label>
             <dx:ASPxRatingControl ID="ASPxRatingresponsiveness" runat="server">
             </dx:ASPxRatingControl>
         </p>

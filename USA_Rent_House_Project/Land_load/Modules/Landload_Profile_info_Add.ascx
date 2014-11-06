@@ -2,7 +2,7 @@
 
 <div id="div_register_User">
     <h2 class="form_heading">
-    Land Load Profile info
+    Land Load Profile Info
     </h2>
     
       <div id="formwrapper">
@@ -88,7 +88,7 @@
                     ErrorMessage="The password and confirmation password must match." ValidationGroup="RegisterLand_lordValidationGroup">*</asp:CompareValidator>
             </p>
            
-            <p id="setQuestiontitle" runat="server">        to validate Student when connecting us :</p>
+            <p id="setQuestiontitle" runat="server">        to Validate Student when Connecting Us :</p>
             <p id="setQuestion" runat="server">
                 <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question"
                     CssClass="form_label">Secret Question:</asp:Label>

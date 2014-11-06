@@ -2,11 +2,11 @@
   
 
            <div id="HouseDetails" runat="server">
-                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details about House</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details About House</asp:HyperLink>
             </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>
-                    All the students live in the current home</h2>
+                    All the Students Live in the Current Home</h2>
                 <br />
                 <asp:DataList ID="DataListCurrentHomeStudent" runat="server" RepeatColumns="3" DataKeyField="UserId" OnItemDataBound="ItemDataBound">
                     <ItemTemplate>

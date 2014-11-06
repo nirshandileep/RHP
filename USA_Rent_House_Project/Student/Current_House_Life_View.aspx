@@ -12,7 +12,7 @@
     <uc1:Student_Public_Profile_Header ID="Student_Public_Profile_HeaderID" runat="server" />
     <div id="RightPanel_public">
         <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
-                runat="server">Public view</asp:HyperLink>
+                runat="server">Public View</asp:HyperLink>
             <div id="Search" runat="server">
               <asp:HyperLink ID="HyperLinkabout" CssClass="loginlinks" NavigateUrl="~/Student/Student_Public_Profile_info.aspx"
                 runat="server">About</asp:HyperLink>
@@ -24,6 +24,6 @@
             <div class="clear">
             </div>
 
- <uc2:Current_House_Life_View_ ID="Current_House_Life_View1" runat="server" />
+ <uc2:Current_House_Life_View_ ID="Current_House_Life_View2" runat="server" />
 
 </asp:Content>

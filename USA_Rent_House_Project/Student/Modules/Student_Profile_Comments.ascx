@@ -29,7 +29,7 @@
                     <asp:HiddenField ID="HiddenField4" runat="server" Value='<%# Eval("ContextId") %>' />
                     <asp:HiddenField ID="HiddenField5" runat="server" Value='<%# Eval("CreatedBy") %>' />
                     <asp:HiddenField ID="HiddenField6" Value='<%# Eval("CommentId") %>' runat="server" />
-                    <asp:Image ID="picturecomment" runat="server" ImageUrl='<%# Eval("FilePath") %>' />
+                    <asp:Image ID="picturecomment" runat="server" ImageUrl='<%# Eval("FilePath") %>' /><br />
                       <asp:Label ID="pictureCommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
                 </div>
                 <%--Document--%>
@@ -37,7 +37,7 @@
                     <asp:HiddenField ID="HiddenField7" runat="server" Value='<%# Eval("ContextId") %>' />
                     <asp:HiddenField ID="HiddenField8" runat="server" Value='<%# Eval("CreatedBy") %>' />
                     <asp:HiddenField ID="HiddenField9" Value='<%# Eval("CommentId") %>' runat="server" />
-                    <asp:HyperLink ID="filepath" runat="server" NavigateUrl='<%# Eval("FilePath") %>'>Click Here</asp:HyperLink>
+                    <asp:HyperLink ID="filepath" runat="server" NavigateUrl='<%# Eval("FilePath") %>'>Click Here</asp:HyperLink> To Download <br />
                        <asp:Label ID="fileCommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
                 </div>
             </ItemTemplate>

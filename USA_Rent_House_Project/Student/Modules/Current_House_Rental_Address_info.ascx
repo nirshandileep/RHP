@@ -7,7 +7,7 @@
 
     <div id="HouseSearch" runat="server">
         <p>
-            <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House owned by landload:</asp:Label>
+            <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House Owned by Landload:</asp:Label>
             <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" 
                 onselectedindexchanged="DrpHouse_SelectedIndexChanged" AutoPostBack="true">
             </asp:DropDownList>

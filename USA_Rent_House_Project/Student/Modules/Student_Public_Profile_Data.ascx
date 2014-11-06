@@ -4,7 +4,7 @@
     <div id="RightPanel" runat="server">
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
-                All the students live in the current home</h2>
+                All the Students Live in the Current Home</h2>
             <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
                 OnItemDataBound="ItemDataBound">
@@ -27,7 +27,7 @@
         </div>
         <div id="StudentHouseData" runat="server">
             <h2 style="display: inline-block;">
-                College housing life..</h2>
+                College Housing Life..</h2>
             <asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" runat="server">Photos</asp:HyperLink>
         </div>
     </div>

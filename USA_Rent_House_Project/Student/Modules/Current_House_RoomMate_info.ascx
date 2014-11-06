@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Current_House_RoomMate_info.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Current_House_RoomMate_info" %>
 
-    <h2>Current students</h2>
+    <h2>Current Students</h2>
 
         <div id="StudentListData" runat="server">
        
@@ -27,7 +27,7 @@
 
 <div id="RoommateAdd" runat="server">
     <h1>
-    Room-mate info</h1>
+    Room-Mate Info</h1>
 
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />

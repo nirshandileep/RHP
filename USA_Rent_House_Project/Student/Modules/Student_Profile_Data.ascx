@@ -9,7 +9,7 @@
     </div>
     <div id="RightPanel" runat="server">
         <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
-            runat="server">Public view</asp:HyperLink>
+            runat="server">Public View</asp:HyperLink>
         <div id="Search" runat="server">
             <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
                 runat="server">Search for Student</asp:HyperLink>
@@ -20,7 +20,7 @@
         </div>
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
-                My roommates</h2>
+                My Roommates</h2>
             <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
                 OnItemDataBound="ItemDataBound">
@@ -50,7 +50,7 @@
         </div>
         <div id="StudentHouseData" runat="server">
             <h2 style="display: inline-block;">
-                My College housing life..</h2>
+                My College Housing Life..</h2>
             <asp:HyperLink ID="hypStudentHouseData" CssClass="loginlinks" NavigateUrl="~/Student/Current_House_Life.aspx"
                 runat="server">Photos</asp:HyperLink>
 

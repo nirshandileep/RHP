@@ -45,7 +45,7 @@
                 <asp:Label ID="TotalSQFootage" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities included in rent:</asp:Label>
+                <asp:Label ID="LabelUtilities" runat="server" AssociatedControlID="Utilities" CssClass="form_label">Utilities Included in Rent:</asp:Label>
                 <asp:Label ID="Utilities" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <asp:HiddenField ID="hdnLandLordId" runat="server" />
@@ -66,7 +66,7 @@
                     </td>
                     <td>
                         <h2 class="form_heading">
-                            Furnished rooms :
+                            Furnished Rooms :
                         </h2>
                         <asp:BulletedList ID="Furnishedrooms" runat="server">
                         </asp:BulletedList>
@@ -75,14 +75,14 @@
                 <tr>
                     <td>
                         <h2 class="form_heading">
-                            Furnished kitchen :
+                            Furnished Kitchen :
                         </h2>
                         <asp:BulletedList ID="Furnishedkitchen" runat="server">
                         </asp:BulletedList>
                     </td>
                     <td>
                         <h2 class="form_heading">
-                            Furnished living space :
+                            Furnished Living Space :
                         </h2>
                         <asp:BulletedList ID="Furnishedlivingspace" runat="server">
                         </asp:BulletedList>

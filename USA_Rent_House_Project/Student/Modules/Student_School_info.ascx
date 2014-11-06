@@ -4,7 +4,7 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Student School info
+        Student School Info
     </h2>
    
     <div id="formwrapper">
@@ -34,7 +34,7 @@
             </p>
 
               <p>
-                <asp:Label ID="Labelpreviousschoolinfo" runat="server" AssociatedControlID="DRPpreviousschoolinfo" CssClass="form_label">previous school info:</asp:Label>
+                <asp:Label ID="Labelpreviousschoolinfo" runat="server" AssociatedControlID="DRPpreviousschoolinfo" CssClass="form_label">Previous School Info:</asp:Label>
                 <asp:DropDownList ID="DRPpreviousschoolinfo" runat="server" 
                      onselectedindexchanged="DRPpreviousschoolinfo_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
@@ -53,7 +53,7 @@
             
 
              <p>
-                <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="DRPstartMonth" CssClass="form_label">start date of current University:</asp:Label>
+                <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="DRPstartMonth" CssClass="form_label">Start Date of Current University:</asp:Label>
 
                 <asp:DropDownList ID="DRPstartMonth" runat="server" Width="90px" >
                 </asp:DropDownList>

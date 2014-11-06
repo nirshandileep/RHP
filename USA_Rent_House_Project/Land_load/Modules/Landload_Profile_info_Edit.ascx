@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landload_Profile_info_Edit.ascx.cs" Inherits="USA_Rent_House_Project.Land_load.Modules.Landload_Profile_info_Edit" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-    Land Load Profile info
+    Land Load Profile Info
     </h2>
     <div class="floatright">
     <asp:HyperLink ID="HyperLinkChangePassword" runat="server"  CssClass="loginlinks" NavigateUrl="~/Change_Password.aspx">Change Password</asp:HyperLink>  <asp:HyperLink ID="HyperLinkChangeQuestion"  CssClass="loginlinks"  NavigateUrl="~/Change_Secret_Question.aspx" runat="server">Change Seacret Question</asp:HyperLink> </div>

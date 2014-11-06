@@ -9,7 +9,7 @@
     <asp:HiddenField ID="HiddenFieldCurrentStep" runat="server" />
     <div id="div_Search" runat="server" visible="true">
         <p class="homeheadingsub">
-            "find your next connection"</p>
+            "Find Your Next Connection"</p>
         <div class="searchbuttons">
             <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="searchbuttonslarge" Text="Search house"
                 OnClick="ButtonSearchHouse_Click" />
