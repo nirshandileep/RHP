@@ -47,6 +47,8 @@ namespace RHP.Comments
 
         public Enums.CommentType CommentType { get; set; }
 
+        public List<FeedbackQuestion> FeedbackQuestions { get; set; }
+
         public Guid ContextId { get; set; }
 
         /// <summary>
@@ -202,6 +204,64 @@ namespace RHP.Comments
                 connection.Close();
             }
             return result;
+        }
+
+        public List<FeedbackQuestion> SelectFeedbackQuestions()
+        {
+            List<FeedbackQuestion> feedbackQuestions = new List<FeedbackQuestion>();
+
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 1, Question = "Payment on time" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 2, Question = "Cleanliness throughout stay" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 3, Question = "Condition of house" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 4, Question = "Responsiveness of student" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 5, Question = "Friendliness" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 6, Question = "Responsible" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 7, Question = "Good roommate" });
+
+            return feedbackQuestions;
+        }
+
+        public decimal CalculateFeedbackByUserRole(Enums.UserRoles userRoles)
+        {
+            decimal finalRatingValue = 0;
+
+            if (userRoles == Enums.UserRoles.Landlord)
+            {
+                int index = 0;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.25M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.5M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+                this.FeedbackQuestions[index++].QuestionWeight = Decimal.Zero;
+                index = 0;
+
+                foreach (FeedbackQuestion question in this.FeedbackQuestions)
+                {
+                    finalRatingValue += question.QuestionWeight * question.RatingValue;
+                }
+            }
+
+            if (userRoles == Enums.UserRoles.Student)
+            {
+                int index = 0;
+                this.FeedbackQuestions[index++].QuestionWeight = Decimal.Zero;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.2M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.2M;
+                this.FeedbackQuestions[index++].QuestionWeight = 0.3M;
+                index = 0;
+
+                foreach (FeedbackQuestion question in this.FeedbackQuestions)
+                {
+                    finalRatingValue += question.QuestionWeight * question.RatingValue;
+                }
+            }
+
+            return finalRatingValue;
         }
     }
 }

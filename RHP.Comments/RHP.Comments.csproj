@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="Comment.cs" />
     <Compile Include="CommentDAO.cs" />
+    <Compile Include="FeedbackQuestion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
