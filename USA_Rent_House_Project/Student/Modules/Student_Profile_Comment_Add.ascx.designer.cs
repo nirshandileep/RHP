@@ -121,13 +121,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingpayment;
         
         /// <summary>
-        /// Label1 control.
+        /// LabelCleanliness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label LabelCleanliness;
         
         /// <summary>
         /// ASPxRatingcleanliness control.
@@ -139,13 +139,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingcleanliness;
         
         /// <summary>
-        /// Label2 control.
+        /// LabelConditionOfHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label LabelConditionOfHouse;
         
         /// <summary>
         /// ASPxRatingcondition control.
@@ -157,13 +157,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingcondition;
         
         /// <summary>
-        /// Label3 control.
+        /// LabelResponsivenessOfStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelResponsivenessOfStudent;
         
         /// <summary>
         /// ASPxRatingresponsiveness control.
@@ -175,13 +175,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingresponsiveness;
         
         /// <summary>
-        /// Label4 control.
+        /// LabelFriendliness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label LabelFriendliness;
         
         /// <summary>
         /// ASPxRatingfriendliness control.
@@ -193,13 +193,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingfriendliness;
         
         /// <summary>
-        /// Label5 control.
+        /// LabelResponsible control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label LabelResponsible;
         
         /// <summary>
         /// ASPxRatingresponsible control.
@@ -220,13 +220,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Ratinggoodroommate;
         
         /// <summary>
-        /// Label6 control.
+        /// LabelGoodRoommate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.Label LabelGoodRoommate;
         
         /// <summary>
         /// ASPxRatinggoodroommate control.

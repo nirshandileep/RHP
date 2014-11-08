@@ -47,7 +47,22 @@ namespace RHP.Comments
 
         public Enums.CommentType CommentType { get; set; }
 
-        public List<FeedbackQuestion> FeedbackQuestions { get; set; }
+        private List<FeedbackQuestion>  feedbackQuestions;
+        public List<FeedbackQuestion> FeedbackQuestions 
+        {
+            get
+            {
+                if (feedbackQuestions == null)
+                {
+                    feedbackQuestions = SelectFeedbackQuestions();
+                }
+                return feedbackQuestions;
+            }
+            set 
+            {
+                feedbackQuestions = value;
+            }
+        }
 
         public Guid ContextId { get; set; }
 
@@ -210,13 +225,13 @@ namespace RHP.Comments
         {
             List<FeedbackQuestion> feedbackQuestions = new List<FeedbackQuestion>();
 
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 1, Question = "Payment on time" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 2, Question = "Cleanliness throughout stay" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 3, Question = "Condition of house" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 4, Question = "Responsiveness of student" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 5, Question = "Friendliness" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 6, Question = "Responsible" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 7, Question = "Good roommate" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 1, Question = "Payment on time :" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 2, Question = "Cleanliness throughout stay :" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 3, Question = "Condition of house:" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 4, Question = "Responsiveness of student :" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 5, Question = "Friendliness :" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 6, Question = "Responsible :" });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 7, Question = "Good Roommate :" });
 
             return feedbackQuestions;
         }

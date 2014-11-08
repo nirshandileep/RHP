@@ -53,13 +53,33 @@ namespace USA_Rent_House_Project.Student.Modules
             LbPhoto.Attributes.Add("onClick", "return false;");
             LbUpload.Attributes.Add("onClick", "return false;");
 
+            SetUserBasedRestrictions();
+            SetQuestionTexts();
+
+        }
+
+        private void SetQuestionTexts()
+        {
+            LabelAwards.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 1).Question;
+            LabelCleanliness.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 2).Question;
+            LabelConditionOfHouse.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 3).Question;
+            LabelResponsivenessOfStudent.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 4).Question;
+            LabelFriendliness.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 5).Question;
+            LabelResponsible.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 6).Question;
+            LabelGoodRoommate.Text = comment.FeedbackQuestions.Find(a => a.QuestionId == 7).Question;
+        }
+
+        private void SetUserBasedRestrictions()
+        {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
             User currentProfileUser = User.Select(Guid.Parse(AccessCode));
 
             //Check if the user is the same as the logged users id
-            if (currentProfileUser.HouseId == user.HouseId)
+            //One cannot rate himself
+            if (currentProfileUser.UserId == user.UserId)
             {
-                //Show the comments add section
+                LbFeedback.Visible = false;
+                FeedbackButton.Visible = false;
             }
             else
             {
@@ -70,7 +90,7 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 paymentontime.Visible = true;
             }
-            else if(user.RoleId == Constants.USER_ROLE_STUDENT)
+            else if (user.RoleId == Constants.USER_ROLE_STUDENT)
             {
                 Ratinggoodroommate.Visible = true;
             }
