@@ -99,6 +99,15 @@
                     CssClass="failureNotification" ErrorMessage="Answer is required." ToolTip="Answer is required."
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
             </p>
+
+            <p>
+           If You Have a "Referral Code" Please Enter Here
+            </p>
+             <p>
+                <asp:Label ID="LabelReferralCode" runat="server" AssociatedControlID="ReferralCode" CssClass="form_label">Referral Code:</asp:Label>
+                <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+               
+            </p>
         </div>
         <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"

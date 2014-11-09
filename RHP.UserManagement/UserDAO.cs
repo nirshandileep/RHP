@@ -41,6 +41,8 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
             db.AddInParameter(command, "RoleId", DbType.Guid, users.RoleId);
+            db.AddInParameter(command, "ReferralCode", DbType.String, users.ReferralCode);
+            
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
 
             db.ExecuteNonQuery(command, transaction);

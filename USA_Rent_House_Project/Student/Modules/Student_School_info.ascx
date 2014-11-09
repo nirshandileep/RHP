@@ -4,7 +4,7 @@
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <div id="div_register_User">
     <h2 class="form_heading">
-        Student School Info
+         School Info
     </h2>
    
     <div id="formwrapper">

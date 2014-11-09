@@ -20,9 +20,10 @@
                     <asp:HiddenField ID="HiddenField1" runat="server" Value='<%# Eval("ContextId") %>' />
                     <asp:HiddenField ID="HiddenField2" runat="server" Value='<%# Eval("CreatedBy") %>' />
                     <asp:HiddenField ID="HiddenField3" Value='<%# Eval("CommentId") %>' runat="server" />
+                     <dx:ASPxRatingControl ID="Rating" Enabled="false" runat="server" Value='<%# Eval("RatingValue") %>'>
+                    </dx:ASPxRatingControl> <br />
                     <asp:Label ID="Label1" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
-                    <dx:ASPxRatingControl ID="Rating" Enabled="false" runat="server" Value='<%# Eval("RatingValue") %>'>
-                    </dx:ASPxRatingControl>
+                   
                 </div>
                 <%--Photo--%>
                 <div id="Photo" runat="server" visible='<%# Eval("CommentTypeId").ToString().Equals("3")%>'>
@@ -37,7 +38,7 @@
                     <asp:HiddenField ID="HiddenField7" runat="server" Value='<%# Eval("ContextId") %>' />
                     <asp:HiddenField ID="HiddenField8" runat="server" Value='<%# Eval("CreatedBy") %>' />
                     <asp:HiddenField ID="HiddenField9" Value='<%# Eval("CommentId") %>' runat="server" />
-                    <asp:HyperLink ID="filepath" runat="server" NavigateUrl='<%# Eval("FilePath") %>'>Click Here</asp:HyperLink> To Download <br />
+                    To Download File that was Uploaded Please <asp:HyperLink ID="filepath" runat="server" NavigateUrl='<%# Eval("FilePath") %>'>Click Here</asp:HyperLink> <br />
                        <asp:Label ID="fileCommentMessage" runat="server" Text='<%# Eval("CommentText") %>'></asp:Label>
                 </div>
             </ItemTemplate>

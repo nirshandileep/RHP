@@ -56,7 +56,7 @@
                 </p>
                 <p>
                     <asp:Label ID="Labelpreviousschoolinfo" runat="server" AssociatedControlID="previousschoolinfo"
-                        CssClass="form_label">previous school info:</asp:Label>
+                        CssClass="form_label">Previous School Info:</asp:Label>
                     <asp:Label ID="previousschoolinfo" runat="server"></asp:Label>
                 </p>
                 <p id="previousschoolID" runat="server" visible="false">
@@ -65,7 +65,7 @@
                     <asp:Label ID="previousschool" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="startdate" CssClass="form_label">start date of current University:</asp:Label>
+                    <asp:Label ID="Labelstartdate" runat="server" AssociatedControlID="startdate" CssClass="form_label">Start Date of Current University:</asp:Label>
                     <asp:Label ID="startdate" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -99,7 +99,7 @@
                       <asp:Label ID="CurentGPA" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Oraganizations/clubs/ect:</asp:Label>
+                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Oraganizations/Clubs/ect:</asp:Label>
                       <asp:Label ID="Oraganizations" runat="server"></asp:Label>
                 </p>
                 <p>

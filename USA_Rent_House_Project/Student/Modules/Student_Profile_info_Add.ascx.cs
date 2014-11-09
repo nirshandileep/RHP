@@ -142,7 +142,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     user.MiddleName = MiddleName.Text.Trim();
                     user.LastName = LastName.Text.Trim();
                     user.RoleId = aspnet_Roles_.RoleId;
-                    
+                    user.ReferralCode = ReferralCode.Text.Trim();
 
                     object objCreateMembershipUser = new object();
 
