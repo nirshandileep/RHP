@@ -11,11 +11,10 @@
 
     <div id="LandloadProfileImage" runat="server">
         <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px"   />
-
-         <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
+        <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
     </div>
     <h2>
-        <div id="MyRatings"  class="floatright LLpublicrating" > My Ratings 
+        <div id="MyRatings" class="floatright LLpublicrating" > My Ratings 
         <dx:ASPxRatingControl ID="ASPxRating" runat="server" Enabled="false">
             </dx:ASPxRatingControl>
         </div>

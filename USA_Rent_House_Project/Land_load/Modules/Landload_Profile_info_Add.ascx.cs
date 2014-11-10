@@ -160,8 +160,21 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                 user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
                                 user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
                                 user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-                                user.Save();
+                                
+                                if (user.Save())
+                                {
 
+                                    landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                    landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
+                                    landload.user = user;
+                                    landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                    landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                                    if (landload.Save())
+
+                                    {
+                                    }
+                                }
                                  if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                                 {
 

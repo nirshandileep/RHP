@@ -11,7 +11,7 @@
                 <asp:Label ID="Address" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="CityLabel" runat="server" AssociatedControlID="City" CssClass="form_label">Suburb:</asp:Label>
+                <asp:Label ID="CityLabel" runat="server" AssociatedControlID="City" CssClass="form_label">City:</asp:Label>
                 <asp:Label ID="City" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
