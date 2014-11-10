@@ -945,7 +945,7 @@ a.loginlinks_img:hover
 #MainContent_LeftPanel_LandL
 {
     float: left;   
-    padding: 30px 0;
+    padding: 50px 0;
     width: 17%;
     
 }
@@ -971,7 +971,7 @@ a.loginlinks_img:hover
    float: left;
     margin-left: 2%;
     margin-top: -125px;
-    padding: 30px 0;
+    padding: 55px 0;
     position: relative;
     width: 81%;
     z-index: 15;
@@ -1339,11 +1339,11 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Landload_Profile_Header1_StidentProfileHeader #MyRatings
 {
-    color: #fff;
+     color: #fff;
     font-weight: bold;
-    margin-right: 26px;
-    margin-top: -187px;
-    position: relative;
+    position: absolute;
+    right: 29px;
+    top: 174px;
     z-index: 14;
 }
 
