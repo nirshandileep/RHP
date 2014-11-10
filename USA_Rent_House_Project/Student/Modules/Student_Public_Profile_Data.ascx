@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Public_Profile_Data.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Data" %>
 <div id="currentHomeStudent" runat="server">
-    <div id="RightPanel" runat="server">
+    <div runat="server">
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
                 All the Students Live in the Current Home</h2>

@@ -365,6 +365,7 @@ input.actionbutton:hover
  
     background-color:#fff;
     padding:15px 0 0 0;
+    margin-bottom:15px;
 }
 
 #topheaderinner
@@ -376,7 +377,8 @@ input.actionbutton:hover
 #wrapper
 {
    width: 1200px; 
-  /* min-height:440px; */
+  min-height:500px;
+ 
     margin:0 auto;
     overflow:hidden;
  
@@ -934,7 +936,7 @@ a.loginlinks_img:hover
 #MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel, #MainContent_Landload_Profile_Data1_LeftPanel, #LeftPanel
 {
     float: left;   
-    padding: 35px 0;
+    padding: 60px 0;
     width: 17%;
    
    
@@ -944,7 +946,7 @@ a.loginlinks_img:hover
 {
     float: left;
     margin-left: 2%;
-    padding: 23px 0;
+    padding: 60px 0;
     width: 81%;
 }
 
@@ -952,7 +954,7 @@ a.loginlinks_img:hover
 {
    
     margin: 0 auto;
-    padding: 15px 0;
+    padding: 55px 0;
     width: 690px;
 }
 
@@ -1229,7 +1231,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Student_Profile_CommentsID_StudentComments
 {
-    float:left;
+    float:right;
    
 }
 
@@ -1303,16 +1305,16 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Student_Profile_HeaderID_ProfileLandlordName, #MainContent_Student_Public_Profile_HeaderID_ProfileLandlordName
 {
-    color: #666;
+     color: #666;
     display: block;
+    font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 0;
-    margin-left: -3px;
+    margin-left: -45px;
     margin-top: 8px;
     text-align: right;
     text-decoration: none;
-    width: 108px;
-    font-size:1.3em;    
+     
 }
 
 #MainContent_Landload_Profile_Header1_ProfileUserName
@@ -1413,4 +1415,12 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 {
     position: relative;
     top: -75px;
+}
+
+
+#MainContent_Landload_Profile_Comments1_DataListStudentComments td div
+{
+    width: 700px;
+    word-wrap: break-word;
+    line-height:1.6em;
 }
