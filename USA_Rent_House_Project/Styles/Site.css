@@ -1313,16 +1313,16 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Student_Profile_HeaderID_ProfileLandlordName, #MainContent_Student_Public_Profile_HeaderID_ProfileLandlordName
 {
-     color: #666;
+    color: #666;
     display: block;
+    float: right;
     font-size: 1.3em;
     font-weight: bold;
     margin-bottom: 0;
-    margin-left: -45px;
     margin-top: 8px;
     text-align: right;
     text-decoration: none;
-     
+    width: 200px;
 }
 
 #MainContent_Landload_Profile_Header1_ProfileUserName
