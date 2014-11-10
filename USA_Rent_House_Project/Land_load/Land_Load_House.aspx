@@ -15,7 +15,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <uc1:Landload_Profile_Header ID="Landload_Profile_Header1" runat="server" />
     <div id="currentHomeStudent" runat="server">
-        <div id="LeftPanel" runat="server">
+        <div id="LeftPanel_LandL" runat="server">
             <uc4:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
          <div id="RightPanelLL" runat="server">

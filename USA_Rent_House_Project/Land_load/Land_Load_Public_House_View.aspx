@@ -23,7 +23,7 @@
     </div>
     <div class="clear">
     </div>
-    <div id="LeftPanel" runat="server">
+    <div id="LeftPanel_LandL" runat="server">
     </div>
     <div id="RightPanelLL">
         <uc2:House_Public_Details ID="House_Public_Details1" runat="server" />

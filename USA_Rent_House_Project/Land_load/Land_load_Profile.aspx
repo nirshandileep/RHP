@@ -16,7 +16,7 @@
    
     <%-- <uc2:Landload_Profile_Data ID="Landload_Profile_Data1" runat="server" />
     --%>
-    <div id="LeftPanel" runat="server">
+    <div id="LeftPanel_LandL" runat="server">
         <uc2:Menu_Bar ID="Menu_Bar1" runat="server" />
     </div>
     <div id="RightPanelLL" runat="server">

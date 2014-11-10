@@ -16,7 +16,7 @@
    
    
       <div id="currentHomeStudent" runat="server">
-        <div id="LeftPanel" runat="server">
+        <div id="LeftPanel_LandL" runat="server">
            
             <uc2:Menu_Bar ID="Menu_Bar1" runat="server" />
            
