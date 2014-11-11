@@ -84,6 +84,7 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
             db.AddInParameter(command, "RoleId", DbType.Guid, users.RoleId);
+       //     db.AddInParameter(command, "ReferralCode", DbType.String, users.ReferralCode);
             db.ExecuteNonQuery(command, transaction);
 
             users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());

@@ -26,6 +26,9 @@
 <p>
     <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Verify Landload" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
+
+         <asp:Button ID="ButtonLeaveHouse" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+        Text="Leave House" onclick="ButtonLeaveHouse_Click" Visible="false"  />
 </p>
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
