@@ -6,6 +6,7 @@ using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using System.Data;
 using RHP.Common;
+using RHP.Utility;
 
 namespace RHP.Comments
 {
@@ -21,10 +22,33 @@ namespace RHP.Comments
            return  db.ExecuteDataSet(command);
         }
 
+        public static List<Comment> SelectCommentListByContext(int contextTypeId, Guid contextId)
+        {
+            List<Comment> commentsList = new List<Comment>();
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_CommentSelectAllByContextId");
+            db.AddInParameter(command, "ContextTypeId", DbType.Int32, contextTypeId);
+            db.AddInParameter(command, "ContextId", DbType.Guid, contextId);
+
+            using (IDataReader dataReader = db.ExecuteReader(command))
+            {
+                Comment entity;
+                if (dataReader.Read())
+                {
+                    entity = new Comment();
+                    Generic.AssignDataReaderToEntity(dataReader, entity);
+                    commentsList.Add(entity);
+                }
+            }
+
+            return commentsList;
+        }
+
         public bool Insert(Comment comment, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_CommentInsert");
-            comment.CommentId = Guid.NewGuid();
+            //comment.CommentId = Guid.NewGuid();
           //  db.AddInParameter(command, "CommentId", DbType.Guid, comment.CommentId);
             db.AddInParameter(command, "CommentText", DbType.String, comment.CommentText);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, comment.RatingValue);
@@ -56,7 +80,7 @@ namespace RHP.Comments
         {
             DbCommand command = db.GetStoredProcCommand("usp_CommentUpdate");
             
-            db.AddInParameter(command, "CommentId", DbType.Guid, comment.CommentId);
+            db.AddInParameter(command, "CommentId", DbType.Int32, comment.CommentId);
             db.AddInParameter(command, "CommentText", DbType.String, comment.CommentText);
             db.AddInParameter(command, "RatingValue", DbType.Decimal, comment.RatingValue);
             db.AddInParameter(command, "ContextTypeId", DbType.Int32, (int)comment.ContextType);
@@ -84,7 +108,7 @@ namespace RHP.Comments
         {
             DbCommand command = db.GetStoredProcCommand("usp_CommentDelete");
 
-            db.AddInParameter(command, "CommentId", DbType.Guid, comment.CommentId);
+            db.AddInParameter(command, "CommentId", DbType.Int32, comment.CommentId);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, comment.UpdatedBy);
 
             if (transaction == null)
@@ -104,7 +128,7 @@ namespace RHP.Comments
 
             DbCommand commandInsert = db.GetStoredProcCommand("usp_CommentInsert");
 
-            db.AddInParameter(commandInsert, "CommentId", DbType.Guid, "CommentId", DataRowVersion.Current);
+            db.AddInParameter(commandInsert, "CommentId", DbType.Int32, "CommentId", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "CommentText", DbType.String, "CommentText", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "RatingValue", DbType.Decimal, "RatingValue", DataRowVersion.Current);
             db.AddInParameter(commandInsert, "ContextTypeId", DbType.Int32, "ContextTypeId", DataRowVersion.Current);
@@ -117,7 +141,7 @@ namespace RHP.Comments
 
             DbCommand commandUpdate = db.GetStoredProcCommand("usp_CommentUpdate");
 
-            db.AddInParameter(commandUpdate, "CommentId", DbType.Guid, "CommentId", DataRowVersion.Current);
+            db.AddInParameter(commandUpdate, "CommentId", DbType.Int32, "CommentId", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "CommentText", DbType.String, "CommentText", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "RatingValue", DbType.Decimal, "RatingValue", DataRowVersion.Current);
             db.AddInParameter(commandUpdate, "ContextTypeId", DbType.Int32, "ContextType", DataRowVersion.Current);
@@ -129,7 +153,7 @@ namespace RHP.Comments
             db.AddOutParameter(commandUpdate, "UpdatedDate", DbType.DateTime, 30);
 
             DbCommand commandDelete = db.GetStoredProcCommand("usp_CommentDelete");
-            db.AddInParameter(commandDelete, "CommentId", DbType.Guid, "CommentId", DataRowVersion.Current);
+            db.AddInParameter(commandDelete, "CommentId", DbType.Int32, "CommentId", DataRowVersion.Current);
             db.AddInParameter(commandDelete, "UpdatedBy", DbType.Guid, "UpdatedBy", DataRowVersion.Current);
 
             db.UpdateDataSet(dsComments, dsComments.Tables[0].TableName, commandInsert, commandUpdate, commandDelete, transaction);

@@ -18,7 +18,7 @@ namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Public_Profile_Header : System.Web.UI.UserControl
     {
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
@@ -50,7 +50,7 @@ namespace USA_Rent_House_Project.Student.Modules
             if (user.HouseId.HasValue)
             {
 
-               
+
 
                 House house = House.Select(user.HouseId.Value);
                 imgCurrentHouseImage.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + house.LandlordId.ToString() + "&AccessCode2=" + user.HouseId.Value.ToString();
@@ -61,9 +61,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 ProfileLandlordName.Text = user_.FirstName + " " + user_.LastName;
                 ProfileLandlordName.NavigateUrl = "~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + user.HouseId.Value.ToString() + "&AccessCode2=" + house.LandlordId.ToString();
-               
+
             }
-            
+
         }
 
         public void LoadStudentImages(Guid AccessCode)
@@ -93,7 +93,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
 
-               
+
         }
 
         public void LoadProfileImage(Guid AccessCode)
@@ -103,32 +103,12 @@ namespace USA_Rent_House_Project.Student.Modules
             imgStudentProfileImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Profile_Picture);
             jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode, Enums.PhotoCategory.Cover_Picture);
 
-           
+
         }
 
         public void LoadComments(Guid AccessCode)
         {
-
-            DataSet ds;
-            ds = new CommentDAO().SelectByContext(1, AccessCode);
-
-            if (ds != null)
-            {
-                decimal rate = 0;
-
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
-                }
-
-                if (rate > 0)
-                {
-                    rate = rate / ds.Tables[0].Rows.Count;
-                }
-                ASPxRating.Value = rate;
-            }
-
-
+            ASPxRating.Value = new Comment().GetOverrallFeedbackByContext(Enums.ContextType.Student, AccessCode);
         }
     }
 }
