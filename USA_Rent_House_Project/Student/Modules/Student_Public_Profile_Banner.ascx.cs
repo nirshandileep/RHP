@@ -54,18 +54,18 @@ namespace USA_Rent_House_Project.Student.Modules
                         if (imagescount < 5)
                         { length = imagescount; }
 
-                        int[] NumberList = new int[length];
+                        List<int> NumberList = new List<int>();// = new int[length];
                         Random rand = new Random();
                         List<String> imageList = new List<string>(length);
 
                         for (int i = 0; i < length; )
                         {
-                            check = rand.Next(1, imagescount);
+                            check = rand.Next(imagescount);
 
                             if (!NumberList.Contains(check))
                             {
                                 imageList.Add(images[check].ToString());
-                                NumberList[i] = check;
+                                NumberList.Add(check);
                                 i++;
                             }
                         }

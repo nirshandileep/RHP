@@ -38,7 +38,6 @@ namespace USA_Rent_House_Project.Modules
         
         protected void Page_Load(object sender, EventArgs e)
         {
-         //   CreateProfile
             if (!IsPostBack)
             {
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
@@ -57,6 +56,8 @@ namespace USA_Rent_House_Project.Modules
                     }
                     else
                     {
+                        //If there are any logged in use session conflicts then this will resolve them
+                        FormsAuthentication.SignOut();
                         Response.Redirect("~/Default.aspx");
                     }
                 }

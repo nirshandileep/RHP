@@ -11,7 +11,7 @@ namespace RHP.Comments
 {
     public class Comment : Base
     {
-        public Guid? CommentId { get; set; }
+        public int CommentId { get; set; }
         public string CommentText { get; set; }
         public decimal RatingValue { get; set; }
         public string FilePath { get; set; }
@@ -277,6 +277,34 @@ namespace RHP.Comments
             }
 
             return finalRatingValue;
+        }
+
+        public decimal GetOverrallFeedbackByContext(Enums.ContextType contextType, Guid contextId)
+        {
+            decimal returnVal;
+
+            List<Comment> comments = CommentDAO.SelectCommentListByContext((int)contextType, contextId);
+            comments.RemoveAll(comm => comm.CommentTypeId != (int)Enums.CommentType.Feedback);
+
+            decimal totalFeedbackScore = 0;
+            foreach (Comment comment in comments)
+            {
+                if (comment.RatingValue > 0)
+                {
+                    totalFeedbackScore += comment.RatingValue;
+                }
+            }
+
+            if (totalFeedbackScore > 0)
+            {
+                returnVal = totalFeedbackScore / comments.Count();
+            }
+            else
+            {
+                returnVal = 0.1M;
+            }
+
+            return returnVal;
         }
     }
 }
