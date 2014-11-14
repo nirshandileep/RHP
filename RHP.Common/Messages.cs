@@ -14,7 +14,8 @@ namespace RHP.Common
 
         public static readonly string Save_Unsuccess = "Cannot Save";
         public static readonly string Update_Unsuccess = "Cannot Update";
-        public static readonly string Delete_Unsuccess = "Cannot Delete";
+        public static readonly string Delete_success = "Successfully Removed! ";
+        public static readonly string Delete_Unsuccess = "Cannot Remove! Please try Again.";
 
         public static readonly string Allowed_fileExtension = "Allowed Only -  .jpg  .jpeg  .png";
         public static readonly string Allowed_MaxImageSize = "Max Image Size : 6 MB";
@@ -28,5 +29,7 @@ namespace RHP.Common
         public static readonly string Validation_Fail = "Please Validate required Fields";
 
         public static readonly string Delete_Confirm = "Are you sure you want to delete this record?";
+
+
     }
 }

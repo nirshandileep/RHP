@@ -22,6 +22,24 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationGroup1;
         
         /// <summary>
+        /// ButtonLeaveHouseID control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ButtonLeaveHouseID;
+        
+        /// <summary>
+        /// ButtonLeaveHouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton ButtonLeaveHouse;
+        
+        /// <summary>
         /// idmessase control.
         /// </summary>
         /// <remarks>
@@ -110,15 +128,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonVerify;
-        
-        /// <summary>
-        /// ButtonLeaveHouse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonLeaveHouse;
         
         /// <summary>
         /// LabelFirstName control.

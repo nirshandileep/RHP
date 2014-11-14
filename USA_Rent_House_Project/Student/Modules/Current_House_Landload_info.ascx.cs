@@ -100,7 +100,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user.HouseId != null)
             {
-                ButtonLeaveHouse.Visible = true;
+                ButtonLeaveHouseID.Visible = true;
                 Labelmessage.Text = "";//Current landload Details";
                 DataSet LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
 
@@ -333,13 +333,18 @@ namespace USA_Rent_House_Project.Student.Modules
             return strMsgContent;
         }
 
-        protected void ButtonLeaveHouse_Click(object sender, EventArgs e)
+
+        protected void ButtonLeaveHouse_Click1(object sender, EventArgs e)
         {
             user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             user.HouseId = null;
             if (user.UpdateHouse())
             {
- 
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_Unsuccess + "'); window.location = '/Student/Student_Profile.aspx';}", true);
             }
         }
 

@@ -4,6 +4,13 @@
     Landload Info</h1>
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
+
+    <p id="ButtonLeaveHouseID" runat="server" Visible="false">
+    If You Want to Leave House Please 
+     <asp:LinkButton ID="ButtonLeaveHouse" runat="server" 
+            onclick="ButtonLeaveHouse_Click1">Click Here</asp:LinkButton>
+
+        </p>
 <%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
     <ContentTemplate>--%>
 <p id="idmessase" runat="server">
@@ -27,8 +34,7 @@
     <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Verify Landload" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
 
-         <asp:Button ID="ButtonLeaveHouse" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-        Text="Leave House" onclick="ButtonLeaveHouse_Click" Visible="false"  />
+        
 </p>
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
