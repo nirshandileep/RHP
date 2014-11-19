@@ -258,13 +258,13 @@
                         <br />Year Home Build :
                         <asp:Label ID="YearHomeBuild" runat="server" Text='<%# Eval("YearHomeBuild") %>'></asp:Label>
                         <br />
-                        BedRooms :
+                        Bed Rooms :
                         <asp:Label ID="BedRooms" runat="server" Text='<%# Eval("BedRooms") %>'></asp:Label>
-                        BathRooms :
+                        Bath Rooms :
                         <asp:Label ID="BathRooms" runat="server" Text='<%# Eval("BathRooms") %>'></asp:Label>
                         <br />Lot Square Footage : 
                         <asp:Label ID="LotSquareFootage" runat="server" Text='<%# Eval("LotSquareFootage") %>'></asp:Label>
-                        <br />TotalSquareFootage :
+                        <br />Total Square Footage :
                         <asp:Label ID="TotalSquareFootage" runat="server" Text='<%# Eval("TotalSquareFootage") %>'></asp:Label>
                         <br />
                         Price : <asp:Label ID="Price" runat="server" Text='<%# Eval("Price") %>'></asp:Label>

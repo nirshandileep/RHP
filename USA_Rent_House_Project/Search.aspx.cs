@@ -127,7 +127,7 @@ namespace USA_Rent_House_Project
 
             if (DrpBedRooms.SelectedItem.Value != "-1")
             {
-                house.BathRooms = int.Parse(DrpBedRooms.SelectedItem.Value);
+                house.BedRooms = int.Parse(DrpBedRooms.SelectedItem.Value);
             }
             else
             {
