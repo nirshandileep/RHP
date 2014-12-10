@@ -132,50 +132,64 @@ namespace USA_Rent_House_Project
                         // authanticate fbuser get userneame and pwd
                         // get user from fbid (username)
                         // stringpassword = membership
+                        
+                            user.UserName = user.GetFBUsernameByFBId(user.FBid);
 
-                        user.UserName = user.GetFBUsernameByFBId(user.FBid);
-
-                        if (user.AuthenticateUser())
-                        {
-                            try
+                            if (user.AuthenticateUser())
                             {
-                                Session[Constants.SESSION_LOGGED_USER] = user;
-                                user.RedirectUserFromLogin(false);
+                                try
+                                {
+                                    Session[Constants.SESSION_LOGGED_USER] = user;
+                                    user.RedirectUserFromLogin(false);
+                                }
+                                catch (Exception ex)
+                                {
+                                    user.LogOut();
+                                }
                             }
-                            catch (Exception ex)
+                            else
                             {
                                 user.LogOut();
                             }
-                        }
-                        else
-                        {
-                            user.LogOut();
-                        }
-
+                       
                     }
                     else
                     {
-                        bool boolMembershipUserCreated = false;
-                        object objCreateMembershipUser = new object();
-                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
 
-                        bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
-
-                        if (boolMembershipUserCreated)
+                        if (user.IsUserEmailExist(user.Email))
                         {
-                            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                            user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                            user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.EmailExist + "'); window.location = '/Login.aspx'; }", true);
 
-                            if (user.Save())
+                        }
+                        else
+                        {
+                            bool boolMembershipUserCreated = false;
+                            object objCreateMembershipUser = new object();
+                            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
+
+                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                            if (boolMembershipUserCreated)
                             {
-                                Session[Constants.SESSION_LOGGED_USER] = user;
+                                user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
-                                FormsAuthentication.SetAuthCookie(user.UserName, false);
-                                MembershipUser newUser = Membership.GetUser(user.UserName);
+                                if (user.Save())
+                                {
+                                    Session[Constants.SESSION_LOGGED_USER] = user;
 
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
+                                    MembershipUser newUser = Membership.GetUser(user.UserName);
 
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
+
+                                }
+                                else
+                                {
+                                    user.LogOut();
+                                    Response.Redirect("~/Login.aspx", false);
+                                }
                             }
                             else
                             {
@@ -183,11 +197,7 @@ namespace USA_Rent_House_Project
                                 Response.Redirect("~/Login.aspx", false);
                             }
                         }
-                        else
-                        {
-                            user.LogOut();
-                            Response.Redirect("~/Login.aspx", false);
-                        }
+                        
                     }
 
                 }

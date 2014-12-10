@@ -29,7 +29,7 @@ namespace RHP.Common
         public static readonly string Validation_Fail = "Please Validate required Fields";
 
         public static readonly string Delete_Confirm = "Are you sure you want to delete this record?";
-
+        public static readonly string EmailExist = "Facebook Email Address Already registerd!";
 
     }
 }

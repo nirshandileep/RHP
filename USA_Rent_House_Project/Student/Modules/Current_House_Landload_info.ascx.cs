@@ -336,17 +336,42 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void ButtonLeaveHouse_Click1(object sender, EventArgs e)
         {
-            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-            user.HouseId = null;
-            if (user.UpdateHouse())
+            //user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            //user.HouseId = null;
+            //if (user.UpdateHouse())
+            //{
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+            //}
+            //else
+            //{
+            //    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_Unsuccess + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+            //}
+        }
+
+        public void OnConfirm(object sender, EventArgs e)
+        {
+            string confirmValue = Request.Form["confirm_value"];
+            if (confirmValue == "Yes")
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+                user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user.HouseId = null;
+                if (user.UpdateHouse())
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_Unsuccess + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+                }
+
+               // this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You clicked YES!')", true);
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_Unsuccess + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+               // this.Page.ClientScript.RegisterStartupScript(this.GetType(), "alert", "alert('You clicked NO!')", true);
             }
         }
+
 
     }
 }

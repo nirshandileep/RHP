@@ -28,7 +28,7 @@
             <h1>
                 Search House</h1>
             <div id="forminner">
-                <p>
+                <p id="school" runat="server" visible="false">
                     <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
                     <%-- <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w3"></asp:TextBox>--%>
                     <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="53%" AutoResizeWithContainer="True"
@@ -254,7 +254,9 @@
                         <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>
                         <asp:Label ID="Zip" runat="server" Text='<%# Eval("Zip") %>'></asp:Label>
 
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
+                                                                                            <%--    NavigateUrl='<%# Eval("UserId","","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}") %>'>--%>
+
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# String.Format("~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}", DataBinder.Eval(Container.DataItem, "HouseId"), DataBinder.Eval(Container.DataItem, "LandlordId")) %>'> View Profile</asp:HyperLink>
                         <br />Year Home Build :
                         <asp:Label ID="YearHomeBuild" runat="server" Text='<%# Eval("YearHomeBuild") %>'></asp:Label>
                         <br />

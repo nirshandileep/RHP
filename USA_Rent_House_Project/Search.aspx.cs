@@ -217,6 +217,7 @@ namespace USA_Rent_House_Project
 
         protected void StudentItemDataBound(object sender, DataListItemEventArgs e)
         {
+
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
 
