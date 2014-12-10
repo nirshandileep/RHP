@@ -29,19 +29,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 loadUser();
             }
 
-                if (AccessCode != string.Empty && AccessCode != null)
+            if (AccessCode != string.Empty && AccessCode != null)
+            {
+                try
                 {
-                    try
-                    {
-                        
-                         LoadComments(Guid.Parse(AccessCode));
-                    }
-                    catch (Exception ex)
-                    { }
-                }
 
-           
-            
+                    LoadComments(Guid.Parse(AccessCode));
+                }
+                catch (Exception ex)
+                { }
+            }
         }
 
         public void loadUser()
@@ -67,64 +64,28 @@ namespace USA_Rent_House_Project.Land_load.Modules
             jmgHeaderImage.ImageUrl = photo.LoadImage(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()), Enums.PhotoCategory.Cover_Picture);
         }
 
-
-        //public void LoadImages()
-        //{
-        //    string ProfileCoverImagePath = "";
-        //    string ProfileImagePath = "";
-        //    Photo photo = new Photo();
-
-        //    List<Photo> PhotoList = Photo.SelectAllByContextId(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-
-        //    if (PhotoList.Count > 0)
-        //    {
-        //        foreach (Photo _List in PhotoList)
-        //        {
-        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
-        //            {
-        //                ProfileCoverImagePath = _List.FilePath;
-
-        //            }
-
-        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
-        //            {
-        //                ProfileImagePath = _List.FilePath;
-        //            }
-
-        //        }
-
-        //    }
-
-        //    imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
-
-        //    jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
-
-           
-        //}
-
         public void LoadComments(Guid AccessCode)
         {
-           
-                DataSet ds;
-                ds = new CommentDAO().SelectByContext(2, AccessCode);
 
-                if (ds != null)
-                {
-                    decimal rate = 0;
+            ASPxRating.Value = new Comment().GetOverrallFeedbackByContext(Enums.ContextType.Landlord, AccessCode);
+            //DataSet ds;
+            //ds = new CommentDAO().SelectByContext(2, AccessCode);
 
-                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                    {
-                        rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
-                    }
+            //if (ds != null)
+            //{
+            //    decimal rate = 0;
 
-                    if (rate > 0)
-                    {
-                        rate = rate / ds.Tables[0].Rows.Count;
-                    }
-                    ASPxRating.Value = rate;
-                }
-                
-           
+            //    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            //    {
+            //        rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
+            //    }
+
+            //    if (rate > 0)
+            //    {
+            //        rate = rate / ds.Tables[0].Rows.Count;
+            //    }
+            //    ASPxRating.Value = rate;
+            //}
         }
     }
 }

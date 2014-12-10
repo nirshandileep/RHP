@@ -194,6 +194,7 @@
     <Content Include="Administrator\UserList.aspx" />
     <Content Include="Change_Password.aspx" />
     <Content Include="Change_Secret_Question.aspx" />
+    <Content Include="Contest.aspx" />
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
@@ -528,6 +529,13 @@
     </Compile>
     <Compile Include="Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contest.aspx.cs">
+      <DependentUpon>Contest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contest.aspx.designer.cs">
+      <DependentUpon>Contest.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomError.aspx.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
