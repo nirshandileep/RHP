@@ -57,64 +57,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
             imgLandloadProfileImage.ImageUrl = photo.LoadImage(AccessCode2, Enums.PhotoCategory.Profile_Picture);
             jmgHeaderImage.ImageUrl = photo.LoadImage(AccessCode2, Enums.PhotoCategory.Cover_Picture);
         }
-
-        //public void LoadImages(Guid AccessCode, Guid AccessCode2)
-        //{
-        //    string ProfileCoverImagePath = "";
-        //    string ProfileImagePath = "";
-        //    Photo photo = new Photo();
-
-        //    List<Photo> PhotoList = Photo.SelectAllByContextId(AccessCode2);
-
-        //    if (PhotoList.Count > 0)
-        //    {
-        //        foreach (Photo _List in PhotoList)
-        //        {
-        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Cover_Picture)
-        //            {
-        //                ProfileCoverImagePath = _List.FilePath;
-
-        //            }
-
-        //            if (_List.PhotoCategoryId == (int)Enums.PhotoCategory.Profile_Picture)
-        //            {
-        //                ProfileImagePath = _List.FilePath;
-        //            }
-
-        //        }
-
-        //    }
-
-        //    imgLandloadProfileImage.ImageUrl = photo.LoadProfileImage(ProfileImagePath);
-
-        //    jmgHeaderImage.ImageUrl = photo.LoadProfileCoverImage(ProfileCoverImagePath);
-
-
-        //}
-
+        
         public void LoadComments(Guid AccessCode)
         {
-           
-            DataSet ds;
-            ds = new CommentDAO().SelectByContext(2, AccessCode);
-
-            if (ds != null)
-            {
-                decimal rate = 0;
-
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
-                }
-
-                if (rate > 0)
-                {
-                    rate = rate / ds.Tables[0].Rows.Count;
-                }
-                ASPxRating.Value = rate;
-            }
-
-
+            ASPxRating.Value = new Comment().GetOverrallFeedbackByContext(Enums.ContextType.Landlord, AccessCode);
         }
     }
 }

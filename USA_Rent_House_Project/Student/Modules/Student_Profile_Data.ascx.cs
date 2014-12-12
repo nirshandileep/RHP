@@ -88,27 +88,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void LoadComments(Guid AccessCode)
         {
-
-            DataSet ds;
-            ds = new CommentDAO().SelectByContext(1, AccessCode);
-
-            if (ds != null)
-            {
-                decimal rate = 0;
-
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    rate = rate + decimal.Parse(string.IsNullOrEmpty(ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim()) ? "0" : ds.Tables[0].Rows[i]["RatingValue"].ToString().Trim());
-                }
-
-                if (rate > 0)
-                {
-                    rate = rate / ds.Tables[0].Rows.Count;
-                }
-                MyRatingValue.Value = rate;
-            }
-
-
+            MyRatingValue.Value = new Comment().GetOverrallFeedbackByContext(Enums.ContextType.Student, AccessCode);
         }
     }
 }

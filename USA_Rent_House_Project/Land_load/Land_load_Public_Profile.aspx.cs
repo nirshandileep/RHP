@@ -16,22 +16,6 @@ namespace USA_Rent_House_Project.Land_load
             {
                 Landload_Profile_Comment_Add1.Visible = true;
             }
-
-
-            //string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-
-            //if (AccessCode != string.Empty && AccessCode != null)
-            //{
-            //    try
-            //    {
-            //        HyperLinkHouseDetails.NavigateUrl = "~/Land_load/Land_Load_House_View.aspx?AccessCode=" + AccessCode;
-            //       
-            //    }
-            //    catch (Exception ex)
-            //    { }
-            //}
-
-           // ASPxRating.Value = decimal.Parse("4.00");
         }
     }
 }

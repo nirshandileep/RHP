@@ -198,6 +198,14 @@
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
+    <Content Include="Images\cover-change.png" />
+    <Content Include="Images\icon-fb.jpg" />
+    <Content Include="Images\icon-googleplus.jpg" />
+    <Content Include="Images\icon-insta.jpg" />
+    <Content Include="Images\icon-linkdin.jpg" />
+    <Content Include="Images\icon-twiiter.jpg" />
+    <Content Include="Images\icon-youtube.jpg" />
+    <Content Include="Images\profile-change.png" />
     <Content Include="Images\Sample\House.jpg" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\login_with_facebook.png" />

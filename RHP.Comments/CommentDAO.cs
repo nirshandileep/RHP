@@ -33,10 +33,9 @@ namespace RHP.Comments
 
             using (IDataReader dataReader = db.ExecuteReader(command))
             {
-                Comment entity;
-                if (dataReader.Read())
+                while(dataReader.Read())
                 {
-                    entity = new Comment();
+                    Comment entity = new Comment();
                     Generic.AssignDataReaderToEntity(dataReader, entity);
                     commentsList.Add(entity);
                 }

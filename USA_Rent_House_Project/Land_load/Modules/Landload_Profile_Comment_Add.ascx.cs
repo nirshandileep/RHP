@@ -20,30 +20,30 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         Comment comment = new Comment();
 
-        //private User _user;
+        private User _user;
 
-        //public User user
-        //{
-        //    get
-        //    {
-        //        _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-        //        if (_user == null)
-        //        {
-        //            _user = new User(); // _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-        //        }
-        //        else
-        //        {
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
+                    
+                }
+                else
+                {
 
-        //        }
-        //        Session[Constants.SESSION_LOGGED_USER] = _user;
-        //        return _user;
-        //    }
-        //    set
-        //    {
-        //        _user = value;
-        //        Session[Constants.SESSION_LOGGED_USER] = _user;
-        //    }
-        //}
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -211,57 +211,39 @@ namespace USA_Rent_House_Project.Land_load.Modules
         public decimal CalculateReting()
         {
 
-            decimal Ratingpayment = ASPxRatingpayment.Value;
-            decimal Ratingcleanliness = ASPxRatingcleanliness.Value;
-            decimal Ratingcondition = ASPxRatingcondition.Value;
-            decimal Ratingresponsiveness = ASPxRatingresponsiveness.Value;
-            decimal Ratingfriendliness = ASPxRatingfriendliness.Value;
-            decimal Ratingresponsible = ASPxRatingresponsible.Value;
-            decimal Ratinggoodroommate = ASPxRatinggoodroommate.Value;
+            //decimal Ratingpayment = ASPxRatingpayment.Value;
+            //decimal Ratingcleanliness = ASPxRatingcleanliness.Value;
+            //decimal Ratingcondition = ASPxRatingcondition.Value;
+            //decimal Ratingresponsiveness = ASPxRatingresponsiveness.Value;
+            //decimal Ratingfriendliness = ASPxRatingfriendliness.Value;
+            //decimal Ratingresponsible = ASPxRatingresponsible.Value;
+            //decimal Ratinggoodroommate = ASPxRatinggoodroommate.Value;
 
-            decimal totalrating = 0;
-            decimal ratevalue = 0;
+            //decimal totalrating = 0;
+            //decimal ratevalue = 0;
 
-            //Rating system for the Students by other roommates
-            totalrating = Ratingpayment + Ratingcleanliness + Ratingcondition + Ratingresponsiveness + Ratingfriendliness + Ratingresponsible;
-            ratevalue = (Ratingpayment * (totalrating * 5 / 100)) + (Ratingcleanliness * (totalrating * 25 / 100)) + (Ratingcondition * (totalrating * 50 / 100)) + (Ratingresponsiveness * (totalrating * 5 / 100)) + (Ratingfriendliness * (totalrating * 5 / 100)) + (Ratingresponsible * (totalrating * 10 / 100));
-
-            decimal finalrating = ratevalue / 6;
-
-            //Rating system for the students by landlord
-
-
-            //#1 = payment on time (10 houses)
-            //#2 – cleanliness throughout stay (10 houses)
-            //#3 – condition of house (10 houses)
-            //#4 – responsiveness of student (10 houses)
-            //#5 – friendliness (10 houses)
-            //#6 – responsible (10 houses)
-
-            //Equation
-
-            //(#1 * 5%) + (#2 * 25%) + (#3 * 50%) + (#4 * 5%) + (#5 * 5%) + (#6 * 10%)
-
-
-            //Rating system for the Students by other roommates
-
-            //#1 = cleanliness throughout stay (10 houses)
-            //#2= condition of house (10 houses)
-            //#3 responsiveness of student (10 houses)
-            //#4= friendliness (10 houses)
-            //#5 = responsible (10 houses)
-            //#6 = good roommate (10 houses)
-
-            //equation
-
-            //(#1 * 20%) + (#2 * 10%) + (#3 * 10%) +(#4 * 10%) + (#5 * 20%) + (#6 *30)
-
-            //
+            ////Rating system for the Students by other roommates
             //totalrating = Ratingpayment + Ratingcleanliness + Ratingcondition + Ratingresponsiveness + Ratingfriendliness + Ratingresponsible;
             //ratevalue = (Ratingpayment * (totalrating * 5 / 100)) + (Ratingcleanliness * (totalrating * 25 / 100)) + (Ratingcondition * (totalrating * 50 / 100)) + (Ratingresponsiveness * (totalrating * 5 / 100)) + (Ratingfriendliness * (totalrating * 5 / 100)) + (Ratingresponsible * (totalrating * 10 / 100));
 
+            //decimal finalrating = ratevalue / 6;
 
-            return finalrating;
+            comment.FeedbackQuestions = comment.SelectFeedbackQuestions();
+
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 1).RatingValue = ASPxRatingpayment.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 2).RatingValue = ASPxRatingcleanliness.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 3).RatingValue = ASPxRatingcondition.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 4).RatingValue = ASPxRatingresponsiveness.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 5).RatingValue = ASPxRatingfriendliness.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 6).RatingValue = ASPxRatingresponsible.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 7).RatingValue = ASPxRatinggoodroommate.Value;
+
+            decimal ratevalue = 0;
+
+            //Rating system for the Students by other roommates
+            ratevalue = comment.CalculateFeedbackByUserRole(user.RoleId == Constants.USER_ROLE_LANDLORD ? Enums.UserRoles.Landlord : Enums.UserRoles.Student);
+
+            return ratevalue;
         }
 
     }
