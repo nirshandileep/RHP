@@ -196,7 +196,6 @@
     <Content Include="Change_Secret_Question.aspx" />
     <Content Include="Contest.aspx" />
     <Content Include="CustomError.aspx" />
-    <Content Include="Default2.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\Sample\House.jpg" />
@@ -551,12 +550,6 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default2.aspx.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Default2.aspx.designer.cs">
-      <DependentUpon>Default2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Email_Verification.aspx.cs">
       <DependentUpon>Email_Verification.aspx</DependentUpon>
