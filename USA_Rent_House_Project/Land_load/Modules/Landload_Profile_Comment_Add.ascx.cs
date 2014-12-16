@@ -52,22 +52,43 @@ namespace USA_Rent_House_Project.Land_load.Modules
             LbPhoto.Attributes.Add("onClick", "return false;");
             LbUpload.Attributes.Add("onClick", "return false;");
 
+            SetUserBasedRestrictions();
 
-            //string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+        }
 
-            //if (AccessCode != null && AccessCode != string.Empty)
-            //{
-            //    try
-            //    {
-            //        LoadUserData(Guid.Parse(AccessCode));
-            //    }
-            //    catch (Exception ex)
-            //    {
+        private void SetUserBasedRestrictions()
+        {
+            string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+            User currentProfileUser = User.Select(Guid.Parse(AccessCode));
 
-            //    }
-            //}
+            //Check if the user is the same as the logged users id
+            //One cannot rate himself
+            if (user == null)
+            {
+                LbFeedback.Visible = false;
+                FeedbackButton.Visible = false;
+            }
+            else
+            {
+                if (currentProfileUser.UserId == user.UserId)
+                {
+                    LbFeedback.Visible = false;
+                    FeedbackButton.Visible = false;
+                }
 
+                if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+                {
 
+                }
+                else if (user.RoleId == Constants.USER_ROLE_STUDENT)
+                {
+
+                }
+                else
+                {
+
+                }
+            }
         }
 
         public void LoadUserData(Guid AccessCode)
@@ -210,94 +231,31 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         public decimal CalculateReting()
         {
-
-            //decimal Ratingpayment = ASPxRatingpayment.Value;
-            //decimal Ratingcleanliness = ASPxRatingcleanliness.Value;
-            //decimal Ratingcondition = ASPxRatingcondition.Value;
-            //decimal Ratingresponsiveness = ASPxRatingresponsiveness.Value;
-            //decimal Ratingfriendliness = ASPxRatingfriendliness.Value;
-            //decimal Ratingresponsible = ASPxRatingresponsible.Value;
-            //decimal Ratinggoodroommate = ASPxRatinggoodroommate.Value;
-
-            //decimal totalrating = 0;
-            //decimal ratevalue = 0;
-
-            ////Rating system for the Students by other roommates
-            //totalrating = Ratingpayment + Ratingcleanliness + Ratingcondition + Ratingresponsiveness + Ratingfriendliness + Ratingresponsible;
-            //ratevalue = (Ratingpayment * (totalrating * 5 / 100)) + (Ratingcleanliness * (totalrating * 25 / 100)) + (Ratingcondition * (totalrating * 50 / 100)) + (Ratingresponsiveness * (totalrating * 5 / 100)) + (Ratingfriendliness * (totalrating * 5 / 100)) + (Ratingresponsible * (totalrating * 10 / 100));
-
-            //decimal finalrating = ratevalue / 6;
-
             comment.FeedbackQuestions = comment.SelectFeedbackQuestions();
 
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 1).RatingValue = ASPxRatingpayment.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 2).RatingValue = ASPxRatingcleanliness.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 3).RatingValue = ASPxRatingcondition.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 4).RatingValue = ASPxRatingresponsiveness.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 5).RatingValue = ASPxRatingfriendliness.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 6).RatingValue = ASPxRatingresponsible.Value;
-            comment.FeedbackQuestions.Find(a => a.QuestionId == 7).RatingValue = ASPxRatinggoodroommate.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 8).RatingValue = ASPxRatingRent.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 9).RatingValue = ASPxRatingAmenities.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 10).RatingValue = ASPxRatingcondition.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 11).RatingValue = ASPxRatingBackYard.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 12).RatingValue = ASPxRatingResponsiveOfLandlord.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 13).RatingValue = ASPxRatingLocation.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 14).RatingValue = ASPxRatingFairnessOfLandlord.Value;
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 15).RatingValue = ASPxRatingGoodLandlord.Value;
+
+            string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+            Guid.Parse(AccessCode);
+
+            //Get automatic ratings
+            //Todo: The below code has to be rewritten to get the correct rating values.
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 16).RatingValue = comment.GetAutomaticRentRatingByLandlord(Guid.Parse(AccessCode));
+            comment.FeedbackQuestions.Find(a => a.QuestionId == 17).RatingValue = comment.GetAutomaticAmenitiesRatingByLandlord(Guid.Parse(AccessCode));
 
             decimal ratevalue = 0;
-
             //Rating system for the Students by other roommates
-            ratevalue = comment.CalculateFeedbackByUserRole(user.RoleId == Constants.USER_ROLE_LANDLORD ? Enums.UserRoles.Landlord : Enums.UserRoles.Student);
+            ratevalue = comment.CalculateLandlordFeedback(Guid.Parse(AccessCode));
 
             return ratevalue;
         }
 
     }
 }
-
-
-    //    protected void CommentButton_Click(object sender, EventArgs e)
-    //    {
-    //        if (Page.IsValid == true)
-    //        {
-    //            try
-    //            {
-    //                 string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-
-    //                 if (AccessCode != null && AccessCode != string.Empty)
-    //                 {
-
-    //                     if (CommentMessage.Text.Trim() != "")
-    //                     {
-    //                         comment.ContextId = Guid.Parse(AccessCode); //Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-    //                         comment.CommentText = CommentMessage.Text.Trim();
-    //                         comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-    //                         comment.ContextTypeId = (int)Enums.ContextType.Landlord;
-    //                         comment.CommentTypeId = (int)Enums.CommentType.Comment;
-    //                         comment.FilePath = "";
-    //                         comment.RatingValue = ASPxRating.Value;
-
-    //                         if (comment.Insert(comment))
-    //                         {
-    //                             DataSet ds;
-    //                             ds = new CommentDAO().SelectByContext(2, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-    //                             ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["CommentId"] };
-    //                             Session[Constants.SESSION_HOUSE_COMMENTS] = ds;
-
-    //                             CommentMessage.Text = "";
-    //                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
-    //                         }
-    //                         else
-    //                         {
-    //                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
-    //                         }
-
-    //                     }
-    //                     else
-    //                     {
-    //                         Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "');}", true);
-    //                     }
-    //                 }
-    //            }
-    //            catch (Exception ex)
-    //            {
-    //                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Unsuccess + "'); }", true);
-    //                throw ex;
-    //            }
-    //        }
-    //    }
-    //}

@@ -11,5 +11,6 @@ namespace RHP.Comments
         public string Question { get; set; }
         public decimal QuestionWeight { get; set; }
         public decimal RatingValue { get; set; }
+        public bool AutomaticCalculation { get; set; }
     }
 }

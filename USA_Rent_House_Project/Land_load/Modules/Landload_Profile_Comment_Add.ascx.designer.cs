@@ -94,49 +94,40 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.Button CommentButton;
         
         /// <summary>
-        /// paymentontime control.
+        /// LabelRent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl paymentontime;
+        protected global::System.Web.UI.WebControls.Label LabelRent;
         
         /// <summary>
-        /// LabelAwards control.
+        /// ASPxRatingRent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelAwards;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingRent;
         
         /// <summary>
-        /// ASPxRatingpayment control.
+        /// LabelAmenities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingpayment;
+        protected global::System.Web.UI.WebControls.Label LabelAmenities;
         
         /// <summary>
-        /// Label1 control.
+        /// ASPxRatingAmenities control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-        
-        /// <summary>
-        /// ASPxRatingcleanliness control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingcleanliness;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingAmenities;
         
         /// <summary>
         /// Label2 control.
@@ -157,85 +148,94 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingcondition;
         
         /// <summary>
-        /// Label3 control.
+        /// LabelBackYard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label LabelBackYard;
         
         /// <summary>
-        /// ASPxRatingresponsiveness control.
+        /// ASPxRatingBackYard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingresponsiveness;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingBackYard;
         
         /// <summary>
-        /// Label4 control.
+        /// LabelResponsiveOfLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.Label LabelResponsiveOfLandlord;
         
         /// <summary>
-        /// ASPxRatingfriendliness control.
+        /// ASPxRatingResponsiveOfLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingfriendliness;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingResponsiveOfLandlord;
         
         /// <summary>
-        /// Label5 control.
+        /// LabelLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.Label LabelLocation;
         
         /// <summary>
-        /// ASPxRatingresponsible control.
+        /// ASPxRatingLocation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingresponsible;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingLocation;
         
         /// <summary>
-        /// Ratinggoodroommate control.
+        /// LabelFairnessOfLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Ratinggoodroommate;
+        protected global::System.Web.UI.WebControls.Label LabelFairnessOfLandlord;
         
         /// <summary>
-        /// Label6 control.
+        /// ASPxRatingFairnessOfLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingFairnessOfLandlord;
         
         /// <summary>
-        /// ASPxRatinggoodroommate control.
+        /// LabelGoodLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatinggoodroommate;
+        protected global::System.Web.UI.WebControls.Label LabelGoodLandlord;
+        
+        /// <summary>
+        /// ASPxRatingGoodLandlord control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxRatingControl.ASPxRatingControl ASPxRatingGoodLandlord;
         
         /// <summary>
         /// FeedbackText control.

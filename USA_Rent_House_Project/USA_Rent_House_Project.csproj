@@ -263,9 +263,7 @@
     <Content Include="Modules\Secret_Question.ascx" />
     <Content Include="Partial_User_Verification.aspx" />
     <Content Include="Request_New_Password.aspx" />
-    <Content Include="Scripts\jquery-1.7.2.min.js" />
     <Content Include="Scripts\jquery.Jcrop.js" />
-    <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Search.aspx" />
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Change_Password.aspx" />

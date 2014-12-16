@@ -225,13 +225,28 @@ namespace RHP.Comments
         {
             List<FeedbackQuestion> feedbackQuestions = new List<FeedbackQuestion>();
 
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 1, Question = "Payment on time :" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 2, Question = "Cleanliness throughout stay :" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 3, Question = "Condition of house:" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 4, Question = "Responsiveness of student :" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 5, Question = "Friendliness :" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 6, Question = "Responsible :" });
-            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 7, Question = "Good Roommate :" });
+            //Student related questions
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 1, Question = "Payment on time :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 2, Question = "Cleanliness throughout stay :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 3, Question = "Condition of house:", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 4, Question = "Responsiveness of student :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 5, Question = "Friendliness :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 6, Question = "Responsible :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 7, Question = "Good Roommate :", AutomaticCalculation = false });
+
+            //Landlord related questions
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 8, Question = "Rent :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 9, Question = "Amenities :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 10, Question = "Condition of house:", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 11, Question = "Back yard:", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 12, Question = "Responsive of Landlord :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 13, Question = "Location :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 14, Question = "Fairness of Landlord :", AutomaticCalculation = false });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 15, Question = "Good Landlord :", AutomaticCalculation = false });
+
+            //Calculated automatically
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 16, Question = "Rent* :", AutomaticCalculation = true });
+            feedbackQuestions.Add(new FeedbackQuestion() { QuestionId = 17, Question = "Amenities* :", AutomaticCalculation = true });
 
             return feedbackQuestions;
         }
@@ -277,6 +292,69 @@ namespace RHP.Comments
             }
 
             return finalRatingValue;
+        }
+
+        public decimal CalculateLandlordFeedback(Guid landlordId)
+        {
+            decimal finalRatingValue = 0;
+
+            int index = 7;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.15M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.2M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.05M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+
+            //Automated questions
+            this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+            this.FeedbackQuestions[index++].QuestionWeight = 0.1M;
+
+            foreach (FeedbackQuestion question in this.FeedbackQuestions)
+            {
+                finalRatingValue += question.QuestionWeight * question.RatingValue;
+            }
+
+            return finalRatingValue;
+        }
+
+        public decimal GetAutomaticRentRatingByLandlord(Guid landlordid)
+        {
+            decimal returnValue = 5.0M;
+
+            decimal avgPerSqFt = 1.04M;
+
+            decimal squearefootage = 1000;//Todo: get from current house
+            decimal rent = 500;//Todo: get value from current house
+
+            if (rent == 0)
+            {
+                rent = 1;
+            }
+
+            decimal rentpersqfoot = squearefootage / rent;
+            decimal starsperdoller = 5/1.04M;
+
+            returnValue = ((avgPerSqFt * squearefootage) / rent) * 5;
+
+            if (returnValue>7)
+            {
+                returnValue = 7;
+            }
+            else if (returnValue<2)
+            {
+                returnValue = 2;
+            }
+
+            return returnValue;
+        }
+
+        public decimal GetAutomaticAmenitiesRatingByLandlord(Guid landlordid)
+        {
+            decimal returnValue = 5.0M;
+            return returnValue;
         }
 
         public decimal GetOverrallFeedbackByContext(Enums.ContextType contextType, Guid contextId)

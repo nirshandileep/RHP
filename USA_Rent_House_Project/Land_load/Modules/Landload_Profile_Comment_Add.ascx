@@ -45,16 +45,16 @@
     </div>
     <%-- add feedback--%>
     <div id="DivFeedback" style="display: none">
-        <p id="paymentontime" runat="server" visible="false">
-            <asp:Label ID="LabelAwards" runat="server" AssociatedControlID="ASPxRatingpayment"
-                CssClass="form_label">Payment on Time :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatingpayment" runat="server">
+        <p>
+            <asp:Label ID="LabelRent" runat="server" AssociatedControlID="ASPxRatingRent"
+                CssClass="form_label">Rent :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingRent" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>
-            <asp:Label ID="Label1" runat="server" AssociatedControlID="ASPxRatingcleanliness"
-                CssClass="form_label">Cleanliness Throughout Stay :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatingcleanliness" runat="server">
+            <asp:Label ID="LabelAmenities" runat="server" AssociatedControlID="ASPxRatingAmenities"
+                CssClass="form_label">Amenities :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingAmenities" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>
@@ -63,27 +63,33 @@
             </dx:ASPxRatingControl>
         </p>
         <p>
-            <asp:Label ID="Label3" runat="server" AssociatedControlID="ASPxRatingresponsiveness"
-                CssClass="form_label">Responsiveness of Student :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatingresponsiveness" runat="server">
+            <asp:Label ID="LabelBackYard" runat="server" AssociatedControlID="ASPxRatingresBackYard"
+                CssClass="form_label">Back yard :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingBackYard" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>
-            <asp:Label ID="Label4" runat="server" AssociatedControlID="ASPxRatingfriendliness"
-                CssClass="form_label">Friendliness :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatingfriendliness" runat="server">
+            <asp:Label ID="LabelResponsiveOfLandlord" runat="server" AssociatedControlID="ASPxRatingResponsiveOfLandlord"
+                CssClass="form_label">Responsive Of Landlord :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingResponsiveOfLandlord" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>
-            <asp:Label ID="Label5" runat="server" AssociatedControlID="ASPxRatingresponsible"
-                CssClass="form_label">Responsible  :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatingresponsible" runat="server">
+            <asp:Label ID="LabelLocation" runat="server" AssociatedControlID="ASPxRatingLocation"
+                CssClass="form_label">Location :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingLocation" runat="server">
             </dx:ASPxRatingControl>
         </p>
-        <p id="Ratinggoodroommate" runat="server" visible="false">
-            <asp:Label ID="Label6" runat="server" AssociatedControlID="ASPxRatinggoodroommate"
-                CssClass="form_label">Good Roommate  :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatinggoodroommate" runat="server" ItemCount="10">
+        <p>
+            <asp:Label ID="LabelFairnessOfLandlord" runat="server" AssociatedControlID="ASPxRatingFairnessOfLandlord"
+                CssClass="form_label">Fairness Of Landlord :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingFairnessOfLandlord" runat="server" ItemCount="5">
+            </dx:ASPxRatingControl>
+        </p>
+        <p>
+            <asp:Label ID="LabelGoodLandlord" runat="server" AssociatedControlID="ASPxRatingGoodLandlord"
+                CssClass="form_label">Good Landlord :</asp:Label>
+            <dx:ASPxRatingControl ID="ASPxRatingGoodLandlord" runat="server" ItemCount="5">
             </dx:ASPxRatingControl>
         </p>
         <p>
