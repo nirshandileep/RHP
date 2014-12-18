@@ -4,7 +4,7 @@
     <div runat="server">
         <div id="currentHomeStudentData" runat="server" visible="false">
             <h2>
-                All the Students Live in the Current Home</h2>
+                All Students Living in the Current House</h2>
             <br />
             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
                 OnItemDataBound="ItemDataBound">

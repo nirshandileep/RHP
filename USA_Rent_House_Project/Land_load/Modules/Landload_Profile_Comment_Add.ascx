@@ -63,7 +63,7 @@
             </dx:ASPxRatingControl>
         </p>
         <p>
-            <asp:Label ID="LabelBackYard" runat="server" AssociatedControlID="ASPxRatingresBackYard"
+            <asp:Label ID="LabelBackYard" runat="server" AssociatedControlID="ASPxRatingBackYard"
                 CssClass="form_label">Back yard :</asp:Label>
             <dx:ASPxRatingControl ID="ASPxRatingBackYard" runat="server">
             </dx:ASPxRatingControl>

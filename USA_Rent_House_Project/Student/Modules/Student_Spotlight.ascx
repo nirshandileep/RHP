@@ -16,7 +16,12 @@
             </p>
             <p>
                 <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Curent GPA:</asp:Label>
-                <asp:TextBox ID="CurentGPA" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="2"></asp:TextBox>
+                <asp:TextBox ID="CurentGPA" runat="server" CssClass="textEntry textbox_w1" 
+                    Width="790px"  Rows="2" ControlToValidate="CurentGPA"></asp:TextBox>
+                <asp:RangeValidator ID="RangeValidator1" runat="server"
+                        ErrorMessage="Incorrect GPA Value" ControlToValidate="CurentGPA" 
+                    Display="Dynamic" MaximumValue="5.01" MinimumValue="0.01" Type="Double" 
+                    SetFocusOnError="True" ValidationGroup="SaveSchoolValidationGroup"></asp:RangeValidator>
             </p>
             <p>
                 <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Student Oraganizations/Clubs/ect:</asp:Label>

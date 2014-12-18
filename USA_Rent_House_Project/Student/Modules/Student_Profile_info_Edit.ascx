@@ -60,7 +60,7 @@
                     ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
             </p>
             <p>
-                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Address:</asp:Label>
+                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">From Address:</asp:Label>
                 <asp:TextBox ID="Address" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="AddressRequiredField" runat="server" ControlToValidate="Address"
                     CssClass="failureNotification" ErrorMessage="Address is required." ToolTip="Address is required."

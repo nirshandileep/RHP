@@ -294,5 +294,15 @@ namespace USA_Rent_House_Project.Student
             }
             loadcontrol();
         }
+
+        protected void UpdateCurrentHouseButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void LeaveCurrentHouseButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

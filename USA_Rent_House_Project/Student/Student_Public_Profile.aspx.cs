@@ -43,13 +43,20 @@ namespace USA_Rent_House_Project.Student
                 User currentProfileUser = RHP.UserManagement.User.Select(Guid.Parse(AccessCode));
 
                 //Check if the user is the same as the logged users id
-                if (currentProfileUser.HouseId == user.HouseId)
+                if (currentProfileUser == null || currentProfileUser.HouseId == null)
                 {
-                    Student_Profile_Comment_Add1.Visible = true;
+                    Student_Profile_Comment_Add1.Visible = false;
                 }
                 else
                 {
-                    Student_Profile_Comment_Add1.Visible = false;
+                    if (currentProfileUser.HouseId == user.HouseId)
+                    {
+                        Student_Profile_Comment_Add1.Visible = true;
+                    }
+                    else
+                    {
+                        Student_Profile_Comment_Add1.Visible = false;
+                    }
                 }
             }
         }

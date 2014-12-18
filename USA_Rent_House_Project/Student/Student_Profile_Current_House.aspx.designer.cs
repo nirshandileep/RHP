@@ -130,6 +130,24 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.WebControls.HiddenField hdnStepNumber;
         
         /// <summary>
+        /// UpdateCurrentHouseButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button UpdateCurrentHouseButton;
+        
+        /// <summary>
+        /// LeaveCurrentHouseButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LeaveCurrentHouseButton;
+        
+        /// <summary>
         /// Current_House_Landload_infoID control.
         /// </summary>
         /// <remarks>

@@ -74,30 +74,41 @@ namespace USA_Rent_House_Project.Student.Modules
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
             User currentProfileUser = User.Select(Guid.Parse(AccessCode));
 
-            //Check if the user is the same as the logged users id
-            //One cannot rate himself
-            if (currentProfileUser.UserId == user.UserId)
+            if (user != null)
             {
-                LbFeedback.Visible = false;
-                FeedbackButton.Visible = false;
-            }
-            else
-            {
-                //Hide the comments add section
-            }
+                //Check if the user is the same as the logged users id
+                //One cannot rate himself
+                if (currentProfileUser.UserId == user.UserId)
+                {
+                    LbFeedback.Visible = false;
+                    FeedbackButton.Visible = false;
+                }
+                else
+                {
+                    //Hide the comments add section
+                }
 
-            if (user.RoleId == Constants.USER_ROLE_LANDLORD)
-            {
-                paymentontime.Visible = true;
-            }
-            else if (user.RoleId == Constants.USER_ROLE_STUDENT)
-            {
-                Ratinggoodroommate.Visible = true;
+                if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+                {
+                    paymentontime.Visible = true;
+                }
+                else if (user.RoleId == Constants.USER_ROLE_STUDENT)
+                {
+                    Ratinggoodroommate.Visible = true;
+                }
+                else
+                {
+                    paymentontime.Visible = false;
+                    Ratinggoodroommate.Visible = false;
+                }
             }
             else
             {
                 paymentontime.Visible = false;
                 Ratinggoodroommate.Visible = false;
+
+                LbFeedback.Visible = false;
+                FeedbackButton.Visible = false;
             }
         }
 

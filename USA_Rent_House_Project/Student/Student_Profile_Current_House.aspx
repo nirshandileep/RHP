@@ -38,6 +38,16 @@
                     My Current House
                 </h2>
                 <div id="formwrapper">
+                <p>
+                                <asp:Button ID="UpdateCurrentHouseButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+                                Text="Update current house" onclick="UpdateCurrentHouseButton_Click" Visible="true" />
+                              
+                                &nbsp;<asp:Button ID="LeaveCurrentHouseButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
+                                Text="Leave current house" onclick="LeaveCurrentHouseButton_Click" Visible="true" />
+                        
+                        
+                        
+                </p>
                     <div id="forminner">
                         <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" 
                             runat="server" ViewStateMode="Enabled" />
