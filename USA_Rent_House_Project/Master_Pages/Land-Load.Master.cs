@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.UserManagement;
 using System.Web.Security;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Master_Pages
 {
@@ -16,25 +17,28 @@ namespace USA_Rent_House_Project.Master_Pages
         {
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "landlord"))
+                if (Request.QueryString.Count == 0)
                 {
-                    if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "student"))
+                    if (!Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "landlord"))
                     {
-                        Response.Redirect("~/Student/Student_Profile.aspx");
-                    }
-                    else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "admin"))
-                    {
-                        Response.Redirect("~/Administrator/Default.aspx");
+                        if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "student"))
+                        {
+                            Response.Redirect("~/Student/Student_Profile.aspx");
+                        }
+                        else if (Roles.IsUserInRole(HttpContext.Current.User.Identity.Name, "admin"))
+                        {
+                            Response.Redirect("~/Administrator/Default.aspx");
+                        }
+                        else
+                        {
+                            Response.Redirect("~/Default.aspx");
+                        }
                     }
                     else
                     {
-                        Response.Redirect("~/Default.aspx");
+                        // user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
                     }
-                }
-                else
-                {
-                   // user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                   
                 }
             }
             else

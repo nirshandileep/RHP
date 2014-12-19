@@ -2,7 +2,7 @@
   
 
            <div id="HouseDetails" runat="server">
-                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server"> Details About House</asp:HyperLink>
+                <asp:HyperLink ID="HyperLinkHouseDetails" CssClass="loginlinks" runat="server">Details About House</asp:HyperLink>
             </div>
             <div id="currentHomeStudentData" runat="server" visible="false">
                 <h2>
