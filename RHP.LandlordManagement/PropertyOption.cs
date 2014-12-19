@@ -18,7 +18,7 @@ namespace RHP.LandlordManagement
         public int OptionCategoryId { get; set; }
         public int ParentOptionId { get; set; }
         public bool IsMultiSelect { get; set; }
-
+        public int Points { get; set; }
 
         public bool Save()
         {

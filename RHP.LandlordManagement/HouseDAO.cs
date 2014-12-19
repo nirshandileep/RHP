@@ -202,12 +202,11 @@ namespace RHP.LandlordManagement
            return result;
        }
 
-       public DataSet Search(House house,string SelectedSchoolname)
+       public DataSet Search(HouseSearch house)
        {
            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
            DbCommand command = db.GetStoredProcCommand("usp_HouseSearch");
 
-           db.AddInParameter(command, "Schoolname", DbType.String, SelectedSchoolname);
            db.AddInParameter(command, "BathRooms", DbType.String, house.BathRooms);
            db.AddInParameter(command, "BedRooms", DbType.String, house.BedRooms);
            db.AddInParameter(command, "Zip", DbType.String, house.Zip);

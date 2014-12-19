@@ -57,7 +57,17 @@
 
         </dx:GridViewDataCheckColumn>--%>
       
+        <dx:GridViewDataTextColumn FieldName="Points" UnboundType="Integer" 
+            VisibleIndex="4">
+            <PropertiesTextEdit>
+                <ValidationSettings Display="Dynamic">
+                    <RequiredField IsRequired="True" />
+                </ValidationSettings>
+            </PropertiesTextEdit>
+        </dx:GridViewDataTextColumn>
+      
     </Columns>
     <SettingsBehavior ConfirmDelete="True" />
+    <SettingsEditing Mode="Inline" />
 </dx:ASPxGridView>
 

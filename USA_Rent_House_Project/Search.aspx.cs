@@ -39,6 +39,14 @@ namespace USA_Rent_House_Project
                 div_Search.Visible = true;
             }
 
+            if (DrpSchoolName.Items.Count == 0)
+            {
+                DrpSchoolName.DataSource = School.SelectAllList();
+                DrpSchoolName.TextField = "Name";
+                DrpSchoolName.ValueField = "SchoolId";
+                DrpSchoolName.DataBind();
+            }
+
             if (HiddenFieldCurrentStep.Value != "1" || HiddenFieldCurrentStep.Value != "2")
             {
                 Searchresults.Visible = true;
@@ -68,15 +76,6 @@ namespace USA_Rent_House_Project
 
         public void loadStudentdata()
         {
-
-            if (DrpSchoolName.Items.Count == 0)
-            {
-                DrpSchoolName.DataSource = School.SelectAllList();
-                DrpSchoolName.TextField = "Name";
-                DrpSchoolName.ValueField = "SchoolId";
-                DrpSchoolName.DataBind();
-            }
-
             DrpStatus.Items.Clear();
             DrpStatus.Items.AddRange(Constants.SEARCH_STUDENT_STATUS_LIST);
             DrpGender.Items.Clear();
@@ -107,19 +106,18 @@ namespace USA_Rent_House_Project
         protected void FindHome_Click(object sender, EventArgs e)
         {
             StudentSearchresults.Visible = false;
-            House house = new House();
+            HouseSearch house = new HouseSearch();
             HouseDAO houseDAO = new HouseDAO();
 
-            string SelectedSchoolname = DrpSchoolName.SelectedItem.Value.ToString();
-            house.Zip = string.IsNullOrEmpty(Zipcode.Text.Trim()) ? null : Zipcode.Text.Trim(); 
+            house.Zip = string.IsNullOrEmpty(Zipcode.Text.Trim()) ? null : Zipcode.Text.Trim();
 
             if (DrpBedRooms.SelectedItem.Value != "-1")
             {
-                house.BathRooms = int.Parse(DrpBedRooms.SelectedItem.Value);
+                house.BedRooms = int.Parse(DrpBedRooms.SelectedItem.Value);
             }
             else
             {
-                house.BathRooms = null;
+                house.BedRooms = null;
             }
 
             if (DrpBathRooms.SelectedItem.Value != "-1")
@@ -131,24 +129,20 @@ namespace USA_Rent_House_Project
                 house.BathRooms = null;
             }
 
-            
-           
+            DataSet ds;
+            ds = houseDAO.Search(house);
 
-           DataSet ds;
+            if (ds != null)
+            {
+                DataListHouseSearchresults.DataSource = ds.Tables[0];
+                DataListHouseSearchresults.DataBind();
 
-           ds = houseDAO.Search(house, SelectedSchoolname);
-
-           if (ds != null)
-           {
-               DataListHouseSearchresults.DataSource = ds.Tables[0];
-               DataListHouseSearchresults.DataBind();
-
-               HouseSearchresults.Visible = true;
-           }
-           else
-           {
-               Searchresults.Visible = true;
-           }
+                HouseSearchresults.Visible = true;
+            }
+            else
+            {
+                Searchresults.Visible = true;
+            }
         }
 
         protected void FindStudent_Click(object sender, EventArgs e)
@@ -161,33 +155,31 @@ namespace USA_Rent_House_Project
             student.FirstName = string.IsNullOrEmpty(FirstName.Text.Trim()) ? null : FirstName.Text.Trim();
             student.MiddleName = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? null : MiddleName.Text.Trim();
             student.LastName = string.IsNullOrEmpty(LastName.Text.Trim()) ? null : LastName.Text.Trim();
-
             student.SchoolName = string.IsNullOrEmpty(DrpSchoolName.Text.Trim()) ? null : DrpSchoolName.Text.Trim();
-
-            user.Zip = string.IsNullOrEmpty(Zipcode2.Text.Trim()) ? null : Zipcode2.Text.Trim();
+            student.Zip = string.IsNullOrEmpty(Zipcode2.Text.Trim()) ? null : Zipcode2.Text.Trim();
 
             if (DrpGender.SelectedItem.Value != "-1")
             {
-                 user.Gender = DrpGender.SelectedItem.Value;
+                student.Gender = DrpGender.SelectedItem.Value;
             }
             else
             {
-                user.Gender = null;
+                student.Gender = null;
             }
 
             if (DrpStatus.SelectedItem.Value != "-1")
             {
-                user.Status = DrpStatus.SelectedItem.Value;
+                student.Status = DrpStatus.SelectedItem.Value;
             }
             else
             {
-                user.Status = null;
+                student.Status = null;
             }
             
 
             DataSet ds;
 
-            ds = studentDAO.Search(user);
+            ds = studentDAO.Search(student);
 
             if (ds != null)
             {

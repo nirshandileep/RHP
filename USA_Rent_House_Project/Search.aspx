@@ -69,8 +69,8 @@
                 </p>
                 <p id="school" runat="server">
                     <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
-                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="53%" AutoResizeWithContainer="True"
-                        TextFormatString="{0} ({1}, {2})" DropDownRows="10" IncrementalFilteringMode="Contains"
+                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="30%" AutoResizeWithContainer="True"
+                        TextFormatString="{0}" DropDownRows="10" IncrementalFilteringMode="Contains"
                         Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
                         <Columns>
                             <dx:ListBoxColumn FieldName="Name" Name="Name" />

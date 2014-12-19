@@ -104,19 +104,6 @@ namespace RHP.StudentManagement
             return Convert.ToBoolean(db.GetParameterValue(command, "IsExist").ToString());
         }
 
-
-        //public static DataSet Search(StudentSearch searchStudent)
-        //{
-        //    Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
-        //    DbCommand command = db.GetStoredProcCommand("usp_Student_Search");
-
-        //    db.AddInParameter(command, "StudentId", DbType.Guid, searchStudent.StudentId);
-        //    db.AddInParameter(command, "SchoolId", DbType.Guid, searchStudent.SchoolId);
-
-        //    return db.ExecuteDataSet(command);
-
-        //}
-
         public DataSet Search(StudentSearch student)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);

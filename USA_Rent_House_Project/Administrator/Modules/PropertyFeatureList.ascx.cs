@@ -101,6 +101,8 @@ namespace USA_Rent_House_Project.Administrator.Modules
             Option.Name = e.NewValues["Name"].ToString().Trim();
             Option.Description = e.NewValues["Description"].ToString().Trim();
             Option.OptionCategoryId = Convert.ToInt16(e.NewValues["OptionCategoryId"].ToString().Trim());
+            Option.Points = Convert.ToInt16(e.NewValues["Points"].ToString().Trim());
+
             // Option.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);
             Option.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
             Option.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
@@ -129,8 +131,8 @@ namespace USA_Rent_House_Project.Administrator.Modules
             option.Name = e.NewValues["Name"].ToString().Trim();
             option.Description = e.NewValues["Description"].ToString().Trim();
             option.OptionCategoryId = Convert.ToInt16(e.NewValues["OptionCategoryId"].ToString().Trim());
-            //propertyOption.ParentOptionId = Convert.ToInt16(e.NewValues["ParentOptionId"].ToString().Trim());
-            //propertyOption.IsDeleted = Convert.ToBoolean(e.NewValues["IsDeleted"].ToString().Trim());
+            option.Points = Convert.ToInt16(e.NewValues["Points"].ToString().Trim());
+
            // option.IsMultiSelect = Convert.ToBoolean(e.NewValues["IsMultiSelect"]);  //Convert.ToBoolean(e.NewValues["IsMultiSelect"].ToString().Trim());
             option.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;
             option.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey; //SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER).UserId.Value;

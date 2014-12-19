@@ -35,6 +35,7 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "ParentOptionId", DbType.Int16, Option.ParentOptionId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, Option.IsDeleted);
             db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, Option.IsMultiSelect);
+            db.AddInParameter(command, "Points", DbType.Int16, Option.Points);
 
             db.AddOutParameter(command, "OptionId", DbType.Int16, 3);
 
@@ -70,6 +71,7 @@ namespace RHP.LandlordManagement
             db.AddInParameter(command, "ParentOptionId", DbType.Int16, Option.ParentOptionId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, Option.IsDeleted);
             db.AddInParameter(command, "IsMultiSelect", DbType.Boolean, Option.IsMultiSelect);
+            db.AddInParameter(command, "Points", DbType.Int16, Option.Points);
 
             db.AddOutParameter(command, "OptionId_", DbType.Int16, 3);
 
