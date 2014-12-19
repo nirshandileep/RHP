@@ -43,23 +43,11 @@ namespace USA_Rent_House_Project
             {
                 Searchresults.Visible = true;
             }
-
-           
-
-            
         }
 
 
         public void loadHousedata()
         {
-             if (DrpSchoolName.Items.Count == 0)
-            {
-                DrpSchoolName.DataSource = School.SelectAllList();
-                DrpSchoolName.TextField = "Name";
-                DrpSchoolName.ValueField = "SchoolId";
-                DrpSchoolName.DataBind();
-            }
-
              //DrpBathRooms
              DrpBathRooms.Items.Clear();
              for (int i = Constants.LANDLORD_PROFILE_HOUSEBUILD_BATHROOMS_MIN; i <= Constants.LANDLORD_PROFILE_HOUSEBUILD_BATHROOMS_MIN + Constants.LANDLORD_PROFILE_HOUSEBUILD_BATHROOMS; i++)
@@ -80,14 +68,14 @@ namespace USA_Rent_House_Project
 
         public void loadStudentdata()
         {
-           
-            //if (DrpSchoolName2.Items.Count == 0)
-            //{
-            //    DrpSchoolName2.DataSource = School.SelectAllList();
-            //    DrpSchoolName2.TextField = "Name";
-            //    DrpSchoolName2.ValueField = "SchoolId";
-            //    DrpSchoolName2.DataBind();
-            //}
+
+            if (DrpSchoolName.Items.Count == 0)
+            {
+                DrpSchoolName.DataSource = School.SelectAllList();
+                DrpSchoolName.TextField = "Name";
+                DrpSchoolName.ValueField = "SchoolId";
+                DrpSchoolName.DataBind();
+            }
 
             DrpStatus.Items.Clear();
             DrpStatus.Items.AddRange(Constants.SEARCH_STUDENT_STATUS_LIST);
@@ -122,7 +110,7 @@ namespace USA_Rent_House_Project
             House house = new House();
             HouseDAO houseDAO = new HouseDAO();
 
-            string SelectedSchoolname = "";// DrpSchoolName.SelectedItem.Value.ToString();
+            string SelectedSchoolname = DrpSchoolName.SelectedItem.Value.ToString();
             house.Zip = string.IsNullOrEmpty(Zipcode.Text.Trim()) ? null : Zipcode.Text.Trim(); 
 
             if (DrpBedRooms.SelectedItem.Value != "-1")
@@ -166,12 +154,15 @@ namespace USA_Rent_House_Project
         protected void FindStudent_Click(object sender, EventArgs e)
         {
             HouseSearchresults.Visible = false;
-            User user = new User();
+
+            RHP.StudentManagement.StudentSearch student = new RHP.StudentManagement.StudentSearch();
             StudentDAO studentDAO = new StudentDAO();
 
-            user.FirstName = string.IsNullOrEmpty(FirstName.Text.Trim()) ? null : FirstName.Text.Trim();
-            user.MiddleName = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? null : MiddleName.Text.Trim(); 
-            user.LastName = string.IsNullOrEmpty(LastName.Text.Trim()) ? null : LastName.Text.Trim();
+            student.FirstName = string.IsNullOrEmpty(FirstName.Text.Trim()) ? null : FirstName.Text.Trim();
+            student.MiddleName = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? null : MiddleName.Text.Trim();
+            student.LastName = string.IsNullOrEmpty(LastName.Text.Trim()) ? null : LastName.Text.Trim();
+
+            student.SchoolName = string.IsNullOrEmpty(DrpSchoolName.Text.Trim()) ? null : DrpSchoolName.Text.Trim();
 
             user.Zip = string.IsNullOrEmpty(Zipcode2.Text.Trim()) ? null : Zipcode2.Text.Trim();
 

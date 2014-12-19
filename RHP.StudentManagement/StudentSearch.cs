@@ -9,6 +9,14 @@ namespace RHP.StudentManagement
     {
         public Guid? StudentId { get; set; }
         public Guid? SchoolId { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
+        public string SchoolName { get; set; }
+        public string Zip { get; set; }
+        public string Gender { get; set; }
+        public string Status { get; set; }
+
 
 
         //@FirstName nvarchar(256) = NULL,

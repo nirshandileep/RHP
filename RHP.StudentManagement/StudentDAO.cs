@@ -23,24 +23,6 @@ namespace RHP.StudentManagement
         {
             DbCommand command = db.GetStoredProcCommand("usp_StudentInsert");
 
-
-           // <StudentId, uniqueidentifier,>
-           //,<UserId, uniqueidentifier,>
-           //,<SchoolId, uniqueidentifier,>
-           //,<Year, int,>
-           //,<StartYear, int,>
-           //,<StartMonth, int,>
-           //,<Status, nvarchar(50),>
-           //,<CurentMajor, nvarchar(256),>
-           //,<PreviousSchoolInfo, nvarchar(50),>
-           //,<PreviousSchool, nvarchar(256),>
-           //,<IsDeleted, bit,>
-           //,<CreatedBy, uniqueidentifier,>
-           //,<CreatedDate, datetime,>
-           //,<UpdatedBy, uniqueidentifier,>
-           //,<UpdatedDate, datetime,>)
-
-
             db.AddInParameter(command, "StudentId", DbType.Guid, Guid.NewGuid());
             db.AddInParameter(command, "UserId", DbType.Guid, student.StudentUser.UserId);
             db.AddInParameter(command, "SchoolId", DbType.Guid, student.School.SchoolId);
@@ -135,17 +117,18 @@ namespace RHP.StudentManagement
 
         //}
 
-        public DataSet Search(User user)
+        public DataSet Search(StudentSearch student)
         {
             Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
             DbCommand command = db.GetStoredProcCommand("usp_StudentSearch");
 
-            db.AddInParameter(command, "FirstName", DbType.String, user.FirstName);
-            db.AddInParameter(command, "MiddleName", DbType.String, user.MiddleName);
-            db.AddInParameter(command, "LastName", DbType.String, user.LastName);
-            db.AddInParameter(command, "Zip", DbType.String, user.Zip);
-            db.AddInParameter(command, "Gender", DbType.String, user.Gender);
-            db.AddInParameter(command, "Status", DbType.String, user.Status);
+            db.AddInParameter(command, "FirstName", DbType.String, student.FirstName);
+            db.AddInParameter(command, "MiddleName", DbType.String, student.MiddleName);
+            db.AddInParameter(command, "LastName", DbType.String, student.LastName);
+            db.AddInParameter(command, "Zip", DbType.String, student.Zip);
+            db.AddInParameter(command, "Gender", DbType.String, student.Gender);
+            db.AddInParameter(command, "Status", DbType.String, student.Status);
+            db.AddInParameter(command, "SchoolName", DbType.String, student.SchoolName);
 
             return db.ExecuteDataSet(command);
 

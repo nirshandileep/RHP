@@ -28,24 +28,10 @@
             <h1>
                 Search House</h1>
             <div id="forminner">
-                <p id="school" runat="server" visible="false">
-                    <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
-                    <%-- <asp:TextBox ID="Name" runat="server" CssClass="textEntry textbox_w3"></asp:TextBox>--%>
-                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="53%" AutoResizeWithContainer="True"
-                        TextFormatString="{0} ({1}, {2})" DropDownRows="10" IncrementalFilteringMode="Contains"
-                        Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
-                        <Columns>
-                            <dx:ListBoxColumn FieldName="Name" Name="Name" />
-                            <dx:ListBoxColumn FieldName="StreetAddress" Name="Address" />
-                            <dx:ListBoxColumn FieldName="City" Name="City" />
-                        </Columns>
-                        <ValidationSettings Display="Dynamic">
-                        </ValidationSettings>
-                    </dx:ASPxComboBox>
-                </p>
                 <p>
                     <asp:Label ID="LabelZipcode" runat="server" AssociatedControlID="Zipcode" CssClass="form_label">Zip:</asp:Label>
-                    <asp:TextBox ID="Zipcode" runat="server" CssClass="textEntry textbox_w3" MaxLength="4"></asp:TextBox>
+                    <asp:TextBox ID="Zipcode" runat="server" CssClass="textEntry textbox_w3" 
+                        MaxLength="5"></asp:TextBox>
                 </p>
                 <p>
                     <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
@@ -68,24 +54,7 @@
             <h1>
                 Search Student</h1>
             <div id="forminner">
-                <%--<p>
-                    <asp:Label ID="Label1" runat="server" AssociatedControlID="DrpSchoolName2" CssClass="form_label"> School Name:</asp:Label>
-              
-
-                     <dx:ASPxComboBox ID="DrpSchoolName2" runat="server"  Width="100%"
-                    AutoResizeWithContainer="True" TextFormatString="{0} ({1}, {2})" DropDownRows="10" 
-                    IncrementalFilteringMode="Contains" Theme="DevEx" 
-                    EnableDefaultAppearance="False" ShowShadow="False">
-                    <Columns>
-                        <dx:ListBoxColumn FieldName="Name" Name="Name" />
-                        <dx:ListBoxColumn FieldName="StreetAddress" Name="Address" />
-                        <dx:ListBoxColumn FieldName="City" Name="City" />
-                    </Columns>
-                    <ValidationSettings Display="Dynamic">
-                    </ValidationSettings>
-                </dx:ASPxComboBox>
-              
-                </p>--%>
+                
                 <p>
                     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
                     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -98,9 +67,22 @@
                     <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
                     <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 </p>
+                <p id="school" runat="server">
+                    <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
+                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="53%" AutoResizeWithContainer="True"
+                        TextFormatString="{0} ({1}, {2})" DropDownRows="10" IncrementalFilteringMode="Contains"
+                        Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
+                        <Columns>
+                            <dx:ListBoxColumn FieldName="Name" Name="Name" />
+                        </Columns>
+                        <ValidationSettings Display="Dynamic">
+                        </ValidationSettings>
+                    </dx:ASPxComboBox>
+                </p>
                 <p>
                     <asp:Label ID="Label1" runat="server" AssociatedControlID="Zipcode2" CssClass="form_label">Zip:</asp:Label>
-                    <asp:TextBox ID="Zipcode2" runat="server" CssClass="textEntry textbox_w3" MaxLength="4"></asp:TextBox>
+                    <asp:TextBox ID="Zipcode2" runat="server" CssClass="textEntry textbox_w3" 
+                        MaxLength="5"></asp:TextBox>
                 </p>
                 <%-- <p>
                     <asp:Label ID="Labellandloadname" runat="server" AssociatedControlID="landloadname"

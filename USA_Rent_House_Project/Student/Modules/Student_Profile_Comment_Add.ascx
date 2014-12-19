@@ -83,7 +83,7 @@
         <p id="Ratinggoodroommate" runat="server" visible="false">
             <asp:Label ID="LabelGoodRoommate" runat="server" AssociatedControlID="ASPxRatinggoodroommate"
                 CssClass="form_label">Good Roommate :</asp:Label>
-            <dx:ASPxRatingControl ID="ASPxRatinggoodroommate" runat="server" ItemCount="10">
+            <dx:ASPxRatingControl ID="ASPxRatinggoodroommate" runat="server">
             </dx:ASPxRatingControl>
         </p>
         <p>

@@ -58,33 +58,6 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div_Search_House;
         
         /// <summary>
-        /// school control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl school;
-        
-        /// <summary>
-        /// LabelName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelName;
-        
-        /// <summary>
-        /// DrpSchoolName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox DrpSchoolName;
-        
-        /// <summary>
         /// LabelZipcode control.
         /// </summary>
         /// <remarks>
@@ -209,6 +182,33 @@ namespace USA_Rent_House_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox LastName;
+        
+        /// <summary>
+        /// school control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl school;
+        
+        /// <summary>
+        /// LabelName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelName;
+        
+        /// <summary>
+        /// DrpSchoolName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxEditors.ASPxComboBox DrpSchoolName;
         
         /// <summary>
         /// Label1 control.
