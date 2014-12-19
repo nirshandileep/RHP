@@ -39,14 +39,11 @@
                 </h2>
                 <div id="formwrapper">
                 <p>
-                                <asp:Button ID="UpdateCurrentHouseButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                                Text="Update current house" onclick="UpdateCurrentHouseButton_Click" Visible="true" />
-                              
-                                &nbsp;<asp:Button ID="LeaveCurrentHouseButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                                Text="Leave current house" onclick="LeaveCurrentHouseButton_Click" Visible="true" />
-                        
-                        
-                        
+                <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Current_House.aspx">Create current house</asp:HyperLink>&nbsp;
+                                <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Current_House.aspx">View current house</asp:HyperLink>&nbsp;
+                    <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx">Update current house</asp:HyperLink>
+                     &nbsp; <asp:HyperLink ID="LeaveCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Leave_Current_House.aspx">Leave current house</asp:HyperLink>
+  
                 </p>
                     <div id="forminner">
                         <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" 

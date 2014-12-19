@@ -31,5 +31,10 @@ namespace RHP.Common
         public static readonly string Delete_Confirm = "Are you sure you want to delete this record?";
         public static readonly string EmailExist = "Facebook Email Address Already registerd!";
 
+        public static readonly string LeaveCurrentHouseRequestSuccess = "Request Successfully Sent!";
+        public static readonly string LeaveCurrentHouseResponseSuccess = "Current House Successfully Removed!";
+        public static readonly string LeaveCurrentHouseResponseUnSuccess = "Cannot Remove Current House! Please try Again.";
+
+        public static readonly string RejectLeaveCurrentHouseResponseSuccess = "Request to Leave Current House Successfully Rejected!";
     }
 }

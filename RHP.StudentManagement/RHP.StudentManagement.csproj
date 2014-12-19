@@ -58,6 +58,8 @@
     <Compile Include="StudentDAO.cs" />
     <Compile Include="StudentHouse.cs" />
     <Compile Include="StudentHouseDAO.cs" />
+    <Compile Include="StudentHouseLeave.cs" />
+    <Compile Include="StudentHouseLeaveDAO.cs" />
     <Compile Include="StudentManager.cs" />
     <Compile Include="StudentSearch.cs" />
   </ItemGroup>

@@ -79,10 +79,13 @@ namespace USA_Rent_House_Project.Student
         {
             if (user.HouseId != null)
             {
-                if (hdnStepNumber.Value.Trim() !="3")
+                CreateCurrentHouseButton.Visible = false;
+
+                if (hdnStepNumber.Value.Trim() != "3")
                 {
-                ButtonNext.Visible = true;
-                CreateLandloadButton.Visible = false;
+                    ButtonNext.Visible = true;
+                    CreateLandloadButton.Visible = false;
+
                 }
                 else
                 {
@@ -90,6 +93,11 @@ namespace USA_Rent_House_Project.Student
                     CreateLandloadButton.Visible = true;
                     CreateLandloadButton.Text = "Save";
                 }
+            }
+            else
+            {
+                UpdateCurrentHouseButton.Visible = false;
+                LeaveCurrentHouseButton.Visible = false;
             }
         }
 

@@ -296,6 +296,8 @@
     <Content Include="Student\Student_Profile_Edit.aspx" />
     <Content Include="Student\Student_Profile_Image.aspx" />
     <Content Include="Student\Student_Profile_Image_Crop.aspx" />
+    <Content Include="Student\Student_Profile_Leave_Current_House.aspx" />
+    <Content Include="Student\Student_Profile_Update_Current_House.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Student\Student_Public_Profile_info.aspx" />
     <Content Include="Student\Student_School_info.aspx" />
@@ -1137,6 +1139,20 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Image_Crop.aspx.designer.cs">
       <DependentUpon>Student_Profile_Image_Crop.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Leave_Current_House.aspx.cs">
+      <DependentUpon>Student_Profile_Leave_Current_House.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Leave_Current_House.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Leave_Current_House.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_House.aspx.cs">
+      <DependentUpon>Student_Profile_Update_Current_House.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_House.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Update_Current_House.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>

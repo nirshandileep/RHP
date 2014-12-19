@@ -7,288 +7,252 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace USA_Rent_House_Project.Student.Modules {
+namespace USA_Rent_House_Project.Student {
     
     
-    public partial class Current_House_Landload_info {
+    public partial class Student_Profile_Leave_Current_House {
         
         /// <summary>
-        /// ValidationGroup1 control.
+        /// ScriptManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationGroup1;
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
         
         /// <summary>
-        /// idmessase control.
+        /// Student_Profile_HeaderID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl idmessase;
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
         
         /// <summary>
-        /// Labelmessage control.
+        /// HiddenFieldLandloadID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Labelmessage;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldLandloadID;
         
         /// <summary>
-        /// setEmail control.
+        /// currentHomeStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl setEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
         
         /// <summary>
-        /// EmailLabel control.
+        /// HiddenFieldHouseID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label EmailLabel;
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldHouseID;
         
         /// <summary>
-        /// Email control.
+        /// LeftPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Email;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
         
         /// <summary>
-        /// EmailRequired control.
+        /// Menu_Bar1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator EmailRequired;
+        protected global::USA_Rent_House_Project.Student.Modules.Menu_Bar Menu_Bar1;
         
         /// <summary>
-        /// RegularExpressionValidator2 control.
+        /// RightPanel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// RequiredFieldValidator2 control.
+        /// HyperLinkPublicView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
         
         /// <summary>
-        /// RegularExpressionValidator1 control.
+        /// Search control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
         
         /// <summary>
-        /// ButtonVerify control.
+        /// SearchStudent control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonVerify;
+        protected global::System.Web.UI.WebControls.HyperLink SearchStudent;
         
         /// <summary>
-        /// LabelFirstName control.
+        /// SearchHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelFirstName;
+        protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
         
         /// <summary>
-        /// FirstName control.
+        /// hdnStepNumber control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FirstName;
+        protected global::System.Web.UI.WebControls.HiddenField hdnStepNumber;
         
         /// <summary>
-        /// FirstNameRequired control.
+        /// CreateCurrentHouseButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameRequired;
+        protected global::System.Web.UI.WebControls.HyperLink CreateCurrentHouseButton;
         
         /// <summary>
-        /// LabelMiddleName control.
+        /// ViewCurrentHouseButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMiddleName;
+        protected global::System.Web.UI.WebControls.HyperLink ViewCurrentHouseButton;
         
         /// <summary>
-        /// MiddleName control.
+        /// UpdateCurrentHouseButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MiddleName;
+        protected global::System.Web.UI.WebControls.HyperLink UpdateCurrentHouseButton;
         
         /// <summary>
-        /// LabelLastName control.
+        /// LeaveCurrentHouseButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelLastName;
+        protected global::System.Web.UI.WebControls.HyperLink LeaveCurrentHouseButton;
         
         /// <summary>
-        /// LastName control.
+        /// ButtonLeaveHouseID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox LastName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ButtonLeaveHouseID;
         
         /// <summary>
-        /// LastNameRequired control.
+        /// ButtonLeaveHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameRequired;
+        protected global::System.Web.UI.WebControls.LinkButton ButtonLeaveHouse;
         
         /// <summary>
-        /// MobileLabel control.
+        /// StudentListData control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MobileLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentListData;
         
         /// <summary>
-        /// MobileArea control.
+        /// DataListStudentList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox MobileArea;
+        protected global::System.Web.UI.WebControls.DataList DataListStudentList;
         
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// RespondeToLeaveHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RespondeToLeaveHouse;
         
         /// <summary>
-        /// CompareValidator3 control.
+        /// RespondeToLeaveHouseTrue control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RespondeToLeaveHouseTrue;
         
         /// <summary>
-        /// Mobile1 control.
+        /// RequestedUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mobile1;
+        protected global::System.Web.UI.WebControls.HyperLink RequestedUser;
         
         /// <summary>
-        /// RequiredFieldValidator4 control.
+        /// RequestedUserName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        protected global::System.Web.UI.WebControls.Label RequestedUserName;
         
         /// <summary>
-        /// CompareValidator4 control.
+        /// LinkButton1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator4;
+        protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
-        /// Mobile2 control.
+        /// RespondeToLeaveHouseFalse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Mobile2;
-        
-        /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-        
-        /// <summary>
-        /// CompareValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareValidator2;
-        
-        /// <summary>
-        /// hdnLandlordId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hdnLandlordId;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RespondeToLeaveHouseFalse;
     }
 }

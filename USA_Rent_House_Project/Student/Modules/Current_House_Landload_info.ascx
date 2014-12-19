@@ -20,11 +20,7 @@
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
 
-    <p id="ButtonLeaveHouseID" runat="server" Visible="false">
-    If You Want to Leave House Please 
-     <asp:LinkButton ID="ButtonLeaveHouse" runat="server" OnClick="OnConfirm" OnClientClick="Confirm()">Click Here</asp:LinkButton>
-
-        </p>
+  
 <%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
     <ContentTemplate>--%>
 <p id="idmessase" runat="server">

@@ -100,7 +100,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user.HouseId != null)
             {
-                ButtonLeaveHouseID.Visible = true;
+               
                 Labelmessage.Text = "";//Current landload Details";
                 DataSet LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
 
