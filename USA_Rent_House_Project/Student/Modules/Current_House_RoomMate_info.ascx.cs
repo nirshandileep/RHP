@@ -240,7 +240,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
-
         public bool Save()
         {
             bool result = true;
@@ -249,30 +248,31 @@ namespace USA_Rent_House_Project.Student.Modules
 
             aspnet_Roles_ = aspnet_Roles.Select("student");
 
+            User user_ = new User(); 
             foreach (GridViewRow row in GridviewRoommatelist.Rows)
             {
-                user.PersonalEmail = row.Cells[1].Text;
-                user.FirstName = row.Cells[2].Text;
-                user.MiddleName = row.Cells[3].Text;
-                user.LastName = row.Cells[4].Text;
-                user.BestContactNumber = row.Cells[5].Text;
+                user_.PersonalEmail = row.Cells[1].Text;
+                user_.FirstName = row.Cells[2].Text;
+                user_.MiddleName = row.Cells[3].Text;
+                user_.LastName = row.Cells[4].Text;
+                user_.BestContactNumber = row.Cells[5].Text;
 
-                user.UserId = Guid.NewGuid();
-                user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                user.IsPartialUser = true;
-                user.HouseId = HouseId.Value;
-                user.RoleId = aspnet_Roles_.RoleId;
+                user_.UserId = Guid.NewGuid();
+                user_.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user_.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                user_.IsPartialUser = true;
+                user_.HouseId = HouseId.Value;
+                user_.RoleId = aspnet_Roles_.RoleId;
 
-                if (result = user.Save())
+                if (result = user_.Save())
                 {
-                    Save_Student_House();
+                    Save_Student_House(user_);
 
-                    string strMsgContent = message(user.UserId.Value, user);
+                    string strMsgContent = message(user_.UserId.Value, user_);
 
                     string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
 
-                    int rtn = SendEmail(user.PersonalEmail, strMsgTitle, strMsgContent);
+                    int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
 
                     if (rtn == 1)
                     {
@@ -289,15 +289,15 @@ namespace USA_Rent_House_Project.Student.Modules
             return result;
         }
 
-        public void Save_Student_House()
+        public void Save_Student_House(User user_)
         {
             // save current house for student
-            user.HouseId = HouseId.Value;
-            user.UpdateHouse();
+            user_.HouseId = HouseId.Value;
+            user_.UpdateHouse();
 
             // log house details for futer use
             studentHouse.HouseId = HouseId.Value;
-            studentHouse.UserId = user.UserId.Value;
+            studentHouse.UserId = user_.UserId.Value;
             studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
@@ -314,7 +314,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
             return true;
         }
-
 
         protected int SendEmail(string To, string Subject, string Body)
         {
@@ -337,7 +336,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
 
         }
-
 
         private string message(Guid ActivationKey, User _user)
         {
@@ -423,6 +421,54 @@ namespace USA_Rent_House_Project.Student.Modules
             }
 
             return isexist;
+        }
+
+        protected void ButtonVerify_Click(object sender, EventArgs e)
+        {
+            Labelmessage.Text = "";
+            if (Email.Text.Trim() != "")
+            {
+                User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "student");
+
+                if (user_ != null)
+                {
+                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+
+                    // Email.Text = user_.PersonalEmail;
+                    FirstName.Text = user_.FirstName;
+                    MiddleName.Text = user_.MiddleName;
+                    LastName.Text = user_.LastName;
+
+                    MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                    Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                    Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+
+
+                    //Mobile.Text = user_.BestContactNumber;
+                }
+                else
+                {
+                    Labelmessage.Text = "can not find registered student for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                    FirstName.Text = "";
+                    MiddleName.Text = "";
+                    LastName.Text = "";
+                    MobileArea.Text = "";
+                    Mobile1.Text = "";
+                    Mobile2.Text = "";
+                    // Mobile.Text = "";
+                    FirstName.Enabled = true;
+                    MiddleName.Enabled = true;
+                    LastName.Enabled = true;
+                    MobileArea.Enabled = true;
+                    Mobile1.Enabled = true;
+                    Mobile2.Enabled = true;
+                }
+            }
+            else
+            {
+                clear();
+
+            }
         }
     }
 }

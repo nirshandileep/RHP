@@ -35,8 +35,7 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+   
     <uc1:Student_Profile_Header ID="Student_Profile_HeaderID" runat="server" />
     <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
     <div id="currentHomeStudent" runat="server">
