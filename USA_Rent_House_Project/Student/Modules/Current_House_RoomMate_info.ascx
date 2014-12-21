@@ -46,8 +46,7 @@
 </p>--%>
 
 
-<p id="idmessase" runat="server">
-    <asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
+
 <p id="setEmail" runat="server">
     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
     <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -63,6 +62,9 @@
         ControlToValidate="Email" CssClass="failureNotification" ErrorMessage="Enter valid email address."
         ToolTip="Enter valid email address." ValidationGroup="ValidationGroup1">* </asp:RegularExpressionValidator>
 </p>
+<p id="idmessase" runat="server">
+    <asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
+
 <p>
     <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
         Text="Verify Student" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />

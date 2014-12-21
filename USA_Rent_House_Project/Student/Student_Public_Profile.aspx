@@ -3,9 +3,8 @@
 <%@ Register src="Modules/Student_Public_Profile_Header.ascx" tagname="Student_Public_Profile_Header" tagprefix="uc1" %>
 <%@ Register src="Modules/Student_Public_Profile_Banner.ascx" tagname="Student_Public_Profile_Banner" tagprefix="uc2" %>
 <%@ Register src="Modules/Student_Public_Profile_Data.ascx" tagname="Student_Public_Profile_Data" tagprefix="uc3" %>
-<%@ Register src="Modules/Student_Public_Profile_Comments.ascx" tagname="Student_Profile_Comments" tagprefix="uc4" %>
-
 <%@ Register src="Modules/Student_Profile_Comment_Add.ascx" tagname="Student_Profile_Comment_Add" tagprefix="uc5" %>
+<%@ Register src="Modules/Student_Public_Profile_Comments.ascx" tagname="Student_Profile_Comments" tagprefix="uc4" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>

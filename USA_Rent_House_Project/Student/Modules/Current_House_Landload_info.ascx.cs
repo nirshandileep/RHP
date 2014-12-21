@@ -92,7 +92,6 @@ namespace USA_Rent_House_Project.Student.Modules
         public void LoadUserData()
         {
             // user data
-            
 
             UserDAO userDAO = new UserDAO();
 
@@ -186,7 +185,6 @@ namespace USA_Rent_House_Project.Student.Modules
             if (Email.Text.Trim() != "")
             {
                 User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
-
                 if (user_ != null)
                 {
                     Labelmessage.Text = "landload verified for email : " + Email.Text.Trim().ToLower();
@@ -209,20 +207,48 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
-                    Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() +". Please enter details to continue..";
+
                     FirstName.Text = "";
                     MiddleName.Text = "";
                     LastName.Text = "";
                     MobileArea.Text = "";
                     Mobile1.Text = "";
                     Mobile2.Text = "";
-                   // Mobile.Text = "";
-                    FirstName.Enabled = true;
-                    MiddleName.Enabled = true;
-                    LastName.Enabled = true;
-                    MobileArea.Enabled = true;
-                    Mobile1.Enabled = true;
-                    Mobile2.Enabled = true;
+
+                    User user_check = new User();
+
+                    if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
+                    {
+                        FirstName.Enabled = false;
+                        MiddleName.Enabled = false;
+                        LastName.Enabled = false;
+                        MobileArea.Enabled = false;
+                        Mobile1.Enabled = false;
+                        Mobile2.Enabled = false;
+
+                        if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
+                        {
+                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                        }
+                        else
+                        {
+                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                        }
+                    }
+                    else
+                    {
+                        Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+
+                        // Mobile.Text = "";
+                        FirstName.Enabled = true;
+                        MiddleName.Enabled = true;
+                        LastName.Enabled = true;
+                        MobileArea.Enabled = true;
+                        Mobile1.Enabled = true;
+                        Mobile2.Enabled = true;
+                    }
+
+                   
                 }
             }
             else

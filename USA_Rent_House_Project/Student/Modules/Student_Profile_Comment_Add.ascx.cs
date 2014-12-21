@@ -141,6 +141,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     comment.RatingValue = 0;
                     save(comment);
+
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
 
             }
@@ -158,7 +161,8 @@ namespace USA_Rent_House_Project.Student.Modules
                     comment.RatingValue = CalculateReting(comment);
 
                     save(comment);
-                
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
             }
         }
 
@@ -182,7 +186,8 @@ namespace USA_Rent_House_Project.Student.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
-
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
             }
 
@@ -208,6 +213,8 @@ namespace USA_Rent_House_Project.Student.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
             }
         }
@@ -230,7 +237,7 @@ namespace USA_Rent_House_Project.Student.Modules
                         Session[Constants.SESSION_COMMENTS] = ds;
 
                         clear();
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
+                      //  Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
                     }
                     else
                     {

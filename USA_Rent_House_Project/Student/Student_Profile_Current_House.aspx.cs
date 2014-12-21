@@ -80,6 +80,9 @@ namespace USA_Rent_House_Project.Student
             if (user.HouseId != null)
             {
                 CreateCurrentHouseButton.Visible = false;
+                ViewCurrentHouseButton.Visible = true;
+                UpdateCurrentHouseButton.Visible = true;
+                LeaveCurrentHouseButton.Visible = true;
 
                 if (hdnStepNumber.Value.Trim() != "3")
                 {
@@ -96,6 +99,8 @@ namespace USA_Rent_House_Project.Student
             }
             else
             {
+                CreateCurrentHouseButton.Visible = true;
+                ViewCurrentHouseButton.Visible = false;
                 UpdateCurrentHouseButton.Visible = false;
                 LeaveCurrentHouseButton.Visible = false;
             }

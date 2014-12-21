@@ -181,7 +181,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
             FirstName.Text = "";
             MiddleName.Text = "";
             LastName.Text = "";
-            Mobile.Text = "";
+           // Mobile.Text = "";
+            MobileArea.Text = "";
+            Mobile1.Text = "";
+            Mobile2.Text = "";
         }
 
         ICollection CreateDataSource()
@@ -217,7 +220,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             dr[1] = FirstName.Text.Trim();
             dr[2] = MiddleName.Text.Trim();
             dr[3] = LastName.Text.Trim();
-            dr[4] = Mobile.Text.Trim();
+            dr[4] = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim(); //Mobile.Text.Trim();
             dt.Rows.Add(dr);
 
             DataView dv = new DataView(dt);
@@ -424,6 +427,78 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             }
             return strMsgContent;
+        }
+
+        protected void ButtonVerify_Click(object sender, EventArgs e)
+        {
+            Labelmessage.Text = "";
+            if (Email.Text.Trim() != "")
+            {
+                User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "student");
+
+                if (user_ != null)
+                {
+                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+
+                    // Email.Text = user_.PersonalEmail;
+                    FirstName.Text = user_.FirstName;
+                    MiddleName.Text = user_.MiddleName;
+                    LastName.Text = user_.LastName;
+
+                    MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                    Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                    Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+
+
+                    //Mobile.Text = user_.BestContactNumber;
+                }
+                else
+                {
+                    FirstName.Text = "";
+                    MiddleName.Text = "";
+                    LastName.Text = "";
+                    MobileArea.Text = "";
+                    Mobile1.Text = "";
+                    Mobile2.Text = "";
+
+                    User user_check = new User();
+
+                    if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
+                    {
+                        FirstName.Enabled = false;
+                        MiddleName.Enabled = false;
+                        LastName.Enabled = false;
+                        MobileArea.Enabled = false;
+                        Mobile1.Enabled = false;
+                        Mobile2.Enabled = false;
+
+                        if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
+                        {
+                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                        }
+                        else
+                        {
+                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                        }
+                    }
+                    else
+                    {
+                        Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                        FirstName.Enabled = true;
+                        MiddleName.Enabled = true;
+                        LastName.Enabled = true;
+                        MobileArea.Enabled = true;
+                        Mobile1.Enabled = true;
+                        Mobile2.Enabled = true;
+                    }
+
+                }
+            }
+            else
+            {
+                clear();
+
+            }
         }
     }
 }

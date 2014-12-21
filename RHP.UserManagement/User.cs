@@ -471,6 +471,10 @@ namespace RHP.UserManagement
         {
             return new UserDAO().IsUserEmailExist(Email);
         }
-       
+
+        public bool IsPartialUserEmailExist(string Email)
+        {
+            return new UserDAO().IsPartialUserEmailExist(Email);
+        }
     }
 }

@@ -293,6 +293,7 @@
     <Content Include="Student\Student_Profile.aspx" />
     <Content Include="Student\Student_Profile_Add.aspx" />
     <Content Include="Student\Student_Profile_Current_House.aspx" />
+    <Content Include="Student\Student_Profile_Current_House_Details.aspx" />
     <Content Include="Student\Student_Profile_Edit.aspx" />
     <Content Include="Student\Student_Profile_Image.aspx" />
     <Content Include="Student\Student_Profile_Image_Crop.aspx" />
@@ -1118,6 +1119,13 @@
     </Compile>
     <Compile Include="Student\Student_Profile_Current_House.aspx.designer.cs">
       <DependentUpon>Student_Profile_Current_House.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Current_House_Details.aspx.cs">
+      <DependentUpon>Student_Profile_Current_House_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Current_House_Details.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Current_House_Details.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Student_Profile_Edit.aspx.cs">
       <DependentUpon>Student_Profile_Edit.aspx</DependentUpon>

@@ -35,6 +35,8 @@ namespace RHP.Common
         public static readonly string LeaveCurrentHouseResponseSuccess = "Current House Successfully Removed!";
         public static readonly string LeaveCurrentHouseResponseUnSuccess = "Cannot Remove Current House! Please try Again.";
 
+        public static readonly string CurrentHouseNoRecords = "No Records found!.";
+
         public static readonly string RejectLeaveCurrentHouseResponseSuccess = "Request to Leave Current House Successfully Rejected!";
     }
 }

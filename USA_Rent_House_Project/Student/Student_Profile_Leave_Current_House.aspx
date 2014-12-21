@@ -35,7 +35,6 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-   
     <uc1:Student_Profile_Header ID="Student_Profile_HeaderID" runat="server" />
     <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
     <div id="currentHomeStudent" runat="server">
@@ -64,7 +63,7 @@
                         <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
                             NavigateUrl="~/Student/Student_Profile_Current_House.aspx">Create current house</asp:HyperLink>&nbsp;
                         <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House.aspx">View current house</asp:HyperLink>&nbsp;
+                            NavigateUrl="~/Student/Student_Profile_Current_House_Details.aspx">View current house</asp:HyperLink>&nbsp;
                         <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
                             NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx">Update current house</asp:HyperLink>
                         &nbsp;
@@ -92,6 +91,7 @@
                                         </div>
                                         <div>
                                             <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
+                                            <asp:HiddenField ID="hdHouseId" runat="server" Value='<%# Eval("HouseId") %>' />
                                             <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />
@@ -99,29 +99,27 @@
                                         <div>
                                             <asp:LinkButton ID="RequestLeaveCurrentHouse" CommandName="RequestLeave" CommandArgument='<%# Eval("UserId") %>'
                                                 OnCommand="RequestLeaveCurrentHouse_Command" runat="server">Request to Leave</asp:LinkButton>
+                                            <asp:Label ID="LabelItsMe" runat="server" Text="" Visible="false"></asp:Label>
                                         </div>
                                     </div>
                                 </ItemTemplate>
                             </asp:DataList>
                         </div>
-
                         <h1>
                             Responde to Leave Current House By roommates
                         </h1>
-
-                       <div id="RespondeToLeaveHouse" runat="server" >
-                       <p id="RespondeToLeaveHouseTrue" runat="server" visible="false">
-                       You have a Request to Leave Current House from :   <asp:HyperLink ID="RequestedUser" runat="server" Visible="true"></asp:HyperLink>  
-                           <asp:Label ID="RequestedUserName" runat="server" Text="" Visible="false"></asp:Label><br />
-                        If You Want to Response to Request, Please <asp:LinkButton ID="LinkButton1" runat="server" OnClick="OnConfirmRequest" OnClientClick="ConfirmRequest()">Click Here</asp:LinkButton>
-
-                       </p>
-                       <p id="RespondeToLeaveHouseFalse" runat="server" visible="false">
-                       You have no Request for Leave Current house.
-                      </p>
-                       </div>
-
-                       
+                        <div id="RespondeToLeaveHouse" runat="server">
+                            <p id="RespondeToLeaveHouseTrue" runat="server" visible="false">
+                                You have a Request to Leave Current House from :
+                                <asp:HyperLink ID="RequestedUser" runat="server" Visible="true"></asp:HyperLink>
+                                <asp:Label ID="RequestedUserName" runat="server" Text="" Visible="false"></asp:Label><br />
+                                If You Want to Response to Request, Please
+                                <asp:LinkButton ID="LinkButton1" runat="server" OnClick="OnConfirmRequest" OnClientClick="ConfirmRequest()">Click Here</asp:LinkButton>
+                            </p>
+                            <p id="RespondeToLeaveHouseFalse" runat="server" visible="false">
+                                You have no Request for Leave Current house.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

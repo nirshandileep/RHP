@@ -36,7 +36,7 @@
                         <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
                             NavigateUrl="~/Student/Student_Profile_Current_House.aspx">Create current house</asp:HyperLink>&nbsp;
                         <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House.aspx">View current house</asp:HyperLink>&nbsp;
+                            NavigateUrl="~/Student/Student_Profile_Current_House_Details.aspx">View current house</asp:HyperLink>&nbsp;
                         <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
                             NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx">Update current house</asp:HyperLink>
                         &nbsp;
@@ -81,8 +81,7 @@
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
                                 ValidationGroup="ValidationGroup1" />
                            
-                            <p id="idmessase" runat="server">
-                                <asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
+                            
                                 <p>
                                 Current Name : 
                                     <asp:Label ID="EditPartialUserName" runat="server" Text=""></asp:Label>
@@ -114,6 +113,8 @@
                                     ControlToValidate="Email" CssClass="failureNotification" ErrorMessage="Enter valid email address."
                                     ToolTip="Enter valid email address." ValidationGroup="ValidationGroup1">* </asp:RegularExpressionValidator>
                             </p>
+                            <p id="idmessase" runat="server">
+                                <asp:Label ID="Labelmessage" runat="server" Text=""></asp:Label></p>
                             <p>
                                 <asp:Button ID="ButtonVerify" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                                     Text="Verify Student" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
@@ -165,7 +166,7 @@
                             </p>
                             <p>
                                 <asp:Button ID="EditRommateButton" runat="server" Width="150px" CssClass="actionbutton"
-                                    CommandName="MoveNext" Text="Edit Roommate" OnClick="EditRommateButton_Click"
+                                    CommandName="MoveNext" Text="Save" OnClick="EditRommateButton_Click"
                                     ValidationGroup="ValidationGroup3" />
                                 <asp:Label ID="Label1" runat="server" CssClass="failureNotification" Text=""></asp:Label>
                                   <asp:HiddenField ID="hdUserID" runat="server" />

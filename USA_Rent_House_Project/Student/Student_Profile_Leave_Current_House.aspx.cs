@@ -43,11 +43,35 @@ namespace USA_Rent_House_Project.Student
             }
         }
 
-    
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadUserData();
            
+        }
+
+        public void LoadUserData()
+        {
+
+            UserDAO userDAO = new UserDAO();
+
+            user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if (user.HouseId != null)
+            {
+                ButtonLeaveHouseID.Visible = true;
+                ViewCurrentHouseButton.Visible = true;
+                UpdateCurrentHouseButton.Visible = true;
+
+                LoadStudent(user.HouseId.Value);
+                LoadLeaveCurrentHouseRequest(user.HouseId.Value);
+            }
+            else
+            {
+                CreateCurrentHouseButton.Visible = true;
+
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
+
+            }
         }
 
         public void LoadStudent(Guid HouseId)
@@ -86,37 +110,42 @@ namespace USA_Rent_House_Project.Student
                     RespondeToLeaveHouseFalse.Visible = true;
                 }
         }
-
-        public void LoadUserData()
-        {
-  
-            UserDAO userDAO = new UserDAO();
-
-            user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-
-            if (user.HouseId != null)
-            {
-                ButtonLeaveHouseID.Visible = true;
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
-
-                LoadStudent(user.HouseId.Value);
-                LoadLeaveCurrentHouseRequest(user.HouseId.Value);
-            }
-            else
-            {
-                CreateCurrentHouseButton.Visible = true;
-            }
-        }
-
+      
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+            HiddenField hdHouseId_ = (HiddenField)e.Item.FindControl("hdHouseId");
 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+            LinkButton RequestLeaveCurrentHouse_ = (LinkButton)e.Item.FindControl("RequestLeaveCurrentHouse");
+            Label LabelItsMe_ = (Label)e.Item.FindControl("LabelItsMe");
 
             Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+
+            if (Guid.Parse(HiddenField_.Value) == Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()))
+            {
+                RequestLeaveCurrentHouse_.Visible = false;
+                LabelItsMe_.Visible = true;
+                LabelItsMe_.Text = "It's Me";
+
+            }
+            else
+            {
+                
+                StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
+                studentHouseLeave = StudentHouseLeave.Select(Guid.Parse(hdHouseId_.Value), Guid.Parse(HiddenField_.Value));
+
+                if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
+                {
+                    if (studentHouseLeave.RequestBy == Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()))
+                    {
+                        RequestLeaveCurrentHouse_.Visible = false;
+                        LabelItsMe_.Visible = true;
+                        LabelItsMe_.Text = "Request Already Sent";
+                    }
+                }
+            }
         }
 
         public void OnConfirm(object sender, EventArgs e)
@@ -125,9 +154,20 @@ namespace USA_Rent_House_Project.Student
             if (confirmValue == "Yes")
             {
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Guid HouseId = user.HouseId.Value; 
                 user.HouseId = null;
+
                 if (user.UpdateHouse())
                 {
+                    StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
+                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    studentHouseLeave.status = 1;
+
+                    if (studentHouseLeave.Save())
+                    {
+
+                    }
+
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Delete_success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
                 }
                 else
@@ -168,9 +208,6 @@ namespace USA_Rent_House_Project.Student
             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.LeaveCurrentHouseRequestSuccess + "'); window.location = '/Student/Student_Profile_Leave_Current_House.aspx';}", true);
 
         }
-
-        
-
 
         protected int SendEmail(string To, string Subject, string Body)
         {
@@ -247,12 +284,13 @@ namespace USA_Rent_House_Project.Student
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Guid HouseId = user.HouseId.Value;
                 user.HouseId = null;
 
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    studentHouseLeave = StudentHouseLeave.Select(user.HouseId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
                     studentHouseLeave.status = 1;
 
                     if (studentHouseLeave.Save())

@@ -114,6 +114,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     comment.RatingValue = 0;
                     save(comment);
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
 
             }
@@ -131,7 +133,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 comment.RatingValue = CalculateReting();
 
                 save(comment);
-
+                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+                Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
             }
         }
 
@@ -155,7 +158,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
-
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
             }
 
@@ -181,6 +185,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
             }
         }
@@ -203,7 +209,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         Session[Constants.SESSION_COMMENTS] = ds;
 
                         clear();
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
+                       // Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_load_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
                     }
                     else
                     {
