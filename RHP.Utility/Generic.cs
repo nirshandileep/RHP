@@ -12,8 +12,20 @@ namespace RHP.Utility
 {
     public class Generic
     {
+
         /// <summary>
-        /// Returns an entity by PrimaryKey. 
+        /// Returns an entity by PrimaryKey Int32. 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="PrimaryKey"></param>
+        /// <returns></returns>
+        public static T Get<T>(Int32 PrimaryKey) where T : new()
+        {
+            return Get<T>((Int64)PrimaryKey);
+        }
+
+        /// <summary>
+        /// Returns an entity by PrimaryKey Int64.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="PrimaryKey"></param>

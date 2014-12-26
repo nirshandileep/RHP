@@ -81,7 +81,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
             Year.Text = house.YearHomeBuild.HasValue ? house.YearHomeBuild.Value.ToString() : "-";
             BedRooms.Text = house.BedRooms.HasValue ? house.BedRooms.Value.ToString() : "-";
             BathRooms.Text = house.BathRooms.HasValue ? house.BathRooms.Value.ToString() : "-";
-            state.Text = house.StateId.HasValue ? house.StateId.Value.ToString() : "-";
+            
+            string stateName = "-";
+            State state = new State();
+            if (house.StateId.HasValue)
+            {
+                state = Generic.Get<State>(house.StateId.Value);
+                stateName = state.StateName;
+            }           
+            
+            StateLabel.Text = stateName;
             LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
             TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
             Utilities.Text = house.UtilitiesIncludedInRent != null ? house.UtilitiesIncludedInRent : string.Empty;

@@ -179,11 +179,6 @@
                         <br />Gender :
                         <asp:Label ID="Gender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                         <br />
-                        Location :
-                        <asp:Label ID="StreetAddress" runat="server" Text='<%# Eval("StreetAddress") %>'></asp:Label>
-                        <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>
-                        <asp:Label ID="Zip" runat="server" Text='<%# Eval("Zip") %>'></asp:Label>
-                        <br />
                         <br />
                         School Name :
                         <asp:Label ID="SchoolName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
@@ -194,10 +189,6 @@
                         <br />
                         Year : <asp:Label ID="Year" runat="server" Text='<%# Eval("Year") %>'></asp:Label> ,
                         Student Status : <asp:Label ID="Label2" runat="server" Text='<%# Eval("StudentStatus") %>'></asp:Label> 
-                        <br />
-                        Website :
-                        <asp:Label ID="WebsiteURL" runat="server" Text='<%# Eval("WebsiteURL") %>'></asp:Label>
-                        <br />
                        
                     </div>
                 </ItemTemplate>

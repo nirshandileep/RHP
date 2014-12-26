@@ -64,14 +64,16 @@ namespace USA_Rent_House_Project.Student.Modules
             Address.Text = (string.IsNullOrEmpty(user.StreetAddress) ? string.Empty : user.StreetAddress) + " " + (string.IsNullOrEmpty(user.Zip) ? string.Empty : user.Zip);
             City.Text = string.IsNullOrEmpty(user.City) ? string.Empty : user.City;
             Mobile.Text = string.IsNullOrEmpty(user.BestContactNumber) ? string.Empty : user.BestContactNumber;
-            
+
             if (user.StateId.HasValue)
             {
-                State.Text = user.StateId.ToString().ToLower();
+                State state;
+                state = Generic.Get<State>(user.StateId.Value);
+                if (state != null)
+                {
+                    State.Text = state.StateName;
+                }
             }
-
-           
-
         }
 
         public void loadSchooldata(Guid AccessCode)
