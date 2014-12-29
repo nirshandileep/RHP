@@ -46,57 +46,39 @@
                     <div id="forminner">
                         <h1>
                             Update Current House</h1>
-                        <div id="ParialUsers" runat="server">
-                            <div id="StudentListData" runat="server">
-                                <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
-                                    OnItemDataBound="ItemDataBound">
-                                    <ItemTemplate>
-                                        <div class="imagegallerycontainer">
-                                            <div class="imagegallery">
-                                                <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>'
-                                                    ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
-                                            </div>
-                                            <div>
-                                                <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
-                                                <asp:HiddenField ID="hdIsPartialUser" runat="server" Value='<%# Eval("IsPartialUser") %>' />
-                                                <asp:HiddenField ID="hdAspnetUserId" runat="server" Value='<%# Eval("AspnetUserId") %>' />
-                                                <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
-                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
-                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />
-                                            </div>
-                                            <div>
-                                                <asp:LinkButton ID="EditPartialUser" CommandName="Edit" CommandArgument='<%# Eval("UserId") %>'
-                                                    OnCommand="EditPartialUser_Command" runat="server" Visible="false">Edit </asp:LinkButton>
-                                            </div>
-                                        </div>
-                                    </ItemTemplate>
-                                </asp:DataList>
-                            </div>
-                        </div>
+
+                        <asp:HiddenField ID="hdroommatestatus" runat="server" />
+                        <asp:HiddenField ID="hdnLandlordId" runat="server" />
+                            <asp:HiddenField ID="hdHouseId" runat="server" />
+
+              
                         <div id="RoommateEdit" runat="server" visible="false">
                             <h1>
-                                Room-Mate Info - Edit</h1>
+                            <asp:Label ID="RoomMateInfoHeader" runat="server" Text=""></asp:Label>
+                                </h1>
                             <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
                                 ValidationGroup="ValidationGroup3" />
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
                                 ValidationGroup="ValidationGroup1" />
+
+                                <div id="CurrentDetails" runat="server" visible="false">
+                            <p>
+                                Current Name :
+                                <asp:Label ID="EditPartialUserName" runat="server" Text=""></asp:Label>
+                                <asp:HiddenField ID="hdEditPartialUserName" runat="server" />
                            
-                            
-                                <p>
-                                Current Name : 
-                                    <asp:Label ID="EditPartialUserName" runat="server" Text=""></asp:Label>
-                                    <asp:HiddenField ID="hdEditPartialUserName" runat="server" />
-                                </p>
-                                <p>
-                                Current Email : 
-                                    <asp:Label ID="EditPartialUserEmail" runat="server" Text=""></asp:Label>
-                                    <asp:HiddenField ID="hdEditPartialUserEmail" runat="server" />
-                                </p>
-                                <p>
-                                Current Cntact : 
-                                    <asp:Label ID="EditPartialUserCurrent" runat="server" Text=""></asp:Label>
-                                    <asp:HiddenField ID="hdEditPartialUserCurrent" runat="server" />
-                                </p>
+                            </p>
+                            <p>
+                                Current Email :
+                                <asp:Label ID="EditPartialUserEmail" runat="server" Text=""></asp:Label>
+                                <asp:HiddenField ID="hdEditPartialUserEmail" runat="server" />
+                            </p>
+                            <p>
+                                Current Cntact :
+                                <asp:Label ID="EditPartialUserCurrent" runat="server" Text=""></asp:Label>
+                                <asp:HiddenField ID="hdEditPartialUserCurrent" runat="server" />
+                            </p>
+                            </div>
                             <p id="setEmail" runat="server">
                                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -166,13 +148,43 @@
                             </p>
                             <p>
                                 <asp:Button ID="EditRommateButton" runat="server" Width="150px" CssClass="actionbutton"
-                                    CommandName="MoveNext" Text="Save" OnClick="EditRommateButton_Click"
-                                    ValidationGroup="ValidationGroup3" />
+                                    CommandName="MoveNext" Text="Save" OnClick="EditRommateButton_Click" ValidationGroup="ValidationGroup3" />
                                 <asp:Label ID="Label1" runat="server" CssClass="failureNotification" Text=""></asp:Label>
-                                  <asp:HiddenField ID="hdUserID" runat="server" />
+                                <asp:HiddenField ID="hdUserID" runat="server" />
+                                <br />
                             </p>
-                           
                         </div>
+                        <div id="ParialUsers" runat="server">
+                            <div id="StudentListData" runat="server">
+                                  <br />
+                                  Click <asp:LinkButton ID="LBAddStudent" runat="server" onclick="LBAddStudent_Click">Here</asp:LinkButton> to Add a new Student.
+
+                                <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
+                                    OnItemDataBound="ItemDataBound">
+                                    <ItemTemplate>
+                                        <div class="imagegallerycontainer">
+                                            <div class="imagegallery">
+                                                <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>'
+                                                    ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
+                                            </div>
+                                            <div>
+                                                <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
+                                                <asp:HiddenField ID="hdIsPartialUser" runat="server" Value='<%# Eval("IsPartialUser") %>' />
+                                                <asp:HiddenField ID="hdAspnetUserId" runat="server" Value='<%# Eval("AspnetUserId") %>' />
+                                                <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
+                                                <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
+                                                <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />
+                                            </div>
+                                            <div>
+                                                <asp:LinkButton ID="EditPartialUser" CommandName="Edit" CommandArgument='<%# Eval("UserId") %>'
+                                                    OnCommand="EditPartialUser_Command" runat="server" Visible="false">Edit </asp:LinkButton>
+                                            </div>
+                                        </div>
+                                    </ItemTemplate>
+                                </asp:DataList>
+                            </div>
+                        </div>
+                      
                     </div>
                 </div>
             </div>

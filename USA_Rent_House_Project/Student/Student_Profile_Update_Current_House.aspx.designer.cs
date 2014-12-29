@@ -157,31 +157,31 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.WebControls.HyperLink LeaveCurrentHouseButton;
         
         /// <summary>
-        /// ParialUsers control.
+        /// hdroommatestatus control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ParialUsers;
+        protected global::System.Web.UI.WebControls.HiddenField hdroommatestatus;
         
         /// <summary>
-        /// StudentListData control.
+        /// hdnLandlordId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentListData;
+        protected global::System.Web.UI.WebControls.HiddenField hdnLandlordId;
         
         /// <summary>
-        /// DataListStudentList control.
+        /// hdHouseId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList DataListStudentList;
+        protected global::System.Web.UI.WebControls.HiddenField hdHouseId;
         
         /// <summary>
         /// RoommateEdit control.
@@ -191,6 +191,15 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RoommateEdit;
+        
+        /// <summary>
+        /// RoomMateInfoHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label RoomMateInfoHeader;
         
         /// <summary>
         /// ValidationGroup3ID control.
@@ -209,6 +218,15 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary1;
+        
+        /// <summary>
+        /// CurrentDetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl CurrentDetails;
         
         /// <summary>
         /// EditPartialUserName control.
@@ -542,5 +560,41 @@ namespace USA_Rent_House_Project.Student {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hdUserID;
+        
+        /// <summary>
+        /// ParialUsers control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ParialUsers;
+        
+        /// <summary>
+        /// StudentListData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl StudentListData;
+        
+        /// <summary>
+        /// LBAddStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton LBAddStudent;
+        
+        /// <summary>
+        /// DataListStudentList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataList DataListStudentList;
     }
 }
