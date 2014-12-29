@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Student_Public_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Public_Profile" %>
+﻿<%@ Page Title="Student Public Profile" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Student_Public_Profile.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Public_Profile" %>
 
 <%@ Register src="Modules/Student_Public_Profile_Header.ascx" tagname="Student_Public_Profile_Header" tagprefix="uc1" %>
 <%@ Register src="Modules/Student_Public_Profile_Banner.ascx" tagname="Student_Public_Profile_Banner" tagprefix="uc2" %>

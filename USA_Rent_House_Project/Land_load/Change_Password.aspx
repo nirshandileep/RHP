@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Change_Password" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Change_Password.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Change_Password" %>
+﻿<%@ Page Title="Change Password" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Change_Password.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Change_Password" %>
 <%@ Register src="../Modules/Change_Password.ascx" tagname="Change_Password" tagprefix="uc1" %>
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"
     TagPrefix="uc1" %>

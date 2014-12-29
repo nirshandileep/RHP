@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Landload Profile info " Language="C#" MasterPageFile="~/Master_Pages/General.Master"
+﻿<%@ Page Title="Landlord Profile info " Language="C#" MasterPageFile="~/Master_Pages/General.Master"
     AutoEventWireup="true" CodeBehind="Land_load_Profile_Add.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_load_Profile_Add" %>
 
 

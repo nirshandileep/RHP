@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Land-Load House" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
+﻿<%@ Page Title="Landlord House" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
     AutoEventWireup="true" CodeBehind="Land_Load_House.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_Load_House" %>
 
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"

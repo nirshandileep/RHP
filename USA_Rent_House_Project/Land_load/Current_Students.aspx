@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Current_Students.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Current_Students" %>
+﻿<%@ Page Title="Current Students" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Current_Students.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Current_Students" %>
 <%@ Register src="Modules/Current_Students_Add.ascx" tagname="Current_Students_Add" tagprefix="uc1" %>
 
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"

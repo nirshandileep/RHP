@@ -428,15 +428,15 @@ namespace USA_Rent_House_Project.Student
                 if (result = user_.Save())
                 {
 
-                    string strMsgContent = message(user_.UserId.Value, user_);
+                    //string strMsgContent = message(user_.UserId.Value, user_);
 
-                    string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
+                    //string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
 
-                    int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
+                    //int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
 
-                    if (rtn == 1)
-                    {
-                    }
+                    //if (rtn == 1)
+                    //{
+                    //}
                 }
             
 

@@ -125,6 +125,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 }
 
                 LoadStudent();
+
+                if (hdroommatestatus.Value == "Add")
+                {
+                    RoommateAdd.Visible = true;
+                }
+                else if (hdroommatestatus.Value == "Edit")
+                {
+                    RoommateAdd.Visible = true;
+                    CurrentDetails.Visible = true;
+                }
             }
 
           
@@ -148,12 +158,80 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
+            //Photo photo = new Photo();
+            //HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
+
+            //HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
+
+            //Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
 
             Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
+
+            HiddenField HdIsPartialUser = (HiddenField)e.Item.FindControl("hdIsPartialUser");
+            HiddenField hdAspnetUserId_ = (HiddenField)e.Item.FindControl("hdAspnetUserId");
+            LinkButton EditPartialUser_ = (LinkButton)e.Item.FindControl("EditPartialUser");
+
+            bool IsPartialUser = bool.Parse(HdIsPartialUser.Value);
+
+            if (IsPartialUser == true && (hdAspnetUserId_.Value == string.Empty || hdAspnetUserId_.Value == null))
+            {
+                EditPartialUser_.Visible = true;
+            }
+            else
+            {
+                EditPartialUser_.Visible = false;
+            }
+        }
+
+        protected void EditPartialUser_Command(object sender, CommandEventArgs args)
+        {
+            string userid = (string)args.CommandArgument;
+            hdroommatestatus.Value = "Edit";
+            CurrentDetails.Visible = true;
+            RoomMateInfoHeader.Text = "Room-Mate Info - Edit";
+            RHP.UserManagement.User _user = new RHP.UserManagement.User();
+            hdUserID.Value = userid;
+
+            SaveNewStudent.Visible = false;
+            SaveEditStudent.Visible = true;
+
+            _user = RHP.UserManagement.User.Select(Guid.Parse(userid));
+
+            if (_user.IsPartialUser == true && (_user.AspnetUserId == null || _user.AspnetUserId == Guid.Empty))
+            {
+
+                EditPartialUserName.Text = (string.IsNullOrEmpty(_user.FirstName) ? string.Empty : _user.FirstName) + " " + (string.IsNullOrEmpty(_user.LastName) ? string.Empty : _user.LastName);
+                hdEditPartialUserName.Value = EditPartialUserName.Text;
+
+                EditPartialUserEmail.Text = string.IsNullOrEmpty(_user.PersonalEmail) ? string.Empty : _user.PersonalEmail;
+                hdEditPartialUserEmail.Value = EditPartialUserEmail.Text;
+
+                EditPartialUserCurrent.Text = string.IsNullOrEmpty(_user.BestContactNumber) ? string.Empty : _user.BestContactNumber;
+                hdEditPartialUserCurrent.Value = EditPartialUserCurrent.Text;
+
+                RoommateAdd.Visible = true;
+
+                Email.Text = string.IsNullOrEmpty(_user.PersonalEmail) ? string.Empty : _user.PersonalEmail;
+                FirstName.Text = string.IsNullOrEmpty(_user.FirstName) ? string.Empty : _user.FirstName;
+                MiddleName.Text = string.IsNullOrEmpty(_user.MiddleName) ? string.Empty : _user.MiddleName;
+                LastName.Text = string.IsNullOrEmpty(_user.LastName) ? string.Empty : _user.LastName;
+
+                MobileArea.Text = string.IsNullOrEmpty(_user.BestContactNumber) ? string.Empty : _user.BestContactNumber.Substring(0, 3);
+                Mobile1.Text = string.IsNullOrEmpty(_user.BestContactNumber) ? string.Empty : _user.BestContactNumber.Substring(3, 3);
+                Mobile2.Text = string.IsNullOrEmpty(_user.BestContactNumber) ? string.Empty : _user.BestContactNumber.Substring(6, 4);
+
+                FirstName.Enabled = true;
+                MiddleName.Enabled = true;
+                LastName.Enabled = true;
+                MobileArea.Enabled = true;
+                Mobile1.Enabled = true;
+                Mobile2.Enabled = true;
+            }
         }
 
         protected void CreateRommateButton_Click(object sender, EventArgs e)
@@ -270,7 +348,6 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
-
         public bool Save()
         {
             bool result = true;
@@ -347,9 +424,22 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         protected void ButtonSave_Click(object sender, EventArgs e)
         {
-            Save();
+            if (validateemail())
+            {
+                Labelmessage.Text = "landlord or student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+            }
+            else
+            {
+                if (hdroommatestatus.Value == "Add")
+                {
+                    Save();
+                }
+                else if (hdroommatestatus.Value == "Edit")
+                {
+                    SaveEdit();
+                }
+            }
         }
-
 
         protected int SendEmail(string To, string Subject, string Body)
         {
@@ -372,7 +462,6 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
 
         }
-
 
         private string message(Guid ActivationKey, User _user)
         {
@@ -500,5 +589,131 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
             }
         }
+
+        protected void LBAddStudent_Click(object sender, EventArgs e)
+        {
+            hdroommatestatus.Value = "Add";
+            RoomMateInfoHeader.Text = "Room-Mate Info - Add";
+            RoommateAdd.Visible = true;
+            clear();
+            SaveNewStudent.Visible = true;
+            SaveEditStudent.Visible = false;
+            CurrentDetails.Visible = false;
+        }
+
+        public bool SaveEdit()
+        {
+            bool result = true;
+
+            aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+
+            aspnet_Roles_ = aspnet_Roles.Select("student");
+
+            User user_ = new User();
+
+            user_ = RHP.UserManagement.User.Select(Guid.Parse(hdUserID.Value));
+
+            user_.PersonalEmail = Email.Text.Trim();
+            user_.FirstName = FirstName.Text.Trim();
+            user_.MiddleName = MiddleName.Text.Trim();
+            user_.LastName = LastName.Text.Trim();
+            user_.BestContactNumber = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();
+
+            user_.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            user_.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+            if (result = user_.Save())
+            {
+
+                //string strMsgContent = message(user_.UserId.Value, user_);
+
+                //string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
+
+                //int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
+
+                //if (rtn == 1)
+                //{
+                //}
+            }
+
+
+            if (result)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
+            }
+            return result;
+        }
+
+        public bool validateemail()
+        {
+            bool isexist = false;
+            Labelmessage.Text = "";
+            if (Email.Text.Trim() != "")
+            {
+                User user_ = new User();
+
+                if (user_.IsUserEmailExist(Email.Text.Trim().ToLower()))
+                {
+                    isexist = true;
+
+                    if (user_.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
+                    {
+                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                    }
+                    else
+                    {
+                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                    }
+
+                    // Labelmessage.Text = "landlord or student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+
+
+                }
+                else
+                {
+                    isexist = false;
+                    //  Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                }
+            }
+            else
+            {
+                isexist = false;
+            }
+
+            return isexist;
+        }
+
+        protected void EditRommateButton_Click(object sender, EventArgs e)
+        {
+            if (Email.Text.Trim() == EditPartialUserEmail.Text.Trim())
+            {
+                if (hdroommatestatus.Value == "Edit")
+                {
+                    SaveEdit();
+                }
+                else
+                {
+                    Labelmessage.Text = "Please Try Again..";
+                }
+
+
+            }
+            else if (validateemail())
+            {
+                Labelmessage.Text = "landlord or student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+            }
+            else
+            {
+                if (hdroommatestatus.Value == "Add")
+                {
+                    Save();
+                }
+                else if (hdroommatestatus.Value == "Edit")
+                {
+                    SaveEdit();
+                }
+            }
+        }
+
     }
 }

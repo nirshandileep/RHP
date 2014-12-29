@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Image_Crop.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Image_Crop" %>
+﻿<%@ Page Title="Student Profile Image " Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Image_Crop.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Image_Crop" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 
 

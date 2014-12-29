@@ -31,13 +31,13 @@ namespace USA_Rent_House_Project.Land_load {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
         
         /// <summary>
-        /// LeftPanel control.
+        /// LeftPanel_LandL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel_LandL;
         
         /// <summary>
         /// Menu_Bar1 control.

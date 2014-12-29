@@ -1,4 +1,4 @@
-﻿<%@ Page Title="House_info_Add" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
+﻿<%@ Page Title="House info Add" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
     AutoEventWireup="true" CodeBehind="Land_Load_House_info_Add.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_Load_House_info_Add" %>
 
 <%@ Register Src="~/Land_load/Modules/House_info_Add.ascx" TagName="House_info_Add"

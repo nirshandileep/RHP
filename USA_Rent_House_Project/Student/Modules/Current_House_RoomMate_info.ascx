@@ -5,7 +5,7 @@
 
         <div id="StudentListData" runat="server">
        
-        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId" OnItemDataBound="ItemDataBound">
+        <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId" OnItemDataBound="ItemDataBound">
                 <ItemTemplate>
                     <div class="imagegallerycontainer">
                         <div class="imagegallery">

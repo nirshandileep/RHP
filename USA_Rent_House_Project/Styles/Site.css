@@ -1010,8 +1010,9 @@ a.loginlinks_img:hover
 .imagegallerycontainer
 {
         float:left;
-        margin:15px;
-        width:45%;
+        margin: 15px 15px 15px 10px;
+        width:350px;
+       
 }
 
 #MainContent_Landload_Profile_Banner1_LandloadBanner .imagegallerycontainer, #MainContent_Landload_Profile_Banner2_LandloadBanner .imagegallerycontainer
@@ -1027,7 +1028,7 @@ a.loginlinks_img:hover
    
     float: left;
     margin: 5px 40px;
-    width: 45%;
+   width:350px;
 }
 
 .imagegallery, imagegallery img
@@ -1416,7 +1417,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 #MainContent_Current_Students_Add1_StudentListData .imagegallerycontainer
 {
-    width:75%;
+    width:350px;
 }
  
 .ll_info_search_bar, .LL_PP_Searchbar

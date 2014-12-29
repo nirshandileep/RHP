@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Current_House_Life_View.aspx.cs" Inherits="USA_Rent_House_Project.Student.Current_House_Life_View" %>
+﻿<%@ Page Title="Current House Life View" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Current_House_Life_View.aspx.cs" Inherits="USA_Rent_House_Project.Student.Current_House_Life_View" %>
 
 <%@ Register src="Modules/Current_House_Life_View.ascx" tagname="Current_House_Life_View_" tagprefix="uc2" %>
 <%@ Register Src="Modules/Student_Public_Profile_info_View.ascx" TagName="Student_Public_Profile_info_View"

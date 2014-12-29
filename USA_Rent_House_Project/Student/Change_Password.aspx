@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Change Password" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
     CodeBehind="Change_Password.aspx.cs" Inherits="USA_Rent_House_Project.Student.Change_Password" %>
 
 <%@ Register Src="../Modules/Change_Password.ascx" TagName="Change_Password" TagPrefix="uc1" %>

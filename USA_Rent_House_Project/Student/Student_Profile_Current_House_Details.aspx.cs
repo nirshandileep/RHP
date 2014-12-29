@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Data;
 using RHP.LandlordManagement;
 using RHP.Photos;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Student
 {
@@ -103,7 +104,16 @@ namespace USA_Rent_House_Project.Student
 
                 if (house != null)
                 {
-                    State.Text = house.StateId.ToString().ToLower();                     
+                    if (house.StateId.HasValue)
+                    {
+                        State state;
+                        state = Generic.Get<State>(user.StateId.Value);
+                        if (state != null)
+                        {
+                            State.Text = state.StateName;
+                        }
+                    }
+                    //State.Text = house.StateId.ToString().ToLower();                     
                     Address.Text = house.StreetAddress;
                     City.Text = house.City;
                     Zip.Text = house.Zip;

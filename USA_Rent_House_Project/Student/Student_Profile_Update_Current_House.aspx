@@ -159,7 +159,7 @@
                                   <br />
                                   Click <asp:LinkButton ID="LBAddStudent" runat="server" onclick="LBAddStudent_Click">Here</asp:LinkButton> to Add a new Student.
 
-                                <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
+                                <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId"
                                     OnItemDataBound="ItemDataBound">
                                     <ItemTemplate>
                                         <div class="imagegallerycontainer">

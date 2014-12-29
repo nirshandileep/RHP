@@ -1,4 +1,4 @@
-﻿<%@ Page Title="House_Details" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
+﻿<%@ Page Title="House Details view" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master"
     AutoEventWireup="true" CodeBehind="Land_Load_House_View.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Land_Load_House_View" %>
 
 <%@ Register Src="Modules/House_Details.ascx" TagName="House_Details" TagPrefix="uc1" %>

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Change_Secret_Question" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Change_Secret_Question.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Change_Secret_Question" %>
+﻿<%@ Page Title="Change Secret Question" Language="C#" MasterPageFile="~/Master_Pages/Land-Load.Master" AutoEventWireup="true" CodeBehind="Change_Secret_Question.aspx.cs" Inherits="USA_Rent_House_Project.Land_load.Change_Secret_Question" %>
 <%@ Register src="../Modules/Change_Secret_Question.ascx" tagname="Change_Secret_Question" tagprefix="uc1" %>
 <%@ Register Src="Modules/Landload_Profile_Header.ascx" TagName="Landload_Profile_Header"
     TagPrefix="uc1" %>

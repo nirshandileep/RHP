@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
+﻿<%@ Page Title="Change Secret Question" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true"
     CodeBehind="Change_Secret_Question.aspx.cs" Inherits="USA_Rent_House_Project.Student.Change_Secret_Question" %>
 
 <%@ Register Src="../Modules/Change_Secret_Question.ascx" TagName="Change_Secret_Question"

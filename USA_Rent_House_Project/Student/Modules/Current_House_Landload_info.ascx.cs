@@ -182,6 +182,7 @@ namespace USA_Rent_House_Project.Student.Modules
         protected void ButtonVerify_Click(object sender, EventArgs e)
         {
             Labelmessage.Text = "";
+
             if (Email.Text.Trim() != "")
             {
                 User user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "landlord");
@@ -229,6 +230,34 @@ namespace USA_Rent_House_Project.Student.Modules
                         if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
                         {
                             Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+
+                            //usp_UserSelectByRoleName
+
+                            user_check = User.SelectUserByEmail("RoleName", "landlord", "Email", Email.Text.Trim().ToLower());
+
+                            if (user_check != null)
+                            {
+                                if (user_check.UserId.HasValue && user_check.IsPartialUser == true)
+                                {
+                                    Labelmessage.Text = "landload verified for email : " + Email.Text.Trim().ToLower();
+                                    LandlordId = user_.UserId;
+
+                                    PassID(user_check.UserId.Value);
+                                    Email.Text = user_check.PersonalEmail;
+                                    FirstName.Text = string.IsNullOrEmpty(user_check.FirstName) ? string.Empty : user_check.FirstName;
+                                    MiddleName.Text = string.IsNullOrEmpty(user_check.MiddleName) ? string.Empty : user_check.MiddleName;
+                                    LastName.Text = string.IsNullOrEmpty(user_check.LastName) ? string.Empty : user_check.LastName;
+
+                                    MobileArea.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(0, 3);
+                                    Mobile1.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(3, 3);
+                                    Mobile2.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(6, 4);
+                                }
+                            }
+                             
+                            else
+                            {
+                                Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                            }
                         }
                         else
                         {
