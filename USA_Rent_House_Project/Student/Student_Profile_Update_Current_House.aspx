@@ -25,7 +25,7 @@
                     runat="server">Search for House</asp:HyperLink>
             </div>
             <div class="clear">
-                <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
+                
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
@@ -46,38 +46,31 @@
                     <div id="forminner">
                         <h1>
                             Update Current House</h1>
-
-                        <asp:HiddenField ID="hdroommatestatus" runat="server" />
-                        <asp:HiddenField ID="hdnLandlordId" runat="server" />
-                            <asp:HiddenField ID="hdHouseId" runat="server" />
-
-              
+                       
                         <div id="RoommateEdit" runat="server" visible="false">
                             <h1>
-                            <asp:Label ID="RoomMateInfoHeader" runat="server" Text=""></asp:Label>
-                                </h1>
+                                <asp:Label ID="RoomMateInfoHeader" runat="server" Text=""></asp:Label>
+                            </h1>
                             <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
                                 ValidationGroup="ValidationGroup3" />
                             <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
                                 ValidationGroup="ValidationGroup1" />
-
-                                <div id="CurrentDetails" runat="server" visible="false">
-                            <p>
-                                Current Name :
-                                <asp:Label ID="EditPartialUserName" runat="server" Text=""></asp:Label>
-                                <asp:HiddenField ID="hdEditPartialUserName" runat="server" />
-                           
-                            </p>
-                            <p>
-                                Current Email :
-                                <asp:Label ID="EditPartialUserEmail" runat="server" Text=""></asp:Label>
-                                <asp:HiddenField ID="hdEditPartialUserEmail" runat="server" />
-                            </p>
-                            <p>
-                                Current Cntact :
-                                <asp:Label ID="EditPartialUserCurrent" runat="server" Text=""></asp:Label>
-                                <asp:HiddenField ID="hdEditPartialUserCurrent" runat="server" />
-                            </p>
+                            <div id="CurrentDetails" runat="server" visible="false">
+                                <p>
+                                    Current Name :
+                                    <asp:Label ID="EditPartialUserName" runat="server" Text=""></asp:Label>
+                                    <asp:HiddenField ID="hdEditPartialUserName" runat="server" />
+                                </p>
+                                <p>
+                                    Current Email :
+                                    <asp:Label ID="EditPartialUserEmail" runat="server" Text=""></asp:Label>
+                                    <asp:HiddenField ID="hdEditPartialUserEmail" runat="server" />
+                                </p>
+                                <p>
+                                    Current Cntact :
+                                    <asp:Label ID="EditPartialUserCurrent" runat="server" Text=""></asp:Label>
+                                    <asp:HiddenField ID="hdEditPartialUserCurrent" runat="server" />
+                                </p>
                             </div>
                             <p id="setEmail" runat="server">
                                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
@@ -150,15 +143,76 @@
                                 <asp:Button ID="EditRommateButton" runat="server" Width="150px" CssClass="actionbutton"
                                     CommandName="MoveNext" Text="Save" OnClick="EditRommateButton_Click" ValidationGroup="ValidationGroup3" />
                                 <asp:Label ID="Label1" runat="server" CssClass="failureNotification" Text=""></asp:Label>
-                                <asp:HiddenField ID="hdUserID" runat="server" />
+                                
                                 <br />
                             </p>
                         </div>
+                        <div id="LandlordInfo" runat="server">
+                            
+                            <asp:HiddenField ID="hdLandloadId" runat="server" />
+                            <asp:HiddenField ID="hdUserID" runat="server" />
+                             <asp:HiddenField ID="hdroommatestatus" runat="server" />
+                             <asp:HiddenField ID="hdHouseId" runat="server" />
+                             <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
+
+                            <h1>
+                                Landload Info</h1>
+                            
+                            <p id="EditLandloadInfoLink" runat="server" visible="true">
+                            Click
+                                <asp:HyperLink ID="HyperLinkloadInfo" NavigateUrl="~/Student/Student_Profile_Update_Current_Landlord.aspx" runat="server"> Here </asp:HyperLink>
+
+                            &nbsp;to Edit Landload Info.</p>
+                       
+                            <p id="P1" runat="server">
+                                <asp:Label ID="Label4" runat="server" AssociatedControlID="lbEmail" CssClass="form_label">E-mail:</asp:Label>
+                                <asp:Label ID="lbEmail" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                            <p>
+                                <asp:Label ID="LabelName" runat="server" AssociatedControlID="lbName" CssClass="form_label">Name:</asp:Label>
+                                <asp:Label ID="lbName" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                            <p>
+                                <asp:Label ID="Label6" runat="server" AssociatedControlID="lbMobile" CssClass="form_label">Best Contact #:</asp:Label>
+                                <asp:Label ID="lbMobile" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                        </div>
+                    
+                        <div id="LandlordHouseInfo" runat="server">
+                            <h1>
+                                House Info</h1>
+                            
+                           <p id="HouseInfoEditLink" runat="server" visible="true"> Click
+                      
+                            <asp:HyperLink ID="HyperLinkHouseEditLink" NavigateUrl="~/Student/Student_Profile_Update_Current_House_Details.aspx" runat="server"> Here </asp:HyperLink>
+                            &nbsp;to Edit House Info.
+                             </p>
+                       
+                            <p>
+                                <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Rental Address:</asp:Label>
+                                <asp:Label ID="Address" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                            <p>
+                                <asp:Label ID="CityLabel" runat="server" AssociatedControlID="City" CssClass="form_label">City:</asp:Label>
+                                <asp:Label ID="City" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                            <p>
+                                <asp:Label ID="StateLabel" runat="server" AssociatedControlID="State" CssClass="form_label">State:</asp:Label>
+                                <asp:Label ID="State" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                            <p>
+                                <asp:Label ID="ZipLabel" runat="server" AssociatedControlID="Zip" CssClass="form_label">Zip:</asp:Label>
+                                <asp:Label ID="Zip" runat="server" CssClass="form_label"></asp:Label>
+                            </p>
+                        </div>
+                       
                         <div id="ParialUsers" runat="server">
                             <div id="StudentListData" runat="server">
-                                  <br />
-                                  Click <asp:LinkButton ID="LBAddStudent" runat="server" onclick="LBAddStudent_Click">Here</asp:LinkButton> to Add a new Student.
-
+                                <br />
+                                Click
+                                <asp:LinkButton ID="LBAddStudent" runat="server" OnClick="LBAddStudent_Click">Here</asp:LinkButton>
+                                &nbsp;to Add a new Student.
+                                <br />
                                 <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId"
                                     OnItemDataBound="ItemDataBound">
                                     <ItemTemplate>
@@ -184,7 +238,6 @@
                                 </asp:DataList>
                             </div>
                         </div>
-                      
                     </div>
                 </div>
             </div>

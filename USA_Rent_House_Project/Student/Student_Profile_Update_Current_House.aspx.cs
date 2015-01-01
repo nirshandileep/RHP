@@ -50,7 +50,10 @@ namespace USA_Rent_House_Project.Student
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadUserData();
+            if (!IsPostBack)
+            {
+                LoadUserData();
+            }
 
             if (hdroommatestatus.Value == "Add" )
             {
@@ -61,8 +64,10 @@ namespace USA_Rent_House_Project.Student
                 RoommateEdit.Visible = true;
                 CurrentDetails.Visible = true;
             }
-            
+
         }
+
+        // current Student and user data
 
         public void LoadUserData()
         {
@@ -76,8 +81,10 @@ namespace USA_Rent_House_Project.Student
                 UpdateCurrentHouseButton.Visible = true;
 
                 LoadStudent(user.HouseId.Value);
+                LoadLandlordData(user);
+                LoadHouseData(user);
 
-                hdnLandlordId.Value = "";
+               
                 hdHouseId.Value = user.HouseId.Value.ToString();
             }
             else
@@ -87,7 +94,7 @@ namespace USA_Rent_House_Project.Student
 
             }
         }
-
+ 
         public void LoadStudent(Guid HouseId)
         {
             List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", HouseId, "RoleName", "student");
@@ -125,6 +132,7 @@ namespace USA_Rent_House_Project.Student
         protected void EditPartialUser_Command(object sender, CommandEventArgs args)
         {
             string userid = (string)args.CommandArgument;
+            
             hdroommatestatus.Value = "Edit";
             CurrentDetails.Visible = true;
             RoomMateInfoHeader.Text = "Room-Mate Info - Edit";
@@ -446,14 +454,7 @@ namespace USA_Rent_House_Project.Student
             }
             return result;
         }
-
-        protected void LBAddStudent_Click(object sender, EventArgs e)
-        {
-            hdroommatestatus.Value = "Add";
-            RoomMateInfoHeader.Text = "Room-Mate Info - Add";
-            RoommateEdit.Visible = true;
-        }
-
+    
         public bool SaveNewstudent()
         {
             bool result = true;
@@ -518,5 +519,91 @@ namespace USA_Rent_House_Project.Student
 
         }
 
+        protected void LBAddStudent_Click(object sender, EventArgs e)
+        {
+
+            hdroommatestatus.Value = "Add";
+            RoomMateInfoHeader.Text = "Room-Mate Info - Add";
+            RoommateEdit.Visible = true;
+        }
+
+        // Landload info
+
+        public void LoadLandlordData(User user_)
+        {
+            UserDAO userDAO = new UserDAO();
+
+            if (user_.HouseId != null)
+            {
+                DataSet LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
+
+                if (LandlordData != null && LandlordData.Tables[0].Rows.Count > 0)
+                {
+                    string IspartialUser = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["IsPartialUser"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["IsPartialUser"].ToString().Trim();
+                    string AspnetUserId = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["AspnetUserId"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["AspnetUserId"].ToString().Trim();
+
+                    if (IspartialUser.ToLower() == "true" && (AspnetUserId == "" || AspnetUserId == string.Empty))
+                    {
+                        EditLandloadInfoLink.Visible = true;
+                    }
+                    else
+                    {
+                        EditLandloadInfoLink.Visible = true;
+                    }
+
+                    hdLandloadId.Value = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LandlordId"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LandlordId"].ToString().Trim();
+                    string FirstName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim();
+                    string MiddleName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
+                    string LastName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
+
+                    lbName.Text = FirstName + " " + MiddleName + " " + LastName;
+
+                    lbEmail.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim();
+                    lbMobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim();
+
+                }
+
+            }
+        }
+
+        // Edit house
+
+        public void LoadHouseData(User user_)
+        {
+
+            if (user_.HouseId != null)
+            {
+                House house = House.Select(user_.HouseId.Value);
+
+                if (house != null)
+                {
+                    if (house.IsPartialHouse == true)
+                    {
+                        HouseInfoEditLink.Visible = true;
+                    }
+                    else
+                    {
+                        HouseInfoEditLink.Visible = true;
+                    }
+
+                    if (house.StateId.HasValue)
+                    {
+                        State state;
+                        state = Generic.Get<State>(house.StateId.Value);
+                        if (state != null)
+                        {
+                            State.Text = state.StateName;
+                        }
+                    }
+                    //State.Text = house.StateId.ToString().ToLower();                     
+                    Address.Text = house.StreetAddress;
+                    City.Text = house.City;
+                    Zip.Text = house.Zip;
+                }
+            }
+
+        }
+        
+        
     }
 }

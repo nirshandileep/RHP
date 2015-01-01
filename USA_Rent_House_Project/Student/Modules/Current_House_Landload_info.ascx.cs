@@ -332,7 +332,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
-
         private string message(Guid ActivationKey, User _user)
         {
             string strMsgContent = string.Empty;
@@ -388,7 +387,6 @@ namespace USA_Rent_House_Project.Student.Modules
             return strMsgContent;
         }
 
-
         protected void ButtonLeaveHouse_Click1(object sender, EventArgs e)
         {
             //user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
@@ -427,6 +425,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
-
+       
     }
 }

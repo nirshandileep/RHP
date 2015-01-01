@@ -48,7 +48,7 @@
                             View Current House</h1>
                         <div id="LandlordInfo" runat="server">
                             <h1>
-                                Landload/House Info</h1>
+                                Landload Info</h1>
                             <p id="setEmail" runat="server">
                                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:Label ID="Email" runat="server" CssClass="form_label"></asp:Label>
@@ -61,8 +61,11 @@
                                 <asp:Label ID="MobileLabel" runat="server" AssociatedControlID="Mobile" CssClass="form_label">Best Contact #:</asp:Label>
                                 <asp:Label ID="Mobile" runat="server" CssClass="form_label"></asp:Label>
                             </p>
+
                         </div>
                         <div id="LandlordHouseInfo" runat="server">
+                        <h1>
+                                House Info</h1>
                             <p>
                                 <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Rental Address:</asp:Label>
                                 <asp:Label ID="Address" runat="server" CssClass="form_label"></asp:Label>

@@ -107,7 +107,7 @@ namespace USA_Rent_House_Project.Student
                     if (house.StateId.HasValue)
                     {
                         State state;
-                        state = Generic.Get<State>(user.StateId.Value);
+                        state = Generic.Get<State>(house.StateId.Value);
                         if (state != null)
                         {
                             State.Text = state.StateName;

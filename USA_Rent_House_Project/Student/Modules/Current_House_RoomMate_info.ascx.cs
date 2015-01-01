@@ -103,8 +103,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadStudent();
