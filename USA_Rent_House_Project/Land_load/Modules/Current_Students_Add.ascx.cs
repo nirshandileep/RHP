@@ -377,7 +377,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     string strMsgContent = message(user.UserId.Value, user);
 
-                    string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
+                    string strMsgTitle =  RHP.Common.Enums.SystemConfig.SITEURL + " is Requesting you to join with Us.";
 
                     int rtn = SendEmail(user.PersonalEmail, strMsgTitle, strMsgContent);
 
@@ -479,7 +479,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate created account with ratemystudenthome.com, and Request you to join with ratemystudenthome.com,<br/><br/>";
+                strMsgContent = strMsgContent + "One of your house Room-mate created account with" + RHP.Common.Enums.SystemConfig.SITEURL + ", and Request you to join with " + RHP.Common.Enums.SystemConfig.SITEURL + ",<br/><br/>";
 
                 //strMsgContent = strMsgContent + "Your account details are as follows. <br/><br/>";
 
@@ -491,23 +491,23 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 //strMsgContent = strMsgContent + "Please keep these details safe for future use.<br/>";
 
-                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
+                strMsgContent = strMsgContent + RHP.Common.Enums.SystemConfig.SITEURL + " is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
 
                 strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
 
                 strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/><br/>";
 
-                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your www.ratemystudenthome.com Account </a>  <br/><br/>";
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your " + RHP.Common.Enums.SystemConfig.SITEURL + " Account </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with creating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with creating my account\">  support@ratemystudenthome.com </a><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with creating your account, please email " + "<a href=\"mailto:" + RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL + "?subject=I have issue with creating my account\">  " + RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL + " </a><br/>";
 
-                strMsgContent = strMsgContent + "If you have already Registred, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
+                strMsgContent = strMsgContent + "If you have already Registred, " + "<a href=" + loginpath + "> click here </a> to login to " + RHP.Common.Enums.SystemConfig.SITEURL + ". <br/>";
 
                 strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to activate your account. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
+                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"" + RHP.Common.Enums.SystemConfig.SITEURL + "\">" + RHP.Common.Enums.SystemConfig.SITEURL + "</a></strong><br /><br /></div>";
 
-                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, " + RHP.Common.Enums.SystemConfig.SITEURL + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
 
             }
             catch (Exception ex)

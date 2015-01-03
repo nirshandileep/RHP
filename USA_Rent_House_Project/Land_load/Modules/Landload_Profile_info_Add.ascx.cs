@@ -180,7 +180,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                                     string strMsgContent = message((Guid)newUser.ProviderUserKey);
 
-                                    string strMsgTitle = "www.ratemystudenthome.com - Action required for account activation.";
+                                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + "- Action required for account activation.";
 
                                     int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
 
@@ -255,7 +255,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
 
-                strMsgContent = strMsgContent + "Thank you for creating a account with ratemystudenthome.com, Your account details are as follows. <br/><br/>";
+                strMsgContent = strMsgContent + "Thank you for creating a account with " + RHP.Common.Enums.SystemConfig.SITEURL + ", Your account details are as follows. <br/><br/>";
 
                 strMsgContent = strMsgContent + "User Name:  " + user.UserName + " <br/>";
 
@@ -271,15 +271,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 strMsgContent = strMsgContent + "<a href=" + verifyUrl + "> Verify Your Email Account </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with activating my account\">  support@ratemystudenthome.com </a><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with activating your account, please email " + "<a href=\"mailto:" + RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL + "?subject=I have issue with activating my account\">  " + RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL + "</a><br/>";
 
-                strMsgContent = strMsgContent + "If you have already activated your account, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
+                strMsgContent = strMsgContent + "If you have already activated your account, " + "<a href=" + loginpath + "> click here </a> to login to " + RHP.Common.Enums.SystemConfig.SITEURL + ". <br/>";
 
                 strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to activate your account. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
+                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"" + RHP.Common.Enums.SystemConfig.SITEURL + "\">" + RHP.Common.Enums.SystemConfig.SITEURL + "</a></strong><br /><br /></div>";
 
-                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, " + RHP.Common.Enums.SystemConfig.SITEURL + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
                  
             }
             catch (Exception ex)

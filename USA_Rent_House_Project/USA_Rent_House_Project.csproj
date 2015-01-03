@@ -194,7 +194,13 @@
     <Content Include="Administrator\UserList.aspx" />
     <Content Include="Change_Password.aspx" />
     <Content Include="Change_Secret_Question.aspx" />
+    <Content Include="Contact_Us.aspx" />
     <Content Include="Contest.aspx" />
+    <Content Include="Contest.html" />
+    <Content Include="Contest_files\House_Logo.jpg" />
+    <Content Include="Contest_files\lightbox.css" />
+    <Content Include="Contest_files\lightbox.js" />
+    <Content Include="Contest_files\Site.css" />
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
@@ -217,6 +223,7 @@
     <Content Include="Images\Sample\profileimage4.jpg" />
     <Content Include="Land_load\Change_Password.aspx" />
     <Content Include="Land_load\Change_Secret_Question.aspx" />
+    <Content Include="Land_load\Contact_Us.aspx" />
     <Content Include="Land_load\Current_Students.aspx" />
     <Content Include="Land_load\Landload_House_Images_Add.aspx" />
     <Content Include="Land_load\Landload_Profile_Image.aspx" />
@@ -268,6 +275,7 @@
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Change_Password.aspx" />
     <Content Include="Student\Change_Secret_Question.aspx" />
+    <Content Include="Student\Contact_Us.aspx" />
     <Content Include="Student\Current_House_Life.aspx" />
     <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Current_House_Life_View.aspx" />
@@ -541,6 +549,13 @@
     <Compile Include="Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contest.aspx.cs">
       <DependentUpon>Contest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -592,6 +607,13 @@
     </Compile>
     <Compile Include="Land_load\Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Current_Students.aspx.cs">
       <DependentUpon>Current_Students.aspx</DependentUpon>
@@ -946,6 +968,13 @@
     </Compile>
     <Compile Include="Student\Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
     </Compile>
     <Compile Include="Student\Current_House_Life.aspx.cs">
       <DependentUpon>Current_House_Life.aspx</DependentUpon>

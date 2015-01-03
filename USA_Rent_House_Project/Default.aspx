@@ -30,4 +30,9 @@
         <div class="clear">
         </div>
     </div>
+
+      <div class="buttons" style="width: 362px; margin: 0 auto;">
+                    <a id="MainContent_HomeID_HyperLink2" class="homelargebuttons" href="Contest.html">Contest</a>
+                </div>
+
 </asp:Content>

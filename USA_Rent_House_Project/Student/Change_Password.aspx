@@ -2,8 +2,8 @@
     CodeBehind="Change_Password.aspx.cs" Inherits="USA_Rent_House_Project.Student.Change_Password" %>
 
 <%@ Register Src="../Modules/Change_Password.ascx" TagName="Change_Password" TagPrefix="uc1" %>
-<%@ Register Src="Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
-<%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
+<%@ Register Src="~/Student/Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
+<%@ Register Src="~/Student/Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
     TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>

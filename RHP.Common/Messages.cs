@@ -22,6 +22,7 @@ namespace RHP.Common
         public static readonly string ProfileInfoError = "House featue is not Activated. Please enter Profile info first.";
 
         public static readonly string Sending_Email_Error = "Email sending failed. please contact administrator.";
+        public static readonly string Sending_Email_success = "Your message successfully sent.";
 
         public static readonly string Profile_Create_Unsuccess = "Cannot Create Profile";
         public static readonly string Login_Fail = "User Authantication Failed! Please enter Correct Details..";
