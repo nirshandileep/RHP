@@ -72,6 +72,12 @@
                         <div id="LandloadEdit" runat="server" visible="false">
                             <h1>
                                 Landlord Info - Edit</h1>
+                                
+<asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
+    ValidationGroup="ValidationGroupLandload1" />
+                                    
+<asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
+    ValidationGroup="ValidationGroupLandload2" />
                             <p id="P2" runat="server">
                                 <asp:Label ID="Label5" runat="server" AssociatedControlID="LandloadEmail" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:TextBox ID="LandloadEmail" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -120,27 +126,27 @@
                                 <asp:TextBox ID="LandloadMobileArea" runat="server" CssClass="MobiletextEntry" MaxLength="3"
                                     Enabled="false"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator9" runat="server" ControlToValidate="LandloadMobileArea"
-                                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                                    CssClass="failureNotification" ErrorMessage="Area code  is required." ToolTip="Area code is required."
                                     ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="CompareValidator1" runat="server" Operator="DataTypeCheck"
-                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
-                                    ToolTip="Invalid Best Contact No." ControlToValidate="LandloadMobileArea" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
+                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Area code."
+                                    ToolTip="Invalid Area code." ControlToValidate="LandloadMobileArea" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
                                 <asp:TextBox ID="LandloadMobile1" runat="server" CssClass="MobiletextEntry" MaxLength="3"
                                     Enabled="false"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator10" runat="server" ControlToValidate="LandloadMobile1"
-                                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                                    CssClass="failureNotification" ErrorMessage="Prefix is required." ToolTip="Prefix is required."
                                     ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="CompareValidator5" runat="server" Operator="DataTypeCheck"
-                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
-                                    ToolTip="Invalid Best Contact No." ControlToValidate="LandloadMobile1" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
+                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Prefix."
+                                    ToolTip="Invalid Prefix." ControlToValidate="LandloadMobile1" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
                                 <asp:TextBox ID="LandloadMobile2" runat="server" CssClass="MobiletextEntry" MaxLength="4"
                                     Enabled="false"></asp:TextBox>
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidator11" runat="server" ControlToValidate="LandloadMobile2"
-                                    CssClass="failureNotification" ErrorMessage="Best Contact No is required." ToolTip="Best Contact No is required."
+                                    CssClass="failureNotification" ErrorMessage="Line number is required." ToolTip="Line number is required."
                                     ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
                                 <asp:CompareValidator ID="CompareValidator6" runat="server" Operator="DataTypeCheck"
-                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Best Contact No."
-                                    ToolTip="Invalid Best Contact No." ControlToValidate="LandloadMobile2" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
+                                    Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Line number."
+                                    ToolTip="Invalid Line number." ControlToValidate="LandloadMobile2" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
                             </p>
                             <p>
                             <asp:Button ID="ButtonLandload" runat="server" Width="150px" CssClass="actionbutton"
