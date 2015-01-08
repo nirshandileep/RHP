@@ -281,6 +281,7 @@
     <Content Include="Student\Current_House_Life_View.aspx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Life_View.ascx" />
+    <Content Include="Student\Modules\Current_House_Menu_Bar.ascx" />
     <Content Include="Student\Modules\Current_House_Rental_Address_info.ascx" />
     <Content Include="Student\Modules\Current_House_RoomMate_info.ascx" />
     <Content Include="Student\Modules\Menu_Bar.ascx" />
@@ -1010,6 +1011,13 @@
     </Compile>
     <Compile Include="Student\Modules\Current_House_Life_View.ascx.designer.cs">
       <DependentUpon>Current_House_Life_View.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Menu_Bar.ascx.cs">
+      <DependentUpon>Current_House_Menu_Bar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Menu_Bar.ascx.designer.cs">
+      <DependentUpon>Current_House_Menu_Bar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Current_House_Rental_Address_info.ascx.cs">
       <DependentUpon>Current_House_Rental_Address_info.ascx</DependentUpon>

@@ -5,6 +5,9 @@
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
     TagPrefix="uc1" %>
 <%@ Register Src="Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
+
+<%@ Register Src="~/Student/Modules/Current_House_Menu_Bar.ascx" TagName="Current_House_Menu_Bar" TagPrefix="uc3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -32,17 +35,9 @@
                     My Current House
                 </h2>
                 <div id="formwrapper">
-                    <p>
-                        <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House.aspx">Create current house</asp:HyperLink>&nbsp;
-                        <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House_Details.aspx">View current house</asp:HyperLink>&nbsp;
-                        <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx">Update current house</asp:HyperLink>
-                        &nbsp;
-                        <asp:HyperLink ID="LeaveCurrentHouseButton" runat="server" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Leave_Current_House.aspx">Leave current house</asp:HyperLink>
-                    </p>
+                  
+                  <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
+
                     <div id="forminner">
                         <h1>
                             View Current House</h1>

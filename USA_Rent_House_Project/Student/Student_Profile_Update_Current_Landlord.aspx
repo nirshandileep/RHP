@@ -1,8 +1,9 @@
-﻿<%@ Page Title="Student Profile Update Current Landlord" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Update_Current_Landlord.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Update_Current_Landlord" %>
+﻿<%@ Page Title="Student Profile Update Current Landlord" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
+    AutoEventWireup="true" CodeBehind="Student_Profile_Update_Current_Landlord.aspx.cs"
+    Inherits="USA_Rent_House_Project.Student.Student_Profile_Update_Current_Landlord" %>
 
-
-
-
+<%@ Register Src="~/Student/Modules/Current_House_Menu_Bar.ascx" TagName="Current_House_Menu_Bar"
+    TagPrefix="uc3" %>
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
     TagPrefix="uc1" %>
 <%@ Register Src="Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
@@ -26,35 +27,22 @@
                     runat="server">Search for House</asp:HyperLink>
             </div>
             <div class="clear">
-                
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
                     My Current House
                 </h2>
                 <div id="formwrapper">
-                    <p>
-                        <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House.aspx">Create current house</asp:HyperLink>&nbsp;
-                        <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Current_House_Details.aspx">View current house</asp:HyperLink>&nbsp;
-                        <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" Visible="false" CssClass="loginlinks"
-                            NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx">Update current house</asp:HyperLink>
-                        &nbsp;
-                        <asp:HyperLink ID="LeaveCurrentHouseButton" runat="server" CssClass="loginlinks" Visible="false"
-                            NavigateUrl="~/Student/Student_Profile_Leave_Current_House.aspx">Leave current house</asp:HyperLink>
-                    </p>
+                    <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
                     <div id="forminner">
                         <h1>
-                            Update Current House -  Landlord Info</h1>
-
+                            Update Current House - Landlord Info</h1>
                         <div id="LandlordInfo" runat="server">
                             <asp:HiddenField ID="hdLandloadinfoStatus" runat="server" />
                             <asp:HiddenField ID="hdLandloadId" runat="server" />
                             <asp:HiddenField ID="hdUserID" runat="server" />
-                             <asp:HiddenField ID="hdHouseId" runat="server" />
-                             <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
-
+                            <asp:HiddenField ID="hdHouseId" runat="server" />
+                            <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
                             <p id="P1" runat="server">
                                 <asp:Label ID="Label4" runat="server" AssociatedControlID="lbEmail" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:Label ID="lbEmail" runat="server" CssClass="form_label"></asp:Label>
@@ -68,16 +56,13 @@
                                 <asp:Label ID="lbMobile" runat="server" CssClass="form_label"></asp:Label>
                             </p>
                         </div>
-
                         <div id="LandloadEdit" runat="server" visible="false">
                             <h1>
                                 Landlord Info - Edit</h1>
-                                
-<asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
-    ValidationGroup="ValidationGroupLandload1" />
-                                    
-<asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
-    ValidationGroup="ValidationGroupLandload2" />
+                            <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
+                                ValidationGroup="ValidationGroupLandload1" />
+                            <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
+                                ValidationGroup="ValidationGroupLandload2" />
                             <p id="P2" runat="server">
                                 <asp:Label ID="Label5" runat="server" AssociatedControlID="LandloadEmail" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:TextBox ID="LandloadEmail" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -148,13 +133,57 @@
                                     Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Line number."
                                     ToolTip="Invalid Line number." ControlToValidate="LandloadMobile2" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
                             </p>
-                            <p>
-                            <asp:Button ID="ButtonLandload" runat="server" Width="150px" CssClass="actionbutton"
-                                    CommandName="MoveNext" Text="Save" 
-                                    ValidationGroup="ValidationGroupLandload2" onclick="ButtonLandload_Click" />
+
+                            <p id="HouseDetails" runat="server" visible="false">
+                       <h1>
+                                House Details</h1>
+                      </p>
+                            
+                            
+                            <p id="House_Search" runat="server" visible="false">
+                                <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House Owned by Landload:</asp:Label>
+                                <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" OnSelectedIndexChanged="DrpHouse_SelectedIndexChanged"
+                                    AutoPostBack="true">
+                                </asp:DropDownList>
+                            </p> 
+                            <p id="RentalAddressMessageId" runat="server" visible="false">
+                                <asp:Label ID="LabelRentalAddressMessage" runat="server" CssClass="form_label"></asp:Label>
                             </p>
+                            <p id="RentalAddressId" runat="server" visible="false">
+                                <asp:Label ID="Label7" runat="server" AssociatedControlID="RentalAddress" CssClass="form_label">Rental Address:</asp:Label>
+                                <asp:TextBox ID="RentalAddress" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="AddressRequiredField" runat="server" ControlToValidate="RentalAddress"
+                                    CssClass="failureNotification" ErrorMessage="Address is required." ToolTip="Address is required."
+                                    ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
+                            </p>
+                            <p id="RentalCityId" runat="server" visible="false">
+                                <asp:Label ID="Label12" runat="server" AssociatedControlID="RentalCity" CssClass="form_label">City:</asp:Label>
+                                <asp:TextBox ID="RentalCity" runat="server" CssClass="textEntry textbox_w2" Enabled="false"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="CityRequiredField" runat="server" ControlToValidate="RentalCity"
+                                    CssClass="failureNotification" ErrorMessage="City is required." ToolTip="City is required."
+                                    ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
+                            </p>
+                            <p id="DrpstateId" runat="server" visible="false">
+                                <asp:Label ID="Label13" runat="server" AssociatedControlID="Drpstate" CssClass="form_label">State:</asp:Label>
+                                <asp:DropDownList ID="Drpstate" runat="server" CssClass="dropDownEntry" Enabled="false">
+                                </asp:DropDownList>
+                            </p>
+                            <p id="RentalZipId" runat="server" visible="false">
+                                <asp:Label ID="Label14" runat="server" AssociatedControlID="RentalZip" CssClass="form_label">Zip:</asp:Label>
+                                <asp:TextBox ID="RentalZip" runat="server" CssClass="textEntry textbox_w3" MaxLength="5"
+                                    Enabled="false"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ZipRequiredField" runat="server" ControlToValidate="RentalZip"
+                                    CssClass="failureNotification" ErrorMessage="Zip is required." ToolTip="Zip is required."
+                                    ValidationGroup="ValidationGroupLandload2">*</asp:RequiredFieldValidator>
+                                <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ErrorMessage="Zip must be 5 numbers"
+                                    ControlToValidate="RentalZip" CssClass="failureNotification" ValidationExpression="^[0-9]{5}$"
+                                    ValidationGroup="ValidationGroupLandload2">*</asp:RegularExpressionValidator>
+                            </p>
+
+                              <asp:Button ID="ButtonLandload" runat="server" Width="150px" CssClass="actionbutton"
+                                CommandName="MoveNext" Text="Save" ValidationGroup="ValidationGroupLandload2"
+                                OnClick="ButtonLandload_Click" />
                         </div>
-                       
                        
                     </div>
                 </div>
@@ -162,4 +191,3 @@
         </div>
     </div>
 </asp:Content>
-

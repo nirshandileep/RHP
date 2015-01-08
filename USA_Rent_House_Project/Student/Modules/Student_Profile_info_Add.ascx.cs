@@ -126,6 +126,8 @@ namespace USA_Rent_House_Project.Student.Modules
                          user = User.Select(Guid.Parse(AccessCode));
                      }
 
+                    // need to validate partial email address
+
 					bool boolMembershipUserCreated = false;
 
                     user.Email = Email.Text.Trim();

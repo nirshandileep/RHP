@@ -240,7 +240,7 @@ namespace USA_Rent_House_Project.Student.Modules
                                 if (user_check.UserId.HasValue && user_check.IsPartialUser == true)
                                 {
                                     Labelmessage.Text = "landload verified for email : " + Email.Text.Trim().ToLower();
-                                    LandlordId = user_.UserId;
+                                    LandlordId = user_check.UserId;
 
                                     PassID(user_check.UserId.Value);
                                     Email.Text = user_check.PersonalEmail;
@@ -252,16 +252,28 @@ namespace USA_Rent_House_Project.Student.Modules
                                     Mobile1.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(3, 3);
                                     Mobile2.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(6, 4);
                                 }
+                                else
+                                {
+                                    Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+
+                                    Email.Text = "";
+                                    FirstName.Enabled = true;
+                                    MiddleName.Enabled = true;
+                                    LastName.Enabled = true;
+                                    MobileArea.Enabled = true;
+                                    Mobile1.Enabled = true;
+                                    Mobile2.Enabled = true;
+                                }
                             }
                              
                             else
                             {
-                                Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                                Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Student Account. Please enter another email.";
                             }
                         }
                         else
                         {
-                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Student Account. Please enter another email.";
                         }
                     }
                     else

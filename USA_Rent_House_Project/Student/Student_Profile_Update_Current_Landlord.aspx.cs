@@ -11,6 +11,7 @@ using RHP.Utility;
 using RHP.CommunicationManagement;
 using System.Data;
 using RHP.Common;
+using RHP.StudentManagement;
 
 namespace USA_Rent_House_Project.Student
 {
@@ -32,10 +33,7 @@ namespace USA_Rent_House_Project.Student
 
             if (user.HouseId != null)
             {
-                
-                    ViewCurrentHouseButton.Visible = true;
-                    UpdateCurrentHouseButton.Visible = true;
-                    LeaveCurrentHouseButton.Visible = true;
+ 
 
                     LoadLandlordData(user);
 
@@ -50,7 +48,7 @@ namespace USA_Rent_House_Project.Student
             }
             else
             {
-                CreateCurrentHouseButton.Visible = true;
+     
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
 
             }
@@ -111,139 +109,243 @@ namespace USA_Rent_House_Project.Student
         protected void ButtonVerifyLandload_Click(object sender, EventArgs e)
         {
             LandloadLabelmessage.Text = "";
+            DissableEdit();
+            hideHouseDetails();
+            hdLandloadId.Value = string.Empty;
+            hdHouseId.Value = string.Empty;
+            clearLandload();
+            DissableLandlord();
+            House_Search.Visible = false;
+            DrpHouse.Visible = false;
 
             if (LandloadEmail.Text.Trim() != "")
             {
                 User user_check = new User();
-                if (user_check.IsUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
+                user_check = RHP.UserManagement.User.SelectUserByEmail("Email", LandloadEmail.Text.Trim().ToLower(), "RoleName", "landlord");
+
+                if (user_check != null)
                 {
-                    LandloadFirstName.Enabled = false;
-                    LandloadMiddleName.Enabled = false;
-                    LandloadLastName.Enabled = false;
-                    LandloadMobileArea.Enabled = false;
-                    LandloadMobile1.Enabled = false;
-                    LandloadMobile2.Enabled = false;
-                    LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with a Account. Please enter another email.";
+                   
+
+                    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
+                    hdLandloadId.Value = user_check.UserId.Value.ToString();
+
+                    LandloadEmail.Text = user_check.PersonalEmail;
+                    LandloadFirstName.Text = string.IsNullOrEmpty(user_check.FirstName) ? string.Empty : user_check.FirstName;
+                    LandloadMiddleName.Text = string.IsNullOrEmpty(user_check.MiddleName) ? string.Empty : user_check.MiddleName;
+                    LandloadLastName.Text = string.IsNullOrEmpty(user_check.LastName) ? string.Empty : user_check.LastName;
+
+                    LandloadMobileArea.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(0, 3);
+                    LandloadMobile1.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(3, 3);
+                    LandloadMobile2.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(6, 4);
+
+                    ButtonLandload.Visible = true;
+                    LoadInitialHouseData();
+                    loadHouseDatadata();
                 }
                 else
                 {
-                    if (user_check.IsPartialUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
+
+                    user_check = new User();
+                    if (user_check.IsUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
                     {
-                        LandloadFirstName.Enabled = false;
-                        LandloadMiddleName.Enabled = false;
-                        LandloadLastName.Enabled = false;
-                        LandloadMobileArea.Enabled = false;
-                        LandloadMobile1.Enabled = false;
-                        LandloadMobile2.Enabled = false;
-                        LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                        if (user_check.IsPartialUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
+                        {
+                            user_check = new User();
+                            user_check = RHP.UserManagement.User.SelectUserByEmail("RoleName", "landlord", "Email", LandloadEmail.Text.Trim().ToLower());
+
+                            if (user_check != null)
+                            {
+
+                                if (user_check.UserId.HasValue && user_check.IsPartialUser == true)
+                                {
+                                    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
+                                    hdLandloadId.Value = user_check.UserId.Value.ToString();
+
+                                    LandloadEmail.Text = user_check.PersonalEmail;
+                                    LandloadFirstName.Text = string.IsNullOrEmpty(user_check.FirstName) ? string.Empty : user_check.FirstName;
+                                    LandloadMiddleName.Text = string.IsNullOrEmpty(user_check.MiddleName) ? string.Empty : user_check.MiddleName;
+                                    LandloadLastName.Text = string.IsNullOrEmpty(user_check.LastName) ? string.Empty : user_check.LastName;
+
+                                    LandloadMobileArea.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(0, 3);
+                                    LandloadMobile1.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(3, 3);
+                                    LandloadMobile2.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(6, 4);
+
+                                    ButtonLandload.Visible = true;
+                                    LoadInitialHouseData();
+                                    loadHouseDatadata();
+                                }
+                                else
+                                {
+                                    LandloadLabelmessage.Text = "can not find registered landload for email : " + LandloadEmail.Text.Trim().ToLower() + ". Please enter details to continue..";
+                                    ButtonLandload.Visible = true;
+                                    LandloadEmail.Text = "";
+                                    EnableLandlord();
+
+                                }
+                            }
+                            else
+                            {
+                                LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with Student Account. Please enter another email.";
+
+                            }
+                        }
+                        else
+                        {
+                            LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with Student Account. Please enter another email.";
+
+                            EnableLandlord();
+                        }
 
                     }
                     else
                     {
-                       
-                        clearLandload();
-
-                        LandloadFirstName.Enabled = true;
-                        LandloadMiddleName.Enabled = true;
-                        LandloadLastName.Enabled = true;
-                        LandloadMobileArea.Enabled = true;
-                        LandloadMobile1.Enabled = true;
-                        LandloadMobile2.Enabled = true;
+                        ButtonLandload.Visible = true;
+                        EnableLandlord();
                     }
+                }
+            }
+        }
 
+        private void LoadInitialHouseData()
+        {
+
+            //Drpstate 
+
+            if (Drpstate.Items.Count < 1)
+            {
+                Drpstate.DataSource = RHP.Utility.Generic.GetAll<State>();
+                Drpstate.DataTextField = "StateName";
+                Drpstate.DataValueField = "StateId";
+                Drpstate.DataBind();
+                Drpstate.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+            }
+        }
+
+        public void loadHouseDatadata()
+        {
+            House_Search.Visible = false;
+            DrpHouse.Visible = false;
+            DrpHouse.Items.Clear();
+
+                DataSet ds = new DataSet();
+                ds = new HouseDAO().SelectAllDataset(Guid.Parse(hdLandloadId.Value));
+                ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    LabelRentalAddressMessage.Text = "";
+                    House_Search.Visible = true;
+                    DrpHouse.Visible = true;
+                    showHouseDetails();
+                    if (DrpHouse.Items.Count < 1)
+                    {
+                        DrpHouse.DataSource = ds;
+                        DrpHouse.DataTextField = "StreetAddress";
+                        DrpHouse.DataValueField = "HouseId";
+                        DrpHouse.DataBind();
+                        DrpHouse.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+                    }
+                    else
+                    {
+ 
+                    }
+                }
+                else
+                {
+                    LabelRentalAddressMessage.Text = "No House Registerd for Landlord, Please Contact Landlord to Add a New House.";
+                    LabelRentalAddressMessage.Visible = true;
+                    ButtonLandload.Visible = false;
+                    ClearHouse();
                    
                 }
 
-                //User user_ = RHP.UserManagement.User.SelectUserByEmail("Email", LandloadEmail.Text.Trim().ToLower(), "RoleName", "landlord");
-                //if (user_ != null)
-                //{
-                //    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
+               
 
-                //    LandloadFirstName.Text = user_.FirstName;
-                //    LandloadMiddleName.Text = user_.MiddleName;
-                //    LandloadLastName.Text = user_.LastName;
+        }
 
-                //    LandloadMobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
-                //    LandloadMobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
-                //    LandloadMobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+        protected void DrpHouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DrpHouse.SelectedItem.Value.ToString() != "-1")
+            {
+                DissableEdit();
+                House _house = House.Select(Guid.Parse(DrpHouse.SelectedItem.Value));
 
-                //}
-                //else
-                //{
+                RentalAddress.Text = _house.StreetAddress;
+                RentalCity.Text = _house.City;
+                RentalZip.Text = _house.Zip;
+                Drpstate.SelectedValue = _house.StateId.HasValue ? _house.StateId.Value.ToString() : "-1";
 
-                //    LandloadFirstName.Text = "";
-                //    LandloadMiddleName.Text = "";
-                //    LandloadLastName.Text = "";
-                //    LandloadMobileArea.Text = "";
-                //    LandloadMobile1.Text = "";
-                //    LandloadMobile2.Text = "";
+                hdHouseId.Value = _house.HouseId.Value.ToString();
 
-                //    User user_check = new User();
-
-                //    if (user_check.IsUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
-                //    {
-                //        LandloadFirstName.Enabled = false;
-                //        LandloadMiddleName.Enabled = false;
-                //        LandloadLastName.Enabled = false;
-                //        LandloadMobileArea.Enabled = false;
-                //        LandloadMobile1.Enabled = false;
-                //        LandloadMobile2.Enabled = false;
-
-                //        if (user_check.IsPartialUserEmailExist(LandloadEmail.Text.Trim().ToLower()))
-                //        {
-                //            LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
-
-                //            //usp_UserSelectByRoleName
-
-                //            user_check = RHP.UserManagement.User.SelectUserByEmail("RoleName", "landlord", "Email", LandloadEmail.Text.Trim().ToLower());
-
-                //            if (user_check != null)
-                //            {
-                //                if ((user_check.UserId.HasValue && user_check.IsPartialUser == true) && (user_check.AspnetUserId.HasValue == null || user_check.AspnetUserId == Guid.Empty))
-                //                {
-                //                    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
-
-                //                    LandloadEmail.Text = user_check.PersonalEmail;
-                //                    LandloadFirstName.Text = string.IsNullOrEmpty(user_check.FirstName) ? string.Empty : user_check.FirstName;
-                //                    LandloadMiddleName.Text = string.IsNullOrEmpty(user_check.MiddleName) ? string.Empty : user_check.MiddleName;
-                //                    LandloadLastName.Text = string.IsNullOrEmpty(user_check.LastName) ? string.Empty : user_check.LastName;
-
-                //                    LandloadMobileArea.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(0, 3);
-                //                    LandloadMobile1.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(3, 3);
-                //                    LandloadMobile2.Text = string.IsNullOrEmpty(user_check.BestContactNumber) ? string.Empty : user_check.BestContactNumber.Substring(6, 4);
-                //                }
-                //            }
-
-                //            else
-                //            {
-                //                LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
-                //            }
-                //        }
-                //        else
-                //        {
-                //            LandloadLabelmessage.Text = "Email Address : " + LandloadEmail.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
-                //        }
-                //    }
-                //    else
-                //    {
-                //        LandloadLabelmessage.Text = "can not find registered landload for email : " + LandloadEmail.Text.Trim().ToLower() + ". Please enter details to continue..";
-
-                //        LandloadFirstName.Enabled = true;
-                //        LandloadMiddleName.Enabled = true;
-                //        LandloadLastName.Enabled = true;
-                //        LandloadMobileArea.Enabled = true;
-                //        LandloadMobile1.Enabled = true;
-                //        LandloadMobile2.Enabled = true;
-                //    }
-
-
-                //}
             }
             else
             {
-                clearLandload();
-
+                hdHouseId.Value = string.Empty;
             }
+        }
+
+        public void showHouseDetails()
+        {
+             HouseDetails.Visible = true;
+             RentalAddressMessageId.Visible = true;
+             RentalAddressId.Visible = true;
+             RentalCityId.Visible = true;
+             DrpstateId.Visible = true;
+             RentalZipId.Visible = true;
+        }
+
+        public void hideHouseDetails()
+        {
+            HouseDetails.Visible = false;
+            RentalAddressMessageId.Visible = false;
+            RentalAddressId.Visible = false;
+            RentalCityId.Visible = false;
+            DrpstateId.Visible = false;
+            RentalZipId.Visible = false;
+        }
+
+        public void EnableLandlord()
+        {
+            LandloadFirstName.Enabled = true;
+            LandloadMiddleName.Enabled = true;
+            LandloadLastName.Enabled = true;
+            LandloadMobileArea.Enabled = true;
+            LandloadMobile1.Enabled = true;
+            LandloadMobile2.Enabled = true;
+        }
+
+        public void DissableLandlord()
+        {
+            LandloadFirstName.Enabled = false;
+            LandloadMiddleName.Enabled = false;
+            LandloadLastName.Enabled = false;
+            LandloadMobileArea.Enabled = false;
+            LandloadMobile1.Enabled = false;
+            LandloadMobile2.Enabled = false;
+        }
+        
+        public void ClearHouse()
+        {
+            RentalAddress.Text = "";
+            RentalCity.Text = "";
+            RentalZip.Text = "";
+        }
+
+        public void EnableEdit()
+        {
+            RentalAddress.Enabled = true;
+            RentalCity.Enabled = true;
+            RentalZip.Enabled = true;
+            Drpstate.Enabled = true;
+        }
+
+        public void DissableEdit()
+        {
+            Drpstate.Enabled = false;
+            RentalAddress.Enabled = false;
+            RentalCity.Enabled = false;
+            RentalZip.Enabled = false;
         }
 
         public void clearLandload()
@@ -259,7 +361,15 @@ namespace USA_Rent_House_Project.Student
   
         protected void ButtonLandload_Click(object sender, EventArgs e)
         {
-            SaveLandload();
+
+            if (hdHouseId.Value != string.Empty)
+            {
+                Save_Student_House();
+            }
+            else
+            {
+                SaveLandload();
+            }
         }
 
         public bool SaveLandload()
@@ -317,6 +427,32 @@ namespace USA_Rent_House_Project.Student
                 LandloadLabelmessage.Text = "Landlord Details cannot saved.Please try again!";
                 // no  Landload id
             }
+            return result;
+        }
+
+        public bool Save_Student_House()
+        {
+            bool result = true;
+
+            User user = new User();
+            StudentHouse studentHouse = new StudentHouse();
+
+            user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            user.HouseId = Guid.Parse(hdHouseId.Value);
+            user.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+            user.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+            if (user.UpdateHouse())
+            {
+                
+                studentHouse.HouseId = user.HouseId.Value;
+                studentHouse.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                studentHouse.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                studentHouse.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                result = studentHouse.Save();
+            }
+
             return result;
         }
 

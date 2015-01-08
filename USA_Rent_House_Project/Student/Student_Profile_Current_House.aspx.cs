@@ -63,7 +63,7 @@ namespace USA_Rent_House_Project.Student
                 {
                     HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     loadcontrol();
-                    loaddata();
+                    // loaddata();
                 }
                 else
                 {
@@ -77,33 +77,33 @@ namespace USA_Rent_House_Project.Student
 
         public void loaddata()
         {
-            if (user.HouseId != null)
-            {
-                CreateCurrentHouseButton.Visible = false;
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
-                LeaveCurrentHouseButton.Visible = true;
+            //if (user.HouseId != null)
+            //{
+            //    CreateCurrentHouseButton.Visible = false;
+            //    ViewCurrentHouseButton.Visible = true;
+            //    UpdateCurrentHouseButton.Visible = true;
+            //    LeaveCurrentHouseButton.Visible = true;
 
-                if (hdnStepNumber.Value.Trim() != "3")
-                {
-                    ButtonNext.Visible = true;
-                    CreateLandloadButton.Visible = false;
+            //    if (hdnStepNumber.Value.Trim() != "3")
+            //    {
+            //        ButtonNext.Visible = true;
+            //        CreateLandloadButton.Visible = false;
 
-                }
-                else
-                {
-                    ButtonNext.Visible = false;
-                    CreateLandloadButton.Visible = true;
-                    CreateLandloadButton.Text = "Save";
-                }
-            }
-            else
-            {
-                CreateCurrentHouseButton.Visible = true;
-                ViewCurrentHouseButton.Visible = false;
-                UpdateCurrentHouseButton.Visible = false;
-                LeaveCurrentHouseButton.Visible = false;
-            }
+            //    }
+            //    else
+            //    {
+            //        ButtonNext.Visible = false;
+            //        CreateLandloadButton.Visible = true;
+            //        CreateLandloadButton.Text = "Save";
+            //    }
+            //}
+            //else
+            //{
+            //    CreateCurrentHouseButton.Visible = true;
+            //    ViewCurrentHouseButton.Visible = false;
+            //    UpdateCurrentHouseButton.Visible = false;
+            //    LeaveCurrentHouseButton.Visible = false;
+            //}
         }
 
         protected void PassID(Guid id)
@@ -157,7 +157,6 @@ namespace USA_Rent_House_Project.Student
                     break;
             }
         }
-
 
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {

@@ -59,16 +59,13 @@ namespace USA_Rent_House_Project.Student
             if (user.HouseId != null)
             {
                 ButtonLeaveHouseID.Visible = true;
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
-
+              
                 LoadStudent(user.HouseId.Value);
                 LoadLeaveCurrentHouseRequest(user.HouseId.Value);
             }
             else
             {
-                CreateCurrentHouseButton.Visible = true;
-
+                
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
 
             }

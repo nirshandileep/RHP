@@ -77,9 +77,7 @@ namespace USA_Rent_House_Project.Student
 
             if (user.HouseId != null)
             {
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
-
+                
                 LoadStudent(user.HouseId.Value);
                 LoadLandlordData(user);
                 LoadHouseData(user);
@@ -89,7 +87,6 @@ namespace USA_Rent_House_Project.Student
             }
             else
             {
-                CreateCurrentHouseButton.Visible = true;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
 
             }
