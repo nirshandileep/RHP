@@ -112,6 +112,22 @@ namespace USA_Rent_House_Project.Student.Modules
 
         }
 
+        public bool checkPartialEmail()
+        {
+            bool isEmailEsixt = false;
+
+            User user_check = new User();
+
+            if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
+            {
+               
+                    isEmailEsixt = true;
+               
+            }
+
+            return isEmailEsixt;
+        }
+
 		protected void CreateUserButton_Click(object sender, EventArgs e)
 		{
 			if (Page.IsValid == true)
@@ -119,102 +135,119 @@ namespace USA_Rent_House_Project.Student.Modules
 				try
 				{
 
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
-
-                     if (AccessCode != string.Empty && AccessCode != null)
-                     {
-                         user = User.Select(Guid.Parse(AccessCode));
-                     }
-
-                    // need to validate partial email address
-
-					bool boolMembershipUserCreated = false;
-
-                    user.Email = Email.Text.Trim();
-                    user.PersonalEmail = Email.Text.Trim();
-                    user.Password = Password.Text.Trim();
-                    user.UserName = UserName.Text.Trim();
-                    user.Question = Question.Text.Trim();
-                    user.Answer = Answer.Text.Trim();
-
-                    aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
-                    aspnet_Roles_ = aspnet_Roles.Select("student");
-
-                    user.FirstName = FirstName.Text.Trim();
-                    user.MiddleName = MiddleName.Text.Trim();
-                    user.LastName = LastName.Text.Trim();
-                    user.RoleId = aspnet_Roles_.RoleId;
-                    user.ReferralCode = ReferralCode.Text.Trim();
-
-                    object objCreateMembershipUser = new object();
-
-                    bool IsActivate = false;
-
-                    if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
-                    {
-                        IsActivate = false;
-                    }
-                    else
-                    {
-                        IsActivate = true;
-                    }
-
-                    if (user.IsPartialUser)
-                    {
-                        objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, user.UserId.Value, "student");
-                    }
-                    else
-                    {
-                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "student");
-                    }
                     
-                    bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+                        string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
 
-                    if (boolMembershipUserCreated)
-                    {
-                        Session[Constants.SESSION_LOGGED_USER] = user;
-
-                        MembershipUser newUser = Membership.GetUser(user.UserName);
-                        user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.Save();
-                     
-
-                        if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
+                        if (AccessCode != string.Empty && AccessCode != null)
                         {
-                            //if (SendingMail((Guid)newUser.ProviderUserKey))
-                            //{ 
-                            // simple email function
-                            //}
+                            user = User.Select(Guid.Parse(AccessCode));
+                        }
 
-                            string strMsgContent = message((Guid)newUser.ProviderUserKey);
+                        bool PartialEmail = false;
 
-                            string strMsgTitle =  RHP.Common.Enums.SystemConfig.SITEURL + " - Action required for account activation.";
+                        if (user.IsPartialUser == false)
+                        {
+                            PartialEmail = checkPartialEmail();
+                        }
 
-                            int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+                        if (PartialEmail == false)
+                        {
+                            // need to validate partial email address
 
-                            if (rtn == 1)
+                            bool boolMembershipUserCreated = false;
+
+                            user.Email = Email.Text.Trim();
+                            user.PersonalEmail = Email.Text.Trim();
+                            user.Password = Password.Text.Trim();
+                            user.UserName = UserName.Text.Trim();
+                            user.Question = Question.Text.Trim();
+                            user.Answer = Answer.Text.Trim();
+
+                            aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+                            aspnet_Roles_ = aspnet_Roles.Select("student");
+
+                            user.FirstName = FirstName.Text.Trim();
+                            user.MiddleName = MiddleName.Text.Trim();
+                            user.LastName = LastName.Text.Trim();
+                            user.RoleId = aspnet_Roles_.RoleId;
+                            user.ReferralCode = ReferralCode.Text.Trim();
+
+                            object objCreateMembershipUser = new object();
+
+                            bool IsActivate = false;
+
+                            if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
+                                IsActivate = false;
                             }
                             else
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=s'; }", true);
+                                IsActivate = true;
                             }
-                        }
-                        else
-                        {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
-                        }
-                           
+
+                            if (user.IsPartialUser)
+                            {
+                                objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, user.UserId.Value, "student");
+                            }
+                            else
+                            {
+                                objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "student");
+                            }
+
+                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                            if (boolMembershipUserCreated)
+                            {
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+
+                                MembershipUser newUser = Membership.GetUser(user.UserName);
+                                user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.Save();
+
+
+                                if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
+                                {
+                                    //if (SendingMail((Guid)newUser.ProviderUserKey))
+                                    //{ 
+                                    // simple email function
+                                    //}
+
+                                    string strMsgContent = message((Guid)newUser.ProviderUserKey);
+
+                                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + " - Action required for account activation.";
+
+                                    int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+
+                                    if (rtn == 1)
+                                    {
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
+                                    }
+                                    else
+                                    {
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=s'; }", true);
+                                    }
+                                }
+                                else
+                                {
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
+                                }
+
+                            }
+                            else
+                            {
+                                lblError.Text = objCreateMembershipUser.ToString();
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
+                            }
                     }
                     else
                     {
-                        lblError.Text = objCreateMembershipUser.ToString();
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + Messages.EmailAddressExist + "'); }", true);
+               
                     }
+
 					
 				}
 				catch (Exception ex)

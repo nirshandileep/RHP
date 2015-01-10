@@ -39,7 +39,9 @@ namespace RHP.Common
         public static readonly string CurrentHouseNoRecords = "No Records found!.";
         public static readonly string CurrentHouseNotPartialUser = "Landlord is not a partial Landlord.Cannnot Edit Landlord Info.!.";
         public static readonly string CurrentHouseNotPartialHouse = "Current House is not a partial House.Cannnot Edit House Info.!.";
-    
+
+        public static readonly string EmailAddressExist = "Email Address Exist!.";
+
         public static readonly string RejectLeaveCurrentHouseResponseSuccess = "Request to Leave Current House Successfully Rejected!";
     }
 }

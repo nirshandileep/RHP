@@ -93,6 +93,23 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         }
 
+        public bool checkPartialEmail()
+        {
+            bool isEmailEsixt = false;
+
+            User user_check = new User();
+
+            if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
+            {
+                
+                isEmailEsixt = true;
+                
+            }
+
+            return isEmailEsixt;
+        }
+
+
         protected void CreateUserButton_Click(object sender, EventArgs e)
         {
             if (Page.IsValid == true)
@@ -108,100 +125,115 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         user = User.Select(Guid.Parse(AccessCode));
                     }
 
-                    user.Email = Email.Text.Trim();
-                    user.Status = "Active";
-                    user.PersonalEmail = Email.Text.Trim();
-                    user.Password = Password.Text.Trim();
-                    user.UserName = UserName.Text.Trim();
-                    user.Question = Question.Text.Trim();
-                    user.Answer = Answer.Text.Trim();
+                     bool PartialEmail = false;
 
-                    aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
-                    aspnet_Roles_ = aspnet_Roles.Select("landlord");
-
-                    user.FirstName = FirstName.Text.Trim();
-                    user.MiddleName = MiddleName.Text.Trim();
-                    user.LastName = LastName.Text.Trim();
-                    user.RoleId = aspnet_Roles_.RoleId;
-                    user.ReferralCode = ReferralCode.Text.Trim();
-
-                    object objCreateMembershipUser = new object();
-
-                    bool IsActivate = false;
-
-
-                    if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
-                    {
-                        IsActivate = false;
-                    }
-                    else
-                    {
-                        IsActivate = true;
-                    }
-
-                    if (user.IsPartialUser)
-                    {
-                        objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, user.UserId.Value, "landlord");
-                    }
-                    else
-                    {
-                        objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "landlord");
-                    }
-
-                    bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
-
-                    if (boolMembershipUserCreated)
-                    {
-
-                        Session[Constants.SESSION_LOGGED_USER] = user;
-
-                        MembershipUser newUser = Membership.GetUser(user.UserName);
-                        user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-                        user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-
-                        if (user.Save())
+                        if (user.IsPartialUser == false)
                         {
-
-                            landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                            landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
-                            landload.user = user;
-                            landload.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-                            landload.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
-
-                            if (landload.Save())
-                            {
-                            }
+                            PartialEmail = checkPartialEmail();
                         }
-                        if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
+
+                        if (PartialEmail == false)
                         {
+                            user.Email = Email.Text.Trim();
+                            user.Status = "Active";
+                            user.PersonalEmail = Email.Text.Trim();
+                            user.Password = Password.Text.Trim();
+                            user.UserName = UserName.Text.Trim();
+                            user.Question = Question.Text.Trim();
+                            user.Answer = Answer.Text.Trim();
 
-                            string strMsgContent = message((Guid)newUser.ProviderUserKey);
+                            aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+                            aspnet_Roles_ = aspnet_Roles.Select("landlord");
 
-                            string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + "- Action required for account activation.";
+                            user.FirstName = FirstName.Text.Trim();
+                            user.MiddleName = MiddleName.Text.Trim();
+                            user.LastName = LastName.Text.Trim();
+                            user.RoleId = aspnet_Roles_.RoleId;
+                            user.ReferralCode = ReferralCode.Text.Trim();
 
-                            int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+                            object objCreateMembershipUser = new object();
 
-                            if (rtn == 1)
+                            bool IsActivate = false;
+
+
+                            if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=l'; }", true);
+                                IsActivate = false;
                             }
                             else
                             {
-                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=l'; }", true);
+                                IsActivate = true;
                             }
-                            // success
+
+                            if (user.IsPartialUser)
+                            {
+                                objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, user.UserId.Value, "landlord");
+                            }
+                            else
+                            {
+                                objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "landlord");
+                            }
+
+                            bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
+
+                            if (boolMembershipUserCreated)
+                            {
+
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+
+                                MembershipUser newUser = Membership.GetUser(user.UserName);
+                                user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+
+                                if (user.Save())
+                                {
+
+                                    landload.LandlordId = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                    landload.LandlordName = user.FirstName + " " + user.MiddleName + " " + user.LastName;
+                                    landload.user = user;
+                                    landload.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                                    landload.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+
+                                    if (landload.Save())
+                                    {
+                                    }
+                                }
+                                if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
+                                {
+
+                                    string strMsgContent = message((Guid)newUser.ProviderUserKey);
+
+                                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + "- Action required for account activation.";
+
+                                    int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+
+                                    if (rtn == 1)
+                                    {
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=l'; }", true);
+                                    }
+                                    else
+                                    {
+                                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=l'; }", true);
+                                    }
+                                    // success
+                                }
+                                else
+                                {
+                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=l'; }", true);
+                                }
+                            }
+                            else
+                            {
+                                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
+                            }
                         }
                         else
                         {
-                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=l'; }", true);
+                            Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + Messages.EmailAddressExist + "'); }", true);
+
                         }
-                    }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
-                    }
 
                 }
                 catch (Exception ex)
