@@ -279,6 +279,7 @@
     <Content Include="Student\Current_House_Life.aspx" />
     <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Current_House_Life_View.aspx" />
+    <Content Include="Student\Modules\Ctr_QuickLinks.ascx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Life_View.ascx" />
     <Content Include="Student\Modules\Current_House_Menu_Bar.ascx" />
@@ -997,6 +998,13 @@
     </Compile>
     <Compile Include="Student\Current_House_Life_View.aspx.designer.cs">
       <DependentUpon>Current_House_Life_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.cs">
+      <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.designer.cs">
+      <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Current_House_Landload_info.ascx.cs">
       <DependentUpon>Current_House_Landload_info.ascx</DependentUpon>
