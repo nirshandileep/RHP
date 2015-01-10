@@ -63,18 +63,6 @@ namespace RHP.LandlordManagement
                     result = houseDAO.Insert(this, db, transaction);
                 }
 
-                //if (result)
-                //{
-                //    result = new HouseOptionDAO().Delete(new HouseOption() { HouseId = this.HouseId.Value }, db, transaction);
-                //    if (HouseOptionList != null)
-                //    {
-                //        foreach (HouseOption item in this.HouseOptionList)
-                //        {
-                //            new HouseOptionDAO().Insert(item, db, transaction);
-                //        }
-                //    }
-                //}
-
                 if (result)
                 {
                     transaction.Commit();
