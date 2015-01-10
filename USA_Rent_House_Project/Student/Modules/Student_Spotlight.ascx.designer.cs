@@ -13,6 +13,15 @@ namespace USA_Rent_House_Project.Student.Modules {
     public partial class Student_Spotlight {
         
         /// <summary>
+        /// UserValidationSummary control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary UserValidationSummary;
+        
+        /// <summary>
         /// LabelAwards control.
         /// </summary>
         /// <remarks>
@@ -85,13 +94,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelOraganizations;
         
         /// <summary>
-        /// Oraganizations control.
+        /// DrpOraganizations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Oraganizations;
+        protected global::System.Web.UI.WebControls.DropDownList DrpOraganizations;
         
         /// <summary>
         /// LabelInvolvments control.
@@ -121,13 +130,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelFraternity;
         
         /// <summary>
-        /// Fraternity control.
+        /// DrpFraternity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Fraternity;
+        protected global::System.Web.UI.WebControls.DropDownList DrpFraternity;
         
         /// <summary>
         /// LabelSoroity control.
@@ -139,13 +148,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelSoroity;
         
         /// <summary>
-        /// Soroity control.
+        /// DrpSoroity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox Soroity;
+        protected global::System.Web.UI.WebControls.DropDownList DrpSoroity;
         
         /// <summary>
         /// SaveStudent_Spotlight control.

@@ -364,13 +364,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelOraganizations;
         
         /// <summary>
-        /// Oraganizations control.
+        /// txtOraganizations control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Oraganizations;
+        protected global::System.Web.UI.WebControls.Label txtOraganizations;
         
         /// <summary>
         /// LabelInvolvments control.
@@ -400,13 +400,13 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelFraternity;
         
         /// <summary>
-        /// Fraternity control.
+        /// txtFraternity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Fraternity;
+        protected global::System.Web.UI.WebControls.Label txtFraternity;
         
         /// <summary>
         /// LabelSoroity control.
@@ -418,12 +418,12 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.Label LabelSoroity;
         
         /// <summary>
-        /// Soroity control.
+        /// txtSoroity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Soroity;
+        protected global::System.Web.UI.WebControls.Label txtSoroity;
     }
 }

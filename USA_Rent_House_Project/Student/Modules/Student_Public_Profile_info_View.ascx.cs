@@ -169,10 +169,37 @@ namespace USA_Rent_House_Project.Student.Modules
                 Awards.Text = string.IsNullOrEmpty(spotlight.Awards) ? string.Empty : spotlight.Awards;
                 Achievements.Text = string.IsNullOrEmpty(spotlight.Achievements) ? string.Empty : spotlight.Achievements;
                 CurentGPA.Text = string.IsNullOrEmpty(spotlight.CurentGPA) ? string.Empty : spotlight.CurentGPA;
-                Oraganizations.Text = string.IsNullOrEmpty(spotlight.Oraganizations) ? string.Empty : spotlight.Oraganizations;
                 Involvments.Text = string.IsNullOrEmpty(spotlight.Involvments) ? string.Empty : spotlight.Involvments;
-                Fraternity.Text = string.IsNullOrEmpty(spotlight.Fraternity) ? string.Empty : spotlight.Fraternity;
-                Soroity.Text = string.IsNullOrEmpty(spotlight.Soroity) ? string.Empty : spotlight.Soroity;
+               
+                if (spotlight.OraganizationId.HasValue)
+                {
+                    Oraganization oraganization;
+                    oraganization = Generic.Get<Oraganization>(spotlight.OraganizationId.Value);
+                    if (oraganization != null)
+                    {
+                        txtOraganizations.Text = oraganization.OraganizationName;
+                    }
+                }
+
+                if (spotlight.FraternityId.HasValue)
+                {
+                    Fraternity fraternity;
+                    fraternity = Generic.Get<Fraternity>(spotlight.FraternityId.Value);
+                    if (fraternity != null)
+                    {
+                        txtFraternity.Text = fraternity.FraternityName;
+                    }
+                }
+
+                if (spotlight.SoroityId.HasValue)
+                {
+                    Soroity soroity;
+                    soroity = Generic.Get<Soroity>(spotlight.SoroityId.Value);
+                    if (soroity != null)
+                    {
+                        txtSoroity.Text = soroity.SoroityName;
+                    }
+                }
             }
         }
     }

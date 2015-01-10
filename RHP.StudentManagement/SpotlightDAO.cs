@@ -27,10 +27,10 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Awards", DbType.String, spotlight.Awards);
             db.AddInParameter(command, "Achievements", DbType.String, spotlight.Achievements);
             db.AddInParameter(command, "CurentGPA", DbType.String, spotlight.CurentGPA);
-            db.AddInParameter(command, "Oraganizations", DbType.String, spotlight.Oraganizations);
+            db.AddInParameter(command, "OraganizationId", DbType.Int16, spotlight.OraganizationId);
             db.AddInParameter(command, "Involvments", DbType.String, spotlight.Involvments);
-            db.AddInParameter(command, "Fraternity", DbType.String, spotlight.Fraternity);
-            db.AddInParameter(command, "Soroity", DbType.String, spotlight.Soroity);
+            db.AddInParameter(command, "FraternityId", DbType.Int16, spotlight.FraternityId);
+            db.AddInParameter(command, "SoroityId", DbType.Int16, spotlight.SoroityId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, spotlight.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, spotlight.CreatedBy);
 
@@ -52,10 +52,10 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Awards", DbType.String, spotlight.Awards);
             db.AddInParameter(command, "Achievements", DbType.String, spotlight.Achievements);
             db.AddInParameter(command, "CurentGPA", DbType.String, spotlight.CurentGPA);
-            db.AddInParameter(command, "Oraganizations", DbType.String, spotlight.Oraganizations);
+            db.AddInParameter(command, "OraganizationId", DbType.Int16, spotlight.OraganizationId);
             db.AddInParameter(command, "Involvments", DbType.String, spotlight.Involvments);
-            db.AddInParameter(command, "Fraternity", DbType.String, spotlight.Fraternity);
-            db.AddInParameter(command, "Soroity", DbType.String, spotlight.Soroity);
+            db.AddInParameter(command, "FraternityId", DbType.Int16, spotlight.FraternityId);
+            db.AddInParameter(command, "SoroityId", DbType.Int16, spotlight.SoroityId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, spotlight.IsDeleted);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, spotlight.UpdatedBy);
 

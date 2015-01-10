@@ -17,10 +17,10 @@ namespace RHP.StudentManagement
         public string Awards { get; set; }
         public string Achievements { get; set; }
         public string CurentGPA { get; set; }
-        public string Oraganizations { get; set; }
+        public int? OraganizationId { get; set; }
         public string Involvments { get; set; }
-        public string Fraternity { get; set; }
-        public string Soroity { get; set; }
+        public int? FraternityId { get; set; }
+        public int? SoroityId { get; set; }
 
         public static Spotlight Select(Guid Userid)
         {

@@ -5,6 +5,8 @@
         Student Spotlight Info
     </h2>
     <div id="formwrapper">
+      <asp:ValidationSummary ID="UserValidationSummary" runat="server" CssClass="failureNotification"
+            ValidationGroup="SaveSchoolValidationGroup" />
         <div id="forminner">
             <p>
                 <asp:Label ID="LabelAwards" runat="server" AssociatedControlID="Awards" CssClass="form_label">Awards:</asp:Label>
@@ -21,23 +23,31 @@
                 <asp:RangeValidator ID="RangeValidator1" runat="server"
                         ErrorMessage="Incorrect GPA Value" ControlToValidate="CurentGPA" 
                     Display="Dynamic" MaximumValue="5.01" MinimumValue="0.01" Type="Double" 
-                    SetFocusOnError="True" ValidationGroup="SaveSchoolValidationGroup"></asp:RangeValidator>
+                    SetFocusOnError="True" ValidationGroup="SaveSchoolValidationGroup" CssClass="failureNotification">*</asp:RangeValidator>
             </p>
             <p>
-                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Student Oraganizations/Clubs/ect:</asp:Label>
-                <asp:TextBox ID="Oraganizations" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
+                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="DrpOraganizations" CssClass="form_label">Student Oraganizations/Clubs/ect:</asp:Label>
+                <%--<asp:TextBox ID="Oraganizations" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
+
+                <asp:DropDownList ID="DrpOraganizations" runat="server" CssClass="dropDownEntry">
+                </asp:DropDownList>
+
             </p>
             <p>
                 <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvments:</asp:Label>
                 <asp:TextBox ID="Involvments" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="Fraternity" CssClass="form_label">Fraternity:</asp:Label>
-                <asp:TextBox ID="Fraternity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
+                <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="DrpFraternity" CssClass="form_label">Fraternity:</asp:Label>
+               <%-- <asp:TextBox ID="Fraternity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
+               <asp:DropDownList ID="DrpFraternity" runat="server" CssClass="dropDownEntry">
+                </asp:DropDownList>
             </p>
             <p>
-                <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="Soroity" CssClass="form_label">Soroity:</asp:Label>
-                <asp:TextBox ID="Soroity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
+                <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="DrpSoroity" CssClass="form_label">Soroity:</asp:Label>
+                <%--<asp:TextBox ID="Soroity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
+                <asp:DropDownList ID="DrpSoroity" runat="server" CssClass="dropDownEntry">
+                </asp:DropDownList>
             </p>
         </div>
         <p class="submitButton">

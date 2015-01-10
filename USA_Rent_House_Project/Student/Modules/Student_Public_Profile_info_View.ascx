@@ -99,20 +99,20 @@
                       <asp:Label ID="CurentGPA" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Oraganizations/Clubs/ect:</asp:Label>
-                      <asp:Label ID="Oraganizations" runat="server"></asp:Label>
+                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Oraganizations/Clubs/ect:</asp:Label>
+                      <asp:Label ID="txtOraganizations" runat="server"></asp:Label>
                 </p>
                 <p>
                     <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvments:</asp:Label>
                       <asp:Label ID="Involvments" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="Fraternity" CssClass="form_label">Fraternity:</asp:Label>
-                      <asp:Label ID="Fraternity" runat="server"></asp:Label>
+                    <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="txtFraternity" CssClass="form_label">Fraternity:</asp:Label>
+                      <asp:Label ID="txtFraternity" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="Soroity" CssClass="form_label">Soroity:</asp:Label>
-                      <asp:Label ID="Soroity" runat="server"></asp:Label>
+                    <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="txtSoroity" CssClass="form_label">Soroity:</asp:Label>
+                      <asp:Label ID="txtSoroity" runat="server"></asp:Label>
                 </p>
             </div>
         </div>
