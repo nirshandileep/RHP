@@ -44,6 +44,7 @@ namespace USA_Rent_House_Project.Masrer_Pages
 
         protected void LBLogOut_Click(object sender, EventArgs e)
         {
+            Session.RemoveAll();
             user.LogOut();
         }
     }

@@ -19,30 +19,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
 {
     public partial class Landload_Profile_info_Add : System.Web.UI.UserControl
     {
-        private User _user;
 
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
-                    _user = new User(); // User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));//_user = new User();
-                }
-                else
-                {
-                    
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
+        public User user = new User();
 
         Landlord landload = new Landlord();
 

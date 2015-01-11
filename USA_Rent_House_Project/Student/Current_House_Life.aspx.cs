@@ -44,7 +44,7 @@ namespace USA_Rent_House_Project.Student
            {
                if (HttpContext.Current.User.Identity.IsAuthenticated)
                {
-                   HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                  // HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                    loadimage();
                }
            }

@@ -85,40 +85,13 @@ namespace USA_Rent_House_Project.Student {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
         
         /// <summary>
-        /// HyperLinkPublicView control.
+        /// QuickLinksid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLinkPublicView;
-        
-        /// <summary>
-        /// Search control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Search;
-        
-        /// <summary>
-        /// SearchStudent control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink SearchStudent;
-        
-        /// <summary>
-        /// SearchHouse control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink SearchHouse;
+        protected global::USA_Rent_House_Project.Student.Modules.Ctr_QuickLinks QuickLinksid;
         
         /// <summary>
         /// hdnStepNumber control.

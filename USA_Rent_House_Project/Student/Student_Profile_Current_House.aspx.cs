@@ -61,7 +61,7 @@ namespace USA_Rent_House_Project.Student
             {
                 if (user.UserId.HasValue)
                 {
-                    HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    
                     loadcontrol();
                     // loaddata();
                 }

@@ -5,6 +5,16 @@
         Student Profile Info
     </h2>
     <div id="formwrapper">
+
+    <div id="ShowPartialUserEmailRequest" runat="server" visible="false">
+    
+    <p>Email address : <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>
+        is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? 
+        </p>
+        <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" 
+            onclick="BtnResentRequest_Click" />
+    </div>
+
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
             ValidationGroup="RegisterStudentValidationGroup" />
         <div id="forminner">
