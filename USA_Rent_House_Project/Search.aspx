@@ -26,7 +26,7 @@
     <div id="formwrapper">
         <div id="Div_Search_House" runat="server" visible="false">
             <h1>
-                Search House</h1>
+                Search for House</h1>
             <div id="forminner">
                 <p>
                     <asp:Label ID="LabelZipcode" runat="server" AssociatedControlID="Zipcode" CssClass="form_label">Zip:</asp:Label>
@@ -52,7 +52,7 @@
         </div>
         <div id="Div_Search_Student" runat="server" visible="false">
             <h1>
-                Search Student</h1>
+                Search for Student</h1>
             <div id="forminner">
                 
                 <p>

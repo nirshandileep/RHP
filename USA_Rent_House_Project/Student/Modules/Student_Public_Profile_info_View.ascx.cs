@@ -200,6 +200,27 @@ namespace USA_Rent_House_Project.Student.Modules
                         txtSoroity.Text = soroity.SoroityName;
                     }
                 }
+
+                if (spotlight.GreakOrganizationId.HasValue)
+                {
+                    GreakOrganization greakOrganization;
+                    greakOrganization = Generic.Get<GreakOrganization>(spotlight.GreakOrganizationId.Value);
+                    if (greakOrganization != null)
+                    {
+                        txyGreakOrganization.Text = greakOrganization.GreakOrganizationName;
+                    }
+                }
+
+                if (spotlight.GreekHonorSocitiesId.HasValue)
+                {
+                    GreekHonorSocities greekHonorSocities;
+                    greekHonorSocities = Generic.Get<GreekHonorSocities>(spotlight.GreekHonorSocitiesId.Value);
+                    if (greekHonorSocities != null)
+                    {
+                        txtGreekHonorSocities.Text = greekHonorSocities.GreekHonorSocitiesName;
+                    }
+                }
+
             }
         }
     }

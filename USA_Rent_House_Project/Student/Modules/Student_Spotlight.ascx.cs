@@ -68,6 +68,22 @@ namespace USA_Rent_House_Project.Student.Modules
             DrpSoroity.DataValueField = "SoroityId";
             DrpSoroity.DataBind();
             DrpSoroity.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+            //DrpGreekOrganizations
+            DrpGreekOrganizations.DataSource = RHP.Utility.Generic.GetAll<GreakOrganization>();
+            DrpGreekOrganizations.DataTextField = "GreakOrganizationName";
+            DrpGreekOrganizations.DataValueField = "GreakOrganizationId";
+            DrpGreekOrganizations.DataBind();
+            DrpGreekOrganizations.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+
+           // DrpGreekHonorSocities
+            DrpGreekHonorSocities.DataSource = RHP.Utility.Generic.GetAll<GreekHonorSocities>();
+            DrpGreekHonorSocities.DataTextField = "GreekHonorSocitiesName";
+            DrpGreekHonorSocities.DataValueField = "GreekHonorSocitiesId";
+            DrpGreekHonorSocities.DataBind();
+            DrpGreekHonorSocities.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
         }
 
         public void loaddata()
@@ -118,6 +134,30 @@ namespace USA_Rent_House_Project.Student.Modules
                         }
                     }
                 }
+
+                if (spotlight.GreakOrganizationId.HasValue)
+                {
+                    for (int i = 0; i < DrpGreekOrganizations.Items.Count; i++)
+                    {
+                        if (DrpGreekOrganizations.Items[i].Value.ToString().ToLower() == spotlight.GreakOrganizationId.ToString().ToLower())
+                        {
+                            DrpGreekOrganizations.ClearSelection();
+                            DrpGreekOrganizations.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (spotlight.GreekHonorSocitiesId.HasValue)
+                {
+                    for (int i = 0; i < DrpGreekHonorSocities.Items.Count; i++)
+                    {
+                        if (DrpGreekHonorSocities.Items[i].Value.ToString().ToLower() == spotlight.GreekHonorSocitiesId.ToString().ToLower())
+                        {
+                            DrpGreekHonorSocities.ClearSelection();
+                            DrpGreekHonorSocities.Items[i].Selected = true;
+                        }
+                    }
+                }
             }
 
         }
@@ -159,6 +199,24 @@ namespace USA_Rent_House_Project.Student.Modules
             else
             {
                 spotlight.FraternityId = int.Parse(DrpFraternity.SelectedItem.Value.Trim());
+            }
+
+            if (DrpGreekOrganizations.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.GreakOrganizationId = null;
+            }
+            else
+            {
+                spotlight.GreakOrganizationId = int.Parse(DrpGreekOrganizations.SelectedItem.Value.Trim());
+            }
+
+            if (DrpGreekHonorSocities.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.GreekHonorSocitiesId = null;
+            }
+            else
+            {
+                spotlight.GreekHonorSocitiesId = int.Parse(DrpGreekHonorSocities.SelectedItem.Value.Trim());
             }
 
             if (spotlight.Save())

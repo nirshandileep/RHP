@@ -45,6 +45,8 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Fraternity.cs" />
+    <Compile Include="GreakOrganization.cs" />
+    <Compile Include="GreekHonorSocities.cs" />
     <Compile Include="Messages.cs" />
     <Compile Include="Oraganization.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

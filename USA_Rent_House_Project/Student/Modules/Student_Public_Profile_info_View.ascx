@@ -98,13 +98,14 @@
                     <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Current GPA:</asp:Label>
                       <asp:Label ID="CurentGPA" runat="server"></asp:Label>
                 </p>
-                <p>
-                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
-                      <asp:Label ID="txtOraganizations" runat="server"></asp:Label>
-                </p>
+               
                 <p>
                     <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
                       <asp:Label ID="Involvments" runat="server"></asp:Label>
+                </p>
+                 <p>
+                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
+                      <asp:Label ID="txtOraganizations" runat="server"></asp:Label>
                 </p>
                 <p>
                     <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="txtFraternity" CssClass="form_label">Fraternity:</asp:Label>
@@ -113,6 +114,14 @@
                 <p>
                     <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="txtSoroity" CssClass="form_label">Soroity:</asp:Label>
                       <asp:Label ID="txtSoroity" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="Label2" runat="server" AssociatedControlID="txyGreakOrganization" CssClass="form_label">Greak Organization:</asp:Label>
+                      <asp:Label ID="txyGreakOrganization" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="Label4" runat="server" AssociatedControlID="txtGreekHonorSocities" CssClass="form_label">Greek Honor Socity:</asp:Label>
+                      <asp:Label ID="txtGreekHonorSocities" runat="server"></asp:Label>
                 </p>
             </div>
         </div>

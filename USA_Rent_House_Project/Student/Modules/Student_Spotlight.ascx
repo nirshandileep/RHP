@@ -25,6 +25,11 @@
                     Display="Dynamic" MaximumValue="5.01" MinimumValue="0.01" Type="Double" 
                     SetFocusOnError="True" ValidationGroup="SaveSchoolValidationGroup" CssClass="failureNotification">*</asp:RangeValidator>
             </p>
+             <p>
+                <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
+                <asp:TextBox ID="Involvments" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
+            </p>
+
             <p>
                 <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="DrpOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
                 <%--<asp:TextBox ID="Oraganizations" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
@@ -33,21 +38,34 @@
                 </asp:DropDownList>
 
             </p>
-            <p>
-                <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
-                <asp:TextBox ID="Involvments" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
-            </p>
+           
+            
             <p>
                 <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="DrpFraternity" CssClass="form_label">Fraternity:</asp:Label>
-               <%-- <asp:TextBox ID="Fraternity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
                <asp:DropDownList ID="DrpFraternity" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
             </p>
             <p>
                 <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="DrpSoroity" CssClass="form_label">Soroity:</asp:Label>
-                <%--<asp:TextBox ID="Soroity" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
-                <asp:DropDownList ID="DrpSoroity" runat="server" CssClass="dropDownEntry">
+                   <asp:DropDownList ID="DrpSoroity" runat="server" CssClass="dropDownEntry">
                 </asp:DropDownList>
+            </p>
+
+            <p>
+                <asp:Label ID="Label1" runat="server" AssociatedControlID="DrpGreekOrganizations" CssClass="form_label">Greek Organizations:</asp:Label>
+               
+
+                <asp:DropDownList ID="DrpGreekOrganizations" runat="server" CssClass="dropDownEntry">
+                </asp:DropDownList>
+
+            </p>
+
+            <p>
+                <asp:Label ID="Label2" runat="server" AssociatedControlID="DrpGreekHonorSocities" CssClass="form_label">Greek Honor Socities:</asp:Label>
+
+                <asp:DropDownList ID="DrpGreekHonorSocities" runat="server" CssClass="dropDownEntry">
+                </asp:DropDownList>
+
             </p>
         </div>
         <p class="submitButton">

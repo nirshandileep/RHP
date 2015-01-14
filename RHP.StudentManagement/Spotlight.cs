@@ -21,6 +21,8 @@ namespace RHP.StudentManagement
         public string Involvments { get; set; }
         public int? FraternityId { get; set; }
         public int? SoroityId { get; set; }
+        public int? GreakOrganizationId { get; set; }
+        public int? GreekHonorSocitiesId { get; set; }
 
         public static Spotlight Select(Guid Userid)
         {

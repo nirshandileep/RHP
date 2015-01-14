@@ -22,7 +22,8 @@ namespace RHP.StudentManagement
         public bool Insert(Spotlight spotlight, Database db, DbTransaction transaction)
         {
             DbCommand command = db.GetStoredProcCommand("usp_SpotlightInsert");
-
+            
+                
             db.AddInParameter(command, "UserId", DbType.Guid, spotlight.UserId);
             db.AddInParameter(command, "Awards", DbType.String, spotlight.Awards);
             db.AddInParameter(command, "Achievements", DbType.String, spotlight.Achievements);
@@ -31,6 +32,10 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Involvments", DbType.String, spotlight.Involvments);
             db.AddInParameter(command, "FraternityId", DbType.Int16, spotlight.FraternityId);
             db.AddInParameter(command, "SoroityId", DbType.Int16, spotlight.SoroityId);
+
+            db.AddInParameter(command, "GreekHonorSocitiesId", DbType.Int16, spotlight.GreekHonorSocitiesId);
+            db.AddInParameter(command, "GreakOrganizationId", DbType.Int16, spotlight.GreakOrganizationId);
+
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, spotlight.IsDeleted);
             db.AddInParameter(command, "CreatedBy", DbType.Guid, spotlight.CreatedBy);
 
@@ -56,6 +61,8 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Involvments", DbType.String, spotlight.Involvments);
             db.AddInParameter(command, "FraternityId", DbType.Int16, spotlight.FraternityId);
             db.AddInParameter(command, "SoroityId", DbType.Int16, spotlight.SoroityId);
+            db.AddInParameter(command, "GreekHonorSocitiesId", DbType.Int16, spotlight.GreekHonorSocitiesId);
+            db.AddInParameter(command, "GreakOrganizationId", DbType.Int16, spotlight.GreakOrganizationId);
             db.AddInParameter(command, "IsDeleted", DbType.Boolean, spotlight.IsDeleted);
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, spotlight.UpdatedBy);
 
