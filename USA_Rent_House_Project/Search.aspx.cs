@@ -16,6 +16,7 @@ namespace USA_Rent_House_Project
 {
     public partial class Search : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string v = Utility.GetQueryStringValueByKey(Request, "type");
@@ -52,7 +53,6 @@ namespace USA_Rent_House_Project
                 Searchresults.Visible = true;
             }
         }
-
 
         public void loadHousedata()
         {

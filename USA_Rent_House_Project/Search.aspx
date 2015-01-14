@@ -11,10 +11,10 @@
         <p class="homeheadingsub">
             "Find Your Next Connection"</p>
         <div class="searchbuttons">
-            <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="searchbuttonslarge" Text="Search house"
+            <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="searchbuttonslarge" Text="Search for House"
                 OnClick="ButtonSearchHouse_Click" />
             <asp:Button ID="ButtonSearchStudent" runat="server" CssClass="searchbuttonslarge"
-                Text="Search student" OnClick="ButtonSearchStudent_Click" />
+                Text="Search for Student" OnClick="ButtonSearchStudent_Click" />
             <div class="clear">
             </div>
         </div>
@@ -34,13 +34,13 @@
                         MaxLength="5"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
+                    <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bedrooms:</asp:Label>
                     <asp:DropDownList ID="DrpBedRooms" runat="server">
                     </asp:DropDownList>
                 </p>
                 <p>
                     <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="DrpBathRooms"
-                        CssClass="form_label">Bath Rooms:</asp:Label>
+                        CssClass="form_label">Bathrooms:</asp:Label>
                     <asp:DropDownList ID="DrpBathRooms" runat="server">
                     </asp:DropDownList>
                 </p>
@@ -67,18 +67,22 @@
                     <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
                     <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 </p>
-                <p id="school" runat="server">
-                    <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
-                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="30%" AutoResizeWithContainer="True"
+              <p id="school" runat="server">
+        <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName"  CssClass="form_label"> School Name:</asp:Label>
+         
+           <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" AutoResizeWithContainer="True" 
                         TextFormatString="{0}" DropDownRows="10" IncrementalFilteringMode="Contains"
-                        Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
+                        Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False" >
                         <Columns>
                             <dx:ListBoxColumn FieldName="Name" Name="Name" />
                         </Columns>
                         <ValidationSettings Display="Dynamic">
                         </ValidationSettings>
                     </dx:ASPxComboBox>
-                </p>
+                
+        
+                   </p>
+                   
                 <p>
                     <asp:Label ID="Label1" runat="server" AssociatedControlID="Zipcode2" CssClass="form_label">Zip:</asp:Label>
                     <asp:TextBox ID="Zipcode2" runat="server" CssClass="textEntry textbox_w3" 
@@ -90,7 +94,7 @@
                     <asp:TextBox ID="landloadname" runat="server" CssClass="textEntry textbox_w3"></asp:TextBox>
                 </p>--%>
                 <p>
-                    <asp:Label ID="Label5" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Male Female:</asp:Label>
+                    <asp:Label ID="Label5" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                     <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                     </asp:DropDownList>
                 </p>

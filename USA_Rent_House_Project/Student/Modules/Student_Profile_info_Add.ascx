@@ -9,10 +9,11 @@
     <div id="ShowPartialUserEmailRequest" runat="server" visible="false">
     
     <p>Email address : <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>
-        is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? 
+        is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? if yes, please click button bellow..
         </p>
+        <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" 
-            onclick="BtnResentRequest_Click" />
+            onclick="BtnResentRequest_Click" CssClass="actionbutton"  />
     </div>
 
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"

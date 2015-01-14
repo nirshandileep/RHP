@@ -109,7 +109,8 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
 	protected void CreateUserButton_Click(object sender, EventArgs e)
 	{
 		if (Page.IsValid == true)
-		{
+        {
+            ShowPartialUserEmailRequest.Visible = false;
 			try
 			{
 
@@ -227,7 +228,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
 
                         if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
                         {
-                            ShowPartialUserEmailRequest.Visible = false;
+                            ShowPartialUserEmailRequest.Visible = true;
                             lblpartialuserEmail.Text = Email.Text.Trim();
 
                         }
@@ -380,19 +381,40 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
     {
         User _user = new User();
 
-        string strMsgContent = PartialUserRequest(_user);
+        _user = User.SelectUserByEmail("RoleName", "landlord", "Email", Email.Text.Trim().ToLower());
+        
+        if (_user != null)
+        {
 
-        string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + " is Requesting you to join with Us.";
+        }
+        else
+        {
+            _user = User.SelectUserByEmail("RoleName", "student", "Email", Email.Text.Trim().ToLower());
+        }
 
-         int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+        if (_user != null)
+        {
+            if (_user.UserId.HasValue)
+            {
+                string strMsgContent = PartialUserRequest(_user);
 
-         if (rtn == 1)
-         {
-         }
+                string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + " is Requesting you to join with Us.";
 
-       
+                 int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+
+                 if (rtn == 1)
+                 {
+                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Request_Email_success + "'); window.location = '/Login.aspx?type=s'; }", true);
+
+                 }
+                 else
+                 {
+                     Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=s'; }", true);
+
+                 }
+            }
+        }
     }
-
 
     private string PartialUserRequest(User _user)
     {

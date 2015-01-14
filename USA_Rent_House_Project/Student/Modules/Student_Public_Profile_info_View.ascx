@@ -26,7 +26,7 @@
                     Contact Information
                 </h2>
                 <p id="setEmail" runat="server">
-                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
+                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">Email:</asp:Label>
                     <asp:Label ID="Email" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -51,7 +51,7 @@
                     School Information
                 </h2>
                 <p>
-                    <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">Current University:</asp:Label>
+                    <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">Current School:</asp:Label>
                     <asp:Label ID="SchoolName" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -74,7 +74,7 @@
                 </p>
                 <p>
                     <asp:Label ID="LabelCurentMajor" runat="server" AssociatedControlID="CurentMajor"
-                        CssClass="form_label">Curent Major:</asp:Label>
+                        CssClass="form_label">Current Major:</asp:Label>
                     <asp:Label ID="CurentMajor" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -95,15 +95,15 @@
                       <asp:Label ID="Achievements" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Curent GPA:</asp:Label>
+                    <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Current GPA:</asp:Label>
                       <asp:Label ID="CurentGPA" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Oraganizations/Clubs/ect:</asp:Label>
+                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
                       <asp:Label ID="txtOraganizations" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvments:</asp:Label>
+                    <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
                       <asp:Label ID="Involvments" runat="server"></asp:Label>
                 </p>
                 <p>

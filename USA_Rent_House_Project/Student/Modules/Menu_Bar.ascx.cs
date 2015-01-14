@@ -44,10 +44,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             LeftMenuBar.Items.Clear();
             LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileinfoID", "", "~/Student/Student_Profile.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("Profile Info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("School Info", "SchoolinfoID", "", "~/Student/Student_School_info.aspx"));
-            LeftMenuBar.Items.Add(new MenuItem("Spotlight", "SpotlightID", "", "~/Student/Student_Spotlight.aspx"));
-
+            
             _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
             if (_user.HouseId != null)
             {
@@ -57,7 +54,11 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House.aspx"));
             }
-         
+
+            LeftMenuBar.Items.Add(new MenuItem("Profile Info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
+            LeftMenuBar.Items.Add(new MenuItem("School Info", "SchoolinfoID", "", "~/Student/Student_School_info.aspx"));
+            LeftMenuBar.Items.Add(new MenuItem("Spotlight", "SpotlightID", "", "~/Student/Student_Spotlight.aspx"));
+
                
             if (user.IsFBUser == true)
             {

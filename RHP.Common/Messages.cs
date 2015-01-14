@@ -23,7 +23,7 @@ namespace RHP.Common
 
         public static readonly string Sending_Email_Error = "Email sending failed. please contact administrator.";
         public static readonly string Sending_Email_success = "Your message successfully sent.";
-
+        public static readonly string Request_Email_success = "Your Request successfully sent.Please check your email and confirm your email address.";
         public static readonly string Profile_Create_Unsuccess = "Cannot Create Profile";
         public static readonly string Login_Fail = "User Authantication Failed! Please enter Correct Details..";
 

@@ -475,7 +475,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                     else
                     {
-                        Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                        Labelmessage.Text = "can not find registered Student for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
 
                         // Mobile.Text = "";
                         FirstName.Enabled = true;

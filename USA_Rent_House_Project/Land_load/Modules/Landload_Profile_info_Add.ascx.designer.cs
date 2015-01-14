@@ -13,6 +13,33 @@ namespace USA_Rent_House_Project.Land_load.Modules {
     public partial class Landload_Profile_info_Add {
         
         /// <summary>
+        /// ShowPartialUserEmailRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ShowPartialUserEmailRequest;
+        
+        /// <summary>
+        /// lblpartialuserEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblpartialuserEmail;
+        
+        /// <summary>
+        /// BtnResentRequest control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnResentRequest;
+        
+        /// <summary>
         /// RegisterUserValidationSummary control.
         /// </summary>
         /// <remarks>

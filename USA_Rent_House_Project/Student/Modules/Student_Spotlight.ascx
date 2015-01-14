@@ -17,7 +17,7 @@
                 <asp:TextBox ID="Achievements" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
             </p>
             <p>
-                <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Curent GPA:</asp:Label>
+                <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Current GPA:</asp:Label>
                 <asp:TextBox ID="CurentGPA" runat="server" CssClass="textEntry textbox_w1" 
                     Width="790px"  Rows="2" ControlToValidate="CurentGPA"></asp:TextBox>
                 <asp:RangeValidator ID="RangeValidator1" runat="server"
@@ -26,7 +26,7 @@
                     SetFocusOnError="True" ValidationGroup="SaveSchoolValidationGroup" CssClass="failureNotification">*</asp:RangeValidator>
             </p>
             <p>
-                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="DrpOraganizations" CssClass="form_label">Student Oraganizations/Clubs/ect:</asp:Label>
+                <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="DrpOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
                 <%--<asp:TextBox ID="Oraganizations" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>--%>
 
                 <asp:DropDownList ID="DrpOraganizations" runat="server" CssClass="dropDownEntry">
@@ -34,7 +34,7 @@
 
             </p>
             <p>
-                <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvments:</asp:Label>
+                <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
                 <asp:TextBox ID="Involvments" runat="server" TextMode="MultiLine" CssClass="textEntry textbox_w1" Width="790px"  Rows="5"></asp:TextBox>
             </p>
             <p>
