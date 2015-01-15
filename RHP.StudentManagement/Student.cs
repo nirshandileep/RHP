@@ -17,7 +17,7 @@ namespace RHP.StudentManagement
         public Guid SchoolId { get; set; }
         public School School { get; set; }
         public User StudentUser { get; set; }
-        public string CurentMajor { get; set; }
+        public int? MajorId { get; set; }
         public string PreviousSchoolInfo { get; set; }
         public string PreviousSchool { get; set; }
         public int Year { get; set; }

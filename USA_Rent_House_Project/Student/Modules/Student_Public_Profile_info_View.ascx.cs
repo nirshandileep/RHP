@@ -96,9 +96,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         for (int i = 0; i < SchoolList.Count; i++)
                         {
-                            if (SchoolList[i].ToString().ToLower() == student.School.SchoolId.ToString())
+                            if (SchoolList[i].SchoolId.ToString().ToLower() == student.School.SchoolId.ToString())
                             {
-                                SchoolName.Text = student.School.SchoolId.ToString();
+                                SchoolName.Text = SchoolList[i].Name.ToString(); //student.School.SchoolId.ToString();
                                
                             }
                         }
@@ -142,16 +142,26 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-                if (!string.IsNullOrEmpty(student.CurentMajor))
+                if (student.MajorId.HasValue)
                 {
-                    for (int i = 0; i < Constants.CURENT_MAJOR_LIST.Length; i++)
+                    Major major;
+                    major = Generic.Get<Major>(student.MajorId.Value);
+                    if (major != null)
                     {
-                        if (Constants.CURENT_MAJOR_LIST[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
-                        {
-                            CurentMajor.Text = Constants.CURENT_MAJOR_LIST[i].Text.ToString().ToLower(); 
-                        }
+                        CurentMajor.Text = major.MajorName;
                     }
                 }
+
+                //if (!string.IsNullOrEmpty(student.CurentMajor))
+                //{
+                //    for (int i = 0; i < Constants.CURENT_MAJOR_LIST.Length; i++)
+                //    {
+                //        if (Constants.CURENT_MAJOR_LIST[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
+                //        {
+                //            CurentMajor.Text = Constants.CURENT_MAJOR_LIST[i].Text.ToString().ToLower(); 
+                //        }
+                //    }
+                //}
 
                 startdate.Text = student.StartMonth.ToString() + " / " + student.StartYear.ToString();
 

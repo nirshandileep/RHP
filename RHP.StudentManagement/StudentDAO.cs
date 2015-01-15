@@ -33,7 +33,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Status", DbType.String, student.Status);
             db.AddInParameter(command, "PreviousSchoolInfo", DbType.String, student.PreviousSchoolInfo);
             db.AddInParameter(command, "PreviousSchool", DbType.String, student.PreviousSchool);
-            db.AddInParameter(command, "CurentMajor", DbType.String, student.CurentMajor);  
+            db.AddInParameter(command, "MajorId", DbType.Int16, student.MajorId);  
             db.AddInParameter(command, "CreatedBy", DbType.Guid, student.CreatedBy);
             
             db.AddOutParameter(command, "CreatedDate", DbType.DateTime, 30);
@@ -60,7 +60,7 @@ namespace RHP.StudentManagement
             db.AddInParameter(command, "Status", DbType.String, student.Status);
             db.AddInParameter(command, "PreviousSchoolInfo", DbType.String, student.PreviousSchoolInfo);
             db.AddInParameter(command, "PreviousSchool", DbType.String, student.PreviousSchool);
-            db.AddInParameter(command, "CurentMajor", DbType.String, student.CurentMajor);  
+            db.AddInParameter(command, "MajorId", DbType.Int16, student.MajorId);   
             db.AddInParameter(command, "UpdatedBy", DbType.Guid, student.UpdatedBy);
 
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);

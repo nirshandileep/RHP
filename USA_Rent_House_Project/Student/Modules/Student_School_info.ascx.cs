@@ -88,6 +88,16 @@ namespace USA_Rent_House_Project.Student.Modules
                 DrpSchoolName.DataBind();
             }
 
+            //DRPCurentMajor
+            DRPCurentMajor.Items.Clear();
+            DRPCurentMajor.DataSource = RHP.Utility.Generic.GetAll<Major>();
+            DRPCurentMajor.DataTextField = "MajorName";
+            DRPCurentMajor.DataValueField = "MajorId";
+            DRPCurentMajor.DataBind();
+            DRPCurentMajor.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+
+
            // Load Years
             DRPYear.Items.Clear();
             DRPYear.Items.Add(new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
@@ -112,11 +122,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
             Status.Items.Clear();
             DRPpreviousschoolinfo.Items.Clear();
-            DRPCurentMajor.Items.Clear();
+           
 
             Status.Items.AddRange(Constants.STUDENT_STATUS_LIST);
             DRPpreviousschoolinfo.Items.AddRange(Constants.PREVIOUS_SCHOOL_INFO_LIST);
-            DRPCurentMajor.Items.AddRange(Constants.CURENT_MAJOR_LIST);
+           // DRPCurentMajor.Items.AddRange(Constants.CURENT_MAJOR_LIST);
         }
 
 
@@ -184,17 +194,19 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-                if (!string.IsNullOrEmpty(student.CurentMajor))
+
+                if (student.MajorId.HasValue)
                 {
                     for (int i = 0; i < DRPCurentMajor.Items.Count; i++)
                     {
-                        if (DRPCurentMajor.Items[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
+                        if (DRPCurentMajor.Items[i].Value.ToString().ToLower() == student.MajorId.ToString().ToLower())
                         {
                             DRPCurentMajor.ClearSelection();
                             DRPCurentMajor.Items[i].Selected = true;
                         }
                     }
                 }
+
 
                 if (!string.IsNullOrEmpty(student.StartMonth.ToString()))
                 {
@@ -221,6 +233,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
+               
                 if (DRPpreviousschoolinfo.SelectedItem.Value == "Transfer student")
                 {
                     previousschoolID.Visible = true;
@@ -261,10 +274,20 @@ namespace USA_Rent_House_Project.Student.Modules
 
             student.StudentUser = user;
 
+            if (DRPCurentMajor.SelectedItem.Value.Trim() == "-1")
+            {
+                student.MajorId = null;
+            }
+            else
+            {
+                student.MajorId = int.Parse(DRPCurentMajor.SelectedItem.Value.ToString());
+
+            }
+
             student.School.Year = int.Parse(DRPYear.SelectedItem.Value.ToString());
             student.StartMonth = int.Parse(DRPstartMonth.SelectedItem.Value.ToString());//int.Parse(startMonth.Text.ToString());
             student.StartYear = int.Parse(DRPstartYear.SelectedItem.Value.ToString());//int.Parse(startYear.Text.ToString());
-            student.CurentMajor = DRPCurentMajor.SelectedItem.Value.ToString();
+           
             student.PreviousSchoolInfo = DRPpreviousschoolinfo.SelectedItem.Value.ToString();
             student.PreviousSchool = string.IsNullOrEmpty(previousschool.Text) ? string.Empty : previousschool.Text;
 

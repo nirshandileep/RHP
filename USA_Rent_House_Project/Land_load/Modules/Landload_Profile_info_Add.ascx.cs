@@ -183,7 +183,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                                     string strMsgContent = message((Guid)newUser.ProviderUserKey);
 
-                                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + "- Action required for account activation.";
+                                    string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "- Action required for account activation.";
 
                                     int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
 
@@ -331,9 +331,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 {
                     string strMsgContent = PartialUserRequest(_user);
 
-                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + " is Requesting you to join with Us.";
+                    string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
 
-                    int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+                    int rtn = SendEmail(user.PersonalEmail, strMsgTitle, strMsgContent);
 
                     if (rtn == 1)
                     {
@@ -365,7 +365,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate created account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", and Request you to join with " + RHP.Common.Enums.SystemConfig.SITEURL + ",<br/><br/>";
+                strMsgContent = strMsgContent + "One of your house Room-mate created account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", and Request you to join with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ",<br/><br/>";
 
 
 
