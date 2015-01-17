@@ -59,7 +59,6 @@ namespace USA_Rent_House_Project
 
             try
             {
-                facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email, FBClient.Scopes.PublishActions });
                 IAuthorizationState authorization = facebookClient.ProcessUserAuthorization();
 
                 User user = new User();
@@ -72,30 +71,32 @@ namespace USA_Rent_House_Project
                     SendEmail("FBReturn URL", string.Format("Return URL: {0}, App Id: {1}, App Secret: {2}", currentDomainURL.ToString(), 
                         facebookClient.ClientIdentifier.ToString(), facebookClient.ClientCredentialApplicator.ToString()));
 
-                    string fbRedirectURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.FB_REDIRECT_URL);
+                    //string fbRedirectURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.FB_REDIRECT_URL);
 
-                    Uri url = null;
-                    if (!string.IsNullOrEmpty(fbRedirectURL))
-                    {
-                        if (value == "s")
-                        {
-                            url = new Uri(string.Format(fbRedirectURL, "s"));
-                        }
-                        else// if(value == "l")
-                        {
-                            url = new Uri(string.Format(fbRedirectURL, "l"));
-                        }
-                    }
+                    //Uri url = null;
+                    //if (!string.IsNullOrEmpty(fbRedirectURL))
+                    //{
+                    //    if (value == "s")
+                    //    {
+                    //        url = new Uri(string.Format(fbRedirectURL, "s"));
+                    //    }
+                    //    else// if(value == "l")
+                    //    {
+                    //        url = new Uri(string.Format(fbRedirectURL, "l"));
+                    //    }
+                    //}
 
-                    // Kick off authorization request
-                    if (!string.IsNullOrEmpty(fbRedirectURL))
-                    {
-                        facebookClient.RequestUserAuthorization(null, url);
-                    }
-                    else
-                    {
-                        facebookClient.RequestUserAuthorization(null, currentDomainURL);
-                    }
+                    //// Kick off authorization request
+                    //if (!string.IsNullOrEmpty(fbRedirectURL))
+                    //{
+                    //    facebookClient.RequestUserAuthorization(null, url);
+                    //}
+                    //else
+                    //{
+
+                    facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email }, returnTo: currentDomainURL);
+
+                    //}
                     
                     // Alternatively you can ask for more information
                     //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email, FBClient.Scopes.PublishActions });
