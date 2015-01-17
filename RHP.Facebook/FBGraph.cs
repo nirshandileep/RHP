@@ -271,7 +271,7 @@ namespace RHP.Facebook
         {
             public const string Defaults = "id,name,first_name,middle_name,last_name,gender,locale,link";
 
-            public const string Birthday = "locale,birthday";
+            public const string Birthday = "birthday";//Removed locale
 
             public const string Email = "email";
 

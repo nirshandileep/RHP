@@ -70,7 +70,7 @@
               <p id="school" runat="server">
         <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName"  CssClass="form_label"> School Name:</asp:Label>
          
-           <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" AutoResizeWithContainer="True" 
+           <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" 
                         TextFormatString="{0}" DropDownRows="10" IncrementalFilteringMode="Contains"
                         Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False" >
                         <Columns>
