@@ -113,9 +113,11 @@ namespace USA_Rent_House_Project
 
                     //Todo: Register the user here if not an existing member.
                     user.FBid = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Id)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Id);
+                    
                     user.FirstName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.FirstName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.FirstName);
                     user.LastName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.LastName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.LastName);
                     user.Email = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
+                    user.PersonalEmail = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
                     user.FBAccessToken = string.IsNullOrEmpty(authorization.AccessToken) ? string.Empty : authorization.AccessToken;
                     user.FBProfilePictureURL = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl);
                     user.Gender = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Gender)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Gender);
