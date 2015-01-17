@@ -70,10 +70,7 @@
                     <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
                     <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 </p>
-              <p id="school" runat="server">
-        <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName"  CssClass="form_label"> School Name:</asp:Label>
-         
-           <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" 
+            
                <%-- <p>
                     <asp:Label ID="SchoolNameLabel" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">School / Club Name:</asp:Label>
                     <asp:TextBox ID="SchoolName" runat="server" CssClass="textEntry textbox_w4"></asp:TextBox>
