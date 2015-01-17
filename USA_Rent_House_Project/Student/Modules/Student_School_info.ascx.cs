@@ -15,30 +15,28 @@ namespace USA_Rent_House_Project.Student.Modules
     public partial class Student_School_info : System.Web.UI.UserControl
     {
 
-        private User _user;
-
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
-                    _user = new User();  //_user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-                }
-                else
-                {
+        public User user = new User();
+        //{
+        //    get
+        //    {
+        //        _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+        //        if (_user == null)
+        //        {
+        //            _user = new User();  //_user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+        //        }
+        //        else
+        //        {
                     
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
+        //        }
+        //        Session[Constants.SESSION_LOGGED_USER] = _user;
+        //        return _user;
+        //    }
+        //    set
+        //    {
+        //        _user = value;
+        //        Session[Constants.SESSION_LOGGED_USER] = _user;
+        //    }
+        //}
 
         RHP.StudentManagement.Student _student;
 
@@ -267,10 +265,10 @@ namespace USA_Rent_House_Project.Student.Modules
 
             student.School.SchoolId = new Guid(schoolId);
 
-            if(user.UserId == null)
-            {
+            //if(user.UserId == null)
+            //{
                 user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-            }
+           // }
 
             student.StudentUser = user;
 

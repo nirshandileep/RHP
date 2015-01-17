@@ -18,32 +18,7 @@ namespace USA_Rent_House_Project.Student.Modules
     public partial class Student_Profile_Comment_Add : System.Web.UI.UserControl
     {
 
-        private User _user;
-
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
-                    //_user = new User();
-                    
-                }
-                else
-                {
-
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
-
+        public User user = new User();
         Comment comment = new Comment();
 
         protected void Page_Load(object sender, EventArgs e)
@@ -72,43 +47,54 @@ namespace USA_Rent_House_Project.Student.Modules
         private void SetUserBasedRestrictions()
         {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-            User currentProfileUser = User.Select(Guid.Parse(AccessCode));
 
-            if (user != null)
+            User currentProfileUser = new User();
+            if (AccessCode != string.Empty && AccessCode != null)
             {
-                //Check if the user is the same as the logged users id
-                //One cannot rate himself
-                if (currentProfileUser.UserId == user.UserId)
+                try
                 {
-                    LbFeedback.Visible = false;
-                    FeedbackButton.Visible = false;
+                    currentProfileUser = User.Select(Guid.Parse(AccessCode));
                 }
-                else
-                {
-                    //Hide the comments add section
-                }
+                catch (Exception ex)
+                { user = null; }
 
-                if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+
+                if (user != null)
                 {
-                    paymentontime.Visible = true;
-                }
-                else if (user.RoleId == Constants.USER_ROLE_STUDENT)
-                {
-                    Ratinggoodroommate.Visible = true;
+                    //Check if the user is the same as the logged users id
+                    //One cannot rate himself
+                    if (currentProfileUser.UserId == user.UserId)
+                    {
+                        LbFeedback.Visible = false;
+                        FeedbackButton.Visible = false;
+                    }
+                    else
+                    {
+                        //Hide the comments add section
+                    }
+
+                    if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+                    {
+                        paymentontime.Visible = true;
+                    }
+                    else if (user.RoleId == Constants.USER_ROLE_STUDENT)
+                    {
+                        Ratinggoodroommate.Visible = true;
+                    }
+                    else
+                    {
+                        paymentontime.Visible = false;
+                        Ratinggoodroommate.Visible = false;
+                    }
                 }
                 else
                 {
                     paymentontime.Visible = false;
                     Ratinggoodroommate.Visible = false;
-                }
-            }
-            else
-            {
-                paymentontime.Visible = false;
-                Ratinggoodroommate.Visible = false;
 
-                LbFeedback.Visible = false;
-                FeedbackButton.Visible = false;
+                    LbFeedback.Visible = false;
+                    FeedbackButton.Visible = false;
+                }
             }
         }
 

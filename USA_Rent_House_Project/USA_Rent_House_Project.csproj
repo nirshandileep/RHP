@@ -333,6 +333,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebServices\getAutoCompleteData.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -1258,6 +1259,10 @@
     </Compile>
     <Compile Include="Student\Student_Spotlight.aspx.designer.cs">
       <DependentUpon>Student_Spotlight.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServices\getAutoCompleteData.asmx.cs">
+      <DependentUpon>getAutoCompleteData.asmx</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

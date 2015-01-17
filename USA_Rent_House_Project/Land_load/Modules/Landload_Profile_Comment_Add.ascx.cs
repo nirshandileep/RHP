@@ -22,28 +22,28 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private User _user;
 
-        public User user
-        {
-            get
-            {
-                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-                if (_user == null)
-                {
+        public User user = new User();
+        //{
+        //    get
+        //    {
+        //        _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+        //        if (_user == null)
+        //        {
                     
-                }
-                else
-                {
+        //        }
+        //        else
+        //        {
 
-                }
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-                return _user;
-            }
-            set
-            {
-                _user = value;
-                Session[Constants.SESSION_LOGGED_USER] = _user;
-            }
-        }
+        //        }
+        //        Session[Constants.SESSION_LOGGED_USER] = _user;
+        //        return _user;
+        //    }
+        //    set
+        //    {
+        //        _user = value;
+        //        Session[Constants.SESSION_LOGGED_USER] = _user;
+        //    }
+        //}
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -59,34 +59,45 @@ namespace USA_Rent_House_Project.Land_load.Modules
         private void SetUserBasedRestrictions()
         {
             string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
-            User currentProfileUser = User.Select(Guid.Parse(AccessCode));
+            //User currentProfileUser = User.Select(Guid.Parse(AccessCode));
+            
+            User currentProfileUser = new User();
+            if (AccessCode != string.Empty && AccessCode != null)
+            {
+                try
+                {
+                    currentProfileUser = User.Select(Guid.Parse(AccessCode));
+                }
+                catch (Exception ex)
+                { user = null; }
 
-            //Check if the user is the same as the logged users id
-            //One cannot rate himself
-            if (user == null)
-            {
-                LbFeedback.Visible = false;
-                FeedbackButton.Visible = false;
-            }
-            else
-            {
-                if (currentProfileUser.UserId == user.UserId)
+                //Check if the user is the same as the logged users id
+                //One cannot rate himself
+                if (user == null)
                 {
                     LbFeedback.Visible = false;
                     FeedbackButton.Visible = false;
                 }
-
-                if (user.RoleId == Constants.USER_ROLE_LANDLORD)
-                {
-
-                }
-                else if (user.RoleId == Constants.USER_ROLE_STUDENT)
-                {
-
-                }
                 else
                 {
+                    if (currentProfileUser.UserId == user.UserId)
+                    {
+                        LbFeedback.Visible = false;
+                        FeedbackButton.Visible = false;
+                    }
 
+                    if (user.RoleId == Constants.USER_ROLE_LANDLORD)
+                    {
+
+                    }
+                    else if (user.RoleId == Constants.USER_ROLE_STUDENT)
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
                 }
             }
         }
