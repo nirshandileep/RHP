@@ -215,6 +215,8 @@
                                                 <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                                                 <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                                                 <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />
+                                                <asp:Label ID="Label5" runat="server" Text='<%# Eval("PersonalEmail") %>'></asp:Label><br />
+                                                <asp:Label ID="Label7" runat="server" Text='<%# Eval("BestContactNumber") %>'></asp:Label><br />
                                             </div>
                                             <div>
                                                 <asp:LinkButton ID="EditPartialUser" CommandName="Edit" CommandArgument='<%# Eval("UserId") %>'

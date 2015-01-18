@@ -563,7 +563,25 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                         if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
                         {
-                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                            User userPartial = User.SelectByRoleName("RoleName", "student", "Email", Email.Text.Trim().ToLower());
+
+                            if (userPartial != null)
+                            {
+                                Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+
+                                FirstName.Text = userPartial.FirstName;
+                                MiddleName.Text = userPartial.MiddleName;
+                                LastName.Text = userPartial.LastName;
+
+                                MobileArea.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(0, 3);
+                                Mobile1.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(3, 3);
+                                Mobile2.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(6, 4);
+                            }
+                            else
+                            {
+                                Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Lanlord Account. Please enter another email.";
+                            }
+                           // Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
                         }
                         else
                         {

@@ -24,7 +24,19 @@ namespace USA_Rent_House_Project.Student.Modules
                     HyperLinkabout.NavigateUrl = "~/Student/Student_Public_Profile_info.aspx?AccessCode=" + AccessCode;
                 }
                 catch (Exception ex)
-                { }
+                {
+                    HyperLinkabout.NavigateUrl = "~/Default.aspx";
+                }
+            }
+
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
+            {
+                HyperLinkPublicView.NavigateUrl = "~/Student/Student_Profile.aspx";
+
+            }
+            else
+            {
+                HyperLinkPublicView.NavigateUrl = "~/Default.aspx";
             }
         }
 

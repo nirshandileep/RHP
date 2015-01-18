@@ -22,8 +22,12 @@ namespace USA_Rent_House_Project.Student
                     HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(AccessCode);
                 }
                 catch (Exception ex)
-                { }
+                { HyperLinkPublicView.NavigateUrl = "~/Default.aspx";
+                HyperLinkabout.NavigateUrl = "~/Default.aspx";
+                }
             }
+
+           
            
         }
     }

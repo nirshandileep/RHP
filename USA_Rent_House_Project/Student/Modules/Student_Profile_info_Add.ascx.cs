@@ -230,7 +230,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
                         {
                             ShowPartialUserEmailRequest.Visible = true;
                             lblpartialuserEmail.Text = Email.Text.Trim();
-
+                            lblpartialuserEmail2.Text = Email.Text.Trim();
                         }
                         else
                         {

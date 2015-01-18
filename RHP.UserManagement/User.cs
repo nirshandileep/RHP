@@ -76,6 +76,12 @@ namespace RHP.UserManagement
             return user;
         }
 
+        public static User SelectByRoleName(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2)
+        {
+            User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
+            return user;
+        }
+
         public static List<User> SelectUserByHouseId(string fieldName1, Guid fieldValue1, string fieldName2, string fieldValue2)
         {
             return Utility.Generic.GetAllByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);

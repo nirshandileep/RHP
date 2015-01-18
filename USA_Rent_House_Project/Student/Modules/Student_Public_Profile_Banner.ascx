@@ -2,8 +2,8 @@
     Inherits="USA_Rent_House_Project.Student.Modules.Student_Public_Profile_Banner" %>
 <div id="currentHomeStudentBanner" runat="server">
     <div class="puliclinks">
-        <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile.aspx"
-            Style="float: right" runat="server">My Page</asp:HyperLink>
+        <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks"
+            Style="float: right" runat="server">My Page</asp:HyperLink><%-- NavigateUrl="~/Student/Student_Profile.aspx"--%>
         <div class="floatright" runat="server">
             <asp:HyperLink ID="HyperLinkabout" CssClass="loginlinks" NavigateUrl="~/Student/Student_Public_Profile_info.aspx"
                 runat="server">About</asp:HyperLink>

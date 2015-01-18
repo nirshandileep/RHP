@@ -29,10 +29,10 @@
                     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">Email:</asp:Label>
                     <asp:Label ID="Email" runat="server"></asp:Label>
                 </p>
-                <p>
+                <p id="CurrentAddress" runat="server" visible="false">
                     <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Address:</asp:Label>
                     <asp:Label ID="Address" runat="server"></asp:Label>
-                </p>
+               </p>
                 <p>
                     <asp:Label ID="LabelState" runat="server" AssociatedControlID="State" CssClass="form_label">State:</asp:Label>
                     <asp:Label ID="State" runat="server"></asp:Label>
