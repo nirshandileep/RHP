@@ -125,8 +125,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     comment.RatingValue = 0;
                     save(comment);
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
-                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
+                    
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    string AccessCode2 = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2);
                 }
 
             }
@@ -144,8 +147,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                 comment.RatingValue = CalculateReting();
 
                 save(comment);
-                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
-                Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
+                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                string AccessCode2 = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+
+                Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2);
             }
         }
 
@@ -169,8 +174,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
-                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    string AccessCode2 = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2);
                 }
             }
 
@@ -196,8 +203,10 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     comment.RatingValue = 0;
 
                     save(comment);
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
-                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode);
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                    string AccessCode2 = Utility.GetQueryStringValueByKey(Request, "AccessCode2");
+
+                    Response.Redirect("~/Land_load/Land_load_Public_Profile.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2);
                 }
             }
         }
