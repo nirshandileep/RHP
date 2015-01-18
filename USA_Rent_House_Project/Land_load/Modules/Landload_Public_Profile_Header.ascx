@@ -7,12 +7,12 @@
         <asp:Image ID="jmgHeaderImage" runat="server" ImageUrl="~/Images/Sample/Bannerimage.jpg"
             Width="960px" />
     </div>
-    <div id="LandloadProfileImage" runat="server">
+    <div id="LandloadProfileImage" runat="server" style="height:90px">
         <asp:Image ID="imgLandloadProfileImage" runat="server" ImageUrl="~/Images/Sample/Noimage.jpg" Width="100px" />
        
-        <asp:HyperLink ID="ProfileUserName" runat="server"></asp:HyperLink>
+        
     </div>
-    
+    <asp:HyperLink ID="ProfileUserName" CssClass="publicLLname" runat="server"></asp:HyperLink>
           <h2> 
         <div id="MyRatings" class="floatright LLpublicrating">
          My Ratings
