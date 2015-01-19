@@ -48,8 +48,8 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (user.UserId.HasValue)
             {
                 ProfileUserName.Text = user.FirstName + " " + user.LastName;
-                ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode2;
-
+               // ProfileUserName.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode2;
+               
             }
             
             Photo photo = new Photo();

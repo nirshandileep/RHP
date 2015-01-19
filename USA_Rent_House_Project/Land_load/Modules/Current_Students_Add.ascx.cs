@@ -377,7 +377,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                     string strMsgContent = message(user.UserId.Value, user);
 
-                    string strMsgTitle =  RHP.Common.Enums.SystemConfig.SITEURL + " is Requesting you to join with Us.";
+                    string strMsgTitle =  SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
 
                     int rtn = SendEmail(user.PersonalEmail, strMsgTitle, strMsgContent);
 

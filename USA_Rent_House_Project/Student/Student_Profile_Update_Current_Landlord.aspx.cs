@@ -409,7 +409,7 @@ namespace USA_Rent_House_Project.Student
 
                     string strMsgContent = Landloadmessage(Landlorduser.UserId.Value, Landlorduser);
 
-                    string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
+                    string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
 
                     int rtn = LandloadSendEmail(Landlorduser.PersonalEmail, strMsgTitle, strMsgContent);
 
