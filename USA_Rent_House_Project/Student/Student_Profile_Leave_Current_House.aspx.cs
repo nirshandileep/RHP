@@ -238,31 +238,30 @@ namespace USA_Rent_House_Project.Student
                 string RegisterUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Student/Student_Profile_Leave_Current_House.aspx";
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
-                                    " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
+                                    " background-color:#efefef;\" > <span >" + name + ", " + "</span></div>" +
                                     "<br />";
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate registerd with ratemystudenthome.com, and Request you to leave current house in ratemystudenthome.com,<br/><br/>";
+                strMsgContent = strMsgContent + "One of your “Current House” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", comhas requested that you to “Leave My Current House”. <br/><br/>";
 
+                strMsgContent = strMsgContent + "Please click on the link below to “Leave My Current House”.<br/><br/>";
 
-                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current House  </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
+                strMsgContent = strMsgContent + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is a platform, where students and landlords can rate, review, and comment on each other. As well as find and connect with other student renters and landlords using our search engine. <br/><br/>";
 
-                strMsgContent = strMsgContent + "Please click on the link below to Leave Your Current House.<br/><br/>";
+                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable...</b>' <br/><br/>";
 
-                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current House </a>  <br/><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with creating my account\">  support@ratemystudenthome.com </a><br/>";
-
-                strMsgContent = strMsgContent + "If you have already Leave Current House, please ignore this email. <br/>";
+                strMsgContent = strMsgContent + "If you have already responded to the request, please ignore this email.  <br/>";
 
                 strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to Request you to leave current house. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
+                strMsgContent = strMsgContent + "From the Founder and CEO/President of<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
 
-                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email," + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
 
             }
             catch (Exception ex)

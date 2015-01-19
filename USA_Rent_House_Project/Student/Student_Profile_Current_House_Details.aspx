@@ -38,7 +38,7 @@
                             View Current House</h1>
                         <div id="LandlordInfo" runat="server">
                             <h1>
-                                Landload Info</h1>
+                                Landlord Info</h1>
                             <p id="setEmail" runat="server">
                                 <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
                                 <asp:Label ID="Email" runat="server" CssClass="form_label"></asp:Label>
@@ -76,7 +76,7 @@
                         <div id="StudentListData" runat="server">
                             <h1>
                                 Current Students</h1>
-                            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="3" DataKeyField="UserId"
+                            <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId"
                                 OnItemDataBound="ItemDataBound">
                                 <ItemTemplate>
                                     <div class="imagegallerycontainer">

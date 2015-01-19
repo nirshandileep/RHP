@@ -3,6 +3,7 @@
    
     <div class="center-col">
         <asp:HyperLink ID="FacebookLogin" CssClass="facebookloginclass" Visible="false" runat="server">Login Using Facebook</asp:HyperLink>
+       <br /> “If profile created using Facebook you must continue to use Login with Facebook  button.”
         <h2 class="form_heading">
             Login to your Account
         </h2>
@@ -43,7 +44,9 @@
 <br />
                 <asp:Button ID="LoginButton" runat="server" Width="95%" CommandName="Login" Text="Log In" CssClass="actionbutton"
                     ValidationGroup="LoginUserValidationGroup" onclick="LoginButton_Click" />
-   
+   <br />
+     <br />
+   “If profile created manually you must continue to login this way”
             
             <div class="clear"></div>
 

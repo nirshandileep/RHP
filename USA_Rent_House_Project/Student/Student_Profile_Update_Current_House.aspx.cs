@@ -204,38 +204,31 @@ namespace USA_Rent_House_Project.Student
                 string RegisterUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Student/Student_Profile_Add.aspx?ActivationKey=" + ActivationKey;
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
-                                    " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
+                                    " background-color:#efefef;\"   <span >" + name + ", " + "</span></div>" +
                                     "<br />";
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate created account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", and Request you to join with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ",<br/><br/>";
+                strMsgContent = strMsgContent + "Your current roommates created a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " ,and in the process created/updated “My Current House” feature of the platform. ,<br/><br/>";
 
-                //strMsgContent = strMsgContent + "Your account details are as follows. <br/><br/>";
-
-                //strMsgContent = strMsgContent + "Your Name:  " + name + " <br/>";
-
-                //strMsgContent = strMsgContent + "Email : " + _user.PersonalEmail + " <br/>";
-
-                //strMsgContent = strMsgContent + "Contact No : " + _user.BestContactNumber + " <br/>";
-
-                //strMsgContent = strMsgContent + "Please keep these details safe for future use.<br/>";
-
-                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
-
-                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
-
-                strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/><br/>";
+                strMsgContent = strMsgContent + "In doing so they have created a “Partial Profile” for you and have begun to rate you and comment on their and your housing situation. Create a “Full Profile” to see what they have said and to access/complete “My Current House”;so that you can also begin to rate and comment on your current roommates and/or landlord. Click link below to create a “Full Profile”.";
 
                 strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " Account </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with creating your account, please email " + "<a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\">  " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
 
-                strMsgContent = strMsgContent + "If you have already Registred, " + "<a href=" + loginpath + "> click here </a> to login to " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ". <br/>";
+                strMsgContent = strMsgContent + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is a platform, where students and landlords can rate, review, and comment on each other. As well as find and connect with other student renters and landlords using our search engine. <br/><br/>";
+
+                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable...</b>' <br/><br/>";
+
+                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
+
+                strMsgContent = strMsgContent + "If you have already responded to the request, please ignore this email.  <br/>";
+
+                strMsgContent = strMsgContent + "If you have already created a “Full Profile” (registered), " + "<a href=" + loginpath + "> click here </a> to login to " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ". <br/>";
 
                 strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to activate your account. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
+                strMsgContent = strMsgContent + "From the Founder and CEO/President of<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
 
                 strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
 
@@ -306,11 +299,11 @@ namespace USA_Rent_House_Project.Student
 
                     if (validateemail())
                     {
-                        Labelmessage.Text = "landlord or student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+                        Labelmessage.Text = "landlord or Roommate allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
                     }
                     else
                     {
-                        Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                        Labelmessage.Text = "Roommate verified for email : " + Email.Text.Trim().ToLower();
 
                         FirstName.Text = user_.FirstName;
                         MiddleName.Text = user_.MiddleName;
@@ -345,7 +338,7 @@ namespace USA_Rent_House_Project.Student
                     }
                     else
                     {
-                        Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                        Labelmessage.Text = "can not find registered Roommate for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
                         FirstName.Enabled = true;
                         MiddleName.Enabled = true;
                         LastName.Enabled = true;
@@ -393,7 +386,7 @@ namespace USA_Rent_House_Project.Student
             }
             else if (validateemail())
             {
-                Labelmessage.Text = "landlord or student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+                Labelmessage.Text = "landlord or Roommate allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
             }
             else
             {
