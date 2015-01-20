@@ -18,7 +18,22 @@ namespace USA_Rent_House_Project.Student.Modules
     public partial class Student_Profile_Comment_Add : System.Web.UI.UserControl
     {
 
-        public User user = new User();
+        private User _user = new User();
+
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
+
         Comment comment = new Comment();
 
         protected void Page_Load(object sender, EventArgs e)

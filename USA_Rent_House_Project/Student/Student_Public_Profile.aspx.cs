@@ -49,8 +49,13 @@ namespace USA_Rent_House_Project.Student
                 }
                 else
                 {
-                    if (currentProfileUser.HouseId == user.HouseId)
+                    if (currentProfileUser != null && user != null && currentProfileUser.HouseId == user.HouseId)
                     {
+                        //If it is the same user trying to add comments to itself, this should be handled inside the comment control
+                        if (currentProfileUser.UserId == user.UserId)
+                        {
+                            //do not write other logic here, if i am commenting on my self i can do that
+                        }
                         Student_Profile_Comment_Add1.Visible = true;
                     }
                     else
