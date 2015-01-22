@@ -57,6 +57,7 @@ namespace USA_Rent_House_Project.Student
 
             if (hdroommatestatus.Value == "Add" )
             {
+                CurrentDetails.Visible = false;
                 RoommateEdit.Visible = true;
             }
             else if (hdroommatestatus.Value == "Edit")
@@ -132,7 +133,7 @@ namespace USA_Rent_House_Project.Student
             
             hdroommatestatus.Value = "Edit";
             CurrentDetails.Visible = true;
-            RoomMateInfoHeader.Text = "Room-Mate Info - Edit";
+            RoomMateInfoHeader.Text = "RoommMate Info - Edit";
             RHP.UserManagement.User _user = new RHP.UserManagement.User();
             hdUserID.Value = userid;
 
@@ -289,30 +290,55 @@ namespace USA_Rent_House_Project.Student
 
                 if (user_ != null)
                 {
-
-                    FirstName.Enabled = false;
-                    MiddleName.Enabled = false;
-                    LastName.Enabled = false;
-                    MobileArea.Enabled = false;
-                    Mobile1.Enabled = false;
-                    Mobile2.Enabled = false;
-
-                    if (validateemail())
+                    if (user_.HouseId.HasValue)
                     {
-                        Labelmessage.Text = "landlord or Roommate allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
+
                     }
                     else
                     {
-                        Labelmessage.Text = "Roommate verified for email : " + Email.Text.Trim().ToLower();
+                        FirstName.Enabled = false;
+                        MiddleName.Enabled = false;
+                        LastName.Enabled = false;
+                        MobileArea.Enabled = false;
+                        Mobile1.Enabled = false;
+                        Mobile2.Enabled = false;
 
-                        FirstName.Text = user_.FirstName;
-                        MiddleName.Text = user_.MiddleName;
-                        LastName.Text = user_.LastName;
+                        if(hdroommatestatus.Value == "Add")
+                        {
+                           
+                                Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
 
-                        MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
-                        Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
-                        Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+                                FirstName.Text = string.IsNullOrEmpty(user_.FirstName) ? string.Empty : user_.FirstName;
+                                MiddleName.Text = string.IsNullOrEmpty(user_.MiddleName) ? string.Empty : user_.MiddleName;
+                                LastName.Text = string.IsNullOrEmpty(user_.LastName) ? string.Empty : user_.LastName;
 
+                                MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                                Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                                Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+
+                            
+                        }
+                        else if (hdroommatestatus.Value == "Edit")
+                        {
+                            if (validateemail())
+                            {
+                                Labelmessage.Text = "landlord or Roommate allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
+                            }
+                            else
+                            {
+                                Labelmessage.Text = "Roommate verified for email : " + Email.Text.Trim().ToLower();
+
+                                FirstName.Text = user_.FirstName;
+                                MiddleName.Text = user_.MiddleName;
+                                LastName.Text = user_.LastName;
+
+                                MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                                Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                                Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+
+                            }
+                        }
                     }
                     
                 }
@@ -325,28 +351,91 @@ namespace USA_Rent_House_Project.Student
                     Mobile1.Text = "";
                     Mobile2.Text = "";
 
-                    User user_check = new User();
-
-                    if (validateemail())
+                    if (hdroommatestatus.Value == "Add")
                     {
-                        FirstName.Enabled = false;
-                        MiddleName.Enabled = false;
-                        LastName.Enabled = false;
-                        MobileArea.Enabled = false;
-                        Mobile1.Enabled = false;
-                        Mobile2.Enabled = false;
-                    }
-                    else
-                    {
-                        Labelmessage.Text = "can not find registered Roommate for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
-                        FirstName.Enabled = true;
-                        MiddleName.Enabled = true;
-                        LastName.Enabled = true;
-                        MobileArea.Enabled = true;
-                        Mobile1.Enabled = true;
-                        Mobile2.Enabled = true;
-                    }
+                         User user_check = new User();
 
+                            if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
+                            {
+                                FirstName.Enabled = false;
+                                MiddleName.Enabled = false;
+                                LastName.Enabled = false;
+                                MobileArea.Enabled = false;
+                                Mobile1.Enabled = false;
+                                Mobile2.Enabled = false;
+
+                                if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
+                                {
+                                    User userPartial = RHP.UserManagement.User.SelectByRoleName("RoleName", "student", "Email", Email.Text.Trim().ToLower());
+
+                                    if (userPartial != null)
+                                    {
+                                        if (userPartial.HouseId.HasValue)
+                                        {
+                                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
+
+                                        }
+                                        else
+                                        {
+                                            Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+
+
+                                           // NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                                            FirstName.Text = string.IsNullOrEmpty(userPartial.FirstName) ? string.Empty : userPartial.FirstName;
+                                            MiddleName.Text = string.IsNullOrEmpty(userPartial.MiddleName) ? string.Empty : userPartial.MiddleName;
+                                            LastName.Text = string.IsNullOrEmpty(userPartial.LastName) ? string.Empty : userPartial.LastName;
+                                            MobileArea.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(0, 3);
+                                            Mobile1.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(3, 3);
+                                            Mobile2.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(6, 4);
+                                        }
+                                    }
+                                    else
+                                    {
+                                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Lanlord Account. Please enter another email.";
+                                    }
+                                }
+                                else
+                                {
+                                    Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with another Account. Please enter another email.";
+                                }
+                            }
+                            else
+                            {
+                                Labelmessage.Text = "can not find registered Student for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+
+                                //NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                                FirstName.Enabled = true;
+                                MiddleName.Enabled = true;
+                                LastName.Enabled = true;
+                                MobileArea.Enabled = true;
+                                Mobile1.Enabled = true;
+                                Mobile2.Enabled = true;
+                            }
+                        
+                        
+                    }
+                    else if (hdroommatestatus.Value == "Edit")
+                    {
+                        if (validateemail())
+                        {
+                            FirstName.Enabled = false;
+                            MiddleName.Enabled = false;
+                            LastName.Enabled = false;
+                            MobileArea.Enabled = false;
+                            Mobile1.Enabled = false;
+                            Mobile2.Enabled = false;
+                        }
+                        else
+                        {
+                            Labelmessage.Text = "can not find registered Roommate for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                            FirstName.Enabled = true;
+                            MiddleName.Enabled = true;
+                            LastName.Enabled = true;
+                            MobileArea.Enabled = true;
+                            Mobile1.Enabled = true;
+                            Mobile2.Enabled = true;
+                        }
+                    }
                    
                     
                 }
@@ -513,8 +602,10 @@ namespace USA_Rent_House_Project.Student
         {
 
             hdroommatestatus.Value = "Add";
-            RoomMateInfoHeader.Text = "Room-Mate Info - Add";
+            RoomMateInfoHeader.Text = "Roommate Info - Add";
             RoommateEdit.Visible = true;
+            CurrentDetails.Visible = false;
+            clear();
         }
 
         // Landload info

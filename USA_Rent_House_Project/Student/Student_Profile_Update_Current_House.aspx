@@ -141,7 +141,7 @@
                              <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
 
                             <h1>
-                                Landload Info</h1>
+                                Landlord Info</h1>
                             
                             <p id="EditLandloadInfoLink" runat="server" visible="true">
                             Click
@@ -194,7 +194,7 @@
                         <div id="ParialUsers" runat="server">
                             <div id="StudentListData" runat="server">
                                <h1>
-                            Current Students</h1>
+                            Current Roommates</h1>
                                 <br />
                                 Click
                                 <asp:LinkButton ID="LBAddStudent" runat="server" OnClick="LBAddStudent_Click">Here</asp:LinkButton>

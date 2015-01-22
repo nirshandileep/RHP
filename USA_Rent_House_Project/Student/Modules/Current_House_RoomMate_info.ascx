@@ -27,7 +27,7 @@
 
 <div id="RoommateAdd" runat="server">
     <h1>
-    Room-Mate Info</h1>
+    Roommate Info</h1>
 
 <asp:ValidationSummary ID="ValidationGroup3ID" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup3" />
@@ -70,6 +70,11 @@
         Text="Verify Student" OnClick="ButtonVerify_Click" ValidationGroup="ValidationGroup1" />
 </p>
 
+    <p id="EmailNew" runat="server">
+    <asp:Label ID="Label4" runat="server" AssociatedControlID="NewEmail" CssClass="form_label">E-mail:</asp:Label>
+     <asp:Label ID="NewEmail" runat="server" AssociatedControlID="NewEmail" CssClass="form_label"></asp:Label>
+   
+    </p>
 <p>
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
@@ -138,7 +143,7 @@
 
 <div>
 <h1>
-    Room-mate List</h1>
+    Roommate List</h1>
     <asp:GridView ID="GridviewRoommatelist" runat="server" CssClass="Grid" AlternatingRowStyle-CssClass="alt" PagerStyle-CssClass="pgr" Width="600">
     <Columns>
      <asp:TemplateField>

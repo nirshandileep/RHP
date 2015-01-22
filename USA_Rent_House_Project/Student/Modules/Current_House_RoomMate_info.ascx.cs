@@ -131,10 +131,26 @@ namespace USA_Rent_House_Project.Student.Modules
 
             Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
         }
+       
+        public bool validateemail()
+        {
+            bool isexist = false;
+            Labelmessage.Text = "";
+            if (NewEmail.Text.Trim() != "")
+            {
+                isexist = true;
+            }
+            else
+            {
+                isexist = false;
+            }
+
+            return isexist;
+        }
 
         protected void CreateRommateButton_Click(object sender, EventArgs e)
         {
-            if (validateemail() == false)
+            if (validateemail() == true)
             {
                 GridviewRoommatelist.DataSource = CreateDataSource();
                 GridviewRoommatelist.DataBind();
@@ -145,6 +161,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void clear()
         {
+            NewEmail.Text = "";
             Email.Text = "";
             FirstName.Text = "";
             MiddleName.Text = "";
@@ -184,10 +201,10 @@ namespace USA_Rent_House_Project.Student.Modules
            
                 dr = dt.NewRow();
 
-                dr[0] = Email.Text.Trim();
-                dr[1] = FirstName.Text.Trim();
-                dr[2] = MiddleName.Text.Trim();
-                dr[3] = LastName.Text.Trim();
+                dr[0] = string.IsNullOrEmpty(NewEmail.Text.Trim()) ? string.Empty : NewEmail.Text.Trim();
+                dr[1] = string.IsNullOrEmpty(FirstName.Text.Trim()) ? string.Empty : FirstName.Text.Trim();
+                dr[2] = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? string.Empty : MiddleName.Text.Trim();
+                dr[3] = string.IsNullOrEmpty(LastName.Text.Trim()) ? string.Empty : LastName.Text.Trim();
                 dr[4] = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();//Mobile.Text.Trim();
                 dt.Rows.Add(dr);
             
@@ -249,11 +266,12 @@ namespace USA_Rent_House_Project.Student.Modules
             User user_ = new User(); 
             foreach (GridViewRow row in GridviewRoommatelist.Rows)
             {
-                user_.PersonalEmail = row.Cells[1].Text;
-                user_.FirstName = row.Cells[2].Text;
-                user_.MiddleName = row.Cells[3].Text;
-                user_.LastName = row.Cells[4].Text;
-                user_.BestContactNumber = row.Cells[5].Text;
+                user_.PersonalEmail = string.IsNullOrEmpty(row.Cells[1].Text.Trim()) ? string.Empty : row.Cells[1].Text.Trim();
+                user_.FirstName = string.IsNullOrEmpty(row.Cells[2].Text.Trim()) ? string.Empty : row.Cells[2].Text.Trim();
+                user_.MiddleName = string.IsNullOrEmpty(row.Cells[3].Text.Trim()) ? string.Empty : row.Cells[3].Text.Trim();
+                user_.MiddleName = user_.MiddleName.Replace("&nbsp;", "");
+                user_.LastName = string.IsNullOrEmpty(row.Cells[4].Text.Trim()) ? string.Empty : row.Cells[4].Text.Trim();
+                user_.BestContactNumber = string.IsNullOrEmpty(row.Cells[5].Text.Trim()) ? string.Empty : row.Cells[5].Text.Trim();
 
                 user_.UserId = Guid.NewGuid();
                 user_.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
@@ -383,37 +401,6 @@ namespace USA_Rent_House_Project.Student.Modules
             return strMsgContent;
         }
 
-        public bool validateemail()
-        {
-            bool isexist = false;
-            Labelmessage.Text = "";
-            if (Email.Text.Trim() != "")
-            {
-                User user_ = new User();
-
-               // user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "student");
-               // if (user_ != null)
-
-                if(user_.IsUserEmailExist(Email.Text.Trim().ToLower()))
-                {
-                    Labelmessage.Text = "landlord / student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
-                    isexist = true;
-                    clear();
-                }
-                else
-                {
-                    isexist = false;
-                  //  Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
-                }
-            }
-            else
-            {
-                isexist = false;
-            }
-
-            return isexist;
-        }
-
         protected void ButtonVerify_Click(object sender, EventArgs e)
         {
             Labelmessage.Text = "";
@@ -423,19 +410,31 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (user_ != null)
                 {
-                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                    if (user_.HouseId.HasValue)
+                    {
+                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
+                        
+                    }
+                    else
+                    {
+                        Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
 
-                    // Email.Text = user_.PersonalEmail;
-                    FirstName.Text = user_.FirstName;
-                    MiddleName.Text = user_.MiddleName;
-                    LastName.Text = user_.LastName;
+                        // Email.Text = user_.PersonalEmail;
+                        NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                        FirstName.Text = string.IsNullOrEmpty(user_.FirstName) ? string.Empty : user_.FirstName;
+                        MiddleName.Text = string.IsNullOrEmpty(user_.MiddleName) ? string.Empty : user_.MiddleName;
+                        LastName.Text = string.IsNullOrEmpty(user_.LastName) ? string.Empty : user_.LastName;
 
-                    MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
-                    Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
-                    Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+                        MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                        Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                        Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
 
 
-                    //Mobile.Text = user_.BestContactNumber;
+                        //Mobile.Text = user_.BestContactNumber;
+                    
+                    
+
+                    }
                 }
                 else
                 {
@@ -445,7 +444,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     MobileArea.Text = "";
                     Mobile1.Text = "";
                     Mobile2.Text = "";
-
+                    NewEmail.Text = "";
                     User user_check = new User();
 
                     if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
@@ -463,16 +462,26 @@ namespace USA_Rent_House_Project.Student.Modules
 
                             if (userPartial != null)
                             {
-                                Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                                if (userPartial.HouseId.HasValue)
+                                {
+                                    Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
 
-                                // Email.Text = user_.PersonalEmail;
-                                FirstName.Text = userPartial.FirstName;
-                                MiddleName.Text = userPartial.MiddleName;
-                                LastName.Text = userPartial.LastName;
+                                }
+                                else
+                                {
+                                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
 
-                                MobileArea.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(0, 3);
-                                Mobile1.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(3, 3);
-                                Mobile2.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(6, 4);
+
+                                    NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                                    FirstName.Text = string.IsNullOrEmpty(userPartial.FirstName) ? string.Empty : userPartial.FirstName;
+                                    MiddleName.Text = string.IsNullOrEmpty(userPartial.MiddleName) ? string.Empty : userPartial.MiddleName;
+                                    LastName.Text = string.IsNullOrEmpty(userPartial.LastName) ? string.Empty : userPartial.LastName;
+
+
+                                    MobileArea.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(0, 3);
+                                    Mobile1.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(3, 3);
+                                    Mobile2.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(6, 4);
+                                }
                             }
                             else
                             {
@@ -488,7 +497,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     {
                         Labelmessage.Text = "can not find registered Student for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
 
-                        // Mobile.Text = "";
+                        NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
                         FirstName.Enabled = true;
                         MiddleName.Enabled = true;
                         LastName.Enabled = true;
