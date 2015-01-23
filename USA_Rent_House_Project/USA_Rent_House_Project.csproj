@@ -205,6 +205,7 @@
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\cover-change.png" />
+    <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\icon-fb.jpg" />
     <Content Include="Images\icon-googleplus.jpg" />
     <Content Include="Images\icon-insta.jpg" />
@@ -212,9 +213,10 @@
     <Content Include="Images\icon-twiiter.jpg" />
     <Content Include="Images\icon-youtube.jpg" />
     <Content Include="Images\Logo.jpeg" />
+    <Content Include="Images\House_Logo2.jpg" />
     <Content Include="Images\profile-change.png" />
     <Content Include="Images\Sample\House.jpg" />
-    <Content Include="Images\House_Logo.jpg" />
+    <Content Include="Images\House_Logo1.jpg" />
     <Content Include="Images\login_with_facebook.png" />
     <Content Include="Images\Sample\Bannerimage.jpg" />
     <Content Include="Images\Sample\Noimage.jpg" />
@@ -1288,6 +1290,8 @@
     <Content Include="Master_Pages\Student.Master" />
     <Content Include="packages.config" />
     <Content Include="Modules\FileHandler.ashx" />
+    <None Include="LegalNotice\PrivacyPolicy.pdf" />
+    <None Include="LegalNotice\User_Agreement.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RHP.Comments\RHP.Comments.csproj">

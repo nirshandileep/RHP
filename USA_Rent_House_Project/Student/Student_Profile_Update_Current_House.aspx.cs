@@ -600,6 +600,12 @@ namespace USA_Rent_House_Project.Student
 
         protected void LBAddStudent_Click(object sender, EventArgs e)
         {
+            FirstName.Enabled = false;
+            MiddleName.Enabled = false;
+            LastName.Enabled = false;
+            MobileArea.Enabled = false;
+            Mobile1.Enabled = false;
+            Mobile2.Enabled = false;
 
             hdroommatestatus.Value = "Add";
             RoomMateInfoHeader.Text = "Roommate Info - Add";

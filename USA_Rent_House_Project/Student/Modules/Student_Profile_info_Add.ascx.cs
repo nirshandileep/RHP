@@ -228,6 +228,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
 
                         if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
                         {
+                            ShowfullRegistration.Visible = false;
                             ShowPartialUserEmailRequest.Visible = true;
                             lblpartialuserEmail.Text = Email.Text.Trim();
                             lblpartialuserEmail2.Text = Email.Text.Trim();
@@ -235,8 +236,8 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
                         else
                         {
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + Messages.EmailAddressExist + "'); }", true);
-                    
-                            ShowPartialUserEmailRequest.Visible = true;
+                            ShowPartialUserEmailRequest.Visible = false;
+                            ShowfullRegistration.Visible = true;
                         }
                 }
 
@@ -383,22 +384,29 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
     {
         User _user = new User();
 
+        string type = "";
+
         _user = User.SelectUserByEmail("RoleName", "landlord", "Email", Email.Text.Trim().ToLower());
         
         if (_user != null)
         {
-
+            type = "l";
         }
         else
         {
             _user = User.SelectUserByEmail("RoleName", "student", "Email", Email.Text.Trim().ToLower());
+            
+            if (_user != null)
+            {
+                type = "s";
+            }
         }
 
         if (_user != null)
         {
             if (_user.UserId.HasValue)
             {
-                string strMsgContent = PartialUserRequest(_user);
+                string strMsgContent = PartialUserRequest(_user, type);
 
                 string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
 
@@ -418,7 +426,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
         }
     }
 
-    private string PartialUserRequest(User _user)
+    private string PartialUserRequest(User _user, string type)
     {
         string strMsgContent = string.Empty;
 
@@ -432,7 +440,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
                                 " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
                                 "<br />";
 
-            string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
+            string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=" + type;
 
             strMsgContent = strMsgContent + "One of your house Room-mate created account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", and Request you to join with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ",<br/><br/>";
 

@@ -1210,6 +1210,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 
 .puliclinks
 {
+    height:1px;
      margin-top: -80px;
     position: relative;
     right: -257px;
@@ -1250,7 +1251,7 @@ text-decoration: none;
 
 #MainContent_Student_Profile_CommentsID_StudentComments
 {
-    float:right;
+   /* float:right;*/
    
 }
 
@@ -1379,7 +1380,7 @@ width:250px;
 
 #MainContent_Student_Profile_CommentsID_DataListStudentComments
 {
-    width:700px;
+    width:590px;
 }
 
 .student_public_about_search
@@ -1419,7 +1420,7 @@ width:250px;
 {
     border-bottom:1px solid #bdc7d8;
     color:#bdc7d8;
-    width:700px;
+    width:590px;
 }
 
 #MainContent_Landload_Public_Profile_Data1_HouseDetails

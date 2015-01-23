@@ -111,7 +111,7 @@ namespace USA_Rent_House_Project.Student
             LandloadLabelmessage.Text = "";
             DissableEdit();
             hideHouseDetails();
-            hdLandloadId.Value = string.Empty;
+           // hdLandloadId.Value = string.Empty;
             hdHouseId.Value = string.Empty;
             clearLandload();
             DissableLandlord();
@@ -127,7 +127,7 @@ namespace USA_Rent_House_Project.Student
                 {
                    
 
-                    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
+                    LandloadLabelmessage.Text = "landlord verified for email : " + LandloadEmail.Text.Trim().ToLower();
                     hdLandloadId.Value = user_check.UserId.Value.ToString();
 
                     LandloadEmail.Text = user_check.PersonalEmail;
@@ -159,7 +159,7 @@ namespace USA_Rent_House_Project.Student
 
                                 if (user_check.UserId.HasValue && user_check.IsPartialUser == true)
                                 {
-                                    LandloadLabelmessage.Text = "landload verified for email : " + LandloadEmail.Text.Trim().ToLower();
+                                    LandloadLabelmessage.Text = "landlord verified for email : " + LandloadEmail.Text.Trim().ToLower();
                                     hdLandloadId.Value = user_check.UserId.Value.ToString();
 
                                     LandloadEmail.Text = user_check.PersonalEmail;
@@ -177,7 +177,7 @@ namespace USA_Rent_House_Project.Student
                                 }
                                 else
                                 {
-                                    LandloadLabelmessage.Text = "can not find registered landload for email : " + LandloadEmail.Text.Trim().ToLower() + ". Please enter details to continue..";
+                                    LandloadLabelmessage.Text = "can not find registered landlord for email : " + LandloadEmail.Text.Trim().ToLower() + ". Please enter details to continue..";
                                     ButtonLandload.Visible = true;
                                     LandloadEmail.Text = "";
                                     EnableLandlord();
