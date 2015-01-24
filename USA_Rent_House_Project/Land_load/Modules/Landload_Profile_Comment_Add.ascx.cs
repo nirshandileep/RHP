@@ -22,28 +22,28 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         private User _user;
 
-        public User user = new User();
-        //{
-        //    get
-        //    {
-        //        _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
-        //        if (_user == null)
-        //        {
+        public User user
+        {
+            get
+            {
+                _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
+                if (_user == null)
+                {
                     
-        //        }
-        //        else
-        //        {
+                }
+                else
+                {
 
-        //        }
-        //        Session[Constants.SESSION_LOGGED_USER] = _user;
-        //        return _user;
-        //    }
-        //    set
-        //    {
-        //        _user = value;
-        //        Session[Constants.SESSION_LOGGED_USER] = _user;
-        //    }
-        //}
+                }
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+                return _user;
+            }
+            set
+            {
+                _user = value;
+                Session[Constants.SESSION_LOGGED_USER] = _user;
+            }
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {

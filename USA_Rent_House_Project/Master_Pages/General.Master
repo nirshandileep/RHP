@@ -28,7 +28,7 @@
                     <AnonymousTemplate>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold">
+                        For BETA release testing, Welcome <span class="bold">
                             <asp:LoginName ID="HeadLoginName" runat="server" />
                         </span>!
                         <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>

@@ -1,0 +1,189 @@
+﻿<error errorId="ee4cc312-864f-4ecd-8bfe-eba877663997" application="/" host="NIRSHAN-PC" type="System.Web.HttpException" message="File does not exist." source="System.Web" detail="System.Web.HttpException (0x80004005): File does not exist.&#xD;&#xA;   at System.Web.StaticFileHandler.GetFileInfo(String virtualPathWithPathInfo, String physicalPath, HttpResponse response)&#xD;&#xA;   at System.Web.StaticFileHandler.ProcessRequestInternal(HttpContext context, String overrideVirtualPath)&#xD;&#xA;   at System.Web.DefaultHttpHandler.BeginProcessRequest(HttpContext context, AsyncCallback callback, Object state)&#xD;&#xA;   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="landone" time="2015-01-23T16:09:41.7435748Z" statusCode="404">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_ACCEPT:image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate, sdch&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:en-US,en;q=0.8&#xD;&#xA;HTTP_COOKIE:__RequestVerificationToken=PsasYHjCQwBR-fYmp2hLjDr2okWnlKYehFSTbT1zUQIaUuWp3jNbOASAoqEVxrdQUaZcbrCYt_Z9aDZRedwdb1lSxS0Up8njRzKBUn9OqAw1; ASP.NET_SessionId=1hrwveuj1hce32j43dugcaju; __AntiXsrfToken=4ba6aa765af441108259c5dc8954e402; __csid__=-VUa-TnuRDrdE5WITkTrNpsTelvsAxz92DoYnnrqxDazDA-_6dWiPmk4gDtizm8YdFB7kA2; DotNetOpenAuth.WebServerClient.XSRF-Session=7Wtr3vHgQqrWuBUtWO-pOA; .ASPXAUTH=80147680C1E36FCE601DF44086029ED035A150C2ED006CDBD37175F6DB3B4C7F45FA1214359FBD8D8468895E9578517D01803B3944604C0548582D67CFD5C29C2659868744B433700EA760F66DC984685B67055B7F2A7C365FFEADB64B629ABAA5BE6BD06D07E859353F349219C3224075260AB8; .ASPXROLES=Qrb49LEq97VYjwV5p4A0QtSgLVOc_YTamnrE0ohyg029JhiX6Klwr0zNegFwFwgJTmIUF5sKoxe4O6sXPghe_rcKQob4JZGp2-0WU6PvxrSJeB0SbT8sUiYCsncG1mEfijgZokyq1roZazhyfJrugOfkveD1-BuK0VvezP1oHeMeKjQoR-G-WDvSdKTTlb2eXhBE7V6sAJGTRHexw5VbSfIgDIYEQ7_PcVg-cMkEvkl5VUPP_fYFcRcCNsPcaUb_0iXEn7uyDRsDP33qGXIV9P0aqv2uN9mvY_dOmGaOK1j02w3tcT13WMuHeN85WFyCczfnR2lrGrtGk3-UwTuexyjtjPUOnJ2VXG22-lY_X5PnfSz4s1Rwh9AtY30FSeu28X7ySNtSEl2-bIlxiDT1JgYBxjTiM0G3ehEKeOiYTyA8RQE4_DS33WEhaka9cazv_tp2TngHm_q4Wr9UuGmgTMH5elYEChDJ9cZ2uqdVEnATTolkrBEs2R9xkzXHJ4ACOHfRlOdLZjo0Czq49zXDyIqydNI1; __atuvc=0%7C49%2C25%7C50%2C17%7C51%2C2%7C52%2C10%7C3; __atuvs=54c27140bf9f3a30003; __atrfs=ab/|pos/|tot/|rsi/54c271e500000000|cfc/|hash/0|rsiq/|fuid/dc947809|rxi/|rsc/|gen/1|csi/|dr/&#xD;&#xA;HTTP_HOST:localhost:63990&#xD;&#xA;HTTP_REFERER:http://localhost:63990/Land_load/Land_load_Public_Profile.aspx?AccessCode=75d7e14a-21ef-410a-9faf-ad0ssdd66d12&amp;AccessCode2=89f55582-128f-42c3-93bd-7f1fd0600667ff&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2251.0 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Connection: keep-alive&#xD;&#xA;Accept: image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate, sdch&#xD;&#xA;Accept-Language: en-US,en;q=0.8&#xD;&#xA;Cookie: __RequestVerificationToken=PsasYHjCQwBR-fYmp2hLjDr2okWnlKYehFSTbT1zUQIaUuWp3jNbOASAoqEVxrdQUaZcbrCYt_Z9aDZRedwdb1lSxS0Up8njRzKBUn9OqAw1; ASP.NET_SessionId=1hrwveuj1hce32j43dugcaju; __AntiXsrfToken=4ba6aa765af441108259c5dc8954e402; __csid__=-VUa-TnuRDrdE5WITkTrNpsTelvsAxz92DoYnnrqxDazDA-_6dWiPmk4gDtizm8YdFB7kA2; DotNetOpenAuth.WebServerClient.XSRF-Session=7Wtr3vHgQqrWuBUtWO-pOA; .ASPXAUTH=80147680C1E36FCE601DF44086029ED035A150C2ED006CDBD37175F6DB3B4C7F45FA1214359FBD8D8468895E9578517D01803B3944604C0548582D67CFD5C29C2659868744B433700EA760F66DC984685B67055B7F2A7C365FFEADB64B629ABAA5BE6BD06D07E859353F349219C3224075260AB8; .ASPXROLES=Qrb49LEq97VYjwV5p4A0QtSgLVOc_YTamnrE0ohyg029JhiX6Klwr0zNegFwFwgJTmIUF5sKoxe4O6sXPghe_rcKQob4JZGp2-0WU6PvxrSJeB0SbT8sUiYCsncG1mEfijgZokyq1roZazhyfJrugOfkveD1-BuK0VvezP1oHeMeKjQoR-G-WDvSdKTTlb2eXhBE7V6sAJGTRHexw5VbSfIgDIYEQ7_PcVg-cMkEvkl5VUPP_fYFcRcCNsPcaUb_0iXEn7uyDRsDP33qGXIV9P0aqv2uN9mvY_dOmGaOK1j02w3tcT13WMuHeN85WFyCczfnR2lrGrtGk3-UwTuexyjtjPUOnJ2VXG22-lY_X5PnfSz4s1Rwh9AtY30FSeu28X7ySNtSEl2-bIlxiDT1JgYBxjTiM0G3ehEKeOiYTyA8RQE4_DS33WEhaka9cazv_tp2TngHm_q4Wr9UuGmgTMH5elYEChDJ9cZ2uqdVEnATTolkrBEs2R9xkzXHJ4ACOHfRlOdLZjo0Czq49zXDyIqydNI1; __atuvc=0%7C49%2C25%7C50%2C17%7C51%2C2%7C52%2C10%7C3; __atuvs=54c27140bf9f3a30003; __atrfs=ab/|pos/|tot/|rsi/54c271e500000000|cfc/|hash/0|rsiq/|fuid/dc947809|rxi/|rsc/|gen/1|csi/|dr/&#xD;&#xA;Host: localhost:63990&#xD;&#xA;Referer: http://localhost:63990/Land_load/Land_load_Public_Profile.aspx?AccessCode=75d7e14a-21ef-410a-9faf-ad0ssdd66d12&amp;AccessCode2=89f55582-128f-42c3-93bd-7f1fd0600667ff&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2251.0 Safari/537.36&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="E:\System Projects\GITHUB PROJECTS\RHP\USA_Rent_House_Project\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="Forms" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="landone" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="Nirshan-PC\Nirshan" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="landone" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="0" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="" />
+    </item>
+    <item name="HTTPS">
+      <value string="" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Land_load/close.gif" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="E:\System Projects\GITHUB PROJECTS\RHP\USA_Rent_House_Project\Land_load\close.gif" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="GET" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Land_load/close.gif" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="63990" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="" />
+    </item>
+    <item name="URL">
+      <value string="/Land_load/close.gif" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate, sdch" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="en-US,en;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="__RequestVerificationToken=PsasYHjCQwBR-fYmp2hLjDr2okWnlKYehFSTbT1zUQIaUuWp3jNbOASAoqEVxrdQUaZcbrCYt_Z9aDZRedwdb1lSxS0Up8njRzKBUn9OqAw1; ASP.NET_SessionId=1hrwveuj1hce32j43dugcaju; __AntiXsrfToken=4ba6aa765af441108259c5dc8954e402; __csid__=-VUa-TnuRDrdE5WITkTrNpsTelvsAxz92DoYnnrqxDazDA-_6dWiPmk4gDtizm8YdFB7kA2; DotNetOpenAuth.WebServerClient.XSRF-Session=7Wtr3vHgQqrWuBUtWO-pOA; .ASPXAUTH=80147680C1E36FCE601DF44086029ED035A150C2ED006CDBD37175F6DB3B4C7F45FA1214359FBD8D8468895E9578517D01803B3944604C0548582D67CFD5C29C2659868744B433700EA760F66DC984685B67055B7F2A7C365FFEADB64B629ABAA5BE6BD06D07E859353F349219C3224075260AB8; .ASPXROLES=Qrb49LEq97VYjwV5p4A0QtSgLVOc_YTamnrE0ohyg029JhiX6Klwr0zNegFwFwgJTmIUF5sKoxe4O6sXPghe_rcKQob4JZGp2-0WU6PvxrSJeB0SbT8sUiYCsncG1mEfijgZokyq1roZazhyfJrugOfkveD1-BuK0VvezP1oHeMeKjQoR-G-WDvSdKTTlb2eXhBE7V6sAJGTRHexw5VbSfIgDIYEQ7_PcVg-cMkEvkl5VUPP_fYFcRcCNsPcaUb_0iXEn7uyDRsDP33qGXIV9P0aqv2uN9mvY_dOmGaOK1j02w3tcT13WMuHeN85WFyCczfnR2lrGrtGk3-UwTuexyjtjPUOnJ2VXG22-lY_X5PnfSz4s1Rwh9AtY30FSeu28X7ySNtSEl2-bIlxiDT1JgYBxjTiM0G3ehEKeOiYTyA8RQE4_DS33WEhaka9cazv_tp2TngHm_q4Wr9UuGmgTMH5elYEChDJ9cZ2uqdVEnATTolkrBEs2R9xkzXHJ4ACOHfRlOdLZjo0Czq49zXDyIqydNI1; __atuvc=0%7C49%2C25%7C50%2C17%7C51%2C2%7C52%2C10%7C3; __atuvs=54c27140bf9f3a30003; __atrfs=ab/|pos/|tot/|rsi/54c271e500000000|cfc/|hash/0|rsiq/|fuid/dc947809|rxi/|rsc/|gen/1|csi/|dr/" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:63990" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:63990/Land_load/Land_load_Public_Profile.aspx?AccessCode=75d7e14a-21ef-410a-9faf-ad0ssdd66d12&amp;AccessCode2=89f55582-128f-42c3-93bd-7f1fd0600667ff" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2251.0 Safari/537.36" />
+    </item>
+  </serverVariables>
+  <cookies>
+    <item name="__RequestVerificationToken">
+      <value string="PsasYHjCQwBR-fYmp2hLjDr2okWnlKYehFSTbT1zUQIaUuWp3jNbOASAoqEVxrdQUaZcbrCYt_Z9aDZRedwdb1lSxS0Up8njRzKBUn9OqAw1" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="1hrwveuj1hce32j43dugcaju" />
+    </item>
+    <item name="__AntiXsrfToken">
+      <value string="4ba6aa765af441108259c5dc8954e402" />
+    </item>
+    <item name="__csid__">
+      <value string="-VUa-TnuRDrdE5WITkTrNpsTelvsAxz92DoYnnrqxDazDA-_6dWiPmk4gDtizm8YdFB7kA2" />
+    </item>
+    <item name="DotNetOpenAuth.WebServerClient.XSRF-Session">
+      <value string="7Wtr3vHgQqrWuBUtWO-pOA" />
+    </item>
+    <item name=".ASPXAUTH">
+      <value string="80147680C1E36FCE601DF44086029ED035A150C2ED006CDBD37175F6DB3B4C7F45FA1214359FBD8D8468895E9578517D01803B3944604C0548582D67CFD5C29C2659868744B433700EA760F66DC984685B67055B7F2A7C365FFEADB64B629ABAA5BE6BD06D07E859353F349219C3224075260AB8" />
+    </item>
+    <item name=".ASPXROLES">
+      <value string="Qrb49LEq97VYjwV5p4A0QtSgLVOc_YTamnrE0ohyg029JhiX6Klwr0zNegFwFwgJTmIUF5sKoxe4O6sXPghe_rcKQob4JZGp2-0WU6PvxrSJeB0SbT8sUiYCsncG1mEfijgZokyq1roZazhyfJrugOfkveD1-BuK0VvezP1oHeMeKjQoR-G-WDvSdKTTlb2eXhBE7V6sAJGTRHexw5VbSfIgDIYEQ7_PcVg-cMkEvkl5VUPP_fYFcRcCNsPcaUb_0iXEn7uyDRsDP33qGXIV9P0aqv2uN9mvY_dOmGaOK1j02w3tcT13WMuHeN85WFyCczfnR2lrGrtGk3-UwTuexyjtjPUOnJ2VXG22-lY_X5PnfSz4s1Rwh9AtY30FSeu28X7ySNtSEl2-bIlxiDT1JgYBxjTiM0G3ehEKeOiYTyA8RQE4_DS33WEhaka9cazv_tp2TngHm_q4Wr9UuGmgTMH5elYEChDJ9cZ2uqdVEnATTolkrBEs2R9xkzXHJ4ACOHfRlOdLZjo0Czq49zXDyIqydNI1" />
+    </item>
+    <item name="__atuvc">
+      <value string="0%7C49%2C25%7C50%2C17%7C51%2C2%7C52%2C10%7C3" />
+    </item>
+    <item name="__atuvs">
+      <value string="54c27140bf9f3a30003" />
+    </item>
+    <item name="__atrfs">
+      <value string="ab/|pos/|tot/|rsi/54c271e500000000|cfc/|hash/0|rsiq/|fuid/dc947809|rxi/|rsc/|gen/1|csi/|dr/" />
+    </item>
+  </cookies>
+</error>
