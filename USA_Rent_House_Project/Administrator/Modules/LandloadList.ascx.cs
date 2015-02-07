@@ -37,8 +37,11 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
         private void LoadGrid()
         {
+            DataSet ds;
+            ds = new LandlordDAO().SelectAllDataset();
+            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["LandlordId"] };
             gvLandloadList.SettingsText.ConfirmDelete = Messages.Delete_Confirm;
-            gvLandloadList.DataSource = dsLandlords.Tables[0];
+            gvLandloadList.DataSource = ds.Tables[0];
             gvLandloadList.DataBind();
         }
 

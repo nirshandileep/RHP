@@ -8,13 +8,48 @@
 Land load List
 </h1>
 
-<dx:ASPxGridView ID="gvLandloadList" runat="server" AutoGenerateColumns="False" KeyFieldName="LandlordId">
+<dx:ASPxGridView ID="gvLandloadList" runat="server" AutoGenerateColumns="False" KeyFieldName="LandlordId" SettingsPager-PageSize="50">
     <Columns>
-<%--
-     //Landlord.LandlordId,Landlord.LandlordName, aspnet_Users.UserName, [User].Name, [User].StreetAddress, [User].City, [User].State, [User].Zip, [User].BestContactNumber, 
-        //              [User].DriversLicenseNumber, [User].RatingValue, [User].IsDeleted, [User].IsFBUser, aspnet_Membership.LoweredEmail, 
-        //              aspnet_Membership.PasswordQuestion--%>
 
+      <dx:GridViewDataTextColumn FieldName="Name" UnboundType="String" 
+            VisibleIndex="0">
+        </dx:GridViewDataTextColumn>
+
+         <dx:GridViewDataTextColumn Caption="Email" FieldName="PersonalEmail" VisibleIndex="1"  UnboundType="String">    
+        </dx:GridViewDataTextColumn>
+
+         <dx:GridViewDataTextColumn FieldName="BestContactNumber" VisibleIndex="2">
+        </dx:GridViewDataTextColumn>
+     
+        <dx:GridViewDataTextColumn FieldName="StreetAddress" UnboundType="String" 
+            VisibleIndex="3">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="City" UnboundType="String" 
+            VisibleIndex="4">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="State" VisibleIndex="5" 
+            UnboundType="String">
+        </dx:GridViewDataTextColumn>
+        <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="6" 
+            UnboundType="String">
+        </dx:GridViewDataTextColumn>
+
+       
+         <dx:GridViewDataTextColumn FieldName="IsFBUser" VisibleIndex="7" 
+            UnboundType="String">
+          
+        </dx:GridViewDataTextColumn>
+        
+
+        <dx:GridViewDataProgressBarColumn FieldName="StudentRatingValue" UnboundType="Decimal" 
+            VisibleIndex="8">
+            <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
+            </PropertiesProgressBar>
+        </dx:GridViewDataProgressBarColumn>
+
+
+
+<%--
         <dx:GridViewDataTextColumn FieldName="FirstName" UnboundType="String" 
             VisibleIndex="0">
         </dx:GridViewDataTextColumn>
@@ -54,7 +89,7 @@ Land load List
             UnboundType="Decimal">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
             </PropertiesProgressBar>
-        </dx:GridViewDataProgressBarColumn>
+        </dx:GridViewDataProgressBarColumn>--%>
     </Columns>
     <SettingsBehavior ConfirmDelete="True" />
 </dx:ASPxGridView>

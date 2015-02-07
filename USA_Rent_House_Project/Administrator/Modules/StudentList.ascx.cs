@@ -37,8 +37,12 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
         private void LoadGrid()
         {
+            DataSet ds;
+            ds = new StudentDAO().SelectAllDataset();
+            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["StudentId"] };
+
             gvStudentList.SettingsText.ConfirmDelete = Messages.Delete_Confirm;
-            gvStudentList.DataSource = dsStudents.Tables[0];
+            gvStudentList.DataSource = ds.Tables[0];
             gvStudentList.DataBind();
         }
           

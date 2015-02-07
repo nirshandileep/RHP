@@ -9,7 +9,7 @@
     onrowdeleting="gvFeatureList_RowDeleting" 
     onrowinserting="gvFeatureList_RowInserting" 
     onrowupdating="gvFeatureList_RowUpdating" KeyFieldName="OptionId" 
-    oncelleditorinitialize="gvFeatureList_CellEditorInitialize">
+    oncelleditorinitialize="gvFeatureList_CellEditorInitialize" SettingsPager-PageSize="50">
     <Columns>
 
 <%--    [OptionId], [Name], [Description], [OptionCategoryId], [ParentOptionId], [IsDeleted], [IsMultiSelect] --%>

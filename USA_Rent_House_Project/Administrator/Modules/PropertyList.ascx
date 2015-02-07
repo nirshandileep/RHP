@@ -32,19 +32,19 @@ House / Property List
         <dx:GridViewDataTextColumn FieldName="Zip" VisibleIndex="5" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-           <dx:GridViewDataTextColumn FieldName="YearHomeBuild" VisibleIndex="6" 
+           <dx:GridViewDataTextColumn FieldName="YearHomeBuild" VisibleIndex="6" Caption="Year" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-           <dx:GridViewDataTextColumn FieldName="BedRooms" VisibleIndex="7" 
+           <dx:GridViewDataTextColumn FieldName="BedRooms" Caption="BedRooms" VisibleIndex="7" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-           <dx:GridViewDataTextColumn FieldName="BathRooms" VisibleIndex="8" 
+           <dx:GridViewDataTextColumn FieldName="BathRooms" Caption="BathRooms" VisibleIndex="8" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-           <dx:GridViewDataTextColumn FieldName="LotSquareFootage" VisibleIndex="9" 
+           <dx:GridViewDataTextColumn FieldName="LotSquareFootage" Caption="Lot Sq. Footage" VisibleIndex="9" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
-        <dx:GridViewDataTextColumn FieldName="TotalSquareFootage" VisibleIndex="10" 
+        <dx:GridViewDataTextColumn FieldName="TotalSquareFootage" Caption="Total Sq. Footage" VisibleIndex="10" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
         <dx:GridViewDataTextColumn FieldName="UtilitiesIncludedInRent" VisibleIndex="11"  UnboundType="String">
