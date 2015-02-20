@@ -41,8 +41,8 @@
                     </AnonymousTemplate>
                     <LoggedInTemplate>
                         For BETA release testing, Welcome <span class="bold">
-                            <asp:LoginName ID="HeadLoginName" runat="server" />
-                        </span>!
+                            <%--<asp:LoginName ID="HeadLoginName" runat="server" /></span>--%>
+                        <asp:Label ID="LoginName" runat="server" ></asp:Label>!
                         <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>
                     </LoggedInTemplate>
                 </asp:LoginView>

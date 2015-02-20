@@ -286,7 +286,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     string strMsgContent = message(user_.UserId.Value, user_);
 
-                    string strMsgTitle = RHP.Common.Enums.SystemConfig.SITEURL + "  is Requesting you to join with Us.";
+                    string strMsgTitle =  SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "  is Requesting you to join with Us.";
 
                     int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
 

@@ -38,9 +38,12 @@ Student List
           
         </dx:GridViewDataTextColumn>
         
+          <dx:GridViewDataTextColumn FieldName="ReferralCode" VisibleIndex="8" 
+            UnboundType="String">
+        </dx:GridViewDataTextColumn>
 
         <dx:GridViewDataProgressBarColumn FieldName="StudentRatingValue" UnboundType="Decimal" 
-            VisibleIndex="8">
+            VisibleIndex="9">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
             </PropertiesProgressBar>
         </dx:GridViewDataProgressBarColumn>

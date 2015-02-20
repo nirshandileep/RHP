@@ -89,6 +89,9 @@ School List
         <dx:GridViewDataTextColumn FieldName="Location" VisibleIndex="9" 
             UnboundType="String">
         </dx:GridViewDataTextColumn>
+      
+
+       
         <dx:GridViewDataProgressBarColumn FieldName="RatingValue" VisibleIndex="10" 
             UnboundType="Decimal">
             <PropertiesProgressBar CustomDisplayFormat="" Height="" Width="">
