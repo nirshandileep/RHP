@@ -6,6 +6,8 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.UserManagement;
 using System.Web.Security;
+using RHP.Common;
+using RHP.Utility;
 
 namespace USA_Rent_House_Project.Masrer_Pages
 {
@@ -14,6 +16,11 @@ namespace USA_Rent_House_Project.Masrer_Pages
         private User user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.ClientScript.IsClientScriptBlockRegistered(Constants.GOOGLE_ANALYTICS_KEY))
+            {
+                Page.ClientScript.RegisterClientScriptBlock(this.GetType(), Constants.GOOGLE_ANALYTICS_KEY, SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.GOOGLE_ANALYTICS));
+            } 
+            
             if (!Page.IsPostBack)
             {
                 if (this.Page.User.Identity.IsAuthenticated)

@@ -96,6 +96,6 @@ namespace RHP.Common
 
         #endregion
 
-
+        public static readonly string GOOGLE_ANALYTICS_KEY = "GoogleAnalytics";
     }
 }

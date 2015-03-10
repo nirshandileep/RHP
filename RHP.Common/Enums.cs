@@ -31,7 +31,12 @@ namespace RHP.Common
             /// <summary>
             /// Fb return url set from database
             /// </summary>
-            FB_REDIRECT_URL = 11
+            FB_REDIRECT_URL = 11,
+
+            /// <summary>
+            /// Google analytics code
+            /// </summary>
+            GOOGLE_ANALYTICS = 12,
         }
 
         public enum UserRoles
