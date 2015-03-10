@@ -1,5 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true"
-    CodeBehind="Contact_Us.aspx.cs" Inherits="USA_Rent_House_Project.Contact_Us" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true" CodeBehind="Contact_Us.aspx.cs" Inherits="USA_Rent_House_Project.Contact_Us" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -21,13 +20,13 @@
 
                 <table>
                 <tr>
-                        <td>  <b>Nirmal J Abeygunaratne</b> 
+                        <td>  <b>Nirmal J Abeygunaratne - </b> 
                         </td>
                         <td>   (Founder and President/CEO)
                         </td>
                     </tr>
                     <tr>
-                        <td> <b>Address</b> 
+                        <td> <b>Address - </b> 
                         </td>
                         <td> 4685 Chicago Ave
                         </td>
@@ -110,5 +109,5 @@
                 </p>
             </div>
         </div>
-    </div>
+    </div> </div>
 </asp:Content>

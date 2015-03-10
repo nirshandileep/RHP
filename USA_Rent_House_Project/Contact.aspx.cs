@@ -10,7 +10,7 @@ using RHP.Common;
 
 namespace USA_Rent_House_Project
 {
-    public partial class Contact_Us : System.Web.UI.Page
+    public partial class Contact : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -62,7 +62,7 @@ namespace USA_Rent_House_Project
             }
             catch (Exception ex)
             {
- 
+
                 return 0;
             }
 
