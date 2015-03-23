@@ -48,11 +48,13 @@ namespace USA_Rent_House_Project.Student.Modules
             _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
             if (_user.HouseId != null)
             {
-                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House_Details.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Current_House.aspx"));
+                //LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House_Details.aspx"));
             }
             else
             {
-                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House.aspx"));
+                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Current_House.aspx"));
+                //LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House.aspx"));
             }
 
             LeftMenuBar.Items.Add(new MenuItem("Profile Info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
