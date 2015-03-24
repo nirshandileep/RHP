@@ -279,12 +279,13 @@
     <Content Include="Student\Change_Secret_Question.aspx" />
     <Content Include="Student\Contact_Us.aspx" />
     <Content Include="Student\Current_House.aspx" />
+    <Content Include="Student\Current_House_Dorms.aspx" />
     <Content Include="Student\Current_House_Life.aspx" />
     <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Current_House_Life_View.aspx" />
     <Content Include="Student\Modules\Ctr_PublicQuickLinks.ascx" />
     <Content Include="Student\Modules\Ctr_QuickLinks.ascx" />
-    <Content Include="Student\Modules\Current_House.ascx" />
+    <Content Include="Student\Modules\Current_House_Dorms.ascx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Life_View.ascx" />
     <Content Include="Student\Modules\Current_House_Menu_Bar.ascx" />
@@ -998,6 +999,13 @@
     <Compile Include="Student\Current_House.aspx.designer.cs">
       <DependentUpon>Current_House.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Current_House_Dorms.aspx.cs">
+      <DependentUpon>Current_House_Dorms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Current_House_Dorms.aspx.designer.cs">
+      <DependentUpon>Current_House_Dorms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Current_House_Life.aspx.cs">
       <DependentUpon>Current_House_Life.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1033,12 +1041,12 @@
     <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.designer.cs">
       <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Student\Modules\Current_House.ascx.cs">
-      <DependentUpon>Current_House.ascx</DependentUpon>
+    <Compile Include="Student\Modules\Current_House_Dorms.ascx.cs">
+      <DependentUpon>Current_House_Dorms.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Student\Modules\Current_House.ascx.designer.cs">
-      <DependentUpon>Current_House.ascx</DependentUpon>
+    <Compile Include="Student\Modules\Current_House_Dorms.ascx.designer.cs">
+      <DependentUpon>Current_House_Dorms.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Current_House_Landload_info.ascx.cs">
       <DependentUpon>Current_House_Landload_info.ascx</DependentUpon>
