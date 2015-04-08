@@ -84,5 +84,18 @@ namespace RHP.Common
             Photo = 3,
             Document = 4,
         }
+
+        public enum HouseType
+        {
+            Dorms = 1,
+            Appartment = 2,
+            Condo = 3,
+            FamilyHousing = 4,
+            House = 5,
+            OffCampusAppartment = 6,
+            OffCampusCondo = 7,
+            TownHome = 8,
+            OffCampusHouse = 9,
+        }
     }
 }

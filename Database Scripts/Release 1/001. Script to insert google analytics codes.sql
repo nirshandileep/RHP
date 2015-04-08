@@ -15,7 +15,7 @@ set @script='<script> (function (i, s, o, g, r, a, m) {
 IF NOT EXISTS(select NULL from dbo.SystemConfig WHERE [Key]='GOOGLE_ANALYTICS')
 BEGIN
 		PRINT 'ANALYTICS CODE INSERTED'
-		INSERT INTO [RHP_DB].[dbo].[SystemConfig]
+		INSERT INTO [dbo].[SystemConfig]
 				   ([SystemConfigId]
 				   ,[Key]
 				   ,[Value]
@@ -41,4 +41,4 @@ BEGIN
 	UPDATE dbo.SystemConfig SET Value=@script where [Key]='GOOGLE_ANALYTICS'
 END
 
-SELECT * FROM dbo.SystemConfig
+--SELECT * FROM dbo.SystemConfig

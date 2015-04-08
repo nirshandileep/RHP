@@ -28,6 +28,7 @@ namespace RHP.LandlordManagement
         public decimal? RatingValue { get; set; }
         public decimal? Price { get; set; }
         public List<HouseOption> HouseOptionList { get; set; }
+        public int? HouseTypeId { get; set; }
 
         public static House Select(Guid houseId)
         {

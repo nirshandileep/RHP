@@ -100,6 +100,6 @@ namespace USA_Rent_House_Project.Student {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student.Modules.Current_House_Dorms Current_House_Dorms1;
+        protected global::USA_Rent_House_Project.Current_House_Dorms Current_House_Dorms1;
     }
 }

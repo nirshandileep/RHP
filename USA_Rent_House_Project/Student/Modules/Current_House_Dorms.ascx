@@ -1,15 +1,16 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Current_House_Dorms.ascx.cs"
-    Inherits="USA_Rent_House_Project.Student.Modules.Current_House_Dorms" %>
+    Inherits="USA_Rent_House_Project.Current_House_Dorms" %>
 <div id="forminner">
 
-<h2>Drom housing</h2>
+<h2>
+    <asp:Label ID="LabelHousingTypeHeader" runat="server" Text=""></asp:Label></h2>
     <div id="Step1" runat="server">
         <p>
-            <asp:Label ID="LabelDrom" runat="server" AssociatedControlID="DrpDrom" CssClass="form_label">Select Drom:</asp:Label>
+            <asp:Label ID="LabelDrom" runat="server" AssociatedControlID="DrpDrom" CssClass="form_label">Select Dorm:</asp:Label>
             <asp:DropDownList ID="DrpDrom" runat="server" CssClass="dropDownEntry">
-                <asp:ListItem>Drom 1</asp:ListItem>
-                <asp:ListItem>Drom 2</asp:ListItem>
-                <asp:ListItem>Drom 3</asp:ListItem>
+                <asp:ListItem>Dorm 1</asp:ListItem>
+                <asp:ListItem>Dorm 2</asp:ListItem>
+                <asp:ListItem>Dorm 3</asp:ListItem>
             </asp:DropDownList>
         </p>
         <div class="buttons">
@@ -80,6 +81,6 @@
                 runat="server" onclick="LBSaveRoomNumber_Click" >Save And Confirm</asp:LinkButton>
         </div>
      </div>
-
+    <asp:HiddenField ID="HiddenFieldHouseTypeId" runat="server" />
      
 </div>

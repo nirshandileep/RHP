@@ -52,8 +52,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NewHouseClasses\Appartment.cs" />
+    <Compile Include="NewHouseClasses\BaseHouse.cs" />
     <Compile Include="House.cs" />
     <Compile Include="HouseDAO.cs" />
+    <Compile Include="NewHouseClasses\HouseFactory.cs" />
     <Compile Include="HouseManager.cs" />
     <Compile Include="HouseOption.cs" />
     <Compile Include="HouseOptionDAO.cs" />
@@ -62,6 +65,14 @@
     <Compile Include="LandlordDAO.cs" />
     <Compile Include="LandlordManager.cs" />
     <Compile Include="LandlordSearch.cs" />
+    <Compile Include="NewHouseClasses\Condo.cs" />
+    <Compile Include="NewHouseClasses\Dorm.cs" />
+    <Compile Include="NewHouseClasses\FamilyHousing.cs" />
+    <Compile Include="NewHouseClasses\OnCampusHouse.cs" />
+    <Compile Include="NewHouseClasses\OffCampusAppartment.cs" />
+    <Compile Include="NewHouseClasses\OffCampusCondo.cs" />
+    <Compile Include="NewHouseClasses\OffCampusHouse.cs" />
+    <Compile Include="NewHouseClasses\TownHome.cs" />
     <Compile Include="PartialHouse.cs" />
     <Compile Include="PartialHouseDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +97,7 @@
       <Name>RHP.Utility</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

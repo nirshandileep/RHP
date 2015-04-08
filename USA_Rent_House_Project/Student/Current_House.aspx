@@ -48,7 +48,7 @@
                     </div>
                     <div id="Step3" runat="server" visible="false">
                         <div class="buttons">
-                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx">Dorms</asp:HyperLink></div>
+                            <asp:HyperLink ID="HyperLink2" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=1">Dorms</asp:HyperLink></div>
                         <div class="buttons">
                             <asp:HyperLink ID="HyperLink3" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile.aspx">Appartments</asp:HyperLink></div>
                         <div class="buttons">
