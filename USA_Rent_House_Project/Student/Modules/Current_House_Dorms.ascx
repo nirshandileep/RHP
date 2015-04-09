@@ -6,7 +6,7 @@
     <asp:Label ID="LabelHousingTypeHeader" runat="server" Text=""></asp:Label></h2>
     <div id="Step1" runat="server">
         <p>
-            <asp:Label ID="LabelDrom" runat="server" AssociatedControlID="DrpDrom" CssClass="form_label">Select Dorm:</asp:Label>
+            <asp:Label ID="LabelRoom" runat="server" AssociatedControlID="DrpDrom" CssClass="form_label"></asp:Label>
             <asp:DropDownList ID="DrpDrom" runat="server" CssClass="dropDownEntry">
                 <asp:ListItem>Dorm 1</asp:ListItem>
                 <asp:ListItem>Dorm 2</asp:ListItem>

@@ -14,6 +14,7 @@ namespace RHP.LandlordManagement
         public Dorm()
         {
             base.HousingTypeHeader = "Dorm Housing";
+            base.LabelRoom = "Select Dorm:";
         }
        
     }

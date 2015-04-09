@@ -9,5 +9,6 @@ namespace RHP.LandlordManagement
     public abstract class BaseHouse : Base 
     {
         public string HousingTypeHeader { get; set; }
+        public string LabelRoom { get; set; }
     }
 }
