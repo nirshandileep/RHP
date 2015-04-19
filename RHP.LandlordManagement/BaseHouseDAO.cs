@@ -22,7 +22,7 @@ namespace RHP.LandlordManagement
 
             using (IDataReader dataReader = db.ExecuteReader(dbCommand))
             {
-                if (dataReader.Read())
+                while (dataReader.Read())
                 {
                     BaseHouse baseHouse = HouseFactory.Create((Enums.HouseType)houseTypeId);
                     RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, baseHouse);
@@ -37,7 +37,18 @@ namespace RHP.LandlordManagement
                         RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, baseHouseRoom);
                         if (listBaseHouse != null)
                         {
-                            listBaseHouse.Find(bh => bh.BaseHouseId == baseHouseRoom.BaseHouseId).HouseRooms.Add(baseHouseRoom);
+                            BaseHouse baseHouse2 = HouseFactory.Create((Enums.HouseType)houseTypeId);
+                            foreach (BaseHouse item in listBaseHouse)
+                            {
+                                if (item.BaseHouseId == baseHouseRoom.BaseHouseId)
+                                {
+                                    if (item.HouseRooms == null)
+                                    {
+                                        item.HouseRooms = new List<BaseHouseRoom>();
+                                    }
+                                    item.HouseRooms.Add(baseHouseRoom);
+                                }
+                            }
                         }
                     }
                 }

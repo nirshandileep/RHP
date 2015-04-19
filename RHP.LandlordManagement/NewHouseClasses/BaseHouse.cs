@@ -6,7 +6,7 @@ using RHP.Common;
 
 namespace RHP.LandlordManagement
 {
-    public abstract class BaseHouse : Base
+    public abstract class BaseHouse
     {
         #region Database Fields
 

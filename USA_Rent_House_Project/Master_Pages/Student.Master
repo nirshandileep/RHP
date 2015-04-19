@@ -8,6 +8,7 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.1.min.js" language="javascript" type="text/javascript"></script>
 </head>
 <body>
 

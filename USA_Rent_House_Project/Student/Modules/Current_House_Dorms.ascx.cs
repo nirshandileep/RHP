@@ -55,6 +55,9 @@ namespace USA_Rent_House_Project
 
             SetData();
 
+            DrpBaseHouse.Attributes.Add("OnChange", "setHouseIdToHiddenField()");
+            DrpDromRooms.Attributes.Add("OnChange", "setRoomIdToHiddenField()");
+
             List<BaseHouse> dormHouses = BaseHouseDAO.SelectAllByHouseTypeId(HouseTypeId);
 
             //Filter by house type
@@ -62,7 +65,7 @@ namespace USA_Rent_House_Project
             DrpBaseHouse.DataTextField = "Name";
             DrpBaseHouse.DataValueField = "BaseHouseId";
             DrpBaseHouse.DataBind();
-            DrpBaseHouse.Items.Add(new ListItem("--Please Select--", "-1"));
+            DrpBaseHouse.Items.Insert(0, new ListItem("--Please Select--", "-1"));
 
         }
 
@@ -74,14 +77,23 @@ namespace USA_Rent_House_Project
             Step3.Visible = false;
 
             int baseHouseId = int.Parse(HiddenFieldBaseHouseId.Value);
-            //Todo:LoadTheRooms
             List<BaseHouse> dormHouses = BaseHouseDAO.SelectAllByHouseTypeId(HouseTypeId);
             CurrentHouse = dormHouses.Find(bh => bh.BaseHouseId == baseHouseId);
             DrpDromRooms.DataSource = CurrentHouse.HouseRooms;
             DrpDromRooms.DataTextField = "RoomName";
             DrpDromRooms.DataValueField = "BaseHouseRoomId";
             DrpDromRooms.DataBind();
-            DrpDromRooms.Items.Add(new ListItem("--Please Select--", "-1"));
+            DrpDromRooms.Items.Insert(0, new ListItem("--Please Select--", "-1"));
+
+
+            //Load the other details
+            ContactName.Text = CurrentHouse.ContactName;
+            PhoneNumber.Text = CurrentHouse.PhoneNumber;
+            Address.Text = CurrentHouse.Address;
+            City.Text = CurrentHouse.Address;
+            State.Text = CurrentHouse.Address;
+            ZipCode.Text = CurrentHouse.Address;
+
         }
 
         protected void LBSelectRoom_Click(object sender, EventArgs e)
@@ -91,6 +103,11 @@ namespace USA_Rent_House_Project
             Step2.Visible = false;
             Step3.Visible = true;
 
+            RoomNumber.Text = DrpDromRooms.SelectedItem.Text.Trim();
+
+            //Todo: Fill the data to the grid
+            GridviewRoommatelist.DataSource = new List<int>();
+            GridviewRoommatelist.DataBind();
         }
 
         protected void LBSaveRoomNumber_Click(object sender, EventArgs e)
@@ -99,6 +116,47 @@ namespace USA_Rent_House_Project
             DromDetails.Visible = false;
             Step2.Visible = false;
             Step3.Visible = false;
+        }
+
+        protected void RemoveRoommate_Click(object sender, EventArgs e)
+        {
+
+        //    LinkButton lb = (LinkButton)sender;
+
+        //    GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+
+        //    int rowID = gvRow.RowIndex; //+1;
+
+        //    if (ViewState["CurrentTable"] != null)
+        //    {
+
+        //        DataTable dt = (DataTable)ViewState["CurrentTable"];
+
+        //        if (dt.Rows.Count >= 1)
+        //        {
+
+        //            if (gvRow.RowIndex <= dt.Rows.Count - 1)
+        //            {
+
+        //                //Remove the Selected Row data
+
+        //                dt.Rows.Remove(dt.Rows[rowID]);
+
+        //            }
+
+        //        }
+
+        //        //Store the current data in ViewState for future reference
+
+        //        ViewState["CurrentTable"] = dt;
+
+        //        //Re bind the GridView for the updated data
+
+        //        GridviewRoommatelist.DataSource = dt;
+        //        GridviewRoommatelist.DataBind();
+
+        //    }
+
         }
     }
 }
