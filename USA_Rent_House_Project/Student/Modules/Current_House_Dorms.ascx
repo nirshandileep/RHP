@@ -6,12 +6,11 @@
     <asp:Label ID="LabelHousingTypeHeader" runat="server" Text=""></asp:Label></h2>
     <div id="Step1" runat="server">
         <p>
-            <asp:Label ID="LabelRoom" runat="server" AssociatedControlID="DrpDrom" CssClass="form_label"></asp:Label>
-            <asp:DropDownList ID="DrpDrom" runat="server" CssClass="dropDownEntry">
-                <asp:ListItem>Dorm 1</asp:ListItem>
-                <asp:ListItem>Dorm 2</asp:ListItem>
-                <asp:ListItem>Dorm 3</asp:ListItem>
+            <asp:Label ID="LabelRoom" runat="server" AssociatedControlID="DrpBaseHouse" CssClass="form_label"></asp:Label>
+            <asp:DropDownList ID="DrpBaseHouse" runat="server" CssClass="dropDownEntry">
+               
             </asp:DropDownList>
+            <asp:HiddenField ID="HiddenFieldBaseHouseId" runat="server" Value="0" />
         </p>
         <div class="buttons">
             <asp:LinkButton ID="LBSelectDorm" CssClass="homelargebuttons" runat="server" OnClick="LBSelectDorm_Click">Save and Continue</asp:LinkButton>
@@ -53,10 +52,8 @@
         <p id="IDDromRoomNumber" runat="server">
             <asp:Label ID="LabelDromRoom" runat="server" AssociatedControlID="DrpDromRooms" CssClass="form_label">My Room Number:</asp:Label>
             <asp:DropDownList ID="DrpDromRooms" runat="server" CssClass="dropDownEntry">
-                <asp:ListItem>Room 1</asp:ListItem>
-                <asp:ListItem>Room 2</asp:ListItem>
-                <asp:ListItem>Room 3</asp:ListItem>
             </asp:DropDownList>
+            <asp:HiddenField ID="HiddenFieldBaseHouseRoomId" runat="server" />
         </p>
         <div class="buttons" id="VerifyDromRoomNumber" runat="server">
             <asp:LinkButton ID="LBSelectRoom" CssClass="homelargebuttons" runat="server" OnClick="LBSelectRoom_Click">Verify</asp:LinkButton>

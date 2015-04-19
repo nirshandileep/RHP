@@ -40,13 +40,22 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.Label LabelRoom;
         
         /// <summary>
-        /// DrpDrom control.
+        /// DrpBaseHouse control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DrpDrom;
+        protected global::System.Web.UI.WebControls.DropDownList DrpBaseHouse;
+        
+        /// <summary>
+        /// HiddenFieldBaseHouseId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldBaseHouseId;
         
         /// <summary>
         /// LBSelectDorm control.
@@ -209,6 +218,15 @@ namespace USA_Rent_House_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DrpDromRooms;
+        
+        /// <summary>
+        /// HiddenFieldBaseHouseRoomId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldBaseHouseRoomId;
         
         /// <summary>
         /// VerifyDromRoomNumber control.

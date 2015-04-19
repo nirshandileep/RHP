@@ -39,6 +39,10 @@ namespace USA_Rent_House_Project
                 }
                 return currentHouse;
             }
+            set 
+            {
+                currentHouse = value;
+            }
         }
 
         private void SetData()
@@ -51,11 +55,15 @@ namespace USA_Rent_House_Project
 
             SetData();
 
-            List<House> dormHouses = Generic.GetAll<House>();
-            
-            DrpDrom.DataSource = dormHouses;
-            DrpDrom.DataTextField = "HouseId";
-            DrpDrom.DataValueField = "";
+            List<BaseHouse> dormHouses = BaseHouseDAO.SelectAllByHouseTypeId(HouseTypeId);
+
+            //Filter by house type
+            DrpBaseHouse.DataSource = dormHouses;
+            DrpBaseHouse.DataTextField = "Name";
+            DrpBaseHouse.DataValueField = "BaseHouseId";
+            DrpBaseHouse.DataBind();
+            DrpBaseHouse.Items.Add(new ListItem("--Please Select--", "-1"));
+
         }
 
         protected void LBSelectDorm_Click(object sender, EventArgs e)
@@ -64,6 +72,16 @@ namespace USA_Rent_House_Project
             DromDetails.Visible = true;
             Step2.Visible = true;
             Step3.Visible = false;
+
+            int baseHouseId = int.Parse(HiddenFieldBaseHouseId.Value);
+            //Todo:LoadTheRooms
+            List<BaseHouse> dormHouses = BaseHouseDAO.SelectAllByHouseTypeId(HouseTypeId);
+            CurrentHouse = dormHouses.Find(bh => bh.BaseHouseId == baseHouseId);
+            DrpDromRooms.DataSource = CurrentHouse.HouseRooms;
+            DrpDromRooms.DataTextField = "RoomName";
+            DrpDromRooms.DataValueField = "BaseHouseRoomId";
+            DrpDromRooms.DataBind();
+            DrpDromRooms.Items.Add(new ListItem("--Please Select--", "-1"));
         }
 
         protected void LBSelectRoom_Click(object sender, EventArgs e)
