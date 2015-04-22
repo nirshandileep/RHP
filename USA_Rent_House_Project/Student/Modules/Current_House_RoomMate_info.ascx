@@ -34,19 +34,6 @@
 
     <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
-<%--<p id="setEmail" runat="server">
-    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
-    <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-        CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
-        ValidationGroup="ValidationGroup3">*</asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-        ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="ValidationGroup3"
-        ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
-</p>--%>
-
-
-
 <p id="setEmail" runat="server">
     <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
     <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>

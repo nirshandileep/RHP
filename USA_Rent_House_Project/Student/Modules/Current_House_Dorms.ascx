@@ -51,8 +51,8 @@
             <asp:DropDownList ID="DrpDromRooms" runat="server" CssClass="dropDownEntry">
             </asp:DropDownList>
             <asp:CompareValidator ID="CompareValidator2" runat="server" ControlToValidate="DrpDromRooms"
-                Display="Dynamic" ErrorMessage="Select an option" ForeColor="#CC0000" Operator="NotEqual"
-                Type="Integer" ValidationGroup="vgVerify" ValueToCompare="-1"></asp:CompareValidator>
+                Display="Dynamic" ErrorMessage="Select an option" ForeColor="#CC0000" 
+                Operator="NotEqual" ValidationGroup="vgVerify" ValueToCompare="-1"></asp:CompareValidator>
         </p>
         <div class="buttons" id="VerifyDromRoomNumber" runat="server">
             <asp:LinkButton ID="LBSelectRoom" CssClass="homelargebuttons" runat="server" OnClick="LBSelectRoom_Click"

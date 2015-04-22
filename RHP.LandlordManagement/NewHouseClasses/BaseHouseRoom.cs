@@ -7,7 +7,7 @@ namespace RHP.LandlordManagement
 {
     public class BaseHouseRoom
     {
-        public int BaseHouseRoomId { get; set; }
+        public Guid BaseHouseRoomId { get; set; }
         public int BaseHouseId { get; set; }
         public string RoomName { get; set; }
         public string Description { get; set; }

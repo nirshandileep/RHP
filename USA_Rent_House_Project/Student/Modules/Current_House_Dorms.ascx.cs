@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using RHP.LandlordManagement;
 using RHP.Utility;
+using RHP.UserManagement;
 
 namespace USA_Rent_House_Project
 {
@@ -90,10 +91,19 @@ namespace USA_Rent_House_Project
             ContactName.Text = CurrentHouse.ContactName;
             PhoneNumber.Text = CurrentHouse.PhoneNumber;
             Address.Text = CurrentHouse.Address;
-            City.Text = CurrentHouse.Address;
-            State.Text = CurrentHouse.Address;
-            ZipCode.Text = CurrentHouse.Address;
+            City.Text = CurrentHouse.City;
+            State.Text = CurrentHouse.State;
+            ZipCode.Text = CurrentHouse.Zip;
 
+        }
+
+        public BaseHouseRoom CurrentRoom
+        {
+            get
+            {
+                int baseHouseRoomId = Int32.Parse(HiddenFieldBaseHouseRoomId.Value.Trim());
+                return new BaseHouseRoom();
+            }
         }
 
         protected void LBSelectRoom_Click(object sender, EventArgs e)
@@ -104,10 +114,16 @@ namespace USA_Rent_House_Project
             Step3.Visible = true;
 
             RoomNumber.Text = DrpDromRooms.SelectedItem.Text.Trim();
+            Guid roomNumber;
 
-            //Todo: Fill the data to the grid
-            GridviewRoommatelist.DataSource = new List<int>();
-            GridviewRoommatelist.DataBind();
+            if (Guid.TryParse(DrpDromRooms.SelectedValue.Trim(), out roomNumber))
+            {
+
+                List<User> userlist = User.SelectUserByBaseHouseRoomId("BaseHouseRoomId", roomNumber, "rolename", "student");
+
+                GridviewRoommatelist.DataSource = userlist;
+                GridviewRoommatelist.DataBind();
+            }
         }
 
         protected void LBSaveRoomNumber_Click(object sender, EventArgs e)
