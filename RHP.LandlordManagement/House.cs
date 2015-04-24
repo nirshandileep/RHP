@@ -29,6 +29,7 @@ namespace RHP.LandlordManagement
         public decimal? Price { get; set; }
         public List<HouseOption> HouseOptionList { get; set; }
         public int? HouseTypeId { get; set; }
+        public Guid? BaseHouseRoomId { get; set; }
 
         public static House Select(Guid houseId)
         {
@@ -42,6 +43,17 @@ namespace RHP.LandlordManagement
             return house;
         }
 
+        public static House SelectByRoomId(Guid baseHouseRoomId)
+        {
+            House house = new House();
+            house.BaseHouseRoomId = baseHouseRoomId;
+            if (!new HouseDAO().SelectByRoomId(house))
+            {
+                house = null;
+            }
+
+            return house;
+        }
        
         public bool Save()
         {

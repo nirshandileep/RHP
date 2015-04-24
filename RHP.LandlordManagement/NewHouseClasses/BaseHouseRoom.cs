@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using RHP.Utility;
 
 namespace RHP.LandlordManagement
 {
@@ -13,5 +14,10 @@ namespace RHP.LandlordManagement
         public string Description { get; set; }
         public string CreatedBy { get; set; }
         public DateTime CreatedDate { get; set; }
+
+        public static BaseHouseRoom Select(Guid baseHouseRoomId)
+        {
+            return Generic.GetByGUID<BaseHouseRoom>(baseHouseRoomId);
+        }
     }
 }

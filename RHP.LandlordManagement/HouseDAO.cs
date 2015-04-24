@@ -202,6 +202,30 @@ namespace RHP.LandlordManagement
            return result;
        }
 
+       public bool SelectByRoomId(House entity)
+       {
+           bool result = true;
+
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand dbCommand = db.GetStoredProcCommand("usp_HouseSelectByBaseHouseRoomId");
+
+           db.AddInParameter(dbCommand, "BaseHouseRoomId", DbType.Guid, entity.BaseHouseRoomId);
+
+           using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+           {
+               if (dataReader.Read())
+               {
+                   if (entity == null)
+                   {
+                       entity = new House();
+                   }
+                   RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+               }
+           }
+
+           return result;
+       }
+
        public DataSet Search(HouseSearch house)
        {
            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseHouseDAO.cs" />
+    <Compile Include="BaseHouseRoomDAO.cs" />
     <Compile Include="NewHouseClasses\Appartment.cs" />
     <Compile Include="NewHouseClasses\BaseHouse.cs" />
     <Compile Include="House.cs" />

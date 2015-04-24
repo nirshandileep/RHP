@@ -126,12 +126,39 @@ namespace USA_Rent_House_Project
             }
         }
 
+        /// <summary>
+        /// Last step of the wizzard
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void LBSaveRoomNumber_Click(object sender, EventArgs e)
         {
             Step1.Visible = false;
             DromDetails.Visible = false;
             Step2.Visible = false;
             Step3.Visible = false;
+            
+            ///1. Check if a land lord has been created for this Base house id, if not create a landlord.
+            ///1.1. If there is no landlord created, then we need to create a new user in the user table as well.
+            ///2. Check if the room is added to the house table as a new house, if not added need to add a new record.
+            ///3. Insert update the roomid of this student in user table
+            ///4. Send the email to the landlord email address
+
+            Guid roomNumber;
+            BaseHouseRoom newBaseHouseRoom;
+            if (Guid.TryParse(HiddenFieldBaseHouseRoomId.Value.Trim(), out roomNumber))
+            {
+                newBaseHouseRoom = BaseHouseRoom.Select(roomNumber);
+
+                if (House.SelectByRoomId(roomNumber) == null)
+                {
+                    //Insert Room to house table
+                    House newHouse = new House();
+                    newHouse.BaseHouseRoomId = roomNumber;
+                    //newHouse.
+                    //Todo:from here
+                }
+            }
         }
 
         protected void RemoveRoommate_Click(object sender, EventArgs e)

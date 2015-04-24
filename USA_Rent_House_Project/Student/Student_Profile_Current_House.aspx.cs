@@ -162,9 +162,11 @@ namespace USA_Rent_House_Project.Student
         {
             switch (hdnStepNumber.Value.Trim())
             {
+                //Creating a fresh current hosue
                 case "1":
                     if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
                     {
+                        //no valid landlord
                         if (!Current_House_Landload_infoID.LandlordId.HasValue)
                         {
                             Current_House_Landload_infoID.LandlordId = null;
@@ -173,6 +175,7 @@ namespace USA_Rent_House_Project.Student
                     }
                     else
                     {
+                        //Load landlord details by landlord id
                         Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
                     }
 
