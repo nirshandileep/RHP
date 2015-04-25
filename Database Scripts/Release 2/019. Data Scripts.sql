@@ -1,0 +1,20 @@
+/****** Object:  Table [dbo].[HouseType]    Script Date: 04/25/2015 08:43:08 ******/
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (1, N'Dorms', NULL, N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (2, N'Appartment', N'On Campus', N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (3, N'Condo', NULL, N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (4, N'Family Housing', NULL, N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (5, N'House', NULL, N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (6, N'Off Campus Appartment', N'Off Campus', N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (7, N'Off Campus Condo', N'Off Campus', N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (8, N'Town Home', NULL, N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+INSERT [dbo].[HouseType] ([HouseTypeId], [Name], [Description], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (9, N'Off Campus House', N'Off Campus', N'nirshan', CAST(0x0000A470007143DD AS DateTime), NULL, NULL)
+go
+
+/****** Object:  Table [dbo].[BaseHouse]    Script Date: 04/25/2015 08:39:46 ******/
+SET IDENTITY_INSERT [dbo].[BaseHouse] ON
+INSERT [dbo].[BaseHouse] ([BaseHouseId], [ContactName], [HouseTypeId], [Name], [Address], [City], [State], [Zip], [PhoneNumber], [ManagerEmail], [AssistantManagerEmail], [PropertyManagementCompanyName], [WebSiteURL], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (2, N'Hannah Moore', 1, N'Lothian', N'500 West Big Springs Road ', N'Riverside', N'CA', N'92507', N'(951) 827-5972', N'Hannah.Moore@ucr.edu ', N'Jamal.Myrick@ucr.edu', N'UCR Housing, Dining, Residential Services', NULL, N'Nirshan', NULL, NULL, NULL)
+INSERT [dbo].[BaseHouse] ([BaseHouseId], [ContactName], [HouseTypeId], [Name], [Address], [City], [State], [Zip], [PhoneNumber], [ManagerEmail], [AssistantManagerEmail], [PropertyManagementCompanyName], [WebSiteURL], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (3, N'Laura Merchant', 1, N'Aberdeen-Inverness', N'100 Aberdeen Drive', N'Riverside', N'CA', N'92507', N'(951) 827-5460', N'Laura.merchant@ucr.edu', N'Elizabeth.hagen@ucr.edu', N'UCR Housing, Dining, Residential Services', NULL, N'nirshan', NULL, NULL, NULL)
+INSERT [dbo].[BaseHouse] ([BaseHouseId], [ContactName], [HouseTypeId], [Name], [Address], [City], [State], [Zip], [PhoneNumber], [ManagerEmail], [AssistantManagerEmail], [PropertyManagementCompanyName], [WebSiteURL], [CreatedBy], [CreatedDate], [UpdatedBy], [UpdatedDate]) VALUES (4, N'Antonio Banks', 1, N'Pentland Hills', N'One Pentland Way', N'Riverside', N'CA', N'92507', N'(951) 827-6500', N'Antonio.banks@ucr.edu', N'Hollie.Butcher@ucr.edu', N'UCR Housing, Dining, Residential Services', NULL, N'nirshan', NULL, NULL, NULL)
+SET IDENTITY_INSERT [dbo].[BaseHouse] OFF
+/****** Object:  Table [dbo].[BaseHouseRoom]    Script Date: 04/25/2015 08:39:46 ******/
+INSERT [dbo].[BaseHouseRoom] ([BaseHouseId], [RoomName], [Description], [CreatedBy], [CreatedDate], [BaseHouseRoomId]) VALUES (2, N'1', N'1', N'nirshan', CAST(0x0000A4840013F3C6 AS DateTime), N'3db7bb77-753f-4a8d-a150-33f04fb3045a')

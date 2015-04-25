@@ -35,6 +35,12 @@ namespace USA_Rent_House_Project.Masrer_Pages
 
         public string getUserData()
         {
+            if (Membership.GetUser() == null)
+            {
+                user.LogOut();
+                return string.Empty;
+            }
+
             // user data
             user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
