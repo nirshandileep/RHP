@@ -61,6 +61,13 @@ namespace RHP.LandlordManagement
             try
             {
                 HouseDAO houseDAO = new HouseDAO();
+
+                //If landlord user is a partial user, this logic might need to change
+                if (!new LandlordDAO().IsLandlordExist(new Landlord() { LandlordId = this.LandlordId }))
+                {
+                    new Landlord() { LandlordId = this.LandlordId, LandlordTypeId = (int)Enums.LandlordType.SimpleLandlord, CreatedBy = this.CreatedBy }.Save();
+                }
+
                 if (houseDAO.IsHouseExist(this))
                 {
                     result = houseDAO.Update(this, db, transaction);
