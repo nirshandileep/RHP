@@ -11,6 +11,17 @@ namespace RHP.LandlordManagement
 {
     public class BaseHouseRoomDAO
     {
-        
+        public Landlord GetLandlordByRoomId(Guid roomId)
+        {
+            Landlord returnLandlord = new Landlord();
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand dbCommand = db.GetStoredProcCommand("usp_HouseSelect");
+
+            db.AddInParameter(dbCommand, "HouseId", DbType.Guid, roomId);
+
+
+            return returnLandlord;
+        }
     }
 }

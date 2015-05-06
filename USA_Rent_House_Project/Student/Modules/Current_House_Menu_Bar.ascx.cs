@@ -20,12 +20,18 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             User user = new User();
             user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-            if (user.HouseId != null)
+            if (user.HouseId != null || user.BaseHouseRoomId != null)
             {
                 CreateCurrentHouseButton.Visible = false;
                 ViewCurrentHouseButton.Visible = true;
                 UpdateCurrentHouseButton.Visible = true;
                 LeaveCurrentHouseButton.Visible = true;
+
+                if (user.BaseHouseRoomId != null)
+                {
+                    UpdateCurrentHouseButton.Visible = false;
+                    ViewCurrentHouseButton.Visible = false;
+                }
 
             }
             else

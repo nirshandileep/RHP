@@ -45,13 +45,7 @@ namespace RHP.LandlordManagement
 
         public static House SelectByRoomId(Guid baseHouseRoomId)
         {
-            House house = new House();
-            house.BaseHouseRoomId = baseHouseRoomId;
-            if (!new HouseDAO().SelectByRoomId(house))
-            {
-                house = null;
-            }
-
+            House house = new HouseDAO().SelectByRoomId(baseHouseRoomId);
             return house;
         }
        

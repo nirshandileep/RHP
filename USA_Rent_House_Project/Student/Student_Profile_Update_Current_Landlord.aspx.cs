@@ -127,7 +127,7 @@ namespace USA_Rent_House_Project.Student
                 {
                    
 
-                    LandloadLabelmessage.Text = "landlord verified for email : " + LandloadEmail.Text.Trim().ToLower();
+                    LandloadLabelmessage.Text = "Landlord verified for email : " + LandloadEmail.Text.Trim().ToLower();
                     hdLandloadId.Value = user_check.UserId.Value.ToString();
 
                     LandloadEmail.Text = user_check.PersonalEmail;
@@ -456,20 +456,37 @@ namespace USA_Rent_House_Project.Student
             return result;
         }
 
+        /// <summary>
+        /// emails will be sent based on isemail activation value in config
+        /// </summary>
+        /// <param name="To"></param>
+        /// <param name="Subject"></param>
+        /// <param name="Body"></param>
+        /// <returns></returns>
         protected int LandloadSendEmail(string To, string Subject, string Body)
         {
 
             try
             {
-                string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
-                string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
+                if (Boolean.Parse(
+                        SystemConfig.GetValue(
+                            RHP.Common.Enums.SystemConfig.IsEmailActivation)) == true)
+                {
+                    string host = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_HOST);
+                    string fromEmail = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL);
 
-                EmailManager emailManager = new EmailManager(host, fromEmail);
+                    EmailManager emailManager = new EmailManager(host, fromEmail);
 
-                //Use the parameters where needed, if not required use empty
-                emailManager.SendEmail(To, Subject, string.Empty, fromEmail, string.Empty, Body);
+                    //Use the parameters where needed, if not required use empty
+                    emailManager.SendEmail(To, Subject, string.Empty, fromEmail, string.Empty, Body);
 
-                return 1;
+                    return 1;
+                }
+                else
+                {
+                    return 0;
+                }
+                
             }
             catch (Exception ex)
             {

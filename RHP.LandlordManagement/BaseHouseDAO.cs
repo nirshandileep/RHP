@@ -56,5 +56,32 @@ namespace RHP.LandlordManagement
 
             return listBaseHouse;
         }
+
+        public bool Update(BaseHouse house)
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            return this.Update(house, db, null);
+        }
+
+        public bool Update(BaseHouse house, Database db, DbTransaction transaction)
+        {
+            DbCommand command = db.GetStoredProcCommand("usp_BaseHouseUpdate");
+
+            db.AddInParameter(command, "BaseHouseId", DbType.Int32, house.BaseHouseId);
+            db.AddInParameter(command, "LandlordId", DbType.Guid, house.LandlordId);
+            db.AddInParameter(command, "UpdatedBy", DbType.String, house.UpdatedBy.ToString());
+
+            if (transaction == null)
+            {
+                db.ExecuteNonQuery(command);
+            }
+            else
+            {
+                db.ExecuteNonQuery(command, transaction);
+            }
+
+            return true;
+        }
+
     }
 }

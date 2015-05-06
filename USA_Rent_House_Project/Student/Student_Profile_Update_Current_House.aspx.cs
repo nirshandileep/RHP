@@ -78,12 +78,21 @@ namespace USA_Rent_House_Project.Student
 
             if (user.HouseId != null)
             {
-                
-                LoadStudent(user.HouseId.Value);
+
+                LoadStudentByHouse(user.HouseId.Value);
                 LoadLandlordData(user);
                 LoadHouseData(user);
 
                
+                hdHouseId.Value = user.HouseId.Value.ToString();
+            }
+            else if (user.BaseHouseRoomId != null)
+            {
+                LoadStudentByRoom(user.BaseHouseRoomId.Value);
+                LoadLandlordData(user);
+                LoadHouseData(user);
+
+
                 hdHouseId.Value = user.HouseId.Value.ToString();
             }
             else
@@ -93,9 +102,26 @@ namespace USA_Rent_House_Project.Student
             }
         }
  
-        public void LoadStudent(Guid HouseId)
+        /// <summary>
+        /// HouseId
+        /// </summary>
+        /// <param name="HouseId"></param>
+        public void LoadStudentByHouse(Guid HouseId)
         {
             List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", HouseId, "RoleName", "student");
+
+            DataListStudentList.DataSource = userList;
+            DataListStudentList.DataBind();
+
+        }
+
+        /// <summary>
+        /// BaseHouseRoomId
+        /// </summary>
+        /// <param name="BaseHouseRoomId"></param>
+        public void LoadStudentByRoom(Guid BaseHouseRoomId)
+        {
+            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("BaseHouseRoomId", BaseHouseRoomId, "RoleName", "student");
 
             DataListStudentList.DataSource = userList;
             DataListStudentList.DataBind();
@@ -570,8 +596,6 @@ namespace USA_Rent_House_Project.Student
                     if (rtn == 1)
                     {
                     }
-
-
                 }
            
             if (result)
@@ -620,9 +644,18 @@ namespace USA_Rent_House_Project.Student
         {
             UserDAO userDAO = new UserDAO();
 
-            if (user_.HouseId != null)
+            if (user_.HouseId != null || user_.BaseHouseRoomId != null)
             {
-                DataSet LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
+                DataSet LandlordData;
+
+                if (user_.HouseId != null)
+                {
+                    LandlordData = userDAO.SelectLandlordByHouseId(user.HouseId.Value);
+                }
+                else
+                {
+                    LandlordData = userDAO.SelectLandlordByBaseHouseRoomId(user.BaseHouseRoomId.Value);
+                }                
 
                 if (LandlordData != null && LandlordData.Tables[0].Rows.Count > 0)
                 {

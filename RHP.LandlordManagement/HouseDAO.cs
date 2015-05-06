@@ -202,14 +202,14 @@ namespace RHP.LandlordManagement
            return result;
        }
 
-       public bool SelectByRoomId(House entity)
+       public House SelectByRoomId(Guid BaseHouseRoomId)
        {
-           bool result = true;
+           House entity = new House();
 
            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
            DbCommand dbCommand = db.GetStoredProcCommand("usp_HouseSelectByBaseHouseRoomId");
 
-           db.AddInParameter(dbCommand, "BaseHouseRoomId", DbType.Guid, entity.BaseHouseRoomId);
+           db.AddInParameter(dbCommand, "BaseHouseRoomId", DbType.Guid, BaseHouseRoomId);
 
            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
            {
@@ -223,7 +223,7 @@ namespace RHP.LandlordManagement
                }
            }
 
-           return result;
+           return entity;
        }
 
        public DataSet Search(HouseSearch house)

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using RHP.Common;
+using Microsoft.Practices.EnterpriseLibrary.Data;
+using System.Data.Common;
 
 namespace RHP.LandlordManagement
 {
@@ -28,6 +30,7 @@ namespace RHP.LandlordManagement
         public string UpdatedBy { get; set; }
         public DateTime UpdatedDate { get; set; }
         public List<BaseHouseRoom> HouseRooms { get; set; }
+        public Guid? LandlordId { get; set; }
 
         #endregion
 
@@ -37,6 +40,54 @@ namespace RHP.LandlordManagement
         public string LabelRoom { get; set; }
 
         #endregion
-    
+
+
+        #region
+
+        public bool Save()
+        {
+            bool result = false;
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbConnection connection = db.CreateConnection();
+            connection.Open();
+            DbTransaction transaction = connection.BeginTransaction();
+
+            try
+            {
+                BaseHouseDAO baseHouseDAO = new BaseHouseDAO();
+                if (this.BaseHouseId != null && this.BaseHouseId > 0)
+                {
+                    result = baseHouseDAO.Update(this, db, transaction);
+                }
+                else
+                {
+                    throw new NotImplementedException("This method has not yet been implemented!");
+                }
+
+                if (result)
+                {
+                    transaction.Commit();
+                }
+                else
+                {
+                    transaction.Rollback();
+                }
+
+            }
+            catch (System.Exception ex)
+            {
+                transaction.Rollback();
+                result = false;
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return result;
+        }
+
+        #endregion
     }
 }

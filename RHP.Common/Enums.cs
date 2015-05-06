@@ -97,5 +97,11 @@ namespace RHP.Common
             TownHome = 8,
             OffCampusHouse = 9,
         }
+
+        public enum LandlordType
+        {
+            SimpleLandlord = 1,
+            CorporateLandlord = 2,
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace USA_Rent_House_Project.Student
 
             user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
-            if (user.HouseId != null)
+            if (user.HouseId != null || user.BaseHouseRoomId != null)
             {
                 LoadLandlordData(user);
                 LoadHouseData(user);
@@ -88,43 +88,65 @@ namespace USA_Rent_House_Project.Student
                 }
 
             }
+            else if (user_.BaseHouseRoomId != null)
+            {
+                DataSet LandlordData = userDAO.SelectLandlordByBaseHouseRoomId(user.BaseHouseRoomId.Value);
+
+                if (LandlordData != null && LandlordData.Tables[0].Rows.Count > 0)
+                {
+                    string FirstName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["FirstName"].ToString().Trim();
+                    string MiddleName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["MiddleName"].ToString().Trim();
+                    string LastName = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["LastName"].ToString().Trim();
+
+                    Name.Text = FirstName + " " + MiddleName + " " + LastName;
+                    Email.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["PersonalEmail"].ToString().Trim();
+                    Mobile.Text = string.IsNullOrEmpty(LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim()) ? string.Empty : LandlordData.Tables[0].Rows[0]["BestContactNumber"].ToString().Trim();
+
+                }
+            }
         }
 
         public void LoadHouseData(User user_)
         {
-
+            House house = null;
             if (user_.HouseId != null)
             {
-                House house = House.Select(user_.HouseId.Value);
-
-                if (house != null)
-                {
-                    if (house.StateId.HasValue)
-                    {
-                        State state;
-                        state = Generic.Get<State>(house.StateId.Value);
-                        if (state != null)
-                        {
-                            State.Text = state.StateName;
-                        }
-                    }
-                    //State.Text = house.StateId.ToString().ToLower();                     
-                    Address.Text = house.StreetAddress;
-                    City.Text = house.City;
-                    Zip.Text = house.Zip;
-                }
+               house = House.Select(user_.HouseId.Value);                
+            }
+            else if (user_.BaseHouseRoomId != null)
+            {
+                house = House.SelectByRoomId(user_.BaseHouseRoomId.Value);
             }
 
+            if (house != null)
+            {
+                if (house.StateId.HasValue)
+                {
+                    State state;
+                    state = Generic.Get<State>(house.StateId.Value);
+                    if (state != null)
+                    {
+                        State.Text = state.StateName;
+                    }
+                }
+                //State.Text = house.StateId.ToString().ToLower();                     
+                Address.Text = house.StreetAddress;
+                City.Text = house.City;
+                Zip.Text = house.Zip;
+            }
         }
 
         public void LoadStudentData(User user_)
         {
-
             if (user_.HouseId.HasValue)
             {
-
                 List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", user_.HouseId.Value, "RoleName", "student");
-
+                DataListStudentList.DataSource = userList;
+                DataListStudentList.DataBind();
+            }
+            else if (user_.BaseHouseRoomId.HasValue)
+            {
+                List<User> userList = RHP.UserManagement.User.SelectUserByBaseHouseRoomId("BaseHouseRoomId", user_.BaseHouseRoomId.Value, "RoleName", "student");
                 DataListStudentList.DataSource = userList;
                 DataListStudentList.DataBind();
             }

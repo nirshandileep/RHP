@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using RHP.UserManagement;
+using System.Web.Security;
 
 namespace USA_Rent_House_Project.Student
 {
@@ -11,7 +13,13 @@ namespace USA_Rent_House_Project.Student
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //Update user with roomid
+            User loggedUser = RHP.UserManagement.User.Select((Guid)Membership.GetUser().ProviderUserKey);
+            
+            if (loggedUser.BaseHouseRoomId.HasValue)
+            {
+                Response.Redirect("Student_Profile_Current_House_Details.aspx", false);
+            }
         }
 
         protected void LinkButtonAddHouse_Click(object sender, EventArgs e)

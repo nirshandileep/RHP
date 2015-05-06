@@ -7,6 +7,9 @@ using System.Web.UI.WebControls;
 using RHP.LandlordManagement;
 using RHP.Utility;
 using RHP.UserManagement;
+using System.Data;
+using System.Web.Security;
+using RHP.Common;
 
 namespace USA_Rent_House_Project
 {
@@ -137,69 +140,150 @@ namespace USA_Rent_House_Project
             DromDetails.Visible = false;
             Step2.Visible = false;
             Step3.Visible = false;
-            
-            ///1. Check if a land lord has been created for this Base house id, if not create a landlord.
-            ///1.1. If there is no landlord created, then we need to create a new user in the user table as well.
-            ///2. Check if the room is added to the house table as a new house, if not added need to add a new record.
+
+            ///1. Check if a land lord has been created for this Base house id, if not create a landlord. Done.
+            ///1.1. If there is no landlord created, then we need to create a new user in the user table as well. Done
+            ///2. Check if the room is added to the house table as a new house, if not added, add a new record.
             ///3. Insert update the roomid of this student in user table
-            ///4. Send the email to the landlord email address
+            ///4. Send the email to the landlord email address. Not done in this release.
+
+            //1.
+            int baseHouseId;
+            Guid baseHouseLandlordId = Guid.Empty;
+            if (int.TryParse(HiddenFieldBaseHouseId.Value, out baseHouseId))
+            {
+                baseHouseLandlordId = SaveLandload(baseHouseId);
+            }
 
             Guid roomNumber;
             BaseHouseRoom newBaseHouseRoom;
+            Guid houseId;
             if (Guid.TryParse(HiddenFieldBaseHouseRoomId.Value.Trim(), out roomNumber))
             {
                 newBaseHouseRoom = BaseHouseRoom.Select(roomNumber);
-
                 if (House.SelectByRoomId(roomNumber) == null)
                 {
                     //Insert Room to house table
                     House newHouse = new House();
                     newHouse.BaseHouseRoomId = roomNumber;
-                    //newHouse.
-                    //Todo:from here
+                    newHouse.IsPartialHouse = false;
+                    newHouse.StreetAddress = CurrentHouse.Address;
+                    newHouse.City = CurrentHouse.City;
+                    newHouse.Zip = CurrentHouse.Zip;
+                    newHouse.CreatedBy = (Guid)Membership.GetUser().ProviderUserKey;
+                    newHouse.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey;
+                    newHouse.LandlordId = baseHouseLandlordId;
+                    newHouse.Save();
                 }
             }
+
+            //Update user with roomid
+            User loggedUser = User.Select((Guid)Membership.GetUser().ProviderUserKey);
+            loggedUser.UpdatedBy = (Guid)Membership.GetUser().ProviderUserKey;
+            loggedUser.BaseHouseRoomId = roomNumber;
+            
+            if (loggedUser.Save())
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Current_House_Details.aspx';}", true);
+            }
+        }
+
+        public Guid SaveLandload(int baseHouseId)
+        {
+            Guid landlordId;
+
+            List<BaseHouse> dormHouses = BaseHouseDAO.SelectAllByHouseTypeId(HouseTypeId);
+            CurrentHouse = dormHouses.Find(bh => bh.BaseHouseId == baseHouseId);
+            if (CurrentHouse.LandlordId.HasValue)
+            {
+                landlordId = CurrentHouse.LandlordId.Value;
+            }
+            else
+            {
+                aspnet_Roles aspnet_Roles_ = new aspnet_Roles();
+                Landlord landload = new Landlord();
+                aspnet_Roles_ = aspnet_Roles.Select("landlord");
+
+                User Landlorduser = new User();
+
+                Landlorduser.UserId = Guid.NewGuid();
+                landlordId = Landlorduser.UserId.Value;
+
+                Landlorduser.PersonalEmail = CurrentHouse.ManagerEmail;
+                Landlorduser.FirstName = CurrentHouse.PropertyManagementCompanyName;
+                Landlorduser.BestContactNumber = CurrentHouse.PhoneNumber;
+                Landlorduser.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Landlorduser.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                Landlorduser.IsPartialUser = true;
+                Landlorduser.RoleId = aspnet_Roles_.RoleId;
+                Landlorduser.UpdatedDate = DateTime.Now;
+
+                if (Landlorduser.Save())
+                {
+                    landload.user = Landlorduser;
+                    landload.LandlordId = Landlorduser.UserId.Value;
+                    landload.LandlordName = Landlorduser.FirstName;
+                    landload.IsDeleted = false;
+                    landload.LandlordTypeId = (int)Enums.LandlordType.CorporateLandlord;
+                    landload.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    landload.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+
+                    if (landload.Save())
+                    {
+                        //Todo: Update the basehouse table with the new LandlordId
+                        CurrentHouse.LandlordId = landlordId;
+                        CurrentHouse.CreatedBy = Membership.GetUser().UserName;
+                        CurrentHouse.UpdatedBy = Membership.GetUser().UserName;
+                        if (CurrentHouse.Save())
+                        {
+                            //Base House is updated with new landlord id
+                        }
+                    }
+
+                    //string strMsgContent = Landloadmessage(Landlorduser.UserId.Value, Landlorduser);
+                    //string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
+                    //int rtn = LandloadSendEmail(Landlorduser.PersonalEmail, strMsgTitle, strMsgContent);
+                    //if (rtn == 1)
+                    //{
+                    //}
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Update_Current_House.aspx';}", true);
+                }
+                //}
+                //else
+                //{
+                //    LandloadLabelmessage.Text = "Landlord Details cannot saved. Please try again!";
+                //    // no  Landload id
+                //}
+            }
+            return landlordId;
         }
 
         protected void RemoveRoommate_Click(object sender, EventArgs e)
         {
 
-        //    LinkButton lb = (LinkButton)sender;
+            LinkButton lb = (LinkButton)sender;
+            GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+            int rowID = gvRow.RowIndex; //+1;
 
-        //    GridViewRow gvRow = (GridViewRow)lb.NamingContainer;
+            if (ViewState["CurrentTable"] != null)
+            {
+                DataTable dt = (DataTable)ViewState["CurrentTable"];
+                if (dt.Rows.Count >= 1)
+                {
+                    if (gvRow.RowIndex <= dt.Rows.Count - 1)
+                    {
+                        //Remove the Selected Row data
+                        dt.Rows.Remove(dt.Rows[rowID]);
+                    }
+                }
 
-        //    int rowID = gvRow.RowIndex; //+1;
+                //Store the current data in ViewState for future reference
+                ViewState["CurrentTable"] = dt;
 
-        //    if (ViewState["CurrentTable"] != null)
-        //    {
-
-        //        DataTable dt = (DataTable)ViewState["CurrentTable"];
-
-        //        if (dt.Rows.Count >= 1)
-        //        {
-
-        //            if (gvRow.RowIndex <= dt.Rows.Count - 1)
-        //            {
-
-        //                //Remove the Selected Row data
-
-        //                dt.Rows.Remove(dt.Rows[rowID]);
-
-        //            }
-
-        //        }
-
-        //        //Store the current data in ViewState for future reference
-
-        //        ViewState["CurrentTable"] = dt;
-
-        //        //Re bind the GridView for the updated data
-
-        //        GridviewRoommatelist.DataSource = dt;
-        //        GridviewRoommatelist.DataBind();
-
-        //    }
-
+                //Rebind the GridView for the updated data
+                GridviewRoommatelist.DataSource = dt;
+                GridviewRoommatelist.DataBind();
+            }
         }
     }
 }

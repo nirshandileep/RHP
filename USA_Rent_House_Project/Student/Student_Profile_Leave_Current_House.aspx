@@ -77,6 +77,7 @@
                                         <div>
                                             <asp:HiddenField ID="hdUserId" runat="server" Value='<%# Eval("UserId") %>' />
                                             <asp:HiddenField ID="hdHouseId" runat="server" Value='<%# Eval("HouseId") %>' />
+                                            <asp:HiddenField ID="hdBaseHouseRoomId" runat="server" Value='<%# Eval("BaseHouseRoomId") %>' />
                                             <asp:Label ID="lblname" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                                             <asp:Label ID="Label2" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("LastName") %>'></asp:Label><br />

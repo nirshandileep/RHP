@@ -17,14 +17,29 @@ namespace RHP.StudentManagement
         public int status { get; set; }
         public DateTime RequestDate { get; set; }
         public DateTime ResponseDate { get; set; }
+        public Guid? BaseHouseRoomId { get; set; }
 
-        public static StudentHouseLeave Select(Guid StudentHouseId, Guid RequestTo)
+        public static StudentHouseLeave SelectByHouseId(Guid StudentHouseId, Guid RequestTo)
         {
             StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
             studentHouseLeave.HouseId = StudentHouseId;
             studentHouseLeave.RequestTo = RequestTo;
 
-            if (!new StudentHouseLeaveDAO().Select(studentHouseLeave))
+            if (!new StudentHouseLeaveDAO().SelectByHouse(studentHouseLeave))
+            {
+                studentHouseLeave = null;
+            }
+
+            return studentHouseLeave;
+        }
+
+        public static StudentHouseLeave SelectByRoomId(Guid StudentRoomId, Guid RequestTo)
+        {
+            StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
+            studentHouseLeave.BaseHouseRoomId = StudentRoomId;
+            studentHouseLeave.RequestTo = RequestTo;
+
+            if (!new StudentHouseLeaveDAO().SelectByRoom(studentHouseLeave))
             {
                 studentHouseLeave = null;
             }

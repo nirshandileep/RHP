@@ -46,6 +46,7 @@ namespace RHP.UserManagement
         public string Question { get; set; }
         public string Answer { get; set; }
         public string ReferralCode { get; set; }
+        public Guid? BaseHouseRoomId { get; set; }
 
         public Guid RoleId { get; set; }
         private List<string> rolesList;

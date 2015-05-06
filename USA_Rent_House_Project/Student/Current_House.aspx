@@ -51,11 +51,11 @@
                             <asp:HyperLink ID="HyperLink2" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=1">Dorms</asp:HyperLink></div>
                         <div class="buttons">
                             <asp:HyperLink ID="HyperLink3" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=2">Appartments</asp:HyperLink></div>
-                        <div class="buttons">
+                        <div class="buttons" style="display:none">
                             <asp:HyperLink ID="HyperLink4" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=3">Condos</asp:HyperLink></div>
-                        <div class="buttons">
+                        <div class="buttons" style="display:none">
                             <asp:HyperLink ID="HyperLink5" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=4">Family Housing</asp:HyperLink></div>
-                        <div class="buttons">
+                        <div class="buttons" style="display:none">
                             <asp:HyperLink ID="HyperLink6" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=5">Houses</asp:HyperLink>
                         </div>
                     </div>
@@ -65,11 +65,11 @@
                         <div class="buttons">
                             <asp:HyperLink ID="HyperLink8" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=6">Appartments</asp:HyperLink></div>
                         <div class="buttons">
-                            <asp:HyperLink ID="HyperLink9" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=7">Condos</asp:HyperLink></div>
+                            <asp:HyperLink ID="HyperLink9" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=7">Condos</asp:HyperLink></div>
                         <div class="buttons">
-                            <asp:HyperLink ID="HyperLink10" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=8">Town Home</asp:HyperLink></div>
+                            <asp:HyperLink ID="HyperLink10" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=8">Town Home</asp:HyperLink></div>
                         <div class="buttons">
-                            <asp:HyperLink ID="HyperLink11" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=9">Houses</asp:HyperLink>
+                            <asp:HyperLink ID="HyperLink11" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=9">Houses</asp:HyperLink>
                         </div>
                     </div>
                 </div>

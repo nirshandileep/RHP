@@ -59,9 +59,16 @@ namespace USA_Rent_House_Project.Student
             if (user.HouseId != null)
             {
                 ButtonLeaveHouseID.Visible = true;
-              
-                LoadStudent(user.HouseId.Value);
+
+                LoadStudentByHouseId(user.HouseId.Value);
                 LoadLeaveCurrentHouseRequest(user.HouseId.Value);
+            }
+            else if (user.BaseHouseRoomId != null)
+            {
+                ButtonLeaveHouseID.Visible = true;
+
+                LoadStudentByBaseHouseRoomId(user.BaseHouseRoomId.Value);
+                LoadLeaveCurrentRoomRequest(user.BaseHouseRoomId.Value);
             }
             else
             {
@@ -71,22 +78,24 @@ namespace USA_Rent_House_Project.Student
             }
         }
 
-        public void LoadStudent(Guid HouseId)
+        public void LoadStudentByHouseId(Guid houseId)
         {
+            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", houseId, "RoleName", "student");
+            DataListStudentList.DataSource = userList;
+            DataListStudentList.DataBind();
+        }
 
-                // HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
-
-            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", HouseId, "RoleName", "student");
-
-                DataListStudentList.DataSource = userList;
-                DataListStudentList.DataBind();
-           
+        public void LoadStudentByBaseHouseRoomId(Guid roomId)
+        {
+            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("BaseHouseRoomId", roomId, "RoleName", "student");
+            DataListStudentList.DataSource = userList;
+            DataListStudentList.DataBind();
         }
 
         public void LoadLeaveCurrentHouseRequest(Guid HouseId)
         {
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
                 if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
                 {
@@ -107,12 +116,32 @@ namespace USA_Rent_House_Project.Student
                     RespondeToLeaveHouseFalse.Visible = true;
                 }
         }
+
+        public void LoadLeaveCurrentRoomRequest(Guid roomId)
+        {
+            StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
+            studentHouseLeave = StudentHouseLeave.SelectByRoomId(roomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
+            {
+                RHP.UserManagement.User _RequestedUser = RHP.UserManagement.User.Select(studentHouseLeave.RequestBy);
+                RequestedUser.Text = _RequestedUser.FirstName + " " + _RequestedUser.LastName;
+                RequestedUserName.Text = _RequestedUser.FirstName + " " + _RequestedUser.LastName;
+                RequestedUser.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + studentHouseLeave.RequestBy + "&AccessCode2=" + roomId.ToString();
+                RespondeToLeaveHouseTrue.Visible = true;
+            }
+            else
+            {
+                RespondeToLeaveHouseFalse.Visible = true;
+            }
+        }
       
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
             HiddenField hdHouseId_ = (HiddenField)e.Item.FindControl("hdHouseId");
+            HiddenField hdBaseHouseRoomId_ = (HiddenField)e.Item.FindControl("hdBaseHouseRoomId");
 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
             LinkButton RequestLeaveCurrentHouse_ = (LinkButton)e.Item.FindControl("RequestLeaveCurrentHouse");
@@ -131,7 +160,15 @@ namespace USA_Rent_House_Project.Student
             {
                 
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(Guid.Parse(hdHouseId_.Value), Guid.Parse(HiddenField_.Value));
+                if (hdHouseId_.Value.Trim() != string.Empty)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(Guid.Parse(hdHouseId_.Value), Guid.Parse(HiddenField_.Value));
+                }
+                else if (hdBaseHouseRoomId_.Value.Trim() != string.Empty)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(Guid.Parse(hdBaseHouseRoomId_.Value), Guid.Parse(HiddenField_.Value));
+                }
+                
 
                 if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
                 {
@@ -151,13 +188,31 @@ namespace USA_Rent_House_Project.Student
             if (confirmValue == "Yes")
             {
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                Guid HouseId = user.HouseId.Value; 
-                user.HouseId = null;
+                Guid HouseId = Guid.Empty;
+                Guid RoomId = Guid.Empty;
+                if (user.HouseId.HasValue)
+                {
+                    HouseId = user.HouseId.Value;
+                    user.HouseId = null;
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    RoomId = user.BaseHouseRoomId.Value;
+                    user.BaseHouseRoomId = null;
+                }                
 
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    if (user.HouseId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
+                    }
+                    else if (user.BaseHouseRoomId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByRoomId(RoomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
+                    }
+                    
                     studentHouseLeave.status = 1;
 
                     if (studentHouseLeave.Save())
@@ -280,13 +335,32 @@ namespace USA_Rent_House_Project.Student
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                Guid HouseId = user.HouseId.Value;
-                user.HouseId = null;
+                
+                Guid HouseId = Guid.Empty;
+                Guid RoomId = Guid.Empty;
+                if (user.HouseId.HasValue)
+                {
+                    HouseId = user.HouseId.Value;
+                    user.HouseId = null;
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    RoomId = user.BaseHouseRoomId.Value;
+                    user.BaseHouseRoomId = null;
+                }
 
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    if (user.HouseId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
+                    else if (user.BaseHouseRoomId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByRoomId(RoomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
+
                     studentHouseLeave.status = 1;
 
                     if (studentHouseLeave.Save())
@@ -310,7 +384,15 @@ namespace USA_Rent_House_Project.Student
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(user.HouseId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                if (user.HouseId.HasValue)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(user.HouseId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByRoomId(user.BaseHouseRoomId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                
                 studentHouseLeave.status = 2;
 
                 if (studentHouseLeave.Save())
