@@ -68,14 +68,23 @@
             Current Roommates
         </p>
         <asp:GridView ID="GridviewRoommatelist" runat="server" CssClass="Grid" AlternatingRowStyle-CssClass="alt"
-            PagerStyle-CssClass="pgr" Width="600">
+            PagerStyle-CssClass="pgr" Width="600px" AutoGenerateColumns="False">
+<AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
                         <asp:LinkButton ID="RemAudition" runat="server" OnClick="RemoveRoommate_Click" ForeColor="Black">Remove</asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>
+                <asp:BoundField DataField="FirstName" HeaderText="First Name" />
+                <asp:BoundField DataField="MiddleName" HeaderText="Middle Name" />
+                <asp:BoundField DataField="LastName" HeaderText="Last Name" />
+                <asp:BoundField DataField="PersonalEmail" HeaderText="Email" />
+                <asp:BoundField DataField="StreetAddress" HeaderText="Street Address" />
+                <asp:BoundField DataField="City" HeaderText="City" />
             </Columns>
+
+<PagerStyle CssClass="pgr"></PagerStyle>
         </asp:GridView>
         <div class="buttons" id="SaveVerifiedDromRoomNumber" runat="server">
             <asp:LinkButton ID="LBSaveRoomNumber" CssClass="homelargebuttons" runat="server"

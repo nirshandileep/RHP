@@ -126,6 +126,8 @@ namespace USA_Rent_House_Project
 
                 GridviewRoommatelist.DataSource = userlist;
                 GridviewRoommatelist.DataBind();
+
+                
             }
         }
 
@@ -164,8 +166,28 @@ namespace USA_Rent_House_Project
                 if (House.SelectByRoomId(roomNumber) == null)
                 {
                     //Insert Room to house table
+                    
                     House newHouse = new House();
+                    newHouse.LandlordId = new Guid();
+                    newHouse.StreetAddress = Address.Text;
+                    newHouse.City = City.Text;
+                    newHouse.StateId = 0;
                     newHouse.BaseHouseRoomId = roomNumber;
+                    newHouse.Zip = ZipCode.Text;
+                    newHouse.YearHomeBuild = 0;
+                    newHouse.BedRooms = 0;
+                    newHouse.BathRooms = 0;
+                    newHouse.LotSquareFootage = 0;
+                    newHouse.TotalSquareFootage = 0;
+                    newHouse.UtilitiesIncludedInRent = string.Empty;
+                    newHouse.PropertyImagePath = string.Empty;
+                    newHouse.IsDeleted = false;
+                    newHouse.IsPartialHouse = false;
+                    newHouse.CreatedBy = new Guid();
+                    newHouse.RatingValue = 0;
+                    newHouse.Price = 0;
+                    newHouse.Save();
+                    
                     newHouse.IsPartialHouse = false;
                     newHouse.StreetAddress = CurrentHouse.Address;
                     newHouse.City = CurrentHouse.City;

@@ -19,6 +19,7 @@ namespace USA_Rent_House_Project.Student
             if (loggedUser.BaseHouseRoomId.HasValue)
             {
                 Response.Redirect("Student_Profile_Current_House_Details.aspx", false);
+                //Response.Redirect("Student_Profile_Current_House.aspx", false);
             }
         }
 

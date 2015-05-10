@@ -27,7 +27,10 @@ namespace USA_Rent_House_Project.Student
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User(); // _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User(); 
+                    // _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                     
+
                 }
                 else
                 {
@@ -54,7 +57,7 @@ namespace USA_Rent_House_Project.Student
 
             UserDAO userDAO = new UserDAO();
 
-            user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+          //  user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
             if (user.HouseId != null)
             {
@@ -204,11 +207,11 @@ namespace USA_Rent_House_Project.Student
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    if (user.HouseId.HasValue)
+                    if (HouseId !=Guid.Empty )
                     {
                         studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
                     }
-                    else if (user.BaseHouseRoomId.HasValue)
+                    else if (RoomId != Guid.Empty)
                     {
                         studentHouseLeave = StudentHouseLeave.SelectByRoomId(RoomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
                     }
