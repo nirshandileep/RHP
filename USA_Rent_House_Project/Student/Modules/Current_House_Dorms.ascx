@@ -71,7 +71,7 @@
             PagerStyle-CssClass="pgr" Width="600px" AutoGenerateColumns="False">
 <AlternatingRowStyle CssClass="alt"></AlternatingRowStyle>
             <Columns>
-                <asp:TemplateField>
+                <asp:TemplateField Visible="False">
                     <ItemTemplate>
                         <asp:LinkButton ID="RemAudition" runat="server" OnClick="RemoveRoommate_Click" ForeColor="Black">Remove</asp:LinkButton>
                     </ItemTemplate>
