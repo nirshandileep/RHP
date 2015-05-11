@@ -6,13 +6,13 @@
         <p class="homeheadingsub">
         </p>
         <p class="homeheadingsub">
-            <a href="http://ratemystudenthousingandme.com/" target="_blank">ratemystudenthousingandme.com</a>
+            <a href="http://ratestudenthousing.com/" target="_blank">ratestudenthousing.com</a>
             would like to announce the holiday contest. We are truly blessed to have the student
             community supporting us. Our friends and their support via Facebook, twitter, instagram,
             linkedin, google+ mean everything to us.
         </p>
         <p class="homeheadingsub">
-            <a href="http://ratemystudenthousingandme.com/" target="_blank">ratemystudenthousingandme.com</a>
+            <a href="http://ratestudenthousing.com/" target="_blank">ratestudenthousing.com</a>
             contest is as follows and is based on a point system and an algorithm that we have
             created to account for it, <u>YOU MUST YOU MUST GO THROUGH our platform&rsquo;s home
                 page. The algorithm that we created is on the home page of the platform. We will
@@ -59,9 +59,9 @@
             <br />
             <br />
             The contest will run until <span data-term="goog_1372736235" tabindex="0">Jan 1st</span>.
-            <a href="http://ratemystudenthousingandme.com/" target="_blank">ratemystudenthousingandme.com</a>
+            <a href="http://ratestudenthousing.com/" target="_blank">ratemystudenthousingandme.com</a>
             will be posting the standing periodically so that people can see where they lie
-            in the contest. <a href="http://ratemystudenthousingandme.com/" target="_blank">ratemystudenthousingandme.com</a>
+            in the contest. <a href="http://ratestudenthousing.com/" target="_blank">ratemystudenthousingandme.com</a>
             set out to help students and we will continue to do that.
             <br />
         </p>

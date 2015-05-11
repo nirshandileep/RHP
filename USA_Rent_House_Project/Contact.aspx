@@ -6,7 +6,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <div id="div_Home">
         <h2 class="homeheading">
-            www.ratemystudenthousingandme.com</h2>
+            www.ratestudenthousing.com</h2>
 
             
             <br /> <br />
