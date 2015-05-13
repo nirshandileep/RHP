@@ -47,7 +47,7 @@
         <div class="footerleft">
             Patent Pending</div>
         <div class="footerright">
-            © 2015 | All rights reserved | www.ratestudenthousing.com | 
+            © 2015 | All rights reserved | www.ratestudenthousing.com | UCRbeta1.03 | 
             <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Contact.aspx" runat="server">Contact Us</asp:HyperLink></div>
         <div class="clear">
         </div>
