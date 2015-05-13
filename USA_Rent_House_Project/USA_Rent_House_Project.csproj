@@ -196,12 +196,6 @@
     <Content Include="Change_Secret_Question.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Contact_Us.aspx" />
-    <Content Include="Contest.aspx" />
-    <Content Include="Contest.html" />
-    <Content Include="Contest_files\House_Logo.jpg" />
-    <Content Include="Contest_files\lightbox.css" />
-    <Content Include="Contest_files\lightbox.js" />
-    <Content Include="Contest_files\Site.css" />
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
@@ -571,13 +565,6 @@
     </Compile>
     <Compile Include="Contact_Us.aspx.designer.cs">
       <DependentUpon>Contact_Us.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Contest.aspx.cs">
-      <DependentUpon>Contest.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Contest.aspx.designer.cs">
-      <DependentUpon>Contest.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomError.aspx.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
