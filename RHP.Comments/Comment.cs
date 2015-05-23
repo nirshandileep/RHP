@@ -384,5 +384,11 @@ namespace RHP.Comments
 
             return returnVal;
         }
+
+        public DataSet SelectDataAll()
+        {
+
+            return new CommentDAO().SelectAll();
+        }
     }
 }

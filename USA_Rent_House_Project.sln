@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "USA_Rent_House_Project", "USA_Rent_House_Project\USA_Rent_House_Project.csproj", "{ECDA5AA5-2249-4B71-803D-91E2E00A4002}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RHP.Common", "RHP.Common\RHP.Common.csproj", "{E798F0A9-479C-49E1-B4BB-3B5FB047C415}"
