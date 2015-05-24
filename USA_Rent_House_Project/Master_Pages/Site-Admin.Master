@@ -48,6 +48,7 @@
                             ToolTip="Property Option"></asp:MenuItem>
                           <%--   <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature_Items.aspx" Text="Property  Option Items"
                             ToolTip="Property Option Items"></asp:MenuItem>--%>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Comments.aspx" Text="Comments" Value="Comments"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

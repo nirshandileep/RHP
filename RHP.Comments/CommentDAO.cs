@@ -186,5 +186,15 @@ namespace RHP.Comments
 
             return returnEntityCollection;
         }
+
+
+        public DataSet SelectAll()
+        {
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_CommentSelectAll");           
+            
+
+            return db.ExecuteDataSet(command);
+        }
     }
 }
