@@ -20,14 +20,5 @@ namespace USA_Rent_House_Project.Administrator {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::USA_Rent_House_Project.Administrator.Modules.Comment_Add Comment_Add1;
-        
-        /// <summary>
-        /// gdComments control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::USA_Rent_House_Project.Administrator.Modules.Comments_View gdComments;
     }
 }

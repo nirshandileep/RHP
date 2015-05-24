@@ -7,6 +7,7 @@ using RHP.UserManagement;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Utility;
+using System.Data;
 
 namespace RHP.LandlordManagement
 {
@@ -97,6 +98,12 @@ namespace RHP.LandlordManagement
                 connection.Close();
             }
             return result;
+        }
+
+        public DataSet SelectAllDataset()
+        {
+            LandlordDAO landlordDAO = new LandlordDAO();
+            return landlordDAO.SelectAllDataset();
         }
     }
 }

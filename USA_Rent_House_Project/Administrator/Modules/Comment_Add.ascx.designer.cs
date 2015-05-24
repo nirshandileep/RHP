@@ -76,13 +76,22 @@ namespace USA_Rent_House_Project.Administrator.Modules {
         protected global::System.Web.UI.WebControls.HiddenField hdnCommentTypeId;
         
         /// <summary>
-        /// drpType control.
+        /// ddlLandlord control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpType;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLandlord;
+        
+        /// <summary>
+        /// ddlHouse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlHouse;
         
         /// <summary>
         /// CommentMessage control.
@@ -101,6 +110,24 @@ namespace USA_Rent_House_Project.Administrator.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button CommentButton;
+        
+        /// <summary>
+        /// lblError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblError;
+        
+        /// <summary>
+        /// aspxComments control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DevExpress.Web.ASPxGridView.ASPxGridView aspxComments;
         
         /// <summary>
         /// paymentontime control.
@@ -335,14 +362,5 @@ namespace USA_Rent_House_Project.Administrator.Modules {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button UploadButton;
-        
-        /// <summary>
-        /// lblError control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblError;
     }
 }

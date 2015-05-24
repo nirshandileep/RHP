@@ -390,5 +390,9 @@ namespace RHP.Comments
 
             return new CommentDAO().SelectAll();
         }
+        public DataSet SelectAllbyContextId(Guid ContextId, int ContextTypeId)
+        {
+            return new CommentDAO().SelectAllbyContextId(ContextId, ContextTypeId);
+        }
     }
 }

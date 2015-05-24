@@ -12,6 +12,8 @@ using System.Web.Security;
 using System.Data;
 using RHP.Utility;
 using RHP.Photos;
+using RHP.LandlordManagement;
+using RHP.Common;
 
 namespace USA_Rent_House_Project.Administrator.Modules
 {
@@ -35,6 +37,9 @@ namespace USA_Rent_House_Project.Administrator.Modules
         }
 
         Comment comment = new Comment();
+        RHP.LandlordManagement.Landlord landlord = new RHP.LandlordManagement.Landlord();
+        RHP.LandlordManagement.House house = new RHP.LandlordManagement.House();
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -45,6 +50,12 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
             //SetUserBasedRestrictions();
             //SetQuestionTexts();
+            if (!IsPostBack)
+            {
+                this.loadLandLord();
+                this.LoadHouseByLarnloard(new Guid(ddlLandlord.SelectedValue));
+                this.LoadCommentGrid(new Guid(ddlHouse.SelectedValue), (int)Enums.CommentType.Comment);
+            }
 
         }
 
@@ -134,17 +145,23 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
                 if (CommentMessage.Text.Trim() != "")
                 {
+
+                    comment.ContextId = Guid.Parse(ddlHouse.SelectedValue);
                     comment.CommentText = CommentMessage.Text.Trim();
                     comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                     comment.ContextTypeId = (int)Enums.ContextType.Student;
                     comment.CommentTypeId = (int)Enums.CommentType.Comment;
                     comment.FilePath = "";
-
                     comment.RatingValue = 0;
-                    save(comment);
 
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
+                    comment.Insert(comment);
+
+                    CommentMessage.Text = string.Empty;
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "');}", true);
+                    this.LoadCommentGrid(new Guid(ddlHouse.SelectedValue), (int)Enums.CommentType.Comment);
+
+                   // string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                   // Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
                 }
 
             }
@@ -154,16 +171,16 @@ namespace USA_Rent_House_Project.Administrator.Modules
         {
             if (Page.IsValid == true)
             {
-                    comment.CommentText = FeedbackText.Text.Trim();
-                    comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                    comment.ContextTypeId = (int)Enums.ContextType.Student;
-                    comment.CommentTypeId = (int)Enums.CommentType.Feedback;
-                    comment.FilePath = "";
-                    comment.RatingValue = CalculateReting(comment);
+                comment.CommentText = FeedbackText.Text.Trim();
+                comment.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                comment.ContextTypeId = (int)Enums.ContextType.Student;
+                comment.CommentTypeId = (int)Enums.CommentType.Feedback;
+                comment.FilePath = "";
+                comment.RatingValue = CalculateReting(comment);
 
-                    save(comment);
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
-                    Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
+                save(comment);
+                string AccessCode = Utility.GetQueryStringValueByKey(Request, "AccessCode");
+                Response.Redirect("~/Student/Student_Public_Profile.aspx?AccessCode=" + AccessCode);
             }
         }
 
@@ -238,7 +255,7 @@ namespace USA_Rent_House_Project.Administrator.Modules
                         Session[Constants.SESSION_COMMENTS] = ds;
 
                         clear();
-                      //  Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
+                        //  Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Public_Profile.aspx?AccessCode='" + AccessCode + "';}", true);
                     }
                     else
                     {
@@ -285,5 +302,40 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
             return ratevalue;
         }
+        
+        public void loadLandLord()
+        {
+            ddlLandlord.DataSource = landlord.SelectAllDataset().Tables[0];
+            ddlLandlord.DataTextField = "LandlordName";
+            ddlLandlord.DataValueField = "LandlordId";
+
+            ddlLandlord.DataBind();
+        }
+
+        public void LoadHouseByLarnloard(Guid landloardid)
+        {
+            ddlHouse.DataSource = house.SelectAllDataset(landloardid);
+            ddlHouse.DataTextField = "StreetAddress";
+            ddlHouse.DataValueField = "HouseId";
+
+            ddlHouse.DataBind();
+        }
+        
+        public void LoadCommentGrid(Guid ContextId, int contextTypeid)
+        {
+            aspxComments.DataSource = comment.SelectAllbyContextId(ContextId, contextTypeid).Tables[0];
+            aspxComments.DataBind();
+        }
+
+        protected void ddlLandlord_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadHouseByLarnloard(new Guid(ddlLandlord.SelectedValue));
+        }
+
+        protected void ddlHouse_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.LoadCommentGrid(new Guid(ddlHouse.SelectedValue), (int)Enums.CommentType.Comment);
+        }
+
     }
 }

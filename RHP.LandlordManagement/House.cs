@@ -6,6 +6,7 @@ using RHP.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Utility;
+using System.Data;
 
 namespace RHP.LandlordManagement
 {
@@ -131,5 +132,14 @@ namespace RHP.LandlordManagement
             }
             return result;
         }
+
+        public DataSet SelectAllDataset(Guid LandlordId)
+        {
+            HouseDAO house = new HouseDAO();
+
+            return house.SelectAllDataset(LandlordId);
+        }
+
+
     }
 }

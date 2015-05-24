@@ -1,6 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Comment_Add.ascx.cs" Inherits="USA_Rent_House_Project.Administrator.Modules.Comment_Add" %>
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxRatingControl" TagPrefix="dx" %>
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxGridView" tagprefix="dx1" %>
+<%@ Register assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" namespace="DevExpress.Web.ASPxEditors" tagprefix="dx" %>
 <script language="javascript" type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <div id="div_register_User">
     <div id="Pleaseshare" runat="server" style="display: none">
@@ -32,8 +34,15 @@
 
     <div id="DivComment">
         <p>
-            Type:
-            <asp:DropDownList ID="drpType" runat="server"></asp:DropDownList>
+            Landlord:
+            <asp:DropDownList ID="ddlLandlord" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlLandlord_SelectedIndexChanged"></asp:DropDownList>
+
+
+        </p>
+
+             <p>
+            House:
+            <asp:DropDownList ID="ddlHouse" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlHouse_SelectedIndexChanged"></asp:DropDownList>
 
 
         </p>
@@ -51,6 +60,22 @@
             <asp:Button ID="CommentButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                 Text="Post" OnClick="CommentButton_Click" />
         </p>
+
+    <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
+
+<dx1:ASPxGridView ID="aspxComments" runat="server" AutoGenerateColumns="False">
+    <Columns>
+        <dx1:gridviewdatatextcolumn Caption="StreetAddress" FieldName="StreetAddress" Name="StreetAddress" VisibleIndex="1">
+        </dx1:gridviewdatatextcolumn>
+        <dx1:gridviewdatatextcolumn Caption="CommentText" FieldName="CommentText" Name="CommentText" VisibleIndex="2">
+        </dx1:gridviewdatatextcolumn>
+        <dx1:GridViewDataTextColumn Caption="RatingValue" FieldName="RatingValue" Name="RatingValue" VisibleIndex="3">
+        </dx1:GridViewDataTextColumn>
+        <dx1:GridViewDataTextColumn Caption="CreatedDate" FieldName="CreatedDate" Name="CreatedDate" VisibleIndex="4">
+        </dx1:GridViewDataTextColumn>
+    </Columns>
+</dx1:ASPxGridView>
+
     </div>
     <%-- add feedback--%>
     <div id="DivFeedback" style="display: none">
@@ -145,7 +170,6 @@
                 Text="Post" OnClick="UploadButton_Click" />
         </p>
     </div>
-    <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
     <%--<script type="text/javascript" language="javascript">
         OnPageLoad();
         function OnPageLoad() {
