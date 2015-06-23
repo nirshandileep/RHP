@@ -1,149 +1,202 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Wizard.ascx.cs" Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Wizard" %>
-
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Wizard.ascx.cs"
+    Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Wizard" %>
+<style type="text/css">
+    .hidden
+    {
+        display: none;
+    }
+    
+    .label
+    {
+        width: 200px;
+        float: left;
+    }
+    
+    .input
+    {
+        width: 300px;
+        float: left;
+    }
+    
+    .stepwrapper
+    {
+        padding-top: 40px;
+    }
+    
+    .failureNotification
+    {
+        font-size: -1.8em !important;
+    }
+    
+    .row
+    {
+        height: 70px;
+    }
+</style>
 <div>
-    <h2 class="form_heading">Student Profile Info</h2>
-
+    <h2 class="form_heading">
+        Student Profile Info</h2>
     <div id="ShowfullRegistration" runat="server" visible="false">
-        Email address, 
+        Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-        is already Registered profile with us. 
-     if you need to Recover Your Password Please click 
+        is already Registered profile with us. if you need to Recover Your Password Please
+        click
         <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Hear</asp:HyperLink>
     </div>
-
     <div id="ShowPartialUserEmailRequest" runat="server" visible="false">
-
         <p>
-            Email address, 
+            Email address,
             <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>
-            is already a partial profile with us. 
-    “Your Current House” already has created a partial profile for you. To send another “Invitation Email” to 
+            is already a partial profile with us. “Your Current House” already has created a
+            partial profile for you. To send another “Invitation Email” to
             <asp:Label ID="lblpartialuserEmail2" runat="server" Text=""></asp:Label>
-            so that you can have a “Full Profile” please click on button below.
-   
-        is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? if yes, please click button bellow..
+            so that you can have a “Full Profile” please click on button below. is already Registerd
+            with Partial account. Do you Want to Send Request Again to Create an Account with
+            Us? if yes, please click button bellow..
         </p>
         <br />
-        <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request"
-            OnClick="BtnResentRequest_Click" CssClass="actionbutton" />
+        <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-
-    <asp:Wizard ID="Wizard1" runat="server" ActiveStepIndex="1">
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
+        DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
-                <div>
-                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
-                    <asp:TextBox ID="Email" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email"
-                        CssClass="failureNotification" ErrorMessage="E-mail is required." ToolTip="E-mail is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
-                        ControlToValidate="Email" CssClass="failureNotification" ValidationGroup="RegisterStudentValidationGroup"
-                        ErrorMessage="Enter valid email address." ToolTip="Enter valid email address.">* </asp:RegularExpressionValidator>
+                <div class="stepwrapper">
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">E-mail:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtEmail" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="EmailRequired" runat="server" ControlToValidate="txtEmail"
+                                CssClass="failureNotification" ErrorMessage="E-mail is required." ValidationGroup="vg-step1"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator2"
+                                runat="server" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"
+                                ControlToValidate="txtEmail" CssClass="failureNotification" ValidationGroup="vg-step1"
+                                ErrorMessage="Enter valid email address." ToolTip="Enter valid email address."> </asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="PasswordLabel" runat="server" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtPassword" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="PasswordRequired" runat="server"
+                                ControlToValidate="txtPassword" CssClass="failureNotification" ErrorMessage="Password is required."
+                                ToolTip="Password is required." ValidationGroup="vg-step1"></asp:RequiredFieldValidator>
+                            <asp:RegularExpressionValidator Display="Dynamic" ID="valMin" runat="server" CssClass="failureNotification"
+                                ControlToValidate="txtPassword" ErrorMessage="Password minimum length is 6" ValidationExpression=".{6}.*"
+                                ValidationGroup="vg-step1"></asp:RegularExpressionValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="ConfirmPasswordLabel" runat="server" CssClass="form_label">Retype Password:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="textEntry textbox_w1"
+                                TextMode="Password"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ControlToValidate="txtConfirmPassword"
+                                CssClass="failureNotification" ErrorMessage="Retype Password is required." ID="ConfirmPasswordRequired"
+                                runat="server" ToolTip="Retype Password is required." ValidationGroup="vg-step1"></asp:RequiredFieldValidator>
+                            <asp:CompareValidator Display="Dynamic" ID="PasswordCompare" runat="server" ControlToCompare="txtPassword"
+                                ControlToValidate="txtConfirmPassword" CssClass="failureNotification" ErrorMessage="The password and confirmation password must match."
+                                ValidationGroup="vg-step1"></asp:CompareValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Button ID="btnStep1" runat="server" CssClass="actionbutton" Text="Next" ValidationGroup="vg-step1"
+                            OnClick="btnStep1_Click" />
+                    </div>
+                    <div>
+                        <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
+                    </div>
                 </div>
-
-                <div>
-
-                    <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="form_label">User Name :</asp:Label>
-                    <asp:TextBox ID="UserName" runat="server" CssClass="textEntry textbox_w2" MaxLength="20"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
-                        CssClass="failureNotification" ErrorMessage="UserName is required." ToolTip="UserName is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegExp1" runat="server" CssClass="failureNotification"
-                        ErrorMessage="UserName only allowed (a - z  A - Z 0-9 - /). " ToolTip="UserName only allowed (a - z  A - Z 0-9 - /). "
-                        ControlToValidate="UserName" ValidationGroup="RegisterStudentValidationGroup"
-                        ValidationExpression="^[a-zA-Z0-9/-]+$">*</asp:RegularExpressionValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" CssClass="failureNotification"
-                        ControlToValidate="UserName" ErrorMessage="UserName must be between 4 - 20 characters."
-                        ToolTip="UserName must be between 4 - 20 characters." ValidationExpression=".{4}.*"
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RegularExpressionValidator>
-                    <br />
-                    <span class="form_comments">Your UserName is the unique name you use to login and cannot
-                    be changed. This should not be the same as your email. The length must be between
-                    4 and 20 characters.</span>
-
-                </div>
-
-                <div>
-
-                    <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
-                    <asp:TextBox ID="Password" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
-                        CssClass="failureNotification" ErrorMessage="Password is required." ToolTip="Password is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="valMin" runat="server" CssClass="failureNotification"
-                        ControlToValidate="Password" ErrorMessage="Password minimum length is 6" ValidationExpression=".{6}.*"
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RegularExpressionValidator>
-
-                </div>
-
-                <div>
-                    <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword"
-                        CssClass="form_label">Retype Password:</asp:Label>
-                    <asp:TextBox ID="ConfirmPassword" runat="server" CssClass="textEntry textbox_w1"
-                        TextMode="Password"></asp:TextBox>
-                    <asp:RequiredFieldValidator ControlToValidate="ConfirmPassword" CssClass="failureNotification"
-                        Display="Dynamic" ErrorMessage="Retype Password is required." ID="ConfirmPasswordRequired"
-                        runat="server" ToolTip="Retype Password is required." ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                    <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password"
-                        ControlToValidate="ConfirmPassword" CssClass="failureNotification" Display="Dynamic"
-                        ErrorMessage="The password and confirmation password must match." ValidationGroup="RegisterStudentValidationGroup">*</asp:CompareValidator>
-                </div>
-
-                <div>
-                    <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
-                        Text="Create Student" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
-                    <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
-
-                </div>
-
             </asp:WizardStep>
             <asp:WizardStep ID="WizardStep2" runat="server" Title="Step 2">
-                <div>
-
-                    <asp:Label ID="LabelQuestion" runat="server" AssociatedControlID="Question" CssClass="form_label">Secret Question:</asp:Label>
-                    <asp:TextBox ID="Question" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="QuestionRequiredFieldValidator" runat="server" ControlToValidate="Question"
-                        CssClass="failureNotification" ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-
+                <div class="stepwrapper">
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelQuestion" runat="server" CssClass="form_label">Secret Question:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtQuestion" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="QuestionRequiredFieldValidator"
+                                runat="server" ControlToValidate="txtQuestion" CssClass="failureNotification"
+                                ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
+                                ValidationGroup="vg-step2"></asp:RequiredFieldValidator></div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelAnswer" runat="server" CssClass="form_label">Answer:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtAnswer" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="AnswerRequiredFieldValidator" runat="server"
+                                ControlToValidate="txtAnswer" CssClass="failureNotification" ErrorMessage="Answer is required."
+                                ToolTip="Answer is required." ValidationGroup="vg-step2"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Button ID="btnStep2" runat="server" CssClass="actionbutton" Text="Next" 
+                            ValidationGroup="vg-step2" OnClick="btnStep2_Click" />
+                    </div>
                 </div>
-                <div>
-                    <asp:Label ID="LabelAnswer" runat="server" AssociatedControlID="Answer" CssClass="form_label">Answer:</asp:Label>
-                    <asp:TextBox ID="Answer" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="AnswerRequiredFieldValidator" runat="server" ControlToValidate="Answer"
-                        CssClass="failureNotification" ErrorMessage="Answer is required." ToolTip="Answer is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-
-                </div>
-
             </asp:WizardStep>
             <asp:WizardStep ID="WizardStep3" runat="server" Title="Step 3">
-                <div>
-                    <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
-                    <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="FirstName"
-                        CssClass="failureNotification" ErrorMessage="First Name is required." ToolTip="First Name is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-
-                </div>
-                <div>
-                    <asp:Label ID="LabelMiddleName" runat="server" AssociatedControlID="MiddleName" CssClass="form_label">Middle Name:</asp:Label>
-                    <asp:TextBox ID="MiddleName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                </div>
-                <div>
-                    <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
-                    <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="LastName"
-                        CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required."
-                        ValidationGroup="RegisterStudentValidationGroup">*</asp:RequiredFieldValidator>
-                </div>
-                <div>
-                    <asp:Label ID="LabelReferralCode" runat="server" AssociatedControlID="ReferralCode" CssClass="form_label">Referral Code:</asp:Label>
-                    <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                <div class="stepwrapper">
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelFirstName" runat="server" CssClass="form_label">First Name:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtFirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="txtFirstName"
+                                CssClass="failureNotification" ErrorMessage="First Name is required." ToolTip="First Name is required."
+                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelMiddleName" runat="server" CssClass="form_label">Middle Name:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtMiddleName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelLastName" runat="server" CssClass="form_label">Last Name:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtLastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="txtLastName"
+                                CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required."
+                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="LabelReferralCode" runat="server" AssociatedControlID="ReferralCode"
+                                CssClass="form_label">Referral Code:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox></div>
+                    </div>
+                      <div class="row">
+                        <asp:Button ID="btnStep3" runat="server" CssClass="actionbutton" Text="Next" ValidationGroup="vg-step3" />
+                    </div>
                 </div>
             </asp:WizardStep>
         </WizardSteps>
+        <NavigationButtonStyle CssClass="hidden" />
     </asp:Wizard>
-
 </div>

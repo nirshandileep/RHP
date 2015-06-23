@@ -178,11 +178,9 @@
     <Content Include="Account\ChangePasswordSuccess.aspx" />
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\Register.aspx" />
-    <Content Include="Administrator\Comments.aspx" />
     <Content Include="Administrator\Default.aspx" />
     <Content Include="Administrator\Landload.aspx" />
     <Content Include="Administrator\Landload_View.aspx" />
-    <Content Include="Administrator\Modules\Comments_View.ascx" />
     <Content Include="Administrator\Modules\Comment_Add.ascx" />
     <Content Include="Administrator\Modules\LandloadList.ascx" />
     <Content Include="Administrator\Modules\LandloadView.ascx" />
@@ -306,6 +304,7 @@
     <Content Include="Student\Modules\Student_Profile_Images_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Wizard.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Comments.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Data.ascx" />
@@ -383,13 +382,6 @@
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrator\Comments.aspx.cs">
-      <DependentUpon>Comments.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrator\Comments.aspx.designer.cs">
-      <DependentUpon>Comments.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Administrator\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -410,13 +402,6 @@
     </Compile>
     <Compile Include="Administrator\Landload_View.aspx.designer.cs">
       <DependentUpon>Landload_View.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrator\Modules\Comments_View.ascx.cs">
-      <DependentUpon>Comments_View.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrator\Modules\Comments_View.ascx.designer.cs">
-      <DependentUpon>Comments_View.ascx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Modules\Comment_Add.ascx.cs">
       <DependentUpon>Comment_Add.ascx</DependentUpon>
@@ -1159,6 +1144,13 @@
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Wizard.ascx.cs">
+      <DependentUpon>Student_Profile_Wizard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Wizard.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Wizard.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Public_Profile_Banner.ascx.cs">
       <DependentUpon>Student_Public_Profile_Banner.ascx</DependentUpon>

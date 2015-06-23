@@ -13,5 +13,15 @@ namespace USA_Rent_House_Project.Student.Modules
         {
 
         }
+
+        protected void btnStep1_Click(object sender, EventArgs e)
+        {
+            registrationWizard.ActiveStepIndex = 1;
+        }
+
+        protected void btnStep2_Click(object sender, EventArgs e)
+        {
+            registrationWizard.ActiveStepIndex = 2;
+        }
     }
 }
