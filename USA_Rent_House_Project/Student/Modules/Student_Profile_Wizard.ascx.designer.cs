@@ -229,6 +229,60 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.WizardStep WizardStep2;
         
         /// <summary>
+        /// Label2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label2;
+        
+        /// <summary>
+        /// txtCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCode;
+        
+        /// <summary>
+        /// RequiredFieldValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        /// <summary>
+        /// btnVerify control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnVerify;
+        
+        /// <summary>
+        /// btnResend control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnResend;
+        
+        /// <summary>
+        /// WizardStep3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.WizardStep WizardStep3;
+        
+        /// <summary>
         /// LabelQuestion control.
         /// </summary>
         /// <remarks>
@@ -283,22 +337,22 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator AnswerRequiredFieldValidator;
         
         /// <summary>
-        /// btnStep2 control.
+        /// btnStep3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStep2;
+        protected global::System.Web.UI.WebControls.Button btnStep3;
         
         /// <summary>
-        /// WizardStep3 control.
+        /// WizardStep4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.WizardStep WizardStep3;
+        protected global::System.Web.UI.WebControls.WizardStep WizardStep4;
         
         /// <summary>
         /// LabelFirstName control.
@@ -328,24 +382,6 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator FirstNameRequired;
         
         /// <summary>
-        /// LabelMiddleName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LabelMiddleName;
-        
-        /// <summary>
-        /// txtMiddleName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMiddleName;
-        
-        /// <summary>
         /// LabelLastName control.
         /// </summary>
         /// <remarks>
@@ -373,6 +409,42 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator LastNameRequired;
         
         /// <summary>
+        /// LabelDateofBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelDateofBirth;
+        
+        /// <summary>
+        /// txtDateofBirth control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDateofBirth;
+        
+        /// <summary>
+        /// RequiredFieldValidator2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        /// <summary>
+        /// RegularExpressionValidator1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        /// <summary>
         /// LabelReferralCode control.
         /// </summary>
         /// <remarks>
@@ -391,12 +463,12 @@ namespace USA_Rent_House_Project.Student.Modules {
         protected global::System.Web.UI.WebControls.TextBox ReferralCode;
         
         /// <summary>
-        /// btnStep3 control.
+        /// btnStep4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStep3;
+        protected global::System.Web.UI.WebControls.Button btnStep4;
     }
 }

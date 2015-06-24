@@ -228,6 +228,8 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
     <Content Include="Land_load\Change_Secret_Question.aspx" />
     <Content Include="Land_load\Contact_Us.aspx" />
