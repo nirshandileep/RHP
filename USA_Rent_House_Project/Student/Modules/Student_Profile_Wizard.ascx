@@ -59,7 +59,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="1" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -119,33 +119,7 @@
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep2" runat="server" Title="Srep 2">
-                <div class="stepwrapper">
-                    <div class="row">
-                        <p>
-                            Please check your mail for verification code, If not received click the resend button
-                            new code.</p>
-                    </div>
-                    <div class="row">
-                        <div class="label">
-                            <asp:Label ID="Label2" runat="server" CssClass="form_label">Enter Code:</asp:Label>
-                        </div>
-                        <div class="input">
-                            <asp:TextBox ID="txtCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
-                            <br />
-                            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator1" runat="server"
-                                ControlToValidate="txtCode" CssClass="failureNotification" ErrorMessage="Verification Code Required."
-                                ToolTip="Verification Code Required." ValidationGroup="vg-step2"></asp:RequiredFieldValidator>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <asp:Button ID="btnVerify" runat="server" CssClass="actionbutton" Text="Verify" ValidationGroup="vg-step2"
-                            OnClick="btnVerify_Click" />
-                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend" />
-                    </div>
-                </div>
-            </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep3" runat="server" Title="Step 3">
+            <asp:WizardStep ID="WizardStep2" runat="server" Title="Step 2">
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
@@ -174,6 +148,33 @@
                     <div class="row">
                         <asp:Button ID="btnStep3" runat="server" CssClass="actionbutton" Text="Continue"
                             ValidationGroup="vg-step3" OnClick="btnStep3_Click" />
+                    </div>
+                </div>
+            </asp:WizardStep>
+            <asp:WizardStep ID="WizardStep3" runat="server" Title="Step 3">
+                <div class="stepwrapper">
+                    <div class="row">
+                        <p>
+                            Please check your mail for verification code, If not received click the resend button
+                            new code.</p>
+                    </div>
+                    <div class="row">
+                        <div class="label">
+                            <asp:Label ID="Label2" runat="server" CssClass="form_label">Enter Code:</asp:Label>
+                        </div>
+                        <div class="input">
+                            <asp:TextBox ID="txtCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
+                            <br />
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator1" runat="server"
+                                ControlToValidate="txtCode" CssClass="failureNotification" ErrorMessage="Verification Code Required."
+                                ToolTip="Verification Code Required." ValidationGroup="vg-step2"></asp:RequiredFieldValidator>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <asp:Button ID="btnVerify" runat="server" CssClass="actionbutton" Text="Verify" ValidationGroup="vg-step2"
+                            OnClick="btnVerify_Click" />
+                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend" 
+                            OnClick="btnResend_Click" />
                     </div>
                 </div>
             </asp:WizardStep>
@@ -228,7 +229,7 @@
                             <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox></div>
                     </div>
                     <div class="row">
-                        <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Continue"
+                        <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Finish"
                             ValidationGroup="vg-step4" OnClick="btnStep4_Click" />
                     </div>
                 </div>

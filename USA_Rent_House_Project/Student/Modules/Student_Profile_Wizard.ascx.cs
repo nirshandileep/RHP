@@ -28,16 +28,23 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void btnVerify_Click(object sender, EventArgs e)
         {
+            //Check if the verification code is correct
             registrationWizard.ActiveStepIndex = 2;
         }
 
         protected void btnStep3_Click(object sender, EventArgs e)
         {
+            //Register the user here, add the user details to the membership tables
             registrationWizard.ActiveStepIndex = 3;
 
         }
 
         protected void btnStep4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnResend_Click(object sender, EventArgs e)
         {
 
         }
