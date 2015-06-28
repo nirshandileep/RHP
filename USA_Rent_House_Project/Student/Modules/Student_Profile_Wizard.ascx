@@ -58,8 +58,9 @@
         </p>
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
+        <asp:HiddenField ID="hdnUserId" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -115,7 +116,6 @@
                             ValidationGroup="vg-step1" OnClick="btnStep1_Click" />
                     </div>
                     <div>
-                        <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
                     </div>
                 </div>
             </asp:WizardStep>
@@ -242,3 +242,7 @@
     
     </script>
 </div>
+<p>
+    <asp:Label runat="server" CssClass="failureNotification" ID="lblError"></asp:Label>
+</p>
+

@@ -71,6 +71,14 @@ namespace RHP.UserManagement
             return user;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fieldName1">string of the name of the Field. e.g. Email</param>
+        /// <param name="fieldValue1">string value of the Field. e.g. name@domain.com</param>
+        /// <param name="fieldName2">string RoleName e.g. RoleName</param>
+        /// <param name="fieldValue2">string value of the role, e.g. student</param>
+        /// <returns></returns>
         public static User SelectUserByEmail(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2)
         {
             User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);

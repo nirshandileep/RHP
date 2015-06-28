@@ -18,12 +18,60 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (HttpContext.Current.User.Identity.IsAuthenticated)
+                {
+                    Response.Redirect("~/Student/Student_Profile.aspx", false);
+                }
+                else
+                {
+                    registrationWizard.ActiveStepIndex = 0;
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
 
+                    if (AccessCode != string.Empty && AccessCode != null)
+                    {
+                        try
+                        {
+                            LoadStudent(Guid.Parse(AccessCode));
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                    }
+                }
+            }
+        }
+
+        public void LoadStudent(Guid AccessCode)
+        {
+            user = User.Select(AccessCode);
+
+            if (user != null)
+            {
+                if (user.UserId.HasValue && user.IsPartialUser == true)
+                {
+
+                    txtEmail.Text = user.PersonalEmail;
+                    txtFirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
+                    txtLastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
+                }
+            }
         }
 
         protected void btnStep1_Click(object sender, EventArgs e)
         {
-            registrationWizard.ActiveStepIndex = 1;
+            user = User.SelectUserByEmail("Email", txtEmail.Text.Trim().ToLower(), "RoleName", "student");
+
+            if (user != null)
+            {
+                registrationWizard.ActiveStepIndex = 1;
+            }
+            else
+            {
+                lblError.Text = "User with this email address already exist.";
+            }
         }
 
         protected void btnStep2_Click(object sender, EventArgs e)
@@ -73,6 +121,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 MembershipUser newUser = Membership.GetUser(user.UserName);
                 user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                hdnUserId.Value = user.UserId.ToString();
                 user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
@@ -143,8 +192,8 @@ namespace USA_Rent_House_Project.Student.Modules
         protected void btnStep4_Click(object sender, EventArgs e)
         {
             //Save rest of the user details and save.
-            MembershipUser newUser = Membership.GetUser(txtEmail.Text.Trim());
-            user = User.Select(Guid.Parse(newUser.ProviderUserKey.ToString()));//Load user details to the object, else other user details will get empty
+            Guid userId = Guid.Parse(hdnUserId.Value.Trim());
+            user = User.Select(userId);//Load user details to the object, else other user details will get empty
             user.FirstName = txtFirstName.Text.Trim();
             user.LastName = txtLastName.Text.Trim();
             DateTime dob; 
