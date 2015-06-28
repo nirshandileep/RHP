@@ -189,13 +189,7 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
 
                             if (SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true")
                             {
-                                //if (SendingMail((Guid)newUser.ProviderUserKey))
-                                //{ 
-                                // simple email function
-                                //}
-
                                 string strMsgContent = message((Guid)newUser.ProviderUserKey);
-
                                 string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " - Action required for account activation.";
 
                                 int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
@@ -327,57 +321,6 @@ public partial class Student_Profile_info_Add : System.Web.UI.UserControl
 
         }
         return strMsgContent;
-    }
-
-    protected bool SendingMail(Guid ActivationKey)
-    {
-
-        try
-        {
-
-            // throw new Exception("not implemented");
-            using (MailMessage mm = new MailMessage("support@ratemystudenthome.com", "look2cool@gmail.com"))
-            {
-                mm.Subject = "test email from rate my home";
-                mm.Body = message(ActivationKey);
-
-                mm.IsBodyHtml = true;
-                SmtpClient smtp = new SmtpClient();
-
-                smtp.Host = "smtpout.secureserver.net";
-
-                smtp.EnableSsl = false;
-                NetworkCredential NetworkCred = new NetworkCredential("support@ratemystudenthome.com", "support");
-
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = NetworkCred;
-
-                smtp.Port = Convert.ToInt16("80");
-
-                smtp.Send(mm);
-
-                return true;
-            }
-        }
-        catch (Exception ex)
-        {
-            return false;
-            throw ex;
-        }
-
-    }
-
-    protected void Button1_Click(object sender, EventArgs e)
-    {
-        user.UserName = "Test User";
-        user.Email = "look2cool@gmail.com";
-        user.Question = "this is Qus";
-
-        string strMsgContent = message(Guid.Parse("3D8B43C5-119E-4701-B18C-80C39A1293FE"));
-
-        string strMsgTitle = "www.ratemystudenthome.com - Student Account Activation Email - test by admin.";
-
-        int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
     }
 
     protected void BtnResentRequest_Click(object sender, EventArgs e)

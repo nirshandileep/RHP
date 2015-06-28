@@ -144,7 +144,5 @@
             <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>
 
-        <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" Visible="false" />
-
     </div>
 </div>

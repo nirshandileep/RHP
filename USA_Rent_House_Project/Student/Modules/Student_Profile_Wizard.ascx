@@ -59,7 +59,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="1" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
