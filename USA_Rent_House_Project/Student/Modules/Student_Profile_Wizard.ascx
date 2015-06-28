@@ -43,7 +43,7 @@
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         is already Registered profile with us. if you need to Recover Your Password Please
         click
-        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Hear</asp:HyperLink>
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Here</asp:HyperLink>
     </div>
     <div id="ShowPartialUserEmailRequest" runat="server" visible="false">
         <p>
@@ -59,7 +59,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">

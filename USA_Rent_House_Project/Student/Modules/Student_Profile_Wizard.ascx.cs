@@ -31,12 +31,16 @@ namespace USA_Rent_House_Project.Student.Modules
            
         }
 
-       
-
         protected void btnVerify_Click(object sender, EventArgs e)
         {
-            //Check if the verification code is correct
-            registrationWizard.ActiveStepIndex = 2;
+            if (VerifyConfirmationCode(txtCode.Text.Trim()))
+            {
+                registrationWizard.ActiveStepIndex = 2;
+            }
+            else
+            {
+                lblError.Text = "Verification code entered is incorrect.";
+            }
         }
 
         protected void btnStep3_Click(object sender, EventArgs e)
@@ -76,17 +80,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (!IsActivate)
                 {
-                    string strMsgContent = message((Guid)newUser.ProviderUserKey);
-                    string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " - Action required for account activation.";
-                    int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
-                    if (rtn == 1)
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx?type=s'; }", true);
-                    }
-                    else
-                    {
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); window.location = '/Login.aspx?type=s'; }", true);
-                    }
+                    SendVerificationCodeEmail(newUser);
                 }
             }
             else
@@ -107,14 +101,69 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+
+        private bool VerifyConfirmationCode(string verificationCode)
+        {
+            Guid userId;
+            try
+            {
+                userId = new Guid(verificationCode.Trim());
+            }
+            catch
+            {
+                return false;
+            }
+
+            MembershipUser usr = Membership.GetUser(userId);
+            if (usr == null)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void SendVerificationCodeEmail(MembershipUser newUser)
+        {
+            string strMsgContent = message((Guid)newUser.ProviderUserKey);
+            string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " - Action required for account activation.";
+            int rtn = SendEmail(user.Email, strMsgTitle, strMsgContent);
+            if (rtn == 1)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); }", true);
+            }
+            else
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); }", true);
+            }
+        }
+
         protected void btnStep4_Click(object sender, EventArgs e)
         {
+            //Save rest of the user details and save.
+            MembershipUser newUser = Membership.GetUser(txtEmail.Text.Trim());
+            user = User.Select(Guid.Parse(newUser.ProviderUserKey.ToString()));//Load user details to the object, else other user details will get empty
+            user.FirstName = txtFirstName.Text.Trim();
+            user.LastName = txtLastName.Text.Trim();
+            DateTime dob; 
+            if (DateTime.TryParse(txtDateofBirth.Text.Trim(), out dob))
+            {
+                user.DateOfBirth = dob;
+            }
+            user.ReferralCode = ReferralCode.Text.Trim();
+            user.Save();
 
+            //Page redirect to student profile.
+            Response.Redirect("~/Student/Student_Profile.aspx", false);
         }
 
         protected void btnResend_Click(object sender, EventArgs e)
         {
-
+            //Resend the verification email
+            MembershipUser newUser = Membership.GetUser(user.UserName);
+            SendVerificationCodeEmail(newUser);
         }
 
         protected int SendEmail(string To, string Subject, string Body)
