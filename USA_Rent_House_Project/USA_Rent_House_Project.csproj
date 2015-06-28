@@ -228,6 +228,7 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
@@ -862,6 +863,13 @@
     </Compile>
     <Compile Include="Land_load\Modules\Menu_Bar.ascx.designer.cs">
       <DependentUpon>Menu_Bar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landloard_Profile_Wizard.ascx.cs">
+      <DependentUpon>Landloard_Profile_Wizard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landloard_Profile_Wizard.ascx.designer.cs">
+      <DependentUpon>Landloard_Profile_Wizard.ascx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

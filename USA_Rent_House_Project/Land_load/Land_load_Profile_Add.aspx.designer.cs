@@ -13,12 +13,12 @@ namespace USA_Rent_House_Project.Land_load {
     public partial class Land_load_Profile_Add {
         
         /// <summary>
-        /// Landload_Profile_info_AddID control.
+        /// Landloard_Profile_Wizard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Land_load.Modules.Landload_Profile_info_Add Landload_Profile_info_AddID;
+        protected global::USA_Rent_House_Project.Land_load.Modules.Landloard_Profile_Wizard Landloard_Profile_Wizard;
     }
 }

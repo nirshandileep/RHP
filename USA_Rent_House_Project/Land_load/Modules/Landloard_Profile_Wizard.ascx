@@ -1,5 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Student_Profile_Wizard.ascx.cs"
-    Inherits="USA_Rent_House_Project.Student.Modules.Student_Profile_Wizard" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Landloard_Profile_Wizard.ascx.cs"
+    Inherits="USA_Rent_House_Project.Land_load.Modules.Landloard_Profile_Wizard" %>
 <script src="../../Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="../../Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
 <style type="text/css">
@@ -37,7 +37,7 @@
 </style>
 <div>
     <h2 class="form_heading">
-        Student Profile Info</h2>
+        Land loard Profile Info</h2>
     <div id="ShowfullRegistration" runat="server" visible="false">
         Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -66,7 +66,7 @@
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
-                            <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">Student email:</asp:Label>
+                            <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">Land-lord email:</asp:Label>
                         </div>
                         <div class="input">
                             <asp:TextBox ID="txtEmail" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
