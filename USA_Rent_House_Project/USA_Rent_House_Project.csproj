@@ -228,6 +228,7 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Land_load\Land_load_Profile_wizard.aspx" />
     <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
@@ -639,6 +640,13 @@
     </Compile>
     <Compile Include="Land_load\Contact_Us.aspx.designer.cs">
       <DependentUpon>Contact_Us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile_wizard.aspx.cs">
+      <DependentUpon>Land_load_Profile_wizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile_wizard.aspx.designer.cs">
+      <DependentUpon>Land_load_Profile_wizard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Current_Students.aspx.cs">
       <DependentUpon>Current_Students.aspx</DependentUpon>

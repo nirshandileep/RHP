@@ -77,7 +77,7 @@ namespace USA_Rent_House_Project.Modules
                         CreateProfile.Visible = true;
                         FacebookLogin.Visible = true;
                         FacebookLogin.NavigateUrl = "~/Facebook-Login.aspx?type=l";
-                        CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_Add.aspx";
+                        CreateProfile.NavigateUrl = "~/Land_load/Land_load_Profile_wizard.aspx";
                     }
                 }
                 
