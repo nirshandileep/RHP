@@ -59,6 +59,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
         <asp:HiddenField ID="hdnUserId" runat="server" />
+        <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
     <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" 
         DisplaySideBar="False">

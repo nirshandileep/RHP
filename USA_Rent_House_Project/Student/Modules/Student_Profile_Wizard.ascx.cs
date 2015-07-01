@@ -64,9 +64,10 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             user = User.SelectUserByEmail("Email", txtEmail.Text.Trim().ToLower(), "RoleName", "student");
 
-            if (user != null)
+            if (user == null)
             {
                 registrationWizard.ActiveStepIndex = 1;
+                hdnPassword.Value = txtPassword.Text;
             }
             else
             {
@@ -97,7 +98,7 @@ namespace USA_Rent_House_Project.Student.Modules
             user.Email = txtEmail.Text.Trim();
             user.PersonalEmail = txtEmail.Text.Trim();
             user.UserName = txtEmail.Text.Trim();
-            user.Password = txtPassword.Text.Trim();
+            user.Password = hdnPassword.Value;
             user.Question = txtQuestion.Text.Trim();
             user.Answer = txtAnswer.Text.Trim();
 
@@ -150,6 +151,24 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+        protected void btnStep4_Click(object sender, EventArgs e)
+        {
+            //Save rest of the user details and save.
+            Guid userId = Guid.Parse(hdnUserId.Value.Trim());
+            user = User.Select(userId);//Load user details to the object, else other user details will get empty
+            user.FirstName = txtFirstName.Text.Trim();
+            user.LastName = txtLastName.Text.Trim();
+            DateTime dob;
+            if (DateTime.TryParse(txtDateofBirth.Text.Trim(), out dob))
+            {
+                user.DateOfBirth = dob;
+            }
+            user.ReferralCode = ReferralCode.Text.Trim();
+            user.Save();
+
+            //Page redirect to student profile.
+            Response.Redirect("~/Student/Student_Profile.aspx", false);
+        }
 
         private bool VerifyConfirmationCode(string verificationCode)
         {
@@ -187,25 +206,6 @@ namespace USA_Rent_House_Project.Student.Modules
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); }", true);
             }
-        }
-
-        protected void btnStep4_Click(object sender, EventArgs e)
-        {
-            //Save rest of the user details and save.
-            Guid userId = Guid.Parse(hdnUserId.Value.Trim());
-            user = User.Select(userId);//Load user details to the object, else other user details will get empty
-            user.FirstName = txtFirstName.Text.Trim();
-            user.LastName = txtLastName.Text.Trim();
-            DateTime dob; 
-            if (DateTime.TryParse(txtDateofBirth.Text.Trim(), out dob))
-            {
-                user.DateOfBirth = dob;
-            }
-            user.ReferralCode = ReferralCode.Text.Trim();
-            user.Save();
-
-            //Page redirect to student profile.
-            Response.Redirect("~/Student/Student_Profile.aspx", false);
         }
 
         protected void btnResend_Click(object sender, EventArgs e)
