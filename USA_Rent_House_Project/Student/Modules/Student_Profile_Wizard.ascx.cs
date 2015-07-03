@@ -92,6 +92,11 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
+        /// <summary>
+        /// This is step 2 not 3
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnStep3_Click(object sender, EventArgs e)
         {
             //Register the user here, add the user details to the membership tables
@@ -136,18 +141,19 @@ namespace USA_Rent_House_Project.Student.Modules
             else
             {
                 lblError.Text = objCreateMembershipUser.ToString();
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('"
+                    + Messages.Profile_Create_Unsuccess + " - " + objCreateMembershipUser.ToString() + "'); }", true);
             }
 
             //Move to next step in wizzard
             //Email activation can be dissabled from config in db
             if (IsActivate)
             {
-                registrationWizard.ActiveStepIndex = 4;
+                registrationWizard.ActiveStepIndex = 3;
             }
             else
             {
-                registrationWizard.ActiveStepIndex = 3;
+                registrationWizard.ActiveStepIndex = 2;
             }
         }
 
