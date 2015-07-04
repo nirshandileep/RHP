@@ -61,8 +61,7 @@
         <asp:HiddenField ID="hdnUserId" runat="server" />
         <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" 
-        DisplaySideBar="False">
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
                 <div class="stepwrapper">
@@ -86,7 +85,8 @@
                             <asp:Label ID="PasswordLabel" runat="server" CssClass="form_label">Password:<span class="form_comments">(6 Characters Min)</span></asp:Label>
                         </div>
                         <div class="input">
-                            <asp:TextBox ID="txtPassword" runat="server" CssClass="textEntry textbox_w1" TextMode="Password" MaxLength="50"></asp:TextBox>
+                            <asp:TextBox ID="txtPassword" runat="server" CssClass="textEntry textbox_w1" TextMode="Password"
+                                MaxLength="50"></asp:TextBox>
                             <br />
                             <asp:RequiredFieldValidator Display="Dynamic" ID="PasswordRequired" runat="server"
                                 ControlToValidate="txtPassword" CssClass="failureNotification" ErrorMessage="Password is required."
@@ -174,8 +174,7 @@
                     <div class="row">
                         <asp:Button ID="btnVerify" runat="server" CssClass="actionbutton" Text="Verify" ValidationGroup="vg-step2"
                             OnClick="btnVerify_Click" />
-                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend" 
-                            OnClick="btnResend_Click" />
+                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend" OnClick="btnResend_Click" />
                     </div>
                 </div>
             </asp:WizardStep>
@@ -210,11 +209,12 @@
                             <asp:Label ID="LabelDateofBirth" runat="server" CssClass="form_label">Date of birth:</asp:Label>
                         </div>
                         <div class="input">
-                            <asp:TextBox ID="txtDateofBirth" runat="server" CssClass="textEntry textbox_w1" MaxLength="10" ClientIDMode="Static"></asp:TextBox>
+                            <asp:TextBox ID="txtDateofBirth" runat="server" CssClass="textEntry textbox_w1" MaxLength="10"
+                                ClientIDMode="Static"></asp:TextBox>
                             <br />
-                            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateofBirth"
-                                CssClass="failureNotification" ErrorMessage="Date of birth is required." ToolTip="Date of birth is required."
-                                ValidationGroup="vg-step4"></asp:RequiredFieldValidator>
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator2" runat="server"
+                                ControlToValidate="txtDateofBirth" CssClass="failureNotification" ErrorMessage="Date of birth is required."
+                                ToolTip="Date of birth is required." ValidationGroup="vg-step4"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator1"
                                 runat="server" CssClass="failureNotification" ControlToValidate="txtDateofBirth"
                                 ErrorMessage="Invalid Date" ValidationExpression="^(((0?[1-9]|1[012])/(0?[1-9]|1\d|2[0-8])|(0?[13456789]|1[012])/(29|30)|(0?[13578]|1[02])/31)/(19|[2-9]\d)\d{2}|0?2/29/((19|[2-9]\d)(0[48]|[2468][048]|[13579][26])|(([2468][048]|[3579][26])00)))$"
@@ -230,8 +230,15 @@
                             <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox></div>
                     </div>
                     <div class="row">
-                        <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Finish"
-                            ValidationGroup="vg-step4" OnClick="btnStep4_Click" />
+                        <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Finish" ValidationGroup="vg-step4"
+                            OnClick="btnStep4_Click" />
+                    </div>
+                </div>
+            </asp:WizardStep>
+            <asp:WizardStep ID="WizardStep5" runat="server" Title="Step 5">
+                <div class="stepwrapper">
+                    <div class="row">
+                        <asp:Button ID="btnStep5" runat="server" CssClass="actionbutton" Text="Add House" />
                     </div>
                 </div>
             </asp:WizardStep>
@@ -246,4 +253,3 @@
 <p>
     <asp:Label runat="server" CssClass="failureNotification" ID="lblError"></asp:Label>
 </p>
-
