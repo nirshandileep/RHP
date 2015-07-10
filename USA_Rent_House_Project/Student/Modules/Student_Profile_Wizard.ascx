@@ -61,7 +61,8 @@
         <asp:HiddenField ID="hdnUserId" runat="server" />
         <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" DisplaySideBar="False">
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="4" 
+        DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
                 <div class="stepwrapper">
@@ -237,8 +238,9 @@
             </asp:WizardStep>
             <asp:WizardStep ID="WizardStep5" runat="server" Title="Step 5">
                 <div class="stepwrapper">
-                    <div class="row">
-                        <asp:Button ID="btnStep5" runat="server" CssClass="actionbutton" Text="Add House" />
+                    <div class="row">My Current House:
+                        <asp:Button ID="btnStep5" runat="server" CssClass="actionbutton" 
+                            Text="Add House" OnClick="btnStep5_Click" />
                     </div>
                 </div>
             </asp:WizardStep>

@@ -84,7 +84,7 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (VerifyConfirmationCode(txtCode.Text.Trim()))
             {
-                registrationWizard.ActiveStepIndex = 2;
+                registrationWizard.ActiveStepIndex = 3;
             }
             else
             {
@@ -131,11 +131,15 @@ namespace USA_Rent_House_Project.Student.Modules
                 user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
+                user.UserName = txtEmail.Text.Trim();
                 user.Save();
 
                 if (!IsActivate)
                 {
-                    SendVerificationCodeEmail(newUser);
+                    if (SendVerificationCodeEmail(newUser))
+                    {
+ 
+                    }
                 }
             }
             else
@@ -171,9 +175,10 @@ namespace USA_Rent_House_Project.Student.Modules
             }
             user.ReferralCode = ReferralCode.Text.Trim();
             user.Save();
+            FormsAuthentication.SetAuthCookie(user.PersonalEmail, false);
 
             //Page redirect to student profile.
-            Response.Redirect("~/Student/Student_Profile.aspx", false);
+            registrationWizard.ActiveStepIndex = 4;
         }
 
         private bool VerifyConfirmationCode(string verificationCode)
@@ -199,7 +204,7 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
-        private void SendVerificationCodeEmail(MembershipUser newUser)
+        private bool SendVerificationCodeEmail(MembershipUser newUser)
         {
             string strMsgContent = message((Guid)newUser.ProviderUserKey);
             string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " - Action required for account activation.";
@@ -207,17 +212,19 @@ namespace USA_Rent_House_Project.Student.Modules
             if (rtn == 1)
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); }", true);
+                return true;
             }
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Sending_Email_Error + "'); }", true);
+                return false;
             }
         }
 
         protected void btnResend_Click(object sender, EventArgs e)
         {
             //Resend the verification email
-            MembershipUser newUser = Membership.GetUser(user.UserName);
+            MembershipUser newUser = Membership.GetUser(Guid.Parse(hdnUserId.Value.Trim()));
             SendVerificationCodeEmail(newUser);
         }
 
@@ -288,6 +295,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
             return strMsgContent;
+        }
+
+        protected void btnStep5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Student/Current_House.aspx", false);
         }
     }
 }
