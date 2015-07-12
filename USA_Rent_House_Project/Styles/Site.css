@@ -1453,3 +1453,57 @@ width:250px;
     word-wrap: break-word;
     line-height:1.6em;
 }
+
+
+
+/*Begin home page changes*/
+.homebuttonsdiv { 
+  margin-top: -40px;
+}
+
+.sharebutton
+{
+    text-align: center;
+  font-size: 1.9em;
+  padding-top: 15px;
+}
+
+.socialmediaicons 
+{
+    margin-top: 15px;
+    height: 0px;
+      width: 25%;
+    
+}
+
+.socialmediaicons-inner
+{
+    border-style:solid;
+  border-color: rgb(223, 223, 225);
+    border-left:none;
+    border-right:none;
+    border-bottom:none;
+    
+    
+}
+
+
+a.homesharebuttons {
+  display: inline;  
+  background-color: #0e72b8;
+    color: #ffffff;
+  text-decoration: none;
+ 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+    padding-left: 25px;
+  padding-right: 25px;
+  font-size: smaller;
+    border-color: black;
+  border-style: solid;
+    border-color: rgb(223, 223, 225);
+  border-style: solid;
+}
+
+/*End home page changes*/
