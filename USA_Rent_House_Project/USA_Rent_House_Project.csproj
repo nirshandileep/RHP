@@ -211,6 +211,7 @@
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\cover-change.png" />
+    <Content Include="Images\Home\homepage.jpg" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\icon-fb.jpg" />
     <Content Include="Images\icon-googleplus.jpg" />
