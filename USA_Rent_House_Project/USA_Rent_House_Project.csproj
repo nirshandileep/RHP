@@ -295,6 +295,7 @@
     <Content Include="Student\Current_House_Life_View.aspx" />
     <Content Include="Student\Modules\Ctr_PublicQuickLinks.ascx" />
     <Content Include="Student\Modules\Ctr_QuickLinks.ascx" />
+    <Content Include="Student\Modules\CurrentHouse.ascx" />
     <Content Include="Student\Modules\Current_House_Dorms.ascx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Life_View.ascx" />
@@ -309,6 +310,7 @@
     <Content Include="Student\Modules\Student_Profile_Images_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx" />
     <Content Include="Student\Modules\Student_Profile_Wizard.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Comments.ascx" />
@@ -1066,6 +1068,13 @@
     <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.designer.cs">
       <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\CurrentHouse.ascx.cs">
+      <DependentUpon>CurrentHouse.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\CurrentHouse.ascx.designer.cs">
+      <DependentUpon>CurrentHouse.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Modules\Current_House_Dorms.ascx.cs">
       <DependentUpon>Current_House_Dorms.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1163,6 +1172,13 @@
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_Wizard.ascx.cs">
       <DependentUpon>Student_Profile_Wizard.ascx</DependentUpon>

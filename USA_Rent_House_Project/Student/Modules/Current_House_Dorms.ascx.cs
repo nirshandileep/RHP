@@ -15,6 +15,11 @@ namespace USA_Rent_House_Project
 {
     public partial class Current_House_Dorms : System.Web.UI.UserControl
     {
+        public bool IsFromWizard = false;
+
+        public delegate void PassReturnValueToParent(bool WizzardSuccess);
+        public event PassReturnValueToParent WizzardSuccess;
+
         public int HouseTypeId
         {
             get
@@ -206,7 +211,15 @@ namespace USA_Rent_House_Project
             
             if (loggedUser.Save())
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Current_House_Details.aspx';}", true);
+                if (IsFromWizard)
+                {
+                    WizzardSuccess(true);
+                }
+                else
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Current_House_Details.aspx';}", true);
+                }
+                
             }
         }
 
@@ -261,21 +274,7 @@ namespace USA_Rent_House_Project
                             //Base House is updated with new landlord id
                         }
                     }
-
-                    //string strMsgContent = Landloadmessage(Landlorduser.UserId.Value, Landlorduser);
-                    //string strMsgTitle = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is Requesting you to join with Us.";
-                    //int rtn = LandloadSendEmail(Landlorduser.PersonalEmail, strMsgTitle, strMsgContent);
-                    //if (rtn == 1)
-                    //{
-                    //}
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile_Update_Current_House.aspx';}", true);
                 }
-                //}
-                //else
-                //{
-                //    LandloadLabelmessage.Text = "Landlord Details cannot saved. Please try again!";
-                //    // no  Landload id
-                //}
             }
             return landlordId;
         }

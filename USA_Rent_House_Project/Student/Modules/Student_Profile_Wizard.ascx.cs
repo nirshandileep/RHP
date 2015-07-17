@@ -10,14 +10,76 @@ using RHP.Common;
 using System.Web.Security;
 using RHP.CommunicationManagement;
 
-namespace USA_Rent_House_Project.Student.Modules
+namespace USA_Rent_House_Project
 {
     public partial class Student_Profile_Wizard : System.Web.UI.UserControl
     {
         public User user = new User();
 
+        public enum EnumWizardStepIndexes
+        {
+            /// <summary>
+            /// Enter email and password
+            /// </summary>
+            Step1 = 0,
+
+            /// <summary>
+            /// Secret Question and Answer
+            /// </summary>
+            Step2 = 1,
+
+            /// <summary>
+            /// Enter email verification code
+            /// </summary>
+            Step3 = 2,
+
+            /// <summary>
+            /// First, Last, DOB
+            /// </summary>
+            Step4 = 3,
+
+            /// <summary>
+            /// Add current house step, Skip
+            /// </summary>
+            Step5 = 4,
+
+            /// <summary>
+            /// Add Current house
+            /// </summary>
+            Step6 = 5,
+
+            /// <summary>
+            /// Adding current house details
+            /// </summary>
+            Step7 = 6,
+
+            /// <summary>
+            /// Add Roommate
+            /// </summary>
+            Step8 = 7,
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.IsFromWizard = true;
+            Current_House_Dorms1.WizzardSuccess += new Current_House_Dorms.PassReturnValueToParent(WizzardSuccess);
+        }
+
+        protected void WizzardSuccess(bool success)
+        {
+            if (success)
+            {
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step8;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (hdnHouseTypeId.Value.Trim() != string.Empty)
+            {
+                Current_House_Dorms1.HouseTypeId = Int32.Parse(hdnHouseTypeId.Value.Trim());
+            }
+            
             if (!IsPostBack)
             {
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
@@ -26,7 +88,7 @@ namespace USA_Rent_House_Project.Student.Modules
                 }
                 else
                 {
-                    registrationWizard.ActiveStepIndex = 0;
+                    registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step1;
                     string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
 
                     if (AccessCode != string.Empty && AccessCode != null)
@@ -66,7 +128,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
             if (user == null)
             {
-                registrationWizard.ActiveStepIndex = 1;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step2;
                 hdnPassword.Value = txtPassword.Text;
             }
             else
@@ -84,7 +146,7 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (VerifyConfirmationCode(txtCode.Text.Trim()))
             {
-                registrationWizard.ActiveStepIndex = 3;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
             {
@@ -153,11 +215,11 @@ namespace USA_Rent_House_Project.Student.Modules
             //Email activation can be dissabled from config in db
             if (IsActivate)
             {
-                registrationWizard.ActiveStepIndex = 3;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
             {
-                registrationWizard.ActiveStepIndex = 2;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step3;
             }
         }
 
@@ -178,7 +240,7 @@ namespace USA_Rent_House_Project.Student.Modules
             FormsAuthentication.SetAuthCookie(user.PersonalEmail, false);
 
             //Page redirect to student profile.
-            registrationWizard.ActiveStepIndex = 4;
+            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step5;
         }
 
         private bool VerifyConfirmationCode(string verificationCode)
@@ -299,7 +361,119 @@ namespace USA_Rent_House_Project.Student.Modules
 
         protected void btnStep5_Click(object sender, EventArgs e)
         {
+            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step6;
+        }
+
+        protected void btnSkipWizzard_Click(object sender, EventArgs e)
+        {
+            SkipToHomePage();
+        }
+
+        protected void SkipToHomePage()
+        {
             Response.Redirect("~/Student/Current_House.aspx", false);
         }
+
+        protected void LinkButtonAddHouse_Click(object sender, EventArgs e)
+        {
+            HiddenFieldStep.Value = "Step2";
+            Step1.Visible = false;
+            Step2.Visible = true;
+        }
+
+        protected void LinkButtonOnCampus_Click(object sender, EventArgs e)
+        {
+            HiddenFieldStep.Value = "Step3";
+            Step1.Visible = false;
+            Step2.Visible = false;
+            Step3.Visible = true;
+        }
+
+        protected void LinkButtonOffCampus_Click(object sender, EventArgs e)
+        {
+            HiddenFieldStep.Value = "Step4";
+            Step1.Visible = false;
+            Step2.Visible = false;
+            Step3.Visible = false;
+            Step4.Visible = true;
+        }
+
+        #region Current house steps
+
+        /// <summary>
+        /// 1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink3_Click(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.HouseTypeId = 1;
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+            Current_House_Dorms1.LoadControl("CurrentHouse.ascx");
+        }
+
+        /// <summary>
+        /// 2
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink4_Click(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.HouseTypeId = 2;
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+            
+        }
+
+        /// <summary>
+        /// 6
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink8_Click(object sender, EventArgs e)
+        {
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+            Current_House_Dorms1.HouseTypeId = 6;
+        }
+
+        /// <summary>
+        /// 7
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink9_Click(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.HouseTypeId = 7;
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+        }
+
+        /// <summary>
+        /// 8
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink10_Click(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.HouseTypeId = 8;
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+        }
+
+        /// <summary>
+        /// 9
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void HyperLink11_Click(object sender, EventArgs e)
+        {
+            Current_House_Dorms1.HouseTypeId = 9;
+            GotoNextStep(EnumWizardStepIndexes.Step7);
+        }
+
+
+        public void GotoNextStep(EnumWizardStepIndexes option)
+        {
+            registrationWizard.ActiveStepIndex = (int)option;
+        }
+        
+        #endregion
     }
 }
