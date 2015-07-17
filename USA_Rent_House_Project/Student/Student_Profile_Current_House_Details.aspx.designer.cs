@@ -22,6 +22,51 @@ namespace USA_Rent_House_Project.Student {
         protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Header Student_Profile_HeaderID;
         
         /// <summary>
+        /// currentHomeStudent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl currentHomeStudent;
+        
+        /// <summary>
+        /// LeftPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LeftPanel;
+        
+        /// <summary>
+        /// Menu_Bar1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Menu_Bar Menu_Bar1;
+        
+        /// <summary>
+        /// RightPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl RightPanel;
+        
+        /// <summary>
+        /// QuickLinksid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Ctr_QuickLinks QuickLinksid;
+        
+        /// <summary>
         /// Student_Profile_Update_Current_House_Details1 control.
         /// </summary>
         /// <remarks>

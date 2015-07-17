@@ -16,14 +16,62 @@ namespace USA_Rent_House_Project.Land_load.Modules
     public partial class Landloard_Profile_Wizard : System.Web.UI.UserControl
     {
         public User user = new User();
-
         Landlord landload = new Landlord();
+        public bool IsFromWizard = false;
+
+        public enum EnumWizardStepIndexes
+        {
+            /// <summary>
+            /// Enter email and password
+            /// </summary>
+            Step1 = 0,
+
+            /// <summary>
+            /// Secret Question and Answer
+            /// </summary>
+            Step2 = 1,
+
+            /// <summary>
+            /// Enter email verification code
+            /// </summary>
+            Step3 = 2,
+
+            /// <summary>
+            /// First, Last, DOB
+            /// </summary>
+            Step4 = 3,
+
+            /// <summary>
+            /// Add current house step, Skip
+            /// </summary>
+            //Step5 = 4,
+
+            /// <summary>
+            /// Add Current house
+            /// </summary>
+            //Step6 = 5,
+
+            /// <summary>
+            /// Adding current house details
+            /// </summary>
+            //Step7 = 6,
+
+            /// <summary>
+            /// Add Roommate
+            /// </summary>
+            //Step8 = 7,
+
+            /// <summary>
+            /// Add Roommate details
+            /// </summary>
+            //Step9 = 8,
+        }
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step1;
                 if (HttpContext.Current.User.Identity.IsAuthenticated)
                 {
                     Response.Redirect("~/Land_load/Land_load_Profile.aspx", false);
@@ -48,20 +96,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
         public void LoadStudent(Guid AccessCode)
         {
-
             user = User.Select(AccessCode);
-
             if (user != null)
             {
                 if (user.UserId.HasValue && user.IsPartialUser == true)
                 {
-
                     txtEmail.Text = user.PersonalEmail;
                     txtFirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;                    
                     txtLastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;
                 }
             }
-
         }
 
         public bool checkPartialEmail()
@@ -82,19 +126,15 @@ namespace USA_Rent_House_Project.Land_load.Modules
         
         protected void btnStep1_Click(object sender, EventArgs e)
         {
-            registrationWizard.ActiveStepIndex = 1;
-        }
-
-        protected void btnStep2_Click(object sender, EventArgs e)
-        {
-           
+            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step2;
         }
 
         protected void btnVerify_Click(object sender, EventArgs e)
         {
             if (VerifyConfirmationCode(txtCode.Text.Trim()))
             {
-                registrationWizard.ActiveStepIndex = 2;
+                ActivateUserAccount();
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step3;
             }
             else
             {
@@ -113,15 +153,14 @@ namespace USA_Rent_House_Project.Land_load.Modules
             user.Answer = txtAnswer.Text.Trim();
 
             aspnet_Roles aspnet_Roles = new aspnet_Roles();
-            aspnet_Roles = aspnet_Roles.Select("student");
-
+            aspnet_Roles = aspnet_Roles.Select("landlord");
             user.RoleId = aspnet_Roles.RoleId;
 
             bool IsActivate = false;
             IsActivate = SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true" ? false : true;
 
             object objCreateMembershipUser = new object();
-            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "student");
+            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "landlord");
 
             bool boolMembershipUserCreated = false;
             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
@@ -132,6 +171,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
 
                 MembershipUser newUser = Membership.GetUser(user.UserName);
                 user.UserId = Guid.Parse(newUser.ProviderUserKey.ToString());
+                hdnUserId.Value = user.UserId.ToString();
                 user.AspnetUserId = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.CreatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
                 user.UpdatedBy = Guid.Parse(newUser.ProviderUserKey.ToString());
@@ -474,5 +514,12 @@ namespace USA_Rent_House_Project.Land_load.Modules
             return strMsgContent;
         }
 
+        private void ActivateUserAccount()
+        {
+            Guid userId = Guid.Parse(hdnUserId.Value.Trim());
+            MembershipUser usr = Membership.GetUser(userId);
+            usr.IsApproved = true;
+            Membership.UpdateUser(usr);
+        }
     }
 }

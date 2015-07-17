@@ -742,13 +742,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.WizardStep WizardStep8;
         
         /// <summary>
-        /// HyperLink2 control.
+        /// lbtnAddRoomMate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink HyperLink2;
+        protected global::System.Web.UI.WebControls.LinkButton lbtnAddRoomMate;
         
         /// <summary>
         /// Button1 control.
@@ -767,6 +767,15 @@ namespace USA_Rent_House_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.WizardStep WizardStep9;
+        
+        /// <summary>
+        /// Student_Profile_Update_Current_House_Details1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Student.Modules.Student_Profile_Update_Current_House_Details Student_Profile_Update_Current_House_Details1;
         
         /// <summary>
         /// Button4 control.

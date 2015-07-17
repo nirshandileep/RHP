@@ -64,6 +64,7 @@ namespace USA_Rent_House_Project
 
             SetData();
 
+            //The Java script functions are in the actual page, client 
             DrpBaseHouse.Attributes.Add("OnChange", "setHouseIdToHiddenField()");
             DrpDromRooms.Attributes.Add("OnChange", "setRoomIdToHiddenField()");
 

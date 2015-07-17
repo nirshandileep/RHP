@@ -98,14 +98,13 @@
 <script type="text/javascript" language="javascript">
 
     function setHouseIdToHiddenField() {
-        var houseId = $('#MainContent_Current_House_Dorms1_DrpBaseHouse').val();
-        document.getElementById("MainContent_Current_House_Dorms1_HiddenFieldBaseHouseId").value = houseId;
-
+        var houseId = $("#<%= DrpBaseHouse.ClientID %>").val();
+        document.getElementById("#<%= HiddenFieldBaseHouseId.ClientID %>").value = houseId;
     }
 
     function setRoomIdToHiddenField() {
-        var houseId = $('#MainContent_Current_House_Dorms1_DrpDromRooms').val();
-        document.getElementById("MainContent_Current_House_Dorms1_HiddenFieldBaseHouseRoomId").value = houseId;
+        var houseId = $("#<%= DrpDromRooms.ClientID %>").val();
+        document.getElementById("#<%= HiddenFieldBaseHouseRoomId.ClientID %>").value = houseId;
     }
     
 </script>

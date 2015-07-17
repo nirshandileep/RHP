@@ -17,6 +17,8 @@ namespace USA_Rent_House_Project.Student.Modules
 {
     public partial class Student_Profile_Update_Current_House_Details : System.Web.UI.UserControl
     {
+        public bool IsFromWizard = false;
+
         private User _user;
 
         public User user
@@ -48,9 +50,11 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void LoadUserData()
         {
-
             UserDAO userDAO = new UserDAO();
-
+            if (Membership.GetUser() == null)
+            {
+                return;
+            }
             user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
             if (user.HouseId != null || user.BaseHouseRoomId != null)
@@ -61,8 +65,10 @@ namespace USA_Rent_House_Project.Student.Modules
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
-
+                if (!IsFromWizard)
+                {
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);    
+                }
             }
         }
 

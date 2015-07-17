@@ -59,10 +59,11 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="1" 
         DisplaySideBar="False">
         <WizardSteps>
-            <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
+            <asp:WizardStep ID="WizardStep1" runat="server" 
+                Title="Step 1 - Email, password">
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
@@ -119,7 +120,7 @@
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep2" runat="server" Title="Step 2">
+            <asp:WizardStep ID="WizardStep2" runat="server" Title="Step 2 - Secret">
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
@@ -151,7 +152,8 @@
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep3" runat="server" Title="Step 3">
+            <asp:WizardStep ID="WizardStep3" runat="server" 
+                Title="Step 3 - Email Verification">
                 <div class="stepwrapper">
                     <div class="row">
                         <p>
@@ -178,7 +180,8 @@
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep4" runat="server" Title="Step 4">
+            <asp:WizardStep ID="WizardStep4" runat="server" 
+                Title="Step 4 - First, Last Name">
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
@@ -242,3 +245,5 @@
     
     </script>
 </div>
+<asp:HiddenField ID="hdnUserId" runat="server" />
+

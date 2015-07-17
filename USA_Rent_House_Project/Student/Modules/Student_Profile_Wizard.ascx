@@ -2,6 +2,7 @@
     Inherits="USA_Rent_House_Project.Student_Profile_Wizard" %>
 <%@ Register Src="Current_House_Dorms.ascx" TagName="Current_House_Dorms" TagPrefix="uc1" %>
 <%@ Register Src="CurrentHouse.ascx" TagName="CurrentHouse" TagPrefix="uc2" %>
+<%@ Register src="Student_Profile_Update_Current_House_Details.ascx" tagname="Student_Profile_Update_Current_House_Details" tagprefix="uc3" %>
 <script src="../../Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="../../Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
 <style type="text/css">
@@ -63,7 +64,7 @@
         <asp:HiddenField ID="hdnUserId" runat="server" />
         <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="5" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="8" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -279,26 +280,32 @@
                                     </div>
                                     <div id="Step3" runat="server" visible="false">
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink3" runat="server" CssClass="homelargebuttons" OnClick="HyperLink3_Click" onclientclick="SetHouseType(1)">Dorms</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink3" runat="server" CssClass="homelargebuttons" OnClick="HyperLink3_Click"
+                                                OnClientClick="SetHouseType(1)">Dorms</asp:LinkButton></div>
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink4" runat="server" CssClass="homelargebuttons" OnClick="HyperLink4_Click">Appartments 2</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink4" runat="server" CssClass="homelargebuttons" OnClick="HyperLink4_Click"
+                                                OnClientClick="SetHouseType(2)">Appartments</asp:LinkButton></div>
                                         <div class="buttons" style="display: none">
-                                            <asp:LinkButton ID="HyperLink5" runat="server" CssClass="homelargebuttons">Condos 3</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink5" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(3)">Condos</asp:LinkButton></div>
                                         <div class="buttons" style="display: none">
-                                            <asp:LinkButton ID="HyperLink6" runat="server" CssClass="homelargebuttons">Family Housing 4</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink6" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(4)">Family Housing</asp:LinkButton></div>
                                         <div class="buttons" style="display: none">
-                                            <asp:LinkButton ID="HyperLink7" runat="server" CssClass="homelargebuttons">Houses 5</asp:LinkButton>
+                                            <asp:LinkButton ID="HyperLink7" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(9)">Houses</asp:LinkButton>
                                         </div>
                                     </div>
                                     <div id="Step4" runat="server" visible="false">
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink8" runat="server" CssClass="homelargebuttons" OnClick="HyperLink8_Click">Appartments 6</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink8" runat="server" CssClass="homelargebuttons" OnClick="HyperLink8_Click"
+                                                OnClientClick="SetHouseType(6)">Appartments 6</asp:LinkButton></div>
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink9" runat="server" CssClass="homelargebuttons" OnClick="HyperLink9_Click">Condos 7</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink9" runat="server" CssClass="homelargebuttons" OnClick="HyperLink9_Click"
+                                                OnClientClick="SetHouseType(7)">Condos</asp:LinkButton></div>
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink10" runat="server" CssClass="homelargebuttons" OnClick="HyperLink10_Click">Town Home 8</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink10" runat="server" CssClass="homelargebuttons" OnClick="HyperLink10_Click"
+                                                OnClientClick="SetHouseType(8)">Town Home</asp:LinkButton></div>
                                         <div class="buttons">
-                                            <asp:LinkButton ID="HyperLink11" runat="server" CssClass="homelargebuttons" OnClick="HyperLink11_Click">Houses 9</asp:LinkButton>
+                                            <asp:LinkButton ID="HyperLink11" runat="server" CssClass="homelargebuttons" OnClick="HyperLink11_Click"
+                                                OnClientClick="SetHouseType(9)">Houses</asp:LinkButton>
                                         </div>
                                     </div>
                                 </div>
@@ -321,7 +328,8 @@
             <asp:WizardStep ID="WizardStep8" runat="server" Title="Step 8 - Add Roommate">
                 <div class="stepwrapper">
                     <div class="buttons">
-                        <asp:HyperLink ID="HyperLink2" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile.aspx">Add Roommate</asp:HyperLink>
+                        <asp:LinkButton ID="lbtnAddRoomMate" runat="server" CssClass="homelargebuttons" 
+                            OnClick="lbtnAddRoomMate_Click" >Add Roommate</asp:LinkButton>
                     </div>
                     <div class="row">
                         <asp:Button ID="Button1" runat="server" CssClass="actionbutton" Text="Skip" OnClick="btnSkipWizzard_Click" />
@@ -331,10 +339,11 @@
             <asp:WizardStep ID="WizardStep9" runat="server" Title="Step 9 - Add Roommate details">
                 <div class="stepwrapper">
                     <div class="buttons">
-                        //Add the add room mate user control here
+                        &nbsp;<uc3:Student_Profile_Update_Current_House_Details 
+                            ID="Student_Profile_Update_Current_House_Details1" runat="server" />
                     </div>
                     <div class="row">
-                        <asp:Button ID="Button4" runat="server" CssClass="actionbutton" Text="Skip" OnClick="btnSkipWizzard_Click" />
+                        <asp:Button ID="Button4" runat="server" CssClass="actionbutton" Text="Finish" OnClick="btnSkipWizzard_Click" />
                     </div>
                 </div>
             </asp:WizardStep>
@@ -364,4 +373,5 @@
         var houseId = $('#MainContent_Student_Profile_Wizard1_registrationWizard_Current_House_Dorms1_DrpDromRooms').val();
         document.getElementById("MainContent_Student_Profile_Wizard1_registrationWizard_Current_House_Dorms1_HiddenFieldBaseHouseRoomId").value = houseId;
     }
+
 </script>

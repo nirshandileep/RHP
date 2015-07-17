@@ -57,10 +57,16 @@ namespace USA_Rent_House_Project
             /// Add Roommate
             /// </summary>
             Step8 = 7,
+
+            /// <summary>
+            /// Add Roommate details
+            /// </summary>
+            Step9 = 8,
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
+            Student_Profile_Update_Current_House_Details1.IsFromWizard = true;
             Current_House_Dorms1.IsFromWizard = true;
             Current_House_Dorms1.WizzardSuccess += new Current_House_Dorms.PassReturnValueToParent(WizzardSuccess);
         }
@@ -146,12 +152,21 @@ namespace USA_Rent_House_Project
         {
             if (VerifyConfirmationCode(txtCode.Text.Trim()))
             {
+                ActivateUserAccount();
                 registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
             {
                 lblError.Text = "Verification code entered is incorrect.";
             }
+        }
+
+        private void ActivateUserAccount()
+        {
+            Guid userId = Guid.Parse(hdnUserId.Value.Trim());
+            MembershipUser usr = Membership.GetUser(userId);
+            usr.IsApproved = true;
+            Membership.UpdateUser(usr);
         }
 
         /// <summary>
@@ -178,7 +193,7 @@ namespace USA_Rent_House_Project
             IsActivate = SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true" ? false : true;
 
             object objCreateMembershipUser = new object();
-            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "student");
+            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "student");
 
             bool boolMembershipUserCreated = false;
             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
@@ -215,6 +230,8 @@ namespace USA_Rent_House_Project
             //Email activation can be dissabled from config in db
             if (IsActivate)
             {
+                //Activate the user here
+                ActivateUserAccount();
                 registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
@@ -371,7 +388,7 @@ namespace USA_Rent_House_Project
 
         protected void SkipToHomePage()
         {
-            Response.Redirect("~/Student/Current_House.aspx", false);
+            Response.Redirect("~/Student/Student_Profile.aspx", false);
         }
 
         protected void LinkButtonAddHouse_Click(object sender, EventArgs e)
@@ -407,9 +424,7 @@ namespace USA_Rent_House_Project
         /// <param name="e"></param>
         protected void HyperLink3_Click(object sender, EventArgs e)
         {
-            Current_House_Dorms1.HouseTypeId = 1;
             GotoNextStep(EnumWizardStepIndexes.Step7);
-            Current_House_Dorms1.LoadControl("CurrentHouse.ascx");
         }
 
         /// <summary>
@@ -421,7 +436,6 @@ namespace USA_Rent_House_Project
         {
             Current_House_Dorms1.HouseTypeId = 2;
             GotoNextStep(EnumWizardStepIndexes.Step7);
-            
         }
 
         /// <summary>
@@ -475,5 +489,11 @@ namespace USA_Rent_House_Project
         }
         
         #endregion
+
+        protected void lbtnAddRoomMate_Click(object sender, EventArgs e)
+        {
+            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step9;
+
+        }
     }
 }
