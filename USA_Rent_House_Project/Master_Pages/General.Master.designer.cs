@@ -58,6 +58,15 @@ namespace USA_Rent_House_Project.Masrer_Pages {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
         
         /// <summary>
+        /// Footerbottom1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::USA_Rent_House_Project.Modules.Footerbottom Footerbottom1;
+        
+        /// <summary>
         /// HyperLink2 control.
         /// </summary>
         /// <remarks>

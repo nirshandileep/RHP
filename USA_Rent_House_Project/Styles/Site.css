@@ -1,34 +1,33 @@
 ﻿/* DEFAULTS
 ----------------------------------------------------------*/
 
-body   
+body
 {
-    height:100%;
+    height: 100%;
     background: #FFF;
     font-size: .80em;
     font-family: "Helvetica Neue", "Lucida Grande", "Segoe UI", Arial, Helvetica, Verdana, sans-serif;
     margin: 0px;
     padding: 0px;
     color: #3e3e3e;
-  
 }
 
 
 .MobiletextEntry
 {
     width: 55px !important;
-    }
+}
+
 a:link, a:visited
 {
     color: #034af3;
-     text-decoration: none;
+    text-decoration: none;
 }
 
 a:hover
 {
     color: #1d60ff;
-    font-weight:bold;
-   
+    font-weight: bold;
 }
 
 a:active
@@ -39,7 +38,6 @@ a:active
 p
 {
     margin-bottom: 0px;
-  
 }
 
 
@@ -112,16 +110,16 @@ first child of the left and right table columns */
     width: 100%;
 }
 
-.header h1
-{
-    font-weight: 700;
-    margin: 0px;
-    padding: 0px 0px 0px 20px;
-    color: #f9f9f9;
-    border: none;
-    line-height: 2em;
-    font-size: 2em;
-}
+    .header h1
+    {
+        font-weight: 700;
+        margin: 0px;
+        padding: 0px 0px 0px 20px;
+        color: #f9f9f9;
+        border: none;
+        line-height: 2em;
+        font-size: 2em;
+    }
 
 .main
 {
@@ -138,7 +136,7 @@ first child of the left and right table columns */
     min-height: 200px;
 }
 
- /*
+/*
 
  #body {
    padding:10px;
@@ -163,8 +161,8 @@ first child of the left and right table columns */
 
 div.hideSkiplink
 {
-    background-color:#3a4f63;
-    width:100%;
+    background-color: #3a4f63;
+    width: 100%;
 }
 
 div.menu
@@ -172,39 +170,39 @@ div.menu
     padding: 4px 0px 4px 8px;
 }
 
-div.menu ul
-{
-    list-style: none;
-    margin: 0px;
-    padding: 0px;
-    width: auto;
-}
+    div.menu ul
+    {
+        list-style: none;
+        margin: 0px;
+        padding: 0px;
+        width: auto;
+    }
 
-div.menu ul li a, div.menu ul li a:visited
-{
-    background-color: #465c71;
-    border: 1px #4e667d solid;
-    color: #dde4ec;
-    display: block;
-    line-height: 1.35em;
-    padding: 4px 20px;
-    text-decoration: none;
-    white-space: nowrap;
-}
+        div.menu ul li a, div.menu ul li a:visited
+        {
+            background-color: #465c71;
+            border: 1px #4e667d solid;
+            color: #dde4ec;
+            display: block;
+            line-height: 1.35em;
+            padding: 4px 20px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
 
-div.menu ul li a:hover
-{
-    background-color: #bfcbd6;
-    color: #465c71;
-    text-decoration: none;
-}
+            div.menu ul li a:hover
+            {
+                background-color: #bfcbd6;
+                color: #465c71;
+                text-decoration: none;
+            }
 
-div.menu ul li a:active
-{
-    background-color: #465c71;
-    color: #cfdbe6;
-    text-decoration: none;
-}
+            div.menu ul li a:active
+            {
+                background-color: #465c71;
+                color: #cfdbe6;
+                text-decoration: none;
+            }
 
 /* FORM ELEMENTS   
 ----------------------------------------------------------*/
@@ -212,55 +210,45 @@ div.menu ul li a:active
 
 #formwrapper
 {
-    
-   
     -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-    
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
 #forminner
 {
-   
-    background-color:#ffffff;
-   
+    background-color: #ffffff;
     -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-  
+    -moz-border-radius: 5px;
+    border-radius: 5px;
 }
 
-#forminner label
-{
-    
-    display: inline-block;
-    margin: 1%;  
-    width: 21%;
-}
+    #forminner label
+    {
+        display: inline-block;
+        margin: 1%;
+        width: 21%;
+    }
 
-#forminner input, #forminner select
-{
-    width:30%;
-    
-}
+    #forminner input, #forminner select
+    {
+        width: 30%;
+    }
 
 input[type="checkbox"]
 {
-    
-     float: left;
+    float: left;
     margin: 8px 0;
     width: 30px !important;
 }
 
 input, input[type="text"], select
 {
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
-   border-radius: 5px;
-   padding:10px 8px; 
-   border:solid 1px #cecece;
-   
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding: 10px 8px;
+    border: solid 1px #cecece;
 }
 
 .form_heading
@@ -282,22 +270,22 @@ input, input[type="text"], select
 
 input.actionbutton
 {
-     display:inline-block;
-    background-color:#0e72b8;
-    color:#ffffff;
-    padding:10px 30px;
-    font-size:1.2em;
-    text-decoration:none;   
+    display: inline-block;
+    background-color: #0e72b8;
+    color: #ffffff;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    text-decoration: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-input.actionbutton:hover
-{
-    background-color:#083e64;
-}
+    input.actionbutton:hover
+    {
+        background-color: #083e64;
+    }
 
 
 /* MISC  
@@ -323,23 +311,23 @@ input.actionbutton:hover
     margin: 0 auto;
     padding: 7px;
     text-align: right;
-    width: 1175px;    
+    width: 1175px;
 }
 
-.loginDisplay a:link
-{
-    color: #3e3e3e;
-}
+    .loginDisplay a:link
+    {
+        color: #3e3e3e;
+    }
 
-.loginDisplay a:visited
-{
-    color: #3e3e3e;
-}
+    .loginDisplay a:visited
+    {
+        color: #3e3e3e;
+    }
 
-.loginDisplay a:hover
-{
-    color: #3e3e3e;
-}
+    .loginDisplay a:hover
+    {
+        color: #3e3e3e;
+    }
 
 .failureNotification
 {
@@ -354,7 +342,7 @@ input.actionbutton:hover
 
 .submitButton
 {
-    text-align:left;
+    text-align: left;
 }
 
 /* ------------------------------- Main Master ---------------------------- */
@@ -362,107 +350,104 @@ input.actionbutton:hover
 
 #topheader
 {
- 
-    background-color:#fff;
-    padding:15px 0 0 0;
-    margin-bottom:15px;
+    background-color: #fff;
+    padding: 15px 0 0 0;
+    margin-bottom: 15px;
 }
 
 #topheaderinner
 {
-    width: 1200px; 
-    margin:0 auto;
+    width: 1200px;
+    margin: 0 auto;
 }
 
 #wrapper
 {
-   width: 1200px; 
-  min-height:500px;
- 
-    margin:0 auto;
-    overflow:hidden;
- 
-    margin-bottom:60px;
-    
-     /* min-height:100%;*/
-   position:relative;
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-bottom: 60px;
+    /* min-height:100%;*/
+    position: relative;
 }
+
 .footerleft
 {
-    float:left;
+    float: left;
 }
 
 .footerright
 {
-    float:right;
+    float: right;
 }
 
 #footer
 {
     border-top: 1px solid;
-    clear: both;   
+    clear: both;
     margin-top: 50px;
-    padding: 10px;   
+    padding: 10px;
 }
 
 #two-col-1
 {
-    width:48%;
-    margin-right:2%;
-    margin-left:2%;
-    float:left;
+    width: 48%;
+    margin-right: 2%;
+    margin-left: 2%;
+    float: left;
 }
 
 .center-col
 {
-    width:340px;
-    margin:0 auto;
+    width: 340px;
+    margin: 0 auto;
 }
 
 .ContactUs-center-col
 {
-    width:80%;
-    margin:0 auto;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #two-col-2
 {
-    width:45%;
-    margin-right:2%;
-    float:right;
+    width: 45%;
+    margin-right: 2%;
+    float: right;
 }
 
 #three-col-1
 {
-    width:30%;
-    float:left;
+    width: 30%;
+    float: left;
 }
 
 #three-col-2
 {
-    width:70%;
-    float:right;
+    width: 70%;
+    float: right;
 }
 
 
 .leftfloat
 {
-    float:left;
+    float: left;
 }
 
 .rightfloat
 {
-    float:right;
+    float: right;
 }
 
 .centerfloat
 {
-    text-align:center;
+    text-align: center;
 }
 
 .clear
 {
-    clear:both;
+    clear: both;
 }
 
 /*@media screen and (max-width: 980px) {
@@ -597,13 +582,12 @@ input.homelargebuttons, input.searchbuttonslarge
 
 #div_Home
 {
-    margin:50px 0;
+    margin: 50px 0;
 }
 
 div.buttons
 {
-    text-align:center;   
-   
+    text-align: center;
 }
 
 .homeheading
@@ -616,107 +600,99 @@ div.buttons
 
 .homeheadingsub
 {
-    
     color: #ea8400;
     font-size: 1.5em;
     font-style: italic;
     margin-bottom: 65px;
     text-align: center;
     text-transform: lowercase;
-    
 }
 
-a.homelargebuttons 
+a.homelargebuttons
 {
-    display:inline;
-    float:left;
-    margin:10px 0  15px 30px;
-    background-color:#0e72b8;
-    color:#ffffff;
-    padding:7px;
-    font-size:1.9em;
-   
-    text-decoration:none;
-    width:270px;
+    display: inline;
+    float: left;
+    margin: 10px 0 15px 30px;
+    background-color: #0e72b8;
+    color: #ffffff;
+    padding: 7px;
+    font-size: 1.9em;
+    text-decoration: none;
+    width: 270px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-   
 }
 
-a.homelargebuttons:hover
-{
-    background-color:#083e64;
-    font-weight:normal;
-}
+    a.homelargebuttons:hover
+    {
+        background-color: #083e64;
+        font-weight: normal;
+    }
 
 .socialmediaicons
 {
-    width:40%;
-    margin:5% auto;
-    text-align:center;
+    width: 40%;
+    margin: 5% auto;
+    text-align: center;
 }
 
-.socialmediaicons img
-{
-    
-    margin: 10px;
-    width: 40px;
-}
+    .socialmediaicons img
+    {
+        margin: 10px;
+        width: 40px;
+    }
 
 
-input.homelargebuttons 
+input.homelargebuttons
 {
-    display:inline;
-    float:left;
-    margin:10px 0  15px 30px;
-    background-color:#0e72b8;
-    color:#ffffff;
-    padding:15px;
-    font-size:1.9em;
-   
-    text-decoration:none;
-    width:270px;
+    display: inline;
+    float: left;
+    margin: 10px 0 15px 30px;
+    background-color: #0e72b8;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 1.9em;
+    text-decoration: none;
+    width: 270px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-   
 }
 
-input.homelargebuttons:hover
+    input.homelargebuttons:hover
+    {
+        background-color: #083e64;
+    }
+
+
+
+input.searchbuttonslarge
 {
-    background-color:#083e64;
-}
-
-
-
-input.searchbuttonslarge 
-{
-    display:inline;
-    float:left;
-    margin:10px 0  5px 30px;
-    background-color:#0e72b8;
-    color:#ffffff;
-    padding:3px;
-    font-size:1.5em;
-    cursor:pointer;  
-    text-decoration:none;
-    width:270px;
+    display: inline;
+    float: left;
+    margin: 10px 0 5px 30px;
+    background-color: #0e72b8;
+    color: #ffffff;
+    padding: 3px;
+    font-size: 1.5em;
+    cursor: pointer;
+    text-decoration: none;
+    width: 270px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-   
 }
 
-input.searchbuttonslarge:hover
-{
-    background-color:#083e64;
-}
+    input.searchbuttonslarge:hover
+    {
+        background-color: #083e64;
+    }
 
 
 .searchbuttons
 {
-    width:650px;
+    width: 650px;
     margin: 0 auto;
 }
 
@@ -726,21 +702,21 @@ input.searchbuttonslarge:hover
 
 .logintext
 {
-    margin-left:10%;
+    margin-left: 10%;
 }
 
 .facebookloginclass
 {
-    display:inline-block;
-    background-image:url("../Images/login_with_facebook.png");
-    background-repeat:no-repeat;
-    text-indent:-9999px;
-    width:200px;
-    color:#ffffff;
-    padding:15px 30px;
-    font-size:1.2em;
-    margin:10px 0;
-    text-decoration:none; 
+    display: inline-block;
+    background-image: url("../Images/login_with_facebook.png");
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+    width: 200px;
+    color: #ffffff;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-decoration: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -750,58 +726,56 @@ input.searchbuttonslarge:hover
 
 .logintext p
 {
-    color:#0e72b8;
-    font-size:1.5em;
-    width:60%;
-    float:left;
+    color: #0e72b8;
+    font-size: 1.5em;
+    width: 60%;
+    float: left;
 }
 
 div.signupfloatright
 {
-    float:left;
-    width:40%; 
-    margin-top:3%;  
+    float: left;
+    width: 40%;
+    margin-top: 3%;
 }
 
-a.signupbutton 
+a.signupbutton
 {
-    display:inline-block;
-    background-color:#ee7f13;
-    color:#ffffff;
-    padding:10px 25px;
-    font-size:1.2em;
-    margin:10px 0;
-    text-decoration:none; 
+    display: inline-block;
+    background-color: #ee7f13;
+    color: #ffffff;
+    padding: 10px 25px;
+    font-size: 1.2em;
+    margin: 10px 0;
+    text-decoration: none;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
-   
 }
 
-a.signupbutton:hover
-{
-    background-color:#ffad5d;
-}
+    a.signupbutton:hover
+    {
+        background-color: #ffad5d;
+    }
 
 .loginlabel
 {
-    color:#0e72b8;
-    font-size:1.3em;
-    display:block !important;
-    border:none !important;
+    color: #0e72b8;
+    font-size: 1.3em;
+    display: block !important;
+    border: none !important;
 }
 
 #div_home .logintextboxes
 {
-    width:95%;
-    padding:3% ;
-    margin:5px 0;
+    width: 95%;
+    padding: 3%;
+    margin: 5px 0;
 }
 
 .loginfieldcontainer
 {
-    margin:15px 0;
-   
+    margin: 15px 0;
 }
 
 a.loginlinks
@@ -815,16 +789,16 @@ a.loginlinks
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     border-radius: 15px;
-    cursor:pointer;
-    margin-top:10px;
-    font-size:0.9em;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9em;
 }
 
-a.loginlinks:hover
-{
-    background-color:#083e64;
-    font-weight:normal;
-}
+    a.loginlinks:hover
+    {
+        background-color: #083e64;
+        font-weight: normal;
+    }
 
 
 
@@ -843,25 +817,26 @@ a.loginlinks_img
     width: 88%;
 }
 
-a.loginlinks_img:hover
-{
-    background-color:#083e64;
-}
+    a.loginlinks_img:hover
+    {
+        background-color: #083e64;
+    }
 
 
 #MainContent_Student_Profile_CommentsID_StudentCommentsData .aspNetDisabled, .comments_LL, #MainContent_Landload_Profile_Comments1_DataListStudentComments .aspNetDisabled
 {
-    float:right;
+    float: right;
 }
 
 
 #MainContent_Landload_Profile_Comments1_DataListStudentComments
 {
-    width:700px;
+    width: 700px;
 }
+
 .formlinkswidthleft
 {
-    width:70%;
+    width: 70%;
 }
 
 
@@ -871,35 +846,32 @@ a.loginlinks_img:hover
 {
     height: 320px;
     margin: 0 auto;
-    
     position: relative;
     width: 1200px;
 }
 
 #MainContent_Student_Profile_HeaderID_HeaderImage, #MainContent_Student_Public_Profile_HeaderID_HeaderImage, #MainContent_Landload_Profile_Header1_HeaderImage, #MainContent_Landload_Public_Profile_Header1_HeaderImage img
 {
-    width:1195px;
-    height:225px;
-    overflow:hidden;
+    width: 1195px;
+    height: 225px;
+    overflow: hidden;
     border: 3px solid;
 }
 
-#MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img, #MainContent_Landload_Profile_Header1_HeaderImage img, #MainContent_Landload_Public_Profile_Header1_HeaderImage img
-{
-    width:1195px !important;
-    height:225px;
-   
-}
+    #MainContent_Student_Profile_HeaderID_HeaderImage img, #MainContent_Student_Public_Profile_HeaderID_HeaderImage img, #MainContent_Landload_Profile_Header1_HeaderImage img, #MainContent_Landload_Public_Profile_Header1_HeaderImage img
+    {
+        width: 1195px !important;
+        height: 225px;
+    }
 
 
 #MainContent_Student_Profile_HeaderID_StudentProfileImage, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage, #MainContent_Landload_Profile_Header1_imgLandloadProfileImage, #MainContent_Landload_Public_Profile_Header1_imgLandloadProfileImage
 {
-   border: 5px solid #fff;
+    border: 5px solid #fff;
     box-shadow: 0 0 2px #000;
     height: 100px;
     left: 1px;
-    border-radius:5px;
-   
+    border-radius: 5px;
     position: absolute;
     top: 210px;
     width: 100px;
@@ -911,20 +883,19 @@ a.loginlinks_img:hover
 #MainContent_Student_Profile_HeaderID_CurrentHouseImage, #MainContent_Student_Public_Profile_HeaderID_CurrentHouseImage
 {
     border: 5px solid #fff;
-    box-shadow: 0 0 2px #000;  
+    box-shadow: 0 0 2px #000;
     height: 101px;
     margin: 5px;
-
     position: relative;
     right: -520px;
     top: 0px;
-    width: 100px
+    width: 100px;
 }
 
 #MainContent_Student_Profile_DataID_currentHomeStudent, #MainContent_Student_Public_Profile_DataID_currentHomeStudent
 {
-    margin:0 auto;
-    width:1200px;
+    margin: 0 auto;
+    width: 1200px;
 }
 
 #MainContent_Student_Profile_HeaderID_LandloadProfileImage, #MainContent_Student_Public_Profile_HeaderID_LandloadProfileImage
@@ -941,19 +912,16 @@ a.loginlinks_img:hover
 
 #MainContent_Student_Profile_DataID_LeftPanel, #MainContent_Student_Public_Profile_DataID_LeftPanel, #MainContent_LeftPanel, #MainContent_Landload_Profile_Data1_LeftPanel, #LeftPanel
 {
-    float: left;   
+    float: left;
     padding: 60px 0;
     width: 17%;
-   
-   
 }
 
 #MainContent_LeftPanel_LandL
 {
-    float: left;   
+    float: left;
     padding: 50px 0;
     width: 17%;
-    
 }
 
 #MainContent_Student_Profile_DataID_RightPanel, #MainContent_Student_Public_Profile_DataID_RightPanel, #MainContent_RightPanel, #MainContent_Landload_Profile_Data1_RightPanel, #RightPanel
@@ -966,7 +934,6 @@ a.loginlinks_img:hover
 
 #RightPanel_public
 {
-   
     margin: 0 auto;
     padding: 55px 0;
     width: 690px;
@@ -974,40 +941,38 @@ a.loginlinks_img:hover
 
 #MainContent_RightPanelLL, #RightPanelLL
 {
-   float: left;
+    float: left;
     margin-left: 2%;
     margin-top: -125px;
     padding: 55px 0;
     position: relative;
     width: 81%;
     z-index: 15;
-   
 }
 
 
 #MainContent_LeftPanelLL
 {
-    float: left;   
+    float: left;
     padding: 15px 0;
-    width: 17%; 
+    width: 17%;
 }
+
 .comment_box
 {
-    float:right;
+    float: right;
     margin-left: 2%;
     padding: 15px 0;
     width: 80%;
 }
 
-#MainContent_Student_Profile_CommentsID_StudentComments, 
-
+#MainContent_Student_Profile_CommentsID_StudentComments,
 {
-   
     clear: both;
     margin: 0 auto;
     padding: 15px 0;
     width: 80%;
-    float:right;
+    float: right;
 }
 
 
@@ -1015,276 +980,318 @@ a.loginlinks_img:hover
 
 .imagegallerycontainer
 {
-        float:left;
-        margin: 15px 15px 15px 10px;
-        width:350px;
-       
+    float: left;
+    margin: 15px 15px 15px 10px;
+    width: 350px;
 }
 
 #MainContent_Landload_Profile_Banner1_LandloadBanner .imagegallerycontainer, #MainContent_Landload_Profile_Banner2_LandloadBanner .imagegallerycontainer
 {
-    float:left;
-        margin:15px;
-        width:100%;
-    
+    float: left;
+    margin: 15px;
+    width: 100%;
 }
 
 #MainContent_Student_Profile_DataID_DataListStudentList .imagegallerycontainer, #MainContent_Current_House_RoomMate_infoID_DataListStudentList .imagegallerycontainer
 {
-   
     float: left;
     margin: 5px 40px;
-   width:350px;
+    width: 350px;
 }
 
 .imagegallery, imagegallery img
 {
-   border: 5px solid #fff;
+    border: 5px solid #fff;
     border-radius: 10px;
     box-shadow: 0 0 2px #000;
     float: left;
     height: 60px;
     margin: 0 5% 10px 0;
     width: 60px;
-    overflow:hidden;
+    overflow: hidden;
 }
 
-.imagegallery a img
-{
- width: 60px;   
- height: 60px;
-}
+    .imagegallery a img
+    {
+        width: 60px;
+        height: 60px;
+    }
 
 
 .lblnames
 {
-    float:left;
+    float: left;
 }
 
 #MainContent_Student_Profile_DataID_Search, #MainContent_Student_Public_Profile_DataID_Search
 {
-    text-align:right;
+    text-align: right;
 }
 
 
 table#MainContent_House_Option_Add1_chkOptionList
 {
-    width:100%;
+    width: 100%;
 }
+
 #MainContent_House_Option_Add1_chkOptionList label
 {
     overflow: hidden;
     text-overflow: ellipsis;
     width: 85px;
-    
 }
 
 table#MainContent_House_ListID_DataListHouseList td
 {
-    border-bottom:1px solid #707070;
-    padding-top:10px;
-    padding-bottom:10px;
+    border-bottom: 1px solid #707070;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 /* grid view styling start*/
-.Grid {background-color: #fff; margin: 5px 0 10px 0; border: solid 1px #525252; border-collapse:collapse; font-family:Calibri; color: #474747;}
-.Grid td {
-      padding: 2px;
-      border: solid 1px #c1c1c1; }
-.Grid th  {
-      padding : 4px 2px;
-      color: #fff;
-      background: #0e72b8;
-      border-left: solid 1px #525252;
-      font-size: 0.9em; }
-.Grid .alt {
-      background: #fcfcfc;}
-.Grid .pgr {background: #363670; }
-.Grid .pgr table { margin: 3px 0; }
-.Grid .pgr td { border-width: 0; padding: 0 6px; border-left: solid 1px #666; font-weight: bold; color: #fff; line-height: 12px; }  
-.Grid .pgr a { color: Gray; text-decoration: none; }
-.Grid .pgr a:hover { color: #000; text-decoration: none; }
+.Grid
+{
+    background-color: #fff;
+    margin: 5px 0 10px 0;
+    border: solid 1px #525252;
+    border-collapse: collapse;
+    font-family: Calibri;
+    color: #474747;
+}
+
+    .Grid td
+    {
+        padding: 2px;
+        border: solid 1px #c1c1c1;
+    }
+
+    .Grid th
+    {
+        padding: 4px 2px;
+        color: #fff;
+        background: #0e72b8;
+        border-left: solid 1px #525252;
+        font-size: 0.9em;
+    }
+
+    .Grid .alt
+    {
+        background: #fcfcfc;
+    }
+
+    .Grid .pgr
+    {
+        background: #363670;
+    }
+
+        .Grid .pgr table
+        {
+            margin: 3px 0;
+        }
+
+        .Grid .pgr td
+        {
+            border-width: 0;
+            padding: 0 6px;
+            border-left: solid 1px #666;
+            font-weight: bold;
+            color: #fff;
+            line-height: 12px;
+        }
+
+        .Grid .pgr a
+        {
+            color: Gray;
+            text-decoration: none;
+        }
+
+            .Grid .pgr a:hover
+            {
+                color: #000;
+                text-decoration: none;
+            }
 /* grid view styling end*/
 
- .homebuttonsdiv
+.homebuttonsdiv
 {
     margin: 0 auto;
-    overflow: hidden;   
+    overflow: hidden;
     width: 990px;
 }
 
 #MainContent_Student_Profile_DataID_StudentRating
 {
-    float:left;
-    width:30%;
+    float: left;
+    width: 30%;
 }
 
 #MainContent_Student_Profile_DataID_StudentHouseData
 {
-    float:right;
-    margin-right:340px;
-   
+    float: right;
+    margin-right: 340px;
 }
 
 #MainContent_Student_Profile_CommentsID_DataListStudentComments td, #MainContent_Landload_Profile_Comments1_DataListStudentComments td
 {
-    border-bottom:1px solid #cdcdcd;
-    padding:12px;
+    border-bottom: 1px solid #cdcdcd;
+    padding: 12px;
 }
 
 ul.level1 li a
 {
-  /* background-color: #0e72b8;*/
+    /* background-color: #0e72b8;*/
     border-bottom: 1px solid;
-  /*   color: #fff;*/
+    /*   color: #fff;*/
     display: block;
     padding: 10px;
     width: 140px;
 }
 
-ul.level1 li a:hover
-{
- /*background-color: #083e64;   */  
- color: #083e64;
-}
+    ul.level1 li a:hover
+    {
+        /*background-color: #083e64;   */
+        color: #083e64;
+    }
 
 .floatright
 {
-    float:right;
+    float: right;
 }
 
 .floatleft
 {
-    float:left;
+    float: left;
 }
 
 #MainContent_Student_Profile_Comment_Add1_ASPxRatingvalue
 {
-    float:right;
+    float: right;
 }
 
 
 #MainContent_DataListStudentSearchresults, #MainContent_DataListHouseSearchresults
 {
-    width:100%;
+    width: 100%;
 }
 
-#MainContent_DataListStudentSearchresults td, #MainContent_DataListHouseSearchresults td
-{
-     background-color: #f4f4f4;
-    border-bottom: 1px solid #707070;
-    font-size: 0.9em;
-    padding: 10px 30px;
-}
+    #MainContent_DataListStudentSearchresults td, #MainContent_DataListHouseSearchresults td
+    {
+        background-color: #f4f4f4;
+        border-bottom: 1px solid #707070;
+        font-size: 0.9em;
+        padding: 10px 30px;
+    }
 
 #MainContent_Landload_Profile_Banner1_LandloadBanner
 {
-    text-align:center;
+    text-align: center;
 }
 
 #MainContent_House_ListID_DataListHouseList
 {
-    width:100%;
+    width: 100%;
 }
 
 
-#MainContent_House_ListID_DataListHouseList td
-{
-    background-color: #f4f4f4;
-    border-bottom: 1px solid #707070;
-    font-size:1em;
-    padding: 10px 30px;
-}
+    #MainContent_House_ListID_DataListHouseList td
+    {
+        background-color: #f4f4f4;
+        border-bottom: 1px solid #707070;
+        font-size: 1em;
+        padding: 10px 30px;
+    }
 
 
 input#MainContent_Student_School_info1_DrpSchoolName_I
 {
-    width:100% !important;
+    width: 100% !important;
 }
 
 
 .publicrating
 {
-     position: absolute;
+    position: absolute;
     right: 30px;
     top: 150px;
 }
-.publicrating h2
-{
-    color:#fff;
-}
+
+    .publicrating h2
+    {
+        color: #fff;
+    }
 
 .puliclinks
 {
-    height:1px;
-     margin-top: -80px;
+    height: 1px;
+    margin-top: -80px;
     position: relative;
     right: -257px;
     z-index: 80;
 }
 
-.publicimagegallerycontainer {
-       float: left;
+.publicimagegallerycontainer
+{
+    float: left;
     margin: 80px 0 0 0;
     width: 100%;
 }
 
 .LLpublicrating
 {
-     color: #fff;
+    color: #fff;
     margin-right: 23px;
     margin-top: -190px;
     position: relative;
     z-index: 20;
 }
 
-#MainContent_Landload_Public_Profile_Header1_StidentProfileHeader .publicLLname{
-	color: #666;
-display: inline-block;
-font-size: 1.3em;
-font-weight: bold;
-margin-left: 3px;
-
-width: 115px;
-text-decoration: none;
+#MainContent_Landload_Public_Profile_Header1_StidentProfileHeader .publicLLname
+{
+    color: #666;
+    display: inline-block;
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-left: 3px;
+    width: 115px;
+    text-decoration: none;
 }
+
 #MainContent_HyperLinkPublicView, .llpublicsearch
 {
-    z-index:20;
-    position:relative;
- 
+    z-index: 20;
+    position: relative;
 }
 
 #MainContent_Student_Profile_CommentsID_StudentComments
 {
-   /* float:right;*/
-   
+    /* float:right;*/
 }
 
 #MainContent_Search
 {
-    float:right;
+    float: right;
 }
 
 .LLcommentstar
 {
-    float:right;
+    float: right;
 }
 
 
 .comment_text_LL
 {
-    width:790px;
+    width: 790px;
 }
+
 .LLcommenttext
 {
-    float:left;
-    width:550px;
+    float: left;
+    width: 550px;
 }
 
 .changecoverlink
 {
-     background-image: url("../Images/cover-change.png");
+    background-image: url("../Images/cover-change.png");
     background-repeat: no-repeat;
     display: block;
     height: 37px;
@@ -1294,12 +1301,11 @@ text-decoration: none;
     top: 137px;
     width: 176px;
     z-index: 200;
-    
 }
 
 .changeprofilelink
 {
-      background-image: url("../Images/profile-change.png");
+    background-image: url("../Images/profile-change.png");
     background-repeat: no-repeat;
     display: block;
     height: 25px;
@@ -1311,25 +1317,27 @@ text-decoration: none;
     z-index: 200;
 }
 
-#MainContent_Student_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Student_Profile_HeaderID_imgStudentProfileImage img, #MainContent_Student_Profile_HeaderID_imgLandloadProfileImage img, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage img , #MainContent_Student_Public_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Landload_Profile_Header1_LandloadProfileImage img
+#MainContent_Student_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Student_Profile_HeaderID_imgStudentProfileImage img, #MainContent_Student_Profile_HeaderID_imgLandloadProfileImage img, #MainContent_Student_Public_Profile_HeaderID_StudentProfileImage img, #MainContent_Student_Public_Profile_HeaderID_imgCurrentHouseImage img, #MainContent_Landload_Profile_Header1_LandloadProfileImage img
 {
-    width:100px;
-    height:100px;   
+    width: 100px;
+    height: 100px;
 }
 
-    
+
 #MainContent_Student_Profile_HeaderID_ProfileUserName, #MainContent_Student_Public_Profile_HeaderID_ProfileUserName
 {
     display: block;
     margin-left: -6px;
     margin-top: 8px;
-    font-weight:bold;
-    color:#666;
-    text-decoration:none;
-    font-size:1.3em;
+    font-weight: bold;
+    color: #666;
+    text-decoration: none;
+    font-size: 1.3em;
 }
-#MainContent_Student_Public_Profile_HeaderID_ProfileUserName{
-width:250px;
+
+#MainContent_Student_Public_Profile_HeaderID_ProfileUserName
+{
+    width: 250px;
 }
 
 #MainContent_Student_Profile_HeaderID_ProfileLandlordName, #MainContent_Student_Public_Profile_HeaderID_ProfileLandlordName
@@ -1348,19 +1356,19 @@ width:250px;
 
 #MainContent_Landload_Profile_Header1_ProfileUserName
 {
-     color: #666666;
+    color: #666666;
     display: inline-block;
     font-size: 1.3em;
     font-weight: bold;
     margin-left: 3px;
     margin-top: 94px;
-    width:115px;
+    width: 115px;
     text-decoration: none;
 }
 
 #MainContent_Landload_Profile_Header1_StidentProfileHeader #MyRatings
 {
-     color: #fff;
+    color: #fff;
     font-weight: bold;
     position: absolute;
     right: 29px;
@@ -1370,23 +1378,22 @@ width:250px;
 
 #MainContent_Landload_Profile_Comments1_StudentCommentsData
 {
-    width:500px;
-    
+    width: 500px;
 }
 
 #MainContent_HouseDetails
 {
-    float:right;
+    float: right;
 }
 
 #MainContent_Student_Public_Profile_DataID_RightPanel
 {
-    margin-left:0px;
+    margin-left: 0px;
 }
 
 #MainContent_Student_Profile_CommentsID_DataListStudentComments
 {
-    width:590px;
+    width: 590px;
 }
 
 .student_public_about_search
@@ -1398,48 +1405,48 @@ width:250px;
 
 #forminfo label
 {
-    width:30%;
+    width: 30%;
 }
 
 #forminfo
 {
-    margin-top:35px;
+    margin-top: 35px;
 }
 
 #MainContent_Student_Profile_Comment_Add1_Options a, #MainContent_Landload_Profile_Comment_Add1_Options a
 {
-     background-color: #f6f6f6;
+    background-color: #f6f6f6;
     color: #666;
     display: inline-block;
     margin: 15px 0 0px;
     padding: 7px 15px;
 }
 
-#MainContent_Student_Profile_Comment_Add1_Options a:hover, #MainContent_Landload_Profile_Comment_Add1_Options a:hover
-{
-    font-weight:normal;
-    background-color:#0e72b8;
-    color:#fff; 
-}
+    #MainContent_Student_Profile_Comment_Add1_Options a:hover, #MainContent_Landload_Profile_Comment_Add1_Options a:hover
+    {
+        font-weight: normal;
+        background-color: #0e72b8;
+        color: #fff;
+    }
 
 #MainContent_Student_Profile_Comment_Add1_Options, #MainContent_Landload_Profile_Comment_Add1_Options
 {
-    border-bottom:1px solid #bdc7d8;
-    color:#bdc7d8;
-    width:590px;
+    border-bottom: 1px solid #bdc7d8;
+    color: #bdc7d8;
+    width: 590px;
 }
 
 #MainContent_Landload_Public_Profile_Data1_HouseDetails
 {
-    float:right;
+    float: right;
 }
 
 
 #MainContent_Current_Students_Add1_StudentListData .imagegallerycontainer
 {
-    width:350px;
+    width: 350px;
 }
- 
+
 .ll_info_search_bar, .LL_PP_Searchbar
 {
     position: relative;
@@ -1451,59 +1458,81 @@ width:250px;
 {
     width: 700px;
     word-wrap: break-word;
-    line-height:1.6em;
+    line-height: 1.6em;
 }
 
 
 
 /*Begin home page changes*/
-.homebuttonsdiv { 
-  margin-top: -40px;
+
+.homebuttonsdiv
+{
+    margin-top: -40px;
 }
 
 .sharebutton
 {
     text-align: center;
-  font-size: 1.9em;
-  padding-top: 15px;
+    font-size: 1.9em;
+    padding-top: 15px;
 }
 
-.socialmediaicons 
+.socialmediaicons
 {
     margin-top: 15px;
     height: 0px;
-      width: 25%;
-    
+    width: 25%;
 }
 
 .socialmediaicons-inner
 {
-    border-style:solid;
-  border-color: rgb(223, 223, 225);
-    border-left:none;
-    border-right:none;
-    border-bottom:none;
-    
-    
-}
-
-
-a.homesharebuttons {
-  display: inline;  
-  background-color: #0e72b8;
-    color: #ffffff;
-  text-decoration: none;
- 
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-    padding-left: 25px;
-  padding-right: 25px;
-  font-size: smaller;
-    border-color: black;
-  border-style: solid;
+    border-style: solid;
     border-color: rgb(223, 223, 225);
-  border-style: solid;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
+
+
+a.homesharebuttons
+{
+    display: inline;
+    background-color: #0e72b8;
+    color: #ffffff;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: smaller;
+    border-color: black;
+    border-style: solid;
+    border-color: rgb(223, 223, 225);
+    border-style: solid;
+}
+
+.imgfooter
+{
+    background-image: url("../Images/Home/homepagetopmiddle.jpg");
+    background-repeat: repeat-x;
+      height: 80px;
+      margin-bottom:-50px;
+}
+
+.leffooterimg
+{
+    float: left;
+}
+
+.rightfooterimg
+{
+    float: right;
+}
+.topheader
+{
+    display :none;
+}
+
 
 /*End home page changes*/

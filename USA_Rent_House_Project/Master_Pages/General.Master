@@ -1,5 +1,7 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.master.cs" Inherits="USA_Rent_House_Project.Masrer_Pages.General" %>
 
+<%@ Register src="../Modules/Footerbottom.ascx" tagname="Footerbottom" tagprefix="uc1" %>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -43,6 +45,8 @@
         </div>
         </form>
     </div>
+    <uc1:Footerbottom ID="Footerbottom1" runat="server" />
+
     <div id="footer">
         <div class="footerleft">
             Patent Pending</div>

@@ -2,12 +2,13 @@
     AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="USA_Rent_House_Project._Default" %>
 
 <%@ Register Src="Modules/Home.ascx" TagName="Home" TagPrefix="uc1" %>
+<%@ Register src="Modules/Footerbottom.ascx" tagname="Footerbottom" tagprefix="uc2" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
     <div style="text-align: center;">
-        <img alt="" src="../Images/Home/homepage.jpg" />
+        <img alt="" src="../Images/Home/homepagetop.jpg" />
     </div>
     <div class="homebuttonsdiv">
         <uc1:Home ID="HomeID" runat="server" />
@@ -21,6 +22,8 @@
     <div class="sharebutton">
         <a id="sharetext" class="homesharebuttons">Share</a>
     </div>
+    
+
     <div class="socialmediaicons"   style="display:none;">
     <div class="socialmediaicons-inner">
         <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"

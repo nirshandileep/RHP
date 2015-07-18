@@ -231,6 +231,7 @@
     <Content Include="Images\Sample\profileimage4.jpg" />
     <Content Include="Land_load\Land_load_Profile_wizard.aspx" />
     <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
+    <Content Include="Modules\Footerbottom.ascx" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
@@ -933,6 +934,13 @@
     </Compile>
     <Compile Include="Modules\FileHandler.ashx.cs">
       <DependentUpon>FileHandler.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Footerbottom.ascx.cs">
+      <DependentUpon>Footerbottom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Footerbottom.ascx.designer.cs">
+      <DependentUpon>Footerbottom.ascx</DependentUpon>
     </Compile>
     <Compile Include="Modules\Home.ascx.cs">
       <DependentUpon>Home.ascx</DependentUpon>
