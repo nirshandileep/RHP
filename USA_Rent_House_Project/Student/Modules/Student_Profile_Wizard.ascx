@@ -64,7 +64,7 @@
         <asp:HiddenField ID="hdnUserId" runat="server" />
         <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="8" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">

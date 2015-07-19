@@ -84,7 +84,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     {
                         try
                         {
-                            LoadStudent(Guid.Parse(AccessCode));
+                            LoadUser(Guid.Parse(AccessCode));
                         }
                         catch (Exception ex)
                         { }
@@ -94,7 +94,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             }
         }
 
-        public void LoadStudent(Guid AccessCode)
+        public void LoadUser(Guid AccessCode)
         {
             user = User.Select(AccessCode);
             if (user != null)
@@ -111,14 +111,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
         public bool checkPartialEmail()
         {
             bool isEmailEsixt = false;
-
             User user_check = new User();
 
             if (user_check.IsUserEmailExist(txtEmail.Text.Trim().ToLower()))
             {
-
                 isEmailEsixt = true;
-
             }
 
             return isEmailEsixt;
@@ -126,7 +123,16 @@ namespace USA_Rent_House_Project.Land_load.Modules
         
         protected void btnStep1_Click(object sender, EventArgs e)
         {
-            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step2;
+            user = User.SelectUserByEmail("Email", txtEmail.Text.Trim().ToLower(), "RoleName", "student");
+            if (user == null)
+            {
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step2;
+                hdnPassword.Value = txtPassword.Text;
+            }
+            else
+            {
+                lblError.Text = "User with this email address already exist.";
+            }
         }
 
         protected void btnVerify_Click(object sender, EventArgs e)
@@ -134,7 +140,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             if (VerifyConfirmationCode(txtCode.Text.Trim()))
             {
                 ActivateUserAccount();
-                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step3;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
             {
@@ -160,7 +166,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             IsActivate = SystemConfig.GetValue(Enums.SystemConfig.IsEmailActivation).ToLower() == "true" ? false : true;
 
             object objCreateMembershipUser = new object();
-            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, IsActivate, "landlord");
+            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, false, "landlord");
 
             bool boolMembershipUserCreated = false;
             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
@@ -192,11 +198,11 @@ namespace USA_Rent_House_Project.Land_load.Modules
             //Email activation can be dissabled from config in db
             if (IsActivate)
             {
-                registrationWizard.ActiveStepIndex = 4;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step4;
             }
             else
             {
-                registrationWizard.ActiveStepIndex = 3;
+                registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step3;
             }
         }
 
@@ -393,7 +399,6 @@ namespace USA_Rent_House_Project.Land_load.Modules
         
         protected void btnResend_Click(object sender, EventArgs e)
         {
-            //Resend the verification email
             MembershipUser newUser = Membership.GetUser(user.UserName);
             SendVerificationCodeEmail(newUser);
         }
@@ -428,13 +433,13 @@ namespace USA_Rent_House_Project.Land_load.Modules
                                     " background-color:#efefef;\" >  <span >" + " " + user.UserName + ", " + "</span></div>" +
                                     "<br />";
 
-                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
+                string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=l";
 
                 strMsgContent = strMsgContent + "Thank you for creating an account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", Your account details are as follows. <br/><br/>";
 
                 strMsgContent = strMsgContent + "User Name:  " + user.UserName + " <br/>";
 
-                strMsgContent = strMsgContent + "Email : " + user.Email + " <br/>";
+                strMsgContent = strMsgContent + "Email: " + user.Email + " <br/>";
 
                 strMsgContent = strMsgContent + "Secret Question : " + user.Question + " <br/>";
 
