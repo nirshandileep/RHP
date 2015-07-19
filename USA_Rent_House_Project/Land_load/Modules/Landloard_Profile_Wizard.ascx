@@ -7,37 +7,40 @@
     {
         display: none;
     }
-    
+
     .label
     {
         width: 200px;
         float: left;
     }
-    
+
     .input
     {
         width: 300px;
         float: left;
     }
-    
+
     .stepwrapper
     {
         padding-top: 40px;
     }
-    
+
     .failureNotification
     {
         font-size: -1.8em !important;
     }
-    
+
     .row
     {
         height: 70px;
     }
 </style>
-<div>
-    <h2 class="form_heading">
-        Land loard Profile Info</h2>
+
+<div class="topimage">
+    <img src="../../Images/Registration/logo.jpg" />
+</div>
+<div class="wizardcontent">
+    <h2 class="form_heading">Land loard Profile Info</h2>
     <div id="ShowfullRegistration" runat="server" visible="false">
         Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -59,10 +62,10 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2"
         DisplaySideBar="False">
         <WizardSteps>
-            <asp:WizardStep ID="WizardStep1" runat="server" 
+            <asp:WizardStep ID="WizardStep1" runat="server"
                 Title="Step 1 - Email, password">
                 <div class="stepwrapper">
                     <div class="row">
@@ -132,7 +135,8 @@
                             <asp:RequiredFieldValidator Display="Dynamic" ID="QuestionRequiredFieldValidator"
                                 runat="server" ControlToValidate="txtQuestion" CssClass="failureNotification"
                                 ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
-                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator></div>
+                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="label">
@@ -152,13 +156,14 @@
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep3" runat="server" 
+            <asp:WizardStep ID="WizardStep3" runat="server"
                 Title="Step 3 - Email Verification">
                 <div class="stepwrapper">
                     <div class="row">
                         <p>
                             Please check your mail for verification code, If not received click the resend button
-                            new code.</p>
+                            new code.
+                        </p>
                     </div>
                     <div class="row">
                         <div class="label">
@@ -175,12 +180,12 @@
                     <div class="row">
                         <asp:Button ID="btnVerify" runat="server" CssClass="actionbutton" Text="Verify" ValidationGroup="vg-step2"
                             OnClick="btnVerify_Click" />
-                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend" 
+                        <asp:Button ID="btnResend" runat="server" CssClass="actionbutton" Text="Resend"
                             OnClick="btnResend_Click" />
                     </div>
                 </div>
             </asp:WizardStep>
-            <asp:WizardStep ID="WizardStep4" runat="server" 
+            <asp:WizardStep ID="WizardStep4" runat="server"
                 Title="Step 4 - First, Last Name">
                 <div class="stepwrapper">
                     <div class="row">
@@ -214,7 +219,7 @@
                         <div class="input">
                             <asp:TextBox ID="txtDateofBirth" runat="server" CssClass="textEntry textbox_w1" MaxLength="10" ClientIDMode="Static"></asp:TextBox>
                             <br />
-                            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateofBirth"
+                            <asp:RequiredFieldValidator Display="Dynamic" ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtDateofBirth"
                                 CssClass="failureNotification" ErrorMessage="Date of birth is required." ToolTip="Date of birth is required."
                                 ValidationGroup="vg-step4"></asp:RequiredFieldValidator>
                             <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator1"
@@ -229,7 +234,8 @@
                                 CssClass="form_label">Referral Code:</asp:Label>
                         </div>
                         <div class="input">
-                            <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox></div>
+                            <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
+                        </div>
                     </div>
                     <div class="row">
                         <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Finish"
@@ -242,11 +248,23 @@
     </asp:Wizard>
     <script type="text/javascript">
         jQuery(function ($) { $("#txtDateofBirth").mask("99/99/9999", { placeholder: "mm/dd/yyyy" }); });
-    
+
     </script>
 </div>
+
+<div class="errormessagebotton">
+<p>
+    <asp:Label runat="server" CssClass="failureNotification" ID="Label3"></asp:Label>
+</p>
+    </div>
+
+<div class="verticalstars">
+
+    <img src="../../Images/Registration/verticalstars.jpg" />
+</div>
+
 <asp:HiddenField ID="hdnUserId" runat="server" />
 
-        <asp:HiddenField ID="hdnPassword" runat="server" />
-    
+<asp:HiddenField ID="hdnPassword" runat="server" />
+
 

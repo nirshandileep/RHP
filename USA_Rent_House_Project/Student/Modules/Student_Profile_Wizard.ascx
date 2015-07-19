@@ -2,7 +2,7 @@
     Inherits="USA_Rent_House_Project.Student_Profile_Wizard" %>
 <%@ Register Src="Current_House_Dorms.ascx" TagName="Current_House_Dorms" TagPrefix="uc1" %>
 <%@ Register Src="CurrentHouse.ascx" TagName="CurrentHouse" TagPrefix="uc2" %>
-<%@ Register src="Student_Profile_Update_Current_House_Details.ascx" tagname="Student_Profile_Update_Current_House_Details" tagprefix="uc3" %>
+<%@ Register Src="Student_Profile_Update_Current_House_Details.ascx" TagName="Student_Profile_Update_Current_House_Details" TagPrefix="uc3" %>
 <script src="../../Scripts/jquery-2.1.4.min.js" type="text/javascript"></script>
 <script src="../../Scripts/jquery.maskedinput.min.js" type="text/javascript"></script>
 <style type="text/css">
@@ -10,37 +10,42 @@
     {
         display: none;
     }
-    
+
     .label
     {
         width: 200px;
         float: left;
     }
-    
+
     .input
     {
         width: 300px;
         float: left;
     }
-    
+
     .stepwrapper
     {
         padding-top: 40px;
     }
-    
+
     .failureNotification
     {
         font-size: -1.8em !important;
     }
-    
+
     .row
     {
         height: 70px;
     }
 </style>
-<div>
-    <h2 class="form_heading">
-        Student Profile Info</h2>
+
+<div class="topimage">
+    <img src="../../Images/Registration/logo.jpg" />
+</div>
+
+
+<div class="wizardcontent" >
+    <h2 class="form_heading">Student Profile Info</h2>
     <div id="ShowfullRegistration" runat="server" visible="false">
         Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -64,7 +69,7 @@
         <asp:HiddenField ID="hdnUserId" runat="server" />
         <asp:HiddenField ID="hdnPassword" runat="server" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0"
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -136,7 +141,8 @@
                             <asp:RequiredFieldValidator Display="Dynamic" ID="QuestionRequiredFieldValidator"
                                 runat="server" ControlToValidate="txtQuestion" CssClass="failureNotification"
                                 ErrorMessage="Secret Question is required." ToolTip="secret Question is required."
-                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator></div>
+                                ValidationGroup="vg-step3"></asp:RequiredFieldValidator>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="label">
@@ -161,7 +167,8 @@
                     <div class="row">
                         <p>
                             Please check your mail for verification code, If not received click the resend button
-                            new code.</p>
+                            new code.
+                        </p>
                     </div>
                     <div class="row">
                         <div class="label">
@@ -231,7 +238,8 @@
                                 CssClass="form_label">Referral Code:</asp:Label>
                         </div>
                         <div class="input">
-                            <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox></div>
+                            <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
+                        </div>
                     </div>
                     <div class="row">
                         <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Next" ValidationGroup="vg-step4"
@@ -257,8 +265,7 @@
                             <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
                             <asp:HiddenField ID="HiddenFieldHouseID" runat="server" />
                             <div id="div_register_User">
-                                <h2 class="form_heading">
-                                    My Current House
+                                <h2 class="form_heading">My Current House
                                 </h2>
                                 <div id="formwrapper">
                                     <asp:HiddenField ID="HiddenFieldStep" runat="server" />
@@ -281,14 +288,18 @@
                                     <div id="Step3" runat="server" visible="false">
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink3" runat="server" CssClass="homelargebuttons" OnClick="HyperLink3_Click"
-                                                OnClientClick="SetHouseType(1)">Dorms</asp:LinkButton></div>
+                                                OnClientClick="SetHouseType(1)">Dorms</asp:LinkButton>
+                                        </div>
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink4" runat="server" CssClass="homelargebuttons" OnClick="HyperLink4_Click"
-                                                OnClientClick="SetHouseType(2)">Appartments</asp:LinkButton></div>
+                                                OnClientClick="SetHouseType(2)">Appartments</asp:LinkButton>
+                                        </div>
                                         <div class="buttons" style="display: none">
-                                            <asp:LinkButton ID="HyperLink5" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(3)">Condos</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink5" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(3)">Condos</asp:LinkButton>
+                                        </div>
                                         <div class="buttons" style="display: none">
-                                            <asp:LinkButton ID="HyperLink6" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(4)">Family Housing</asp:LinkButton></div>
+                                            <asp:LinkButton ID="HyperLink6" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(4)">Family Housing</asp:LinkButton>
+                                        </div>
                                         <div class="buttons" style="display: none">
                                             <asp:LinkButton ID="HyperLink7" runat="server" CssClass="homelargebuttons" OnClientClick="SetHouseType(9)">Houses</asp:LinkButton>
                                         </div>
@@ -296,13 +307,16 @@
                                     <div id="Step4" runat="server" visible="false">
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink8" runat="server" CssClass="homelargebuttons" OnClick="HyperLink8_Click"
-                                                OnClientClick="SetHouseType(6)">Appartments 6</asp:LinkButton></div>
+                                                OnClientClick="SetHouseType(6)">Appartments 6</asp:LinkButton>
+                                        </div>
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink9" runat="server" CssClass="homelargebuttons" OnClick="HyperLink9_Click"
-                                                OnClientClick="SetHouseType(7)">Condos</asp:LinkButton></div>
+                                                OnClientClick="SetHouseType(7)">Condos</asp:LinkButton>
+                                        </div>
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink10" runat="server" CssClass="homelargebuttons" OnClick="HyperLink10_Click"
-                                                OnClientClick="SetHouseType(8)">Town Home</asp:LinkButton></div>
+                                                OnClientClick="SetHouseType(8)">Town Home</asp:LinkButton>
+                                        </div>
                                         <div class="buttons">
                                             <asp:LinkButton ID="HyperLink11" runat="server" CssClass="homelargebuttons" OnClick="HyperLink11_Click"
                                                 OnClientClick="SetHouseType(9)">Houses</asp:LinkButton>
@@ -328,8 +342,8 @@
             <asp:WizardStep ID="WizardStep8" runat="server" Title="Step 8 - Add Roommate">
                 <div class="stepwrapper">
                     <div class="buttons">
-                        <asp:LinkButton ID="lbtnAddRoomMate" runat="server" CssClass="homelargebuttons" 
-                            OnClick="lbtnAddRoomMate_Click" >Add Roommate</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnAddRoomMate" runat="server" CssClass="homelargebuttons"
+                            OnClick="lbtnAddRoomMate_Click">Add Roommate</asp:LinkButton>
                     </div>
                     <div class="row">
                         <asp:Button ID="Button1" runat="server" CssClass="actionbutton" Text="Skip" OnClick="btnSkipWizzard_Click" />
@@ -339,7 +353,7 @@
             <asp:WizardStep ID="WizardStep9" runat="server" Title="Step 9 - Add Roommate details">
                 <div class="stepwrapper">
                     <div class="buttons">
-                        &nbsp;<uc3:Student_Profile_Update_Current_House_Details 
+                        &nbsp;<uc3:Student_Profile_Update_Current_House_Details
                             ID="Student_Profile_Update_Current_House_Details1" runat="server" />
                     </div>
                     <div class="row">
@@ -352,12 +366,19 @@
     </asp:Wizard>
     <script type="text/javascript">
         jQuery(function ($) { $("#txtDateofBirth").mask("99/99/9999", { placeholder: "mm/dd/yyyy" }); });
-    
+
     </script>
 </div>
+<div class="errormessagebotton">
 <p>
     <asp:Label runat="server" CssClass="failureNotification" ID="lblError"></asp:Label>
 </p>
+    </div>
+
+<div class="verticalstars">
+
+    <img src="../../Images/Registration/verticalstars.jpg" />
+</div>
 <script language="javascript" type="text/javascript">
     function SetHouseType(HouseTypeId) {
         $("#<%= hdnHouseTypeId.ClientID %>").val(HouseTypeId);
