@@ -346,7 +346,6 @@
     <Content Include="Student\Student_School_info.aspx" />
     <Content Include="Student\Student_Spotlight.aspx" />
     <Content Include="Styles\Admin_Style.css" />
-    <Content Include="Styles\EmailTemplate.css" />
     <Content Include="Styles\jquery.Jcrop.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />
