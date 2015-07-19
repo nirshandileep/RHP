@@ -1516,8 +1516,8 @@ a.homesharebuttons
 {
     background-image: url("../Images/Home/homepagetopmiddle.jpg");
     background-repeat: repeat-x;
-      height: 80px;
-      margin-bottom:-50px;
+    height: 80px;
+    margin-bottom: -50px;
 }
 
 .leffooterimg
@@ -1529,10 +1529,38 @@ a.homesharebuttons
 {
     float: right;
 }
+
 .topheader
 {
-    display :none;
+    display: none;
 }
 
 
 /*End home page changes*/
+
+
+/*Begin resigtration page*/
+
+.verticalstars
+{
+    margin-top: -250px;
+}
+
+.topimage
+{
+    margin-left: 190px;
+}
+
+.wizardcontent
+{
+    float: left;
+    width: 500px;
+}
+
+.errormessagebotton
+{
+    height: 46px;
+    width: 500px;
+}
+
+/*End registration page*/

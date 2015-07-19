@@ -1,6 +1,6 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.master.cs" Inherits="USA_Rent_House_Project.Masrer_Pages.General" %>
 
-<%@ Register src="../Modules/Footerbottom.ascx" tagname="Footerbottom" tagprefix="uc1" %>
+<%@ Register Src="../Modules/Footerbottom.ascx" TagName="Footerbottom" TagPrefix="uc1" %>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -9,14 +9,14 @@
     <title>Home</title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="~/lightbox/lightbox.css" type="text/css" media="screen" />
-<script type="text/javascript" src="../lightbox/lightbox.js"></script>
+    <script type="text/javascript" src="../lightbox/lightbox.js"></script>
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
 
     <div id="topheader">
-        <div id="topheaderinner" style="display:none;">
+        <div id="topheaderinner" style="display: none;">
             <%--<asp:Image ID="imgLogo" runat="server" ImageUrl="~/Images/House_Logo.jpg"/>--%>
             <asp:HyperLink ID="HyperLink1" runat="server" ImageUrl="~/Images/House_Logo.jpg"
                 NavigateUrl="~/Default.aspx"></asp:HyperLink>
@@ -25,34 +25,38 @@
     </div>
     <div id="wrapper">
         <form id="form1" runat="server">
-        <div id="body">
-            <div class="loginDisplay">
-                <asp:LoginView ID="HeadLoginView" runat="server" Visible="false" EnableViewState="true">
-                    <AnonymousTemplate>
-                    </AnonymousTemplate>
-                    <LoggedInTemplate>
-                        For BETA release testing, Welcome <span class="bold">
-                            <%--<asp:LoginName ID="HeadLoginName" runat="server" /></span>--%>
-                        <asp:Label ID="LoginName" runat="server" ></asp:Label>!
+            <div id="body">
+                <div class="loginDisplay">
+                    <asp:LoginView ID="HeadLoginView" runat="server" Visible="false" EnableViewState="true">
+                        <AnonymousTemplate>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            For BETA release testing, Welcome <span class="bold">
+                                <%--<asp:LoginName ID="HeadLoginName" runat="server" /></span>--%>
+                                <asp:Label ID="LoginName" runat="server"></asp:Label>!
                         <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>
-                    </LoggedInTemplate>
-                </asp:LoginView>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+                <div>
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
-            <div>
-                <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
-            </div>
-        </div>
         </form>
     </div>
+
+
     <uc1:Footerbottom ID="Footerbottom1" runat="server" />
 
     <div id="footer">
         <div class="footerleft">
-            Patent Pending</div>
+            Patent Pending
+        </div>
         <div class="footerright">
             © 2015 | All rights reserved | www.ratestudenthousing.com | UCRbeta1.03 | 
-            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Contact.aspx" runat="server">Contact Us</asp:HyperLink></div>
+            <asp:HyperLink ID="HyperLink2" NavigateUrl="~/Contact.aspx" runat="server">Contact Us</asp:HyperLink>
+        </div>
         <div class="clear">
         </div>
     </div>

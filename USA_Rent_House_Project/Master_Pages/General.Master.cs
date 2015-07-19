@@ -16,6 +16,12 @@ namespace USA_Rent_House_Project.Masrer_Pages
         private User user = new User();
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            if (!Request.Url.ToString().Contains("Default.aspx"))
+            {
+                Footerbottom1.Visible = false;
+            }
+
             if (!Page.ClientScript.IsClientScriptBlockRegistered(Constants.GOOGLE_ANALYTICS_KEY))
             {
                 Page.ClientScript.RegisterClientScriptBlock(this.GetType(), Constants.GOOGLE_ANALYTICS_KEY, SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.GOOGLE_ANALYTICS));
