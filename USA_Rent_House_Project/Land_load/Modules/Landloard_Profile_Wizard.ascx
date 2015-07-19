@@ -59,7 +59,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2" 
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
         DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server" 
@@ -67,7 +67,7 @@
                 <div class="stepwrapper">
                     <div class="row">
                         <div class="label">
-                            <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">Land-lord email:</asp:Label>
+                            <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">Landlord email:</asp:Label>
                         </div>
                         <div class="input">
                             <asp:TextBox ID="txtEmail" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>

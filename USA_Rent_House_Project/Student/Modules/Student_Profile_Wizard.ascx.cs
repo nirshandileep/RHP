@@ -95,8 +95,24 @@ namespace USA_Rent_House_Project
                 else
                 {
                     registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step1;
-                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
 
+                    string StudentId = Utility.GetQueryStringValueByKey(Request, "AccessKey");
+
+                    if (StudentId != string.Empty && StudentId != null)
+                    {
+                        try
+                        {
+                            LoadStudent(Guid.Parse(StudentId));
+                            registrationWizard.ActiveStepIndex = (int)EnumWizardStepIndexes.Step5;
+                        }
+                        catch (Exception ex)
+                        {
+
+                        }
+                    }
+                    
+                    string AccessCode = Utility.GetQueryStringValueByKey(Request, "ActivationKey");
+                    
                     if (AccessCode != string.Empty && AccessCode != null)
                     {
                         try
@@ -120,7 +136,8 @@ namespace USA_Rent_House_Project
             {
                 if (user.UserId.HasValue && user.IsPartialUser == true)
                 {
-
+                    hdnUserId.Value = user.UserId.ToString();
+                    txtDateofBirth.Text = Convert.ToDateTime(user.DateOfBirth.ToString()).ToShortDateString();
                     txtEmail.Text = user.PersonalEmail;
                     txtFirstName.Text = string.IsNullOrEmpty(user.FirstName) ? string.Empty : user.FirstName;
                     txtLastName.Text = string.IsNullOrEmpty(user.LastName) ? string.Empty : user.LastName;

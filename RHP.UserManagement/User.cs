@@ -316,7 +316,7 @@ namespace RHP.UserManagement
         {
             if (isUseDefault)
             {
-               // FormsAuthentication.RedirectFromLoginPage(UserName, false);    
+               //User login attempt from Fb for first time, redirect to Student Wizzard if student
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(), false);
             }
             else
@@ -324,6 +324,29 @@ namespace RHP.UserManagement
                // FormsAuthentication.SetAuthCookie(UserName, false);
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(),false);
             }
+        }
+
+        public string RedirectToWizzardPageByRole()
+        {
+            string URL = string.Empty;
+
+            string role = "";
+
+            if (RolesList != null || rolesList.Count > 0)
+            {
+                role = RolesList[0].ToLower();
+            }
+
+            if (role.ToLower() == "landlord")
+            {
+                URL = String.Format("~/Land_load/Land_load_Profile_wizard.aspx?AccessKey={0}", this.UserId.ToString());
+            }
+            else if (role.ToLower() == "student")
+            {
+                URL = String.Format("~/Student/Student_Profile_Add.aspx?AccessKey={0}", this.UserId.ToString());
+            }
+
+            return URL;
         }
 
         /// <summary>

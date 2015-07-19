@@ -68,52 +68,23 @@ namespace USA_Rent_House_Project
 
                 if (authorization == null)
                 {
-                    SendEmail("FBReturn URL", string.Format("Return URL: {0}, App Id: {1}, App Secret: {2}", currentDomainURL.ToString(), 
+                    SendEmail("FBReturn URL", string.Format("Return URL: {0}, App Id: {1}, App Secret: {2}", currentDomainURL.ToString(),
                         facebookClient.ClientIdentifier.ToString(), facebookClient.ClientCredentialApplicator.ToString()));
-
-                    //string fbRedirectURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.FB_REDIRECT_URL);
-
-                    //Uri url = null;
-                    //if (!string.IsNullOrEmpty(fbRedirectURL))
-                    //{
-                    //    if (value == "s")
-                    //    {
-                    //        url = new Uri(string.Format(fbRedirectURL, "s"));
-                    //    }
-                    //    else// if(value == "l")
-                    //    {
-                    //        url = new Uri(string.Format(fbRedirectURL, "l"));
-                    //    }
-                    //}
-
-                    //// Kick off authorization request
-                    //if (!string.IsNullOrEmpty(fbRedirectURL))
-                    //{
-                    //    facebookClient.RequestUserAuthorization(null, url);
-                    //}
-                    //else
-                    //{
-
                     facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email }, returnTo: currentDomainURL);
-
-                    //}
-                    
-                    // Alternatively you can ask for more information
-                    //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email, FBClient.Scopes.PublishActions });
                 }
                 else// if (authorization.Scope.Count > 0)
                 {
                     string accessCode = string.Empty;
-                    if (authorization !=null && authorization.AccessToken != null)
+                    if (authorization != null && authorization.AccessToken != null)
                     {
-                        accessCode = Uri.EscapeDataString(authorization.AccessToken);    
+                        accessCode = Uri.EscapeDataString(authorization.AccessToken);
                     }
-                    
-                    IOAuth2Graph oauth2Graph = facebookClient.GetGraph(authorization, new[] { FBGraph.Fields.Defaults, FBGraph.Fields.Email, FBGraph.Fields.Picture});
+
+                    IOAuth2Graph oauth2Graph = facebookClient.GetGraph(authorization, new[] { FBGraph.Fields.Defaults, FBGraph.Fields.Email, FBGraph.Fields.Picture });
 
                     //Todo: Register the user here if not an existing member.
                     user.FBid = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Id)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Id);
-                    
+
                     user.FirstName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.FirstName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.FirstName);
                     user.LastName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.LastName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.LastName);
                     user.Email = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
@@ -132,26 +103,26 @@ namespace USA_Rent_House_Project
                         // authanticate fbuser get userneame and pwd
                         // get user from fbid (username)
                         // stringpassword = membership
-                        
-                            user.UserName = user.GetFBUsernameByFBId(user.FBid);
 
-                            if (user.AuthenticateUser())
+                        user.UserName = user.GetFBUsernameByFBId(user.FBid);
+
+                        if (user.AuthenticateUser())
+                        {
+                            try
                             {
-                                try
-                                {
-                                    Session[Constants.SESSION_LOGGED_USER] = user;
-                                    user.RedirectUserFromLogin(false);
-                                }
-                                catch (Exception ex)
-                                {
-                                    user.LogOut();
-                                }
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+                                user.RedirectUserFromLogin(false);
                             }
-                            else
+                            catch (Exception ex)
                             {
                                 user.LogOut();
                             }
-                       
+                        }
+                        else
+                        {
+                            user.LogOut();
+                        }
+
                     }
                     else
                     {
@@ -196,7 +167,7 @@ namespace USA_Rent_House_Project
                                 user.LogOut();
                                 Response.Redirect("~/Login.aspx", false);
                             }
-                        }                        
+                        }
                     }
                 }
             }
