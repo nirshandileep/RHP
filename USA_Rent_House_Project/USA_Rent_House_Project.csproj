@@ -211,6 +211,7 @@
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\cover-change.png" />
+    <Content Include="Images\EmailTemplate\line.png" />
     <Content Include="Images\EmailTemplate\logo.jpg" />
     <Content Include="Images\EmailTemplate\star.jpg" />
     <Content Include="Images\EmailTemplate\text.jpg" />
@@ -345,6 +346,7 @@
     <Content Include="Student\Student_School_info.aspx" />
     <Content Include="Student\Student_Spotlight.aspx" />
     <Content Include="Styles\Admin_Style.css" />
+    <Content Include="Styles\EmailTemplate.css" />
     <Content Include="Styles\jquery.Jcrop.css" />
     <Content Include="Styles\Site.css" />
     <Content Include="Default.aspx" />

@@ -154,7 +154,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
             user.Email = txtEmail.Text.Trim();
             user.PersonalEmail = txtEmail.Text.Trim();
             user.UserName = txtEmail.Text.Trim();
-            user.Password = txtPassword.Text.Trim();
+            user.Password = hdnPassword.Value.Trim();
             user.Question = txtQuestion.Text.Trim();
             user.Answer = txtAnswer.Text.Trim();
 
