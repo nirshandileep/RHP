@@ -211,7 +211,15 @@
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\cover-change.png" />
+    <Content Include="Images\EmailTemplate\logo.jpg" />
+    <Content Include="Images\EmailTemplate\star.jpg" />
+    <Content Include="Images\EmailTemplate\text.jpg" />
     <Content Include="Images\Home\homepage.jpg" />
+    <Content Include="Images\Home\homepagebottom.jpg" />
+    <Content Include="Images\Home\homepagetop.jpg" />
+    <Content Include="Images\Home\homepagetopleft.jpg" />
+    <Content Include="Images\Home\homepagetopmiddle.jpg" />
+    <Content Include="Images\Home\homepagetopright.jpg" />
     <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\icon-fb.jpg" />
     <Content Include="Images\icon-googleplus.jpg" />
@@ -232,6 +240,7 @@
     <Content Include="Land_load\Land_load_Profile_wizard.aspx" />
     <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
     <Content Include="Modules\Footerbottom.ascx" />
+    <Content Include="Notifications\ClientTemplate.html" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
