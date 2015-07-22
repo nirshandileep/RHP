@@ -266,7 +266,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
         
         protected void btnResend_Click(object sender, EventArgs e)
         {
-            MembershipUser newUser = Membership.GetUser(user.UserName);
+            MembershipUser newUser = Membership.GetUser(txtEmail.Text.Trim());
             SendVerificationCodeEmail(newUser);
         }
 

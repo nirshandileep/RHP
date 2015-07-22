@@ -226,6 +226,7 @@
     <Content Include="Images\icon-googleplus.jpg" />
     <Content Include="Images\icon-insta.jpg" />
     <Content Include="Images\icon-linkdin.jpg" />
+    <Content Include="Images\icon-linkedin-lg.png" />
     <Content Include="Images\icon-twiiter.jpg" />
     <Content Include="Images\icon-youtube.jpg" />
     <Content Include="Images\Logo.jpeg" />
@@ -1367,11 +1368,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ErrorLog\" />
-    <Folder Include="Images\.svn\prop-base\" />
-    <Folder Include="Images\.svn\text-base\" />
-    <Folder Include="Images\.svn\tmp\prop-base\" />
-    <Folder Include="Images\.svn\tmp\props\" />
-    <Folder Include="Images\.svn\tmp\text-base\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -1379,8 +1375,6 @@
     <Content Include="Master_Pages\Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\.svn\entries" />
-    <None Include="Images\.svn\props\House_Logo.jpg.svn-work" />
     <Content Include="Master_Pages\General.Master" />
     <Content Include="Master_Pages\Land-Load.Master" />
     <Content Include="Master_Pages\Site-Admin.Master" />

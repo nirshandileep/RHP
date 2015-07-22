@@ -62,12 +62,7 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-<<<<<<< HEAD
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" 
-=======
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="2"
->>>>>>> 1665a46e34f7320d29ce374ebb27dac7ecb6df56
-        DisplaySideBar="False">
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server"
                 Title="Step 1 - Email, password">
