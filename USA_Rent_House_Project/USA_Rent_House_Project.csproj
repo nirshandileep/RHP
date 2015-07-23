@@ -213,6 +213,7 @@
     <Content Include="Images\cover-change.png" />
     <Content Include="Images\EmailTemplate\line.png" />
     <Content Include="Images\EmailTemplate\logo.jpg" />
+    <Content Include="Images\EmailTemplate\logo2.png" />
     <Content Include="Images\EmailTemplate\star.jpg" />
     <Content Include="Images\EmailTemplate\text.jpg" />
     <Content Include="Images\Home\homepage.jpg" />
@@ -243,6 +244,7 @@
     <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
     <Content Include="Modules\Footerbottom.ascx" />
     <Content Include="Notifications\ClientTemplate.html" />
+    <Content Include="Notifications\ClientTemplate2.html" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
