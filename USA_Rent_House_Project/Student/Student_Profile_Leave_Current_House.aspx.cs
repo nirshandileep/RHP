@@ -301,9 +301,9 @@ namespace USA_Rent_House_Project.Student
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your “Current House” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", com has requested that you to “Leave My Current House”. <br/><br/>";
+                strMsgContent = strMsgContent + "One of your “Current House” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", com has requested that you to “Leave My Current Residence”. <br/><br/>";
 
-                strMsgContent = strMsgContent + "Please click on the link below to “Leave My Current House”.<br/><br/>";
+                strMsgContent = strMsgContent + "Please click on the link below to “Leave My Current Residence”.<br/><br/>";
 
                 strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current House  </a>  <br/><br/>";
 

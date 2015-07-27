@@ -23,7 +23,7 @@
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
-                    My Current House
+                    My Current Residence
                 </h2>
                 <div id="formwrapper">
                  

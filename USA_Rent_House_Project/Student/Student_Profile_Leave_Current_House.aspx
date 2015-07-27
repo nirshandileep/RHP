@@ -51,19 +51,19 @@
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
-                    My Current House
+                    My Current Residence
                 </h2>
                 <div id="formwrapper">
                      <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
                     <div id="forminner">
                         <h1>
-                            Leave My Current House</h1>
+                            Leave My Current Residence</h1>
                         <p id="ButtonLeaveHouseID" runat="server" visible="false">
-                            If You Want to Leave Current House Please
+                            If You Want to Leave Current Residence Please
                             <asp:LinkButton ID="ButtonLeaveHouse" runat="server" OnClick="OnConfirm" OnClientClick="Confirm()">Click Here</asp:LinkButton>
                         </p>
                         <h1>
-                            Request roommates to Leave Current House
+                            Request roommates to Leave Current Residence
                         </h1>
                         <div id="StudentListData" runat="server">
                             <asp:DataList ID="DataListStudentList" runat="server" RepeatColumns="2" DataKeyField="UserId"

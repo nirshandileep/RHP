@@ -14,7 +14,7 @@
     </div>
     <div id="div_register_User">
         <h2 class="form_heading">
-            My Current House
+            My Current Residence
         </h2>
         <div id="formwrapper">
             <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />

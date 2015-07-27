@@ -263,7 +263,7 @@
                             <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
                             <asp:HiddenField ID="HiddenFieldHouseID" runat="server" />
                             <div id="div_register_User">
-                                <h2 class="form_heading">My Current House
+                                <h2 class="form_heading">My Current Residence
                                 </h2>
                                 <div id="formwrapper">
                                     <asp:HiddenField ID="HiddenFieldStep" runat="server" />

@@ -24,7 +24,7 @@
             <div class="clear">
             </div>
             <h2 class="form_heading">
-                    My Current House
+                    My Current Residence
                 </h2>
             <uc2:Current_House_Dorms ID="Current_House_Dorms1" runat="server" />
         </div>

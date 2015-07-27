@@ -236,9 +236,9 @@ namespace USA_Rent_House_Project.Student
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "Your current roommates created a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " ,and in the process created/updated “My Current House” feature of the platform. ,<br/><br/>";
+                strMsgContent = strMsgContent + "Your current roommates created a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " ,and in the process created/updated “My Current Residence” feature of the platform. ,<br/><br/>";
 
-                strMsgContent = strMsgContent + "In doing so they have created a “Partial Profile” for you and have begun to rate you and comment on their and your housing situation. Create a “Full Profile” to see what they have said and to access/complete “My Current House”;so that you can also begin to rate and comment on your current roommates and/or landlord. Click link below to create a “Full Profile”.";
+                strMsgContent = strMsgContent + "In doing so they have created a “Partial Profile” for you and have begun to rate you and comment on their and your housing situation. Create a “Full Profile” to see what they have said and to access/complete “My Current Residence”;so that you can also begin to rate and comment on your current roommates and/or landlord. Click link below to create a “Full Profile”.";
 
                 strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " Account </a>  <br/><br/>";
 

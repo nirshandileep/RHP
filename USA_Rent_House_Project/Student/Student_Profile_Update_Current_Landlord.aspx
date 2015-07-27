@@ -6,7 +6,7 @@
     TagPrefix="uc3" %>
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
     TagPrefix="uc1" %>
-    <%@ Register Src="~/Student/Modules/Ctr_QuickLinks.ascx" TagName="QuickLinks" TagPrefix="uc1" %>
+<%@ Register Src="~/Student/Modules/Ctr_QuickLinks.ascx" TagName="QuickLinks" TagPrefix="uc1" %>
 <%@ Register Src="Modules/Menu_Bar.ascx" TagName="Menu_Bar" TagPrefix="uc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
@@ -19,18 +19,18 @@
             <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
-             <uc1:QuickLinks ID="QuickLinksid" runat="server" />
+            <uc1:QuickLinks ID="QuickLinksid" runat="server" />
             <div class="clear">
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
-                    My Current House
+                    My Current Residence
                 </h2>
                 <div id="formwrapper">
                     <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
                     <div id="forminner">
                         <h1>
-                            Update Current House - Landlord Info</h1>
+                            Update Current Residence - Landlord Info</h1>
                         <div id="LandlordInfo" runat="server">
                             <asp:HiddenField ID="hdLandloadinfoStatus" runat="server" />
                             <asp:HiddenField ID="hdLandloadId" runat="server" />
@@ -127,19 +127,16 @@
                                     Type="Integer" CssClass="failureNotification" ErrorMessage="Invalid Line number."
                                     ToolTip="Invalid Line number." ControlToValidate="LandloadMobile2" ValidationGroup="ValidationGroupLandload2">*</asp:CompareValidator>
                             </p>
-
                             <p id="HouseDetails" runat="server" visible="false">
-                       <h1>
-                                House Details</h1>
-                      </p>
-                            
-                            
+                                <h1>
+                                    House Details</h1>
+                            </p>
                             <p id="House_Search" runat="server" visible="false">
                                 <asp:Label ID="HouseLabel" runat="server" AssociatedControlID="DrpHouse" CssClass="form_label">House Owned by Landload:</asp:Label>
                                 <asp:DropDownList ID="DrpHouse" runat="server" CssClass="dropDownEntry" OnSelectedIndexChanged="DrpHouse_SelectedIndexChanged"
                                     AutoPostBack="true">
                                 </asp:DropDownList>
-                            </p> 
+                            </p>
                             <p id="RentalAddressMessageId" runat="server" visible="false">
                                 <asp:Label ID="LabelRentalAddressMessage" runat="server" CssClass="form_label"></asp:Label>
                             </p>
@@ -173,12 +170,10 @@
                                     ControlToValidate="RentalZip" CssClass="failureNotification" ValidationExpression="^[0-9]{5}$"
                                     ValidationGroup="ValidationGroupLandload2">*</asp:RegularExpressionValidator>
                             </p>
-
-                              <asp:Button ID="ButtonLandload" runat="server" Width="150px" CssClass="actionbutton"
+                            <asp:Button ID="ButtonLandload" runat="server" Width="150px" CssClass="actionbutton"
                                 CommandName="MoveNext" Text="Save" ValidationGroup="ValidationGroupLandload2"
                                 OnClick="ButtonLandload_Click" />
                         </div>
-                       
                     </div>
                 </div>
             </div>
