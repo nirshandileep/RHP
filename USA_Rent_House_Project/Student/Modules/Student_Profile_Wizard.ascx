@@ -39,9 +39,7 @@
     }
 </style>
 
-<div class="topimage">
-    <img src="../../Images/Registration/logo.jpg" />
-</div>
+
 
 
 <div class="wizardcontent" >
@@ -375,10 +373,7 @@
 </p>
     </div>
 
-<div class="verticalstars">
 
-    <img src="../../Images/Registration/verticalstars.jpg" />
-</div>
 <script language="javascript" type="text/javascript">
     function SetHouseType(HouseTypeId) {
         $("#<%= hdnHouseTypeId.ClientID %>").val(HouseTypeId);

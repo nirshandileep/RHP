@@ -1544,23 +1544,31 @@ a.homesharebuttons
 .verticalstars
 {
     margin-top: -250px;
+    float:right;
 }
 
 .topimage
 {
-    margin-left: 190px;
+      width: 80%;
+    text-align: right;
 }
 
 .wizardcontent
 {
     float: left;
     width: 500px;
+        margin-left: 20%;
 }
 
 .errormessagebotton
 {
     height: 46px;
     width: 500px;
+}
+
+.wizardwrapper
+{
+    
 }
 
 /*End registration page*/
