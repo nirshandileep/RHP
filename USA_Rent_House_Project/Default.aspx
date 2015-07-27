@@ -2,7 +2,7 @@
     AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="USA_Rent_House_Project._Default" %>
 
 <%@ Register Src="Modules/Home.ascx" TagName="Home" TagPrefix="uc1" %>
-<%@ Register src="Modules/Footerbottom.ascx" tagname="Footerbottom" tagprefix="uc2" %>
+<%@ Register Src="Modules/Footerbottom.ascx" TagName="Footerbottom" TagPrefix="uc2" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
@@ -20,37 +20,47 @@
     <div class="clear">
     </div>
     <div class="sharebutton">
-        <a id="sharetext" class="homesharebuttons">Share</a>
+        <a id="sharetext">share</a>
     </div>
-    
-
-    <div class="socialmediaicons"   style="display:none;">
-    <div class="socialmediaicons-inner">
-        <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
-            target="_blank">
-            <img src="Images/icon-fb.jpg"></a> <a href="https://plus.google.com/116442819890932165126/"
-                target="_blank">
-                <img src="Images/icon-googleplus.jpg"></a> <a href="http://instagram.com/nirmal_abeygunaratne/"
+    <div style="height: 85px; border-style:solid; border-color:White;">
+        <div class="socialmediaicons" style="display: block;">
+            <div class="socialmediaicons-inner">
+                <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
                     target="_blank">
-                    <img src="Images/icon-insta.jpg"></a> <a href="https://twitter.com/nirmalabey/" target="_blank">
-                        <img src="Images/icon-twiiter.jpg"></a> <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906"
+                    <img src="Images/icon-fb.jpg"></a> <a href="https://plus.google.com/116442819890932165126/"
+                        target="_blank">
+                        <img src="Images/icon-googleplus.jpg"></a> <a href="https://plus.google.com/b/117257079120239150318/dashboard/overview"
                             target="_blank">
-                            <img src="Images/icon-linkdin.jpg"></a>
-        <div class="clear">
-        </div>
+                            <img src="Images/icon-insta.jpg"></a> <a href="https://instagram.com/ratestudenthousing" target="_blank">
+                                <img src="Images/icon-twiiter.jpg"></a> <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906"
+                                    target="_blank">
+                                    <img src="Images/icon-linkdin.jpg"></a>
+                                      <img src="Images/snapchat.png">
+                <div class="clear">
+                </div>
+            </div>
         </div>
     </div>
     <script type="text/javascript">
         $(document).ready(function () {
 
             $('#sharetext').hover(function () {
-                $('.socialmediaicons').fadeIn(500)
+
+                $('.socialmediaicons').fadeIn(500);
             }, function () {
-                $('.socialmediaicons').fadeOut(6000)
+
+                $('.socialmediaicons').fadeOut(5000);
+
             })
 
 
+
+
         });
+
+
+
+
     
     </script>
 </asp:Content>

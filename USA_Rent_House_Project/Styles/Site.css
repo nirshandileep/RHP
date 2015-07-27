@@ -367,7 +367,7 @@ input.actionbutton
     min-height: 500px;
     margin: 0 auto;
     overflow: hidden;
-    margin-bottom: 60px;
+  
     /* min-height:100%;*/
     position: relative;
 }
@@ -1481,7 +1481,8 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
 {
     margin-top: 15px;
     height: 0px;
-    width: 25%;
+    width: 33%;
+    padding:0;
 }
 
 .socialmediaicons-inner
