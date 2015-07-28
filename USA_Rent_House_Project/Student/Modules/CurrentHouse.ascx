@@ -33,7 +33,7 @@
                     <div class="buttons">
                         <asp:HyperLink ID="HyperLink2" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=1">Dorms</asp:HyperLink></div>
                     <div class="buttons">
-                        <asp:HyperLink ID="HyperLink3" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=2">Appartments</asp:HyperLink></div>
+                        <asp:HyperLink ID="HyperLink3" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=2">Apartments</asp:HyperLink></div>
                     <div class="buttons" style="display: none">
                         <asp:HyperLink ID="HyperLink4" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=3">Condos</asp:HyperLink></div>
                     <div class="buttons" style="display: none">
@@ -44,7 +44,7 @@
                 </div>
                 <div id="Step4" runat="server" visible="false">
                     <div class="buttons">
-                        <asp:HyperLink ID="HyperLink8" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=6">Appartments</asp:HyperLink></div>
+                        <asp:HyperLink ID="HyperLink8" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Current_House_Dorms.aspx?housetype=6">Apartments</asp:HyperLink></div>
                     <div class="buttons">
                         <asp:HyperLink ID="HyperLink9" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=7">Condos</asp:HyperLink></div>
                     <div class="buttons">

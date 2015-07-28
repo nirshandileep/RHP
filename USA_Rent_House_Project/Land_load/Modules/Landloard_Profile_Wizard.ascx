@@ -40,7 +40,7 @@
     <img src="../../Images/Registration/logo.jpg" />
 </div>
 <div class="wizardcontent">
-    <h2 class="form_heading">Land loard Profile Info</h2>
+    <h2 class="form_heading">Landlord Profile Info</h2>
     <div id="ShowfullRegistration" runat="server" visible="false">
         Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -62,7 +62,8 @@
         <br />
         <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" CssClass="actionbutton" />
     </div>
-    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="0" DisplaySideBar="False">
+    <asp:Wizard ID="registrationWizard" runat="server" ActiveStepIndex="3" 
+        DisplaySideBar="False">
         <WizardSteps>
             <asp:WizardStep ID="WizardStep1" runat="server"
                 Title="Step 1 - Email, password">
@@ -235,6 +236,12 @@
                         <div class="input">
                             <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
                         </div>
+                    </div>
+                    <div class="row">
+                    Optional
+                    </div>
+                    <div class="row">
+                    Please enter the code that your culb, organization, class, and etc were given. This tags the specific user to that fundraiser and/points that is being done
                     </div>
                     <div class="row">
                         <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Finish"
