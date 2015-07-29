@@ -364,11 +364,11 @@ input.actionbutton
 #wrapper
 {
     width: 1200px;
-    min-height: 500px;
+    /*min-height: 725px;*/
     margin: 0 auto;
     overflow: hidden;
-  
-    /* min-height:100%;*/
+ 
+     min-height:85%;
     position: relative;
 }
 
