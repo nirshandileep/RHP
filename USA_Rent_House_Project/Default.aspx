@@ -23,7 +23,7 @@
         <a id="sharetext">share</a>
     </div>
     <div style="height: 85px; border-style:solid; border-color:White;">
-        <div class="socialmediaicons" style="display: block;">
+        <div class="socialmediaicons" style="display: none;">
             <div class="socialmediaicons-inner">
                 <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
                     target="_blank">
