@@ -1,6 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CurrentHouse.ascx.cs"
     Inherits="USA_Rent_House_Project.Student.Modules.CurrentHouse" %>
-<div id="currentHomeStudent" runat="server">
+<%--<div id="currentHomeStudent" runat="server">--%>
     <asp:HiddenField ID="HiddenFieldLandloadID" runat="server" />
     <asp:HiddenField ID="HiddenFieldHouseID" runat="server" />
     <div id="RightPanel">
@@ -56,4 +56,4 @@
             </div>
         </div>
     </div>
-</div>
+<%--</div>--%>

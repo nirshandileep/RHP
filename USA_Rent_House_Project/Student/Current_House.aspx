@@ -14,7 +14,8 @@
         <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
     </div>
     <uc1:QuickLinks ID="QuickLinksid" runat="server" />
-    <div class="clear">
-    </div>
+  
     <uc2:CurrentHouse ID="CurrentHouse1" runat="server" />
+      <div class="clear">
+    </div>
 </asp:Content>
