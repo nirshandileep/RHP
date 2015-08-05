@@ -22,20 +22,15 @@
     <div class="sharebutton">
         <a id="sharetext">share</a>
     </div>
-    <div style="height: 85px; border-style:solid; border-color:White;">
+    <div style="height: 85px; border-style: solid; border-color: White;">
         <div class="socialmediaicons" style="display: none;">
             <div class="socialmediaicons-inner">
-                <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
-                    target="_blank">
-                    <img src="Images/icon-fb.jpg"></a> <a href="https://plus.google.com/116442819890932165126/"
-                        target="_blank">
-                        <img src="Images/icon-googleplus.jpg"></a> <a href="https://plus.google.com/b/117257079120239150318/dashboard/overview"
-                            target="_blank">
-                            <img src="Images/icon-insta.jpg"></a> <a href="https://instagram.com/ratestudenthousing" target="_blank">
-                                <img src="Images/icon-twiiter.jpg"></a> <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906"
-                                    target="_blank">
-                                    <img src="Images/icon-linkdin.jpg"></a>
-                                      <img src="Images/snapchat.png">
+                <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel" target="_blank"> <img src="Images/icon-fb.jpg"></a> 
+                <a href="https://plus.google.com/116442819890932165126/" target="_blank"> <img src="Images/icon-googleplus.jpg"></a> 
+                <a href="https://instagram.com/ratestudenthousing" target="_blank"> <img src="Images/icon-insta.jpg"></a> 
+                <a href="https://twitter.com/nirmalabey/" target="_blank"> <img src="Images/icon-twiiter.jpg"></a> 
+                <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906" target="_blank"> <img src="Images/icon-linkdin.jpg"></a>
+                <img src="Images/snapchat.png">
                 <div class="clear">
                 </div>
             </div>

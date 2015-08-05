@@ -256,7 +256,7 @@ namespace USA_Rent_House_Project.Student
 
             string strMsgContent = message(_user);
 
-            string strMsgTitle = "www.ratemystudenthome.com is Requesting you to Leave Current House.";
+            string strMsgTitle = "www.ratemystudenthome.com is Requesting you to Leave Current Residence.";
 
             int rtn = SendEmail(_user.PersonalEmail, strMsgTitle, strMsgContent);
 
@@ -301,21 +301,21 @@ namespace USA_Rent_House_Project.Student
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your “Current House” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", com has requested that you to “Leave My Current Residence”. <br/><br/>";
+                strMsgContent = strMsgContent + "One of your “Current Residence” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", com has requested that you to “Leave My Current Residence”. <br/><br/>";
 
                 strMsgContent = strMsgContent + "Please click on the link below to “Leave My Current Residence”.<br/><br/>";
 
-                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current House  </a>  <br/><br/>";
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current Residence  </a>  <br/><br/>";
 
                 strMsgContent = strMsgContent + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is a platform, where students and landlords can rate, review, and comment on each other. As well as find and connect with other student renters and landlords using our search engine. <br/><br/>";
 
                 strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable...</b>' <br/><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with Leaving Current Residence, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
 
                 strMsgContent = strMsgContent + "If you have already responded to the request, please ignore this email.  <br/>";
 
-                strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to Request you to leave current house. Please do not reply to this email.<br /><br />";
+                strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to Request you to leave current Residence. Please do not reply to this email.<br /><br />";
 
                 strMsgContent = strMsgContent + "From the Founder and CEO/President of<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
 

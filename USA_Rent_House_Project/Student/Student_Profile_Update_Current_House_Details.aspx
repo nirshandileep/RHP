@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student Profile Update Current House Details" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Update_Current_House_Details.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Update_Current_House_Details" %>
+﻿<%@ Page Title="Student Profile Update Current Residence Details" Language="C#" MasterPageFile="~/Master_Pages/Student.Master" AutoEventWireup="true" CodeBehind="Student_Profile_Update_Current_House_Details.aspx.cs" Inherits="USA_Rent_House_Project.Student.Student_Profile_Update_Current_House_Details" %>
 
 
 <%@ Register Src="Modules/Student_Profile_Header.ascx" TagName="Student_Profile_Header"
@@ -30,7 +30,7 @@
                         <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
                     <div id="forminner">
                         <h1>
-                            Update Current House - Current House Info</h1>
+                            Update Current House - Current Residence Info</h1>
                        
                             <asp:HiddenField ID="hdLandloadId" runat="server" />
                             <asp:HiddenField ID="hdUserID" runat="server" />

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student Leave Current House" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
+﻿<%@ Page Title="Student Leave Current Residence" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
     AutoEventWireup="true" CodeBehind="Student_Profile_Leave_Current_House.aspx.cs"
     Inherits="USA_Rent_House_Project.Student.Student_Profile_Leave_Current_House" %>
 
@@ -13,7 +13,7 @@
             var confirm_value = document.createElement("INPUT");
             confirm_value.type = "hidden";
             confirm_value.name = "confirm_value";
-            if (confirm("Do you want to Leave Current House?")) {
+            if (confirm("Do you want to Leave Current Residence?")) {
                 confirm_value.value = "Yes";
             } else {
                 confirm_value.value = "No";
@@ -25,7 +25,7 @@
             var confirm_value = document.createElement("INPUT");
             confirm_value.type = "hidden";
             confirm_value.name = "confirm_value";
-            if (confirm("Do you want to Leave Current House?")) {
+            if (confirm("Do you want to Leave Current Residence?")) {
                 confirm_value.value = "Yes";
             } else {
                 confirm_value.value = "No";
@@ -92,18 +92,18 @@
                             </asp:DataList>
                         </div>
                         <h1>
-                            Responde to Leave Current House By roommates
+                            Responde to Leave Current Residence By roommates
                         </h1>
                         <div id="RespondeToLeaveHouse" runat="server">
                             <p id="RespondeToLeaveHouseTrue" runat="server" visible="false">
-                                You have a Request to Leave Current House from :
+                                You have a Request to Leave Current Residence from :
                                 <asp:HyperLink ID="RequestedUser" runat="server" Visible="true"></asp:HyperLink>
                                 <asp:Label ID="RequestedUserName" runat="server" Text="" Visible="false"></asp:Label><br />
                                 If You Want to Response to Request, Please
                                 <asp:LinkButton ID="LinkButton1" runat="server" OnClick="OnConfirmRequest" OnClientClick="ConfirmRequest()">Click Here</asp:LinkButton>
                             </p>
                             <p id="RespondeToLeaveHouseFalse" runat="server" visible="false">
-                                You have no Request to Leave Current house.
+                                You have no Request to Leave Current Residence.
                             </p>
                         </div>
                     </div>

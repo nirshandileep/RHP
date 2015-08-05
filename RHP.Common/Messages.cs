@@ -33,15 +33,15 @@ namespace RHP.Common
         public static readonly string EmailExist = "Facebook Email Address Already registerd!";
 
         public static readonly string LeaveCurrentHouseRequestSuccess = "Request Successfully Sent!";
-        public static readonly string LeaveCurrentHouseResponseSuccess = "Current House Successfully Removed!";
-        public static readonly string LeaveCurrentHouseResponseUnSuccess = "Cannot Remove Current House! Please try Again.";
+        public static readonly string LeaveCurrentHouseResponseSuccess = "Current Residence Successfully Removed!";
+        public static readonly string LeaveCurrentHouseResponseUnSuccess = "Cannot Remove Current Residence! Please try Again.";
 
         public static readonly string CurrentHouseNoRecords = "No Records found!.";
-        public static readonly string CurrentHouseNotPartialUser = "Landlord is not a partial Landlord.Cannnot Edit Landlord Info.!.";
-        public static readonly string CurrentHouseNotPartialHouse = "Current House is not a partial House.Cannnot Edit House Info.!.";
+        public static readonly string CurrentHouseNotPartialUser = "Landlord is not a partial Landlord. Cannnot Edit Landlord Info!";
+        public static readonly string CurrentHouseNotPartialHouse = "Current Residence is not a partial Residence.Cannot Edit Residence Info.!.";
 
         public static readonly string EmailAddressExist = "Email Address Exist!.";
 
-        public static readonly string RejectLeaveCurrentHouseResponseSuccess = "Request to Leave Current House Successfully Rejected!";
+        public static readonly string RejectLeaveCurrentHouseResponseSuccess = "Request to Leave Current Residence Successfully Rejected!";
     }
 }

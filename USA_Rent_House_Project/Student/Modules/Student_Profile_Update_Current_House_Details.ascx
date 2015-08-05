@@ -20,7 +20,7 @@
             <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
             <div id="forminner">
                 <h1>
-                    View Current House</h1>
+                    View Current Residence</h1>
                 <div id="LandlordInfo" runat="server">
                     <h1>
                         Landlord Info</h1>

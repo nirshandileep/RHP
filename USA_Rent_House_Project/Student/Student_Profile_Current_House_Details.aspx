@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student Profile Current House Details" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
+﻿<%@ Page Title="Student Profile Current Residence Details" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
     AutoEventWireup="true" CodeBehind="Student_Profile_Current_House_Details.aspx.cs"
     Inherits="USA_Rent_House_Project.Student.Student_Profile_Current_House_Details" %>
 

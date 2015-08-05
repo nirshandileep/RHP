@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Student Update Current House" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
+﻿<%@ Page Title="Student Update Current Residence" Language="C#" MasterPageFile="~/Master_Pages/Student.Master"
     AutoEventWireup="true" CodeBehind="Student_Profile_Update_Current_House.aspx.cs"
     Inherits="USA_Rent_House_Project.Student.Student_Profile_Update_Current_House" %>
 
@@ -30,7 +30,7 @@
                         <uc3:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
                     <div id="forminner">
                         <h1>
-                            Update Current House</h1>
+                            Update Current Residence</h1>
                        
                         <div id="RoommateEdit" runat="server" visible="false">
                             <h1>

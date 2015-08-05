@@ -55,7 +55,7 @@
         <p>
             Email address,
             <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>
-            is already a partial profile with us. “Your Current House” already has created a
+            is already a partial profile with us. “Your Current Residence” already has created a
             partial profile for you. To send another “Invitation Email” to
             <asp:Label ID="lblpartialuserEmail2" runat="server" Text=""></asp:Label>
             so that you can have a “Full Profile” please click on button below. is already Registerd
@@ -248,7 +248,7 @@
             <asp:WizardStep ID="WizardStep5" runat="server" Title="Step 5">
                 <div class="stepwrapper">
                     <div class="row">
-                        My Current House:
+                        My Current Residence:
                         <asp:Button ID="btnStep6" runat="server" CssClass="actionbutton" Text="Add House"
                             OnClick="btnStep5_Click" />
                         <asp:Button ID="btnSkipWizzard" runat="server" CssClass="actionbutton" Text="Skip"
