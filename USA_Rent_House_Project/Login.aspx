@@ -10,7 +10,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="topimage">
-        <img src="../../Images/Registration/logo.jpg" />
+        <a href="Default.aspx">
+        <img src="../../Images/Registration/logo.jpg" /></a>
     </div>
 
 
