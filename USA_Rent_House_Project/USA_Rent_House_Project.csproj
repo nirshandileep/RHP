@@ -232,6 +232,8 @@
     <Content Include="Images\icon-youtube.jpg" />
     <Content Include="Images\Logo.jpeg" />
     <Content Include="Images\profile-change.png" />
+    <Content Include="Images\Registration\logo.jpg" />
+    <Content Include="Images\Registration\verticalstars.jpg" />
     <Content Include="Images\Sample\House.jpg" />
     <Content Include="Images\login_with_facebook.png" />
     <Content Include="Images\Sample\Bannerimage.jpg" />

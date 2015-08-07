@@ -1,4 +1,5 @@
-﻿/* DEFAULTS
+﻿
+/* DEFAULTS
 ----------------------------------------------------------*/
 
 body
@@ -353,6 +354,7 @@ input.actionbutton
     background-color: #fff;
     padding: 15px 0 0 0;
     margin-bottom: 15px;
+    display: none;
 }
 
 #topheaderinner
@@ -367,8 +369,7 @@ input.actionbutton
     /*min-height: 725px;*/
     margin: 0 auto;
     overflow: hidden;
- 
-     min-height:85%;
+    min-height: 85%;
     position: relative;
 }
 
@@ -1482,7 +1483,7 @@ input#MainContent_Student_School_info1_DrpSchoolName_I
     margin-top: 15px;
     height: 0px;
     width: 33%;
-    padding:0;
+    padding: 0;
 }
 
 .socialmediaicons-inner
@@ -1544,21 +1545,22 @@ a.homesharebuttons
 
 .verticalstars
 {
-    margin-top: -250px;
-    float:right;
+    margin-top: -700px;
+    float: right;
 }
 
 .topimage
 {
-      width: 80%;
+    width: 80%;
     text-align: right;
 }
 
 .wizardcontent
 {
-    float: left;
+    /*float: left;*/
     width: 500px;
-        margin-left: 20%;
+    /*margin-left: 20%;*/
+    margin: 0 auto;
 }
 
 .errormessagebotton
@@ -1569,7 +1571,26 @@ a.homesharebuttons
 
 .wizardwrapper
 {
-    
+}
+
+
+.wizardouterwrapper
+{
+    height: 550px;
+}
+
+.smallbuttons
+{
+    display: inline-block;
+    background-color: #0e72b8;
+    color: #ffffff !important;
+    padding: 10px 30px;
+    font-size: 1.2em;
+    text-decoration: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /*End registration page*/
