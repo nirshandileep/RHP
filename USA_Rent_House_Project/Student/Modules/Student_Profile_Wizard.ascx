@@ -45,7 +45,8 @@
 <div class="wizardcontent">
 
     <div>
-        <h2 class="form_heading">Student Profile Info</h2>
+        <h2 class="form_heading">To Create Student Profile</h2>
+        <h3>Follow these steps to create a student profile</h3>
         <div id="ShowfullRegistration" runat="server" visible="false">
             Email address,
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -88,6 +89,7 @@
                                     ControlToValidate="txtEmail" CssClass="failureNotification" ValidationGroup="vg-step1"
                                     ErrorMessage="Enter valid email address." ToolTip="Enter valid email address."> </asp:RegularExpressionValidator>
                             </div>
+                            <div><span class="form_comments">Must use student email to identify/verify current student status</span></div>
                         </div>
                         <div class="row">
                             <div class="label">
@@ -107,7 +109,7 @@
                         </div>
                         <div class="row">
                             <div class="label">
-                                <asp:Label ID="ConfirmPasswordLabel" runat="server" CssClass="form_label">Retype Password:</asp:Label>
+                                <asp:Label ID="ConfirmPasswordLabel" runat="server" CssClass="form_label">Confirm Password:</asp:Label>
                             </div>
                             <div class="input">
                                 <asp:TextBox ID="txtConfirmPassword" runat="server" CssClass="textEntry textbox_w1"
