@@ -355,8 +355,9 @@ namespace USA_Rent_House_Project
                                     "<br />";
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
+                string siteURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL);
 
-                strMsgContent = strMsgContent + "Thank you for creating an account with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", Your account details are as follows. <br/><br/>";
+                strMsgContent = strMsgContent + "Thank you for creating an account with <a href=" + siteURL + ">www.ratestudenthousing.com</a>, Your account details are as follows. <br/><br/>";
 
                 strMsgContent = strMsgContent + "User Name:  " + user.UserName + " <br/>";
 
