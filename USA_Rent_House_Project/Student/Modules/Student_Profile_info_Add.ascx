@@ -17,7 +17,7 @@
     <p>
     
     Email address,  <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>  is already a partial profile with us. 
-    “Your Current House” already has created a partial profile for you. To send another “Invitation Email” to  <asp:Label ID="lblpartialuserEmail2" runat="server" Text=""></asp:Label> so that you can have a “Full Profile” please click on button below.
+    “Your Current Residence” already has created a partial profile for you. To send another “Invitation Email” to  <asp:Label ID="lblpartialuserEmail2" runat="server" Text=""></asp:Label> so that you can have a “Full Profile” please click on button below.
    
         is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? if yes, please click button bellow..
         </p>
