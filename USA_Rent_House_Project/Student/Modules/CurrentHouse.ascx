@@ -48,7 +48,7 @@
                     <div class="buttons">
                         <asp:HyperLink ID="HyperLink9" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=7">Condos</asp:HyperLink></div>
                     <div class="buttons">
-                        <asp:HyperLink ID="HyperLink10" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=8">Town Home</asp:HyperLink></div>
+                        <asp:HyperLink ID="HyperLink10" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=8">Townhouses</asp:HyperLink></div>
                     <div class="buttons">
                         <asp:HyperLink ID="HyperLink11" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Student/Student_Profile_Current_House.aspx?housetype=9">Houses</asp:HyperLink>
                     </div>

@@ -175,27 +175,22 @@ namespace USA_Rent_House_Project
             {
                 student.Status = null;
             }
-            
+
 
             DataSet ds;
-
             ds = studentDAO.Search(student);
 
             if (ds != null)
             {
-                
+
                 DataListStudentSearchresults.DataSource = ds.Tables[0];
                 DataListStudentSearchresults.DataBind();
-
                 StudentSearchresults.Visible = true;
             }
             else
             {
-            Searchresults.Visible = true;
-           
-
+                Searchresults.Visible = true;
             }
-
         }
 
         protected void StudentItemDataBound(object sender, DataListItemEventArgs e)

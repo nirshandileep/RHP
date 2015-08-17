@@ -309,7 +309,7 @@
                                         <div id="Step4" runat="server" visible="false">
                                             <div class="buttons">
                                                 <asp:LinkButton ID="HyperLink8" runat="server" CssClass="smallbuttons" OnClick="HyperLink8_Click"
-                                                    OnClientClick="SetHouseType(6)">Appartments 6</asp:LinkButton>
+                                                    OnClientClick="SetHouseType(6)">Appartments</asp:LinkButton>
                                             </div>
                                             <div class="buttons">
                                                 <asp:LinkButton ID="HyperLink9" runat="server" CssClass="homelargebuttons" OnClick="HyperLink9_Click"
@@ -317,7 +317,7 @@
                                             </div>
                                             <div class="buttons">
                                                 <asp:LinkButton ID="HyperLink10" runat="server" CssClass="smallbuttons" OnClick="HyperLink10_Click"
-                                                    OnClientClick="SetHouseType(8)">Town Home</asp:LinkButton>
+                                                    OnClientClick="SetHouseType(8)">Townhouses</asp:LinkButton>
                                             </div>
                                             <div class="buttons">
                                                 <asp:LinkButton ID="HyperLink11" runat="server" CssClass="smallbuttons" OnClick="HyperLink11_Click"
