@@ -11,7 +11,7 @@
     </div>
     
     <div class="buttons">
-        <asp:HyperLink ID="StudentLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=s" Enabled="false">I am a Student</asp:HyperLink>
+        <asp:HyperLink ID="StudentLogin" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Login.aspx?type=s" ClientIDMode="Static" Enabled="false">I am a Student</asp:HyperLink>
     </div>
     <div class="buttons">
         <asp:HyperLink ID="HyperLink1" runat="server" CssClass="homelargebuttons" NavigateUrl="~/Search.aspx" Enabled="false">Search</asp:HyperLink>

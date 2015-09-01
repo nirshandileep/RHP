@@ -57,6 +57,9 @@
             <li>$250th Person = $100 Gift Card</li>
         </ul>
     </div>
+    <div class="sharebutton">
+    <a href="Questionnaire.aspx">Begin</a>
+    </div>
     <script type="text/javascript">
         $(document).ready(function () {
 
