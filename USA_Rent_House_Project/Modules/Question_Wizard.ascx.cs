@@ -15,6 +15,13 @@ namespace USA_Rent_House_Project
     public partial class Question_Wizard : System.Web.UI.UserControl
     {
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                QuestionWizard.ActiveStepIndex = 0;
+            }
+        }
 
         protected void btnStep1_Click(object sender, EventArgs e)
         {
@@ -33,7 +40,7 @@ namespace USA_Rent_House_Project
 
         protected void ddlMyUniversity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlMyUniversity.SelectedValue == "UCR")
+            if (ddlMyUniversity.SelectedValue.Trim() == "UCR")
             {
                 divUniAddress.Visible = false;
                 divUniName.Visible = false;
@@ -63,6 +70,8 @@ namespace USA_Rent_House_Project
 
         protected void btnStep4_Click(object sender, EventArgs e)
         {
+            SurveySubmission = new RHP.Survey.SurveyEntity();
+
             ///Step 1
             SurveySubmission.MyUniversity = ddlMyUniversity.SelectedValue.Trim() == "UCR" ? ddlMyUniversity.SelectedValue.Trim() : txtUniversityName.Text.Trim();
             SurveySubmission.UniversityName = txtUniversityName.Text.Trim();
@@ -84,6 +93,12 @@ namespace USA_Rent_House_Project
                 Response.Redirect("~/Default.aspx", false);
             }
         }
+
+        protected void QuestionWizard_Load(object sender, EventArgs e)
+        {
+
+        }
+
 
 
     }

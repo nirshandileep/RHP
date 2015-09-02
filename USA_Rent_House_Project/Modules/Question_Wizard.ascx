@@ -46,8 +46,8 @@
             click
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Here</asp:HyperLink>
         </div>
-        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="3" 
-            DisplaySideBar="False">
+        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="1" 
+            DisplaySideBar="False" onload="QuestionWizard_Load">
             <WizardSteps>
                 <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
                     <div class="stepwrapper">
@@ -57,7 +57,8 @@
                             </div>
                             <div class="input">
                                 <asp:DropDownList ID="ddlMyUniversity" runat="server" ClientIDMode="Static" 
-                                    OnSelectedIndexChanged="ddlMyUniversity_SelectedIndexChanged" >
+                                    OnSelectedIndexChanged="ddlMyUniversity_SelectedIndexChanged" 
+                                    AutoPostBack="True" >
                                     <asp:ListItem>UCR </asp:ListItem>
                                     <asp:ListItem>Add My University</asp:ListItem>
                                 </asp:DropDownList>
@@ -105,7 +106,8 @@
                             </div>
                             <div class="input">
                                 <asp:DropDownList ID="ddlTypeOfResidence" runat="server" ClientIDMode="Static" 
-                                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" 
+                                    AutoPostBack="True">
                                     <asp:ListItem>On Campus</asp:ListItem>
                                     <asp:ListItem>Off Campus</asp:ListItem>
                                 </asp:DropDownList>
@@ -131,7 +133,7 @@
                         </div>
                         <div class="row">
                             <asp:Button ID="btnStep2" runat="server" CssClass="actionbutton" Text="Continue"
-                                ValidationGroup="vg-step2" OnClick="btnStep3_Click" ClientIDMode="Static"/>
+                                ValidationGroup="vg-step2" OnClick="btnStep2_Click" ClientIDMode="Static"/>
                         </div>
                     </div>
                 </asp:WizardStep>
