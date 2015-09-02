@@ -53,8 +53,8 @@
             <li>15th Person = $5 Gift Card</li>
             <li>30th Person = $10 Gift Card</li>
             <li>60th Person = $20 Gift Card</li>
-            <li>$120th Person = $40 Gift Card</li>
-            <li>$250th Person = $100 Gift Card</li>
+            <li>120th Person = $40 Gift Card</li>
+            <li>250th Person = $100 Gift Card</li>
         </ul>
     </div>
     <div class="sharebutton">
@@ -78,7 +78,7 @@
         });
 
 
-        $('#MainContent_HomeID_StudentLogin').click(function () {
+        $('#StudentLogin').click(function () {
             $('#messagebox').fadeIn(500);
         });
 

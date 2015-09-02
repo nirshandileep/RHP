@@ -72,3 +72,6 @@ USA_Rent_House_Project/Settings.cs
 USA_Rent_House_Project/Properties/Settings.Designer.cs
 USA_Rent_House_Project/Properties/Settings.settings
 USA_Rent_House_Project/ErrorLog/
+RHP.Survey/bin/Debug/
+RHP.Survey/bin/Release/
+RHP.Survey/obj/

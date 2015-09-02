@@ -1438,6 +1438,10 @@
       <Project>{089DBEBC-F335-4308-851D-8BD9EB063346}</Project>
       <Name>RHP.StudentManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.Survey\RHP.Survey.csproj">
+      <Project>{EB979C32-9764-4931-B689-35DB8A2CEEEE}</Project>
+      <Name>RHP.Survey</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.UserManagement\RHP.UserManagement.csproj">
       <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
       <Name>RHP.UserManagement</Name>

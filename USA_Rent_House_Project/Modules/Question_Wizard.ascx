@@ -46,7 +46,8 @@
             click
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Here</asp:HyperLink>
         </div>
-        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="0" DisplaySideBar="False">
+        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="3" 
+            DisplaySideBar="False">
             <WizardSteps>
                 <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
                     <div class="stepwrapper">
@@ -55,15 +56,16 @@
                                 <asp:Label ID="EmailLabel" runat="server" CssClass="form_label">My University:</asp:Label>
                             </div>
                             <div class="input">
-                                <asp:DropDownList ID="ddlMyUniversity" runat="server" ClientIDMode="Static">
+                                <asp:DropDownList ID="ddlMyUniversity" runat="server" ClientIDMode="Static" 
+                                    OnSelectedIndexChanged="ddlMyUniversity_SelectedIndexChanged" >
                                     <asp:ListItem>UCR </asp:ListItem>
                                     <asp:ListItem>Add My University</asp:ListItem>
                                 </asp:DropDownList>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" runat="server" id="divUniName" visible="false">
                             <div class="label">
-                                <asp:Label ID="PasswordLabel" runat="server" CssClass="form_label">University Name:<span class="form_comments"></span></asp:Label>
+                                <asp:Label ID="UniNameLabel" runat="server" CssClass="form_label">University Name:<span class="form_comments"></span></asp:Label>
                             </div>
                             <div class="input">
                                 <asp:TextBox ID="txtUniversityName" runat="server" CssClass="textEntry textbox_w1"
@@ -74,9 +76,9 @@
                                     ValidationGroup="vg-step1" Display="Dynamic"   CssClass="failureNotification" ></asp:RequiredFieldValidator>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row" runat="server" id="divUniAddress" visible="false">
                             <div class="label">
-                                <asp:Label ID="Label3" runat="server" CssClass="form_label">University Address:<span class="form_comments"></span></asp:Label>
+                                <asp:Label ID="UniAddressLabel" runat="server" CssClass="form_label">University Address:<span class="form_comments"></span></asp:Label>
                             </div>
                             <div class="input">
                                 <asp:TextBox ID="txtUniversityAddress" ClientIDMode="Static" runat="server" CssClass="textEntry textbox_w1"
@@ -102,7 +104,8 @@
                                 <asp:Label ID="LabelQuestion" runat="server" CssClass="form_label">Type of Residence:</asp:Label>
                             </div>
                             <div class="input">
-                                <asp:DropDownList ID="DropDownList1" runat="server" ClientIDMode="Static">
+                                <asp:DropDownList ID="ddlTypeOfResidence" runat="server" ClientIDMode="Static" 
+                                    OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
                                     <asp:ListItem>On Campus</asp:ListItem>
                                     <asp:ListItem>Off Campus</asp:ListItem>
                                 </asp:DropDownList>
@@ -119,7 +122,8 @@
                                     <asp:ListItem>Family Housing</asp:ListItem>
                                     <asp:ListItem>Greek Housing</asp:ListItem>
                                 </asp:DropDownList>
-                                <asp:DropDownList ID="ddlOffCampusSelection" runat="server" ClientIDMode="Static">
+                                <asp:DropDownList ID="ddlOffCampusSelection" runat="server" 
+                                    ClientIDMode="Static" Visible="False">
                                     <asp:ListItem>Apartments</asp:ListItem>
                                     <asp:ListItem>House</asp:ListItem>
                                 </asp:DropDownList>
@@ -167,7 +171,9 @@
                             </div>
                             <div class="input">
                                 <asp:TextBox ID="txtEmail" ClientIDMode="Static" runat="server" CssClass="textEntry textbox_w1" MaxLength="50"></asp:TextBox>
+                                <br>
                                 </br>
+                                  <br></br>
                                   <asp:RequiredFieldValidator Display="Dynamic" ID="EmailRequired" runat="server" ControlToValidate="txtEmail"
                                     CssClass="failureNotification" ErrorMessage="Require" ValidationGroup="vg-step4"  ClientIDMode="Static"></asp:RequiredFieldValidator>
                                 <asp:RegularExpressionValidator Display="Dynamic" ID="RegularExpressionValidator2"
@@ -184,7 +190,8 @@
                            
                         </div>
                         <div class="row">
-                            <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Save" ValidationGroup="vg-step4" ClientIDMode="Static" />
+                            <asp:Button ID="btnStep4" runat="server" CssClass="actionbutton" Text="Save" 
+                                ValidationGroup="vg-step4" ClientIDMode="Static" OnClick="btnStep4_Click" />
                         </div>
                     </div>
                 </asp:WizardStep>

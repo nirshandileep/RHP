@@ -76,13 +76,22 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.DropDownList ddlMyUniversity;
         
         /// <summary>
-        /// PasswordLabel control.
+        /// divUniName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PasswordLabel;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUniName;
+        
+        /// <summary>
+        /// UniNameLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UniNameLabel;
         
         /// <summary>
         /// txtUniversityName control.
@@ -103,13 +112,22 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
         
         /// <summary>
-        /// Label3 control.
+        /// divUniAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divUniAddress;
+        
+        /// <summary>
+        /// UniAddressLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UniAddressLabel;
         
         /// <summary>
         /// txtUniversityAddress control.
@@ -157,13 +175,13 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.Label LabelQuestion;
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlTypeOfResidence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTypeOfResidence;
         
         /// <summary>
         /// Label4 control.
