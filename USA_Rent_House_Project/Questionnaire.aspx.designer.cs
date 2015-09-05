@@ -10,7 +10,7 @@
 namespace USA_Rent_House_Project {
     
     
-    public partial class Questionniare {
+    public partial class Questionnaire {
         
         /// <summary>
         /// Question_Wizard1 control.
@@ -19,6 +19,6 @@ namespace USA_Rent_House_Project {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::USA_Rent_House_Project.Student_Profile_Wizard Question_Wizard1;
+        protected global::USA_Rent_House_Project.Question_Wizard Question_Wizard1;
     }
 }

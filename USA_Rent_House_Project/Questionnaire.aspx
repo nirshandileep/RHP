@@ -10,7 +10,7 @@
                 <img src="../../Images/Registration/logo.jpg" />
             </a>
         </div>
-        <div class="wizardouterwrapper">
+        <div class="wizardouterwrapper" style="height:730px">
             
             <uc1:Question_Wizard ID="Question_Wizard1" runat="server" />
             

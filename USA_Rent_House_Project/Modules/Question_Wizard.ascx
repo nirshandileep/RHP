@@ -39,6 +39,10 @@
     <div>
         <h2 class="form_heading">
             Please answer few questions</h2>
+            <h3>Thank you in Advance for partaking in our campain. The information that you are providing is completely ANONYMOUS, and will help guide future students that are looking to rent a place.</h3> 
+
+<h3>It is a 6 question survey and at the end of it you will be entered for the prize. We will contact you via email. You must be a valid student with a vaild .edu (school) email address. Thanks
+            </h3>
         <div id="ShowfullRegistration" runat="server" visible="false">
             Email address,
             <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
@@ -46,7 +50,7 @@
             click
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Here</asp:HyperLink>
         </div>
-        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="1" 
+        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="0" 
             DisplaySideBar="False" onload="QuestionWizard_Load">
             <WizardSteps>
                 <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -59,6 +63,7 @@
                                 <asp:DropDownList ID="ddlMyUniversity" runat="server" ClientIDMode="Static" 
                                     OnSelectedIndexChanged="ddlMyUniversity_SelectedIndexChanged" 
                                     AutoPostBack="True" >
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem>UCR </asp:ListItem>
                                     <asp:ListItem>Add My University</asp:ListItem>
                                 </asp:DropDownList>
@@ -108,6 +113,7 @@
                                 <asp:DropDownList ID="ddlTypeOfResidence" runat="server" ClientIDMode="Static" 
                                     OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" 
                                     AutoPostBack="True">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem>On Campus</asp:ListItem>
                                     <asp:ListItem>Off Campus</asp:ListItem>
                                 </asp:DropDownList>
@@ -119,6 +125,7 @@
                             </div>
                             <div class="input">
                                 <asp:DropDownList ID="ddlOnCampusSelection" runat="server" ClientIDMode="Static">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem>Dorms</asp:ListItem>
                                     <asp:ListItem>Apartments</asp:ListItem>
                                     <asp:ListItem>Family Housing</asp:ListItem>
@@ -126,6 +133,7 @@
                                 </asp:DropDownList>
                                 <asp:DropDownList ID="ddlOffCampusSelection" runat="server" 
                                     ClientIDMode="Static" Visible="False">
+                                    <asp:ListItem>Select</asp:ListItem>
                                     <asp:ListItem>Apartments</asp:ListItem>
                                     <asp:ListItem>House</asp:ListItem>
                                 </asp:DropDownList>
@@ -148,7 +156,12 @@
                                     MaxLength="100" ClientIDMode="Static"></asp:TextBox>
                                 <br />
                             </div>
+
+
+
                         </div>
+                      
+
                         <div class="row">
                             <div class="label">
                                 <asp:Label ID="Label5" runat="server" CssClass="form_label">Address of Residence:<span class="form_comments"></span></asp:Label>
@@ -159,6 +172,22 @@
                                 <br />
                             </div>
                         </div>
+                     
+                        <h3>What your thoughts/opinion about your current living situation?<br />
+                        Is there something that you would change? Or is there something that need to be brought to attention? Is the “Property Owner” doing a good job?<br></br>
+                        What are some things you like or dislike?</h3>
+                        <br />
+                     <div class="row">
+                     <div class="label">
+                                <asp:Label ID="Label3" runat="server" CssClass="form_label">Comment:<span class="form_comments"></span></asp:Label>
+                            </div>
+                               <div class="input">
+                                <asp:TextBox ID="txtComment" runat="server" CssClass="textEntry textbox_w1"
+                                    MaxLength="100" ClientIDMode="Static" TextMode="MultiLine" Height="100" Width="250"></asp:TextBox>
+                                <br />
+                            </div>
+                     </div>
+
                         <div class="row">
                             <asp:Button ID="btnStep3" runat="server"  ClientIDMode="Static" CssClass="actionbutton" Text="Next" ValidationGroup="vg-step3"
                                 OnClick="btnStep3_Click" />

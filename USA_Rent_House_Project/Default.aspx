@@ -10,7 +10,7 @@
     <div style="text-align: center;">
         <img alt="" src="../Images/Home/homepagetop.jpg" />
     </div>
-    <div class="homebuttonsdiv">
+    <div class="homebuttonsdiv" style="padding-left: 18px;">
         <uc1:Home ID="HomeID" runat="server" />
     </div>
     <div>
