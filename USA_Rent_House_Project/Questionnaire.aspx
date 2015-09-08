@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <div style="height:500px;">
+    <div style="height:970px;">
         <div class="topimage">
             <a href="../Default.aspx">
                 <img src="../../Images/Registration/logo.jpg" />
