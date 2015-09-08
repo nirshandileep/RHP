@@ -60,6 +60,13 @@
     <div class="sharebutton">
     <a href="Questionnaire.aspx">Begin</a>
     </div>
+
+     <div class="sharebutton" style="list-style: NONE; font-size: 15; border-style: solid; width: 50%; margin: auto;margin-top:20px;    border-color: #0E72B8;" >
+      <strong> Counter will restart once the 250 person is reached. Happy Counting</strong>
+        </br>
+         Also please visit our facebook event page for up to date info
+    </div>
+
     <script type="text/javascript">
         $(document).ready(function () {
 
