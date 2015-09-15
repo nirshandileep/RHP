@@ -28,6 +28,7 @@ namespace RHP.Survey
             db.AddInParameter(command, "TypeOfResidenceOption", DbType.String, survey.TypeOfResidenceOption);
             db.AddInParameter(command, "NameOfResidence", DbType.String, survey.NameOfResidence);
             db.AddInParameter(command, "AddressOfResidence", DbType.String, survey.AddressOfResidence);
+            db.AddInParameter(command, "PropertyOwnerComment", DbType.String, survey.PropertyOwnerComment);
             db.AddInParameter(command, "Email", DbType.String, survey.Email);
 
             if (transaction == null)

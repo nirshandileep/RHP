@@ -76,6 +76,15 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.DropDownList ddlMyUniversity;
         
         /// <summary>
+        /// RequiredFieldValidator3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
+        
+        /// <summary>
         /// divUniName control.
         /// </summary>
         /// <remarks>
@@ -184,6 +193,15 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.DropDownList ddlTypeOfResidence;
         
         /// <summary>
+        /// RequiredFieldValidator4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        /// <summary>
         /// Label4 control.
         /// </summary>
         /// <remarks>
@@ -209,6 +227,24 @@ namespace USA_Rent_House_Project {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlOffCampusSelection;
+        
+        /// <summary>
+        /// RequiredFieldValidator5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator5;
+        
+        /// <summary>
+        /// RequiredFieldValidator6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator6;
         
         /// <summary>
         /// btnStep2 control.
@@ -265,6 +301,24 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.TextBox txtAddressofResidence;
         
         /// <summary>
+        /// btnStep3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnStep3;
+        
+        /// <summary>
+        /// WizardStep4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.WizardStep WizardStep4;
+        
+        /// <summary>
         /// Label3 control.
         /// </summary>
         /// <remarks>
@@ -283,22 +337,22 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.TextBox txtComment;
         
         /// <summary>
-        /// btnStep3 control.
+        /// btnStep4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStep3;
+        protected global::System.Web.UI.WebControls.Button btnStep4;
         
         /// <summary>
-        /// WizardStep4 control.
+        /// WizardStep5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.WizardStep WizardStep4;
+        protected global::System.Web.UI.WebControls.WizardStep WizardStep5;
         
         /// <summary>
         /// LabelFirstName control.
@@ -337,12 +391,12 @@ namespace USA_Rent_House_Project {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         /// <summary>
-        /// btnStep4 control.
+        /// btnStep5 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnStep4;
+        protected global::System.Web.UI.WebControls.Button btnStep5;
     }
 }

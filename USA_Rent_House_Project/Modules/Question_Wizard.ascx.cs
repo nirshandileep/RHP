@@ -40,7 +40,7 @@ namespace USA_Rent_House_Project
 
         protected void ddlMyUniversity_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (ddlMyUniversity.SelectedValue.Trim() == "UCR")
+            if (ddlMyUniversity.SelectedValue.Trim() == "UCR" || ddlMyUniversity.SelectedValue.Trim() == "-1")
             {
                 divUniAddress.Visible = false;
                 divUniName.Visible = false;
@@ -68,7 +68,7 @@ namespace USA_Rent_House_Project
 
         public RHP.Survey.SurveyEntity SurveySubmission { get; set; }
 
-        protected void btnStep4_Click(object sender, EventArgs e)
+        protected void btnStep5_Click(object sender, EventArgs e)
         {
             SurveySubmission = new RHP.Survey.SurveyEntity();
 
@@ -86,6 +86,9 @@ namespace USA_Rent_House_Project
             SurveySubmission.AddressOfResidence = txtAddressofResidence.Text.Trim();
 
             ///Step 4
+            SurveySubmission.PropertyOwnerComment = txtComment.Text.Trim();
+
+            ///Step 5
             SurveySubmission.Email = txtEmail.Text.Trim();
 
             if (RHP.Survey.SurveyDAO.Insert(SurveySubmission))
@@ -97,6 +100,11 @@ namespace USA_Rent_House_Project
         protected void QuestionWizard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnStep4_Click(object sender, EventArgs e)
+        {
+            QuestionWizard.ActiveStepIndex = 4;
         }
 
 

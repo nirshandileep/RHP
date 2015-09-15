@@ -16,6 +16,7 @@ namespace RHP.Survey
         public string TypeOfResidenceOption { get; set; }
         public string NameOfResidence { get; set; }
         public string AddressOfResidence { get; set; }
+        public string PropertyOwnerComment { get; set; }
         public string Email { get; set; }
     }
 }
