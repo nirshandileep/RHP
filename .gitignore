@@ -72,3 +72,7 @@ USA_Rent_House_Project/Properties/licenses.licx
 USA_Rent_House_Project/Settings.cs
 USA_Rent_House_Project/Properties/Settings.Designer.cs
 USA_Rent_House_Project/Properties/Settings.settings
+RHP.Survey/bin/
+RHP.Survey/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+RHP.Survey/obj/
+USA_Rent_House_Project/ErrorLog/
