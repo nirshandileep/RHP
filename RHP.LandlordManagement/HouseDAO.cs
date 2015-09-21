@@ -94,8 +94,8 @@ namespace RHP.LandlordManagement
            db.AddInParameter(command, "YearHomeBuild", DbType.Int16, house.YearHomeBuild);
            db.AddInParameter(command, "BedRooms", DbType.Int16, house.BathRooms);
            db.AddInParameter(command, "BathRooms", DbType.Int16, house.BedRooms);
-           db.AddInParameter(command, "LotSquareFootage", DbType.Decimal, house.LotSquareFootage);
-           db.AddInParameter(command, "TotalSquareFootage", DbType.Decimal, house.TotalSquareFootage);
+           db.AddInParameter(command, "LotSquareFootage", DbType.Int32, house.LotSquareFootage);
+           db.AddInParameter(command, "TotalSquareFootage", DbType.Int32, house.TotalSquareFootage);
            db.AddInParameter(command, "UtilitiesIncludedInRent", DbType.String, house.UtilitiesIncludedInRent);
            db.AddInParameter(command, "PropertyImagePath", DbType.String, house.PropertyImagePath);
            db.AddInParameter(command, "IsDeleted", DbType.Boolean, house.IsDeleted);
@@ -200,6 +200,30 @@ namespace RHP.LandlordManagement
 
            }
            return result;
+       }
+
+       public House SelectByRoomId(Guid BaseHouseRoomId)
+       {
+           House entity = new House();
+
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand dbCommand = db.GetStoredProcCommand("usp_HouseSelectByBaseHouseRoomId");
+
+           db.AddInParameter(dbCommand, "BaseHouseRoomId", DbType.Guid, BaseHouseRoomId);
+
+           using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+           {
+               if (dataReader.Read())
+               {
+                   if (entity == null)
+                   {
+                       entity = new House();
+                   }
+                   RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+               }
+           }
+
+           return entity;
        }
 
        public DataSet Search(HouseSearch house)

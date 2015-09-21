@@ -16,6 +16,7 @@ namespace USA_Rent_House_Project
 {
     public partial class Search : System.Web.UI.Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
             string v = Utility.GetQueryStringValueByKey(Request, "type");
@@ -52,7 +53,6 @@ namespace USA_Rent_House_Project
                 Searchresults.Visible = true;
             }
         }
-
 
         public void loadHousedata()
         {
@@ -175,27 +175,22 @@ namespace USA_Rent_House_Project
             {
                 student.Status = null;
             }
-            
+
 
             DataSet ds;
-
             ds = studentDAO.Search(student);
 
             if (ds != null)
             {
-                
+
                 DataListStudentSearchresults.DataSource = ds.Tables[0];
                 DataListStudentSearchresults.DataBind();
-
                 StudentSearchresults.Visible = true;
             }
             else
             {
-            Searchresults.Visible = true;
-           
-
+                Searchresults.Visible = true;
             }
-
         }
 
         protected void StudentItemDataBound(object sender, DataListItemEventArgs e)

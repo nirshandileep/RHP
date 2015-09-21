@@ -7,6 +7,7 @@ using RHP.UserManagement;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Utility;
+using System.Data;
 
 namespace RHP.LandlordManagement
 {
@@ -15,6 +16,7 @@ namespace RHP.LandlordManagement
         public Guid LandlordId { get; set; }
         public User user { get; set; }
         public string LandlordName { get; set; }
+        public int LandlordTypeId { get; set; }
 
 
         public static Landlord Select(Guid Userid)
@@ -24,6 +26,11 @@ namespace RHP.LandlordManagement
             return landlord;
         }
 
+        public static Landlord SelectByBaseHouseRoomId(Guid BaseHouseRoomId)
+        {
+            Landlord landlord = Generic.GetByFieldValue<Landlord>("BaseHouseRoomId", BaseHouseRoomId.ToString());
+            return landlord;
+        }
 
         public bool Save()
         {
@@ -91,6 +98,12 @@ namespace RHP.LandlordManagement
                 connection.Close();
             }
             return result;
+        }
+
+        public DataSet SelectAllDataset()
+        {
+            LandlordDAO landlordDAO = new LandlordDAO();
+            return landlordDAO.SelectAllDataset();
         }
     }
 }

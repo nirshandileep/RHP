@@ -150,7 +150,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     house.LotSquareFootage = LotSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(LotSQFootage.Text.Trim());
                     house.TotalSquareFootage = TotalSQFootage.Text.Trim() == string.Empty ? 0 : Int32.Parse(TotalSQFootage.Text.Trim());
                     house.UtilitiesIncludedInRent = Utilities.Text.Trim();
-                    house.Price = decimal.Parse(Price.Text.ToString());
+                    house.Price = Convert.ToDecimal(Price.Text.ToString().Trim());
                     house.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
                     house.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());// user.UserId.Value;
 
@@ -161,7 +161,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
                         ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["HouseId"] };
                         Session[Constants.SESSION_HOUSELIST] = ds;
 
-                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_Load_House_Option_Add.aspx'; }", true);
+                        string houseid = house.HouseId.ToString();
+                        //This can be used everywhere to call java script and parameters.
+                        Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Land_load/Land_Load_House_Option_Add.aspx?HouseId=" + house.HouseId.ToString() + "'; }", true);
                                 
                     }
                     else

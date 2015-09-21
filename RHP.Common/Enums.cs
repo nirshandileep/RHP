@@ -31,7 +31,12 @@ namespace RHP.Common
             /// <summary>
             /// Fb return url set from database
             /// </summary>
-            FB_REDIRECT_URL = 11
+            FB_REDIRECT_URL = 11,
+
+            /// <summary>
+            /// Google analytics code
+            /// </summary>
+            GOOGLE_ANALYTICS = 12,
         }
 
         public enum UserRoles
@@ -78,6 +83,25 @@ namespace RHP.Common
             Feedback = 2,
             Photo = 3,
             Document = 4,
+        }
+
+        public enum HouseType
+        {
+            Dorms = 1,
+            Appartment = 2,
+            Condo = 3,
+            FamilyHousing = 4,
+            House = 5,
+            OffCampusAppartment = 6,
+            OffCampusCondo = 7,
+            TownHome = 8,
+            OffCampusHouse = 9,
+        }
+
+        public enum LandlordType
+        {
+            SimpleLandlord = 1,
+            CorporateLandlord = 2,
         }
     }
 }

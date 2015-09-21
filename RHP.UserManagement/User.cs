@@ -46,6 +46,7 @@ namespace RHP.UserManagement
         public string Question { get; set; }
         public string Answer { get; set; }
         public string ReferralCode { get; set; }
+        public Guid? BaseHouseRoomId { get; set; }
 
         public Guid RoleId { get; set; }
         private List<string> rolesList;
@@ -70,7 +71,21 @@ namespace RHP.UserManagement
             return user;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fieldName1">string of the name of the Field. e.g. Email</param>
+        /// <param name="fieldValue1">string value of the Field. e.g. name@domain.com</param>
+        /// <param name="fieldName2">string RoleName e.g. RoleName</param>
+        /// <param name="fieldValue2">string value of the role, e.g. student</param>
+        /// <returns></returns>
         public static User SelectUserByEmail(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2)
+        {
+            User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
+            return user;
+        }
+
+        public static User SelectByRoleName(string fieldName1, string fieldValue1, string fieldName2, string fieldValue2)
         {
             User user = Utility.Generic.GetByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
             return user;
@@ -80,6 +95,12 @@ namespace RHP.UserManagement
         {
             return Utility.Generic.GetAllByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
             
+        }
+
+        public static List<User> SelectUserByBaseHouseRoomId(string fieldName1, Guid fieldValue1, string fieldName2, string fieldValue2)
+        {
+            return Utility.Generic.GetAllByFieldValue<User>(fieldName1, fieldValue1, fieldName2, fieldValue2);
+
         }
 
         public object AddMembershipPartialUser(string strUserName, string strPassword, string strEmail, string strQuestion, string strAnswer, bool boolAllowLogon,Guid GuidUserId, string userRole)
@@ -295,7 +316,7 @@ namespace RHP.UserManagement
         {
             if (isUseDefault)
             {
-               // FormsAuthentication.RedirectFromLoginPage(UserName, false);    
+               //User login attempt from Fb for first time, redirect to Student Wizzard if student
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(), false);
             }
             else
@@ -303,6 +324,29 @@ namespace RHP.UserManagement
                // FormsAuthentication.SetAuthCookie(UserName, false);
                 HttpContext.Current.Response.Redirect(this.RedirectToHomePageByRole(),false);
             }
+        }
+
+        public string RedirectToWizzardPageByRole()
+        {
+            string URL = string.Empty;
+
+            string role = "";
+
+            if (RolesList != null || rolesList.Count > 0)
+            {
+                role = RolesList[0].ToLower();
+            }
+
+            if (role.ToLower() == "landlord")
+            {
+                URL = String.Format("~/Land_load/Land_load_Profile_wizard.aspx?AccessKey={0}", this.UserId.ToString());
+            }
+            else if (role.ToLower() == "student")
+            {
+                URL = String.Format("~/Student/Student_Profile_Add.aspx?AccessKey={0}", this.UserId.ToString());
+            }
+
+            return URL;
         }
 
         /// <summary>

@@ -103,8 +103,6 @@ namespace USA_Rent_House_Project.Student.Modules
             }
         }
 
-
-
         protected void Page_Load(object sender, EventArgs e)
         {
             LoadStudent();
@@ -133,10 +131,26 @@ namespace USA_Rent_House_Project.Student.Modules
 
             Image_.ImageUrl = photo.LoadImage(Guid.Parse(HiddenField_.Value.ToString()), Enums.PhotoCategory.Profile_Picture);
         }
+       
+        public bool validateemail()
+        {
+            bool isexist = false;
+            Labelmessage.Text = "";
+            if (NewEmail.Text.Trim() != "")
+            {
+                isexist = true;
+            }
+            else
+            {
+                isexist = false;
+            }
+
+            return isexist;
+        }
 
         protected void CreateRommateButton_Click(object sender, EventArgs e)
         {
-            if (validateemail() == false)
+            if (validateemail() == true)
             {
                 GridviewRoommatelist.DataSource = CreateDataSource();
                 GridviewRoommatelist.DataBind();
@@ -147,6 +161,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
         public void clear()
         {
+            NewEmail.Text = "";
             Email.Text = "";
             FirstName.Text = "";
             MiddleName.Text = "";
@@ -186,10 +201,10 @@ namespace USA_Rent_House_Project.Student.Modules
            
                 dr = dt.NewRow();
 
-                dr[0] = Email.Text.Trim();
-                dr[1] = FirstName.Text.Trim();
-                dr[2] = MiddleName.Text.Trim();
-                dr[3] = LastName.Text.Trim();
+                dr[0] = string.IsNullOrEmpty(NewEmail.Text.Trim()) ? string.Empty : NewEmail.Text.Trim();
+                dr[1] = string.IsNullOrEmpty(FirstName.Text.Trim()) ? string.Empty : FirstName.Text.Trim();
+                dr[2] = string.IsNullOrEmpty(MiddleName.Text.Trim()) ? string.Empty : MiddleName.Text.Trim();
+                dr[3] = string.IsNullOrEmpty(LastName.Text.Trim()) ? string.Empty : LastName.Text.Trim();
                 dr[4] = MobileArea.Text.Trim() + Mobile1.Text.Trim() + Mobile2.Text.Trim();//Mobile.Text.Trim();
                 dt.Rows.Add(dr);
             
@@ -251,11 +266,12 @@ namespace USA_Rent_House_Project.Student.Modules
             User user_ = new User(); 
             foreach (GridViewRow row in GridviewRoommatelist.Rows)
             {
-                user_.PersonalEmail = row.Cells[1].Text;
-                user_.FirstName = row.Cells[2].Text;
-                user_.MiddleName = row.Cells[3].Text;
-                user_.LastName = row.Cells[4].Text;
-                user_.BestContactNumber = row.Cells[5].Text;
+                user_.PersonalEmail = string.IsNullOrEmpty(row.Cells[1].Text.Trim()) ? string.Empty : row.Cells[1].Text.Trim();
+                user_.FirstName = string.IsNullOrEmpty(row.Cells[2].Text.Trim()) ? string.Empty : row.Cells[2].Text.Trim();
+                user_.MiddleName = string.IsNullOrEmpty(row.Cells[3].Text.Trim()) ? string.Empty : row.Cells[3].Text.Trim();
+                user_.MiddleName = user_.MiddleName.Replace("&nbsp;", "");
+                user_.LastName = string.IsNullOrEmpty(row.Cells[4].Text.Trim()) ? string.Empty : row.Cells[4].Text.Trim();
+                user_.BestContactNumber = string.IsNullOrEmpty(row.Cells[5].Text.Trim()) ? string.Empty : row.Cells[5].Text.Trim();
 
                 user_.UserId = Guid.NewGuid();
                 user_.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
@@ -270,7 +286,7 @@ namespace USA_Rent_House_Project.Student.Modules
 
                     string strMsgContent = message(user_.UserId.Value, user_);
 
-                    string strMsgTitle = "www.ratemystudenthome.com is Requesting you to join with Us.";
+                    string strMsgTitle =  SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "  is Requesting you to join with Us.";
 
                     int rtn = SendEmail(user_.PersonalEmail, strMsgTitle, strMsgContent);
 
@@ -348,40 +364,33 @@ namespace USA_Rent_House_Project.Student.Modules
                 string RegisterUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Student/Student_Profile_Add.aspx?ActivationKey=" + ActivationKey;
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
-                                    " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
+                                    " background-color:#efefef;\"   <span >" + name + ", " + "</span></div>" +
                                     "<br />";
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate created account with ratemystudenthome.com, and Request you to join with ratemystudenthome.com,<br/><br/>";
+                strMsgContent = strMsgContent + "Your current roommates created a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " ,and in the process created/updated “My Current Residence” feature of the platform. ,<br/><br/>";
 
-                //strMsgContent = strMsgContent + "Your account details are as follows. <br/><br/>";
+                strMsgContent = strMsgContent + "In doing so they have created a “Partial Profile” for you and have begun to rate you and comment on their and your housing situation. Create a “Full Profile” to see what they have said and to access/complete “My Current Residence”;so that you can also begin to rate and comment on your current roommates and/or landlord. Click link below to create a “Full Profile”.";
 
-                //strMsgContent = strMsgContent + "Your Name:  " + name + " <br/>";
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " Account </a>  <br/><br/>";
 
-                //strMsgContent = strMsgContent + "Email : " + _user.PersonalEmail + " <br/>";
 
-                //strMsgContent = strMsgContent + "Contact No : " + _user.BestContactNumber + " <br/>";
+                strMsgContent = strMsgContent + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is a platform, where students and landlords can rate, review, and comment on each other. As well as find and connect with other student renters and landlords using our search engine. <br/><br/>";
 
-                //strMsgContent = strMsgContent + "Please keep these details safe for future use.<br/>";
+                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable...</b>' <br/><br/>";
 
-                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
 
-                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
+                strMsgContent = strMsgContent + "If you have already responded to the request, please ignore this email.  <br/>";
 
-                strMsgContent = strMsgContent + "if your are happy to join with us, Please click on the link below to create your account. it's 100% free.<br/><br/>";
-
-                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Create Your www.ratemystudenthome.com Account </a>  <br/><br/>";
-
-                strMsgContent = strMsgContent + "If you have any issues with creating your account, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with creating my account\">  support@ratemystudenthome.com </a><br/>";
-
-                strMsgContent = strMsgContent + "If you have already Registred, " + "<a href=" + loginpath + "> click here </a> to login to ratemystudenthome.com. <br/>";
+                strMsgContent = strMsgContent + "If you have already created a “Full Profile” (registered), " + "<a href=" + loginpath + "> click here </a> to login to " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ". <br/>";
 
                 strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to activate your account. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
+                strMsgContent = strMsgContent + "From the Founder and CEO/President of<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
 
-                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
 
             }
             catch (Exception ex)
@@ -390,37 +399,6 @@ namespace USA_Rent_House_Project.Student.Modules
 
             }
             return strMsgContent;
-        }
-
-        public bool validateemail()
-        {
-            bool isexist = false;
-            Labelmessage.Text = "";
-            if (Email.Text.Trim() != "")
-            {
-                User user_ = new User();
-
-               // user_ = User.SelectUserByEmail("Email", Email.Text.Trim().ToLower(), "RoleName", "student");
-               // if (user_ != null)
-
-                if(user_.IsUserEmailExist(Email.Text.Trim().ToLower()))
-                {
-                    Labelmessage.Text = "landlord / student allready registerd for email : " + Email.Text.Trim().ToLower() + ". Please enter new details to continue..";
-                    isexist = true;
-                    clear();
-                }
-                else
-                {
-                    isexist = false;
-                  //  Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
-                }
-            }
-            else
-            {
-                isexist = false;
-            }
-
-            return isexist;
         }
 
         protected void ButtonVerify_Click(object sender, EventArgs e)
@@ -432,19 +410,31 @@ namespace USA_Rent_House_Project.Student.Modules
 
                 if (user_ != null)
                 {
-                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+                    if (user_.HouseId.HasValue)
+                    {
+                        Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
+                        
+                    }
+                    else
+                    {
+                        Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
 
-                    // Email.Text = user_.PersonalEmail;
-                    FirstName.Text = user_.FirstName;
-                    MiddleName.Text = user_.MiddleName;
-                    LastName.Text = user_.LastName;
+                        // Email.Text = user_.PersonalEmail;
+                        NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                        FirstName.Text = string.IsNullOrEmpty(user_.FirstName) ? string.Empty : user_.FirstName;
+                        MiddleName.Text = string.IsNullOrEmpty(user_.MiddleName) ? string.Empty : user_.MiddleName;
+                        LastName.Text = string.IsNullOrEmpty(user_.LastName) ? string.Empty : user_.LastName;
 
-                    MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
-                    Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
-                    Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
+                        MobileArea.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(0, 3);
+                        Mobile1.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(3, 3);
+                        Mobile2.Text = string.IsNullOrEmpty(user_.BestContactNumber) ? string.Empty : user_.BestContactNumber.Substring(6, 4);
 
 
-                    //Mobile.Text = user_.BestContactNumber;
+                        //Mobile.Text = user_.BestContactNumber;
+                    
+                    
+
+                    }
                 }
                 else
                 {
@@ -454,7 +444,7 @@ namespace USA_Rent_House_Project.Student.Modules
                     MobileArea.Text = "";
                     Mobile1.Text = "";
                     Mobile2.Text = "";
-
+                    NewEmail.Text = "";
                     User user_check = new User();
 
                     if (user_check.IsUserEmailExist(Email.Text.Trim().ToLower()))
@@ -468,7 +458,35 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         if (user_check.IsPartialUserEmailExist(Email.Text.Trim().ToLower()))
                         {
-                            Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Account. Please enter another email.";
+                            User userPartial = User.SelectByRoleName("RoleName", "student", "Email", Email.Text.Trim().ToLower());
+
+                            if (userPartial != null)
+                            {
+                                if (userPartial.HouseId.HasValue)
+                                {
+                                    Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with a another House. Please enter another email.";
+
+                                }
+                                else
+                                {
+                                    Labelmessage.Text = "student verified for email : " + Email.Text.Trim().ToLower();
+
+
+                                    NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
+                                    FirstName.Text = string.IsNullOrEmpty(userPartial.FirstName) ? string.Empty : userPartial.FirstName;
+                                    MiddleName.Text = string.IsNullOrEmpty(userPartial.MiddleName) ? string.Empty : userPartial.MiddleName;
+                                    LastName.Text = string.IsNullOrEmpty(userPartial.LastName) ? string.Empty : userPartial.LastName;
+
+
+                                    MobileArea.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(0, 3);
+                                    Mobile1.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(3, 3);
+                                    Mobile2.Text = string.IsNullOrEmpty(userPartial.BestContactNumber) ? string.Empty : userPartial.BestContactNumber.Substring(6, 4);
+                                }
+                            }
+                            else
+                            {
+                                Labelmessage.Text = "Email Address : " + Email.Text.Trim().ToLower() + ", is already Registed with Partial Lanlord Account. Please enter another email.";
+                            }
                         }
                         else
                         {
@@ -477,9 +495,9 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                     else
                     {
-                        Labelmessage.Text = "can not find registered landload for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
+                        Labelmessage.Text = "can not find registered Student for email : " + Email.Text.Trim().ToLower() + ". Please enter details to continue..";
 
-                        // Mobile.Text = "";
+                        NewEmail.Text = string.IsNullOrEmpty(Email.Text.Trim().ToLower()) ? string.Empty : Email.Text.Trim().ToLower();
                         FirstName.Enabled = true;
                         MiddleName.Enabled = true;
                         LastName.Enabled = true;

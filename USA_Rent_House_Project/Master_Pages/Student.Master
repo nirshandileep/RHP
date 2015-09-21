@@ -8,8 +8,10 @@
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.1.min.js" language="javascript" type="text/javascript"></script>
 </head>
 <body>
+
 <div id="wrapper">
     <form id="form1" runat="server">
       <div class="loginDisplay">
@@ -18,7 +20,9 @@
 
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold"><asp:LoginName ID="HeadLoginName" runat="server" /></span>!
+                        For BETA release testing, Welcome <span class="bold"><%--<asp:LoginName ID="HeadLoginName" runat="server" /></span>--%>
+                        <asp:Label ID="LoginName" runat="server" ></asp:Label>
+                        !
                           <asp:LinkButton ID="LBLogOut" runat="server" onclick="LBLogOut_Click"> Log Out</asp:LinkButton>
                     
                     </LoggedInTemplate>
@@ -34,7 +38,7 @@
     </div>
      <div id="footer">
     <div class="footerleft">Patent Pending</div>
-   <div class="footerright">© 2014 | All rights reserved | www.ratemystudenthome.com</div>
+   <div class="footerright">© 2015 | All rights reserved | www.ratemystudenthome.com</div>
    <div class="clear"></div> 
 </div>
 </body>

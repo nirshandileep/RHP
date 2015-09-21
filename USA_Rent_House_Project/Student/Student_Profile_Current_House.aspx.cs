@@ -61,9 +61,9 @@ namespace USA_Rent_House_Project.Student
             {
                 if (user.UserId.HasValue)
                 {
-                    HyperLinkPublicView.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                    
                     loadcontrol();
-                    loaddata();
+                    // loaddata();
                 }
                 else
                 {
@@ -77,33 +77,33 @@ namespace USA_Rent_House_Project.Student
 
         public void loaddata()
         {
-            if (user.HouseId != null)
-            {
-                CreateCurrentHouseButton.Visible = false;
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
-                LeaveCurrentHouseButton.Visible = true;
+            //if (user.HouseId != null)
+            //{
+            //    CreateCurrentHouseButton.Visible = false;
+            //    ViewCurrentHouseButton.Visible = true;
+            //    UpdateCurrentHouseButton.Visible = true;
+            //    LeaveCurrentHouseButton.Visible = true;
 
-                if (hdnStepNumber.Value.Trim() != "3")
-                {
-                    ButtonNext.Visible = true;
-                    CreateLandloadButton.Visible = false;
+            //    if (hdnStepNumber.Value.Trim() != "3")
+            //    {
+            //        ButtonNext.Visible = true;
+            //        CreateLandloadButton.Visible = false;
 
-                }
-                else
-                {
-                    ButtonNext.Visible = false;
-                    CreateLandloadButton.Visible = true;
-                    CreateLandloadButton.Text = "Save";
-                }
-            }
-            else
-            {
-                CreateCurrentHouseButton.Visible = true;
-                ViewCurrentHouseButton.Visible = false;
-                UpdateCurrentHouseButton.Visible = false;
-                LeaveCurrentHouseButton.Visible = false;
-            }
+            //    }
+            //    else
+            //    {
+            //        ButtonNext.Visible = false;
+            //        CreateLandloadButton.Visible = true;
+            //        CreateLandloadButton.Text = "Save";
+            //    }
+            //}
+            //else
+            //{
+            //    CreateCurrentHouseButton.Visible = true;
+            //    ViewCurrentHouseButton.Visible = false;
+            //    UpdateCurrentHouseButton.Visible = false;
+            //    LeaveCurrentHouseButton.Visible = false;
+            //}
         }
 
         protected void PassID(Guid id)
@@ -158,14 +158,15 @@ namespace USA_Rent_House_Project.Student
             }
         }
 
-
         protected void CreateLandloadButton_Click(object sender, EventArgs e)
         {
             switch (hdnStepNumber.Value.Trim())
             {
+                //Creating a fresh current hosue
                 case "1":
                     if (String.IsNullOrEmpty(HiddenFieldLandloadID.Value.Trim()))
                     {
+                        //no valid landlord
                         if (!Current_House_Landload_infoID.LandlordId.HasValue)
                         {
                             Current_House_Landload_infoID.LandlordId = null;
@@ -174,6 +175,7 @@ namespace USA_Rent_House_Project.Student
                     }
                     else
                     {
+                        //Load landlord details by landlord id
                         Current_House_Landload_infoID.LandlordId = Guid.Parse(HiddenFieldLandloadID.Value.Trim());
                     }
 

@@ -15,8 +15,8 @@
                 <asp:Label ID="City" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="StateLabel" runat="server" AssociatedControlID="state" CssClass="form_label">State:</asp:Label>
-                <asp:Label ID="state" runat="server" CssClass="form_label"></asp:Label>
+                <asp:Label ID="StateLabel" runat="server" AssociatedControlID="txtstate" CssClass="form_label">State:</asp:Label>
+                <asp:Label ID="txtstate" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
                 <asp:Label ID="ZipLabel" runat="server" AssociatedControlID="Zip" CssClass="form_label">Zip:</asp:Label>

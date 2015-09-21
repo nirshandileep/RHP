@@ -24,7 +24,7 @@ namespace USA_Rent_House_Project.Land_load.Modules
                     try
                     {
                         //Todo: change this to house details
-                        HyperLinkHouseDetails.NavigateUrl = "~/Land_load/Land_Load_House_View.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2;
+                        HyperLinkHouseDetails.NavigateUrl = "~/Land_load/Land_Load_Public_House_View.aspx?AccessCode=" + AccessCode + "&AccessCode2=" + AccessCode2;
                         LoadStudent(Guid.Parse(AccessCode));
                     }
                     catch (Exception ex)

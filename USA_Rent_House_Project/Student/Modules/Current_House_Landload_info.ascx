@@ -20,7 +20,8 @@
 <asp:ValidationSummary ID="ValidationGroup1" runat="server" CssClass="failureNotification"
     ValidationGroup="ValidationGroup1" />
 
-  
+  <asp:ValidationSummary ID="ValidationSummary1" runat="server" CssClass="failureNotification"
+  ValidationGroup="ValidationGroup3" />
 <%--<asp:UpdatePanel ID="UpdatePanelLandloadinfo" runat="server" updatemode="Conditional">
     <ContentTemplate>--%>
 
@@ -51,7 +52,7 @@
     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
     <asp:RequiredFieldValidator ID="FirstNameRequired" runat="server" ControlToValidate="FirstName"
-        CssClass="failureNotification" ErrorMessage="First Name is required." ToolTip="First Name is required.">*</asp:RequiredFieldValidator>
+        CssClass="failureNotification" ErrorMessage="First Name is required." ToolTip="First Name is required." ValidationGroup="ValidationGroup3">*</asp:RequiredFieldValidator>
 </p>
 <p>
     <asp:Label ID="LabelMiddleName" runat="server" AssociatedControlID="MiddleName" CssClass="form_label">Middle Name:</asp:Label>
@@ -61,7 +62,7 @@
     <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
     <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1" Enabled="false"></asp:TextBox>
     <asp:RequiredFieldValidator ID="LastNameRequired" runat="server" ControlToValidate="LastName"
-        CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required.">*</asp:RequiredFieldValidator>
+        CssClass="failureNotification" ErrorMessage="Last Name is required." ToolTip="Last Name is required." ValidationGroup="ValidationGroup3">*</asp:RequiredFieldValidator>
 </p>
 
 <p>

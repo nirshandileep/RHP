@@ -10,6 +10,7 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+
     <form id="Form1" runat="server">
     <div class="page">
         <div class="header">
@@ -24,7 +25,7 @@
                         <%--  [ <a href="~/Account/Login" ID="HeadLoginStatus" runat="server">Log In</a> ]--%>
                     </AnonymousTemplate>
                     <LoggedInTemplate>
-                        Welcome <span class="bold">
+                        For BETA release testing, Welcome <span class="bold">
                             <asp:LoginName ID="HeadLoginName" runat="server" />
                         </span>!
                         <asp:LinkButton ID="LBLogOut" runat="server" OnClick="LBLogOut_Click"> Log Out</asp:LinkButton>
@@ -47,6 +48,7 @@
                             ToolTip="Property Option"></asp:MenuItem>
                           <%--   <asp:MenuItem NavigateUrl="~/Administrator/Property_Feature_Items.aspx" Text="Property  Option Items"
                             ToolTip="Property Option Items"></asp:MenuItem>--%>
+                        <asp:MenuItem NavigateUrl="~/Administrator/Comments.aspx" Text="Comments" Value="Comments"></asp:MenuItem>
                     </Items>
                 </asp:Menu>
             </div>

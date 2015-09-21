@@ -33,7 +33,7 @@
     <div id="DivComment" style="display: block">
         <p>
             <%--  <dx:ASPxRatingControl ID="ASPxRatingvalue" runat="server" ></dx:ASPxRatingControl>--%>
-            <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="690px"
+            <asp:TextBox ID="CommentMessage" runat="server" CssClass="textEntry textbox_w1" Width="590px"
                 Rows="5" TextMode="MultiLine"></asp:TextBox>
         </p>
         <div class="clear">
@@ -111,8 +111,8 @@
             <asp:FileUpload ID="PhotoUpload" CssClass="textEntry" runat="server" AllowMultiple="true" />
         </p>
           <p id="divPhotoUpload" runat="server" Visible="true">
-            Feedback Comment :
-            <asp:TextBox ID="PhotoUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="690px"
+            Feedback Comment :<br />
+            <asp:TextBox ID="PhotoUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="590px"
                 Rows="5" TextMode="MultiLine"></asp:TextBox>
         </p>
         <div class="clear">
@@ -129,8 +129,8 @@
                 AllowMultiple="true" />
         </p>
           <p id="divDocumentUpload" runat="server" Visible="true">
-            Feedback Comment :
-            <asp:TextBox ID="DocumentUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="690px"
+            Feedback Comment :<br />
+            <asp:TextBox ID="DocumentUploadComment" runat="server" CssClass="textEntry textbox_w1" Width="590px"
                 Rows="5" TextMode="MultiLine"></asp:TextBox>
         </p>
         <div class="clear">

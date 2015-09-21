@@ -6,6 +6,8 @@
 <%@ Register Src="Modules/Student_Public_Profile_Header.ascx" TagName="Student_Public_Profile_Header"
     TagPrefix="uc1" %>
     
+<%@ Register Src="~/Student/Modules/Ctr_QuickLinks.ascx" TagName="QuickLinks" TagPrefix="uc1" %>
+
     <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -13,7 +15,8 @@
     <div id="RightPanel_public">
         <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right"
                 runat="server">Public View</asp:HyperLink>
-            <div id="Search" runat="server">
+         
+      <div id="Search" runat="server">
               <asp:HyperLink ID="HyperLinkabout" CssClass="loginlinks" NavigateUrl="~/Student/Student_Public_Profile_info.aspx"
                 runat="server">About</asp:HyperLink>
                 <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"

@@ -41,10 +41,50 @@ namespace USA_Rent_House_Project.Student.Modules
         {
             if (!IsPostBack)
             {
+                LoadInitialData();
                 loaddata();
             }
         }
 
+        private void LoadInitialData()
+        {
+            //DrpOraganizations
+            DrpOraganizations.DataSource = RHP.Utility.Generic.GetAll<Oraganization>();
+            DrpOraganizations.DataTextField = "OraganizationName";
+            DrpOraganizations.DataValueField = "OraganizationId";
+            DrpOraganizations.DataBind();
+            DrpOraganizations.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+            //DrpFraternity
+            DrpFraternity.DataSource = RHP.Utility.Generic.GetAll<Fraternity>();
+            DrpFraternity.DataTextField = "FraternityName";
+            DrpFraternity.DataValueField = "FraternityId";
+            DrpFraternity.DataBind();
+            DrpFraternity.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+            //DrpSoroity
+            DrpSoroity.DataSource = RHP.Utility.Generic.GetAll<Soroity>();
+            DrpSoroity.DataTextField = "SoroityName";
+            DrpSoroity.DataValueField = "SoroityId";
+            DrpSoroity.DataBind();
+            DrpSoroity.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+            //DrpGreekOrganizations
+            DrpGreekOrganizations.DataSource = RHP.Utility.Generic.GetAll<GreakOrganization>();
+            DrpGreekOrganizations.DataTextField = "GreakOrganizationName";
+            DrpGreekOrganizations.DataValueField = "GreakOrganizationId";
+            DrpGreekOrganizations.DataBind();
+            DrpGreekOrganizations.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+
+           // DrpGreekHonorSocities
+            DrpGreekHonorSocities.DataSource = RHP.Utility.Generic.GetAll<GreekHonorSocities>();
+            DrpGreekHonorSocities.DataTextField = "GreekHonorSocitiesName";
+            DrpGreekHonorSocities.DataValueField = "GreekHonorSocitiesId";
+            DrpGreekHonorSocities.DataBind();
+            DrpGreekHonorSocities.Items.Insert(0, new ListItem(Constants.DROPDOWN_EMPTY_ITEM_TEXT, Constants.DROPDOWN_EMPTY_ITEM_VALUE));
+
+        }
 
         public void loaddata()
         {
@@ -57,30 +97,131 @@ namespace USA_Rent_House_Project.Student.Modules
                 Awards.Text = string.IsNullOrEmpty(spotlight.Awards) ? string.Empty : spotlight.Awards;
                 Achievements.Text = string.IsNullOrEmpty(spotlight.Achievements) ? string.Empty : spotlight.Achievements;
                 CurentGPA.Text = string.IsNullOrEmpty(spotlight.CurentGPA) ? string.Empty : spotlight.CurentGPA;
-                Oraganizations.Text = string.IsNullOrEmpty(spotlight.Oraganizations) ? string.Empty : spotlight.Oraganizations;
                 Involvments.Text = string.IsNullOrEmpty(spotlight.Involvments) ? string.Empty : spotlight.Involvments;
-                Fraternity.Text = string.IsNullOrEmpty(spotlight.Fraternity) ? string.Empty : spotlight.Fraternity;
-                Soroity.Text = string.IsNullOrEmpty(spotlight.Soroity) ? string.Empty : spotlight.Soroity;
+    
+                if (spotlight.OraganizationId.HasValue)
+                {
+                    for (int i = 0; i < DrpOraganizations.Items.Count; i++)
+                    {
+                        if (DrpOraganizations.Items[i].Value.ToString().ToLower() == spotlight.OraganizationId.ToString().ToLower())
+                        {
+                            DrpOraganizations.ClearSelection();
+                            DrpOraganizations.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (spotlight.FraternityId.HasValue)
+                {
+                    for (int i = 0; i < DrpFraternity.Items.Count; i++)
+                    {
+                        if (DrpFraternity.Items[i].Value.ToString().ToLower() == spotlight.OraganizationId.ToString().ToLower())
+                        {
+                            DrpFraternity.ClearSelection();
+                            DrpFraternity.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (spotlight.SoroityId.HasValue)
+                {
+                    for (int i = 0; i < DrpSoroity.Items.Count; i++)
+                    {
+                        if (DrpSoroity.Items[i].Value.ToString().ToLower() == spotlight.SoroityId.ToString().ToLower())
+                        {
+                            DrpSoroity.ClearSelection();
+                            DrpSoroity.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (spotlight.GreakOrganizationId.HasValue)
+                {
+                    for (int i = 0; i < DrpGreekOrganizations.Items.Count; i++)
+                    {
+                        if (DrpGreekOrganizations.Items[i].Value.ToString().ToLower() == spotlight.GreakOrganizationId.ToString().ToLower())
+                        {
+                            DrpGreekOrganizations.ClearSelection();
+                            DrpGreekOrganizations.Items[i].Selected = true;
+                        }
+                    }
+                }
+
+                if (spotlight.GreekHonorSocitiesId.HasValue)
+                {
+                    for (int i = 0; i < DrpGreekHonorSocities.Items.Count; i++)
+                    {
+                        if (DrpGreekHonorSocities.Items[i].Value.ToString().ToLower() == spotlight.GreekHonorSocitiesId.ToString().ToLower())
+                        {
+                            DrpGreekHonorSocities.ClearSelection();
+                            DrpGreekHonorSocities.Items[i].Selected = true;
+                        }
+                    }
+                }
             }
+
         }
+
         protected void SaveStudent_Spotlight_Click(object sender, EventArgs e)
         {
             spotlight.Awards = string.IsNullOrEmpty(Awards.Text) ? string.Empty : Awards.Text;
             spotlight.Achievements = string.IsNullOrEmpty(Achievements.Text) ? string.Empty : Achievements.Text;
             spotlight.CurentGPA = string.IsNullOrEmpty(CurentGPA.Text) ? string.Empty : CurentGPA.Text;
-            spotlight.Oraganizations = string.IsNullOrEmpty(Oraganizations.Text) ? string.Empty : Oraganizations.Text;
             spotlight.Involvments = string.IsNullOrEmpty(Involvments.Text) ? string.Empty : Involvments.Text;
-            spotlight.Fraternity = string.IsNullOrEmpty(Fraternity.Text) ? string.Empty : Fraternity.Text;
-            spotlight.Soroity = string.IsNullOrEmpty(Soroity.Text) ? string.Empty : Soroity.Text;
-
+           
             spotlight.IsDeleted = false;
             spotlight.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             spotlight.CreatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
             spotlight.UpdatedBy = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
+            if (DrpOraganizations.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.OraganizationId = null;
+            }
+            else
+            {
+                spotlight.OraganizationId = int.Parse(DrpOraganizations.SelectedItem.Value.Trim());
+            }
+
+            if (DrpSoroity.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.SoroityId = null;
+            }
+            else
+            {
+                spotlight.SoroityId = int.Parse(DrpSoroity.SelectedItem.Value.Trim());
+            }
+
+            if (DrpFraternity.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.FraternityId = null;
+            }
+            else
+            {
+                spotlight.FraternityId = int.Parse(DrpFraternity.SelectedItem.Value.Trim());
+            }
+
+            if (DrpGreekOrganizations.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.GreakOrganizationId = null;
+            }
+            else
+            {
+                spotlight.GreakOrganizationId = int.Parse(DrpGreekOrganizations.SelectedItem.Value.Trim());
+            }
+
+            if (DrpGreekHonorSocities.SelectedItem.Value.Trim() == "-1")
+            {
+                spotlight.GreekHonorSocitiesId = null;
+            }
+            else
+            {
+                spotlight.GreekHonorSocitiesId = int.Parse(DrpGreekHonorSocities.SelectedItem.Value.Trim());
+            }
+
             if (spotlight.Save())
             {
-                
+
                 lblError.Text = Messages.Save_Success;
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Save_Success + "'); window.location = '/Student/Student_Profile.aspx';}", true);
 

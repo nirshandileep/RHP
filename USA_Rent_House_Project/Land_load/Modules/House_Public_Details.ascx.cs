@@ -88,9 +88,9 @@ namespace USA_Rent_House_Project.Land_load.Modules
             {
                 state = Generic.Get<State>(house.StateId.Value);
                 stateName = state.StateName;
-            }           
-            
-            StateLabel.Text = stateName;
+            }
+
+            txtstate.Text = stateName;
             LotSQFootage.Text = house.LotSquareFootage.HasValue ? house.LotSquareFootage.Value.ToString() : string.Empty;
             TotalSQFootage.Text = house.TotalSquareFootage.HasValue ? house.TotalSquareFootage.Value.ToString() : string.Empty;
             Utilities.Text = house.UtilitiesIncludedInRent != null ? house.UtilitiesIncludedInRent : string.Empty;

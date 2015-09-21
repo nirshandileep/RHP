@@ -96,9 +96,9 @@ namespace USA_Rent_House_Project.Student.Modules
 
                         for (int i = 0; i < SchoolList.Count; i++)
                         {
-                            if (SchoolList[i].ToString().ToLower() == student.School.SchoolId.ToString())
+                            if (SchoolList[i].SchoolId.ToString().ToLower() == student.School.SchoolId.ToString())
                             {
-                                SchoolName.Text = student.School.SchoolId.ToString();
+                                SchoolName.Text = SchoolList[i].Name.ToString(); //student.School.SchoolId.ToString();
                                
                             }
                         }
@@ -142,16 +142,26 @@ namespace USA_Rent_House_Project.Student.Modules
                     }
                 }
 
-                if (!string.IsNullOrEmpty(student.CurentMajor))
+                if (student.MajorId.HasValue)
                 {
-                    for (int i = 0; i < Constants.CURENT_MAJOR_LIST.Length; i++)
+                    Major major;
+                    major = Generic.Get<Major>(student.MajorId.Value);
+                    if (major != null)
                     {
-                        if (Constants.CURENT_MAJOR_LIST[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
-                        {
-                            CurentMajor.Text = Constants.CURENT_MAJOR_LIST[i].Text.ToString().ToLower(); 
-                        }
+                        CurentMajor.Text = major.MajorName;
                     }
                 }
+
+                //if (!string.IsNullOrEmpty(student.CurentMajor))
+                //{
+                //    for (int i = 0; i < Constants.CURENT_MAJOR_LIST.Length; i++)
+                //    {
+                //        if (Constants.CURENT_MAJOR_LIST[i].Value.ToString().ToLower() == student.CurentMajor.ToLower())
+                //        {
+                //            CurentMajor.Text = Constants.CURENT_MAJOR_LIST[i].Text.ToString().ToLower(); 
+                //        }
+                //    }
+                //}
 
                 startdate.Text = student.StartMonth.ToString() + " / " + student.StartYear.ToString();
 
@@ -169,10 +179,58 @@ namespace USA_Rent_House_Project.Student.Modules
                 Awards.Text = string.IsNullOrEmpty(spotlight.Awards) ? string.Empty : spotlight.Awards;
                 Achievements.Text = string.IsNullOrEmpty(spotlight.Achievements) ? string.Empty : spotlight.Achievements;
                 CurentGPA.Text = string.IsNullOrEmpty(spotlight.CurentGPA) ? string.Empty : spotlight.CurentGPA;
-                Oraganizations.Text = string.IsNullOrEmpty(spotlight.Oraganizations) ? string.Empty : spotlight.Oraganizations;
                 Involvments.Text = string.IsNullOrEmpty(spotlight.Involvments) ? string.Empty : spotlight.Involvments;
-                Fraternity.Text = string.IsNullOrEmpty(spotlight.Fraternity) ? string.Empty : spotlight.Fraternity;
-                Soroity.Text = string.IsNullOrEmpty(spotlight.Soroity) ? string.Empty : spotlight.Soroity;
+               
+                if (spotlight.OraganizationId.HasValue)
+                {
+                    Oraganization oraganization;
+                    oraganization = Generic.Get<Oraganization>(spotlight.OraganizationId.Value);
+                    if (oraganization != null)
+                    {
+                        txtOraganizations.Text = oraganization.OraganizationName;
+                    }
+                }
+
+                if (spotlight.FraternityId.HasValue)
+                {
+                    Fraternity fraternity;
+                    fraternity = Generic.Get<Fraternity>(spotlight.FraternityId.Value);
+                    if (fraternity != null)
+                    {
+                        txtFraternity.Text = fraternity.FraternityName;
+                    }
+                }
+
+                if (spotlight.SoroityId.HasValue)
+                {
+                    Soroity soroity;
+                    soroity = Generic.Get<Soroity>(spotlight.SoroityId.Value);
+                    if (soroity != null)
+                    {
+                        txtSoroity.Text = soroity.SoroityName;
+                    }
+                }
+
+                if (spotlight.GreakOrganizationId.HasValue)
+                {
+                    GreakOrganization greakOrganization;
+                    greakOrganization = Generic.Get<GreakOrganization>(spotlight.GreakOrganizationId.Value);
+                    if (greakOrganization != null)
+                    {
+                        txyGreakOrganization.Text = greakOrganization.GreakOrganizationName;
+                    }
+                }
+
+                if (spotlight.GreekHonorSocitiesId.HasValue)
+                {
+                    GreekHonorSocities greekHonorSocities;
+                    greekHonorSocities = Generic.Get<GreekHonorSocities>(spotlight.GreekHonorSocitiesId.Value);
+                    if (greekHonorSocities != null)
+                    {
+                        txtGreekHonorSocities.Text = greekHonorSocities.GreekHonorSocitiesName;
+                    }
+                }
+
             }
         }
     }

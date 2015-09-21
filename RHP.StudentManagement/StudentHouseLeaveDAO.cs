@@ -11,7 +11,7 @@ namespace RHP.StudentManagement
 {
    public class StudentHouseLeaveDAO
     {
-       public bool Select(StudentHouseLeave entity)
+       public bool SelectByHouse(StudentHouseLeave entity)
        {
            bool result = true;
 
@@ -19,6 +19,36 @@ namespace RHP.StudentManagement
            DbCommand dbCommand = db.GetStoredProcCommand("usp_StudentHouseLeaveSelect");
 
            db.AddInParameter(dbCommand, "HouseId", DbType.Guid, entity.HouseId);
+           db.AddInParameter(dbCommand, "RequestTo", DbType.Guid, entity.RequestTo);
+
+           using (IDataReader dataReader = db.ExecuteReader(dbCommand))
+           {
+               if (dataReader.Read())
+               {
+                   if (entity == null)
+                   {
+                       entity = new StudentHouseLeave();
+                   }
+                   RHP.Utility.Generic.AssignDataReaderToEntity(dataReader, entity);
+               }
+
+           }
+           return result;
+       }
+
+       /// <summary>
+       /// Todo
+       /// </summary>
+       /// <param name="entity"></param>
+       /// <returns></returns>
+       public bool SelectByRoom(StudentHouseLeave entity)
+       {
+           bool result = true;
+
+           Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+           DbCommand dbCommand = db.GetStoredProcCommand("usp_StudentHouseLeaveSelectByBaseHouseRoomId");
+
+           db.AddInParameter(dbCommand, "BaseHouseRoomId", DbType.Guid, entity.BaseHouseRoomId);
            db.AddInParameter(dbCommand, "RequestTo", DbType.Guid, entity.RequestTo);
 
            using (IDataReader dataReader = db.ExecuteReader(dbCommand))
@@ -47,6 +77,7 @@ namespace RHP.StudentManagement
             DbCommand command = db.GetStoredProcCommand("usp_StudentHouseLeaveInsert");
 
             db.AddInParameter(command, "HouseId", DbType.Guid, studentHouseLeave.HouseId);
+            db.AddInParameter(command, "BaseHouseRoomId", DbType.Guid, studentHouseLeave.BaseHouseRoomId);
             db.AddInParameter(command, "RequestBy", DbType.Guid, studentHouseLeave.RequestBy);
             db.AddInParameter(command, "RequestTo", DbType.Guid, studentHouseLeave.RequestTo);
             db.AddInParameter(command, "status", DbType.Int16, studentHouseLeave.status);
@@ -74,28 +105,29 @@ namespace RHP.StudentManagement
         }
 
        public bool Update(StudentHouseLeave studentHouseLeave, Database db, DbTransaction transaction)
-        {
-            DbCommand command = db.GetStoredProcCommand("usp_StudentHouseLeaveUpdate");
+       {
+           DbCommand command = db.GetStoredProcCommand("usp_StudentHouseLeaveUpdate");
 
-            db.AddInParameter(command, "HouseId", DbType.Guid, studentHouseLeave.HouseId);
-            db.AddInParameter(command, "RequestBy", DbType.Guid, studentHouseLeave.RequestBy);
-            db.AddInParameter(command, "RequestTo", DbType.Guid, studentHouseLeave.RequestTo);
-            db.AddInParameter(command, "status", DbType.Int16, studentHouseLeave.status);
-            db.AddOutParameter(command, "ResponseDate", DbType.DateTime, 30);
+           db.AddInParameter(command, "HouseId", DbType.Guid, studentHouseLeave.HouseId);
+           db.AddInParameter(command, "BaseHouseRoomId", DbType.Guid, studentHouseLeave.BaseHouseRoomId);
+           db.AddInParameter(command, "RequestBy", DbType.Guid, studentHouseLeave.RequestBy);
+           db.AddInParameter(command, "RequestTo", DbType.Guid, studentHouseLeave.RequestTo);
+           db.AddInParameter(command, "status", DbType.Int16, studentHouseLeave.status);
+           db.AddOutParameter(command, "ResponseDate", DbType.DateTime, 30);
 
-            if (transaction == null)
-            {
-                db.ExecuteNonQuery(command);
-            }
-            else
-            {
-                db.ExecuteNonQuery(command, transaction);
-            }
+           if (transaction == null)
+           {
+               db.ExecuteNonQuery(command);
+           }
+           else
+           {
+               db.ExecuteNonQuery(command, transaction);
+           }
 
-            studentHouseLeave.ResponseDate = Convert.ToDateTime(db.GetParameterValue(command, "ResponseDate").ToString());
+           studentHouseLeave.ResponseDate = Convert.ToDateTime(db.GetParameterValue(command, "ResponseDate").ToString());
 
-            return true;
-        }
+           return true;
+       }
 
        public bool IsStudentHouseLeaveExist(StudentHouseLeave studentHouseLeave)
        {

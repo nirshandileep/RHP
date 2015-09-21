@@ -6,6 +6,7 @@ using RHP.Common;
 using Microsoft.Practices.EnterpriseLibrary.Data;
 using System.Data.Common;
 using RHP.Utility;
+using System.Data;
 
 namespace RHP.LandlordManagement
 {
@@ -28,6 +29,8 @@ namespace RHP.LandlordManagement
         public decimal? RatingValue { get; set; }
         public decimal? Price { get; set; }
         public List<HouseOption> HouseOptionList { get; set; }
+        public int? HouseTypeId { get; set; }
+        public Guid? BaseHouseRoomId { get; set; }
 
         public static House Select(Guid houseId)
         {
@@ -41,6 +44,11 @@ namespace RHP.LandlordManagement
             return house;
         }
 
+        public static House SelectByRoomId(Guid baseHouseRoomId)
+        {
+            House house = new HouseDAO().SelectByRoomId(baseHouseRoomId);
+            return house;
+        }
        
         public bool Save()
         {
@@ -54,6 +62,13 @@ namespace RHP.LandlordManagement
             try
             {
                 HouseDAO houseDAO = new HouseDAO();
+
+                //If landlord user is a partial user, this logic might need to change
+                if (!new LandlordDAO().IsLandlordExist(new Landlord() { LandlordId = this.LandlordId }))
+                {
+                    new Landlord() { LandlordId = this.LandlordId, LandlordTypeId = (int)Enums.LandlordType.SimpleLandlord, CreatedBy = this.CreatedBy }.Save();
+                }
+
                 if (houseDAO.IsHouseExist(this))
                 {
                     result = houseDAO.Update(this, db, transaction);
@@ -62,18 +77,6 @@ namespace RHP.LandlordManagement
                 {
                     result = houseDAO.Insert(this, db, transaction);
                 }
-
-                //if (result)
-                //{
-                //    result = new HouseOptionDAO().Delete(new HouseOption() { HouseId = this.HouseId.Value }, db, transaction);
-                //    if (HouseOptionList != null)
-                //    {
-                //        foreach (HouseOption item in this.HouseOptionList)
-                //        {
-                //            new HouseOptionDAO().Insert(item, db, transaction);
-                //        }
-                //    }
-                //}
 
                 if (result)
                 {
@@ -129,5 +132,14 @@ namespace RHP.LandlordManagement
             }
             return result;
         }
+
+        public DataSet SelectAllDataset(Guid LandlordId)
+        {
+            HouseDAO house = new HouseDAO();
+
+            return house.SelectAllDataset(LandlordId);
+        }
+
+
     }
 }

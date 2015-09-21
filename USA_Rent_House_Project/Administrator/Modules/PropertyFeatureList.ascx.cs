@@ -87,8 +87,11 @@ namespace USA_Rent_House_Project.Administrator.Modules
 
         private void LoadGrid()
         {
+            DataSet ds;
+            ds = new OptionDAO().SelectAllDataset();
+            ds.Tables[0].PrimaryKey = new DataColumn[] { ds.Tables[0].Columns["OptionId"] };
             gvFeatureList.SettingsText.ConfirmDelete = Messages.Delete_Confirm;
-            gvFeatureList.DataSource = dsFeatures.Tables[0];
+            gvFeatureList.DataSource = ds.Tables[0];
             gvFeatureList.DataBind();
         }
 

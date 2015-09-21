@@ -84,7 +84,8 @@ namespace RHP.UserManagement
             db.AddInParameter(command, "Gender", DbType.String, users.Gender);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
             db.AddInParameter(command, "RoleId", DbType.Guid, users.RoleId);
-       //     db.AddInParameter(command, "ReferralCode", DbType.String, users.ReferralCode);
+            db.AddInParameter(command, "BaseHouseRoomId", DbType.Guid, users.BaseHouseRoomId);
+       
             db.ExecuteNonQuery(command, transaction);
 
             users.UpdatedDate = Convert.ToDateTime(db.GetParameterValue(command, "UpdatedDate").ToString());
@@ -98,6 +99,7 @@ namespace RHP.UserManagement
 
             db.AddInParameter(command, "UserId", DbType.Guid, users.UserId);
             db.AddInParameter(command, "HouseId", DbType.Guid, users.HouseId);
+            db.AddInParameter(command, "BaseHouseRoomId", DbType.Guid, users.BaseHouseRoomId);
             db.AddOutParameter(command, "UpdatedDate", DbType.DateTime, 30);
             db.ExecuteNonQuery(command, transaction);
 
@@ -222,6 +224,17 @@ namespace RHP.UserManagement
             DbCommand command = db.GetStoredProcCommand("usp_UserSelectLandlordByHouseId");
 
             db.AddInParameter(command, "HouseId", DbType.Guid, HouseId);
+
+            return db.ExecuteDataSet(command);
+        }
+
+        public DataSet SelectLandlordByBaseHouseRoomId(Guid roomId)
+        {
+
+            Database db = DatabaseFactory.CreateDatabase(Constants.CONNECTIONSTRING);
+            DbCommand command = db.GetStoredProcCommand("usp_UserSelectLandlordByBaseHouseRoomId");
+
+            db.AddInParameter(command, "BaseHouseRoomId", DbType.Guid, roomId);
 
             return db.ExecuteDataSet(command);
         }

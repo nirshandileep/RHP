@@ -20,6 +20,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,8 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.51116.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\Library\AjaxControlToolkit.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
@@ -177,6 +181,7 @@
     <Content Include="Administrator\Default.aspx" />
     <Content Include="Administrator\Landload.aspx" />
     <Content Include="Administrator\Landload_View.aspx" />
+    <Content Include="Administrator\Modules\Comment_Add.ascx" />
     <Content Include="Administrator\Modules\LandloadList.ascx" />
     <Content Include="Administrator\Modules\LandloadView.ascx" />
     <Content Include="Administrator\Modules\PropertyFeatureItemList.ascx" />
@@ -200,20 +205,36 @@
     <Content Include="Administrator\UserList.aspx" />
     <Content Include="Change_Password.aspx" />
     <Content Include="Change_Secret_Question.aspx" />
-    <Content Include="Contest.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="Contact_Us.aspx" />
     <Content Include="CustomError.aspx" />
     <Content Include="Email_Verification.aspx" />
     <Content Include="Facebook-Login.aspx" />
     <Content Include="Images\cover-change.png" />
+    <Content Include="Images\EmailTemplate\line.png" />
+    <Content Include="Images\EmailTemplate\logo.jpg" />
+    <Content Include="Images\EmailTemplate\logo2.png" />
+    <Content Include="Images\EmailTemplate\star.jpg" />
+    <Content Include="Images\EmailTemplate\text.jpg" />
+    <Content Include="Images\Home\homepage.jpg" />
+    <Content Include="Images\Home\homepagebottom.jpg" />
+    <Content Include="Images\Home\homepagetop.jpg" />
+    <Content Include="Images\Home\homepagetopleft.jpg" />
+    <Content Include="Images\Home\homepagetopmiddle.jpg" />
+    <Content Include="Images\Home\homepagetopright.jpg" />
+    <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\icon-fb.jpg" />
     <Content Include="Images\icon-googleplus.jpg" />
     <Content Include="Images\icon-insta.jpg" />
     <Content Include="Images\icon-linkdin.jpg" />
+    <Content Include="Images\icon-linkedin-lg.png" />
     <Content Include="Images\icon-twiiter.jpg" />
     <Content Include="Images\icon-youtube.jpg" />
+    <Content Include="Images\Logo.jpeg" />
     <Content Include="Images\profile-change.png" />
+    <Content Include="Images\Registration\logo.jpg" />
+    <Content Include="Images\Registration\verticalstars.jpg" />
     <Content Include="Images\Sample\House.jpg" />
-    <Content Include="Images\House_Logo.jpg" />
     <Content Include="Images\login_with_facebook.png" />
     <Content Include="Images\Sample\Bannerimage.jpg" />
     <Content Include="Images\Sample\Noimage.jpg" />
@@ -221,8 +242,19 @@
     <Content Include="Images\Sample\profileimage2.jpg" />
     <Content Include="Images\Sample\profileimage3.jpg" />
     <Content Include="Images\Sample\profileimage4.jpg" />
+    <Content Include="Images\snapchat.png" />
+    <Content Include="Land_load\Land_load_Profile_wizard.aspx" />
+    <Content Include="Land_load\Modules\Landloard_Profile_Wizard.ascx" />
+    <Content Include="Modules\Footerbottom.ascx" />
+    <Content Include="Modules\Question_Wizard.ascx" />
+    <Content Include="Notifications\ClientTemplate.html" />
+    <Content Include="Notifications\ClientTemplate2.html" />
+    <Content Include="Questionnaire.aspx" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <Content Include="Scripts\jquery.maskedinput.min.js" />
     <Content Include="Land_load\Change_Password.aspx" />
     <Content Include="Land_load\Change_Secret_Question.aspx" />
+    <Content Include="Land_load\Contact_Us.aspx" />
     <Content Include="Land_load\Current_Students.aspx" />
     <Content Include="Land_load\Landload_House_Images_Add.aspx" />
     <Content Include="Land_load\Landload_Profile_Image.aspx" />
@@ -274,11 +306,19 @@
     <Content Include="Secret_Question.aspx" />
     <Content Include="Student\Change_Password.aspx" />
     <Content Include="Student\Change_Secret_Question.aspx" />
+    <Content Include="Student\Contact_Us.aspx" />
+    <Content Include="Student\Current_House.aspx" />
+    <Content Include="Student\Current_House_Dorms.aspx" />
     <Content Include="Student\Current_House_Life.aspx" />
     <Content Include="Student\Current_House_Life_Add.aspx" />
     <Content Include="Student\Current_House_Life_View.aspx" />
+    <Content Include="Student\Modules\Ctr_PublicQuickLinks.ascx" />
+    <Content Include="Student\Modules\Ctr_QuickLinks.ascx" />
+    <Content Include="Student\Modules\CurrentHouse.ascx" />
+    <Content Include="Student\Modules\Current_House_Dorms.ascx" />
     <Content Include="Student\Modules\Current_House_Landload_info.ascx" />
     <Content Include="Student\Modules\Current_House_Life_View.ascx" />
+    <Content Include="Student\Modules\Current_House_Menu_Bar.ascx" />
     <Content Include="Student\Modules\Current_House_Rental_Address_info.ascx" />
     <Content Include="Student\Modules\Current_House_RoomMate_info.ascx" />
     <Content Include="Student\Modules\Menu_Bar.ascx" />
@@ -289,6 +329,8 @@
     <Content Include="Student\Modules\Student_Profile_Images_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Add.ascx" />
     <Content Include="Student\Modules\Student_Profile_info_Edit.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx" />
+    <Content Include="Student\Modules\Student_Profile_Wizard.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Banner.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Comments.ascx" />
     <Content Include="Student\Modules\Student_Public_Profile_Data.ascx" />
@@ -305,6 +347,8 @@
     <Content Include="Student\Student_Profile_Image_Crop.aspx" />
     <Content Include="Student\Student_Profile_Leave_Current_House.aspx" />
     <Content Include="Student\Student_Profile_Update_Current_House.aspx" />
+    <Content Include="Student\Student_Profile_Update_Current_House_Details.aspx" />
+    <Content Include="Student\Student_Profile_Update_Current_Landlord.aspx" />
     <Content Include="Student\Student_Public_Profile.aspx" />
     <Content Include="Student\Student_Public_Profile_info.aspx" />
     <Content Include="Student\Student_School_info.aspx" />
@@ -326,6 +370,7 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="WebServices\getAutoCompleteData.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="About.aspx.cs">
@@ -383,6 +428,13 @@
     </Compile>
     <Compile Include="Administrator\Landload_View.aspx.designer.cs">
       <DependentUpon>Landload_View.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrator\Modules\Comment_Add.ascx.cs">
+      <DependentUpon>Comment_Add.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrator\Modules\Comment_Add.ascx.designer.cs">
+      <DependentUpon>Comment_Add.ascx</DependentUpon>
     </Compile>
     <Compile Include="Administrator\Modules\LandloadList.ascx.cs">
       <DependentUpon>LandloadList.ascx</DependentUpon>
@@ -545,12 +597,19 @@
     <Compile Include="Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Contest.aspx.cs">
-      <DependentUpon>Contest.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contest.aspx.designer.cs">
-      <DependentUpon>Contest.aspx</DependentUpon>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomError.aspx.cs">
       <DependentUpon>CustomError.aspx</DependentUpon>
@@ -596,6 +655,20 @@
     </Compile>
     <Compile Include="Land_load\Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile_wizard.aspx.cs">
+      <DependentUpon>Land_load_Profile_wizard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Land_load_Profile_wizard.aspx.designer.cs">
+      <DependentUpon>Land_load_Profile_wizard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Land_load\Current_Students.aspx.cs">
       <DependentUpon>Current_Students.aspx</DependentUpon>
@@ -821,6 +894,13 @@
     <Compile Include="Land_load\Modules\Menu_Bar.ascx.designer.cs">
       <DependentUpon>Menu_Bar.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Land_load\Modules\Landloard_Profile_Wizard.ascx.cs">
+      <DependentUpon>Landloard_Profile_Wizard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Land_load\Modules\Landloard_Profile_Wizard.ascx.designer.cs">
+      <DependentUpon>Landloard_Profile_Wizard.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -873,6 +953,13 @@
     <Compile Include="Modules\FileHandler.ashx.cs">
       <DependentUpon>FileHandler.ashx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Footerbottom.ascx.cs">
+      <DependentUpon>Footerbottom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Footerbottom.ascx.designer.cs">
+      <DependentUpon>Footerbottom.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Home.ascx.cs">
       <DependentUpon>Home.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -901,6 +988,13 @@
     <Compile Include="Modules\Secret_Question.ascx.designer.cs">
       <DependentUpon>Secret_Question.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Question_Wizard.ascx.cs">
+      <DependentUpon>Question_Wizard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modules\Question_Wizard.ascx.designer.cs">
+      <DependentUpon>Question_Wizard.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Partial_User_Verification.aspx.cs">
       <DependentUpon>Partial_User_Verification.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -915,6 +1009,13 @@
     </Compile>
     <Compile Include="Master_Pages\Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Questionnaire.aspx.cs">
+      <DependentUpon>Questionnaire.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Questionnaire.aspx.designer.cs">
+      <DependentUpon>Questionnaire.aspx</DependentUpon>
     </Compile>
     <Compile Include="Request_New_Password.aspx.cs">
       <DependentUpon>Request_New_Password.aspx</DependentUpon>
@@ -951,6 +1052,27 @@
     <Compile Include="Student\Change_Secret_Question.aspx.designer.cs">
       <DependentUpon>Change_Secret_Question.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Contact_Us.aspx.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Contact_Us.aspx.designer.cs">
+      <DependentUpon>Contact_Us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Current_House.aspx.cs">
+      <DependentUpon>Current_House.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Current_House.aspx.designer.cs">
+      <DependentUpon>Current_House.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Current_House_Dorms.aspx.cs">
+      <DependentUpon>Current_House_Dorms.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Current_House_Dorms.aspx.designer.cs">
+      <DependentUpon>Current_House_Dorms.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Current_House_Life.aspx.cs">
       <DependentUpon>Current_House_Life.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -972,6 +1094,34 @@
     <Compile Include="Student\Current_House_Life_View.aspx.designer.cs">
       <DependentUpon>Current_House_Life_View.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Modules\Ctr_PublicQuickLinks.ascx.cs">
+      <DependentUpon>Ctr_PublicQuickLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Ctr_PublicQuickLinks.ascx.designer.cs">
+      <DependentUpon>Ctr_PublicQuickLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.cs">
+      <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Ctr_QuickLinks.ascx.designer.cs">
+      <DependentUpon>Ctr_QuickLinks.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\CurrentHouse.ascx.cs">
+      <DependentUpon>CurrentHouse.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\CurrentHouse.ascx.designer.cs">
+      <DependentUpon>CurrentHouse.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Dorms.ascx.cs">
+      <DependentUpon>Current_House_Dorms.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Dorms.ascx.designer.cs">
+      <DependentUpon>Current_House_Dorms.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Modules\Current_House_Landload_info.ascx.cs">
       <DependentUpon>Current_House_Landload_info.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -985,6 +1135,13 @@
     </Compile>
     <Compile Include="Student\Modules\Current_House_Life_View.ascx.designer.cs">
       <DependentUpon>Current_House_Life_View.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Menu_Bar.ascx.cs">
+      <DependentUpon>Current_House_Menu_Bar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Current_House_Menu_Bar.ascx.designer.cs">
+      <DependentUpon>Current_House_Menu_Bar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Current_House_Rental_Address_info.ascx.cs">
       <DependentUpon>Current_House_Rental_Address_info.ascx</DependentUpon>
@@ -1055,6 +1212,20 @@
     </Compile>
     <Compile Include="Student\Modules\Student_Profile_info_Edit.ascx.designer.cs">
       <DependentUpon>Student_Profile_info_Edit.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Update_Current_House_Details.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Wizard.ascx.cs">
+      <DependentUpon>Student_Profile_Wizard.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Modules\Student_Profile_Wizard.ascx.designer.cs">
+      <DependentUpon>Student_Profile_Wizard.ascx</DependentUpon>
     </Compile>
     <Compile Include="Student\Modules\Student_Public_Profile_Banner.ascx.cs">
       <DependentUpon>Student_Public_Profile_Banner.ascx</DependentUpon>
@@ -1168,6 +1339,20 @@
     <Compile Include="Student\Student_Profile_Update_Current_House.aspx.designer.cs">
       <DependentUpon>Student_Profile_Update_Current_House.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_House_Details.aspx.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_House_Details.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Update_Current_House_Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_Landlord.aspx.cs">
+      <DependentUpon>Student_Profile_Update_Current_Landlord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Student\Student_Profile_Update_Current_Landlord.aspx.designer.cs">
+      <DependentUpon>Student_Profile_Update_Current_Landlord.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Student\Student_Public_Profile.aspx.cs">
       <DependentUpon>Student_Public_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1196,14 +1381,14 @@
     <Compile Include="Student\Student_Spotlight.aspx.designer.cs">
       <DependentUpon>Student_Spotlight.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WebServices\getAutoCompleteData.asmx.cs">
+      <DependentUpon>getAutoCompleteData.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Images\.svn\prop-base\" />
-    <Folder Include="Images\.svn\text-base\" />
-    <Folder Include="Images\.svn\tmp\prop-base\" />
-    <Folder Include="Images\.svn\tmp\props\" />
-    <Folder Include="Images\.svn\tmp\text-base\" />
+    <Folder Include="ErrorLog\" />
     <Folder Include="uploads\" />
   </ItemGroup>
   <ItemGroup>
@@ -1211,14 +1396,14 @@
     <Content Include="Master_Pages\Site.Master" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Images\.svn\entries" />
-    <None Include="Images\.svn\props\House_Logo.jpg.svn-work" />
     <Content Include="Master_Pages\General.Master" />
     <Content Include="Master_Pages\Land-Load.Master" />
     <Content Include="Master_Pages\Site-Admin.Master" />
     <Content Include="Master_Pages\Student.Master" />
     <Content Include="packages.config" />
     <Content Include="Modules\FileHandler.ashx" />
+    <None Include="LegalNotice\PrivacyPolicy.pdf" />
+    <None Include="LegalNotice\User_Agreement.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RHP.Comments\RHP.Comments.csproj">
@@ -1253,6 +1438,10 @@
       <Project>{089DBEBC-F335-4308-851D-8BD9EB063346}</Project>
       <Name>RHP.StudentManagement</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RHP.Survey\RHP.Survey.csproj">
+      <Project>{EB979C32-9764-4931-B689-35DB8A2CEEEE}</Project>
+      <Name>RHP.Survey</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RHP.UserManagement\RHP.UserManagement.csproj">
       <Project>{4A39103F-E511-48E6-A105-EED0F20F7804}</Project>
       <Name>RHP.UserManagement</Name>
@@ -1261,9 +1450,6 @@
       <Project>{60191F0E-B553-43B4-A78C-5D0753BC9FFC}</Project>
       <Name>RHP.Utility</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

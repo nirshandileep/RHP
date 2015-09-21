@@ -2,11 +2,15 @@
     AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="USA_Rent_House_Project._Default" %>
 
 <%@ Register Src="Modules/Home.ascx" TagName="Home" TagPrefix="uc1" %>
+<%@ Register Src="Modules/Footerbottom.ascx" TagName="Footerbottom" TagPrefix="uc2" %>
 <asp:Content ID="HeaderContent" runat="server" ContentPlaceHolderID="HeadContent">
 </asp:Content>
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <script type="text/javascript" src="Scripts/jquery-1.4.1.min.js"></script>
-    <div class="homebuttonsdiv">
+    <div style="text-align: center;">
+        <img alt="" src="../Images/Home/homepagetop.jpg" />
+    </div>
+    <div class="homebuttonsdiv" style="padding-left: 18px;">
         <uc1:Home ID="HomeID" runat="server" />
     </div>
     <div>
@@ -15,19 +19,83 @@
     </div>
     <div class="clear">
     </div>
-    <div class="socialmediaicons">
-        <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
-            target="_blank">
-            <img src="Images/icon-fb.jpg"></a> <a href="https://plus.google.com/116442819890932165126/"
-                target="_blank">
-                <img src="Images/icon-googleplus.jpg"></a> <a href="http://instagram.com/nirmal_abeygunaratne/"
+
+    <div class="sharebutton" id="messagebox" style="display:none;color:Red;">
+    Coming Winter Quarter 2016
+    </div>
+
+    <div class="sharebutton">
+        <a id="sharetext">share</a>
+    </div>
+    <div style="height: 85px; border-style: solid; border-color: White;">
+        <div class="socialmediaicons" style="display: none;">
+            <div class="socialmediaicons-inner">
+                <a href="https://www.facebook.com/ratemystudenthousingandme?ref=aymt_homepage_panel"
                     target="_blank">
-                    <img src="Images/icon-insta.jpg"></a> <a href="https://twitter.com/nirmalabey/"
+                    <img src="Images/icon-fb.jpg"></a> <a href="https://plus.google.com/b/117257079120239150318/dashboard/overview "
                         target="_blank">
-                        <img src="Images/icon-twiiter.jpg"></a> <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906"
+                        <img src="Images/icon-googleplus.jpg"></a> <a href="https://instagram.com/ratestudenthousing"
                             target="_blank">
-                            <img src="Images/icon-linkdin.jpg"></a>
-        <div class="clear">
+                            <img src="Images/icon-insta.jpg"></a> <a href="https://twitter.com/nirmalabey/" target="_blank">
+                                <img src="Images/icon-twiiter.jpg"></a> <a href="https://www.linkedin.com/pub/nirmal-abeygunaratne/a1/47b/906"
+                                    target="_blank">
+                                    <img src="Images/icon-linkdin.jpg"></a>
+                <img src="Images/snapchat.png">
+                <div class="clear">
+                </div>
+            </div>
         </div>
     </div>
+    <div class="sharebutton">
+        Partake in our Campaign and perhaps be rewarded with a Amazon Gift card.
+        <br />
+        <ul style="list-style: NONE; font-size: 15; border-style: solid; width: 50%; margin: auto;margin-top:20px;    border-color: #0E72B8;">
+            <li>15th Person = $5 Gift Card</li>
+            <li>30th Person = $10 Gift Card</li>
+            <li>60th Person = $20 Gift Card</li>
+            <li>120th Person = $40 Gift Card</li>
+            <li>250th Person = $100 Gift Card</li>
+        </ul>
+    </div>
+    <div class="sharebutton">
+    <a href="Questionnaire.aspx">Begin</a>
+    </div>
+
+     <div class="sharebutton" style="list-style: NONE; font-size: 15; border-style: solid; width: 50%; margin: auto;margin-top:20px;    border-color: #0E72B8;" >
+      <strong> Counter will restart once the 250 person is reached. Happy Counting</strong>
+        </br>
+         Also please visit our facebook event page for up to date info
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#sharetext').hover(function () {
+
+                $('.socialmediaicons').fadeIn(500);
+            }, function () {
+
+                $('.socialmediaicons').fadeOut(5000);
+
+            })
+
+
+
+
+        });
+
+
+        $('#StudentLogin').click(function () {
+            $('#messagebox').fadeIn(500);
+        });
+
+        $('#MainContent_HomeID_HyperLink1').click(function () {
+            $('#messagebox').fadeIn(500);
+        });
+
+        $('#MainContent_HomeID_HouseLogin').click(function () {
+            $('#messagebox').fadeIn(500);
+        });
+    
+    </script>
 </asp:Content>

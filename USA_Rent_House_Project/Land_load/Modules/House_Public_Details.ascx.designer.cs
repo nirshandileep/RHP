@@ -67,13 +67,13 @@ namespace USA_Rent_House_Project.Land_load.Modules {
         protected global::System.Web.UI.WebControls.Label StateLabel;
         
         /// <summary>
-        /// state control.
+        /// txtstate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label state;
+        protected global::System.Web.UI.WebControls.Label txtstate;
         
         /// <summary>
         /// ZipLabel control.

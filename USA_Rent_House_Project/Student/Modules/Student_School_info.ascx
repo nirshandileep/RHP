@@ -15,7 +15,7 @@
 
             <p>
                 <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="DrpSchoolName"
-                    CssClass="form_label">My Current University:</asp:Label>
+                    CssClass="form_label">My Current School:</asp:Label>
                 <dx:ASPxComboBox ID="DrpSchoolName" runat="server"  Width="52%"
                     AutoResizeWithContainer="True" TextFormatString="{0} ({1}, {2})" DropDownRows="10" 
                     IncrementalFilteringMode="Contains" Theme="DevEx" 
@@ -86,7 +86,7 @@
             </p>
 
             <p>
-                <asp:Label ID="LabelCurentMajor" runat="server" AssociatedControlID="DRPCurentMajor" CssClass="form_label">Curent Major:</asp:Label>
+                <asp:Label ID="LabelCurentMajor" runat="server" AssociatedControlID="DRPCurentMajor" CssClass="form_label">Current Major:</asp:Label>
                 <asp:DropDownList ID="DRPCurentMajor" runat="server">
                 </asp:DropDownList>
                 <asp:RequiredFieldValidator ID="RequiredCurentMajor" runat="server" ErrorMessage="Please Enter Curent Major"

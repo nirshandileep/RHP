@@ -26,13 +26,13 @@
                     Contact Information
                 </h2>
                 <p id="setEmail" runat="server">
-                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">E-mail:</asp:Label>
+                    <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="form_label">Email:</asp:Label>
                     <asp:Label ID="Email" runat="server"></asp:Label>
                 </p>
-                <p>
+                <p id="CurrentAddress" runat="server" visible="false">
                     <asp:Label ID="AddressLabel" runat="server" AssociatedControlID="Address" CssClass="form_label">Address:</asp:Label>
                     <asp:Label ID="Address" runat="server"></asp:Label>
-                </p>
+               </p>
                 <p>
                     <asp:Label ID="LabelState" runat="server" AssociatedControlID="State" CssClass="form_label">State:</asp:Label>
                     <asp:Label ID="State" runat="server"></asp:Label>
@@ -51,7 +51,7 @@
                     School Information
                 </h2>
                 <p>
-                    <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">Current University:</asp:Label>
+                    <asp:Label ID="LabelSchoolName" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">Current School:</asp:Label>
                     <asp:Label ID="SchoolName" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -74,7 +74,7 @@
                 </p>
                 <p>
                     <asp:Label ID="LabelCurentMajor" runat="server" AssociatedControlID="CurentMajor"
-                        CssClass="form_label">Curent Major:</asp:Label>
+                        CssClass="form_label">Current Major:</asp:Label>
                     <asp:Label ID="CurentMajor" runat="server"></asp:Label>
                 </p>
                 <p>
@@ -95,24 +95,33 @@
                       <asp:Label ID="Achievements" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Curent GPA:</asp:Label>
+                    <asp:Label ID="LabelCurentGPA" runat="server" AssociatedControlID="CurentGPA" CssClass="form_label">Current GPA:</asp:Label>
                       <asp:Label ID="CurentGPA" runat="server"></asp:Label>
                 </p>
+               
                 <p>
-                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="Oraganizations" CssClass="form_label">Oraganizations/Clubs/ect:</asp:Label>
-                      <asp:Label ID="Oraganizations" runat="server"></asp:Label>
-                </p>
-                <p>
-                    <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvments:</asp:Label>
+                    <asp:Label ID="LabelInvolvments" runat="server" AssociatedControlID="Involvments" CssClass="form_label">Involvements:</asp:Label>
                       <asp:Label ID="Involvments" runat="server"></asp:Label>
                 </p>
-                <p>
-                    <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="Fraternity" CssClass="form_label">Fraternity:</asp:Label>
-                      <asp:Label ID="Fraternity" runat="server"></asp:Label>
+                 <p>
+                    <asp:Label ID="LabelOraganizations" runat="server" AssociatedControlID="txtOraganizations" CssClass="form_label">Student Organizations/Clubs/Etc:</asp:Label>
+                      <asp:Label ID="txtOraganizations" runat="server"></asp:Label>
                 </p>
                 <p>
-                    <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="Soroity" CssClass="form_label">Soroity:</asp:Label>
-                      <asp:Label ID="Soroity" runat="server"></asp:Label>
+                    <asp:Label ID="LabelFraternity" runat="server" AssociatedControlID="txtFraternity" CssClass="form_label">Fraternity:</asp:Label>
+                      <asp:Label ID="txtFraternity" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="LabelSoroity" runat="server" AssociatedControlID="txtSoroity" CssClass="form_label">Soroity:</asp:Label>
+                      <asp:Label ID="txtSoroity" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="Label2" runat="server" AssociatedControlID="txyGreakOrganization" CssClass="form_label">Greak Organization:</asp:Label>
+                      <asp:Label ID="txyGreakOrganization" runat="server"></asp:Label>
+                </p>
+                <p>
+                    <asp:Label ID="Label4" runat="server" AssociatedControlID="txtGreekHonorSocities" CssClass="form_label">Greek Honor Socity:</asp:Label>
+                      <asp:Label ID="txtGreekHonorSocities" runat="server"></asp:Label>
                 </p>
             </div>
         </div>

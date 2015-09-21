@@ -471,8 +471,8 @@ namespace RHP.Photos
                         // Set the maximum width and height here.
                         // You can make this versatile by getting these values from
                         // QueryString or textboxes
-                        int maxWidth = 100;
-                        int maxHeight = 100;
+                        int maxWidth = 175;
+                        int maxHeight = 175;
 
                         // Resize the image
                         Bitmap resizedImage = GetScaledPicture(uploadedImage, maxWidth, maxHeight);

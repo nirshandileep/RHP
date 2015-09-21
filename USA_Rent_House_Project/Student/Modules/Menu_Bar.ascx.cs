@@ -44,20 +44,21 @@ namespace USA_Rent_House_Project.Student.Modules
 
             LeftMenuBar.Items.Clear();
             LeftMenuBar.Items.Add(new MenuItem("Profile", "ProfileinfoID", "", "~/Student/Student_Profile.aspx"));
+            
+            _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+            if (_user.HouseId != null)
+            {
+                LeftMenuBar.Items.Add(new MenuItem("Current Residence", "CurrentHouseID", "", "~/Student/Current_House.aspx"));
+            }
+            else
+            {
+                LeftMenuBar.Items.Add(new MenuItem("Current Residence", "CurrentHouseID", "", "~/Student/Current_House.aspx"));
+            }
+
             LeftMenuBar.Items.Add(new MenuItem("Profile Info", "ProfileID", "", "~/Student/Student_Profile_Edit.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("School Info", "SchoolinfoID", "", "~/Student/Student_School_info.aspx"));
             LeftMenuBar.Items.Add(new MenuItem("Spotlight", "SpotlightID", "", "~/Student/Student_Spotlight.aspx"));
 
-            _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
-            if (_user.HouseId != null)
-            {
-                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House_Details.aspx"));
-            }
-            else
-            {
-                LeftMenuBar.Items.Add(new MenuItem("Current House", "CurrentHouseID", "", "~/Student/Student_Profile_Current_House.aspx"));
-            }
-         
                
             if (user.IsFBUser == true)
             {
@@ -68,6 +69,8 @@ namespace USA_Rent_House_Project.Student.Modules
                 LeftMenuBar.Items.Add(new MenuItem("Password", "ChangePasswordID", "", "~/Student/Change_Password.aspx"));
                 LeftMenuBar.Items.Add(new MenuItem("Secret Question", "ChangeSecretQuestionID", "", "~/Student/Change_Secret_Question.aspx"));
             }
+
+            LeftMenuBar.Items.Add(new MenuItem("Contact Us", "ContactUsID", "", "~/Student/Contact_Us.aspx"));
         }
     }
 }

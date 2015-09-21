@@ -1,20 +1,25 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master_Pages/General.Master" AutoEventWireup="true"
     CodeBehind="Search.aspx.cs" Inherits="USA_Rent_House_Project.Search" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+
 <%@ Register Assembly="DevExpress.Web.v12.2, Version=12.2.6.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a"
     Namespace="DevExpress.Web.ASPxEditors" TagPrefix="dx" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <asp:HiddenField ID="HiddenFieldCurrentStep" runat="server" />
     <div id="div_Search" runat="server" visible="true">
         <p class="homeheadingsub">
             "Find Your Next Connection"</p>
         <div class="searchbuttons">
-            <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="searchbuttonslarge" Text="Search house"
+            <asp:Button ID="ButtonSearchHouse" runat="server" CssClass="searchbuttonslarge" Text="Search for House"
                 OnClick="ButtonSearchHouse_Click" />
             <asp:Button ID="ButtonSearchStudent" runat="server" CssClass="searchbuttonslarge"
-                Text="Search student" OnClick="ButtonSearchStudent_Click" />
+                Text="Search for Student" OnClick="ButtonSearchStudent_Click" />
             <div class="clear">
             </div>
         </div>
@@ -26,21 +31,20 @@
     <div id="formwrapper">
         <div id="Div_Search_House" runat="server" visible="false">
             <h1>
-                Search House</h1>
+                Search for House</h1>
             <div id="forminner">
                 <p>
                     <asp:Label ID="LabelZipcode" runat="server" AssociatedControlID="Zipcode" CssClass="form_label">Zip:</asp:Label>
-                    <asp:TextBox ID="Zipcode" runat="server" CssClass="textEntry textbox_w3" 
-                        MaxLength="5"></asp:TextBox>
+                    <asp:TextBox ID="Zipcode" runat="server" CssClass="textEntry textbox_w3" MaxLength="5"></asp:TextBox>
                 </p>
                 <p>
-                    <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
+                    <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="DrpBedRooms" CssClass="form_label">Bedrooms:</asp:Label>
                     <asp:DropDownList ID="DrpBedRooms" runat="server">
                     </asp:DropDownList>
                 </p>
                 <p>
                     <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="DrpBathRooms"
-                        CssClass="form_label">Bath Rooms:</asp:Label>
+                        CssClass="form_label">Bathrooms:</asp:Label>
                     <asp:DropDownList ID="DrpBathRooms" runat="server">
                     </asp:DropDownList>
                 </p>
@@ -52,9 +56,8 @@
         </div>
         <div id="Div_Search_Student" runat="server" visible="false">
             <h1>
-                Search Student</h1>
+                Search for Student</h1>
             <div id="forminner">
-                
                 <p>
                     <asp:Label ID="LabelFirstName" runat="server" AssociatedControlID="FirstName" CssClass="form_label">First Name:</asp:Label>
                     <asp:TextBox ID="FirstName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
@@ -67,9 +70,20 @@
                     <asp:Label ID="LabelLastName" runat="server" AssociatedControlID="LastName" CssClass="form_label">Last Name:</asp:Label>
                     <asp:TextBox ID="LastName" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                 </p>
+            
+               <%-- <p>
+                    <asp:Label ID="SchoolNameLabel" runat="server" AssociatedControlID="SchoolName" CssClass="form_label">School / Club Name:</asp:Label>
+                    <asp:TextBox ID="SchoolName" runat="server" CssClass="textEntry textbox_w4"></asp:TextBox>
+
+                    <asp:AutoCompleteExtender ID="AutoCompleteExtender1" runat="server" TargetControlID="SchoolName" CompletionInterval="1" 
+                    MinimumPrefixLength="1" UseContextKey="True"
+                    ServiceMethod="Get_School_List" ServicePath="~/WebServices/getAutoCompleteData.asmx" CompletionListCssClass="auto_complete">
+                    </asp:AutoCompleteExtender>
+
+                </p>--%>
                 <p id="school" runat="server">
                     <asp:Label ID="LabelName" runat="server" AssociatedControlID="DrpSchoolName" CssClass="form_label"> School Name:</asp:Label>
-                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="30%" AutoResizeWithContainer="True"
+                    <dx:ASPxComboBox ID="DrpSchoolName" runat="server" Width="100%" AutoResizeWithContainer="True"
                         TextFormatString="{0}" DropDownRows="10" IncrementalFilteringMode="Contains"
                         Theme="DevEx" EnableDefaultAppearance="False" ShowShadow="False">
                         <Columns>
@@ -81,8 +95,7 @@
                 </p>
                 <p>
                     <asp:Label ID="Label1" runat="server" AssociatedControlID="Zipcode2" CssClass="form_label">Zip:</asp:Label>
-                    <asp:TextBox ID="Zipcode2" runat="server" CssClass="textEntry textbox_w3" 
-                        MaxLength="5"></asp:TextBox>
+                    <asp:TextBox ID="Zipcode2" runat="server" CssClass="textEntry textbox_w3" MaxLength="5"></asp:TextBox>
                 </p>
                 <%-- <p>
                     <asp:Label ID="Labellandloadname" runat="server" AssociatedControlID="landloadname"
@@ -90,7 +103,7 @@
                     <asp:TextBox ID="landloadname" runat="server" CssClass="textEntry textbox_w3"></asp:TextBox>
                 </p>--%>
                 <p>
-                    <asp:Label ID="Label5" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Male Female:</asp:Label>
+                    <asp:Label ID="Label5" runat="server" AssociatedControlID="DrpGender" CssClass="form_label">Gender:</asp:Label>
                     <asp:DropDownList ID="DrpGender" runat="server" CssClass="dropDownEntry">
                     </asp:DropDownList>
                 </p>
@@ -117,7 +130,6 @@
         </div>
     </div>
     <div id="Searchresults" runat="server" visible="false">
-       
         <div id="StudentSearchresults" runat="server" visible="false">
             <%--  [User].UserId, 
     [User].AspnetUserId, 
@@ -161,47 +173,50 @@
     School.Email AS SchoolEmail, 
     School.WebsiteURL, 
     School.Location--%>
-     <h1> Student - Search results</h1>
-            <br /> <br />
-            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="2" OnItemDataBound="StudentItemDataBound">
+            <h1>
+                Student - Search results</h1>
+            <br />
+            <br />
+            <asp:DataList ID="DataListStudentSearchresults" runat="server" RepeatColumns="2"
+                OnItemDataBound="StudentItemDataBound">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
-                    <div class="imagegallery">
-                    <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>' ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
+                        <div class="imagegallery">
+                            <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>'
+                                ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
                         </div>
-                       <asp:HiddenField ID="hdUserId" Value='<%# Eval("UserId") %>' runat="server" />
+                        <asp:HiddenField ID="hdUserId" Value='<%# Eval("UserId") %>' runat="server" />
                         Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                         <asp:Label ID="LastName" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>
-
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
-                        <br />Gender :
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" CssClass="loginlinks" NavigateUrl='<%# Eval("UserId","~/Student/Student_Public_Profile.aspx?AccessCode={0}") %>'>View Profile</asp:HyperLink>
+                        <br />
+                        Gender :
                         <asp:Label ID="Gender" runat="server" Text='<%# Eval("Gender") %>'></asp:Label>
                         <br />
                         <br />
                         School Name :
                         <asp:Label ID="SchoolName" runat="server" Text='<%# Eval("SchoolName") %>'></asp:Label>
-                        <br />School Address :
+                        <br />
+                        School Address :
                         <asp:Label ID="SchoolStreetAddress" runat="server" Text='<%# Eval("SchoolStreetAddress") %>'></asp:Label>,
                         <asp:Label ID="SchoolCity" runat="server" Text='<%# Eval("SchoolCity") %>'></asp:Label>,
                         <asp:Label ID="SchoolZip" runat="server" Text='<%# Eval("SchoolZip") %>'></asp:Label>
                         <br />
-                        Year : <asp:Label ID="Year" runat="server" Text='<%# Eval("Year") %>'></asp:Label> ,
-                        Student Status : <asp:Label ID="Label2" runat="server" Text='<%# Eval("StudentStatus") %>'></asp:Label> 
-                       
+                        Year :
+                        <asp:Label ID="Year" runat="server" Text='<%# Eval("Year") %>'></asp:Label>
+                        , Student Status :
+                        <asp:Label ID="Label2" runat="server" Text='<%# Eval("StudentStatus") %>'></asp:Label>
                     </div>
                 </ItemTemplate>
             </asp:DataList>
         </div>
-
-
         <div id="HouseSearchresults" runat="server" visible="false">
-           
-     <h1> House - Search results</h1>
-            <br /> <br />
-
-
+            <h1>
+                House - Search results</h1>
+            <br />
+            <br />
             <%-- [User].UserId, [User].IsPartialUser, [User].AspnetUserId, [User].IsFBUser, [User].FBAccessToken, [User].FBUrl, [User].FBTokenTimeStamp, 
                       [User].FBProfilePictureURL, [User].StreetAddress, [User].City, [User].StateId, [User].Zip, [User].DateOfBirth, [User].BestContactNumber, [User].DriversLicenseNumber, 
                       [User].Status, [User].PersonalEmail, [User].IsDeleted, [User].CreatedBy, [User].CreatedDate, [User].UpdatedBy, [User].UpdatedDate, [User].RatingValue, [User].FBid, 
@@ -210,14 +225,15 @@
                       House.LotSquareFootage, House.TotalSquareFootage, House.UtilitiesIncludedInRent, House.PropertyImagePath, House.IsDeleted AS HouseIsDeleted, 
                       House.CreatedBy AS HouseCreatedBy, House.CreatedDate AS HouseCreatedDate, House.UpdatedBy AS HouseUpdatedBy, House.UpdatedDate AS HouseUpdatedDate, House.RatingValue AS HouseRatingValue, House.Price, 
                       House.IsPartialHouse--%>
-            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="2"  OnItemDataBound="HouseItemDataBound">
+            <asp:DataList ID="DataListHouseSearchresults" runat="server" RepeatColumns="2" OnItemDataBound="HouseItemDataBound">
                 <ItemTemplate>
                     <div id="DivComment" runat="server">
-                    <div class="imagegallery">
-                        <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>' ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
+                        <div class="imagegallery">
+                            <asp:HyperLink ID="HyperLinkimage" runat="server" Text='<%# Eval("FirstName") + " " +  Eval("LastName")%>'
+                                ImageUrl="~/Images/Sample/Noimage.jpg" NavigateUrl='<%# Eval("UserId","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}") %>'></asp:HyperLink>
                         </div>
                         <asp:HiddenField ID="hdUserId" Value='<%# Eval("UserId") %>' runat="server" />
-                         Name :
+                        Name :
                         <asp:Label ID="FirstName" runat="server" Text='<%# Eval("FirstName") %>'></asp:Label>
                         <asp:Label ID="MiddleName" runat="server" Text='<%# Eval("MiddleName") %>'></asp:Label>
                         <asp:Label ID="LastName" runat="server" Text='<%# Eval("LastName") %>'></asp:Label>
@@ -226,24 +242,26 @@
                         <asp:Label ID="StreetAddress" runat="server" Text='<%# Eval("StreetAddress") %>'></asp:Label>
                         <asp:Label ID="City" runat="server" Text='<%# Eval("City") %>'></asp:Label>
                         <asp:Label ID="Zip" runat="server" Text='<%# Eval("Zip") %>'></asp:Label>
-
-                                                                                            <%--    NavigateUrl='<%# Eval("UserId","","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}") %>'>--%>
-
-                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server"  CssClass="loginlinks" NavigateUrl='<%# String.Format("~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}", DataBinder.Eval(Container.DataItem, "HouseId"), DataBinder.Eval(Container.DataItem, "LandlordId")) %>'> View Profile</asp:HyperLink>
-                        <br />Year Home Build :
+                        <%--    NavigateUrl='<%# Eval("UserId","","~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}") %>'>--%>
+                        <asp:HyperLink ID="HyperLinkviewStudent" runat="server" CssClass="loginlinks" NavigateUrl='<%# String.Format("~/Land_load/Land_load_Public_Profile.aspx?AccessCode={0}&AccessCode2={1}", DataBinder.Eval(Container.DataItem, "HouseId"), DataBinder.Eval(Container.DataItem, "LandlordId")) %>'> View Profile</asp:HyperLink>
+                        <br />
+                        Year Home Build :
                         <asp:Label ID="YearHomeBuild" runat="server" Text='<%# Eval("YearHomeBuild") %>'></asp:Label>
                         <br />
                         BedRooms :
                         <asp:Label ID="BedRooms" runat="server" Text='<%# Eval("BedRooms") %>'></asp:Label>
                         BathRooms :
                         <asp:Label ID="BathRooms" runat="server" Text='<%# Eval("BathRooms") %>'></asp:Label>
-                        <br />Lot Square Footage : 
+                        <br />
+                        Lot Square Footage :
                         <asp:Label ID="LotSquareFootage" runat="server" Text='<%# Eval("LotSquareFootage") %>'></asp:Label>
-                        <br />TotalSquareFootage :
+                        <br />
+                        TotalSquareFootage :
                         <asp:Label ID="TotalSquareFootage" runat="server" Text='<%# Eval("TotalSquareFootage") %>'></asp:Label>
                         <br />
-                        Price : <asp:Label ID="Price" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
-                                           </div>
+                        Price :
+                        <asp:Label ID="Price" runat="server" Text='<%# Eval("Price") %>'></asp:Label>
+                    </div>
                 </ItemTemplate>
             </asp:DataList>
         </div>

@@ -72,7 +72,7 @@ namespace RHP.Common
         public static readonly string DROPDOWN_EMPTY_ITEM_VALUE = "-1";
 
         public static readonly int STUDENT_PROFILE_STARTING_YEAR = 2006;
-        public static readonly int STUDENT_PROFILE_NUMBER_OF_YEARS = 12;
+        public static readonly int STUDENT_PROFILE_NUMBER_OF_YEARS = 20;
 
         public static readonly int STUDENT_PROFILE_STARTING_MONTH = 1;
         public static readonly int STUDENT_PROFILE_NUMBER_OF_MONTHS = 11;
@@ -96,6 +96,6 @@ namespace RHP.Common
 
         #endregion
 
-
+        public static readonly string GOOGLE_ANALYTICS_KEY = "GoogleAnalytics";
     }
 }

@@ -27,7 +27,10 @@ namespace USA_Rent_House_Project.Student
                 _user = SessionManager.GetSession<User>(Constants.SESSION_LOGGED_USER);
                 if (_user == null)
                 {
-                    _user = new User(); // _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    _user = new User(); 
+                    // _user = User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                     
+
                 }
                 else
                 {
@@ -54,42 +57,48 @@ namespace USA_Rent_House_Project.Student
 
             UserDAO userDAO = new UserDAO();
 
-            user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+          //  user = RHP.UserManagement.User.Select(Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
             if (user.HouseId != null)
             {
                 ButtonLeaveHouseID.Visible = true;
-                ViewCurrentHouseButton.Visible = true;
-                UpdateCurrentHouseButton.Visible = true;
 
-                LoadStudent(user.HouseId.Value);
+                LoadStudentByHouseId(user.HouseId.Value);
                 LoadLeaveCurrentHouseRequest(user.HouseId.Value);
+            }
+            else if (user.BaseHouseRoomId != null)
+            {
+                ButtonLeaveHouseID.Visible = true;
+
+                LoadStudentByBaseHouseRoomId(user.BaseHouseRoomId.Value);
+                LoadLeaveCurrentRoomRequest(user.BaseHouseRoomId.Value);
             }
             else
             {
-                CreateCurrentHouseButton.Visible = true;
-
+                
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.CurrentHouseNoRecords + "'); window.location = '/Student/Student_Profile_Current_House.aspx';}", true);
 
             }
         }
 
-        public void LoadStudent(Guid HouseId)
+        public void LoadStudentByHouseId(Guid houseId)
         {
+            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", houseId, "RoleName", "student");
+            DataListStudentList.DataSource = userList;
+            DataListStudentList.DataBind();
+        }
 
-                // HouseId = Guid.Parse("8313D02D-FA75-474A-A93B-0EFD3B817A88");
-
-            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("HouseId", HouseId, "RoleName", "student");
-
-                DataListStudentList.DataSource = userList;
-                DataListStudentList.DataBind();
-           
+        public void LoadStudentByBaseHouseRoomId(Guid roomId)
+        {
+            List<User> userList = RHP.UserManagement.User.SelectUserByHouseId("BaseHouseRoomId", roomId, "RoleName", "student");
+            DataListStudentList.DataSource = userList;
+            DataListStudentList.DataBind();
         }
 
         public void LoadLeaveCurrentHouseRequest(Guid HouseId)
         {
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
 
                 if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
                 {
@@ -110,12 +119,32 @@ namespace USA_Rent_House_Project.Student
                     RespondeToLeaveHouseFalse.Visible = true;
                 }
         }
+
+        public void LoadLeaveCurrentRoomRequest(Guid roomId)
+        {
+            StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
+            studentHouseLeave = StudentHouseLeave.SelectByRoomId(roomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+
+            if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
+            {
+                RHP.UserManagement.User _RequestedUser = RHP.UserManagement.User.Select(studentHouseLeave.RequestBy);
+                RequestedUser.Text = _RequestedUser.FirstName + " " + _RequestedUser.LastName;
+                RequestedUserName.Text = _RequestedUser.FirstName + " " + _RequestedUser.LastName;
+                RequestedUser.NavigateUrl = "~/Student/Student_Public_Profile.aspx?AccessCode=" + studentHouseLeave.RequestBy + "&AccessCode2=" + roomId.ToString();
+                RespondeToLeaveHouseTrue.Visible = true;
+            }
+            else
+            {
+                RespondeToLeaveHouseFalse.Visible = true;
+            }
+        }
       
         protected void ItemDataBound(object sender, DataListItemEventArgs e)
         {
             Photo photo = new Photo();
             HiddenField HiddenField_ = (HiddenField)e.Item.FindControl("hdUserId");
             HiddenField hdHouseId_ = (HiddenField)e.Item.FindControl("hdHouseId");
+            HiddenField hdBaseHouseRoomId_ = (HiddenField)e.Item.FindControl("hdBaseHouseRoomId");
 
             HyperLink Image_ = (HyperLink)e.Item.FindControl("HyperLinkimage");
             LinkButton RequestLeaveCurrentHouse_ = (LinkButton)e.Item.FindControl("RequestLeaveCurrentHouse");
@@ -134,7 +163,15 @@ namespace USA_Rent_House_Project.Student
             {
                 
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(Guid.Parse(hdHouseId_.Value), Guid.Parse(HiddenField_.Value));
+                if (hdHouseId_.Value.Trim() != string.Empty)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(Guid.Parse(hdHouseId_.Value), Guid.Parse(HiddenField_.Value));
+                }
+                else if (hdBaseHouseRoomId_.Value.Trim() != string.Empty)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(Guid.Parse(hdBaseHouseRoomId_.Value), Guid.Parse(HiddenField_.Value));
+                }
+                
 
                 if ((studentHouseLeave.RequestBy != null && studentHouseLeave.RequestBy != Guid.Empty) && studentHouseLeave.status == 0)
                 {
@@ -154,13 +191,31 @@ namespace USA_Rent_House_Project.Student
             if (confirmValue == "Yes")
             {
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                Guid HouseId = user.HouseId.Value; 
-                user.HouseId = null;
+                Guid HouseId = Guid.Empty;
+                Guid RoomId = Guid.Empty;
+                if (user.HouseId.HasValue)
+                {
+                    HouseId = user.HouseId.Value;
+                    user.HouseId = null;
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    RoomId = user.BaseHouseRoomId.Value;
+                    user.BaseHouseRoomId = null;
+                }                
 
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    if (HouseId !=Guid.Empty )
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
+                    }
+                    else if (RoomId != Guid.Empty)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByRoomId(RoomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));    
+                    }
+                    
                     studentHouseLeave.status = 1;
 
                     if (studentHouseLeave.Save())
@@ -201,7 +256,7 @@ namespace USA_Rent_House_Project.Student
 
             string strMsgContent = message(_user);
 
-            string strMsgTitle = "www.ratemystudenthome.com is Requesting you to Leave Current House.";
+            string strMsgTitle = "www.ratemystudenthome.com is Requesting you to Leave Current Residence.";
 
             int rtn = SendEmail(_user.PersonalEmail, strMsgTitle, strMsgContent);
 
@@ -241,31 +296,30 @@ namespace USA_Rent_House_Project.Student
                 string RegisterUrl = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Student/Student_Profile_Leave_Current_House.aspx";
                 strMsgContent = "<div style=\"border:solid 1px #efefef;\"><div style=\"width:800;border:solid " +
                                     "1px #efefef;font-weight:bold; font-family:Verdana;font-size:12px; text-align:left;" +
-                                    " background-color:#efefef;\" >  <strong>Dear</strong>  <span >" + name + ", " + "</span></div>" +
+                                    " background-color:#efefef;\" > <span >" + name + ", " + "</span></div>" +
                                     "<br />";
 
                 string loginpath = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "Login.aspx?type=s";
 
-                strMsgContent = strMsgContent + "One of your house Room-mate registerd with ratemystudenthome.com, and Request you to leave current house in ratemystudenthome.com,<br/><br/>";
+                strMsgContent = strMsgContent + "One of your “Current Residence” members that has a “Full Profile” with " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + ", com has requested that you to “Leave My Current Residence”. <br/><br/>";
 
+                strMsgContent = strMsgContent + "Please click on the link below to “Leave My Current Residence”.<br/><br/>";
 
-                strMsgContent = strMsgContent + "ratemystudenthome.com is a fast growing online house rating system that support for property owener's and students to connecting with each others.<br/><br/>";
+                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current Residence  </a>  <br/><br/>";
 
-                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable..</b>' <br/><br/>";
+                strMsgContent = strMsgContent + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " is a platform, where students and landlords can rate, review, and comment on each other. As well as find and connect with other student renters and landlords using our search engine. <br/><br/>";
 
-                strMsgContent = strMsgContent + "Please click on the link below to Leave Your Current House.<br/><br/>";
+                strMsgContent = strMsgContent + "'<b>Student housing made simple, reliable, most of all accountable...</b>' <br/><br/>";
 
-                strMsgContent = strMsgContent + "<a href=" + RegisterUrl + "> Leave Your Current House </a>  <br/><br/>";
+                strMsgContent = strMsgContent + "If you have any issues with Leaving Current Residence, please email " + "<a href=\"mailto:" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + "?subject=I have issue with creating my account\"> " + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SMTP_FROM_EMAIL) + " </a><br/>";
 
-                strMsgContent = strMsgContent + "If you have any issues with Leaving Current House, please email " + "<a href=\"mailto:support@ratemystudenthome.com?subject=I have issue with creating my account\">  support@ratemystudenthome.com </a><br/>";
+                strMsgContent = strMsgContent + "If you have already responded to the request, please ignore this email.  <br/>";
 
-                strMsgContent = strMsgContent + "If you have already Leave Current House, please ignore this email. <br/>";
+                strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to Request you to leave current Residence. Please do not reply to this email.<br /><br />";
 
-                strMsgContent = strMsgContent + "<br /> <strong>This is an automated response to Request you to leave current house. Please do not reply to this email.<br /><br />";
+                strMsgContent = strMsgContent + "From the Founder and CEO/President of<br /> <a href=\"" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "\">" + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + "</a></strong><br /><br /></div>";
 
-                strMsgContent = strMsgContent + "Sincerely yours,<br /> <a href=\"www.ratemystudenthome.com\">ratemystudenthome.com</a></strong><br /><br /></div>";
-
-                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email, ratemystudenthome.com do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
+                strMsgContent = strMsgContent + "</br><span style=\"color:#818181; font-style:italic; font-size:12px;\">This email is confidential and is intended only for the individual named. Although reasonable precautions have been taken to ensure no viruses are present in this email," + SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.SITEURL) + " do not warrant that this e-mail is free from viruses or other corruptions and is not liable to the recipient or any other party should any virus or other corruption be present in this e-mail. If you have received this email in error please notify the sender.</span>";
 
             }
             catch (Exception ex)
@@ -284,13 +338,32 @@ namespace USA_Rent_House_Project.Student
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
-                Guid HouseId = user.HouseId.Value;
-                user.HouseId = null;
+                
+                Guid HouseId = Guid.Empty;
+                Guid RoomId = Guid.Empty;
+                if (user.HouseId.HasValue)
+                {
+                    HouseId = user.HouseId.Value;
+                    user.HouseId = null;
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    RoomId = user.BaseHouseRoomId.Value;
+                    user.BaseHouseRoomId = null;
+                }
 
                 if (user.UpdateHouse())
                 {
                     StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                    studentHouseLeave = StudentHouseLeave.Select(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    if (user.HouseId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByHouseId(HouseId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
+                    else if (user.BaseHouseRoomId.HasValue)
+                    {
+                        studentHouseLeave = StudentHouseLeave.SelectByRoomId(RoomId, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                    }
+
                     studentHouseLeave.status = 1;
 
                     if (studentHouseLeave.Save())
@@ -314,7 +387,15 @@ namespace USA_Rent_House_Project.Student
                 user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                 StudentHouseLeave studentHouseLeave = new StudentHouseLeave();
-                studentHouseLeave = StudentHouseLeave.Select(user.HouseId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                if (user.HouseId.HasValue)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByHouseId(user.HouseId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                else if (user.BaseHouseRoomId.HasValue)
+                {
+                    studentHouseLeave = StudentHouseLeave.SelectByRoomId(user.BaseHouseRoomId.Value, Guid.Parse(Membership.GetUser().ProviderUserKey.ToString()));
+                }
+                
                 studentHouseLeave.status = 2;
 
                 if (studentHouseLeave.Save())

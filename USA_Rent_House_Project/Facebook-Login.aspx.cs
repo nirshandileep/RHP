@@ -68,55 +68,27 @@ namespace USA_Rent_House_Project
 
                 if (authorization == null)
                 {
-                    SendEmail("FBReturn URL", string.Format("Return URL: {0}, App Id: {1}, App Secret: {2}", currentDomainURL.ToString(), 
+                    SendEmail("FBReturn URL", string.Format("Return URL: {0}, App Id: {1}, App Secret: {2}", currentDomainURL.ToString(),
                         facebookClient.ClientIdentifier.ToString(), facebookClient.ClientCredentialApplicator.ToString()));
-
-                    string fbRedirectURL = SystemConfig.GetValue(RHP.Common.Enums.SystemConfig.FB_REDIRECT_URL);
-
-                    Uri url = null;
-                    if (!string.IsNullOrEmpty(fbRedirectURL))
-                    {
-                        if (value == "s")
-                        {
-                            url = new Uri(string.Format(fbRedirectURL, "s"));
-                        }
-                        else// if(value == "l")
-                        {
-                            url = new Uri(string.Format(fbRedirectURL, "l"));
-                        }
-                    }
-
-                    // Kick off authorization request
-                    if (!string.IsNullOrEmpty(fbRedirectURL))
-                    {
-                        facebookClient.RequestUserAuthorization(null, url);
-                    }
-                    else
-                    {
-                        facebookClient.RequestUserAuthorization(null, currentDomainURL);
-                    }
-                    
-
-                    // Alternatively you can ask for more information
-                    //facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email });
+                    facebookClient.RequestUserAuthorization(scope: new[] { FBClient.Scopes.Email }, returnTo: currentDomainURL);
                 }
                 else// if (authorization.Scope.Count > 0)
                 {
-                    //OAuth2Graph oauth2Graph = facebookClient.GetGraph(authorization);
-                    IOAuth2Graph oauth2Graph = facebookClient.GetGraph(authorization, new[] { FBGraph.Fields.Defaults, FBGraph.Fields.Email, FBGraph.Fields.Picture, FBGraph.Fields.Birthday });
+                    string accessCode = string.Empty;
+                    if (authorization != null && authorization.AccessToken != null)
+                    {
+                        accessCode = Uri.EscapeDataString(authorization.AccessToken);
+                    }
 
-                    //string name = HttpUtility.HtmlEncode(oauth2Graph.Name);
-                    //string DOB = HttpUtility.HtmlEncode(oauth2Graph.BirthdayDT);
-                    //string email = HttpUtility.HtmlEncode(oauth2Graph.Email);
+                    IOAuth2Graph oauth2Graph = facebookClient.GetGraph(authorization, new[] { FBGraph.Fields.Defaults, FBGraph.Fields.Email, FBGraph.Fields.Picture });
 
-                    //StatusLabel.Text += name + "<br />";
-                    //StatusLabel.Text += DOB + ",<br />";
-                    //StatusLabel.Text += email;
                     //Todo: Register the user here if not an existing member.
-
                     user.FBid = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Id)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Id);
-                    user.LastName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Name)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Name);
+
+                    user.FirstName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.FirstName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.FirstName);
+                    user.LastName = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.LastName)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.LastName);
                     user.Email = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
+                    user.PersonalEmail = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Email)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Email);
                     user.FBAccessToken = string.IsNullOrEmpty(authorization.AccessToken) ? string.Empty : authorization.AccessToken;
                     user.FBProfilePictureURL = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.AvatarUrl);
                     user.Gender = string.IsNullOrEmpty(HttpUtility.HtmlEncode(oauth2Graph.Gender)) ? string.Empty : HttpUtility.HtmlEncode(oauth2Graph.Gender);
@@ -126,38 +98,38 @@ namespace USA_Rent_House_Project
                     user.Question = "Are you FB User ?";
                     user.Answer = "FB" + user.FBid;
 
-
                     if (user.IsExistingFbUser(user.FBid))
                     {
                         // authanticate fbuser get userneame and pwd
                         // get user from fbid (username)
                         // stringpassword = membership
-                        
-                            user.UserName = user.GetFBUsernameByFBId(user.FBid);
 
-                            if (user.AuthenticateUser())
+                        user.UserName = user.GetFBUsernameByFBId(user.FBid);
+
+                        if (user.AuthenticateUser())
+                        {
+                            try
                             {
-                                try
-                                {
-                                    Session[Constants.SESSION_LOGGED_USER] = user;
-                                    user.RedirectUserFromLogin(false);
-                                }
-                                catch (Exception ex)
-                                {
-                                    user.LogOut();
-                                }
+                                Session[Constants.SESSION_LOGGED_USER] = user;
+                                user.RedirectUserFromLogin(false);
                             }
-                            else
+                            catch (Exception ex)
                             {
                                 user.LogOut();
                             }
-                       
+                        }
+                        else
+                        {
+                            user.LogOut();
+                        }
+
                     }
                     else
                     {
 
                         if (user.IsUserEmailExist(user.Email))
                         {
+                            //Todo need to handle this part correctly.
                             Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.EmailExist + "'); window.location = '/Login.aspx'; }", true);
 
                         }
@@ -165,29 +137,28 @@ namespace USA_Rent_House_Project
                         {
                             bool boolMembershipUserCreated = false;
                             object objCreateMembershipUser = new object();
-                            objCreateMembershipUser = user.AddMembershipUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, userRole);
+
+                            user.UserId = Guid.NewGuid();
+                            objCreateMembershipUser = user.AddMembershipPartialUser(user.UserName, user.Password, user.Email, user.Question, user.Answer, true, user.UserId.Value, userRole);
 
                             bool.TryParse(objCreateMembershipUser.ToString(), out boolMembershipUserCreated);
 
                             if (boolMembershipUserCreated)
                             {
-                                user.UserId = Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
+                                FormsAuthentication.SetAuthCookie(user.UserName, false);
                                 user.UpdatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
                                 user.CreatedBy = user.UserId.HasValue ? user.UserId.Value : Guid.Parse(Membership.GetUser().ProviderUserKey.ToString());
 
                                 if (user.Save())
                                 {
                                     Session[Constants.SESSION_LOGGED_USER] = user;
-
-                                    FormsAuthentication.SetAuthCookie(user.UserName, false);
                                     MembershipUser newUser = Membership.GetUser(user.UserName);
-
-                                    Page.ClientScript.RegisterStartupScript(this.GetType(), "Redirect", "window.onload = function(){ alert('" + Messages.Create_Account_Success + "'); window.location = '/Login.aspx'; }", true);
-
+                                    user.RedirectUserFromLogin(true);
                                 }
                                 else
                                 {
                                     user.LogOut();
+                                    //Todo delete membership user from tables
                                     Response.Redirect("~/Login.aspx", false);
                                 }
                             }
@@ -197,11 +168,8 @@ namespace USA_Rent_House_Project
                                 Response.Redirect("~/Login.aspx", false);
                             }
                         }
-                        
                     }
-
                 }
-
             }
             catch (Exception ex)
             {

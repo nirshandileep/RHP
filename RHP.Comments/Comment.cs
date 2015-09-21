@@ -11,11 +11,22 @@ namespace RHP.Comments
 {
     public class Comment : Base
     {
-        public int CommentId { get; set; }
-        public string CommentText { get; set; }
-        public decimal RatingValue { get; set; }
-        public string FilePath { get; set; }
+        #region Properties
+
+        private List<FeedbackQuestion> feedbackQuestions;
+
         private int _contextTypeId;
+
+        private int _commentTypeId;
+
+        public int CommentId { get; set; }
+        
+        public string CommentText { get; set; }
+        
+        public decimal RatingValue { get; set; }
+        
+        public string FilePath { get; set; }
+        
         public int ContextTypeId
         {
             get 
@@ -31,7 +42,6 @@ namespace RHP.Comments
 
         public Enums.ContextType ContextType { get; set; }
 
-        private int _commentTypeId;
         public int CommentTypeId
         {
             get
@@ -47,7 +57,6 @@ namespace RHP.Comments
 
         public Enums.CommentType CommentType { get; set; }
 
-        private List<FeedbackQuestion>  feedbackQuestions;
         public List<FeedbackQuestion> FeedbackQuestions 
         {
             get
@@ -65,6 +74,10 @@ namespace RHP.Comments
         }
 
         public Guid ContextId { get; set; }
+
+        #endregion
+
+        #region Methods
 
         /// <summary>
         /// Only to be used for Generic methods. Avoid using this constructor for other purposes.
@@ -85,6 +98,7 @@ namespace RHP.Comments
             ContextTypeId = (int)contextType;
             ContextType = contextType;
         }
+
         public bool Insert(Comment comment)
         {
             bool result = false;
@@ -323,9 +337,7 @@ namespace RHP.Comments
         public decimal GetAutomaticRentRatingByLandlord(Guid landlordid)
         {
             decimal returnValue = 5.0M;
-
             decimal avgPerSqFt = 1.04M;
-
             decimal squearefootage = 1000;//Todo: get from current house
             decimal rent = 500;//Todo: get value from current house
 
@@ -384,5 +396,17 @@ namespace RHP.Comments
 
             return returnVal;
         }
+
+        public DataSet SelectDataAll()
+        {
+            return new CommentDAO().SelectAll();
+        }
+
+        public DataSet SelectAllbyContextId(Guid ContextId, int ContextTypeId)
+        {
+            return new CommentDAO().SelectAllbyContextId(ContextId, ContextTypeId);
+        }
+
+        #endregion
     }
 }

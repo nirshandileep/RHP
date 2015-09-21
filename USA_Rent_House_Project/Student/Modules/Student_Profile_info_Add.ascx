@@ -5,6 +5,27 @@
         Student Profile Info
     </h2>
     <div id="formwrapper">
+
+    <div id="ShowfullRegistration" runat="server" visible="false">
+     Email address,  <asp:Label ID="Label1" runat="server" Text=""></asp:Label>  is already Registered profile with us. 
+     if you need to Recover Your Password Please click 
+        <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Hear</asp:HyperLink>
+    </div>
+
+    <div id="ShowPartialUserEmailRequest" runat="server" visible="false">
+    
+    <p>
+    
+    Email address,  <asp:Label ID="lblpartialuserEmail" runat="server" Text=""></asp:Label>  is already a partial profile with us. 
+    “Your Current Residence” already has created a partial profile for you. To send another “Invitation Email” to  <asp:Label ID="lblpartialuserEmail2" runat="server" Text=""></asp:Label> so that you can have a “Full Profile” please click on button below.
+   
+        is already Registerd with Partial account. Do you Want to Send Request Again to Create an Account with Us? if yes, please click button bellow..
+        </p>
+        <br />
+        <asp:Button ID="BtnResentRequest" runat="server" Text="Re-Send Request" 
+            onclick="BtnResentRequest_Click" CssClass="actionbutton"  />
+    </div>
+
         <asp:ValidationSummary ID="RegisterUserValidationSummary" runat="server" CssClass="failureNotification"
             ValidationGroup="RegisterStudentValidationGroup" />
         <div id="forminner">
@@ -108,14 +129,20 @@
                 <asp:TextBox ID="ReferralCode" runat="server" CssClass="textEntry textbox_w1"></asp:TextBox>
                
             </p>
+
+            <p>
+            
+            By clicking Create Student, you agree to our 
+                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/LegalNotice/PrivacyPolicy.pdf" Target="_blank">Privacy Policy</asp:HyperLink> and that you have read our <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/LegalNotice/User_Agreement.pdf" Target="_blank">User Agreement</asp:HyperLink>.
+            </p>
+
+          
         </div>
         <p class="submitButton">
             <asp:Button ID="CreateUserButton" runat="server" CssClass="actionbutton" CommandName="MoveNext"
                 Text="Create Student" ValidationGroup="RegisterStudentValidationGroup" OnClick="CreateUserButton_Click" />
             <asp:Label ID="lblError" runat="server" CssClass="failureNotification" Text=""></asp:Label>
         </p>
-
-        <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click" Visible="false" />
 
     </div>
 </div>

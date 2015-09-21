@@ -10,6 +10,12 @@
     TagPrefix="uc2" %>
 <%@ Register Src="Modules/Current_House_RoomMate_info.ascx" TagName="Current_House_RoomMate_info"
     TagPrefix="uc3" %>
+
+    <%@ Register Src="~/Student/Modules/Current_House_Menu_Bar.ascx" TagName="Current_House_Menu_Bar"
+    TagPrefix="uc4" %>
+    
+<%@ Register Src="~/Student/Modules/Ctr_QuickLinks.ascx" TagName="QuickLinks" TagPrefix="uc1" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
@@ -23,28 +29,24 @@
             <uc1:Menu_Bar ID="Menu_Bar1" runat="server" />
         </div>
         <div id="RightPanel" runat="server">
-            <asp:HyperLink ID="HyperLinkPublicView" CssClass="loginlinks" Style="float: right" runat="server">Public view</asp:HyperLink>
-            <div id="Search" class="floatright" runat="server">
-            <asp:HyperLink ID="SearchStudent" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=s"
-                runat="server">Search for Student</asp:HyperLink>
-            <asp:HyperLink ID="SearchHouse" CssClass="loginlinks" NavigateUrl="~/Search.aspx?type=l"
-                runat="server">Search for House</asp:HyperLink>
-        </div>
+             <uc1:QuickLinks ID="QuickLinksid" runat="server" />
             <div class="clear">
                 <asp:HiddenField ID="hdnStepNumber" runat="server" Value="0" />
             </div>
             <div id="div_register_User">
                 <h2 class="form_heading">
-                    My Current House
+                    My Current Residence
                 </h2>
                 <div id="formwrapper">
-                <p>
+                  <uc4:Current_House_Menu_Bar ID="Current_House_Menu_Barid" runat="server" />
+                
+               <%-- <p>
                 <asp:HyperLink ID="CreateCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Current_House.aspx" Visible="false">Create current house</asp:HyperLink>&nbsp;
                                 <asp:HyperLink ID="ViewCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Current_House_Details.aspx" Visible="false">View current house</asp:HyperLink>&nbsp;
                     <asp:HyperLink ID="UpdateCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Update_Current_House.aspx" Visible="false">Update current house</asp:HyperLink>
                      &nbsp; <asp:HyperLink ID="LeaveCurrentHouseButton" runat="server" CssClass="loginlinks" NavigateUrl="~/Student/Student_Profile_Leave_Current_House.aspx" Visible="false">Leave current house</asp:HyperLink>
   
-                </p>
+                </p>--%>
                     <div id="forminner">
                         <uc1:Current_House_Landload_info ID="Current_House_Landload_infoID" 
                             runat="server" ViewStateMode="Enabled" />

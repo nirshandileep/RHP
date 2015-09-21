@@ -27,11 +27,11 @@
                 <asp:Label ID="Year" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="BedRooms" CssClass="form_label">Bed Rooms:</asp:Label>
+                <asp:Label ID="LabelBedRooms" runat="server" AssociatedControlID="BedRooms" CssClass="form_label">Bedrooms:</asp:Label>
                 <asp:Label ID="BedRooms" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
-                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="BathRooms" CssClass="form_label">Bath Rooms:</asp:Label>
+                <asp:Label ID="LabelBathRooms" runat="server" AssociatedControlID="BathRooms" CssClass="form_label">Bathrooms:</asp:Label>
                 <asp:Label ID="BathRooms" runat="server" CssClass="form_label"></asp:Label>
             </p>
             <p>
