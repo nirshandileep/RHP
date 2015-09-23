@@ -93,7 +93,8 @@ namespace USA_Rent_House_Project
 
             if (RHP.Survey.SurveyDAO.Insert(SurveySubmission))
             {
-                Response.Redirect("~/Default.aspx", false);
+                QuestionWizard.ActiveStepIndex = 5;
+                //Response.Redirect("~/Default.aspx", false);
             }
         }
 
@@ -105,6 +106,11 @@ namespace USA_Rent_House_Project
         protected void btnStep4_Click(object sender, EventArgs e)
         {
             QuestionWizard.ActiveStepIndex = 4;
+        }
+
+        protected void btnStep6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Default.aspx", false);
         }
 
 

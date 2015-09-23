@@ -55,7 +55,7 @@
             click
             <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Secret_Question.aspx">Here</asp:HyperLink>
         </div>
-        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="2" DisplaySideBar="False"
+        <asp:Wizard ID="QuestionWizard" runat="server" ActiveStepIndex="5" DisplaySideBar="False"
             OnLoad="QuestionWizard_Load">
             <WizardSteps>
                 <asp:WizardStep ID="WizardStep1" runat="server" Title="Step 1">
@@ -249,6 +249,17 @@
                         <div class="row">
                             <asp:Button ID="btnStep5" runat="server" CssClass="actionbutton" Text="Save" ValidationGroup="vg-step4"
                                 ClientIDMode="Static" OnClick="btnStep5_Click" />
+                        </div>
+                    </div>
+                </asp:WizardStep>
+                <asp:WizardStep ID="WizardStep6" runat="server" Title="Step 6">
+                    <div class="stepwrapper">
+                        <h2>
+                            Thank you for participating in our campaign. Your first entry has been saved. If you are in a winning position we will contact you. Please feel free to add more residences and reviews if you so desire, although these will not change your initial position.
+                        </h2>
+                        <div class="row">
+                            <asp:Button ID="btnHome" runat="server" CssClass="actionbutton" Text="Finish" ValidationGroup="vg-step4"
+                                ClientIDMode="Static" OnClick="btnStep6_Click" />
                         </div>
                     </div>
                 </asp:WizardStep>
